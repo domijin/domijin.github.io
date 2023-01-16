@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="en" itemscope itemtype="http://schema.org/Person">
+<head>
+            <meta charset="utf-8">
+        <!-- Site Meta Data -->
+        <title>SlideShow with reveal.js</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="Dongming Jin">
+
+        <link rel="shortcut icon" href="/images/favicon.ico">
+
+        <!-- schema.org -->
+        <meta itemprop="name" content="Domi's Universe">
+        <meta itemprop="image" content="">
+        <meta itemprop="description" content="">
+
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+        <!-- Style Meta Data -->
+        <link rel="stylesheet" href="http://dxj4360.uta.cloud/theme/css/style.css" type="text/css"/>
+        <link rel="stylesheet" href="http://dxj4360.uta.cloud/theme/css/pygments.css" type="text/css"/>
+
+        <!-- Feed Meta Data -->
+            <link href="http://dxj4360.uta.cloud/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+                  title="Domi's Universe ATOM Feed"/>
+
+        <!-- Twitter Feed -->
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="domij_info">
+        <meta name="twitter:image" content="">
+
+    <meta name="twitter:creator" content="domij_info">
+    <meta name="twitter:url" content="http://dxj4360.uta.cloud/slideshow-with-revealjs.html">
+    <meta name="twitter:title" content="Domi's Universe ~ SlideShow with reveal.js">
+    <meta name="twitter:description" content="Presentation Docker configure a docker with necessary ingredients # based on jupyter/base-notebook docker pull jupyter/base-notebook # or use Dockerfile, if need root, https://github.com/jupyter/docker-stacks/issues/211 cat &lt;&lt; EOF &gt; Dockerfile # Copyright (C) 2018 by Dongming Jin # Licensed under the Academic Free License version 3.0 # This program comes …">
+    <meta name="twitter:image" content="None"/>
+
+    <!-- Facebook Meta Data -->
+    <meta property="og:title" content="Domi's Universe ~ SlideShow with reveal.js"/>
+    <meta property="og:description" content="Presentation Docker configure a docker with necessary ingredients # based on jupyter/base-notebook docker pull jupyter/base-notebook # or use Dockerfile, if need root, https://github.com/jupyter/docker-stacks/issues/211 cat &lt;&lt; EOF &gt; Dockerfile # Copyright (C) 2018 by Dongming Jin # Licensed under the Academic Free License version 3.0 # This program comes …"/>
+    <meta property="og:image" content="None"/>
+</head>
+
+<body>
+<!-- Sidebar -->
+<aside>
+    <center>
+        <a href="http://dxj4360.uta.cloud/pages/about-me.html">
+            <img alt="Photograph" style="width:120px; height:120px; border-radius:60px; border:0;" src="https://www.dropbox.com/s/x95wh69c17kntbb/Photo_2015.JPG?dl=1">
+        </a>
+    </center>
+    
+    <br>
+    <!-- <h1>Dongming Jin</h1> -->
+
+    <p>
+            sci-fi mind, engineer hand
+
+        <br>
+        <br>
+
+            <a class="twitter-follow-button"
+               href="https://twitter.com/domij_info"
+               data-show-count="false"
+               data-lang="en">
+                Follow @twitterdev
+            </a>
+            <script type="text/javascript">
+                window.twttr = (function (d, s, id) {
+                    var t, js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = "https://platform.twitter.com/widgets.js";
+                    fjs.parentNode.insertBefore(js, fjs);
+                    return window.twttr || (t = {
+                            _e: [], ready: function (f) {
+                                t._e.push(f)
+                            }
+                        });
+                }(document, "script", "twitter-wjs"));
+            </script>
+    </p>
+
+    <nav class="nav">
+        <ul class="list-bare">
+
+                <li><a class="nav__link" href="http://dxj4360.uta.cloud">Blogs</a></li>
+
+                <li><a class="nav__link" href="http://dxj4360.uta.cloud/pages/about-me.html">About Me</a></li>
+                <li><a class="nav__link" href="http://dxj4360.uta.cloud/pages/footprint.html">Footprint</a></li>
+                <li><a class="nav__link" href="http://dxj4360.uta.cloud/pages/research.html">Research</a></li>
+                <li><a class="nav__link" href="http://dxj4360.uta.cloud/pages/zhe-li-xiao-zhong-hai-wai-xiao-you.html">浙里萧中-海外校友</a></li>
+
+        </ul>
+    </nav>
+
+    <p class="social">
+                <a href="https://www.linkedin.com/in/domijin" target="_blank"><img
+                        src="http://dxj4360.uta.cloud/theme/images/icons/linkedin.png"></a>
+                <a href="https://github.com/domijin" target="_blank"><img
+                        src="http://dxj4360.uta.cloud/theme/images/icons/github.png"></a>
+            <a href="http://dxj4360.uta.cloud/feeds/all.atom.xml" rel="alternate">
+                <img src="http://dxj4360.uta.cloud/theme/images/icons/rss.png"></a>
+    </p>
+
+        <h2>Categories</h2>
+        <ul class="navbar">
+                <li class="active"><a
+                        href="http://dxj4360.uta.cloud/category/articles.html">articles</a></li>
+                <li><a
+                        href="http://dxj4360.uta.cloud/category/cheatsheets.html">cheatsheets</a></li>
+                <li><a
+                        href="http://dxj4360.uta.cloud/category/maker-notes.html">maker-notes</a></li>
+                <li><a
+                        href="http://dxj4360.uta.cloud/category/study-notes.html">study-notes</a></li>
+        </ul>
+
+
+</aside>
+
+<!-- Content -->
+<article>
+
+
+
+    <section id="content">
+        <article>
+            <h2 class="post_title post_detail"><a href="http://dxj4360.uta.cloud/slideshow-with-revealjs.html" rel="bookmark"
+                                                  title="Permalink to SlideShow with reveal.js">SlideShow with reveal.js</a></h2>
+            <div class="entry-content blog-post">
+
+
+
+
+                <p><a href="http://lsst.domij.info">Presentation</a></p>
+<h3>Docker</h3>
+<ul>
+<li>configure a docker with necessary ingredients</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="c1"># based on jupyter/base-notebook</span>
+docker pull jupyter/base-notebook
+
+<span class="c1"># or use Dockerfile, if need root, https://github.com/jupyter/docker-stacks/issues/211</span>
+cat <span class="s">&lt;&lt; EOF &gt; Dockerfile</span>
+<span class="s"># Copyright (C) 2018 by Dongming Jin</span>
+<span class="s"># Licensed under the Academic Free License version 3.0</span>
+<span class="s"># This program comes with ABSOLUTELY NO WARRANTY.</span>
+<span class="s"># You are free to modify and redistribute this code as long</span>
+<span class="s"># as you do not remove the above attribution and reasonably</span>
+<span class="s"># inform receipients that you have modified the original work</span>
+
+<span class="s">FROM jupyter/base-notebook</span>
+
+<span class="s">MAINTAINER Dongming Jin &quot;dongming.jin@utrgv.edu&quot;</span>
+
+<span class="s"># Switch account to root and adding user accounts and password. or not</span>
+<span class="s">USER root</span>
+<span class="s">RUN echo &quot;root:Docker!&quot; | chpasswd</span>
+
+<span class="s">USER jovyan</span>
+<span class="s">EOF</span>
+
+<span class="c1"># build from Dockerfile</span>
+docker build -t jupyslides .
+</pre></div>
+
+
+<blockquote>
+<p><a href="https://github.com/jupyter/docker-stacks/issues/211">sudo for docker</a></p>
+</blockquote>
+<ul>
+<li>run the container</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="c1"># test system configuration</span>
+docker run -it jupyslides /bin/bash
+
+<span class="c1"># load with data and slides</span>
+docker run -it -p <span class="m">10000</span>:8888 --rm -v /Users/domi/Dropbox/Research/Local_universe:/home/jovyan/slides -v /Users/domi/Desktop/LISA:/home/jovyan/LISA jupyslides /bin/bash
+
+<span class="c1"># convert to slides</span>
+jupyter nbconvert report.ipynb --to slides --reveal-prefix reveal.js --template hidecode.tpl
+
+<span class="c1"># replace initialization &lt;script&gt;</span>
+</pre></div>
+
+
+<h3>Toggle/Remove Code</h3>
+<ul>
+<li>[in-situ] nbextension to toggle code(metadata level) &amp; more beyond<ul>
+<li><a href="http://nbconvert.readthedocs.io/en/latest/usage.html">doc</a></li>
+<li><a href="https://github.com/ipython-contrib/jupyter_contrib_nbextensions#installpy">github install</a>: <code>conda install -c conda-forge jupyter_contrib_nbextensions</code></li>
+<li><a href="https://github.com/Jupyter-contrib/jupyter_nbextensions_configurator">configurator</a></li>
+<li><code>jupyter nbextension enable codefolding/main</code></li>
+</ul>
+</li>
+<li>[prod] hide code <a href="http://www.damian.oquanta.info/posts/hide-the-input-cells-from-your-ipython-slides.html">nbconvert with <code>--template hidecode.tpl</code></a>, <a href="#hidecode">hidecode.tpl</a></li>
+<li>[prod] delete code nbconvert with <a href="#rmcode"><code>--template rmcode.tpl</code></a></li>
+<li><a href="http://chris-said.io/2016/02/13/how-to-make-polished-jupyter-presentations-with-optional-code-visibility/">~~HTML buttom~~</a>: need a buttom.., better to use tpl<ul>
+<li><code>&lt;a href="javascript:code_toggle()"&gt; [Toggle Code]&lt;/a&gt;</code></li>
+</ul>
+</li>
+<li>RISE to automatic live reveal<ul>
+<li><a href="https://damianavila.github.io/RISE/usage.html#">Usage</a></li>
+<li><a href="https://damianavila.github.io/RISE/customize.html">customizing</a></li>
+<li><a href="http://www.slideviper.oquanta.info/tutorial/slideshow_tutorial_slides.html?transition=none#/26">simple demo</a></li>
+<li>shortcuts[editing]<ul>
+<li>alt-r, “Enter/Exit Live Reveal Slideshow”</li>
+<li>shift-i, Toggle slide</li>
+<li>shift-o, Toggle-subslide</li>
+<li>shift-p, Toggle-fragment</li>
+<li>alt + r: start/stop</li>
+<li>,: help        </li>
+</ul>
+</li>
+<li>enable: <code>jupyter-nbextension enable rise --py --user</code></li>
+<li>diable: <code>jupyter-nbextension disable rise --py --user</code></li>
+</ul>
+</li>
+</ul>
+<h3>Rendering</h3>
+<ul>
+<li>
+<p><a href="https://revealjs.com/#/">reveal.js</a></p>
+<ul>
+<li><a href="https://github.com/hakimel/reveal.js">github</a><ul>
+<li><a href="https://github.com/hakimel/reveal.js#pdf-export">pdf-export</a></li>
+<li><a href="https://revealjs.com/#/transitions">transition</a>: None - Fade - Slide - Convex - Concave - Zoom</li>
+<li><a href="https://revealjs.com/#/themes">themes</a>: Black (default) - White - League - Sky - Beige - Simple - Serif - Blood - Night - Moon - Solarized</li>
+<li><a href="https://revealjs.com/#/10">full screen background</a>: <code>&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></li>
+<li><a href="">background transition</a>: Reveal.configure({ backgroundTransition: 'zoom' })</li>
+</ul>
+</li>
+<li>
+<p>change in reveal.js file and rendering with <code>--reveal-prefix reveal.js</code></p>
+<ul>
+<li>path for my configure <code>/Users/domi/Desktop/reveal.js</code></li>
+<li><a href="http://htmlcheats.com/reveal-js/reveal-js-tutorial-reveal-js-for-beginners/">brief intro from scratch</a></li>
+</ul>
+</li>
+<li>
+<p>check zoom.js </p>
+</li>
+<li>
+<p>shortcut</p>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span></span>            <span class="s1">&#39;</span><span class="s">N  ,  SPACE</span><span class="s1">&#39;</span>:          <span class="s1">&#39;</span><span class="s">Next slide</span><span class="s1">&#39;</span>,
+            <span class="s1">&#39;</span><span class="s">P</span><span class="s1">&#39;</span>:                    <span class="s1">&#39;</span><span class="s">Previous slide</span><span class="s1">&#39;</span>,
+            <span class="s1">&#39;</span><span class="s">&amp;#8592;  ,  H</span><span class="s1">&#39;</span>:        <span class="s1">&#39;</span><span class="s">Navigate left</span><span class="s1">&#39;</span>,
+            <span class="s1">&#39;</span><span class="s">&amp;#8594;  ,  L</span><span class="s1">&#39;</span>:        <span class="s1">&#39;</span><span class="s">Navigate right</span><span class="s1">&#39;</span>,
+            <span class="s1">&#39;</span><span class="s">&amp;#8593;  ,  K</span><span class="s1">&#39;</span>:        <span class="s1">&#39;</span><span class="s">Navigate up</span><span class="s1">&#39;</span>,
+            <span class="s1">&#39;</span><span class="s">&amp;#8595;  ,  J</span><span class="s1">&#39;</span>:        <span class="s1">&#39;</span><span class="s">Navigate down</span><span class="s1">&#39;</span>,
+            <span class="s1">&#39;</span><span class="s">Fn + &lt;</span><span class="s1">&#39;</span>:                   <span class="s1">&#39;</span><span class="s">First slide</span><span class="s1">&#39;</span>,
+            <span class="s1">&#39;</span><span class="s">Fn + &gt;</span><span class="s1">&#39;</span>:                   <span class="s1">&#39;</span><span class="s">Last slide</span><span class="s1">&#39;</span>,
+            <span class="s1">&#39;</span><span class="s">B  ,  .</span><span class="s1">&#39;</span>:              <span class="s1">&#39;</span><span class="s">Pause</span><span class="s1">&#39;</span>,
+            <span class="s1">&#39;</span><span class="s">F</span><span class="s1">&#39;</span>:                    <span class="s1">&#39;</span><span class="s">Fullscreen</span><span class="s1">&#39;</span>,
+            <span class="s1">&#39;</span><span class="s">ESC, O</span><span class="s1">&#39;</span>:               <span class="s1">&#39;</span><span class="s">Slide overview</span><span class="s1">&#39;</span>
+</pre></div>
+
+
+<ul>
+<li>Remark: <a href="https://remarkjs.com/#1">demo</a>: <a href="https://github.com/gnab/remark">github doc</a></li>
+</ul>
+<h3>nbconvert</h3>
+<p>set config in notebook, no need when use reveal.js</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">traitlets.config.manager</span> <span class="kn">import</span> <span class="n">BaseJSONConfigManager</span>
+<span class="c1"># get path: jupyter --path</span>
+<span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;/Users/domi/anaconda3/envs/py35/etc/jupyter/nbconfig&quot;</span>
+<span class="n">cm</span> <span class="o">=</span> <span class="n">BaseJSONConfigManager</span><span class="p">(</span><span class="n">config_dir</span><span class="o">=</span><span class="n">path</span><span class="p">)</span>
+<span class="n">cm</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s2">&quot;livereveal&quot;</span><span class="p">,</span> <span class="p">{</span>
+              <span class="s2">&quot;theme&quot;</span><span class="p">:</span> <span class="s2">&quot;serif&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;transition&quot;</span><span class="p">:</span> <span class="s2">&quot;fade&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;start_slideshow_at&quot;</span><span class="p">:</span> <span class="s2">&quot;selected&quot;</span><span class="p">,</span>
+<span class="p">})</span>
+</pre></div>
+
+
+<h3>command</h3>
+<ul>
+<li><code>jupyter nbconvert</code></li>
+<li><code>xxxx.ipynb</code></li>
+<li><code>--template=nbextensions</code>: use nbextentions</li>
+<li><code>--reveal-prefix path_to_reveal.js</code>: reveal.js, need update <a href="#reveal">initialization</a></li>
+<li><code>--post serve</code>: local host</li>
+</ul>
+<h3>Problems and Fix</h3>
+<ol>
+<li><code>\mathsrc</code> replace <code>\mathcal</code></li>
+<li><a href="http://blog.aviture.us.com/2017/06/13/reveal-js-export-pdf.html">export to pdf</a>: not working</li>
+<li><a href="https://stackoverflow.com/questions/34166856/is-there-a-way-to-print-a-jupyter-ipython-notebook-slide-presentation">print pdf</a>: not working as well</li>
+</ol>
+<p><a name="reveal"> replace in html </a></p>
+<div class="highlight"><pre><span></span><span class="cm">&lt;!--reveal.js initilization--&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span><span class="w"></span>
+<span class="nx">require</span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="c1">// it makes sense to wait a little bit when you are loading</span><span class="w"></span>
+<span class="w">      </span><span class="c1">// reveal from a cdn in a slow connection environment</span><span class="w"></span>
+<span class="w">      </span><span class="nx">waitSeconds</span><span class="o">:</span><span class="w"> </span><span class="mf">10</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="p">[</span><span class="w"></span>
+<span class="w">      </span><span class="s2">&quot;reveal.js/lib/js/head.min.js&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="s2">&quot;reveal.js/js/reveal.js&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">],</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">function</span><span class="p">(</span><span class="nx">head</span><span class="p">,</span><span class="w"> </span><span class="nx">Reveal</span><span class="p">){</span><span class="w"></span>
+
+<span class="w">        </span><span class="c1">// Full list of configuration options available here: https://github.com/hakimel/reveal.js#configuration</span><span class="w"></span>
+<span class="w">        </span><span class="nx">Reveal</span><span class="p">.</span><span class="nx">initialize</span><span class="p">({</span><span class="w"></span>
+<span class="w">            </span><span class="nx">controls</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nx">progress</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nx">history</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nx">center</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">            </span><span class="nx">transition</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;slide&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">            </span><span class="c1">// Optional libraries used to extend on reveal.js</span><span class="w"></span>
+<span class="w">            </span><span class="nx">dependencies</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">                </span><span class="p">{</span><span class="w"> </span><span class="nx">src</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;reveal.js/lib/js/classList.js&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                  </span><span class="nx">condition</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="o">!</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">classList</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">                </span><span class="p">{</span><span class="w"> </span><span class="nx">src</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;reveal.js/plugin/markdown/marked.js&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">condition</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="o">!!</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="w"> </span><span class="s1">&#39;[data-markdown]&#39;</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span><span class="w">            </span>
+<span class="w">                </span><span class="p">{</span><span class="w"> </span><span class="nx">src</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;reveal.js/plugin/notes/notes.js&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                  </span><span class="k">async</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">                  </span><span class="nx">condition</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="o">!!</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">classList</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">                </span><span class="p">{</span><span class="w"> </span><span class="nx">src</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;reveal.js/plugin/highlight/highlight.js&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nx">callback</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">hljs</span><span class="p">.</span><span class="nx">initHighlightingOnLoad</span><span class="p">();</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">                </span><span class="p">{</span><span class="w"> </span><span class="nx">src</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;reveal.js/plugin/zoom-js/zoom.js&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="c1">// using zoom.js</span><span class="w"></span>
+<span class="w">            </span><span class="p">]</span><span class="w"></span>
+<span class="w">        </span><span class="p">});</span><span class="w"></span>
+
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nx">update</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span><span class="w"></span>
+<span class="w">          </span><span class="k">if</span><span class="p">(</span><span class="nx">MathJax</span><span class="p">.</span><span class="nx">Hub</span><span class="p">.</span><span class="nx">getAllJax</span><span class="p">(</span><span class="nx">Reveal</span><span class="p">.</span><span class="nx">getCurrentSlide</span><span class="p">())){</span><span class="w"></span>
+<span class="w">            </span><span class="nx">MathJax</span><span class="p">.</span><span class="nx">Hub</span><span class="p">.</span><span class="nx">Rerender</span><span class="p">(</span><span class="nx">Reveal</span><span class="p">.</span><span class="nx">getCurrentSlide</span><span class="p">());</span><span class="w"></span>
+<span class="w">          </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">};</span><span class="w"></span>
+
+<span class="w">        </span><span class="nx">Reveal</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;slidechanged&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">update</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">        </span><span class="kd">function</span><span class="w"> </span><span class="nx">setScrollingSlide</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="kd">var</span><span class="w"> </span><span class="nx">scroll</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">scroll</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">              </span><span class="kd">var</span><span class="w"> </span><span class="nx">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.reveal&#39;</span><span class="p">).</span><span class="nx">height</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.95</span><span class="p">;</span><span class="w"></span>
+<span class="w">              </span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;section.present&#39;</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;section&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">                </span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                  </span><span class="k">return</span><span class="w"> </span><span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">height</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">h</span><span class="p">;</span><span class="w"></span>
+<span class="w">                </span><span class="p">})</span><span class="w"></span>
+<span class="w">                </span><span class="p">.</span><span class="nx">css</span><span class="p">(</span><span class="s1">&#39;height&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;calc(95vh)&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">                </span><span class="p">.</span><span class="nx">css</span><span class="p">(</span><span class="s1">&#39;overflow-y&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;scroll&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">                </span><span class="p">.</span><span class="nx">css</span><span class="p">(</span><span class="s1">&#39;margin-top&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;20px&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">        </span><span class="c1">// check and set the scrolling slide every time the slide change</span><span class="w"></span>
+<span class="w">        </span><span class="nx">Reveal</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;slidechanged&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">setScrollingSlide</span><span class="p">);</span><span class="w"> </span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">);</span><span class="w"></span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</pre></div>
+
+
+<p><a name="rmcode"> rmcode.tpl </a></p>
+<div class="highlight"><pre><span></span><span class="cp">{%</span>- <span class="k">extends</span> <span class="s1">&#39;slides_reveal.tpl&#39;</span> -<span class="cp">%}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">input</span> <span class="cp">%}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="nv">input</span> <span class="cp">%}</span><span class="x"></span>
+</pre></div>
+
+
+<p><a name="hidecode"> hidecode.tpl </a></p>
+<div class="highlight"><pre><span></span><span class="cp">{%</span>- <span class="k">extends</span> <span class="s1">&#39;slides_reveal.tpl&#39;</span> -<span class="cp">%}</span>
+
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">input_group</span> -<span class="cp">%}</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;input_hidden&quot;</span><span class="nt">&gt;</span>
+<span class="cp">{{</span> <span class="nb">super</span><span class="o">()</span> <span class="cp">}}</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="nv">input_group</span> <span class="cp">%}</span>
+
+<span class="cp">{%</span>- <span class="k">block</span> <span class="nv">header</span> -<span class="cp">%}</span>
+<span class="cp">{{</span> <span class="nb">super</span><span class="o">()</span> <span class="cp">}}</span>
+
+<span class="nt">&lt;script</span> <span class="na">src=</span><span class="s">&quot;//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+
+<span class="nt">&lt;style</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
+//div.output_wrapper {
+//  margin-top: 0px;
+//}
+.input_hidden {
+  display: none;
+//  margin-top: 5px;
+}
+<span class="nt">&lt;/style&gt;</span>
+
+<span class="nt">&lt;script&gt;</span>
+$(document).ready(function(){
+  $(&quot;.output_wrapper&quot;).click(function(){
+      $(this).prev(&#39;.input_hidden&#39;).slideToggle();
+  });
+})
+<span class="nt">&lt;/script&gt;</span>
+<span class="cp">{%</span>- <span class="k">endblock</span> <span class="nv">header</span> -<span class="cp">%}</span>
+</pre></div>
+            </div>
+
+            <div class="post_list">
+                <span class="published" title="2018-06-17T00:00:00-05:00">
+                        Published: Sun 17 June 2018.
+                </span>
+
+
+                <span> By </span>
+                <a href="http://dxj4360.uta.cloud/pages/about-me.html">Dongming Jin</a>
+                <span> in </span>
+                <span class="post_category"><a href="http://dxj4360.uta.cloud/category/articles.html" rel="bookmark"
+                                               title="Permalink to articles"> #articles. </a></span>
+
+ 
+
+
+                <div class="entry-social">
+                    <span class="twitter"><a target="_blank" rel="nofollow"
+                                             onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=700');return false;"
+                                             title="Twitter"
+                                             href="https://twitter.com/share?url=http://dxj4360.uta.cloud/slideshow-with-revealjs.html&text=SlideShow with reveal.js&via=domij_info"><img
+                            src="http://dxj4360.uta.cloud/theme/images/icons/twitter-s.png"></a></span>
+
+                    <span class="gplus"><a target="_blank" title="Google +"
+                                           href="https://plus.google.com/share?url=http://dxj4360.uta.cloud/slideshow-with-revealjs.html&hl=fr"
+                                           rel="nofollow"
+                                           onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"><img
+                            src="http://dxj4360.uta.cloud/theme/images/icons/google-s.png"></a></span>
+
+                    <span class="facebook"><a target="_blank" title="Facebook" rel="nofollow"
+                                              onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;"
+                                              href="https://www.facebook.com/sharer.php?u=http://dxj4360.uta.cloud/slideshow-with-revealjs.html&t=SlideShow with reveal.js"><img
+                            src="http://dxj4360.uta.cloud/theme/images/icons/facebook-s.png"></a></span>
+
+                    <a target="_blank" title="Linkedin"
+                       href="https://www.linkedin.com/shareArticle?mini=true&url=http://dxj4360.uta.cloud/slideshow-with-revealjs.html&title=SlideShow with reveal.js"
+                       rel="nofollow"
+                       onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"><img
+                            src="http://dxj4360.uta.cloud/theme/images/icons/linkedin-s.png"></a>
+
+                    <span class="mail"><a
+                            href="mailto:?subject=SlideShow with reveal.js&amp;body=Checkout this article about [SlideShow with reveal.js] written byDongming Jin. http://dxj4360.uta.cloud/slideshow-with-revealjs.html"
+                            title="Share by Email" target="_blank"><img
+                            src="http://dxj4360.uta.cloud/theme/images/icons/mail-s.png"></a></span>
+                </div>
+            </div>
+                <div class="comments">
+                    <h2>Comments !</h2>
+                    <div id="disqus_thread"></div>
+                    <script type="text/javascript">
+                        var disqus_identifier = "slideshow-with-revealjs.html";
+                        (function () {
+                            var dsq = document.createElement('script');
+                            dsq.type = 'text/javascript';
+                            dsq.async = true;
+                            dsq.src = 'https://domij.disqus.com/embed.js';
+                            (document.getElementsByTagName('head')[0] ||
+                            document.getElementsByTagName('body')[0]).appendChild(dsq);
+                        })();
+                    </script>
+                </div>
+        </article>
+
+        	
+	
+	
+
+
+    </section>
+</article>
+
+<!-- Footer -->
+    <footer>
+        <p>
+            © Copyright 2018 <a href="mailto:admin@domij.info"> Dongming Jin</a> | <a href="https://www.freeprivacypolicy.com/privacy/view/bc11c24cc8faf2a9a506ffd5aa40278d">Privacy Policy</a> | Powered by <a href="http://getpelican.com/">Pelican</a> and <a href="https://github.com/parbhat/pelican-blue">Pelican-Blue</a>.
+        </p>
+    </footer>
+
+    <!-- Analytics -->
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-121123490-1']);
+        _gaq.push(['_trackPageview']);
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+</body>
+</html>

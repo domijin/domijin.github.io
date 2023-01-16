@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en" itemscope itemtype="http://schema.org/Person">
+<head>
+            <meta charset="utf-8">
+        <!-- Site Meta Data -->
+        <title>Scale Computing on Clusters</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="Dongming Jin">
+
+        <link rel="shortcut icon" href="/images/favicon.ico">
+
+        <!-- schema.org -->
+        <meta itemprop="name" content="Domi's Universe">
+        <meta itemprop="image" content="">
+        <meta itemprop="description" content="">
+
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+        <!-- Style Meta Data -->
+        <link rel="stylesheet" href="http://dxj4360.uta.cloud/theme/css/style.css" type="text/css"/>
+        <link rel="stylesheet" href="http://dxj4360.uta.cloud/theme/css/pygments.css" type="text/css"/>
+
+        <!-- Feed Meta Data -->
+            <link href="http://dxj4360.uta.cloud/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+                  title="Domi's Universe ATOM Feed"/>
+
+        <!-- Twitter Feed -->
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="domij_info">
+        <meta name="twitter:image" content="">
+
+    <meta name="twitter:creator" content="domij_info">
+    <meta name="twitter:url" content="http://dxj4360.uta.cloud/scale-computing-on-clusters.html">
+    <meta name="twitter:title" content="Domi's Universe ~ Scale Computing on Clusters">
+    <meta name="twitter:description" content="Configure &amp; utilize HPCs Nirav Merchant @CyVerseOrg computational thinking 4A: Abstraction, Automation, Ability and Audacity establish and manage data driven collaborations at global scale efficient and coordinated use of CI resources: NSF XSEDE, iPlant, campus HPC and high bandwidth adopting best practices: HEP, Life science community driven, self-provisioning, extensible and open …">
+    <meta name="twitter:image" content="None"/>
+
+    <!-- Facebook Meta Data -->
+    <meta property="og:title" content="Domi's Universe ~ Scale Computing on Clusters"/>
+    <meta property="og:description" content="Configure &amp; utilize HPCs Nirav Merchant @CyVerseOrg computational thinking 4A: Abstraction, Automation, Ability and Audacity establish and manage data driven collaborations at global scale efficient and coordinated use of CI resources: NSF XSEDE, iPlant, campus HPC and high bandwidth adopting best practices: HEP, Life science community driven, self-provisioning, extensible and open …"/>
+    <meta property="og:image" content="None"/>
+</head>
+
+<body>
+<!-- Sidebar -->
+<aside>
+    <center>
+        <a href="http://dxj4360.uta.cloud/pages/about-me.html">
+            <img alt="Photograph" style="width:120px; height:120px; border-radius:60px; border:0;" src="https://www.dropbox.com/s/x95wh69c17kntbb/Photo_2015.JPG?dl=1">
+        </a>
+    </center>
+    
+    <br>
+    <!-- <h1>Dongming Jin</h1> -->
+
+    <p>
+            sci-fi mind, engineer hand
+
+        <br>
+        <br>
+
+            <a class="twitter-follow-button"
+               href="https://twitter.com/domij_info"
+               data-show-count="false"
+               data-lang="en">
+                Follow @twitterdev
+            </a>
+            <script type="text/javascript">
+                window.twttr = (function (d, s, id) {
+                    var t, js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = "https://platform.twitter.com/widgets.js";
+                    fjs.parentNode.insertBefore(js, fjs);
+                    return window.twttr || (t = {
+                            _e: [], ready: function (f) {
+                                t._e.push(f)
+                            }
+                        });
+                }(document, "script", "twitter-wjs"));
+            </script>
+    </p>
+
+    <nav class="nav">
+        <ul class="list-bare">
+
+                <li><a class="nav__link" href="http://dxj4360.uta.cloud">Blogs</a></li>
+
+                <li><a class="nav__link" href="http://dxj4360.uta.cloud/pages/about-me.html">About Me</a></li>
+                <li><a class="nav__link" href="http://dxj4360.uta.cloud/pages/footprint.html">Footprint</a></li>
+                <li><a class="nav__link" href="http://dxj4360.uta.cloud/pages/research.html">Research</a></li>
+                <li><a class="nav__link" href="http://dxj4360.uta.cloud/pages/zhe-li-xiao-zhong-hai-wai-xiao-you.html">浙里萧中-海外校友</a></li>
+
+        </ul>
+    </nav>
+
+    <p class="social">
+                <a href="https://www.linkedin.com/in/domijin" target="_blank"><img
+                        src="http://dxj4360.uta.cloud/theme/images/icons/linkedin.png"></a>
+                <a href="https://github.com/domijin" target="_blank"><img
+                        src="http://dxj4360.uta.cloud/theme/images/icons/github.png"></a>
+            <a href="http://dxj4360.uta.cloud/feeds/all.atom.xml" rel="alternate">
+                <img src="http://dxj4360.uta.cloud/theme/images/icons/rss.png"></a>
+    </p>
+
+        <h2>Categories</h2>
+        <ul class="navbar">
+                <li><a
+                        href="http://dxj4360.uta.cloud/category/articles.html">articles</a></li>
+                <li><a
+                        href="http://dxj4360.uta.cloud/category/cheatsheets.html">cheatsheets</a></li>
+                <li><a
+                        href="http://dxj4360.uta.cloud/category/maker-notes.html">maker-notes</a></li>
+                <li class="active"><a
+                        href="http://dxj4360.uta.cloud/category/study-notes.html">study-notes</a></li>
+        </ul>
+
+
+</aside>
+
+<!-- Content -->
+<article>
+
+
+
+    <section id="content">
+        <article>
+            <h2 class="post_title post_detail"><a href="http://dxj4360.uta.cloud/scale-computing-on-clusters.html" rel="bookmark"
+                                                  title="Permalink to Scale Computing on Clusters">Scale Computing on Clusters</a></h2>
+            <div class="entry-content blog-post">
+
+
+
+
+                <h2>Configure &amp; utilize HPCs</h2>
+<p><a href="nirav@email.arizona.edu">Nirav Merchant</a> @CyVerseOrg</p>
+<ul>
+<li><code>computational thinking</code></li>
+<li>4A: Abstraction, Automation, Ability and Audacity</li>
+<li>establish and manage data driven collaborations at global scale</li>
+<li>efficient and coordinated use of CI resources: NSF XSEDE, iPlant, campus HPC and high bandwidth</li>
+<li>adopting best practices: HEP, Life science</li>
+<li>community driven, self-provisioning, extensible and open source: CISE communities</li>
+<li>NSF Infrastructure</li>
+<li><code>data rich and knowledge poor</code></li>
+<li>NSF XSEDE $121M every 5 year<ul>
+<li>support team</li>
+<li>travel support</li>
+</ul>
+</li>
+<li>Jetstream @ U Indiana<ul>
+<li>cmd line, GUI</li>
+<li>DOI, share VMs and then store, publish via IU Scholarworks</li>
+<li>1-44 cpu, OpenStack</li>
+<li>VMs</li>
+<li>Atmosphere web interface</li>
+<li>direct API access via OpenStack cmd line or Horizon</li>
+<li>admin/root</li>
+<li>allocations</li>
+<li>CV for PI, abstract</li>
+<li>Main description</li>
+</ul>
+</li>
+<li>Technology landscape </li>
+<li>cloud<ul>
+<li>image: instance (isolated)</li>
+<li>automation</li>
+</ul>
+</li>
+<li>containers<ul>
+<li>app, bins, libs</li>
+<li>user-end</li>
+<li>docker: docker engine/OS</li>
+<li>singularity</li>
+</ul>
+</li>
+<li>Toolbox<ul>
+<li>Ansible for automation <a href="http://docs.ansible.com/ansible/intro.html">Ansible</a>: playbooks, configuration management, deployment, and orchestration</li>
+<li>Docker for execution environment</li>
+<li>Makeflow workqueue for task distribution <a href="http://ccl.cse.nd.edu/software/makeflow/">makeflow</a></li>
+<li><a href="https://pegasus.isi.edu/">Pegasus</a><blockquote>
+<p>High-constrast imaging in the cloud with klipReduce and Findr</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h3>Jetstream demo</h3>
+<p><a href="https://use.jetstream-cloud.org">jetstream homepage</a>
+train56: 091Z67OEe8jE</p>
+<ul>
+<li>Create Project</li>
+<li>create image(instance)</li>
+<li>visibility</li>
+<li>excluding folders</li>
+<li>build</li>
+<li>launch image</li>
+</ul>
+<div class="highlight"><pre><span></span>docker run -it --rm -p <span class="m">8888</span>:8888 -v /home/train56:/home/jovyan/work/ jupyter/datascience-notebook
+
+-it: interactive
+--rm: clean after <span class="k">done</span>
+-v: volumn
+</pre></div>
+
+
+<p>Demand
+<em> open innovation, science and collaboration
+</em> complexity of infrastructure
+<em> evolving technology landscape
+</em> data/metadata
+* extreme information technology -&gt; renew computational platform every x years</p>
+<h3>Docker</h3>
+<p><code>docker run -it -p 8888:8888 tensorflow/tensorflow</code>
+<a href="https://hub.docker.com/r/tensorflow/tensorflow/">tensorflow docker</a></p>
+<p><a href="http://singularity.lbl.gov/">singularity</a>: prepare and configure HPCs</p>
+<hr>
+<h2>Spark @ Amazon</h2>
+<p><strong>Industrial</strong>
+<em> databricks
+</em> myria
+<em> <a href="http://sortbenchmark.org/">Daytona sort contest</a>
+</em> gartner: <a href="http://www.gartner.com/technology/research/methodologies/hype-cycle.jsp">hyper cycle</a>
+  * 2012 
+  * 2014
+  * 2016</p>
+<p><strong>Techniques</strong>
+<em> MapReduce-based
+</em> HPC cluster computing
+* Databases
+  * Transactional
+    * OLTP
+  * Analytic (NoSQL)
+    * OLAP
+  * Latency
+  * CAP Theorem</p>
+<blockquote>
+<p>Partioned data</p>
+<blockquote>
+<p>Availability
+Consistency</p>
+</blockquote>
+<p>hadoop REDUNDANCY: default 3, for fault torelance</p>
+</blockquote>
+<h4>Amazon demo</h4>
+<ul>
+<li><a href="https://console.aws.amazon.com/console/home">AWS</a> </li>
+<li>S3: distributed storage </li>
+<li>EMR: hadoop framework <ul>
+<li>create cluster</li>
+<li>hadoop, HBase, Presto, Spark</li>
+<li>instance</li>
+<li>type m4.large</li>
+<li>number: 1 master and x core nodes</li>
+<li>inbound: allow ip</li>
+<li>Zeppelin: notebook format <code>json</code></li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="o">%</span><span class="n">md</span>
+<span class="o">%</span><span class="n">pyspark</span>
+<span class="n">sc</span><span class="o">.</span><span class="n">parallelize</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>  <span class="c1"># `from pyspark.context import SparkContest as sc` in python</span>
+
+<span class="n">RDD</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">/</span><span class="n">take</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">/</span><span class="n">takeSample</span><span class="p">()</span><span class="o">/</span><span class="nb">map</span><span class="p">()</span><span class="o">/</span><span class="n">collect</span><span class="p">()</span>
+<span class="n">RDD</span><span class="o">.</span><span class="n">flatmap</span><span class="p">()</span>  <span class="c1"># tuble to list</span>
+<span class="n">RDD</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="n">add</span><span class="p">)</span>
+<span class="n">RDD</span><span class="o">.</span><span class="n">repartition</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="n">RDD</span><span class="o">.</span><span class="n">groupByKey</span><span class="p">()</span>
+<span class="n">RDD</span><span class="o">.</span><span class="n">reduceByKey</span><span class="p">(</span><span class="n">add</span><span class="p">)</span>
+
+<span class="n">sc</span><span class="o">.</span><span class="n">textFile</span><span class="p">(</span><span class="s1">&#39;s3://path_to_file&#39;</span><span class="p">)</span>
+
+<span class="o">%</span><span class="n">sql</span>
+<span class="err">$</span><span class="n">var</span>  <span class="c1"># user-defined paramter</span>
+</pre></div>
+
+
+<blockquote>
+<p>LSST, avoid lambda function
+Spark: lazy, not computing until request data</p>
+</blockquote>
+<hr>
+<h2>XSEDE by TACC</h2>
+<ul>
+<li>Resources</li>
+<li>HPC</li>
+<li>ECSS: Extended Collaborative Support Service</li>
+<li>Science Gateways</li>
+</ul>
+<p><a href="https://www.globus.org/">globus connect</a></p>
+            </div>
+
+            <div class="post_list">
+                <span class="published" title="2017-04-28T00:00:00-05:00">
+                        Published: Fri 28 April 2017.
+                </span>
+
+
+                <span> By </span>
+                <a href="http://dxj4360.uta.cloud/pages/about-me.html">Dongming Jin</a>
+                <span> in </span>
+                <span class="post_category"><a href="http://dxj4360.uta.cloud/category/study-notes.html" rel="bookmark"
+                                               title="Permalink to study-notes"> #study-notes. </a></span>
+
+ 
+
+
+                <div class="entry-social">
+                    <span class="twitter"><a target="_blank" rel="nofollow"
+                                             onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=700');return false;"
+                                             title="Twitter"
+                                             href="https://twitter.com/share?url=http://dxj4360.uta.cloud/scale-computing-on-clusters.html&text=Scale Computing on Clusters&via=domij_info"><img
+                            src="http://dxj4360.uta.cloud/theme/images/icons/twitter-s.png"></a></span>
+
+                    <span class="gplus"><a target="_blank" title="Google +"
+                                           href="https://plus.google.com/share?url=http://dxj4360.uta.cloud/scale-computing-on-clusters.html&hl=fr"
+                                           rel="nofollow"
+                                           onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"><img
+                            src="http://dxj4360.uta.cloud/theme/images/icons/google-s.png"></a></span>
+
+                    <span class="facebook"><a target="_blank" title="Facebook" rel="nofollow"
+                                              onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;"
+                                              href="https://www.facebook.com/sharer.php?u=http://dxj4360.uta.cloud/scale-computing-on-clusters.html&t=Scale Computing on Clusters"><img
+                            src="http://dxj4360.uta.cloud/theme/images/icons/facebook-s.png"></a></span>
+
+                    <a target="_blank" title="Linkedin"
+                       href="https://www.linkedin.com/shareArticle?mini=true&url=http://dxj4360.uta.cloud/scale-computing-on-clusters.html&title=Scale Computing on Clusters"
+                       rel="nofollow"
+                       onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"><img
+                            src="http://dxj4360.uta.cloud/theme/images/icons/linkedin-s.png"></a>
+
+                    <span class="mail"><a
+                            href="mailto:?subject=Scale Computing on Clusters&amp;body=Checkout this article about [Scale Computing on Clusters] written byDongming Jin. http://dxj4360.uta.cloud/scale-computing-on-clusters.html"
+                            title="Share by Email" target="_blank"><img
+                            src="http://dxj4360.uta.cloud/theme/images/icons/mail-s.png"></a></span>
+                </div>
+            </div>
+                <div class="comments">
+                    <h2>Comments !</h2>
+                    <div id="disqus_thread"></div>
+                    <script type="text/javascript">
+                        var disqus_identifier = "scale-computing-on-clusters.html";
+                        (function () {
+                            var dsq = document.createElement('script');
+                            dsq.type = 'text/javascript';
+                            dsq.async = true;
+                            dsq.src = 'https://domij.disqus.com/embed.js';
+                            (document.getElementsByTagName('head')[0] ||
+                            document.getElementsByTagName('body')[0]).appendChild(dsq);
+                        })();
+                    </script>
+                </div>
+        </article>
+
+        	
+	
+	
+
+
+    </section>
+</article>
+
+<!-- Footer -->
+    <footer>
+        <p>
+            © Copyright 2018 <a href="mailto:admin@domij.info"> Dongming Jin</a> | <a href="https://www.freeprivacypolicy.com/privacy/view/bc11c24cc8faf2a9a506ffd5aa40278d">Privacy Policy</a> | Powered by <a href="http://getpelican.com/">Pelican</a> and <a href="https://github.com/parbhat/pelican-blue">Pelican-Blue</a>.
+        </p>
+    </footer>
+
+    <!-- Analytics -->
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-121123490-1']);
+        _gaq.push(['_trackPageview']);
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+</body>
+</html>

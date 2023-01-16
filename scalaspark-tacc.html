@@ -1,0 +1,628 @@
+<!doctype html>
+<html lang="en" itemscope itemtype="http://schema.org/Person">
+<head>
+            <meta charset="utf-8">
+        <!-- Site Meta Data -->
+        <title>Scala/Spark @ TACC</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="Dongming Jin">
+
+        <link rel="shortcut icon" href="/images/favicon.ico">
+
+        <!-- schema.org -->
+        <meta itemprop="name" content="Domi's Universe">
+        <meta itemprop="image" content="">
+        <meta itemprop="description" content="">
+
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+        <!-- Style Meta Data -->
+        <link rel="stylesheet" href="http://dxj4360.uta.cloud/theme/css/style.css" type="text/css"/>
+        <link rel="stylesheet" href="http://dxj4360.uta.cloud/theme/css/pygments.css" type="text/css"/>
+
+        <!-- Feed Meta Data -->
+            <link href="http://dxj4360.uta.cloud/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+                  title="Domi's Universe ATOM Feed"/>
+
+        <!-- Twitter Feed -->
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="domij_info">
+        <meta name="twitter:image" content="">
+
+    <meta name="twitter:creator" content="domij_info">
+    <meta name="twitter:url" content="http://dxj4360.uta.cloud/scalaspark-tacc.html">
+    <meta name="twitter:title" content="Domi's Universe ~ Scala/Spark @ TACC">
+    <meta name="twitter:description" content="4/20/17 Introduction to Hadoop and Spark Dr. Weijia Xu, Dr. Ruizhu Huang @ UTA Hadoop and Spark on Wrangler Scala/Spark Data Analysis Using Hadoop/Spark Webcast Discussion Big Data v.s. HPC Traditional separate data MPI code to use multiple nodes MapReduce: programing model, platform for customized computation …">
+    <meta name="twitter:image" content="https://www.dropbox.com/s/bnoc10ju03mzgk6/Screenshot%202017-04-20%2013.33.00.png?raw=1"/>
+
+    <!-- Facebook Meta Data -->
+    <meta property="og:title" content="Domi's Universe ~ Scala/Spark @ TACC"/>
+    <meta property="og:description" content="4/20/17 Introduction to Hadoop and Spark Dr. Weijia Xu, Dr. Ruizhu Huang @ UTA Hadoop and Spark on Wrangler Scala/Spark Data Analysis Using Hadoop/Spark Webcast Discussion Big Data v.s. HPC Traditional separate data MPI code to use multiple nodes MapReduce: programing model, platform for customized computation …"/>
+    <meta property="og:image" content="https://www.dropbox.com/s/bnoc10ju03mzgk6/Screenshot%202017-04-20%2013.33.00.png?raw=1"/>
+</head>
+
+<body>
+<!-- Sidebar -->
+<aside>
+    <center>
+        <a href="http://dxj4360.uta.cloud/pages/about-me.html">
+            <img alt="Photograph" style="width:120px; height:120px; border-radius:60px; border:0;" src="https://www.dropbox.com/s/x95wh69c17kntbb/Photo_2015.JPG?dl=1">
+        </a>
+    </center>
+    
+    <br>
+    <!-- <h1>Dongming Jin</h1> -->
+
+    <p>
+            sci-fi mind, engineer hand
+
+        <br>
+        <br>
+
+            <a class="twitter-follow-button"
+               href="https://twitter.com/domij_info"
+               data-show-count="false"
+               data-lang="en">
+                Follow @twitterdev
+            </a>
+            <script type="text/javascript">
+                window.twttr = (function (d, s, id) {
+                    var t, js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = "https://platform.twitter.com/widgets.js";
+                    fjs.parentNode.insertBefore(js, fjs);
+                    return window.twttr || (t = {
+                            _e: [], ready: function (f) {
+                                t._e.push(f)
+                            }
+                        });
+                }(document, "script", "twitter-wjs"));
+            </script>
+    </p>
+
+    <nav class="nav">
+        <ul class="list-bare">
+
+                <li><a class="nav__link" href="http://dxj4360.uta.cloud">Blogs</a></li>
+
+                <li><a class="nav__link" href="http://dxj4360.uta.cloud/pages/about-me.html">About Me</a></li>
+                <li><a class="nav__link" href="http://dxj4360.uta.cloud/pages/footprint.html">Footprint</a></li>
+                <li><a class="nav__link" href="http://dxj4360.uta.cloud/pages/research.html">Research</a></li>
+                <li><a class="nav__link" href="http://dxj4360.uta.cloud/pages/zhe-li-xiao-zhong-hai-wai-xiao-you.html">浙里萧中-海外校友</a></li>
+
+        </ul>
+    </nav>
+
+    <p class="social">
+                <a href="https://www.linkedin.com/in/domijin" target="_blank"><img
+                        src="http://dxj4360.uta.cloud/theme/images/icons/linkedin.png"></a>
+                <a href="https://github.com/domijin" target="_blank"><img
+                        src="http://dxj4360.uta.cloud/theme/images/icons/github.png"></a>
+            <a href="http://dxj4360.uta.cloud/feeds/all.atom.xml" rel="alternate">
+                <img src="http://dxj4360.uta.cloud/theme/images/icons/rss.png"></a>
+    </p>
+
+        <h2>Categories</h2>
+        <ul class="navbar">
+                <li><a
+                        href="http://dxj4360.uta.cloud/category/articles.html">articles</a></li>
+                <li><a
+                        href="http://dxj4360.uta.cloud/category/cheatsheets.html">cheatsheets</a></li>
+                <li><a
+                        href="http://dxj4360.uta.cloud/category/maker-notes.html">maker-notes</a></li>
+                <li class="active"><a
+                        href="http://dxj4360.uta.cloud/category/study-notes.html">study-notes</a></li>
+        </ul>
+
+
+</aside>
+
+<!-- Content -->
+<article>
+
+
+
+    <section id="content">
+        <article>
+            <h2 class="post_title post_detail"><a href="http://dxj4360.uta.cloud/scalaspark-tacc.html" rel="bookmark"
+                                                  title="Permalink to Scala/Spark @ TACC">Scala/Spark @ TACC</a></h2>
+            <div class="entry-content blog-post">
+
+
+
+
+                <p>4/20/17 </p>
+<h2>Introduction to Hadoop and Spark</h2>
+<p>Dr. Weijia Xu, Dr. Ruizhu Huang @ UTA</p>
+<ul>
+<li>Hadoop and Spark on Wrangler</li>
+<li>Scala/Spark</li>
+<li>Data Analysis Using Hadoop/Spark</li>
+</ul>
+<p><img src="https://www.dropbox.com/s/bnoc10ju03mzgk6/Screenshot%202017-04-20%2013.33.00.png?raw=1" /></p>
+<p><a href="https://www.youtube.com/watch?v=KByS8QYpamw">Webcast</a>
+<a href="https://public.etherpad-mozilla.org/p/Intro_Hadoop_and_Spark_on_Wrangler">Discussion</a></p>
+<h3>Big Data v.s. HPC</h3>
+<ul>
+<li>Traditional</li>
+<li>separate data</li>
+<li>
+<p>MPI code to use multiple nodes</p>
+</li>
+<li>
+<p>MapReduce: programing model, platform for customized computation</p>
+</li>
+<li>move computations to data, reduce data transfer</li>
+<li>sequential execute, same as RDBMS</li>
+<li>scale out, not scale up</li>
+<li>hardware indepedent</li>
+</ul>
+<h3>Hadoop</h3>
+<ul>
+<li>distributed data</li>
+<li>key-value pair</li>
+<li>computation</li>
+<li>map instances</li>
+<li>reduce instances</li>
+</ul>
+<p><img src="https://www.dropbox.com/s/yn0bhgwvc0nui9n/Screenshot%202017-04-20%2013.28.13.png?raw=1" /></p>
+<p><strong>support at TACC</strong>
+<em> hadoop: open source implementation of MapReduce, programming in JAVA but interface to others
+</em> zeppelin: similiar to jupyter, hundreds of interpretator
+* spark, in-memory</p>
+<h2>Hadoop and Yarn</h2>
+<p><img src="https://www.dropbox.com/s/62m198hltjwt154/Screenshot%202017-04-20%2013.37.51.png?raw=1"  /></p>
+<h3>Procedure</h3>
+<ul>
+<li>input</li>
+<li>splitting</li>
+<li>mapping</li>
+<li>shuffling</li>
+<li>reducing</li>
+<li>final result</li>
+</ul>
+<p><a href="https://portal.wrangler.tacc.utexas.edu/">Wrangler portal</a></p>
+<blockquote>
+<p>Manage -&gt; create hadoop reservation</p>
+</blockquote>
+<ul>
+<li>VNC job: access VNC at <code>vis.tacc.utexas.edu</code></li>
+<li>check cluster info. and hadoop job status</li>
+<li>idev job</li>
+<li>manage data in &amp; out</li>
+<li>submit Hadoop jobs</li>
+<li>test, dev, debug</li>
+<li>batch job: submit jobs to YARN resource manager</li>
+<li>large analysis job</li>
+<li>sequentially jobs</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="c1"># manage</span>
+<span class="c1">## check reservation</span>
+scontrol show reservation
+
+<span class="c1">## load module and idev to compute node</span>
+module load hadoop-paths
+idev –r hadoop+TRAINING-HPC+2186 –m <span class="m">240</span> –p hadoop  <span class="c1"># -m for minutes</span>
+
+<span class="c1">## file system operations</span>
+hadoop fs -ls/mkdir/put/get/stat/cat/tail/setrep <span class="c1">#set replication factor</span>
+
+<span class="c1">## YARN, run jobs</span>
+yarn jar / hadoop jar <span class="c1"># for java</span>
+yarn application -list/kill/appStates/appTypes
+     node -list
+     logs
+
+<span class="c1">## upload data</span>
+hadoop fs -put local_data data
+
+<span class="c1">## running hadoop</span>
+hadoop jar /usr/lib/hadoop-mapreduce/hadoop-mapreduce- examples.jar <span class="se">\</span>
+wordcount <span class="se">\ </span><span class="c1">#java class name to run</span>
+-D mapred.map.tasks<span class="o">=</span><span class="m">500</span> <span class="se">\ </span><span class="c1">#number of mapper instance </span>
+-D mapred.reduce.tasks<span class="o">=</span><span class="m">256</span> <span class="se">\ </span><span class="c1"># number of reducer instance</span>
+/tmp/data/enwiki-20120104-pages-articles.xml <span class="se">\ </span><span class="c1">#input file on hdfs</span>
+wiki_wc <span class="c1">#folder to store the output</span>
+
+<span class="c1">## get results</span>
+hadoop fs –get /tmp/wiki_wc wiki_wc
+</pre></div>
+
+
+<h2>Hadoop API</h2>
+<p>Check example at <code>/Users/domi/Dropbox/Open_Course/TACC webinars/Hadoop_Spark/hadoop-training</code></p>
+<div class="highlight"><pre><span></span><span class="c1"># recap of hadoop streaming</span>
+hadoop jar /usr/lib/hadoop-mapreduce/hadoop-streaming.jar
+-input /path/to/input/in/hdfs
+-output /path/to/output/in/hdfs
+-D mapred.map.tasks<span class="o">=</span><span class="m">500</span> <span class="se">\ </span><span class="c1">#number of mapper instance </span>
+-D mapred.reduce.tasks<span class="o">=</span><span class="m">256</span> <span class="se">\ </span><span class="c1"># number of reducer instance</span>
+-mapper map_implementation  <span class="c1">## can use other languages</span>
+-reducer reduce_implementation
+-file map system
+-file reduce system.
+</pre></div>
+
+
+<h3>vs Spark</h3>
+<p><img src="https://www.dropbox.com/s/a5kv07y2p7e68we/Screenshot%202017-04-20%2015.10.53.png?raw=1" /></p>
+<ul>
+<li>Spark is faster</li>
+<li>more language support</li>
+<li>MLib for Machine Learning</li>
+</ul>
+<h3>Zeppelin</h3>
+<ul>
+<li>web-based notebook</li>
+<li>interactive</li>
+<li>visualization</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="c1"># Zepplelin</span>
+cp /data/apps/.zeppelin/job.zeppelin .
+sbatch --reservation<span class="o">=</span>hadoop+TRAINING-HPC+2186 job.zeppelin
+</pre></div>
+
+
+<p><a href="http://wrangler.tacc.utexas.edu">web-UI</a></p>
+<div class="highlight"><pre><span></span><span class="nf">%spark</span><span class="w"></span>
+
+<span class="cp"># with Python</span>
+<span class="nf">%pyspark</span><span class="w"></span>
+
+<span class="cp"># with R</span>
+<span class="nf">%spark</span><span class="p">.</span><span class="n">r</span><span class="w"></span>
+
+<span class="nf">%sh</span><span class="w"></span>
+</pre></div>
+
+
+<h3>Contacts</h3>
+<p><a href="data@tacc.utexas.edu">Data Group @ TACC</a>
+<a href="xwj@tacc.utexas.edu">Weijia Xu</a> 
+<a href="rhuang@tacc.utexas.edu">Ruizhu Huang</a></p>
+<hr>
+<p>04/27/2017</p>
+<h2>Programming with Scala/Spark</h2>
+<p>Zhao Zhang</p>
+<p><code>Wrangler Setup</code></p>
+<div class="highlight"><pre><span></span>idev -r hadoop+TRAINING-HPC+2187 -t <span class="m">240</span> 
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>/opt/apps/scala/scala-2.11.8/bin:<span class="nv">$PATH</span> 
+</pre></div>
+
+
+<h3>Scala</h3>
+<p><a href="http://www.scala-lang.org/api/2.11.8/#package">Google Scala API</a></p>
+<ul>
+<li>Variables</li>
+<li>Mutable, <code>var</code></li>
+<li>Immutable, <code>val</code>: cannot be reassigned</li>
+<li>Primitive types</li>
+<li>Double, Float, Long, Int, Short, Byte: <code>val a: Double = 5</code></li>
+<li>Char, Boolean, Unit</li>
+<li>Composite variables</li>
+<li>List, Map, Seq, Set, Tuple<ul>
+<li>List: immutable for length and element; mutable counter-structure: <code>val l = new ListBuffer[Int/Double]()</code></li>
+<li>(), head, last, length, reverse, sorted</li>
+<li>Tuple: <code>val t = (1,2,3)</code>, <code>t._1 &gt; Int = 1</code>, <code>val(i,j,k) = t</code></li>
+</ul>
+</li>
+<li>String</li>
+<li>Function</li>
+<li><code>(x: Int) =&gt; {\n println(x) \n x * 2 \n}</code></li>
+<li><code>map((x: Int)/x =&gt; x * 2)</code> or <code>map(_ * 2)</code></li>
+<li>multiple parameters: <code>x: (Int, Int) =&gt; x._1 + x._1</code> or <code>case (x,y) =&gt; x+y</code></li>
+<li>multiple return: <code>(x: Int, y: Int) =&gt; (x+3, y+5)</code></li>
+<li>name function: <code>def func(x: Int): Int = x * x</code> as <code>(x: Int) =&gt; x * x</code></li>
+<li>Control Flow</li>
+<li>Loop <ul>
+<li><code>while ( i &lt; l.length ) {}</code></li>
+<li><code>for ( i &lt;- l )</code>, <code>&lt;-</code></li>
+<li><code>l.foreach(x =&gt; xxx )</code>, <code>=&gt;</code></li>
+<li><code>l.map(x =&gt; ...)</code></li>
+</ul>
+</li>
+<li>If ... else ...: <code>l.foreach(x =&gt; {if (x%2 == 1) println(x)})</code></li>
+<li>Pattern matching: <code>l.foreach(x =&gt; x%2 match {case 1 =&gt; println(x)  case_ =&gt; })</code></li>
+<li>Iterator</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="o">##</span><span class="w"> </span><span class="n">compile</span><span class="w"></span>
+<span class="n">scalac</span><span class="w"> </span><span class="n">xxx</span><span class="p">.</span><span class="n">scala</span><span class="w"></span>
+<span class="o">##</span><span class="w"> </span><span class="n">execute</span><span class="w"></span>
+<span class="n">scala</span><span class="w"> </span><span class="n">xxx</span><span class="w"></span>
+
+<span class="o">##</span><span class="w"> </span><span class="n">variable</span><span class="w"> </span><span class="n">vs</span><span class="w"> </span><span class="n">value</span><span class="w"></span>
+<span class="kd">val</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">List</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="w">  </span><span class="n">#</span><span class="w"> </span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n">immutable</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">List</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="w">  </span><span class="n">#</span><span class="w"> </span><span class="n">variable</span><span class="p">,</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">reassigned</span><span class="w"></span>
+
+<span class="o">##</span><span class="w"> </span><span class="n">mutable</span><span class="w"> </span><span class="n">pointer</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="nn">scala</span><span class="p">.</span><span class="nn">collection</span><span class="p">.</span><span class="nn">mutable</span><span class="p">.</span><span class="nc">ListBuffer</span>
+<span class="kd">var</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nc">ListBuffer</span><span class="p">[</span><span class="nc">Any</span><span class="p">]()</span><span class="w"></span>
+<span class="n">l</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+
+<span class="o">##</span><span class="w"> </span><span class="k">for</span><span class="o">-</span><span class="n">loop</span><span class="w"></span>
+<span class="kd">val</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">l</span><span class="p">.</span><span class="n">map</span><span class="p">((</span><span class="n">x</span><span class="p">:</span><span class="nc">Int</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">x</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span><span class="w">  </span><span class="n">#</span><span class="w"> </span><span class="k">type</span><span class="nc">:</span><span class="w"> </span><span class="nc">Int</span><span class="p">,</span><span class="w"> </span><span class="nc">Float</span><span class="p">,</span><span class="w"> </span><span class="nc">Double</span><span class="p">,</span><span class="w"> </span><span class="nc">String</span><span class="p">,</span><span class="w"> </span><span class="nc">List</span><span class="p">[</span><span class="n">_</span><span class="p">],</span><span class="w"> </span><span class="p">...</span><span class="w"></span>
+<span class="kd">val</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">l</span><span class="p">.</span><span class="n">foreach</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">x</span><span class="o">%</span><span class="mi">2</span><span class="w"> </span><span class="k">match</span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">println</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"></span>
+<span class="p">})</span><span class="w"></span>
+
+<span class="kd">val</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">List</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span><span class="w"></span>
+<span class="kd">val</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">l</span><span class="p">.</span><span class="n">toIterator</span><span class="w">  </span><span class="n">#</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">pointer</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">List</span><span class="w"></span>
+<span class="n">i</span><span class="p">.</span><span class="n">hasNext</span><span class="w"></span>
+<span class="n">i</span><span class="p">.</span><span class="n">next</span><span class="w"></span>
+<span class="n">i</span><span class="p">.</span><span class="n">toList</span><span class="w">  </span><span class="n">#</span><span class="w"> </span><span class="n">reverse</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">rest</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">list</span><span class="w"></span>
+
+<span class="nc">Thread</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+
+
+<h3>RDD: Resilient Distributed Dataset</h3>
+<p><code>immutable, partitioned collection of elements that can be operated on in parallel</code>
+Programming Models
+<em> Transformations
+  * map: <code>val r = l.map(x =&gt; x*2)</code>, <code>List(2,4,6,8,10)</code>
+  * filter: <code>val r = l.filter(x =&gt; x%2 == 0)</code>, <code>List(2,4)</code>
+  * groupBy: <code>val r = l.groupBy(x =&gt; x%2)</code>, <code>Map(1 -&gt; List(1, 3, 5), 0 -&gt; List(2, 4))</code>
+  * textFile: <code>val lines = sc.textFile(“path-to-file”)</code>
+  * binaryFiles: <code>val rdd = sc.binaryFiles(“path-to-file”)</code>
+</em> Actions
+  * count: <code>val r = l.count(x =&gt; x%2 == 0)</code>, <code>2</code>
+  * collect
+  * take
+  * reduce
+  * saveAsTextFiles</p>
+<hr>
+<h2>Using Scala/Spark</h2>
+<p>Weijia Xu</p>
+<p>Start zepplin on Wrangler:
+<code>sbatch --reservation hadoop+TRAINING-HPC+2188
+-A TRAINING-HPC /data/apps/.zeppelin/job.zeppelin.work -t 240</code></p>
+<h3>Data APIs</h3>
+<ul>
+<li>RDD: Resilient Distributed Dataset</li>
+<li><code>rdd.map(x =&gt; x*2)</code></li>
+<li><code>rdd.reduce(_+_)</code></li>
+<li><code>rdd.filter(_%3 == 0)</code></li>
+<li>DataFrame: since 1.3</li>
+<li>Abstract API, on top of RDD</li>
+<li>Schema </li>
+<li>off-heap storage, both memory &amp; hard drive</li>
+<li>DataSet: since 1.6</li>
+<li>Spark 2.x: <code>dataframe = dataset[row]</code></li>
+</ul>
+<blockquote>
+<p>RDD vs DataFrame vs DataSet</p>
+</blockquote>
+<div class="highlight"><pre><span></span><span class="nv">val</span> <span class="nv">rdd</span> <span class="o">=</span>  <span class="nv">sc</span>.<span class="nv">parallelize</span><span class="ss">(</span><span class="mi">0</span> <span class="k">until</span> <span class="mi">100</span><span class="ss">)</span>
+# <span class="nv">Conversion</span>
+## <span class="nv">DF</span> <span class="nv">to</span> <span class="nv">RDD</span>
+<span class="nv">val</span> <span class="nv">car_rdd</span> <span class="o">=</span> <span class="nv">df</span>.<span class="nv">rdd</span>
+## <span class="nv">RDD</span> <span class="nv">to</span> <span class="nv">DF</span>
+<span class="nv">val</span> <span class="nv">rdd_df</span> <span class="o">=</span> <span class="nv">rdd</span>.<span class="nv">toDF</span>
+## <span class="nv">RDD</span> <span class="nv">to</span> <span class="nv">DS</span>
+<span class="nv">val</span> <span class="nv">rdd_ds</span> <span class="o">=</span> <span class="nv">rdd</span>.<span class="nv">toDS</span>
+
+# <span class="nv">Functions</span>
+<span class="nv">df</span>.<span class="k">show</span><span class="ss">(</span><span class="nv">int</span> <span class="nv">n</span><span class="ss">)</span>
+<span class="nv">df</span>.<span class="nv">printSchema</span>  # <span class="nv">types</span> <span class="nv">and</span> <span class="nv">keys</span>
+<span class="nv">df</span>.<span class="nv">describe</span><span class="ss">(</span><span class="nv">cols</span><span class="ss">)</span>
+
+<span class="nv">rdd</span>.<span class="nv">filter</span><span class="ss">(</span><span class="nv">_</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="ss">)</span>.<span class="nv">collect</span>
+<span class="nv">rdd_df</span>.<span class="nv">filter</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">value &lt; 10</span><span class="s2">&quot;</span><span class="ss">)</span>.<span class="k">show</span>
+<span class="nv">rdd_ds</span>.<span class="nv">filter</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">value &lt; 10</span><span class="s2">&quot;</span><span class="ss">)</span>.<span class="k">show</span>
+<span class="nv">rdd_ds</span>.<span class="nv">filter</span><span class="ss">(</span><span class="nv">_</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="ss">)</span>.<span class="k">show</span>
+
+<span class="nv">rdd</span>.<span class="nv">map</span><span class="ss">(</span><span class="nv">_</span> <span class="o">*</span> <span class="mi">2</span><span class="ss">)</span>.<span class="nv">collect</span>
+<span class="nv">rdd_ds</span>.<span class="nv">map</span><span class="ss">(</span><span class="nv">_</span> <span class="o">*</span> <span class="mi">2</span><span class="ss">)</span>.<span class="k">show</span>
+<span class="nv">rdd_df</span>.<span class="nv">map</span><span class="ss">(</span><span class="nv">_</span> <span class="o">*</span> <span class="mi">2</span><span class="ss">)</span>.<span class="k">show</span> <span class="o">//</span> <span class="nv">will</span> <span class="nv">not</span> <span class="nv">work</span>
+<span class="nv">rdd_df</span>.<span class="nv">select</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">value * 2).show</span>
+
+# <span class="nv">Spark</span> <span class="nv">SQL</span>
+<span class="nv">df</span>.<span class="nv">select</span><span class="ss">(</span>$<span class="s2">&quot;</span><span class="s">model</span><span class="s2">&quot;</span>, $<span class="s2">&quot;</span><span class="s">mpg</span><span class="s2">&quot;</span> <span class="o">*</span> <span class="mi">1</span>.<span class="mi">6</span><span class="ss">)</span>.<span class="nv">filter</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">mpg &gt; 4</span><span class="s2">&quot;</span><span class="ss">)</span>.<span class="k">show</span>
+<span class="nv">df</span>.<span class="nv">groupBy</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">mpg</span><span class="s2">&quot;</span><span class="ss">)</span>.<span class="nv">count</span><span class="ss">()</span>.<span class="k">show</span>
+<span class="nv">df</span>.<span class="nv">createOrReplaceTempView</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">cars</span><span class="s2">&quot;</span><span class="ss">)</span>
+<span class="nv">spark</span>.<span class="nv">sql</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">SELECT col1, col2, ...</span>
+           <span class="nv">FROM</span> <span class="nv">table1</span>, <span class="nv">table2</span>, ...
+           [<span class="nv">WHERE</span> <span class="nv">condition1</span>, <span class="nv">AND</span><span class="o">|</span><span class="nv">OR</span> <span class="nv">condition2</span> ...]
+           [<span class="nv">GROUPBY</span> <span class="nv">col1</span>, ...]
+           [<span class="nv">ORDERBY</span> <span class="nv">col1</span>, ...]<span class="s2">&quot;</span><span class="s">)</span>
+</pre></div>
+
+
+<h3>IO in Spark</h3>
+<ul>
+<li>File format</li>
+<li>JSON: schema</li>
+<li>parquet, ORC: JSON with compression</li>
+<li><strong>path prefix</strong></li>
+<li>default: <code>hdfs:///</code> -&gt; <code>/tmp/data</code></li>
+<li>specify: <code>file:///</code></li>
+<li><strong>file/folder</strong></li>
+<li>automatically read all files within directory</li>
+<li>use directory to separate data</li>
+<li><strong>existing file</strong>: <code>mode(error/append/overwrite/ignore)</code>, default is error</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="c1"># Read CSV file</span><span class="w"></span>
+<span class="n">val</span><span class="w"> </span><span class="n">df</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="err">“</span><span class="n">csv</span><span class="err">”</span><span class="p">)</span><span class="w"> </span><span class="o">.</span><span class="n">options</span><span class="p">(</span><span class="err">“</span><span class="n">header</span><span class="err">”</span><span class="p">,</span><span class="w"> </span><span class="bp">true</span><span class="p">)</span><span class="w"></span>
+<span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="err">“</span><span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">mtcars</span><span class="o">.</span><span class="n">csv</span><span class="err">”</span><span class="p">)</span><span class="w"></span>
+<span class="n">df</span><span class="o">.</span><span class="n">show</span><span class="p">()</span><span class="w"></span>
+
+<span class="c1"># More Files</span><span class="w"></span>
+<span class="n">df</span><span class="o">.</span><span class="n">write</span><span class="o">.</span><span class="n">json</span><span class="p">(</span><span class="s2">&quot;cars.json&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="n">df</span><span class="o">.</span><span class="n">write</span><span class="o">.</span><span class="n">parquet</span><span class="p">(</span><span class="s2">&quot;cars.parquet&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="n">df</span><span class="o">.</span><span class="n">write</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">&quot;delimiter&quot;</span><span class="p">,</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="s2">&quot;cars.tab&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="n">val</span><span class="w"> </span><span class="n">df_json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">json</span><span class="p">(</span><span class="s2">&quot;cars.json&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="n">val</span><span class="w"> </span><span class="n">df_parquet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">parquet</span><span class="p">(</span><span class="s2">&quot;cars.parquet&quot;</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+
+
+<h3>Workflow</h3>
+<ul>
+<li>prepare datasets</li>
+<li><code>val cars = spark.read.format("csv").option(...).load("path_to_file").selectExpr("mpg + 0.0 as mpg", "cyl + 0.0 as label")</code>: easy convert to double</li>
+<li><code>val training = cars.sample(false, fraction)</code></li>
+<li><code>val test = cars.except(training)</code></li>
+<li>assemble feature</li>
+<li><code>val assembler = new VectorAssembler().setInputCols(Array('key1', ...)).setOutputCol('features')</code></li>
+<li><code>val lr = new LogisticRegression().setMaxIter(10).setRegParam(0.2).setElasticNetParam(0.0)</code></li>
+<li>define analysis</li>
+<li><code>val pipeline = new Pipeline().setStages(Array(assembler, lr))</code></li>
+<li>run analysis</li>
+<li><code>val lrModel = pipeline.fit(training)</code></li>
+<li>results</li>
+<li><code>result = lrModel.transform(test).select('model, 'lable, 'prediction)</code></li>
+</ul>
+<p><strong>Spark Architecture</strong>
+<em> Create RDDs
+  * HadoopRDD: <code>val lines = sc.textFile("hdfs://names")</code>
+  * MapPartitionsRDD: <code>val kvp = lines.map(name =&gt; (name(0), name))</code>
+  * ShuffledRDD: <code>val groups = kvp.groupByKey()</code>
+  * MapPartitionsRDD: <code>val res = groups.mapvalues(names =&gt; names.toSet.size)</code>
+  * collect()
+</em> RDD Dependency
+  * Narrow: One To One
+  * Shuffle Dependency: 
+<em> DAG(Directed Acyclic Graph) Generation
+  * stage 0: HadoopRDD, MapPartitionsRDD
+  * stage 1: ShuffledRDD, MapPartitionsRDD
+</em> Schedule Tasks
+  * split each stage into tasks based on partition
+  * reversed order, recursively find parent stages
+  * blocking between stages</p>
+<blockquote>
+<p>delay scheduling  </p>
+<blockquote>
+<p>spark.locality.wait (default 3s)<br>
+spark.locality.wait.process<br>
+spark.locality.wait.node<br>
+spark.locality.wait.rack  </p>
+</blockquote>
+</blockquote>
+<ul>
+<li>Executor Deployment</li>
+<li>Node</li>
+<li>Process: share physical node</li>
+<li>Thread: share physical memory<blockquote>
+<p>Spark YARN mode, in conf/spark-env.sh</p>
+<blockquote>
+<p>SPARK_EXECUTOR_INSTANCES (default 2)  # Process
+SPARK_EXECUTOR_CORES (default 1)  # Thread</p>
+</blockquote>
+</blockquote>
+</li>
+<li>Memory Management</li>
+<li>Reserved: 300MB, default</li>
+<li>User Memory: 25%, user data structure in RDD (value/variable)</li>
+<li>Execution: internal storage, shuffle buffer on the mapper<ul>
+<li>export <code>SPARK_WORKER_MEMORY 96G</code></li>
+</ul>
+</li>
+<li>Storage: cache, dynamic, default 0.5 of 75%<ul>
+<li><code>spark.memory.storageFraction</code> in <code>conf/spark-defaults.conf</code></li>
+</ul>
+</li>
+<li>Increase parallelism<ul>
+<li>more reducers by setting <code>spark.default.parallelism</code></li>
+<li>set number of partitions of the largest parent RDD <code>sc.textFile(path,128)</code></li>
+<li>YARN: use flag <code>--executor-memory 2g</code></li>
+</ul>
+</li>
+</ul>
+            </div>
+
+            <div class="post_list">
+                <span class="published" title="2017-05-04T00:00:00-05:00">
+                        Published: Thu 04 May 2017.
+                </span>
+
+
+                <span> By </span>
+                <a href="http://dxj4360.uta.cloud/pages/about-me.html">Dongming Jin</a>
+                <span> in </span>
+                <span class="post_category"><a href="http://dxj4360.uta.cloud/category/study-notes.html" rel="bookmark"
+                                               title="Permalink to study-notes"> #study-notes. </a></span>
+
+ 
+
+
+                <div class="entry-social">
+                    <span class="twitter"><a target="_blank" rel="nofollow"
+                                             onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=700');return false;"
+                                             title="Twitter"
+                                             href="https://twitter.com/share?url=http://dxj4360.uta.cloud/scalaspark-tacc.html&text=Scala/Spark @ TACC&via=domij_info"><img
+                            src="http://dxj4360.uta.cloud/theme/images/icons/twitter-s.png"></a></span>
+
+                    <span class="gplus"><a target="_blank" title="Google +"
+                                           href="https://plus.google.com/share?url=http://dxj4360.uta.cloud/scalaspark-tacc.html&hl=fr"
+                                           rel="nofollow"
+                                           onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"><img
+                            src="http://dxj4360.uta.cloud/theme/images/icons/google-s.png"></a></span>
+
+                    <span class="facebook"><a target="_blank" title="Facebook" rel="nofollow"
+                                              onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;"
+                                              href="https://www.facebook.com/sharer.php?u=http://dxj4360.uta.cloud/scalaspark-tacc.html&t=Scala/Spark @ TACC"><img
+                            src="http://dxj4360.uta.cloud/theme/images/icons/facebook-s.png"></a></span>
+
+                    <a target="_blank" title="Linkedin"
+                       href="https://www.linkedin.com/shareArticle?mini=true&url=http://dxj4360.uta.cloud/scalaspark-tacc.html&title=Scala/Spark @ TACC"
+                       rel="nofollow"
+                       onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"><img
+                            src="http://dxj4360.uta.cloud/theme/images/icons/linkedin-s.png"></a>
+
+                    <span class="mail"><a
+                            href="mailto:?subject=Scala/Spark @ TACC&amp;body=Checkout this article about [Scala/Spark @ TACC] written byDongming Jin. http://dxj4360.uta.cloud/scalaspark-tacc.html"
+                            title="Share by Email" target="_blank"><img
+                            src="http://dxj4360.uta.cloud/theme/images/icons/mail-s.png"></a></span>
+                </div>
+            </div>
+                <div class="comments">
+                    <h2>Comments !</h2>
+                    <div id="disqus_thread"></div>
+                    <script type="text/javascript">
+                        var disqus_identifier = "scalaspark-tacc.html";
+                        (function () {
+                            var dsq = document.createElement('script');
+                            dsq.type = 'text/javascript';
+                            dsq.async = true;
+                            dsq.src = 'https://domij.disqus.com/embed.js';
+                            (document.getElementsByTagName('head')[0] ||
+                            document.getElementsByTagName('body')[0]).appendChild(dsq);
+                        })();
+                    </script>
+                </div>
+        </article>
+
+        	
+	
+	
+
+
+    </section>
+</article>
+
+<!-- Footer -->
+    <footer>
+        <p>
+            © Copyright 2018 <a href="mailto:admin@domij.info"> Dongming Jin</a> | <a href="https://www.freeprivacypolicy.com/privacy/view/bc11c24cc8faf2a9a506ffd5aa40278d">Privacy Policy</a> | Powered by <a href="http://getpelican.com/">Pelican</a> and <a href="https://github.com/parbhat/pelican-blue">Pelican-Blue</a>.
+        </p>
+    </footer>
+
+    <!-- Analytics -->
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-121123490-1']);
+        _gaq.push(['_trackPageview']);
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+</body>
+</html>

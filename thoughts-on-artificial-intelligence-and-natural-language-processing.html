@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en" itemscope itemtype="http://schema.org/Person">
+<head>
+            <meta charset="utf-8">
+        <!-- Site Meta Data -->
+        <title>Thoughts on Artificial Intelligence and Natural Language Processing</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="Dongming Jin">
+
+        <link rel="shortcut icon" href="/images/favicon.ico">
+
+        <!-- schema.org -->
+        <meta itemprop="name" content="Domi's Universe">
+        <meta itemprop="image" content="">
+        <meta itemprop="description" content="">
+
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+        <!-- Style Meta Data -->
+        <link rel="stylesheet" href="http://dxj4360.uta.cloud/theme/css/style.css" type="text/css"/>
+        <link rel="stylesheet" href="http://dxj4360.uta.cloud/theme/css/pygments.css" type="text/css"/>
+
+        <!-- Feed Meta Data -->
+            <link href="http://dxj4360.uta.cloud/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+                  title="Domi's Universe ATOM Feed"/>
+
+        <!-- Twitter Feed -->
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="domij_info">
+        <meta name="twitter:image" content="">
+
+    <meta name="twitter:creator" content="domij_info">
+    <meta name="twitter:url" content="http://dxj4360.uta.cloud/thoughts-on-artificial-intelligence-and-natural-language-processing.html">
+    <meta name="twitter:title" content="Domi's Universe ~ Thoughts on Artificial Intelligence and Natural Language Processing">
+    <meta name="twitter:description" content="My experience of AI/NLP research and development is limited compared to HPC and data analysis. During my summer intern as R&amp;D in NLP/query understanding, I studied linguistics and implemented the stoke and order into Chinese NLP, based on its nature as a logographic system. Time will reveal …">
+    <meta name="twitter:image" content="None"/>
+
+    <!-- Facebook Meta Data -->
+    <meta property="og:title" content="Domi's Universe ~ Thoughts on Artificial Intelligence and Natural Language Processing"/>
+    <meta property="og:description" content="My experience of AI/NLP research and development is limited compared to HPC and data analysis. During my summer intern as R&amp;D in NLP/query understanding, I studied linguistics and implemented the stoke and order into Chinese NLP, based on its nature as a logographic system. Time will reveal …"/>
+    <meta property="og:image" content="None"/>
+</head>
+
+<body>
+<!-- Sidebar -->
+<aside>
+    <center>
+        <a href="http://dxj4360.uta.cloud/pages/about-me.html">
+            <img alt="Photograph" style="width:120px; height:120px; border-radius:60px; border:0;" src="https://www.dropbox.com/s/x95wh69c17kntbb/Photo_2015.JPG?dl=1">
+        </a>
+    </center>
+    
+    <br>
+    <!-- <h1>Dongming Jin</h1> -->
+
+    <p>
+            sci-fi mind, engineer hand
+
+        <br>
+        <br>
+
+            <a class="twitter-follow-button"
+               href="https://twitter.com/domij_info"
+               data-show-count="false"
+               data-lang="en">
+                Follow @twitterdev
+            </a>
+            <script type="text/javascript">
+                window.twttr = (function (d, s, id) {
+                    var t, js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = "https://platform.twitter.com/widgets.js";
+                    fjs.parentNode.insertBefore(js, fjs);
+                    return window.twttr || (t = {
+                            _e: [], ready: function (f) {
+                                t._e.push(f)
+                            }
+                        });
+                }(document, "script", "twitter-wjs"));
+            </script>
+    </p>
+
+    <nav class="nav">
+        <ul class="list-bare">
+
+                <li><a class="nav__link" href="http://dxj4360.uta.cloud">Blogs</a></li>
+
+                <li><a class="nav__link" href="http://dxj4360.uta.cloud/pages/about-me.html">About Me</a></li>
+                <li><a class="nav__link" href="http://dxj4360.uta.cloud/pages/footprint.html">Footprint</a></li>
+                <li><a class="nav__link" href="http://dxj4360.uta.cloud/pages/research.html">Research</a></li>
+                <li><a class="nav__link" href="http://dxj4360.uta.cloud/pages/zhe-li-xiao-zhong-hai-wai-xiao-you.html">浙里萧中-海外校友</a></li>
+
+        </ul>
+    </nav>
+
+    <p class="social">
+                <a href="https://www.linkedin.com/in/domijin" target="_blank"><img
+                        src="http://dxj4360.uta.cloud/theme/images/icons/linkedin.png"></a>
+                <a href="https://github.com/domijin" target="_blank"><img
+                        src="http://dxj4360.uta.cloud/theme/images/icons/github.png"></a>
+            <a href="http://dxj4360.uta.cloud/feeds/all.atom.xml" rel="alternate">
+                <img src="http://dxj4360.uta.cloud/theme/images/icons/rss.png"></a>
+    </p>
+
+        <h2>Categories</h2>
+        <ul class="navbar">
+                <li class="active"><a
+                        href="http://dxj4360.uta.cloud/category/articles.html">articles</a></li>
+                <li><a
+                        href="http://dxj4360.uta.cloud/category/cheatsheets.html">cheatsheets</a></li>
+                <li><a
+                        href="http://dxj4360.uta.cloud/category/maker-notes.html">maker-notes</a></li>
+                <li><a
+                        href="http://dxj4360.uta.cloud/category/study-notes.html">study-notes</a></li>
+        </ul>
+
+
+</aside>
+
+<!-- Content -->
+<article>
+
+
+
+    <section id="content">
+        <article>
+            <h2 class="post_title post_detail"><a href="http://dxj4360.uta.cloud/thoughts-on-artificial-intelligence-and-natural-language-processing.html" rel="bookmark"
+                                                  title="Permalink to Thoughts on Artificial Intelligence and Natural Language Processing">Thoughts on Artificial Intelligence and Natural Language Processing</a></h2>
+            <div class="entry-content blog-post">
+
+
+
+
+                <p>My experience of AI/NLP research and development is limited compared to HPC and data analysis. During my summer intern as R&amp;D in NLP/query understanding, I studied linguistics and implemented the stoke and order into Chinese NLP, based on its nature as a logographic system. Time will reveal that even though computer programming is highly based on English, AI/NLP may work better in a different language system, which will have the elegant simplicity of mathematics and abundant expressiveness in Chinese. </p>
+<p>Back to practice, I have been studying word embeddings like word2vec, and then utilize them for specific linguistic tasks like NER/POS with supervised LSTM + CRF model, or unsupervised models for topic modeling, text summary, etc. From my bilingual background, I realize that knowledge base could be further validated or expanded by multi-languages. I am also interested in the similarity between state-space model and neural network model. Despite the magic non-linearity from activation function, both are seeking optimal/equilibrium with updating techniques based on gradient (and chain rule). The advance of AI/NLP is thus mainly the result of Higher Performance Computing. Leapfrog, MCMC, gradient descent, SGD, batch updating or so are still some compromise regarding to high dimensional parameter space iteration, given the ever-increasing computation power. </p>
+<p>Nevertheless, data quality is very important at the moment and it's the cornerstone for commercial products, depending on/deciding the use case and market focus.</p>
+<p>These are my 2 cents about AI/NLP. I also have some thoughts on data acquisition and business model waiting to develop. </p>
+            </div>
+
+            <div class="post_list">
+                <span class="published" title="2018-09-19T00:00:00-05:00">
+                        Published: Wed 19 September 2018.
+                </span>
+
+
+                <span> By </span>
+                <a href="http://dxj4360.uta.cloud/pages/about-me.html">Dongming Jin</a>
+                <span> in </span>
+                <span class="post_category"><a href="http://dxj4360.uta.cloud/category/articles.html" rel="bookmark"
+                                               title="Permalink to articles"> #articles. </a></span>
+
+ 
+
+
+                <div class="entry-social">
+                    <span class="twitter"><a target="_blank" rel="nofollow"
+                                             onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=700');return false;"
+                                             title="Twitter"
+                                             href="https://twitter.com/share?url=http://dxj4360.uta.cloud/thoughts-on-artificial-intelligence-and-natural-language-processing.html&text=Thoughts on Artificial Intelligence and Natural Language Processing&via=domij_info"><img
+                            src="http://dxj4360.uta.cloud/theme/images/icons/twitter-s.png"></a></span>
+
+                    <span class="gplus"><a target="_blank" title="Google +"
+                                           href="https://plus.google.com/share?url=http://dxj4360.uta.cloud/thoughts-on-artificial-intelligence-and-natural-language-processing.html&hl=fr"
+                                           rel="nofollow"
+                                           onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"><img
+                            src="http://dxj4360.uta.cloud/theme/images/icons/google-s.png"></a></span>
+
+                    <span class="facebook"><a target="_blank" title="Facebook" rel="nofollow"
+                                              onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;"
+                                              href="https://www.facebook.com/sharer.php?u=http://dxj4360.uta.cloud/thoughts-on-artificial-intelligence-and-natural-language-processing.html&t=Thoughts on Artificial Intelligence and Natural Language Processing"><img
+                            src="http://dxj4360.uta.cloud/theme/images/icons/facebook-s.png"></a></span>
+
+                    <a target="_blank" title="Linkedin"
+                       href="https://www.linkedin.com/shareArticle?mini=true&url=http://dxj4360.uta.cloud/thoughts-on-artificial-intelligence-and-natural-language-processing.html&title=Thoughts on Artificial Intelligence and Natural Language Processing"
+                       rel="nofollow"
+                       onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"><img
+                            src="http://dxj4360.uta.cloud/theme/images/icons/linkedin-s.png"></a>
+
+                    <span class="mail"><a
+                            href="mailto:?subject=Thoughts on Artificial Intelligence and Natural Language Processing&amp;body=Checkout this article about [Thoughts on Artificial Intelligence and Natural Language Processing] written byDongming Jin. http://dxj4360.uta.cloud/thoughts-on-artificial-intelligence-and-natural-language-processing.html"
+                            title="Share by Email" target="_blank"><img
+                            src="http://dxj4360.uta.cloud/theme/images/icons/mail-s.png"></a></span>
+                </div>
+            </div>
+                <div class="comments">
+                    <h2>Comments !</h2>
+                    <div id="disqus_thread"></div>
+                    <script type="text/javascript">
+                        var disqus_identifier = "thoughts-on-artificial-intelligence-and-natural-language-processing.html";
+                        (function () {
+                            var dsq = document.createElement('script');
+                            dsq.type = 'text/javascript';
+                            dsq.async = true;
+                            dsq.src = 'https://domij.disqus.com/embed.js';
+                            (document.getElementsByTagName('head')[0] ||
+                            document.getElementsByTagName('body')[0]).appendChild(dsq);
+                        })();
+                    </script>
+                </div>
+        </article>
+
+        	
+	
+	
+
+
+    </section>
+</article>
+
+<!-- Footer -->
+    <footer>
+        <p>
+            © Copyright 2018 <a href="mailto:admin@domij.info"> Dongming Jin</a> | <a href="https://www.freeprivacypolicy.com/privacy/view/bc11c24cc8faf2a9a506ffd5aa40278d">Privacy Policy</a> | Powered by <a href="http://getpelican.com/">Pelican</a> and <a href="https://github.com/parbhat/pelican-blue">Pelican-Blue</a>.
+        </p>
+    </footer>
+
+    <!-- Analytics -->
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-121123490-1']);
+        _gaq.push(['_trackPageview']);
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+</body>
+</html>

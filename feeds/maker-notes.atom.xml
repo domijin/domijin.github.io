@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Domi's Universe - maker-notes</title><link href="http://dxj4360.uta.cloud/" rel="alternate"></link><link href="http://dxj4360.uta.cloud/feeds/maker-notes.atom.xml" rel="self"></link><id>http://dxj4360.uta.cloud/</id><updated>2018-07-21T00:00:00-05:00</updated><entry><title>Boarding Glasses for Motion Sickness</title><link href="http://dxj4360.uta.cloud/boarding-glasses-for-motion-sickness.html" rel="alternate"></link><published>2018-07-21T00:00:00-05:00</published><updated>2018-07-21T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:dxj4360.uta.cloud,2018-07-21:/boarding-glasses-for-motion-sickness.html</id><summary type="html">&lt;p&gt;&lt;a href="https://www.boardingglasses.com/"&gt;Boarding Glasses&lt;/a&gt; built a pair of glasses filled with colored liquid to act as reference of ground, which can reduce the Motion Sickness. &lt;/p&gt;
+&lt;p&gt;There must be more patented techniques involved but 99 euro is a bit pricey. So I prototype this one to print and test it out. &lt;/p&gt;
+&lt;p&gt;Next steps …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;a href="https://www.boardingglasses.com/"&gt;Boarding Glasses&lt;/a&gt; built a pair of glasses filled with colored liquid to act as reference of ground, which can reduce the Motion Sickness. &lt;/p&gt;
+&lt;p&gt;There must be more patented techniques involved but 99 euro is a bit pricey. So I prototype this one to print and test it out. &lt;/p&gt;
+&lt;p&gt;Next steps:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;find the right the viscosity of the liquid: the liquid should response to acceleration in certain way?&lt;/li&gt;
+&lt;li&gt;the right shape of the inner ring: circular, oval, or a better functioning shape?&lt;/li&gt;
+&lt;li&gt;design: is it necessary to have 4 pieces? Maybe this is designed to add on normal glasses?&lt;/li&gt;
+&lt;li&gt;FOV coverage: optimize the shape and size to set a standard for flexible design.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Here is my knock-off design to reverse engineering the &lt;strong&gt;Boarding Ring technique&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://www.dropbox.com/s/mxl42eup2a0ah4r/Screenshot%202018-07-21%2010.55.57.png?dl=1"&gt;&lt;/p&gt;</content><category term="maker-notes"></category></entry><entry><title>CHIP Projects</title><link href="http://dxj4360.uta.cloud/chip-projects.html" rel="alternate"></link><published>2016-03-05T00:00:00-06:00</published><updated>2016-03-05T00:00:00-06:00</updated><author><name>Dongming Jin</name></author><id>tag:dxj4360.uta.cloud,2016-03-05:/chip-projects.html</id><summary type="html">&lt;h2&gt;Ideas&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;[x] &lt;a href="https://chip.hackster.io/inmyorbit/connect-a-mobile-application-to-your-c-h-i-p-using-ble-96fe96?ref=platform&amp;amp;ref_id=5276_trending___&amp;amp;offset=5"&gt;BLE&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://chip.hackster.io/dcschel7/blast-off-with-rocketc-h-i-p-190e04?ref=platform&amp;amp;ref_id=5276_trending___&amp;amp;offset=13"&gt;Rocket relay&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Flight Radar
+    -&lt;a href="https://chip.hackster.io/BuddyC/c-h-i-p-radar-0da2d1?ref=platform&amp;amp;ref_id=5276_trending___&amp;amp;offset=3"&gt;need extra antenna&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;sudo service fr24feed start&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;interface: &lt;code&gt;http://192.168.3.13:8754/settings.html&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Autodesk Ember printer&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[x] &lt;a href="https://www.repetier-server.com/manuals/0.50/index.html"&gt;RepetierServer&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Start server&lt;/span&gt;
+/etc/init.d/RepetierServer start
+&lt;span class="c1"&gt;# Stop server&lt;/span&gt;
+/etc/init.d/RepetierServer stop
+&lt;span class="c1"&gt;# Restart server&lt;/span&gt;
+/etc/init.d/RepetierServer restart
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;RTL-SDR …&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;h2&gt;Ideas&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;[x] &lt;a href="https://chip.hackster.io/inmyorbit/connect-a-mobile-application-to-your-c-h-i-p-using-ble-96fe96?ref=platform&amp;amp;ref_id=5276_trending___&amp;amp;offset=5"&gt;BLE&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://chip.hackster.io/dcschel7/blast-off-with-rocketc-h-i-p-190e04?ref=platform&amp;amp;ref_id=5276_trending___&amp;amp;offset=13"&gt;Rocket relay&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Flight Radar
+    -&lt;a href="https://chip.hackster.io/BuddyC/c-h-i-p-radar-0da2d1?ref=platform&amp;amp;ref_id=5276_trending___&amp;amp;offset=3"&gt;need extra antenna&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;sudo service fr24feed start&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;interface: &lt;code&gt;http://192.168.3.13:8754/settings.html&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Autodesk Ember printer&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[x] &lt;a href="https://www.repetier-server.com/manuals/0.50/index.html"&gt;RepetierServer&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Start server&lt;/span&gt;
+/etc/init.d/RepetierServer start
+&lt;span class="c1"&gt;# Stop server&lt;/span&gt;
+/etc/init.d/RepetierServer stop
+&lt;span class="c1"&gt;# Restart server&lt;/span&gt;
+/etc/init.d/RepetierServer restart
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;RTL-SDR&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[x] &lt;a href="http://gnuradio.org/redmine/projects/gnuradio/wiki/BuildGuide"&gt;GNU RADIO&lt;/a&gt;: for signal analysis, not enough cpu for heavy task&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.eventbrite.com/e/gnu-radio-conference-2016-tickets-24257809762
+doc"&gt;Conference&lt;/a&gt;    &lt;/li&gt;
+&lt;li&gt;&lt;a href="http://gnuradio.org/doc/doxygen/page_exploring_gnuradio.html"&gt;docs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;gnuradio-companion&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;uhd_fft&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Spider&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Django&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[x] Apache server&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://www.chip-community.org/index.php/CGI_program_on_CHIP"&gt;web controlled LED&lt;/a&gt;
+&lt;code&gt;sudo service apache2 start&lt;/code&gt;
+&lt;code&gt;sudo apachectl start&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[x] &lt;a href="https://slack-files.com/T02GVC9G6-F0H7G3WCT-25e7dfb781"&gt;WiFi extender&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Network filter (AD blocker)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://bbs.nextthing.co/t/mass-surveillance-network-using-the-c-h-i-p/4551"&gt;Mass surveillance network&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://www.kismetwireless.net/documentation.shtml"&gt;wifi sniffer&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://bbs.nextthing.co/t/chip-as-anti-surveillance-opportunity/4548"&gt;Anti surveillance&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3&gt;Useful Links:&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://docs.getchip.com/#chip-boot-repair-tool"&gt;CHIP Boot Repair&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.penguintutor.com/linux/tightvnc"&gt;tigervnc&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Headless Server&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;USB connect&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;screen /dev/tty.usbmodem1413 &lt;span class="m"&gt;115200&lt;/span&gt;
+&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;TERM&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;ansi  &lt;span class="c1"&gt;# correct encoding&lt;/span&gt;
+
+cu -l /dev/tty.usbmodem1413 -s &lt;span class="m"&gt;115200&lt;/span&gt;
+~.  &lt;span class="c1"&gt;# to escape&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;system admin&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;usermod -l new old  &lt;span class="c1"&gt;# change username, check man for more&lt;/span&gt;
+
+sudo usermod -a -G i2c chip  &lt;span class="c1"&gt;# use i2c tools without sudo for chip&lt;/span&gt;
+
+sudo shutdown now
+
+ip addr show wlan0
+
+ps -p&lt;span class="nv"&gt;$$&lt;/span&gt; -ocmd&lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="c1"&gt;# check shell&lt;/span&gt;
+
+apt-get update/upgrade
+
+apt-cache search keyword
+
+sudo apt-get install sysstat
+
+mpstat/vmstat/netstat/instat
+
+htop 
+
+last
+
+updatedb &lt;span class="c1"&gt;# for locate database &lt;/span&gt;
+
+virtualenv venv
+
+deactivate
+
+stty &amp;lt; /dev/tty*  &lt;span class="c1"&gt;# check band rate&lt;/span&gt;
+
+update-rc.d -f xxx remove &lt;span class="c1"&gt;# remove service&lt;/span&gt;
+
+uname -a
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;Install GUI&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;apt-get install lxde-core
+
+startlxde
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Hardware&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;power management: &lt;a href="http://learn.linksprite.com/pcduino/arduino-ish-program/adc/axp-209-internal-temperature/"&gt;check temperature&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;axp209 /etc/axp209&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Wi-Fi: &lt;a href="http://docs.getchip.com/chip.html#wifi-connection"&gt;Ref.&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo nmtui
+
+nmcli device wifi list
+
+sudo nmcli device wifi connect &lt;span class="s1"&gt;&amp;#39;(your wifi network name/SSID)&amp;#39;&lt;/span&gt; password &lt;span class="s1"&gt;&amp;#39;(your wifi password)&amp;#39;&lt;/span&gt; ifname wlan0 
+
+nmcli device status
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;Bluetooth&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo hcitool lescan  &lt;span class="c1"&gt;# search BLE device&lt;/span&gt;
+
+bluetoothctl
+     power on
+     scan on
+     pair
+     agent on
+     connect
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;GPU?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Onboard Power LED&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo i2cset -f -y &lt;span class="m"&gt;0&lt;/span&gt; 0x34 0x93 0x0 &lt;span class="c1"&gt;# OFF&lt;/span&gt;
+
+sudo i2cset -f -y &lt;span class="m"&gt;0&lt;/span&gt; 0x34 0x93 0x1 &lt;span class="c1"&gt;# ON&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;GPIO&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://bbs.nextthing.co/t/solved-gpio-pin-numbers/2931"&gt;Pin number&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://bbs.nextthing.co/t/adafruit-gpio-library-for-chip/2696&amp;gt;"&gt;library&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</content><category term="maker-notes"></category></entry></feed>
