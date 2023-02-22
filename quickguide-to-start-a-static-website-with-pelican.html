@@ -1,70 +1,68 @@
 <!doctype html>
 <html lang="en" itemscope itemtype="http://schema.org/Person">
-
 <head>
-    <meta charset="utf-8">
-    <!-- Site Meta Data -->
-    <title>Quickguide to start a static website with Pelican</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Dongming Jin">
+            <meta charset="utf-8">
+        <!-- Site Meta Data -->
+        <title>Quickguide to start a static website with Pelican</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="Dongming Jin">
 
-    <link rel="shortcut icon" href="/images/favicon.ico">
+        <link rel="shortcut icon" href="/images/favicon.ico">
 
-    <!-- schema.org -->
-    <meta itemprop="name" content="Domi's Universe">
-    <meta itemprop="image" content="">
-    <meta itemprop="description" content="">
+        <!-- schema.org -->
+        <meta itemprop="name" content="Domi's Universe">
+        <meta itemprop="image" content="">
+        <meta itemprop="description" content="">
 
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
-    <!-- Style Meta Data -->
-    <link rel="stylesheet" href="https://domijin.github.io/theme/css/style.css" type="text/css" />
-    <link rel="stylesheet" href="https://domijin.github.io/theme/css/pygments.css" type="text/css" />
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+        <!-- Style Meta Data -->
+        <link rel="stylesheet" href="https://domijin.github.io/theme/css/style.css" type="text/css"/>
+        <link rel="stylesheet" href="https://domijin.github.io/theme/css/pygments.css" type="text/css"/>
 
-    <!-- Feed Meta Data -->
-    <link href="https://domijin.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
-        title="Domi's Universe ATOM Feed" />
+        <!-- Feed Meta Data -->
+            <link href="https://domijin.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+                  title="Domi's Universe ATOM Feed"/>
 
-    <!-- Twitter Feed -->
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:site" content="domij_info">
-    <meta name="twitter:image" content="">
+        <!-- Twitter Feed -->
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="domij_info">
+        <meta name="twitter:image" content="">
 
     <meta name="twitter:creator" content="domij_info">
     <meta name="twitter:url" content="https://domijin.github.io/quickguide-to-start-a-static-website-with-pelican.html">
     <meta name="twitter:title" content="Domi's Universe ~ Quickguide to start a static website with Pelican">
-    <meta name="twitter:description"
-        content="There are many options to build a website. My reason to use Pelican is because It&#39;s open sourced at github/pelican, with many plugins and themes. I want to get my website up and running in one week. If you are familiar with Python and markdown, the Quickstart provides enough …">
-    <meta name="twitter:image" content="/images/favicon.ico" />
+    <meta name="twitter:description" content="There are many options to build a website. My reason to use Pelican is because It&#39;s open sourced at github/pelican, with many plugins and themes. I want to get my website up and running in one week. If you are familiar with Python and markdown, the Quickstart provides enough …">
+    <meta name="twitter:image" content="/images/favicon.ico"/>
 
     <!-- Facebook Meta Data -->
-    <meta property="og:title" content="Domi's Universe ~ Quickguide to start a static website with Pelican" />
-    <meta property="og:description"
-        content="There are many options to build a website. My reason to use Pelican is because It&#39;s open sourced at github/pelican, with many plugins and themes. I want to get my website up and running in one week. If you are familiar with Python and markdown, the Quickstart provides enough …" />
-    <meta property="og:image" content="/images/favicon.ico" />
+    <meta property="og:title" content="Domi's Universe ~ Quickguide to start a static website with Pelican"/>
+    <meta property="og:description" content="There are many options to build a website. My reason to use Pelican is because It&#39;s open sourced at github/pelican, with many plugins and themes. I want to get my website up and running in one week. If you are familiar with Python and markdown, the Quickstart provides enough …"/>
+    <meta property="og:image" content="/images/favicon.ico"/>
 </head>
 
 <body>
-    <!-- Sidebar -->
-    <aside>
-        <center>
-            <a href="https://domijin.github.io/pages/about-me.html">
-                <img alt="Photograph" style="width:120px; height:120px; border-radius:60px; border:0;"
-                    src="https://www.dropbox.com/s/x95wh69c17kntbb/Photo_2015.JPG?dl=1">
-            </a>
-        </center>
+<!-- Sidebar -->
+<aside>
+    <center>
+        <a href="https://domijin.github.io/pages/about-me.html">
+            <img alt="Photograph" style="width:120px; height:120px; border-radius:60px; border:0;" src="https://www.dropbox.com/s/x95wh69c17kntbb/Photo_2015.JPG?dl=1">
+        </a>
+    </center>
+    
+    <br>
+    <!-- <h1>Dongming Jin</h1> -->
 
-        <br>
-        <!-- <h1>Dongming Jin</h1> -->
-
-        <p>
+    <p>
             sci-fi mind, engineer hand
 
-            <br>
-            <br>
+        <br>
+        <br>
 
-            <a class="twitter-follow-button" href="https://twitter.com/domij_info" data-show-count="false"
-                data-lang="en">
+            <a class="twitter-follow-button"
+               href="https://twitter.com/domij_info"
+               data-show-count="false"
+               data-lang="en">
                 Follow @twitterdev
             </a>
             <script type="text/javascript">
@@ -76,188 +74,164 @@
                     js.src = "https://platform.twitter.com/widgets.js";
                     fjs.parentNode.insertBefore(js, fjs);
                     return window.twttr || (t = {
-                        _e: [],
-                        ready: function (f) {
-                            t._e.push(f)
-                        }
-                    });
+                            _e: [], ready: function (f) {
+                                t._e.push(f)
+                            }
+                        });
                 }(document, "script", "twitter-wjs"));
             </script>
-        </p>
+    </p>
 
-        <nav class="nav">
-            <ul class="list-bare">
+    <nav class="nav">
+        <ul class="list-bare">
 
-                <li><a class="nav__link" href="https://domijin.github.io/index.html">Blogs</a></li>
+                <li><a class="nav__link" href="https://domijin.github.io/">Blogs</a></li>
 
                 <li><a class="nav__link" href="https://domijin.github.io/pages/about-me.html">About Me</a></li>
                 <li><a class="nav__link" href="https://domijin.github.io/pages/footprint.html">Footprint</a></li>
                 <li><a class="nav__link" href="https://domijin.github.io/pages/research.html">Research</a></li>
-                <li><a class="nav__link"
-                        href="https://domijin.github.io/pages/zhe-li-xiao-zhong-hai-wai-xiao-you.html">浙里萧中-海外校友</a>
-                </li>
+                <li><a class="nav__link" href="https://domijin.github.io/pages/zhe-li-xiao-zhong-hai-wai-xiao-you.html">浙里萧中-海外校友</a></li>
 
-            </ul>
-        </nav>
+        </ul>
+    </nav>
 
-        <p class="social">
-            <a href="https://www.linkedin.com/in/domijin" target="_blank"><img
-                    src="https://domijin.github.io/theme/images/icons/linkedin.png"></a>
-            <a href="https://github.com/domijin" target="_blank"><img
-                    src="https://domijin.github.io/theme/images/icons/github.png"></a>
+    <p class="social">
+                <a href="https://www.linkedin.com/in/domijin" target="_blank"><img
+                        src="https://domijin.github.io/theme/images/icons/linkedin.png"></a>
+                <a href="https://github.com/domijin" target="_blank"><img
+                        src="https://domijin.github.io/theme/images/icons/github.png"></a>
             <a href="https://domijin.github.io/feeds/all.atom.xml" rel="alternate">
                 <img src="https://domijin.github.io/theme/images/icons/rss.png"></a>
-        </p>
+    </p>
 
         <h2>Categories</h2>
         <ul class="navbar">
-            <li><a href="https://domijin.github.io/category/articles.html">articles</a></li>
-            <li class="active"><a href="https://domijin.github.io/category/cheatsheets.html">cheatsheets</a></li>
-            <li><a href="https://domijin.github.io/category/maker-notes.html">maker-notes</a></li>
-            <li><a href="https://domijin.github.io/category/study-notes.html">study-notes</a></li>
+                <li><a
+                        href="https://domijin.github.io/category/articles.html">articles</a></li>
+                <li class="active"><a
+                        href="https://domijin.github.io/category/cheatsheets.html">cheatsheets</a></li>
+                <li><a
+                        href="https://domijin.github.io/category/maker-notes.html">maker-notes</a></li>
+                <li><a
+                        href="https://domijin.github.io/category/study-notes.html">study-notes</a></li>
         </ul>
 
 
-    </aside>
+</aside>
 
-    <!-- Content -->
-    <article>
+<!-- Content -->
+<article>
 
 
 
-        <section id="content">
-            <article>
-                <h2 class="post_title post_detail"><a
-                        href="https://domijin.github.io/quickguide-to-start-a-static-website-with-pelican.html"
-                        rel="bookmark" title="Permalink to Quickguide to start a static website with Pelican">Quickguide
-                        to start a static website with Pelican</a></h2>
-                <div class="entry-content blog-post">
+    <section id="content">
+        <article>
+            <h2 class="post_title post_detail"><a href="https://domijin.github.io/quickguide-to-start-a-static-website-with-pelican.html" rel="bookmark"
+                                                  title="Permalink to Quickguide to start a static website with Pelican">Quickguide to start a static website with Pelican</a></h2>
+            <div class="entry-content blog-post">
 
 
 
 
-                    <p>There are many options to build a website. My reason to use Pelican is because</p>
-                    <ol>
-                        <li>It's open sourced at <a href="https://github.com/getpelican/pelican">github/pelican</a>,
-                            with many <a href="https://github.com/getpelican/pelican-plugins">plugins</a> and <a
-                                href="http://www.pelicanthemes.com/">themes</a>. </li>
-                        <li>I want to get my website up and running in one week.</li>
-                    </ol>
-                    <p>If you are familiar with Python and markdown, the <a
-                            href="http://docs.getpelican.com/en/stable/quickstart.html">Quickstart</a> provides enough
-                        instruction to get started. Here I'm putting together the commands and adding some extra plugins
-                        for making this website. </p>
-                    <blockquote>
-                        <p>Note: Essentially, Pelican converts text files into HTML files, just like
-                            <code>pandoc</code>. </p>
-                    </blockquote>
-                    <p>TOC</p>
-                    <ul>
-                        <li><a href="#install">Get started</a></li>
-                        <li><a href="#files">File structure</a></li>
-                        <li><a href="#theme">Themes</a></li>
-                        <li><a href="#setup">Setups</a></li>
-                        <li><a href="#dev">Developing</a></li>
-                        <li><a href="#hellomd">Write the first article</a></li>
-                        <li><a href="#plugin">Add plugins</a></li>
-                        <li><a href="#tricks">Useful tricks</a></li>
-                    </ul>
-                    <h3><a name="install"> Get started </a></h3>
-                    <div class="highlight">
-                        <pre><span></span><span class="c1"># installation</span>
-pip install pelican markdown
+                <p>There are many options to build a website. My reason to use Pelican is because</p>
+<ol>
+<li>It's open sourced at <a href="https://github.com/getpelican/pelican">github/pelican</a>, with many <a href="https://github.com/getpelican/pelican-plugins">plugins</a> and <a href="http://www.pelicanthemes.com/">themes</a>. </li>
+<li>I want to get my website up and running in one week.</li>
+</ol>
+<p>If you are familiar with Python and markdown, the <a href="http://docs.getpelican.com/en/stable/quickstart.html">Quickstart</a> provides enough instruction to get started. Here I'm putting together the commands and adding some extra plugins for making this website. </p>
+<blockquote>
+<p>Note: Essentially, Pelican converts text files into HTML files, just like <code>pandoc</code>. </p>
+</blockquote>
+<p>TOC</p>
+<ul>
+<li><a href="#install">Get started</a></li>
+<li><a href="#files">File structure</a></li>
+<li><a href="#theme">Themes</a></li>
+<li><a href="#setup">Setups</a></li>
+<li><a href="#dev">Developing</a></li>
+<li><a href="#hellomd">Write the first article</a></li>
+<li><a href="#plugin">Add plugins</a></li>
+<li><a href="#tricks">Useful tricks</a></li>
+</ul>
+<h3><a name="install"> Get started </a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># installation</span>
+pip<span class="w"> </span>install<span class="w"> </span>pelican<span class="w"> </span>markdown
 
 <span class="c1"># start a project</span>
-mkdir -p ~/projects/yoursite  <span class="c1"># make sure there is no special character in the path to your project</span>
-<span class="nb">cd</span> ~/projects/yoursite
+mkdir<span class="w"> </span>-p<span class="w"> </span>~/projects/yoursite<span class="w">  </span><span class="c1"># make sure there is no special character in the path to your project</span>
+<span class="nb">cd</span><span class="w"> </span>~/projects/yoursite
 pelican-quickstart
-</pre>
-                    </div>
+</code></pre></div>
 
+<p>For questions that have default values denoted in brackets, feel free to use the Return key to accept those default values. Don't worry too much. Most of the values are stored in <code>pelicanconf.py</code> and <code>publishconf.py</code>.</p>
+<h3><a name="files"> File structure </a></h3>
+<p>Here is an example of the file structure for a demo project. </p>
+<div class="highlight"><pre><span></span><code>.
+├──<span class="w"> </span>Makefile<span class="w">  </span><span class="c1"># use `make help` for manual, it is very self-descriptive </span>
+├──<span class="w"> </span>content
+│<span class="w">   </span>├──<span class="w"> </span>articles<span class="w">  </span><span class="c1"># folder for blog articles</span>
+│<span class="w">   </span>│<span class="w">   </span>└──<span class="w"> </span>hello.md
+│<span class="w">   </span>├──<span class="w"> </span>pdfs<span class="w">  </span><span class="c1"># local pdfs to include in articles</span>
+│<span class="w">   </span>│<span class="w">   </span>└──<span class="w"> </span>file.pdf
+│<span class="w">   </span>├──<span class="w"> </span>images<span class="w">  </span><span class="c1"># local images to include in articles</span>
+│<span class="w">   </span>│<span class="w">   </span>└──<span class="w"> </span>picture.png
+│<span class="w">   </span>└──<span class="w"> </span>pages<span class="w">  </span><span class="c1"># front pages like About Me, Research</span>
+│<span class="w">       </span>├──<span class="w"> </span>Research.md
+│<span class="w">       </span>└──<span class="w"> </span>About<span class="w"> </span>Me.md
+├──<span class="w"> </span>develop_server.sh<span class="w">  </span><span class="c1"># script to control a local pelican server, i.e. on a RPi</span>
+├──<span class="w"> </span>fabfile.py<span class="w">  </span><span class="c1"># script to control a remote server by Fabric</span>
+├──<span class="w"> </span>output<span class="w">  </span><span class="c1"># output of html files</span>
+│<span class="w">   </span>├──<span class="w"> </span>...
+│<span class="w">   </span>└──<span class="w"> </span>...
+├──<span class="w"> </span>pelicanconf.py<span class="w">  </span><span class="c1"># configure file based on answered values</span>
+└──<span class="w"> </span>publishconf.py<span class="w">  </span><span class="c1"># configure only used in `make publish`</span>
+</code></pre></div>
 
-                    <p>For questions that have default values denoted in brackets, feel free to use the Return key to
-                        accept those default values. Don't worry too much. Most of the values are stored in
-                        <code>pelicanconf.py</code> and <code>publishconf.py</code>.</p>
-                    <h3><a name="files"> File structure </a></h3>
-                    <p>Here is an example of the file structure for a demo project. </p>
-                    <div class="highlight">
-                        <pre><span></span>.
-├── Makefile  <span class="c1"># use `make help` for manual, it is very self-descriptive </span>
-├── content
-│   ├── articles  <span class="c1"># folder for blog articles</span>
-│   │   └── hello.md
-│   ├── pdfs  <span class="c1"># local pdfs to include in articles</span>
-│   │   └── file.pdf
-│   ├── images  <span class="c1"># local images to include in articles</span>
-│   │   └── picture.png
-│   └── pages  <span class="c1"># front pages like About Me, Research</span>
-│       ├── Research.md
-│       └── About Me.md
-├── develop_server.sh  <span class="c1"># script to control a local pelican server, i.e. on a RPi</span>
-├── fabfile.py  <span class="c1"># script to control a remote server by Fabric</span>
-├── output  <span class="c1"># output of html files</span>
-│   ├── ...
-│   └── ...
-├── pelicanconf.py  <span class="c1"># configure file based on answered values</span>
-└── publishconf.py  <span class="c1"># configure only used in `make publish`</span>
-</pre>
-                    </div>
+<blockquote>
+<p>Note: Pelican doesn't recognize HTML files in <code>content/pdfs</code> folder at the moment. Any self-generated HTML files has to be manually copied to the <code>output/pdfs</code> folder.</p>
+</blockquote>
+<h3><a name="themes"> Themes </a></h3>
+<ul>
+<li>Resources<ul>
+<li><a href="http://www.pelicanthemes.com/">Themes gallery</a></li>
+<li><a href="https://github.com/getpelican/pelican-themes">Github collections</a></li>
+<li><a href="git@github.com:Parbhat/pelican-blue.git">pelican blue</a>: the one I used here.</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Note: for many themes, the default index is defined as the list of blog articles.</p>
+</blockquote>
+<p>To deploy a theme:</p>
+<ol>
+<li><code>git clone</code> the theme folder</li>
+<li>In <code>pelicanconf.py</code>, add <code>THEME = "path/to/theme"</code></li>
+</ol>
+<p>Or use flag when build a project, <code>pelican -t ~/pelican-themes/theme-name</code></p>
+<p>The basic structure of a theme folder is: </p>
+<div class="highlight"><pre><span></span><code>.
+├──<span class="w"> </span>static
+│<span class="w">   </span>├──<span class="w"> </span>css
+│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>pygments.css
+│<span class="w">   </span>│<span class="w">   </span>└──<span class="w"> </span>style.css
+│<span class="w">   </span>├──<span class="w"> </span>images
+│<span class="w">   </span>│<span class="w">   </span>└──<span class="w"> </span>icons
+│<span class="w">   </span>└──<span class="w"> </span>js
+│<span class="w">       </span>└──<span class="w"> </span>comments.js
+└──<span class="w"> </span>templates
+<span class="w">    </span>├──<span class="w"> </span>archives.html
+<span class="w">    </span>└──<span class="w"> </span>...
+</code></pre></div>
 
-
-                    <blockquote>
-                        <p>Note: Pelican doesn't recognize HTML files in <code>content/pdfs</code> folder at the moment.
-                            Any self-generated HTML files has to be manually copied to the <code>output/pdfs</code>
-                            folder.</p>
-                    </blockquote>
-                    <h3><a name="themes"> Themes </a></h3>
-                    <ul>
-                        <li>Resources<ul>
-                                <li><a href="http://www.pelicanthemes.com/">Themes gallery</a></li>
-                                <li><a href="https://github.com/getpelican/pelican-themes">Github collections</a></li>
-                                <li><a href="git@github.com:Parbhat/pelican-blue.git">pelican blue</a>: the one I used
-                                    here.</li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <blockquote>
-                        <p>Note: for many themes, the default index is defined as the list of blog articles.</p>
-                    </blockquote>
-                    <p>To deploy a theme:</p>
-                    <ol>
-                        <li><code>git clone</code> the theme folder</li>
-                        <li>In <code>pelicanconf.py</code>, add <code>THEME = "path/to/theme"</code></li>
-                    </ol>
-                    <p>Or use flag when build a project, <code>pelican -t ~/pelican-themes/theme-name</code></p>
-                    <p>The basic structure of a theme folder is: </p>
-                    <div class="highlight">
-                        <pre><span></span>.
-├── static
-│   ├── css
-│   │   ├── pygments.css
-│   │   └── style.css
-│   ├── images
-│   │   └── icons
-│   └── js
-│       └── comments.js
-└── templates
-    ├── archives.html
-    └── ...
-</pre>
-                    </div>
-
-
-                    <p>To customize or build a theme:</p>
-                    <ol>
-                        <li>modify or create new <code>css, js</code> files and <code>html</code> templates. </li>
-                        <li><code>pelican-themes -i {your_theme_name}</code></li>
-                    </ol>
-                    <h3><a name="setup"> Setups </a></h3>
-                    <p>The complete setting list can be found at <a
-                            href="http://docs.getpelican.com/en/3.6.3/settings.html">here</a>. Many of which are not
-                        needed. Here I covered some setups for this website. </p>
-                    <p>The <code>pelicanconf.py</code> file explained: </p>
-                    <div class="highlight">
-                        <pre><span></span><span class="o">...</span>
+<p>To customize or build a theme:</p>
+<ol>
+<li>modify or create new <code>css, js</code> files and <code>html</code> templates. </li>
+<li><code>pelican-themes -i {your_theme_name}</code></li>
+</ol>
+<h3><a name="setup"> Setups </a></h3>
+<p>The complete setting list can be found at <a href="http://docs.getpelican.com/en/3.6.3/settings.html">here</a>. Many of which are not needed. Here I covered some setups for this website. </p>
+<p>The <code>pelicanconf.py</code> file explained: </p>
+<div class="highlight"><pre><span></span><code><span class="o">...</span>
 <span class="c1"># some general setup</span>
 <span class="n">SITEURL</span> <span class="o">=</span> <span class="s1">&#39;http://localhost:8000&#39;</span>  <span class="c1"># use the url for test/local server</span>
 <span class="n">PATH</span> <span class="o">=</span> <span class="s1">&#39;content&#39;</span>  <span class="c1"># path to the folder of contents</span>
@@ -282,18 +256,13 @@ pelican-quickstart
     <span class="s1">&#39;timeout_duration_ms&#39;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
     <span class="s1">&#39;timeout_is_error&#39;</span><span class="p">:</span>    <span class="kc">False</span><span class="p">,</span>
 <span class="p">}</span>
-</pre>
-                    </div>
+</code></pre></div>
 
-
-                    <blockquote>
-                        <p>Note: FAVICON is the icon <img alt="" src="/images/favicon.ico"> for this website, mine is
-                            made of my initials using <a
-                                href="https://www.favicon-generator.org/">favicon-generator</a>.</p>
-                    </blockquote>
-                    <p>The <code>publishconf.py</code> file explained: </p>
-                    <div class="highlight">
-                        <pre><span></span><span class="n">SITEURL</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>  <span class="c1"># your web domain</span>
+<blockquote>
+<p>Note: FAVICON is the icon <img alt="" src="/images/favicon.ico"> for this website, mine is made of my initials using <a href="https://www.favicon-generator.org/">favicon-generator</a>.</p>
+</blockquote>
+<p>The <code>publishconf.py</code> file explained: </p>
+<div class="highlight"><pre><span></span><code><span class="n">SITEURL</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>  <span class="c1"># your web domain</span>
 <span class="n">MENUITEMS</span> <span class="o">=</span> <span class="p">((</span><span class="s1">&#39;Blogs&#39;</span><span class="p">,</span> <span class="n">SITEURL</span><span class="p">),)</span>  <span class="c1"># add index into site map formed by pages</span>
 <span class="n">RELATIVE_URLS</span> <span class="o">=</span> <span class="kc">False</span>  <span class="c1"># document-relative URLs, useful when developing</span>
 
@@ -306,38 +275,31 @@ pelican-quickstart
 
 <span class="n">DISQUS_SITENAME</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>  <span class="c1"># see notes</span>
 <span class="n">GOOGLE_ANALYTICS</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>  <span class="c1"># see notes</span>
-</pre>
-                    </div>
+</code></pre></div>
 
-
-                    <blockquote>
-                        <p>Note:</p>
-                        <blockquote>
-                            <p>DISQUS: follow <a
-                                    href="https://kamyanskiy.github.io/2017/06/how-to-add-disqus-comments.html">guide</a>
-                                to use DISQUS for commenting. Static comment plugins exist to have full control of
-                                contents. <br>
-                                Google Analytics: Set to ‘UA-XXXX-YYYY’ from Google Analytics to help track traffic.</p>
-                        </blockquote>
-                    </blockquote>
-                    <h3><a name="dev"> Developing </a></h3>
-                    <p>It is very straight-forward if you know how to read the <code>Makefile</code>.</p>
-                    <ul>
-                        <li>Start the server: <code>make devserver</code> or <code>./develop_server.sh start</code></li>
-                        <li>Stop the server: <code>make stopserver</code> or <code>./develop_server.sh stop</code></li>
-                        <li>Publish the website: <code>make publish</code></li>
-                        <li>Upload website to web server<ul>
-                                <li>FTP: <code>make ftp_upload</code></li>
-                                <li>ssh: <code>make ssh_upload</code></li>
-                                <li>using <a href="http://www.fabfile.org/">Fabric</a>: <code>python fabfile.py</code>
-                                </li>
-                                <li>...</li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <h3><a name="hellomd"> Write the first article </a></h3>
-                    <div class="highlight">
-                        <pre><span></span>Title: My First Article
+<blockquote>
+<p>Note:</p>
+<blockquote>
+<p>DISQUS: follow <a href="https://kamyanskiy.github.io/2017/06/how-to-add-disqus-comments.html">guide</a> to use DISQUS for commenting. Static comment plugins exist to have full control of contents. <br>
+Google Analytics: Set to ‘UA-XXXX-YYYY’ from Google Analytics to help track traffic.</p>
+</blockquote>
+</blockquote>
+<h3><a name="dev"> Developing </a></h3>
+<p>It is very straight-forward if you know how to read the <code>Makefile</code>.</p>
+<ul>
+<li>Start the server: <code>make devserver</code> or <code>./develop_server.sh start</code></li>
+<li>Stop the server: <code>make stopserver</code> or <code>./develop_server.sh stop</code></li>
+<li>Publish the website: <code>make publish</code></li>
+<li>Upload website to web server<ul>
+<li>FTP: <code>make ftp_upload</code></li>
+<li>ssh: <code>make ssh_upload</code></li>
+<li>using <a href="http://www.fabfile.org/">Fabric</a>: <code>python fabfile.py</code></li>
+<li>...</li>
+</ul>
+</li>
+</ul>
+<h3><a name="hellomd"> Write the first article </a></h3>
+<div class="highlight"><pre><span></span><code>Title: My First Article
 Date: 2010-12-03 10:20
 Category: Articles
 Tags: tag1, tag2
@@ -347,76 +309,70 @@ Modified: 08/14/2018
 
 
 Article Content In Markdown Format
-</pre>
-                    </div>
+</code></pre></div>
 
+<h3><a name='plugin'> Add plugins </a></h3>
+<p>A collection of plugins can be found <a href="https://github.com/getpelican/pelican-plugins">here</a></p>
+<p>Use of plugin: </p>
+<ol>
+<li><code>git clone</code> the plugin folder</li>
+<li>In <code>pelicanconf.py</code>, define <code>PLUGIN_PATHS</code> and <code>PLUGINs</code> as explained in <a href="#setup">Setups</a>. </li>
+<li>Add additional setup following special instruction of the plugin.</li>
+</ol>
+<h3><a name='tricks'> Useful tricks </a></h3>
+<ul>
+<li>copyright footer: generate <a href="https://www.freeprivacypolicy.com/">free privacy policy</a> and style it to protect your website</li>
+<li>render_math: support math in markdown</li>
+<li>representative_image: extracts a representative image (i.e, featured image) from the article's summary or content.</li>
+<li>pin_to_top: pin an article to top</li>
+</ul>
+            </div>
 
-                    <h3><a name='plugin'> Add plugins </a></h3>
-                    <p>A collection of plugins can be found <a
-                            href="https://github.com/getpelican/pelican-plugins">here</a></p>
-                    <p>Use of plugin: </p>
-                    <ol>
-                        <li><code>git clone</code> the plugin folder</li>
-                        <li>In <code>pelicanconf.py</code>, define <code>PLUGIN_PATHS</code> and <code>PLUGINs</code> as
-                            explained in <a href="#setup">Setups</a>. </li>
-                        <li>Add additional setup following special instruction of the plugin.</li>
-                    </ol>
-                    <h3><a name='tricks'> Useful tricks </a></h3>
-                    <ul>
-                        <li>copyright footer: generate <a href="https://www.freeprivacypolicy.com/">free privacy
-                                policy</a> and style it to protect your website</li>
-                        <li>render_math: support math in markdown</li>
-                        <li>representative_image: extracts a representative image (i.e, featured image) from the
-                            article's summary or content.</li>
-                        <li>pin_to_top: pin an article to top</li>
-                    </ul>
-                </div>
-
-                <div class="post_list">
-                    <span class="published" title="2018-09-01T00:00:00-05:00">
+            <div class="post_list">
+                <span class="published" title="2018-09-01T00:00:00-05:00">
                         Published: Sat 01 September 2018.
-                    </span>
+                </span>
 
 
-                    <span> By </span>
-                    <a href="https://domijin.github.io/pages/about-me.html">Dongming Jin</a>
-                    <span> in </span>
-                    <span class="post_category"><a href="https://domijin.github.io/category/cheatsheets.html"
-                            rel="bookmark" title="Permalink to cheatsheets"> #cheatsheets. </a></span>
+                <span> By </span>
+                <a href="https://domijin.github.io/pages/about-me.html">Dongming Jin</a>
+                <span> in </span>
+                <span class="post_category"><a href="https://domijin.github.io/category/cheatsheets.html" rel="bookmark"
+                                               title="Permalink to cheatsheets"> #cheatsheets. </a></span>
+
+ 
 
 
+                <div class="entry-social">
+                    <span class="twitter"><a target="_blank" rel="nofollow"
+                                             onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=700');return false;"
+                                             title="Twitter"
+                                             href="https://twitter.com/share?url=https://domijin.github.io/quickguide-to-start-a-static-website-with-pelican.html&text=Quickguide to start a static website with Pelican&via=domij_info"><img
+                            src="https://domijin.github.io/theme/images/icons/twitter-s.png"></a></span>
 
+                    <span class="gplus"><a target="_blank" title="Google +"
+                                           href="https://plus.google.com/share?url=https://domijin.github.io/quickguide-to-start-a-static-website-with-pelican.html&hl=fr"
+                                           rel="nofollow"
+                                           onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"><img
+                            src="https://domijin.github.io/theme/images/icons/google-s.png"></a></span>
 
-                    <div class="entry-social">
-                        <span class="twitter"><a target="_blank" rel="nofollow"
-                                onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=700');return false;"
-                                title="Twitter"
-                                href="https://twitter.com/share?url=https://domijin.github.io/quickguide-to-start-a-static-website-with-pelican.html&text=Quickguide to start a static website with Pelican&via=domij_info"><img
-                                    src="https://domijin.github.io/theme/images/icons/twitter-s.png"></a></span>
+                    <span class="facebook"><a target="_blank" title="Facebook" rel="nofollow"
+                                              onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;"
+                                              href="https://www.facebook.com/sharer.php?u=https://domijin.github.io/quickguide-to-start-a-static-website-with-pelican.html&t=Quickguide to start a static website with Pelican"><img
+                            src="https://domijin.github.io/theme/images/icons/facebook-s.png"></a></span>
 
-                        <span class="gplus"><a target="_blank" title="Google +"
-                                href="https://plus.google.com/share?url=https://domijin.github.io/quickguide-to-start-a-static-website-with-pelican.html&hl=fr"
-                                rel="nofollow"
-                                onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"><img
-                                    src="https://domijin.github.io/theme/images/icons/google-s.png"></a></span>
+                    <a target="_blank" title="Linkedin"
+                       href="https://www.linkedin.com/shareArticle?mini=true&url=https://domijin.github.io/quickguide-to-start-a-static-website-with-pelican.html&title=Quickguide to start a static website with Pelican"
+                       rel="nofollow"
+                       onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"><img
+                            src="https://domijin.github.io/theme/images/icons/linkedin-s.png"></a>
 
-                        <span class="facebook"><a target="_blank" title="Facebook" rel="nofollow"
-                                onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;"
-                                href="https://www.facebook.com/sharer.php?u=https://domijin.github.io/quickguide-to-start-a-static-website-with-pelican.html&t=Quickguide to start a static website with Pelican"><img
-                                    src="https://domijin.github.io/theme/images/icons/facebook-s.png"></a></span>
-
-                        <a target="_blank" title="Linkedin"
-                            href="https://www.linkedin.com/shareArticle?mini=true&url=https://domijin.github.io/quickguide-to-start-a-static-website-with-pelican.html&title=Quickguide to start a static website with Pelican"
-                            rel="nofollow"
-                            onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"><img
-                                src="https://domijin.github.io/theme/images/icons/linkedin-s.png"></a>
-
-                        <span class="mail"><a
-                                href="mailto:?subject=Quickguide to start a static website with Pelican&amp;body=Checkout this article about [Quickguide to start a static website with Pelican] written byDongming Jin. https://domijin.github.io/quickguide-to-start-a-static-website-with-pelican.html"
-                                title="Share by Email" target="_blank"><img
-                                    src="https://domijin.github.io/theme/images/icons/mail-s.png"></a></span>
-                    </div>
+                    <span class="mail"><a
+                            href="mailto:?subject=Quickguide to start a static website with Pelican&amp;body=Checkout this article about [Quickguide to start a static website with Pelican] written byDongming Jin. https://domijin.github.io/quickguide-to-start-a-static-website-with-pelican.html"
+                            title="Share by Email" target="_blank"><img
+                            src="https://domijin.github.io/theme/images/icons/mail-s.png"></a></span>
                 </div>
+            </div>
                 <div class="comments">
                     <h2>Comments !</h2>
                     <div id="disqus_thread"></div>
@@ -428,27 +384,24 @@ Article Content In Markdown Format
                             dsq.async = true;
                             dsq.src = 'https://domij.disqus.com/embed.js';
                             (document.getElementsByTagName('head')[0] ||
-                                document.getElementsByTagName('body')[0]).appendChild(dsq);
+                            document.getElementsByTagName('body')[0]).appendChild(dsq);
                         })();
                     </script>
                 </div>
-            </article>
+        </article>
+
+        	
+	
+	
 
 
+    </section>
+</article>
 
-
-
-
-        </section>
-    </article>
-
-    <!-- Footer -->
+<!-- Footer -->
     <footer>
         <p>
-            © Copyright 2018 <a href="mailto:admin@domij.info"> Dongming Jin</a> | <a
-                href="https://www.freeprivacypolicy.com/privacy/view/bc11c24cc8faf2a9a506ffd5aa40278d">Privacy
-                Policy</a> | Powered by <a href="http://getpelican.com/">Pelican</a> and <a
-                href="https://github.com/parbhat/pelican-blue">Pelican-Blue</a>.
+            © Copyright 2018 <a href="mailto:admin@domij.info"> Dongming Jin</a> | <a href="https://www.freeprivacypolicy.com/privacy/view/bc11c24cc8faf2a9a506ffd5aa40278d">Privacy Policy</a> | Powered by <a href="http://getpelican.com/">Pelican</a> and <a href="https://github.com/parbhat/pelican-blue">Pelican-Blue</a>.
         </p>
     </footer>
 
@@ -461,13 +414,11 @@ Article Content In Markdown Format
             var ga = document.createElement('script');
             ga.type = 'text/javascript';
             ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') +
-                '.google-analytics.com/ga.js';
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
             var s = document.getElementsByTagName('script')[0];
             s.parentNode.insertBefore(ga, s);
         })();
     </script>
 
 </body>
-
 </html>

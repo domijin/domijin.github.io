@@ -1,70 +1,68 @@
 <!doctype html>
 <html lang="en" itemscope itemtype="http://schema.org/Person">
-
 <head>
-    <meta charset="utf-8">
-    <!-- Site Meta Data -->
-    <title>Bash Commands</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Dongming Jin">
+            <meta charset="utf-8">
+        <!-- Site Meta Data -->
+        <title>Bash Commands</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="Dongming Jin">
 
-    <link rel="shortcut icon" href="/images/favicon.ico">
+        <link rel="shortcut icon" href="/images/favicon.ico">
 
-    <!-- schema.org -->
-    <meta itemprop="name" content="Domi's Universe">
-    <meta itemprop="image" content="">
-    <meta itemprop="description" content="">
+        <!-- schema.org -->
+        <meta itemprop="name" content="Domi's Universe">
+        <meta itemprop="image" content="">
+        <meta itemprop="description" content="">
 
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
-    <!-- Style Meta Data -->
-    <link rel="stylesheet" href="https://domijin.github.io/theme/css/style.css" type="text/css" />
-    <link rel="stylesheet" href="https://domijin.github.io/theme/css/pygments.css" type="text/css" />
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+        <!-- Style Meta Data -->
+        <link rel="stylesheet" href="https://domijin.github.io/theme/css/style.css" type="text/css"/>
+        <link rel="stylesheet" href="https://domijin.github.io/theme/css/pygments.css" type="text/css"/>
 
-    <!-- Feed Meta Data -->
-    <link href="https://domijin.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
-        title="Domi's Universe ATOM Feed" />
+        <!-- Feed Meta Data -->
+            <link href="https://domijin.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+                  title="Domi's Universe ATOM Feed"/>
 
-    <!-- Twitter Feed -->
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:site" content="domij_info">
-    <meta name="twitter:image" content="">
+        <!-- Twitter Feed -->
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="domij_info">
+        <meta name="twitter:image" content="">
 
     <meta name="twitter:creator" content="domij_info">
     <meta name="twitter:url" content="https://domijin.github.io/bash-commands.html">
     <meta name="twitter:title" content="Domi's Universe ~ Bash Commands">
-    <meta name="twitter:description"
-        content="Practical notes for future references. TeX on OS X install the BasicTeX from MacTeX GUI full application: TeXshop lightweight math validator: LaTeXit # configure which pdftex # install style fiel tlmgr install basic Encrypt &amp; Decrypt openssl enc -in foo.bar[.enc] \ [-d] -aes-256-cbc \ -pass stdin \ &gt; foo.bar.enc system scheduling # backend crontab …">
-    <meta name="twitter:image" content="None" />
+    <meta name="twitter:description" content="Practical notes for future references. TeX on OS X install the BasicTeX from MacTeX GUI full application: TeXshop lightweight math validator: LaTeXit # configure which pdftex # install style fiel tlmgr install basic Encrypt &amp; Decrypt openssl enc -in foo.bar[.enc] \ [-d] -aes-256-cbc \ -pass stdin \ &gt; foo.bar.enc system scheduling # backend crontab …">
+    <meta name="twitter:image" content="None"/>
 
     <!-- Facebook Meta Data -->
-    <meta property="og:title" content="Domi's Universe ~ Bash Commands" />
-    <meta property="og:description"
-        content="Practical notes for future references. TeX on OS X install the BasicTeX from MacTeX GUI full application: TeXshop lightweight math validator: LaTeXit # configure which pdftex # install style fiel tlmgr install basic Encrypt &amp; Decrypt openssl enc -in foo.bar[.enc] \ [-d] -aes-256-cbc \ -pass stdin \ &gt; foo.bar.enc system scheduling # backend crontab …" />
-    <meta property="og:image" content="None" />
+    <meta property="og:title" content="Domi's Universe ~ Bash Commands"/>
+    <meta property="og:description" content="Practical notes for future references. TeX on OS X install the BasicTeX from MacTeX GUI full application: TeXshop lightweight math validator: LaTeXit # configure which pdftex # install style fiel tlmgr install basic Encrypt &amp; Decrypt openssl enc -in foo.bar[.enc] \ [-d] -aes-256-cbc \ -pass stdin \ &gt; foo.bar.enc system scheduling # backend crontab …"/>
+    <meta property="og:image" content="None"/>
 </head>
 
 <body>
-    <!-- Sidebar -->
-    <aside>
-        <center>
-            <a href="https://domijin.github.io/pages/about-me.html">
-                <img alt="Photograph" style="width:120px; height:120px; border-radius:60px; border:0;"
-                    src="https://www.dropbox.com/s/x95wh69c17kntbb/Photo_2015.JPG?dl=1">
-            </a>
-        </center>
+<!-- Sidebar -->
+<aside>
+    <center>
+        <a href="https://domijin.github.io/pages/about-me.html">
+            <img alt="Photograph" style="width:120px; height:120px; border-radius:60px; border:0;" src="https://www.dropbox.com/s/x95wh69c17kntbb/Photo_2015.JPG?dl=1">
+        </a>
+    </center>
+    
+    <br>
+    <!-- <h1>Dongming Jin</h1> -->
 
-        <br>
-        <!-- <h1>Dongming Jin</h1> -->
-
-        <p>
+    <p>
             sci-fi mind, engineer hand
 
-            <br>
-            <br>
+        <br>
+        <br>
 
-            <a class="twitter-follow-button" href="https://twitter.com/domij_info" data-show-count="false"
-                data-lang="en">
+            <a class="twitter-follow-button"
+               href="https://twitter.com/domij_info"
+               data-show-count="false"
+               data-lang="en">
                 Follow @twitterdev
             </a>
             <script type="text/javascript">
@@ -76,286 +74,253 @@
                     js.src = "https://platform.twitter.com/widgets.js";
                     fjs.parentNode.insertBefore(js, fjs);
                     return window.twttr || (t = {
-                        _e: [],
-                        ready: function (f) {
-                            t._e.push(f)
-                        }
-                    });
+                            _e: [], ready: function (f) {
+                                t._e.push(f)
+                            }
+                        });
                 }(document, "script", "twitter-wjs"));
             </script>
-        </p>
+    </p>
 
-        <nav class="nav">
-            <ul class="list-bare">
+    <nav class="nav">
+        <ul class="list-bare">
 
-                <li><a class="nav__link" href="https://domijin.github.io/index.html">Blogs</a></li>
+                <li><a class="nav__link" href="https://domijin.github.io/">Blogs</a></li>
 
                 <li><a class="nav__link" href="https://domijin.github.io/pages/about-me.html">About Me</a></li>
                 <li><a class="nav__link" href="https://domijin.github.io/pages/footprint.html">Footprint</a></li>
                 <li><a class="nav__link" href="https://domijin.github.io/pages/research.html">Research</a></li>
-                <li><a class="nav__link"
-                        href="https://domijin.github.io/pages/zhe-li-xiao-zhong-hai-wai-xiao-you.html">浙里萧中-海外校友</a>
-                </li>
+                <li><a class="nav__link" href="https://domijin.github.io/pages/zhe-li-xiao-zhong-hai-wai-xiao-you.html">浙里萧中-海外校友</a></li>
 
-            </ul>
-        </nav>
+        </ul>
+    </nav>
 
-        <p class="social">
-            <a href="https://www.linkedin.com/in/domijin" target="_blank"><img
-                    src="https://domijin.github.io/theme/images/icons/linkedin.png"></a>
-            <a href="https://github.com/domijin" target="_blank"><img
-                    src="https://domijin.github.io/theme/images/icons/github.png"></a>
+    <p class="social">
+                <a href="https://www.linkedin.com/in/domijin" target="_blank"><img
+                        src="https://domijin.github.io/theme/images/icons/linkedin.png"></a>
+                <a href="https://github.com/domijin" target="_blank"><img
+                        src="https://domijin.github.io/theme/images/icons/github.png"></a>
             <a href="https://domijin.github.io/feeds/all.atom.xml" rel="alternate">
                 <img src="https://domijin.github.io/theme/images/icons/rss.png"></a>
-        </p>
+    </p>
 
         <h2>Categories</h2>
         <ul class="navbar">
-            <li><a href="https://domijin.github.io/category/articles.html">articles</a></li>
-            <li class="active"><a href="https://domijin.github.io/category/cheatsheets.html">cheatsheets</a></li>
-            <li><a href="https://domijin.github.io/category/maker-notes.html">maker-notes</a></li>
-            <li><a href="https://domijin.github.io/category/study-notes.html">study-notes</a></li>
+                <li><a
+                        href="https://domijin.github.io/category/articles.html">articles</a></li>
+                <li class="active"><a
+                        href="https://domijin.github.io/category/cheatsheets.html">cheatsheets</a></li>
+                <li><a
+                        href="https://domijin.github.io/category/maker-notes.html">maker-notes</a></li>
+                <li><a
+                        href="https://domijin.github.io/category/study-notes.html">study-notes</a></li>
         </ul>
 
 
-    </aside>
+</aside>
 
-    <!-- Content -->
-    <article>
-
-
-
-        <section id="content">
-            <article>
-                <h2 class="post_title post_detail"><a href="https://domijin.github.io/bash-commands.html" rel="bookmark"
-                        title="Permalink to Bash Commands">Bash Commands</a></h2>
-                <div class="entry-content blog-post">
+<!-- Content -->
+<article>
 
 
 
+    <section id="content">
+        <article>
+            <h2 class="post_title post_detail"><a href="https://domijin.github.io/bash-commands.html" rel="bookmark"
+                                                  title="Permalink to Bash Commands">Bash Commands</a></h2>
+            <div class="entry-content blog-post">
 
-                    <p>Practical notes for future references.</p>
-                    <p>TeX on OS X</p>
-                    <ul>
-                        <li>install the BasicTeX from <a href="http://www.tug.org/mactex/">MacTeX</a></li>
-                        <li>GUI full application: <a href="http://pages.uoregon.edu/koch/texshop/">TeXshop</a></li>
-                        <li>lightweight math validator: <a href="https://www.chachatelier.fr/latexit/">LaTeXit</a></li>
-                    </ul>
-                    <div class="highlight">
-                        <pre><span></span><span class="c1"># configure</span>
-which pdftex
+
+
+
+                <p>Practical notes for future references.</p>
+<p>TeX on OS X</p>
+<ul>
+<li>install the BasicTeX from <a href="http://www.tug.org/mactex/">MacTeX</a></li>
+<li>GUI full application: <a href="http://pages.uoregon.edu/koch/texshop/">TeXshop</a></li>
+<li>lightweight math validator: <a href="https://www.chachatelier.fr/latexit/">LaTeXit</a></li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1"># configure</span>
+which<span class="w"> </span>pdftex
 <span class="c1"># install style fiel</span>
-tlmgr install 
-</pre>
-                    </div>
+tlmgr<span class="w"> </span>install<span class="w"> </span>
+</code></pre></div>
 
+<hr>
+<p>basic Encrypt &amp; Decrypt</p>
+<div class="highlight"><pre><span></span><code>openssl<span class="w"> </span>enc<span class="w"> </span>-in<span class="w"> </span>foo.bar<span class="o">[</span>.enc<span class="o">]</span><span class="w"> </span><span class="se">\</span>
+<span class="w">                     </span><span class="o">[</span>-d<span class="o">]</span><span class="w"> </span>-aes-256-cbc<span class="w"> </span><span class="se">\</span>
+<span class="w">                     </span>-pass<span class="w"> </span>stdin<span class="w"> </span><span class="se">\</span>
+<span class="w">                     </span>&gt;<span class="w"> </span>foo.bar.enc<span class="w"> </span>
+</code></pre></div>
 
-                    <hr>
-                    <p>basic Encrypt &amp; Decrypt</p>
-                    <div class="highlight">
-                        <pre><span></span>openssl enc -in foo.bar<span class="o">[</span>.enc<span class="o">]</span> <span class="se">\</span>
-                     <span class="o">[</span>-d<span class="o">]</span> -aes-256-cbc <span class="se">\</span>
-                     -pass stdin <span class="se">\</span>
-                     &gt; foo.bar.enc 
-</pre>
-                    </div>
-
-
-                    <hr>
-                    <p>system</p>
-                    <ul>
-                        <li>scheduling</li>
-                    </ul>
-                    <div class="highlight">
-                        <pre><span></span><span class="c1"># backend</span>
-crontab -e  ... <span class="c1"># m h dom mon dow  command,  2 7-18 * * 1-5  do something</span>
+<hr>
+<p>system</p>
+<ul>
+<li>scheduling</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1"># backend</span>
+crontab<span class="w"> </span>-e<span class="w">  </span>...<span class="w"> </span><span class="c1"># m h dom mon dow  command,  2 7-18 * * 1-5  do something</span>
 <span class="c1"># in-situ</span>
-watch -n <span class="m">5</span>  ... <span class="c1"># every 5 sec</span>
-</pre>
-                    </div>
+watch<span class="w"> </span>-n<span class="w"> </span><span class="m">5</span><span class="w">  </span>...<span class="w"> </span><span class="c1"># every 5 sec</span>
+</code></pre></div>
 
-
-                    <ul>
-                        <li>info</li>
-                    </ul>
-                    <div class="highlight">
-                        <pre><span></span>df -h  <span class="c1"># disk storage</span>
-du -h  <span class="c1"># file size</span>
-tree  <span class="c1"># directory in tree</span>
+<ul>
+<li>info</li>
+</ul>
+<div class="highlight"><pre><span></span><code>df<span class="w"> </span>-h<span class="w">  </span><span class="c1"># disk storage</span>
+du<span class="w"> </span>-h<span class="w">  </span><span class="c1"># file size</span>
+tree<span class="w">  </span><span class="c1"># directory in tree</span>
 
 updatedb/locate
 which/whereis
-</pre>
-                    </div>
+</code></pre></div>
 
+<p>-manage</p>
+<div class="highlight"><pre><span></span><code>purge<span class="w">  </span><span class="c1"># memory</span>
+chmod<span class="w">  </span><span class="c1"># 4: r--; 5 r-x; 6 rw-; 7 rwx</span>
 
-                    <p>-manage</p>
-                    <div class="highlight">
-                        <pre><span></span>purge  <span class="c1"># memory</span>
-chmod  <span class="c1"># 4: r--; 5 r-x; 6 rw-; 7 rwx</span>
+<span class="k">for</span><span class="w"> </span>file<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="sb">`</span>ls<span class="w"> </span>*<span class="sb">`</span><span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$file</span><span class="p">;</span><span class="w"> </span><span class="k">done</span><span class="w">  </span><span class="c1"># ``: prior execution</span>
+find<span class="w"> </span>.<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-print<span class="w"> </span>-name<span class="w"> </span>*.bak<span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>rm<span class="w">  </span><span class="c1"># xargs: streamline</span>
 
-<span class="k">for</span> file <span class="k">in</span> <span class="sb">`</span>ls *<span class="sb">`</span><span class="p">;</span> <span class="k">do</span> <span class="nb">echo</span> <span class="nv">$file</span><span class="p">;</span> <span class="k">done</span>  <span class="c1"># ``: prior execution</span>
-find . -type f -print -name *.bak <span class="p">|</span> xargs rm  <span class="c1"># xargs: streamline</span>
-
-Ctrl-Z  <span class="c1"># push to background</span>
+Ctrl-Z<span class="w">  </span><span class="c1"># push to background</span>
 <span class="nb">jobs</span>
-<span class="nb">fg</span>  <span class="c1"># bring back</span>
-<span class="nb">kill</span> -STOP/-CONT 
+<span class="nb">fg</span><span class="w">  </span><span class="c1"># bring back</span>
+<span class="nb">kill</span><span class="w"> </span>-STOP/-CONT<span class="w"> </span>
 
-wget  <span class="c1"># -nd: no directories; -e exclude_file; -A file_type</span>
-</pre>
-                    </div>
+wget<span class="w">  </span><span class="c1"># -nd: no directories; -e exclude_file; -A file_type</span>
+</code></pre></div>
 
-
-                    <p><a href="https://www.tldp.org/LDP/abs/html/special-chars.html">special characters</a>: <code># ;
-                            . \ / * ? ${} {a..z} $[ ...] &amp; |</code></p>
-                    <hr>
-                    <p>files</p>
-                    <div class="highlight">
-                        <pre><span></span><span class="c1"># stdin</span>
-sort/uniqu <span class="o">[</span>-c<span class="o">]</span> 
+<p><a href="https://www.tldp.org/LDP/abs/html/special-chars.html">special characters</a>: <code>#      ;      .      \      /      *      ?      ${}    {a..z} $[ ...]       &amp;      |</code></p>
+<hr>
+<p>files</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># stdin</span>
+sort/uniqu<span class="w"> </span><span class="o">[</span>-c<span class="o">]</span><span class="w"> </span>
 diff
-less <span class="o">[</span>-S<span class="o">]</span>
+less<span class="w"> </span><span class="o">[</span>-S<span class="o">]</span>
 
-cat <span class="s">&lt;&lt; EOF &gt;&gt; file</span>
+cat<span class="w"> </span><span class="s">&lt;&lt; EOF &gt;&gt; file</span>
 <span class="s">xxx</span>
 <span class="s">xxx</span>
 <span class="s">EOF</span>
 
-cat file <span class="p">|</span> sudo tee <span class="o">[</span>-a<span class="o">]</span> newfile 
+cat<span class="w"> </span>file<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span><span class="o">[</span>-a<span class="o">]</span><span class="w"> </span>newfile<span class="w"> </span>
 
-sed <span class="o">[</span>-i.bak<span class="o">]</span> <span class="s1">&#39;s/foo/bar/g&#39;</span> file  <span class="o">[</span>&gt; newfile<span class="o">]</span>
-tr <span class="s1">&#39;\r&#39;</span> <span class="s1">&#39;\n&#39;</span>  <span class="c1"># translate characters</span>
-              <span class="c1"># \a    &lt;alert character&gt;</span>
-              <span class="c1"># \b    &lt;backspace&gt;</span>
-              <span class="c1"># \f    &lt;form-feed&gt;</span>
-              <span class="c1"># \n    &lt;newline&gt;</span>
-              <span class="c1"># \r    &lt;carriage return&gt;</span>
-              <span class="c1"># \t    &lt;tab&gt;</span>
-              <span class="c1"># \v    &lt;vertical tab&gt;</span>
+sed<span class="w"> </span><span class="o">[</span>-i.bak<span class="o">]</span><span class="w"> </span><span class="s1">&#39;s/foo/bar/g&#39;</span><span class="w"> </span>file<span class="w">  </span><span class="o">[</span>&gt;<span class="w"> </span>newfile<span class="o">]</span>
+tr<span class="w"> </span><span class="s1">&#39;\r&#39;</span><span class="w"> </span><span class="s1">&#39;\n&#39;</span><span class="w">  </span><span class="c1"># translate characters</span>
+<span class="w">              </span><span class="c1"># \a    &lt;alert character&gt;</span>
+<span class="w">              </span><span class="c1"># \b    &lt;backspace&gt;</span>
+<span class="w">              </span><span class="c1"># \f    &lt;form-feed&gt;</span>
+<span class="w">              </span><span class="c1"># \n    &lt;newline&gt;</span>
+<span class="w">              </span><span class="c1"># \r    &lt;carriage return&gt;</span>
+<span class="w">              </span><span class="c1"># \t    &lt;tab&gt;</span>
+<span class="w">              </span><span class="c1"># \v    &lt;vertical tab&gt;</span>
 
 <span class="c1"># interactive</span>
 nano/emacs
-vi  <span class="c1"># 1G/G: top/end; crtl-f/b: forward/backward</span>
-</pre>
-                    </div>
+vi<span class="w">  </span><span class="c1"># 1G/G: top/end; crtl-f/b: forward/backward</span>
+</code></pre></div>
 
+<ul>
+<li>manipulating</li>
+</ul>
+<div class="highlight"><pre><span></span><code>grep<span class="w"> </span>key<span class="w"> </span>file
+awk<span class="w"> </span><span class="s1">&#39;BEGIN {} {print substr($m,n,p)} END {print FNR}&#39;</span><span class="w"> </span>file
 
-                    <ul>
-                        <li>manipulating</li>
-                    </ul>
-                    <div class="highlight">
-                        <pre><span></span>grep key file
-awk <span class="s1">&#39;BEGIN {} {print substr($m,n,p)} END {print FNR}&#39;</span> file
+<span class="nb">echo</span><span class="w"> </span>t1/<span class="w"> </span>t2/<span class="w"> </span>t3/<span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="w"> </span>cp<span class="w"> </span><span class="o">(</span>-r<span class="o">)</span><span class="w"> </span>xxx<span class="w">  </span><span class="c1"># copy files into one place</span>
+<span class="nb">echo</span><span class="w"> </span>operate-file<span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="w"> </span>cp<span class="w"> </span>-r<span class="w"> </span>target<span class="w"> </span>position
+<span class="nb">echo</span><span class="w"> </span><span class="nv">$string</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-d’-’<span class="w"> </span>-f<span class="w"> </span><span class="m">1</span>
 
-<span class="nb">echo</span> t1/ t2/ t3/ <span class="p">|</span> xargs -n <span class="m">1</span> cp <span class="o">(</span>-r<span class="o">)</span> xxx  <span class="c1"># copy files into one place</span>
-<span class="nb">echo</span> operate-file <span class="p">|</span> xargs -n <span class="m">1</span> cp -r target position
-<span class="nb">echo</span> <span class="nv">$string</span> <span class="p">|</span> cut -d’-’ -f <span class="m">1</span>
+qlmanage<span class="w"> </span>-t<span class="w"> </span>-s<span class="w"> </span><span class="m">200</span><span class="w"> </span>-o<span class="w"> </span>.<span class="w"> </span>weixin-brands.svg<span class="w">  </span><span class="c1"># generate thumbnails, convert svg to png</span>
+</code></pre></div>
 
-qlmanage -t -s <span class="m">200</span> -o . weixin-brands.svg  <span class="c1"># generate thumbnails, convert svg to png</span>
-</pre>
-                    </div>
-
-
-                    <ul>
-                        <li>compress/decompress</li>
-                    </ul>
-                    <div class="highlight">
-                        <pre><span></span>tar -xvzf / -cvzf
+<ul>
+<li>compress/decompress</li>
+</ul>
+<div class="highlight"><pre><span></span><code>tar<span class="w"> </span>-xvzf<span class="w"> </span>/<span class="w"> </span>-cvzf
 zip/unzip/gzip/gunzip
-</pre>
-                    </div>
+</code></pre></div>
 
+<ul>
+<li>sync &amp; exchange</li>
+</ul>
+<div class="highlight"><pre><span></span><code>scp<span class="w"> </span>-p<span class="w"> </span>port<span class="w"> </span>
+rsync<span class="w"> </span>--rsh<span class="o">=</span><span class="s1">&#39;ssh -p port&#39;</span><span class="w"> </span>-av<span class="w"> </span>--progress<span class="w"> </span>-partial<span class="w"> </span>
+</code></pre></div>
 
-                    <ul>
-                        <li>sync &amp; exchange</li>
-                    </ul>
-                    <div class="highlight">
-                        <pre><span></span>scp -p port 
-rsync --rsh<span class="o">=</span><span class="s1">&#39;ssh -p port&#39;</span> -av --progress -partial 
-</pre>
-                    </div>
-
-
-                    <p>Cluster &amp; Special systems
-                        - Laohu</p>
-                    <div class="highlight">
-                        <pre><span></span>bqueues -l
-bjobs -l job_id
+<p>Cluster &amp; Special systems
+- Laohu</p>
+<div class="highlight"><pre><span></span><code>bqueues<span class="w"> </span>-l
+bjobs<span class="w"> </span>-l<span class="w"> </span>job_id
 bkill
 btop
 busers
-</pre>
-                    </div>
+</code></pre></div>
 
-
-                    <ul>
-                        <li>TACC</li>
-                    </ul>
-                    <div class="highlight">
-                        <pre><span></span>squeue -u domij
+<ul>
+<li>TACC</li>
+</ul>
+<div class="highlight"><pre><span></span><code>squeue<span class="w"> </span>-u<span class="w"> </span>domij
 sbatch
-showq -U domij
-scancel job_id
+showq<span class="w"> </span>-U<span class="w"> </span>domij
+scancel<span class="w"> </span>job_id
 idev
 
 cdw/cds
-</pre>
-                    </div>
+</code></pre></div>
 
+<p><a href="https://portal.tacc.utexas.edu/user-guides">user guides</a></p>
+            </div>
 
-                    <p><a href="https://portal.tacc.utexas.edu/user-guides">user guides</a></p>
-                </div>
-
-                <div class="post_list">
-                    <span class="published" title="2017-01-18T00:00:00-06:00">
+            <div class="post_list">
+                <span class="published" title="2017-01-18T00:00:00-06:00">
                         Published: Wed 18 January 2017.
-                    </span>
-                    <br />
-                    <span class="modified" title="2018-07-24T00:00:00-05:00">
+                </span>
+                <br />
+                <span class="modified" title="2018-07-24T00:00:00-05:00">
                         Updated: Tue 24 July 2018.
-                    </span>
+                </span>
 
 
-                    <span> By </span>
-                    <a href="https://domijin.github.io/pages/about-me.html">Dongming Jin</a>
-                    <span> in </span>
-                    <span class="post_category"><a href="https://domijin.github.io/category/cheatsheets.html"
-                            rel="bookmark" title="Permalink to cheatsheets"> #cheatsheets. </a></span>
+                <span> By </span>
+                <a href="https://domijin.github.io/pages/about-me.html">Dongming Jin</a>
+                <span> in </span>
+                <span class="post_category"><a href="https://domijin.github.io/category/cheatsheets.html" rel="bookmark"
+                                               title="Permalink to cheatsheets"> #cheatsheets. </a></span>
+
+ 
 
 
+                <div class="entry-social">
+                    <span class="twitter"><a target="_blank" rel="nofollow"
+                                             onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=700');return false;"
+                                             title="Twitter"
+                                             href="https://twitter.com/share?url=https://domijin.github.io/bash-commands.html&text=Bash Commands&via=domij_info"><img
+                            src="https://domijin.github.io/theme/images/icons/twitter-s.png"></a></span>
 
+                    <span class="gplus"><a target="_blank" title="Google +"
+                                           href="https://plus.google.com/share?url=https://domijin.github.io/bash-commands.html&hl=fr"
+                                           rel="nofollow"
+                                           onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"><img
+                            src="https://domijin.github.io/theme/images/icons/google-s.png"></a></span>
 
-                    <div class="entry-social">
-                        <span class="twitter"><a target="_blank" rel="nofollow"
-                                onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=700');return false;"
-                                title="Twitter"
-                                href="https://twitter.com/share?url=https://domijin.github.io/bash-commands.html&text=Bash Commands&via=domij_info"><img
-                                    src="https://domijin.github.io/theme/images/icons/twitter-s.png"></a></span>
+                    <span class="facebook"><a target="_blank" title="Facebook" rel="nofollow"
+                                              onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;"
+                                              href="https://www.facebook.com/sharer.php?u=https://domijin.github.io/bash-commands.html&t=Bash Commands"><img
+                            src="https://domijin.github.io/theme/images/icons/facebook-s.png"></a></span>
 
-                        <span class="gplus"><a target="_blank" title="Google +"
-                                href="https://plus.google.com/share?url=https://domijin.github.io/bash-commands.html&hl=fr"
-                                rel="nofollow"
-                                onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"><img
-                                    src="https://domijin.github.io/theme/images/icons/google-s.png"></a></span>
+                    <a target="_blank" title="Linkedin"
+                       href="https://www.linkedin.com/shareArticle?mini=true&url=https://domijin.github.io/bash-commands.html&title=Bash Commands"
+                       rel="nofollow"
+                       onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"><img
+                            src="https://domijin.github.io/theme/images/icons/linkedin-s.png"></a>
 
-                        <span class="facebook"><a target="_blank" title="Facebook" rel="nofollow"
-                                onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;"
-                                href="https://www.facebook.com/sharer.php?u=https://domijin.github.io/bash-commands.html&t=Bash Commands"><img
-                                    src="https://domijin.github.io/theme/images/icons/facebook-s.png"></a></span>
-
-                        <a target="_blank" title="Linkedin"
-                            href="https://www.linkedin.com/shareArticle?mini=true&url=https://domijin.github.io/bash-commands.html&title=Bash Commands"
-                            rel="nofollow"
-                            onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"><img
-                                src="https://domijin.github.io/theme/images/icons/linkedin-s.png"></a>
-
-                        <span class="mail"><a
-                                href="mailto:?subject=Bash Commands&amp;body=Checkout this article about [Bash Commands] written byDongming Jin. https://domijin.github.io/bash-commands.html"
-                                title="Share by Email" target="_blank"><img
-                                    src="https://domijin.github.io/theme/images/icons/mail-s.png"></a></span>
-                    </div>
+                    <span class="mail"><a
+                            href="mailto:?subject=Bash Commands&amp;body=Checkout this article about [Bash Commands] written byDongming Jin. https://domijin.github.io/bash-commands.html"
+                            title="Share by Email" target="_blank"><img
+                            src="https://domijin.github.io/theme/images/icons/mail-s.png"></a></span>
                 </div>
+            </div>
                 <div class="comments">
                     <h2>Comments !</h2>
                     <div id="disqus_thread"></div>
@@ -367,27 +332,24 @@ cdw/cds
                             dsq.async = true;
                             dsq.src = 'https://domij.disqus.com/embed.js';
                             (document.getElementsByTagName('head')[0] ||
-                                document.getElementsByTagName('body')[0]).appendChild(dsq);
+                            document.getElementsByTagName('body')[0]).appendChild(dsq);
                         })();
                     </script>
                 </div>
-            </article>
+        </article>
+
+        	
+	
+	
 
 
+    </section>
+</article>
 
-
-
-
-        </section>
-    </article>
-
-    <!-- Footer -->
+<!-- Footer -->
     <footer>
         <p>
-            © Copyright 2018 <a href="mailto:admin@domij.info"> Dongming Jin</a> | <a
-                href="https://www.freeprivacypolicy.com/privacy/view/bc11c24cc8faf2a9a506ffd5aa40278d">Privacy
-                Policy</a> | Powered by <a href="http://getpelican.com/">Pelican</a> and <a
-                href="https://github.com/parbhat/pelican-blue">Pelican-Blue</a>.
+            © Copyright 2018 <a href="mailto:admin@domij.info"> Dongming Jin</a> | <a href="https://www.freeprivacypolicy.com/privacy/view/bc11c24cc8faf2a9a506ffd5aa40278d">Privacy Policy</a> | Powered by <a href="http://getpelican.com/">Pelican</a> and <a href="https://github.com/parbhat/pelican-blue">Pelican-Blue</a>.
         </p>
     </footer>
 
@@ -400,13 +362,11 @@ cdw/cds
             var ga = document.createElement('script');
             ga.type = 'text/javascript';
             ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') +
-                '.google-analytics.com/ga.js';
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
             var s = document.getElementsByTagName('script')[0];
             s.parentNode.insertBefore(ga, s);
         })();
     </script>
 
 </body>
-
 </html>

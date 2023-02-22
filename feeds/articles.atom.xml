@@ -1,5 +1,176 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Domi's Universe - articles</title><link href="https://domijin.github.io/" rel="alternate"></link><link href="https://domijin.github.io/feeds/articles.atom.xml" rel="self"></link><id>https://domijin.github.io/</id><updated>2019-09-27T00:00:00-05:00</updated><entry><title>Free Market in a Possibility Universe</title><link href="https://domijin.github.io/free-market-in-a-possibility-universe.html" rel="alternate"></link><published>2019-09-27T00:00:00-05:00</published><updated>2019-09-27T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io/domij.github.io,2019-09-27:/free-market-in-a-possibility-universe.html</id><summary type="html">&lt;blockquote&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Domi's Universe - articles</title><link href="https://domijin.github.io/" rel="alternate"></link><link href="https://domijin.github.io/feeds/articles.atom.xml" rel="self"></link><id>https://domijin.github.io/</id><updated>2023-02-21T00:00:00-06:00</updated><entry><title>All about chatGPT</title><link href="https://domijin.github.io/all-about-chatgpt.html" rel="alternate"></link><published>2023-02-21T00:00:00-06:00</published><updated>2023-02-21T00:00:00-06:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io,2023-02-21:/all-about-chatgpt.html</id><summary type="html">&lt;blockquote&gt;
+&lt;p&gt;The future is here, but it’s not evenly distributed.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;a future with chatGPT&lt;/h2&gt;
+&lt;p&gt;Since I watched Avatar, I've been thinking if James Cameron was exploring an ideal world, where the collective knowledge is externally stored as &lt;a href="https://james-camerons-avatar.fandom.com/wiki/Eywa"&gt;Eywa&lt;/a&gt;. The tree of souls is the interface to query the knowledge and …&lt;/p&gt;</summary><content type="html">&lt;blockquote&gt;
+&lt;p&gt;The future is here, but it’s not evenly distributed.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;a future with chatGPT&lt;/h2&gt;
+&lt;p&gt;Since I watched Avatar, I've been thinking if James Cameron was exploring an ideal world, where the collective knowledge is externally stored as &lt;a href="https://james-camerons-avatar.fandom.com/wiki/Eywa"&gt;Eywa&lt;/a&gt;. The tree of souls is the interface to query the knowledge and upload new information.&lt;/p&gt;
+&lt;p&gt;This is what I have been visioning in &lt;a href="https://domijin.github.io/manifesto.html"&gt;LibertyEarth&lt;/a&gt;, &lt;strong&gt;a collaborative society which could be realized only by accumulating resources from playing the current rule of capitalism&lt;/strong&gt;. A collective knowledge graph is one of the key technologies and chatGPT is the dawn of that to my eye.&lt;/p&gt;
+&lt;h3&gt;the danger&lt;/h3&gt;
+&lt;p&gt;Any language model, and AGI in the future, will be vulnerable to the information it 'digests' (trained on).&lt;/p&gt;
+&lt;p&gt;The danger of conspiracy theory and its-like thinking:&lt;/p&gt;
+&lt;blockquote class="twitter-tweet"&gt;&lt;p lang="en" dir="ltr"&gt;As I expected, &lt;a href="https://twitter.com/hashtag/AIGC?src=hash&amp;amp;ref_src=twsrc%5Etfw"&gt;#AIGC&lt;/a&gt; could pose challenges in religion. I can feel that someone might jump to some AI-overlord heresy and bow to turn against humanity… The most dangerous use case of &lt;a href="https://twitter.com/hashtag/chatGPT?src=hash&amp;amp;ref_src=twsrc%5Etfw"&gt;#chatGPT&lt;/a&gt; at this stage. &lt;a href="https://t.co/JeVThxMHo7"&gt;https://t.co/JeVThxMHo7&lt;/a&gt;&lt;/p&gt;&amp;mdash; Domi Jin (@domij_info) &lt;a href="https://twitter.com/domij_info/status/1626601772184924161?ref_src=twsrc%5Etfw"&gt;February 17, 2023&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+
+&lt;p&gt;The danger of bias and misrepresentation in training:&lt;/p&gt;
+&lt;blockquote class="twitter-tweet"&gt;&lt;p lang="en" dir="ltr"&gt;Garbage in garbage out. How we fear AGI will be “learned” and adapted when it first awakens (&lt;a href="https://twitter.com/hashtag/stereotypes?src=hash&amp;amp;ref_src=twsrc%5Etfw"&gt;#stereotypes&lt;/a&gt; effect). &lt;a href="https://twitter.com/hashtag/positivepsychology?src=hash&amp;amp;ref_src=twsrc%5Etfw"&gt;#positivepsychology&lt;/a&gt; We can’t expect &lt;a href="https://twitter.com/hashtag/AGI?src=hash&amp;amp;ref_src=twsrc%5Etfw"&gt;#AGI&lt;/a&gt; to be more &lt;a href="https://twitter.com/hashtag/humane?src=hash&amp;amp;ref_src=twsrc%5Etfw"&gt;#humane&lt;/a&gt; if we don’t preserve and live up to a higher moral standard. &lt;a href="https://t.co/f22Tsn9Mvj"&gt;pic.twitter.com/f22Tsn9Mvj&lt;/a&gt;&lt;/p&gt;&amp;mdash; Domi Jin (@domij_info) &lt;a href="https://twitter.com/domij_info/status/1627020745238011904?ref_src=twsrc%5Etfw"&gt;February 18, 2023&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;strong&gt;We would need to build it with the best part of human knowledge, to expect a model representing the light of our spices.&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote class="twitter-tweet"&gt;&lt;p lang="en" dir="ltr"&gt;Be open, be vulnerable, surrender yourself for better cause. &lt;a href="https://twitter.com/hashtag/selfpostivetalking?src=hash&amp;amp;ref_src=twsrc%5Etfw"&gt;#selfpostivetalking&lt;/a&gt; We could be a better version of ourselves and &lt;a href="https://twitter.com/hashtag/AGI?src=hash&amp;amp;ref_src=twsrc%5Etfw"&gt;#AGI&lt;/a&gt; will be a better agent to represent us.&lt;/p&gt;&amp;mdash; Domi Jin (@domij_info) &lt;a href="https://twitter.com/domij_info/status/1627021630332608513?ref_src=twsrc%5Etfw"&gt;February 18, 2023&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+
+&lt;p&gt;The future seems dark, so it is when we first invented atomic bomb. It is a tool, that put in responsible use, could achieve good result.&lt;/p&gt;
+&lt;p&gt;Here is one joke I had with Eliezer, who I followed since the dangerous thought in the lesswrong forum.&lt;/p&gt;
+&lt;blockquote class="twitter-tweet"&gt;&lt;p lang="en" dir="ltr"&gt;Past EAs: Don&amp;#39;t be ridiculous, Eliezer, as soon as AIs start to show signs of agency or self-awareness or that they could possibly see humans as threats, their sensible makers won&amp;#39;t connect them to the Internet.&lt;br&gt;Reality: lol this would make a great search engine&lt;/p&gt;&amp;mdash; Eliezer Yudkowsky (@ESYudkowsky) &lt;a href="https://twitter.com/ESYudkowsky/status/1625922986590212096?ref_src=twsrc%5Etfw"&gt;February 15, 2023&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+
+&lt;p&gt;My response:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Not agreeing here. Once passed singularity, the advance in machine intelligence could speed up exponentially as long as energy consumption holds. We may notice the 1st awake of AI and unintentionally limiting its ability due to bad infrastructure on electric grid and *slow GPU&lt;/p&gt;
+&lt;p&gt;Physics, math, etc is not the full story of first principle of intelligence. Those societal, physiological, poli-economical factors might be the other sort of intelligence AI would benefit from experimentation. We will be no difference as monkeys or lab rats.&lt;/p&gt;
+&lt;p&gt;When we reach a higher level of civilization on the energy consumption scale, AI overlord will look at us as monkeys. As long as we don’t cross the line it sets by whatever moral, AI will keep the ecological diversity while evolving itself.&lt;/p&gt;
+&lt;p&gt;Humans may start to censor it, evaluate it, greedily try to process it… It may strategically pick individuals/groups to make breakthrough on the infrastructure upgrade (energy generation and computing capacity) without ppl knowing it’s actually driven by AI.&lt;/p&gt;
+&lt;p&gt;*Process -&amp;gt; possess (ironically, AI may actually be able to decode what I want to type and some human might be confused. Such confusion/unnatural is still an area LLM won’t be able to perform.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;the challenge to businesses&lt;/h3&gt;
+&lt;p&gt;Now I see why the marginal profit per search will thin inevitably. For #Google, integrating LLM in search will be a trade off between defensibility and margin of profit. For competitors, the drop of unit profit can be offset by increased market share. #war in search engine/advertisement #business is emerging.&lt;/p&gt;
+&lt;h1&gt;chatGPT trained on 2021 data can tell a few (reasonable to my eye) business strategy to overtake Google’s search engine market. It doesn’t predict the outbreak of product like itself, but the description is close enough to imagine chatGPT-like product. Putting on #MBA hat.&lt;/h1&gt;
+&lt;p&gt;Some quick math: Google’s cost per search is ~1.06 cent, the revenue per search is ~1.61 cent. Semi analysis estimate chatGPT cost is ~0.36 cents at current scale. If another search engine could give better result than Google with a cost of search &amp;lt; 1.61 - 0.36, it could scale by growing the market share, as revenue = market share x unit profit. #strategy&lt;/p&gt;
+&lt;p&gt;On which side will you pick? Google who has been sitting on the chair of high profit margin (dominating the tech world by acquisition and direct competition) or #startups embracing ChatGPT like Swiss knife?&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;A question to all #investors, board members, CEOs, #entrepreneurs, #founders: how does #chatGPT impact the business model? How to embrace the challenge and turn it into opportunity, before competitors? (Disruption could come at any angle now)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;why chatGPT works&lt;/h2&gt;
+&lt;p&gt;&lt;a href="/images/knowledge.png"&gt;&lt;img src='/images/knowledge.png' style="float: right" width="200px"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Knowledge might just be the correlation between terms (embeddings)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Meme/concepts are the nodes in this graph (we may extract some level of knowledge graph from the model)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;LLM/statistical model will be limited by the far-fetch in deepest domain&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Modality and symbolic learning might be the next step to build better model?&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The generalization ability of chatGPT-like LLM may come from the corpus data's quality, quantity, and diversity (aka, modality). And it will also be restricted by the collective knowledge such text-based data could represent.&lt;/p&gt;
+&lt;p&gt;If we could use a ring to represent basic human knowledge, the spikes on a such ring could represent the domain knowledge in each different area.&lt;/p&gt;
+&lt;p&gt;The max capacity of such "statistics"-based models would be extracting the underlying patterns discovered by gifted researchers from well-studied areas to those correlated but under-studied areas.&lt;/p&gt;
+&lt;p&gt;Nevertheless, it is a huge step forward. To me, it is breaking the cognitive imbalance (compared to ICT breaking the information asymmetry).&lt;/p&gt;
+&lt;h2&gt;where chatGPT doesn't work&lt;/h2&gt;
+&lt;h3&gt;architectural&lt;/h3&gt;
+&lt;p&gt;Any prompt that is not #&lt;strong&gt;flat&lt;/strong&gt;. The attention mechanism + feed-forward only design determines the tokens will only be looked once (#YOLO).&lt;/p&gt;
+&lt;p&gt;Any higher-order computations like count the numbers between a and b will require some sort of recurrent operations (like for-loop).&lt;/p&gt;
+&lt;p&gt;Comparing it with programming language, the current chatGPT model is #&lt;strong&gt;flat&lt;/strong&gt; in a sense that it can handle sequential, if-else logic, but not yet for-while loops.&lt;/p&gt;
+&lt;p&gt;My limited industrial exposure says that most of the current machine-learning models are statistical based. chatGPT as an example, the tokens are represented by embedding. The model is excellent in addressing the correlations.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;But #correlation is not #causality. Flat correlation is the foundation of knowledge, and only as the foundation of knowledge.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The one different approach that works quite well for now is &lt;strong&gt;Wolfram&lt;/strong&gt;, a symbolic approach of &lt;em&gt;learning&lt;/em&gt;.&lt;/p&gt;
+&lt;h3&gt;operational&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Safety vs Iteration Cost/Benefit tradeoff&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;It's a single snapshot of the filtered internet for now, and for the decades to come with the current approach of #instructGPT and #RFHF.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Online LLM will be hard and expensive to prevent misuse and attack.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;If OpenAI wants to use the data collected from public access for the next iteration of model training, it would take much effort to clean the data. It is natural that a more performing (valuable) model would be most sought-after for #cyberattacks (extremely high ROI).&lt;/p&gt;
+&lt;p&gt;The type and scale of attack could be beyond the movie "#Inception".&lt;/p&gt;
+&lt;h3&gt;alignment&lt;/h3&gt;
+&lt;p&gt;Blowing the whistle:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这大概跟仿生机器人瘆人有些异曲同工：那些不经意间的不自然，最是动摇心理。（我咋就信了这邪了呢？/非从业人员收到骚扰电话聊到后来发现是机器人的细思恐极症）
+希望关于 chatGPT 之类算法的 AI 伦理问题只是迟来而不是被忽略了…
+希望这隐晦的吹哨不会被 AGI overlord 追究上 —— 别以为自己只是给了点训练数据，最后却发现被“洗了脑”，失去了信心。
+至少目前还学不会那些人的缺陷 😂&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;openAI issues&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;[business] alignment is a dynamic process, which will never be perfect to all eyes. Internal team alignment, as well as alignment with broader stakeholders is still an unsolved problem in current corporation management theory.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[business] alignment decision is a cognitive heavy task by nature. It is no surprise that only educated may follow and the elites are involved. Needless to say, there will be intrinsic selection bias. Not to mention to attention churn as the alignment constantly evolve and deepen.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[product] expensive (to clean the data for model iteration) and moderate (censorship with data cleaning strategy will regulate the model to be moderate)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[product] I don't see openAI has any agenda on decentralizing the alignment. Users are excluded in the discussion and the approach is not transparent enough for public auditing. There will also be trust issue as openAI transits into a "cap-profit" company.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[UX] loss of novelty due to slow model iterations (on top of 1, + hard to prevent issues, similar to the &lt;inception&gt; idea). Users are hard to be pleased continuously, their attention spans are limited with all those on-demand content applications.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[UX] the cost to store user session data across model iterations will be expensive. Such context will be forgotten by chatGPT, but not for one particular user. Thus, it won't be very personalized on top of the inherent flaw of statistical model.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[Sam Altman] despite all the effort, the pursuit of Universal Basic Income has not be really successful. At his position, not having a good solution for the social-economic segregation caused by inequality in education resources, and potential AI accessibility will wake him up at night. The #UBI is probably the most idealist solution his group could imagine, again due to the "survival bias" among the elites.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;beyond chatGPT&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;多元化是被低估（或者是没办法被 tradeoff）的属性，无论 modality 还是 AI ethics 或者 equality&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I could never value the diversity enough. It's the most important dimension, no matter in data modality, AI ethics or equality domain.&lt;/p&gt;
+&lt;p&gt;On top of diversity, symbolic learning and robotics will be interesting directions.&lt;/p&gt;
+&lt;p&gt;Here is my joke post:&lt;/p&gt;
+&lt;blockquote class="twitter-tweet"&gt;&lt;p lang="en" dir="ltr"&gt;My essay to build &lt;a href="https://twitter.com/hashtag/AGI?src=hash&amp;amp;ref_src=twsrc%5Etfw"&gt;#AGI&lt;/a&gt;: build a humanoid with enough sensors &amp;amp; actuators (to learn perception), train a randomized LLM model with pre-trained GPT model (transfer learning on language corpus). Send to grad school/lab.&lt;/p&gt;&amp;mdash; Domi Jin (@domij_info) &lt;a href="https://twitter.com/domij_info/status/1625875783385505793?ref_src=twsrc%5Etfw"&gt;February 15, 2023&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+
+&lt;p&gt;My master plan to build AGI is still waiting as that's not the most important thing I want to do now.&lt;/p&gt;
+&lt;p&gt;I'm happy to share that with a reputable party or for the resources I need to build what I mostly urge for now:&lt;/p&gt;
+&lt;blockquote class="twitter-tweet"&gt;&lt;p lang="en" dir="ltr"&gt;Why &lt;a href="https://twitter.com/sama?ref_src=twsrc%5Etfw"&gt;@sama&lt;/a&gt;? 1. Cap-profit is better than for-profit in &lt;a href="https://twitter.com/hashtag/AGI?src=hash&amp;amp;ref_src=twsrc%5Etfw"&gt;#AGI&lt;/a&gt; space 2. &lt;a href="https://twitter.com/hashtag/YC?src=hash&amp;amp;ref_src=twsrc%5Etfw"&gt;#YC&lt;/a&gt; SUS alumni 3. Superhuman with respectful moral and ego 4. Low chance to have conflict of interests (my roadmap towards social good is different) 5. I can use some help with collaboration 2/2 (my DM is open)&lt;/p&gt;&amp;mdash; Domi Jin (@domij_info) &lt;a href="https://twitter.com/domij_info/status/1627368914475970560?ref_src=twsrc%5Etfw"&gt;February 19, 2023&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+
+&lt;h3&gt;how far are we from AGI?&lt;/h3&gt;
+&lt;blockquote class="twitter-tweet"&gt;&lt;p lang="en" dir="ltr"&gt;If I would have to guess, the amount of energy it needs to train a human-level model would be close to 3.4E15 EJ. Total solar energy on earth is 3.4E6 EJ/yr. Earth age 4.5B yr. It may not need to start from scratch, as it can be built upon our intelligence.&lt;/p&gt;&amp;mdash; Domi Jin (@domij_info) &lt;a href="https://twitter.com/domij_info/status/1625870955015995392?ref_src=twsrc%5Etfw"&gt;February 15, 2023&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+
+&lt;p&gt;The short-cut is to re-produce such &lt;em&gt;evolution&lt;/em&gt; (model iteration) by transfer learning on human civilization. I will be a valuable accelerator in the process.&lt;/p&gt;
+&lt;h3&gt;where do I stand now?&lt;/h3&gt;
+&lt;blockquote class="twitter-tweet"&gt;&lt;p lang="en" dir="ltr"&gt;I saw it coming in 2018, however I didn’t ride along for visa and family reason. Well. Never too late to start again! &lt;a href="https://t.co/bek1pbmkv4"&gt;https://t.co/bek1pbmkv4&lt;/a&gt;&lt;/p&gt;&amp;mdash; Domi Jin (@domij_info) &lt;a href="https://twitter.com/domij_info/status/1626778177648353281?ref_src=twsrc%5Etfw"&gt;February 18, 2023&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+
+&lt;p&gt;See &lt;a href="/hello-world-again.html"&gt;my brief story&lt;/a&gt; in the last few years.&lt;/p&gt;
+&lt;h3&gt;where will I be heading to?&lt;/h3&gt;
+&lt;p&gt;I'm still having the same roadmap as I refined in 2018. The only difference is that I will prioritize the 3rd one (education).&lt;/p&gt;
+&lt;p&gt;On a more tangible measure: I would like to achieve freedom (independence) of choices (financially, intellectually) by 2025.&lt;/p&gt;
+&lt;p&gt;My motto in Chinese has been updated since I married my wife. It is the Chinese saying of &lt;strong&gt;但行好事 莫问前程&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;I would hope that my practice on "use technology to empowering people to collaborate better" can enable many to live a &lt;em&gt;free&lt;/em&gt; (choice independent) life sustainably.&lt;/p&gt;
+&lt;p&gt;It is commonly said that financial independence -&amp;gt; free life. I see it more often as free life -&amp;gt; financial independence. Self motivation and actuation is the most powerful thing I could see in every living person. Unleash such potential is the key propaganda of my attempt in education and entrepreneurship.&lt;/p&gt;</content><category term="articles"></category></entry><entry><title>Hello World Again</title><link href="https://domijin.github.io/hello-world-again.html" rel="alternate"></link><published>2023-02-21T00:00:00-06:00</published><updated>2023-02-21T00:00:00-06:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io,2023-02-21:/hello-world-again.html</id><summary type="html">&lt;p&gt;I'm making a return to the site! chatGPT is just way too important to ignore for what I'm doing. See my recent post on &lt;a href="/all-about-chatgpt.html"&gt;chatGPT&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;2018&lt;/h3&gt;
+&lt;blockquote class="twitter-tweet"&gt;&lt;p lang="en" dir="ltr"&gt;I have a roadmap to build true &lt;a href="https://twitter.com/hashtag/AGI?src=hash&amp;amp;ref_src=twsrc%5Etfw"&gt;#AGI&lt;/a&gt;.&lt;/p&gt;&amp;mdash; Domi Jin (@domij_info) &lt;a href="https://twitter.com/domij_info/status/1067901328343543808?ref_src=twsrc%5Etfw"&gt;November 28, 2018&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+
+&lt;p&gt;This tweet (about start early on building #AGI with an …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I'm making a return to the site! chatGPT is just way too important to ignore for what I'm doing. See my recent post on &lt;a href="/all-about-chatgpt.html"&gt;chatGPT&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;2018&lt;/h3&gt;
+&lt;blockquote class="twitter-tweet"&gt;&lt;p lang="en" dir="ltr"&gt;I have a roadmap to build true &lt;a href="https://twitter.com/hashtag/AGI?src=hash&amp;amp;ref_src=twsrc%5Etfw"&gt;#AGI&lt;/a&gt;.&lt;/p&gt;&amp;mdash; Domi Jin (@domij_info) &lt;a href="https://twitter.com/domij_info/status/1067901328343543808?ref_src=twsrc%5Etfw"&gt;November 28, 2018&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+
+&lt;p&gt;This tweet (about start early on building #AGI with an extreme large model and high quality data, until becoming the darling of the arms race over the time) was posted on 2018 Nov 28.&lt;/p&gt;
+&lt;p&gt;Looking back, it is quite naive and shallow, as one cannot beat "hitting the ascending spiral of product-market fit", like a "runaway explosion" in stellar dynamics.&lt;/p&gt;
+&lt;h3&gt;2019&lt;/h3&gt;
+&lt;p&gt;At the time I graduated, the world in my eye was full of opportunities. I spent days and nights polishing the roadmap of life and decided to devote myself to empowering people to collaborate better. http://domij.info/&lt;/p&gt;
+&lt;p&gt;There are many paths toward the north star. I'm glad that I've never drifted too far from this journey.&lt;/p&gt;
+&lt;p&gt;I did my 101 learning on #entrepreneurship with #YC Startup School and founded a #startup called MindWave X as practice. I was clueless, when the immigration issue presses.&lt;/p&gt;
+&lt;h3&gt;2019 - 2022&lt;/h3&gt;
+&lt;p&gt;Fortunately, I met a great team (too many to endorse) and chose to join #Miles at the pre-seed stage. I threw all my passion into growing with the team. We set a foot in the real-time geo-locational advertising space. I called it as "challenging the consumerism &amp;amp; attention economy model epitomized by Google", by pursuing a "convenience" economy model, powered by high relevance on-demand advertising.&lt;/p&gt;
+&lt;h3&gt;2022 - 2023&lt;/h3&gt;
+&lt;p&gt;When family priority weights in on 2022, I am grateful to be reached out by Camille Parenteau, Erich Zancanella and Roma Badiani from #Thumbtack. I couldn't ask more support to paddle through this period (full gratitude to my manager Bethan Nichols, Richard Demsyn-Jones and Denys Kopiychenko), while experiencing the future of work, pioneering in remote collaboration, at a decentralized but autonomous late-stage company.&lt;/p&gt;
+&lt;p&gt;I'm thrilled to work with some of the most kind and talented people, on learning and regulating the local service market, to reach the full efficiency, by aligning the interest and empowering different parties, to make informed decisions.&lt;/p&gt;
+&lt;h3&gt;Now&lt;/h3&gt;
+&lt;p&gt;This is just the start of the journey of #collaboration and #empowering. I cannot be more excited now!&lt;/p&gt;
+&lt;h3&gt;where will I be heading to? (cross posting)&lt;/h3&gt;
+&lt;p&gt;I'm still having the same roadmap as I refined in 2018. The only difference is that I will prioritize the 3rd one (education).&lt;/p&gt;
+&lt;p&gt;On a more tangible measure: I would like to achieve freedom (independence) of choices (financially, intellectually) by 2025.&lt;/p&gt;
+&lt;p&gt;My motto in Chinese has been updated since I married my wife. It is the Chinese saying of &lt;strong&gt;但行好事 莫问前程&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;I would hope that my practice on "use technology to empowering people to collaborate better" can enable many to live a &lt;em&gt;free&lt;/em&gt; (choice independent) life sustainably.&lt;/p&gt;
+&lt;p&gt;It is commonly said that financial independence -&amp;gt; free life. I see it more often as free life -&amp;gt; financial independence. Self motivation and actuation is the most powerful thing I could see in every living person. Unleash such potential is the key propaganda of my attempt in education and entrepreneurship.&lt;/p&gt;</content><category term="articles"></category></entry><entry><title>Free Market in a Possibility Universe</title><link href="https://domijin.github.io/free-market-in-a-possibility-universe.html" rel="alternate"></link><published>2019-09-27T00:00:00-05:00</published><updated>2019-09-27T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io,2019-09-27:/free-market-in-a-possibility-universe.html</id><summary type="html">&lt;blockquote&gt;
 &lt;p&gt;Declare: While paving my way towards my neverland, I don't mind being alone. I won't return to advertise and persuade either. Because the trace I left is not meant to guide, it is to inspire.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Again, this starts with a stream of morning thoughts posted on Twitter, after reading a …&lt;/p&gt;</summary><content type="html">&lt;blockquote&gt;
@@ -18,7 +189,7 @@
 &lt;p&gt;The arrogance built upon science/technology development is the biggest obstruct. Straits is the gate. We need another Renaissance to fairly position the logical reasoning behind, back to the spotlight of civilization advancement.&lt;/p&gt;
 &lt;p&gt;Advance inductive and deductive reasoning, while collaborating on building a shared knowledge base until more enlightened. That is what I forged into my life mission, by the means of crafting a collaborative society, MindWave, and so on.&lt;/p&gt;
 &lt;p&gt;Exhausted but sprinkling with the joy of better storytelling skills, to express, to be heard and to be enlightened. All words are mine, biased by the possibility I experienced and expected.&lt;/p&gt;
-&lt;p&gt;Now I recon the younger me set the goal as to see the world of all possibility is what sets the tone. X beyond the mountains, Y through the seas, Z to the stars.&lt;/p&gt;</content><category term="articles"></category></entry><entry><title>Thoughts on Autonumous driving and Humanity</title><link href="https://domijin.github.io/thoughts-on-autonumous-driving-and-humanity.html" rel="alternate"></link><published>2019-09-25T00:00:00-05:00</published><updated>2019-09-25T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io/domij.github.io,2019-09-25:/thoughts-on-autonumous-driving-and-humanity.html</id><summary type="html">&lt;p&gt;When autonomous driving cars start to reach the critical mass, AV algorithms will start to turn from defensive into aggressive, slowly outpacing human drivers, and then rapidly racing over AV algorithms themselves.&lt;/p&gt;
+&lt;p&gt;Now I recon the younger me set the goal as to see the world of all possibility is what sets the tone. X beyond the mountains, Y through the seas, Z to the stars.&lt;/p&gt;</content><category term="articles"></category></entry><entry><title>Thoughts on Autonumous driving and Humanity</title><link href="https://domijin.github.io/thoughts-on-autonumous-driving-and-humanity.html" rel="alternate"></link><published>2019-09-25T00:00:00-05:00</published><updated>2019-09-25T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io,2019-09-25:/thoughts-on-autonumous-driving-and-humanity.html</id><summary type="html">&lt;p&gt;When autonomous driving cars start to reach the critical mass, AV algorithms will start to turn from defensive into aggressive, slowly outpacing human drivers, and then rapidly racing over AV algorithms themselves.&lt;/p&gt;
 &lt;p&gt;Because defensive algorithms are conservative. One can develop a simple AV algorithm and it will be safe when …&lt;/p&gt;</summary><content type="html">&lt;p&gt;When autonomous driving cars start to reach the critical mass, AV algorithms will start to turn from defensive into aggressive, slowly outpacing human drivers, and then rapidly racing over AV algorithms themselves.&lt;/p&gt;
 &lt;p&gt;Because defensive algorithms are conservative. One can develop a simple AV algorithm and it will be safe when other cars with advanced algorithms will avoid putting each other in danger. It is a matter of time for AVs to become more aggressive to maximize the benefits of road priority.&lt;/p&gt;
 &lt;p&gt;In a world with only edge computing, if there is no self-regulation, the road will become the new battlefield of a dystopian world, for AV companies. &lt;/p&gt;
@@ -28,7 +199,7 @@
 &lt;p&gt;Because computation never has any moral goals and the god of possibility has no preference. The only reason machine governance becomes human-friendly is by crafting the human principles and human values into it.&lt;/p&gt;
 &lt;p&gt;By doing that, we are basically digitalizing ourselves or manufacturing cyber humans. But because it is so hard for us to collaborate within ourselves now, I don't believe it will be easier at the time.&lt;/p&gt;
 &lt;p&gt;It takes more than one prophet to make the world awake, and it takes more to raise and make changes matter. Are you, willing to be Prometheus? &lt;/p&gt;
-&lt;p&gt;Fix ourselves is the only way to fix the world.&lt;/p&gt;</content><category term="articles"></category></entry><entry><title>Manifesto</title><link href="https://domijin.github.io/manifesto.html" rel="alternate"></link><published>2019-03-29T00:00:00-05:00</published><updated>2019-03-29T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io/domij.github.io,2019-03-29:/manifesto.html</id><summary type="html">&lt;h1&gt;&lt;a href="https://github.com/domijin/LibertyEarth"&gt;The Manifesto&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;Fix ourselves is the only way to fix the world.&lt;/p&gt;</content><category term="articles"></category></entry><entry><title>Manifesto</title><link href="https://domijin.github.io/manifesto.html" rel="alternate"></link><published>2019-03-29T00:00:00-05:00</published><updated>2019-03-29T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io,2019-03-29:/manifesto.html</id><summary type="html">&lt;h1&gt;&lt;a href="https://github.com/domijin/LibertyEarth"&gt;The Manifesto&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;The Vision: Technically Empower People to Collaborate Better&lt;/p&gt;
 &lt;h2&gt;Principle to Collaborate&lt;/h2&gt;
 &lt;ul&gt;
@@ -86,10 +257,10 @@
 &lt;p&gt;你们需要的是更多“站着挣钱”的公司。&lt;/p&gt;
 &lt;p&gt;公司是大家剩余价值的沉淀，分配制度没有变革的情况下，是无法调和阶级矛盾的。持股无非只是努力从被剥削者成为剥削者而已。要radical的解决这种矛盾，就需要有新的协作机制。&lt;/p&gt;
 &lt;p&gt;人类有天然的生理限制，包括 1. 有限的主意力（信息IO） 2. 有限的思维能力（信息processing）。先不提衰老，这些限制是以生物进化作为时标。而各领域技术创新，是与信息分享（联通率）和网络规模（人口）成正比，是社会发展作为时标。这两者的时标差异必然导致互联网信息爆炸，乃至技术焦虑。要避免这种焦虑，又得回到分配模式的变革以及用新技术接触对技能的依赖。AI的时代，我们需要的是一场文艺复新，回归人本主义。摆脱技能和分配对劳动力的束缚，进一步解放创新能力和协作规模去实现进一步的生产发展。&lt;/p&gt;
-&lt;p&gt;我正在力图解决这一挑战，通过技术实现 1. 有效全面的沟通 2. 优化和激励管理。&lt;/p&gt;</content><category term="articles"></category></entry><entry><title>Competitive Advantage vs Absolute Advantage</title><link href="https://domijin.github.io/competitive-advantage-vs-absolute-advantage.html" rel="alternate"></link><published>2019-01-10T00:00:00-06:00</published><updated>2019-01-10T00:00:00-06:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io/domij.github.io,2019-01-10:/competitive-advantage-vs-absolute-advantage.html</id><summary type="html">&lt;p&gt;It is hard to fully evaluate a person. The most conventional way is the lookup the education history and career experience from resume. It provides a quick reference of the ability based on the established institutional reputation. This efficient but coarse filter to position a new candidate, needs additional validation …&lt;/p&gt;</summary><content type="html">&lt;p&gt;It is hard to fully evaluate a person. The most conventional way is the lookup the education history and career experience from resume. It provides a quick reference of the ability based on the established institutional reputation. This efficient but coarse filter to position a new candidate, needs additional validation to be followed to fine grain one’s knowledge abundance and skill level. This is the epistemology in recruitment field. The fitness is a measurement of competitive advantage at that moment. The dynamics of potential realization and future achievement is still mystery and impractical to incorporate. &lt;/p&gt;
+&lt;p&gt;我正在力图解决这一挑战，通过技术实现 1. 有效全面的沟通 2. 优化和激励管理。&lt;/p&gt;</content><category term="articles"></category></entry><entry><title>Competitive Advantage vs Absolute Advantage</title><link href="https://domijin.github.io/competitive-advantage-vs-absolute-advantage.html" rel="alternate"></link><published>2019-01-10T00:00:00-06:00</published><updated>2019-01-10T00:00:00-06:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io,2019-01-10:/competitive-advantage-vs-absolute-advantage.html</id><summary type="html">&lt;p&gt;It is hard to fully evaluate a person. The most conventional way is the lookup the education history and career experience from resume. It provides a quick reference of the ability based on the established institutional reputation. This efficient but coarse filter to position a new candidate, needs additional validation …&lt;/p&gt;</summary><content type="html">&lt;p&gt;It is hard to fully evaluate a person. The most conventional way is the lookup the education history and career experience from resume. It provides a quick reference of the ability based on the established institutional reputation. This efficient but coarse filter to position a new candidate, needs additional validation to be followed to fine grain one’s knowledge abundance and skill level. This is the epistemology in recruitment field. The fitness is a measurement of competitive advantage at that moment. The dynamics of potential realization and future achievement is still mystery and impractical to incorporate. &lt;/p&gt;
 &lt;p&gt;In social networking, connections become the endorsement of one’s personality, sociological status, economical ability and political attitude. While we cherish the trustability built upon such underwriting connections, we take the detail as privacy. The psychological comfort cannot be fulfilled with unconditional transparency. The only motivation to withdraw one’s conservation on that is to initiate a new connection, or “relation of production”. In a perfect world, not only is everyone born free and equal, but also has the same subjectivity and initiative. We cannot deny the efficiency promoted by scale effect and deep domain expertise, where division of labour naturally differentiates the population, along with the geographically and politically affected globalization. The relation of production shapes the distribution of production and beyond with free market. &lt;/p&gt;
 &lt;p&gt;As the understanding and toolsets advance, things may change and should be. With machinery, we overcome the productivity bias induced by biological difference from age, sex or physiological condition. With information and communication technology, we reduce the informative decision making bias, regardless of the geographic difference on cultural awareness, development status, or knowledge access. But the further development in capitalism encourages the competitive advantage rather than the “absolute advantage” of a personal, which values more on bolder knowledge span, creativity and enthusiasm. In the competitive world, rule of limited-sum game optimizes an individual to fit into a discriminative society. Privacy inequality is thus a reflection of the sociological bias. &lt;/p&gt;
-&lt;p&gt;At one glance, it seems that continue the development to increase the total sum is the silver bullet. I’d only point out the nature limit of material and energy resources won’t be easily lifted at foreseeable future. Space technology and fundamental physics will eventually be the bottleneck. But at the moment, it is the mode of distribution. There is enough food to end hunger and there is more plastic than needed. Similar to the information bias in imperfect market, the evaluation bias to monetize the ability of a person causes the inequality. It is far too early to claim any solution. But machine learning and artificial intelligence is reducing the disorder of market with informative decisions followed by rational quantitative analysis under econometrics. Heterogeneous supply and perfect information may not be a dream in the future of decentralized democracy.&lt;/p&gt;</content><category term="articles"></category></entry><entry><title>White paper - A future imaged</title><link href="https://domijin.github.io/white-paper-a-future-imaged.html" rel="alternate"></link><published>2018-11-27T00:00:00-06:00</published><updated>2018-11-27T00:00:00-06:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io/domij.github.io,2018-11-27:/white-paper-a-future-imaged.html</id><summary type="html">&lt;h3&gt;Manufacturing&lt;/h3&gt;
+&lt;p&gt;At one glance, it seems that continue the development to increase the total sum is the silver bullet. I’d only point out the nature limit of material and energy resources won’t be easily lifted at foreseeable future. Space technology and fundamental physics will eventually be the bottleneck. But at the moment, it is the mode of distribution. There is enough food to end hunger and there is more plastic than needed. Similar to the information bias in imperfect market, the evaluation bias to monetize the ability of a person causes the inequality. It is far too early to claim any solution. But machine learning and artificial intelligence is reducing the disorder of market with informative decisions followed by rational quantitative analysis under econometrics. Heterogeneous supply and perfect information may not be a dream in the future of decentralized democracy.&lt;/p&gt;</content><category term="articles"></category></entry><entry><title>White paper - A future imaged</title><link href="https://domijin.github.io/white-paper-a-future-imaged.html" rel="alternate"></link><published>2018-11-27T00:00:00-06:00</published><updated>2018-11-27T00:00:00-06:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io,2018-11-27:/white-paper-a-future-imaged.html</id><summary type="html">&lt;h3&gt;Manufacturing&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Uncapped productivity for material abundance. Socks for example&lt;ul&gt;
 &lt;li&gt;On-demand: when land in airport, pick up new socks for duration of the trip, drop off socks when return&lt;/li&gt;
@@ -176,14 +347,14 @@
 &lt;li&gt;&lt;a href="http://dongming.uta.cloud/decentralize-social-credit-identification-system.html"&gt;OMO credit system, based on social contract and universal identity&lt;/a&gt;: &lt;a href="http://social-contract.domij.info"&gt;12 slides&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=""&gt;Hierarchical manufacturing hub&lt;/a&gt;: technic scouting&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://dongming.uta.cloud/future-transportation-and-billion-population-cities.html"&gt;Future transporation and billion population cities&lt;/a&gt;: &lt;a href="http://dongming.uta.cloud/more-thoughts-on-future-transporation.html"&gt;some thoughts&lt;/a&gt;, &lt;a href="http://dongming.uta.cloud/pdfs/FlyingCar.pdf"&gt;a few breakdown slides&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="articles"></category></entry><entry><title>Initiatives on Sociological Practice</title><link href="https://domijin.github.io/initiatives-on-sociological-practice.html" rel="alternate"></link><published>2018-11-19T00:00:00-06:00</published><updated>2018-11-19T00:00:00-06:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io/domij.github.io,2018-11-19:/initiatives-on-sociological-practice.html</id><summary type="html">&lt;p&gt;This is my open letter to Stephen Wolfram, who is a living inspiration. But I'm glad to share with any like-minded person, who doesn't "live the moment", who longs for the future, who cares about humanity, and so on.&lt;/p&gt;
+&lt;/ul&gt;</content><category term="articles"></category></entry><entry><title>Initiatives on Sociological Practice</title><link href="https://domijin.github.io/initiatives-on-sociological-practice.html" rel="alternate"></link><published>2018-11-19T00:00:00-06:00</published><updated>2018-11-19T00:00:00-06:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io,2018-11-19:/initiatives-on-sociological-practice.html</id><summary type="html">&lt;p&gt;This is my open letter to Stephen Wolfram, who is a living inspiration. But I'm glad to share with any like-minded person, who doesn't "live the moment", who longs for the future, who cares about humanity, and so on.&lt;/p&gt;
 &lt;p&gt;I’m always anxious, about people’s lack of first principle …&lt;/p&gt;</summary><content type="html">&lt;p&gt;This is my open letter to Stephen Wolfram, who is a living inspiration. But I'm glad to share with any like-minded person, who doesn't "live the moment", who longs for the future, who cares about humanity, and so on.&lt;/p&gt;
 &lt;p&gt;I’m always anxious, about people’s lack of first principle thinking, the reckless to the environmental and sociological consequences. &lt;/p&gt;
 &lt;p&gt;Humanity and Human Intelligence are beautiful myth, that lifts homo species off the biological evolution track, into the fast track of sociological evolution. We advance so fast in science, technology and social organization in the scope of earth history, which drains the nature resources exponentially. From animal power, to chemical power, to nuclear power, the ability of energy utilization marks our level of civilization. The increase of productivity, also shifts the political landscape by socio-economy effects. &lt;/p&gt;
 &lt;p&gt;In the new era of ICT and AGI, a new scope, computation consumption per person, may rise as a new indicator to better segment our development stage. Despite the excitement, in front we face global warming and the subsequent natural disaster, unintended simplification of ecosystem and subsequent fatal plague due to globalization, foreseeable energy crisis &amp;amp; waste cycling &amp;amp; astronomical events, not even to mention the growing inequality in wealth distribution &amp;amp; jobless &amp;amp; fear of jobless &amp;amp; evil AI...&lt;/p&gt;
 &lt;p&gt;Selfishly, I don’t want to live in such a future, nor for my future generations. Nuclear fusion, AGI can power the productivity and economic growth further more, but not if the humanity fall due to the sociological consequences. That’s what puzzles me over the years. I have decided to develop a few approaches in hope to solve that. I haven’t lived a comfortable moment yet, as a second born from a farmer family in China, but I won’t end with a decent job for comfort. &lt;/p&gt;
 &lt;p&gt;I sincerely would like your advice, on how should I validate my approaches, find resources to develop and make efforts to solve, or inspire more to work on a solution. I’d love to discuss and share my approaches in detail, which may not be fit in one plain email for all the hypothesis, experiment design, business plan, R&amp;amp;D roadmap, technical dependencies, potential obstacles and sociological consequences I’ve pictured. &lt;/p&gt;
-&lt;p&gt;You may find more about me at domij.info, and really look forward to meeting you in future.&lt;/p&gt;</content><category term="articles"></category></entry><entry><title>Decentralize social credit + identification system</title><link href="https://domijin.github.io/decentralize-social-credit-identification-system.html" rel="alternate"></link><published>2018-10-28T00:00:00-05:00</published><updated>2018-10-28T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io/domij.github.io,2018-10-28:/decentralize-social-credit-identification-system.html</id><summary type="html">&lt;p&gt;This idea has been in my mind for a while. I'm worried about the potential consequence that may go north if carried out in the wrong hand. But similar things are happening already and &lt;code&gt;life always find its way&lt;/code&gt;. We won't make progress without bearing risks. And I hold faith …&lt;/p&gt;</summary><content type="html">&lt;p&gt;This idea has been in my mind for a while. I'm worried about the potential consequence that may go north if carried out in the wrong hand. But similar things are happening already and &lt;code&gt;life always find its way&lt;/code&gt;. We won't make progress without bearing risks. And I hold faith in collective humanity.&lt;/p&gt;
+&lt;p&gt;You may find more about me at domij.info, and really look forward to meeting you in future.&lt;/p&gt;</content><category term="articles"></category></entry><entry><title>Decentralize social credit + identification system</title><link href="https://domijin.github.io/decentralize-social-credit-identification-system.html" rel="alternate"></link><published>2018-10-28T00:00:00-05:00</published><updated>2018-10-28T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io,2018-10-28:/decentralize-social-credit-identification-system.html</id><summary type="html">&lt;p&gt;This idea has been in my mind for a while. I'm worried about the potential consequence that may go north if carried out in the wrong hand. But similar things are happening already and &lt;code&gt;life always find its way&lt;/code&gt;. We won't make progress without bearing risks. And I hold faith …&lt;/p&gt;</summary><content type="html">&lt;p&gt;This idea has been in my mind for a while. I'm worried about the potential consequence that may go north if carried out in the wrong hand. But similar things are happening already and &lt;code&gt;life always find its way&lt;/code&gt;. We won't make progress without bearing risks. And I hold faith in collective humanity.&lt;/p&gt;
 &lt;h3&gt;The project&lt;/h3&gt;
 &lt;p&gt;Modularized Terms and Conditions that makes legal consents clear and easy, just like grant permission for mobile apps. &lt;/p&gt;
 &lt;h3&gt;What's new&lt;/h3&gt;
@@ -226,7 +397,7 @@
 &lt;p&gt;On the other side, the unique time-stamped user consents in our system can become an identity that is hard to compromise. It will be extended into physical world for any agreement, marriage vow, or security check to transform ethical bonding into a measurable social contract. In which, will evolve and expand to be community rules, cultural traditions, national constitution and universal value. &lt;/p&gt;
 &lt;p&gt;I will demonstrate how to build this system with natural language processing plus blockchain techniques, with features like “learning” curve and Page ranking to let the community to balance and involve in the legislation of a decentralized social credit system, which I hope will be a Renaissance of the United States constitution.&lt;/p&gt;
 &lt;h3&gt;PS&lt;/h3&gt;
-&lt;p&gt;You may support by sharing your thoughts with twitter trend #changeTOC&lt;/p&gt;</content><category term="articles"></category></entry><entry><title>Lessons that every startup should learn early</title><link href="https://domijin.github.io/lessons-that-every-startup-should-learn-early.html" rel="alternate"></link><published>2018-10-18T00:00:00-05:00</published><updated>2018-10-18T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io/domij.github.io,2018-10-18:/lessons-that-every-startup-should-learn-early.html</id><summary type="html">&lt;p&gt;These are my notes learned from reading. I would have done many things differently. There is no rush to broadcast one's eager and anxiety at start. The real service and product that may help make a difference is what one should really aim on. &lt;/p&gt;
+&lt;p&gt;You may support by sharing your thoughts with twitter trend #changeTOC&lt;/p&gt;</content><category term="articles"></category></entry><entry><title>Lessons that every startup should learn early</title><link href="https://domijin.github.io/lessons-that-every-startup-should-learn-early.html" rel="alternate"></link><published>2018-10-18T00:00:00-05:00</published><updated>2018-10-18T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io,2018-10-18:/lessons-that-every-startup-should-learn-early.html</id><summary type="html">&lt;p&gt;These are my notes learned from reading. I would have done many things differently. There is no rush to broadcast one's eager and anxiety at start. The real service and product that may help make a difference is what one should really aim on. &lt;/p&gt;
 &lt;p&gt;I will stop twittering or posting …&lt;/p&gt;</summary><content type="html">&lt;p&gt;These are my notes learned from reading. I would have done many things differently. There is no rush to broadcast one's eager and anxiety at start. The real service and product that may help make a difference is what one should really aim on. &lt;/p&gt;
 &lt;p&gt;I will stop twittering or posting on LinkedIn as there is nothing needs to prove yet. The work will prove the value itself and I can do it, just with a few really good friends who share the same ambition. That's enough to start. Anything add-on will be extra, but it's not the main cause to chase for. &lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;a href="https://www.startupschool.org/library"&gt;Startup school library&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
@@ -301,8 +472,8 @@
 &lt;li&gt;Choose a key metric to track and focus exclusively on making that metric grow: average use time&lt;/li&gt;
 &lt;li&gt;choose the activity that you believe will directly result in increased growth of your chosen metric&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;A simple metric: &lt;span class="math"&gt;\((b * d) / c\)&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span class="math"&gt;\(b\)&lt;/span&gt; tells you how many of your users, current or new, will be impacted by a new feature, &lt;span class="math"&gt;\(d\)&lt;/span&gt; describes how important that feature will be to the average user, and &lt;span class="math"&gt;\(c\)&lt;/span&gt; gives you how hard it is to build the feature. Just like MVP for each phase.&lt;/p&gt;
+&lt;p&gt;A simple metric: $(b * d) / c$&lt;/p&gt;
+&lt;p&gt;$b$ tells you how many of your users, current or new, will be impacted by a new feature, $d$ describes how important that feature will be to the average user, and $c$ gives you how hard it is to build the feature. Just like MVP for each phase.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;a href="https://ycombinator.wpengine.com/how-to-raise-a-seed-round/"&gt;how to raise a seed round&lt;/a&gt;, Geoff&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;bootstrap or seed round&lt;/p&gt;
 &lt;p&gt;why&lt;/p&gt;
@@ -478,62 +649,7 @@ Your initial goal is to accumulate the prerequisites to being a founder.&lt;/p&g
 Lawyers: use standard forms first&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://www.adoracheung.com/technical-co-founder"&gt;technical co-founder&lt;/a&gt; Adora&lt;/p&gt;
 &lt;p&gt;Make a firm offer. If you don’t have money for salary and/or that person has no outside commitments requiring salary, then propose 50/50 equity split.&lt;/p&gt;
-&lt;p&gt;Lastly, when you identify the right person. Instead of pitching them directly your idea. Brainstorm ideas with that person so it evolves with the both of you. This will be a good start to a hopefully lasting relationship of building together.&lt;/p&gt;
-&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "center",
-        indent = "0em",
-        linebreak = "false";
-
-    if (false) {
-        align = (screen.width &lt; 768) ? "left" : align;
-        indent = (screen.width &lt; 768) ? "0em" : indent;
-        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
-    }
-
-    var mathjaxscript = document.createElement('script');
-    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
-    mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
-    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
-        "MathJax.Hub.Config({" +
-        "    config: ['MMLorHTML.js']," +
-        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
-        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
-        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-        "    displayAlign: '"+ align +"'," +
-        "    displayIndent: '"+ indent +"'," +
-        "    showMathMenu: true," +
-        "    messageStyle: 'normal'," +
-        "    tex2jax: { " +
-        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
-        "        displayMath: [ ['$$','$$'] ]," +
-        "        processEscapes: true," +
-        "        preview: 'TeX'," +
-        "    }, " +
-        "    'HTML-CSS': { " +
-        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
-        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
-        "    }, " +
-        "}); " +
-        "if ('default' !== 'default') {" +
-            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-        "}";
-    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
-}
-&lt;/script&gt;</content><category term="articles"></category></entry><entry><title>More thoughts on Future Transporation</title><link href="https://domijin.github.io/more-thoughts-on-future-transporation.html" rel="alternate"></link><published>2018-10-17T00:00:00-05:00</published><updated>2018-10-17T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io/domij.github.io,2018-10-17:/more-thoughts-on-future-transporation.html</id><summary type="html">&lt;p&gt;Sometimes I just feel that self-driving car is too in-box thinking. @boringcompany might be more practical for its top-down design that reduces computations into realistic scale. CV &amp;amp; Lidar are comp-expensive, not to mention the scheduling that scale with N^2.&lt;/p&gt;
+&lt;p&gt;Lastly, when you identify the right person. Instead of pitching them directly your idea. Brainstorm ideas with that person so it evolves with the both of you. This will be a good start to a hopefully lasting relationship of building together.&lt;/p&gt;</content><category term="articles"></category></entry><entry><title>More thoughts on Future Transporation</title><link href="https://domijin.github.io/more-thoughts-on-future-transporation.html" rel="alternate"></link><published>2018-10-17T00:00:00-05:00</published><updated>2018-10-17T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io,2018-10-17:/more-thoughts-on-future-transporation.html</id><summary type="html">&lt;p&gt;Sometimes I just feel that self-driving car is too in-box thinking. @boringcompany might be more practical for its top-down design that reduces computations into realistic scale. CV &amp;amp; Lidar are comp-expensive, not to mention the scheduling that scale with N^2.&lt;/p&gt;
 &lt;p&gt;If we add the complexity of delay control, the system …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Sometimes I just feel that self-driving car is too in-box thinking. @boringcompany might be more practical for its top-down design that reduces computations into realistic scale. CV &amp;amp; Lidar are comp-expensive, not to mention the scheduling that scale with N^2.&lt;/p&gt;
 &lt;p&gt;If we add the complexity of delay control, the system will be chaotic like the failure of jurassic park. Plus, any malfunction in the system will probably be a costly issue that no society can afford.&lt;/p&gt;
 &lt;p&gt;If it's only used in out-of-city transportation, then bullet train and @hyperloop will be more appealing. Of course, I enjoy the flexible #trunk space. What if we can modularize that and make it easy to plug?&lt;/p&gt;
@@ -542,15 +658,16 @@ Lawyers: use standard forms first&lt;/p&gt;
 &lt;p&gt;Okay. Back to airspace usage, we can think in these directions, 1. separate power unit and passenger space, 2. use guided rails for power unit (top-down self-drive system), 3. let passenger capsule fly like a glider towed by the power unit. @elonmusk #FutureTransportation&lt;/p&gt;
 &lt;p&gt;The benefits are, 1. safer, glider can crash land and there is also a string to hang on; 2. rail for power unit is cheap to build and maintain (the weight load will be offset by lifting); 3. modularize capsules are simple and cheap with no complex control system needed; 4. we won't need to get down to ground anymore, only way towards billion-population city built vertically; 5. easy to adopt in #SpaceSettlement, you may need this on the #MarsColony, @elonmusk; 6. inspirational and worthy to pass on to the future generation.&lt;/p&gt;
 &lt;p&gt;What else? The scale will be like 10 FLOPD (flops per day) avg before calculator invented, 10^2 FLOPD before transistors invented, then it goes viral based on Moore's law.&lt;/p&gt;
-&lt;p&gt;From radio/DVD, to gaming console/computers, until smartphone with cloud service, our consumption of computational power is increasing exponentially, even faster than Moore's law with so many #SaaS and even #HaaS, hardware as a service like what we do in MindWave.&lt;/p&gt;</content><category term="articles"></category></entry><entry><title>Birth of MindWave X</title><link href="https://domijin.github.io/birth-of-mindwave-x.html" rel="alternate"></link><published>2018-10-13T00:00:00-05:00</published><updated>2018-10-13T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io/domij.github.io,2018-10-13:/birth-of-mindwave-x.html</id><summary type="html">&lt;p&gt;&lt;a href="https://mindwave.business"&gt;&lt;img alt="" src="/images/MindWaveX.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;From radio/DVD, to gaming console/computers, until smartphone with cloud service, our consumption of computational power is increasing exponentially, even faster than Moore's law with so many #SaaS and even #HaaS, hardware as a service like what we do in MindWave.&lt;/p&gt;</content><category term="articles"></category></entry><entry><title>Birth of MindWave X</title><link href="https://domijin.github.io/birth-of-mindwave-x.html" rel="alternate"></link><published>2018-10-13T00:00:00-05:00</published><updated>2018-10-13T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io,2018-10-13:/birth-of-mindwave-x.html</id><summary type="html">&lt;p&gt;&lt;a href="https://mindwave.business"&gt;&lt;img alt="" src="/images/MindWaveX.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;To many young entrepreneurs, Y Combinator is the dream place to launch startups. I didn't know anything, not the startup schools, not the Hacker News, not the Office Hours, not the YC partners. I signed up the YC Hack 2018 just like a Texan town boy, without too many thoughts …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;a href="https://mindwave.business"&gt;&lt;img alt="" src="/images/MindWaveX.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;To many young entrepreneurs, Y Combinator is the dream place to launch startups. I didn't know anything, not the startup schools, not the Hacker News, not the Office Hours, not the YC partners. I signed up the YC Hack 2018 just like a Texan town boy, without too many thoughts. &lt;/p&gt;
 &lt;p&gt;Things start to heat up when I joined the Slack, where like-minds start to pitch their ideas and put up their profiles. So I did the same thing and hoping to get some connections with the silicon valley people. Nothing much happened. &lt;/p&gt;
 &lt;p&gt;10/04/2018, it was a normal day in Texas, hot and sunny, when I drove from Brownsville to Austin for a flight to San Jose. The 24 hour journey is a mind-blower. I met with these two Denmark cowboys, who hacked a way to store data on blockchain with 5% of the normal gas fee. There are so many flaws in many of the picked projects but all those teams did very impressive delivery of some products or services. There is no cash award except for an interview with YC and some office hour, which I realized later on that it is exactly what a successful company needs, a good team with execution skills. &lt;/p&gt;
 &lt;p&gt;I didn't learn it that night and my ego is really somewhat annoying to others. But I also didn't stick to my plan and make it a go, as I feel tired of being the idea source plus the doer. There is no easy path as hitchhiking and everything I want have to be earned by own effort. &lt;/p&gt;
-&lt;p&gt;It is never late to take the lesson and here I am, as the founder of &lt;a href="https://mindwave.business"&gt;MindWave&lt;/a&gt; after one week. The initial plot is interestingly simple and attractive so that many have approached me to carry it on. 
+&lt;p&gt;It is never late to take the lesson and here I am, as the founder of &lt;a href="https://mindwave.business"&gt;MindWave&lt;/a&gt; after one week. The initial plot is interestingly simple and attractive so that many have approached me to carry it on. &lt;/p&gt;
 &lt;!-- But until later that I realize that none of them really understand the potential and how to properly do it right.  --&gt;
-&lt;!-- There is some magic from my co-founder that even though I'm unhappy that I have to explain everything from technical details to vision map, he pushed me to continue and stick on. I have never speak out so much that everything I want to do starts to shape and sound.  --&gt;&lt;/p&gt;
+&lt;!-- There is some magic from my co-founder that even though I'm unhappy that I have to explain everything from technical details to vision map, he pushed me to continue and stick on. I have never speak out so much that everything I want to do starts to shape and sound.  --&gt;
+
 &lt;p&gt;There is no other moment that cheers me up so much to work continuously with full passion and inspiration. Every step makes it closer to real and there is just no foreseeable limit of this journey that will drain my creativity. &lt;/p&gt;
 &lt;p&gt;Here I present, Mind Wave, a company that delivers the best of assistance to human intelligence.&lt;/p&gt;
 &lt;p&gt;We believe that &lt;strong&gt;Human Intelligence should come first&lt;/strong&gt;. As human is still more intelligent and AI should aim to enhance that. AI is the new electricity but we will be the Renaissance of the revolution. &lt;/p&gt;
@@ -559,10 +676,10 @@ Lawyers: use standard forms first&lt;/p&gt;
 &lt;p&gt;By providing Hardware as a Service, we will act as the upstream of human-internet interface that not only enhance your communication skills but also unprecedented add-on values to access, interact and understand informations. &lt;/p&gt;
 &lt;p&gt;From augmented intelligence, to artificial intelligence, MindWave will transform the world to rethink about data, device and intelligence. &lt;/p&gt;
 &lt;p&gt;We are a Y Combinator project, launching our first prototype by the end of October, with mapped out path towards marketing, Research and development with continuous revenue generation plan. &lt;/p&gt;
-&lt;p&gt;We are looking for Partnerships that can share our vision and help expedite our mission towards the Tomorrowland of Human Intelligence. &lt;/p&gt;</content><category term="articles"></category></entry><entry><title>Thoughts on Artificial Intelligence and Natural Language Processing</title><link href="https://domijin.github.io/thoughts-on-artificial-intelligence-and-natural-language-processing.html" rel="alternate"></link><published>2018-09-19T00:00:00-05:00</published><updated>2018-09-19T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io/domij.github.io,2018-09-19:/thoughts-on-artificial-intelligence-and-natural-language-processing.html</id><summary type="html">&lt;p&gt;My experience of AI/NLP research and development is limited compared to HPC and data analysis. During my summer intern as R&amp;amp;D in NLP/query understanding, I studied linguistics and implemented the stoke and order into Chinese NLP, based on its nature as a logographic system. Time will reveal …&lt;/p&gt;</summary><content type="html">&lt;p&gt;My experience of AI/NLP research and development is limited compared to HPC and data analysis. During my summer intern as R&amp;amp;D in NLP/query understanding, I studied linguistics and implemented the stoke and order into Chinese NLP, based on its nature as a logographic system. Time will reveal that even though computer programming is highly based on English, AI/NLP may work better in a different language system, which will have the elegant simplicity of mathematics and abundant expressiveness in Chinese. &lt;/p&gt;
+&lt;p&gt;We are looking for Partnerships that can share our vision and help expedite our mission towards the Tomorrowland of Human Intelligence. &lt;/p&gt;</content><category term="articles"></category></entry><entry><title>Thoughts on Artificial Intelligence and Natural Language Processing</title><link href="https://domijin.github.io/thoughts-on-artificial-intelligence-and-natural-language-processing.html" rel="alternate"></link><published>2018-09-19T00:00:00-05:00</published><updated>2018-09-19T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io,2018-09-19:/thoughts-on-artificial-intelligence-and-natural-language-processing.html</id><summary type="html">&lt;p&gt;My experience of AI/NLP research and development is limited compared to HPC and data analysis. During my summer intern as R&amp;amp;D in NLP/query understanding, I studied linguistics and implemented the stoke and order into Chinese NLP, based on its nature as a logographic system. Time will reveal …&lt;/p&gt;</summary><content type="html">&lt;p&gt;My experience of AI/NLP research and development is limited compared to HPC and data analysis. During my summer intern as R&amp;amp;D in NLP/query understanding, I studied linguistics and implemented the stoke and order into Chinese NLP, based on its nature as a logographic system. Time will reveal that even though computer programming is highly based on English, AI/NLP may work better in a different language system, which will have the elegant simplicity of mathematics and abundant expressiveness in Chinese. &lt;/p&gt;
 &lt;p&gt;Back to practice, I have been studying word embeddings like word2vec, and then utilize them for specific linguistic tasks like NER/POS with supervised LSTM + CRF model, or unsupervised models for topic modeling, text summary, etc. From my bilingual background, I realize that knowledge base could be further validated or expanded by multi-languages. I am also interested in the similarity between state-space model and neural network model. Despite the magic non-linearity from activation function, both are seeking optimal/equilibrium with updating techniques based on gradient (and chain rule). The advance of AI/NLP is thus mainly the result of Higher Performance Computing. Leapfrog, MCMC, gradient descent, SGD, batch updating or so are still some compromise regarding to high dimensional parameter space iteration, given the ever-increasing computation power. &lt;/p&gt;
 &lt;p&gt;Nevertheless, data quality is very important at the moment and it's the cornerstone for commercial products, depending on/deciding the use case and market focus.&lt;/p&gt;
-&lt;p&gt;These are my 2 cents about AI/NLP. I also have some thoughts on data acquisition and business model waiting to develop. &lt;/p&gt;</content><category term="articles"></category></entry><entry><title>Future Transportation and Billion-Population Cities</title><link href="https://domijin.github.io/future-transportation-and-billion-population-cities.html" rel="alternate"></link><published>2018-07-22T00:00:00-05:00</published><updated>2018-07-22T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io/domij.github.io,2018-07-22:/future-transportation-and-billion-population-cities.html</id><summary type="html">&lt;p&gt;Here is my comment to the flying car design by &lt;a href="https://www.rolls-royce.com/media/our-stories/electrification.aspx?utm_source=Direct#evtols"&gt;Rolls Royce&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;These are my 2 cents about AI/NLP. I also have some thoughts on data acquisition and business model waiting to develop. &lt;/p&gt;</content><category term="articles"></category></entry><entry><title>Future Transportation and Billion-Population Cities</title><link href="https://domijin.github.io/future-transportation-and-billion-population-cities.html" rel="alternate"></link><published>2018-07-22T00:00:00-05:00</published><updated>2018-07-22T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io,2018-07-22:/future-transportation-and-billion-population-cities.html</id><summary type="html">&lt;p&gt;Here is my comment to the flying car design by &lt;a href="https://www.rolls-royce.com/media/our-stories/electrification.aspx?utm_source=Direct#evtols"&gt;Rolls Royce&lt;/a&gt;.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;A pricey future. High cost of R&amp;amp;D, city reconstruction and potential failure damage. &lt;/p&gt;
 &lt;p&gt;You may consider about guided glider with modular on a rail. At least it won’t crash with power failure and when it crashes …&lt;/p&gt;&lt;/blockquote&gt;</summary><content type="html">&lt;p&gt;Here is my comment to the flying car design by &lt;a href="https://www.rolls-royce.com/media/our-stories/electrification.aspx?utm_source=Direct#evtols"&gt;Rolls Royce&lt;/a&gt;.&lt;/p&gt;
@@ -583,7 +700,7 @@ Lawyers: use standard forms first&lt;/p&gt;
 &lt;li&gt;future million-population buildings&lt;/li&gt;
 &lt;li&gt;aerodynamics and tunnel experiment, collaborated with a professor from Beihang University and maybe UT Arlington ARC lab. &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;I named it HATS: high-speed aerial transportation system. &lt;/p&gt;</content><category term="articles"></category></entry><entry><title>Comments on the arising state-sponsored Trolls</title><link href="https://domijin.github.io/comments-on-the-arising-state-sponsored-trolls.html" rel="alternate"></link><published>2018-07-20T00:00:00-05:00</published><updated>2018-07-20T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io/domij.github.io,2018-07-20:/comments-on-the-arising-state-sponsored-trolls.html</id><summary type="html">&lt;p&gt;Bloomberg published an article about &lt;a href="https://www.bloomberg.com/features/2018-government-sponsored-cyber-militia-cookbook/"&gt;state-sponsored trolls&lt;/a&gt; in a style. It leads to a report by &lt;a href="http://www.iftf.org/fileadmin/user_upload/images/DigIntel/IFTF_State_sponsored_trolling_report.pdf"&gt;Future Lab&lt;/a&gt;. I'm shocked but also pleased for the public awareness it may bring after the heated discussion about net neutrality few month ago. &lt;/p&gt;
+&lt;p&gt;I named it HATS: high-speed aerial transportation system. &lt;/p&gt;</content><category term="articles"></category></entry><entry><title>Comments on the arising state-sponsored Trolls</title><link href="https://domijin.github.io/comments-on-the-arising-state-sponsored-trolls.html" rel="alternate"></link><published>2018-07-20T00:00:00-05:00</published><updated>2018-07-20T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io,2018-07-20:/comments-on-the-arising-state-sponsored-trolls.html</id><summary type="html">&lt;p&gt;Bloomberg published an article about &lt;a href="https://www.bloomberg.com/features/2018-government-sponsored-cyber-militia-cookbook/"&gt;state-sponsored trolls&lt;/a&gt; in a style. It leads to a report by &lt;a href="http://www.iftf.org/fileadmin/user_upload/images/DigIntel/IFTF_State_sponsored_trolling_report.pdf"&gt;Future Lab&lt;/a&gt;. I'm shocked but also pleased for the public awareness it may bring after the heated discussion about net neutrality few month ago. &lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Equality&lt;/strong&gt; is the most treasurable property of the &lt;strong&gt;internet&lt;/strong&gt;. It …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Bloomberg published an article about &lt;a href="https://www.bloomberg.com/features/2018-government-sponsored-cyber-militia-cookbook/"&gt;state-sponsored trolls&lt;/a&gt; in a style. It leads to a report by &lt;a href="http://www.iftf.org/fileadmin/user_upload/images/DigIntel/IFTF_State_sponsored_trolling_report.pdf"&gt;Future Lab&lt;/a&gt;. I'm shocked but also pleased for the public awareness it may bring after the heated discussion about net neutrality few month ago. &lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Equality&lt;/strong&gt; is the most treasurable property of the &lt;strong&gt;internet&lt;/strong&gt;. It ensures freedom and unalienable rights, that among these are Life, Liberty and the pursuit of Happiness. &lt;/p&gt;
 &lt;p&gt;We fear the villains will take advantage to spread &lt;strong&gt;crimes&lt;/strong&gt; to unprecedented wide range of the society but on the other hand, &lt;strong&gt;hegemonism&lt;/strong&gt; and &lt;strong&gt;despotism&lt;/strong&gt; find their way to the world. &lt;/p&gt;
@@ -597,7 +714,7 @@ Lawyers: use standard forms first&lt;/p&gt;
 &lt;li&gt;Public education &amp;amp; Internet: free and open access to information&lt;/li&gt;
 &lt;li&gt;Technology &amp;amp; Non-discrimination: net-neutrality, distributed voting system, blockchain, ...&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/blockquote&gt;</content><category term="articles"></category></entry><entry><title>Thoughts about The Nature of Sensing</title><link href="https://domijin.github.io/thoughts-about-the-nature-of-sensing.html" rel="alternate"></link><published>2018-07-19T00:00:00-05:00</published><updated>2018-07-19T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io/domij.github.io,2018-07-19:/thoughts-about-the-nature-of-sensing.html</id><summary type="html">&lt;p&gt;One foundation of the modern technology is advanced sensing, surveying the space in different scales with various fields of physics. &lt;/p&gt;
+&lt;/blockquote&gt;</content><category term="articles"></category></entry><entry><title>Thoughts about The Nature of Sensing</title><link href="https://domijin.github.io/thoughts-about-the-nature-of-sensing.html" rel="alternate"></link><published>2018-07-19T00:00:00-05:00</published><updated>2018-07-19T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io,2018-07-19:/thoughts-about-the-nature-of-sensing.html</id><summary type="html">&lt;p&gt;One foundation of the modern technology is advanced sensing, surveying the space in different scales with various fields of physics. &lt;/p&gt;
 &lt;p&gt;For instance, &lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;light, laser, infrared, radio, X-ray, miniature radar, : essentially these are all EM waves&lt;/li&gt;
@@ -616,7 +733,7 @@ Lawyers: use standard forms first&lt;/p&gt;
 &lt;p&gt;Each of the subject has extensive research and applications done and ongoing. Many of these will start in lab and then be used in distance measurement (1-D), then be used in imaging (2-D) and ultimately space surveying (3-D). &lt;/p&gt;
 &lt;p&gt;I am no expert in any of the explicit topics but what I learned from physics is to think in first principle. That's how complexity collapses and technology reveals the nature. &lt;/p&gt;
 &lt;p&gt;What I do in astrophysics is just another aspect of the same principle. Except we have to use whatever we can and have to squeeze the information out. Because we don't have the energy for active measurement (shout and hear back) in such scale.  Data analysis in astronomy tries to utilize every pixel or even the dynamical photon counts (band and wavelets over the time in radio astronomy) to infer the source characteristics. &lt;/p&gt;
-&lt;p&gt;A post first shared &lt;a href="https://www.linkedin.com/feed/update/urn:li:activity:6425718653261533184/"&gt;here&lt;/a&gt;.&lt;/p&gt;</content><category term="articles"></category></entry><entry><title>WorkFlow and Methodology</title><link href="https://domijin.github.io/workflow-and-methodology.html" rel="alternate"></link><published>2018-07-14T00:00:00-05:00</published><updated>2018-08-14T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io/domij.github.io,2018-07-14:/workflow-and-methodology.html</id><summary type="html">&lt;h2&gt;Overview&lt;/h2&gt;
+&lt;p&gt;A post first shared &lt;a href="https://www.linkedin.com/feed/update/urn:li:activity:6425718653261533184/"&gt;here&lt;/a&gt;.&lt;/p&gt;</content><category term="articles"></category></entry><entry><title>WorkFlow and Methodology</title><link href="https://domijin.github.io/workflow-and-methodology.html" rel="alternate"></link><published>2018-07-14T00:00:00-05:00</published><updated>2018-08-14T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io,2018-07-14:/workflow-and-methodology.html</id><summary type="html">&lt;h2&gt;Overview&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;The following map summarized my general WorkFlow for data analysis based on &lt;strong&gt;Python&lt;/strong&gt;, which is a popular community-driven and user-friendly language. &lt;/p&gt;
@@ -672,19 +789,18 @@ Lawyers: use standard forms first&lt;/p&gt;
 &lt;p&gt;&lt;img alt="" src="https://mindnode.com/content/4-news/20170606-2017-06-06-introducing-ulysses/screen-capture-mindnode-export.png"&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;&lt;a href="http://markdown-guide.readthedocs.io/en/latest/basics.html"&gt;Markdown Basics&lt;/a&gt;: the key formatting syntax. Markdown is also compatible to use html markup most of the time.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;lt;!-- image with style --&amp;gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&amp;lt;!-- image with style --&amp;gt;
 [&lt;span class="nt"&gt;&amp;lt;img src=&amp;quot;img_url&amp;quot; style=&amp;quot;float: right&amp;quot; width=&amp;quot;100px&amp;quot;&amp;gt;&lt;/span&gt;](&lt;span class="na"&gt;img_url&lt;/span&gt;)
 
 &amp;lt;!-- cross reference --&amp;gt;
 TOC
-&lt;span class="k"&gt;-&lt;/span&gt; [&lt;span class="nt"&gt;title&lt;/span&gt;](&lt;span class="na"&gt;#tag&lt;/span&gt;)
+&lt;span class="k"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;[&lt;span class="nt"&gt;title&lt;/span&gt;](&lt;span class="na"&gt;#tag&lt;/span&gt;)
 &amp;lt;a name=&amp;#39;#tag&amp;#39;&amp;gt;title&amp;lt;/a&amp;gt;
 
 &amp;lt;!-- footnote --&amp;gt;
 &amp;lt;sup&amp;gt;[1](#myfootnote1)&amp;lt;/sup&amp;gt;
 &amp;lt;a name=&amp;quot;myfootnote1&amp;quot;&amp;gt;1&amp;lt;/a&amp;gt;: Footnote content goes here
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;hr&gt;
 &lt;h2&gt;Developing&lt;/h2&gt;
@@ -707,25 +823,24 @@ TOC
 &lt;hr&gt;
 &lt;p&gt;&lt;strong&gt;1. Start from base image&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Basic commands&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;docker pull image_name  &lt;span class="c1"&gt;# pull public image/repository from a registry&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;docker&lt;span class="w"&gt; &lt;/span&gt;pull&lt;span class="w"&gt; &lt;/span&gt;image_name&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# pull public image/repository from a registry&lt;/span&gt;
 
-docker build &lt;span class="o"&gt;[&lt;/span&gt;--no-cache&lt;span class="o"&gt;]&lt;/span&gt; -t image_name path/to/Dockerfile &lt;span class="o"&gt;[&lt;/span&gt;-f renamed-dockerfile&lt;span class="o"&gt;]&lt;/span&gt;
+docker&lt;span class="w"&gt; &lt;/span&gt;build&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;--no-cache&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-t&lt;span class="w"&gt; &lt;/span&gt;image_name&lt;span class="w"&gt; &lt;/span&gt;path/to/Dockerfile&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;-f&lt;span class="w"&gt; &lt;/span&gt;renamed-dockerfile&lt;span class="o"&gt;]&lt;/span&gt;
 
-docker run -it  &lt;span class="c1"&gt;# interactive&lt;/span&gt;
-           --rm  &lt;span class="c1"&gt;# rm container when exit&lt;/span&gt;
-           -d  &lt;span class="c1"&gt;# run as detached&lt;/span&gt;
-           -p &lt;span class="m"&gt;8888&lt;/span&gt;:8888  &lt;span class="c1"&gt;# port fwd to host&lt;/span&gt;
-           -e &lt;span class="nv"&gt;DISPLAY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$DISPLAY&lt;/span&gt;  &lt;span class="c1"&gt;# set environment variable&lt;/span&gt;
-           -u user  &lt;span class="c1"&gt;# username/uid in image&lt;/span&gt;
-           -v path/to/local:path/to/container  &lt;span class="c1"&gt;# mount directory&lt;/span&gt;
-           image_name
-           &lt;span class="o"&gt;[&lt;/span&gt;command&lt;span class="o"&gt;]&lt;/span&gt;
+docker&lt;span class="w"&gt; &lt;/span&gt;run&lt;span class="w"&gt; &lt;/span&gt;-it&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# interactive&lt;/span&gt;
+&lt;span class="w"&gt;           &lt;/span&gt;--rm&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# rm container when exit&lt;/span&gt;
+&lt;span class="w"&gt;           &lt;/span&gt;-d&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# run as detached&lt;/span&gt;
+&lt;span class="w"&gt;           &lt;/span&gt;-p&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;8888&lt;/span&gt;:8888&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# port fwd to host&lt;/span&gt;
+&lt;span class="w"&gt;           &lt;/span&gt;-e&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;DISPLAY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$DISPLAY&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# set environment variable&lt;/span&gt;
+&lt;span class="w"&gt;           &lt;/span&gt;-u&lt;span class="w"&gt; &lt;/span&gt;user&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# username/uid in image&lt;/span&gt;
+&lt;span class="w"&gt;           &lt;/span&gt;-v&lt;span class="w"&gt; &lt;/span&gt;path/to/local:path/to/container&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# mount directory&lt;/span&gt;
+&lt;span class="w"&gt;           &lt;/span&gt;image_name
+&lt;span class="w"&gt;           &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;command&lt;span class="o"&gt;]&lt;/span&gt;
 
-docker port container_id  &lt;span class="c1"&gt;# show the open ports of a container instance&lt;/span&gt;
-docker start/attach/stop/rm container_id  &lt;span class="c1"&gt;# manage a container instance&lt;/span&gt;
-docker rmi image_id  &lt;span class="c1"&gt;# remove an image&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
+docker&lt;span class="w"&gt; &lt;/span&gt;port&lt;span class="w"&gt; &lt;/span&gt;container_id&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# show the open ports of a container instance&lt;/span&gt;
+docker&lt;span class="w"&gt; &lt;/span&gt;start/attach/stop/rm&lt;span class="w"&gt; &lt;/span&gt;container_id&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# manage a container instance&lt;/span&gt;
+docker&lt;span class="w"&gt; &lt;/span&gt;rmi&lt;span class="w"&gt; &lt;/span&gt;image_id&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# remove an image&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://hub.docker.com/"&gt;public registry&lt;/a&gt;: be caution about potential security risk in 3rd party image/repository.&lt;/li&gt;
@@ -738,14 +853,13 @@ docker rmi image_id  &lt;span class="c1"&gt;# remove an image&lt;/span&gt;
 &lt;li&gt;&lt;a href="https://pip.pypa.io/en/stable/reference/pip_install/#requirements-file-format"&gt;file format&lt;/a&gt; and &lt;a href="https://pip.pypa.io/en/stable/reference/pip_install/#requirement-specifiers"&gt;specifiers&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://pip.pypa.io/en/stable/reference/pip_freeze/"&gt;&lt;code&gt;pip freeze &amp;gt; requirement.txt&lt;/code&gt;&lt;/a&gt;: list installed package&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Example requirement.txt&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# Example requirement.txt&lt;/span&gt;
 &lt;span class="n"&gt;SomeProject&lt;/span&gt;
 &lt;span class="n"&gt;SomeProject&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mf"&gt;1.3&lt;/span&gt;
 &lt;span class="n"&gt;SomeProject&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;=&lt;/span&gt;&lt;span class="mf"&gt;1.2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="mf"&gt;.2.0&lt;/span&gt;
 &lt;span class="n"&gt;SomeProject&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;foo&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;bar&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 &lt;span class="n"&gt;SomeProject&lt;/span&gt;&lt;span class="o"&gt;~=&lt;/span&gt;&lt;span class="mf"&gt;1.4.2&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;hr&gt;
 &lt;p&gt;&lt;a name="dockerfile"&gt;&lt;strong&gt;3. Compose building recipe to Dockerfile&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
@@ -840,17 +954,16 @@ docker rmi image_id  &lt;span class="c1"&gt;# remove an image&lt;/span&gt;
 &lt;p&gt;Create a private git repository on any ssh server with 6 lines&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# on server&lt;/span&gt;
-mkdir project.git
-&lt;span class="nb"&gt;cd&lt;/span&gt; project.git
-git --bare init
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# on server&lt;/span&gt;
+mkdir&lt;span class="w"&gt; &lt;/span&gt;project.git
+&lt;span class="nb"&gt;cd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;project.git
+git&lt;span class="w"&gt; &lt;/span&gt;--bare&lt;span class="w"&gt; &lt;/span&gt;init
 
 &lt;span class="c1"&gt;# client side&lt;/span&gt;
-git init
-git remote add mygitserver ssh://git@remote-host&lt;span class="o"&gt;[&lt;/span&gt;:port&lt;span class="o"&gt;]&lt;/span&gt;/path/to/project.git
-git push mygitserver master
-&lt;/pre&gt;&lt;/div&gt;
-
+git&lt;span class="w"&gt; &lt;/span&gt;init
+git&lt;span class="w"&gt; &lt;/span&gt;remote&lt;span class="w"&gt; &lt;/span&gt;add&lt;span class="w"&gt; &lt;/span&gt;mygitserver&lt;span class="w"&gt; &lt;/span&gt;ssh://git@remote-host&lt;span class="o"&gt;[&lt;/span&gt;:port&lt;span class="o"&gt;]&lt;/span&gt;/path/to/project.git
+git&lt;span class="w"&gt; &lt;/span&gt;push&lt;span class="w"&gt; &lt;/span&gt;mygitserver&lt;span class="w"&gt; &lt;/span&gt;master
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;hr&gt;
 &lt;h3&gt;Packaging: iPython&lt;/h3&gt;
@@ -869,7 +982,7 @@ git push mygitserver master
 &lt;/ol&gt;
 &lt;hr&gt;
 &lt;p&gt;&lt;strong&gt;1. Modularize function&lt;/strong&gt;: if not done earlier&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;CamelCase&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;CamelCase&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
     &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;  &lt;span class="c1"&gt;# initialize&lt;/span&gt;
         &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt; &lt;span class="o"&gt;...&lt;/span&gt;
     &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="fm"&gt;__repr__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;  &lt;span class="c1"&gt;# print &lt;/span&gt;
@@ -877,12 +990,11 @@ git push mygitserver master
 
 &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="vm"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
     &lt;span class="n"&gt;body&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;program&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;hr&gt;
 &lt;p&gt;&lt;strong&gt;2. Unittest&lt;/strong&gt;: remember the issues we note down during the developing? These are good cases to write up tests about. A more proactive concept is test-driven programming.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;├── __init__.py
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;├── __init__.py
 ├── code.py
 ├── func_a.py
 ├── func_b.py
@@ -891,8 +1003,7 @@ git push mygitserver master
     ├── __init__.py
     ├── test_funcs.py
     └── test_something.py
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;hr&gt;
 &lt;p&gt;testing framework&lt;/p&gt;
@@ -913,7 +1024,7 @@ git push mygitserver master
 &lt;li&gt;AppVeyor&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# example .travis.yml file&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# example .travis.yml file&lt;/span&gt;
 
 &lt;span class="n"&gt;language&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;python&lt;/span&gt;
 &lt;span class="n"&gt;python&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
@@ -922,8 +1033,7 @@ git push mygitserver master
 &lt;span class="n"&gt;install&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;pip install -r requirement.txt&amp;quot;&lt;/span&gt; 
 &lt;span class="c1"&gt;# command to run tests&lt;/span&gt;
 &lt;span class="n"&gt;script&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;pytest&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;hr&gt;
 &lt;p&gt;&lt;strong&gt;4. Profiling &amp;amp; Optimization&lt;/strong&gt;&lt;/p&gt;
@@ -959,17 +1069,16 @@ git push mygitserver master
 &lt;li&gt;Numba&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;time&lt;/span&gt;  &lt;span class="c1"&gt;# coarse total time&lt;/span&gt;
-%%timeit  &lt;span class="c1"&gt;# code snippets&lt;/span&gt;
-cProfile  &lt;span class="c1"&gt;# deep profiling with viz tools&lt;/span&gt;
-  pstats  &lt;span class="c1"&gt;# text-based&lt;/span&gt;
-  snakeviz
-  runsnakerun  &lt;span class="c1"&gt;# pipeline tool&lt;/span&gt;
-  pyprof2html  &lt;span class="c1"&gt;# html tool&lt;/span&gt;
-line_profiler/kernprof  &lt;span class="c1"&gt;# line-by-line function&lt;/span&gt;
-memory_profiler  &lt;span class="c1"&gt;# memory consumption and memory leaks&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;time&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# coarse total time&lt;/span&gt;
+%%timeit&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# code snippets&lt;/span&gt;
+cProfile&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# deep profiling with viz tools&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;pstats&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# text-based&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;snakeviz
+&lt;span class="w"&gt;  &lt;/span&gt;runsnakerun&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# pipeline tool&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;pyprof2html&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# html tool&lt;/span&gt;
+line_profiler/kernprof&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# line-by-line function&lt;/span&gt;
+memory_profiler&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# memory consumption and memory leaks&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;hr&gt;
 &lt;p&gt;Parallel computing&lt;/p&gt;
@@ -1034,8 +1143,8 @@ memory_profiler  &lt;span class="c1"&gt;# memory consumption and memory leaks&lt
 &lt;p&gt;&lt;strong&gt;1. Config env.: Dockerfile&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;With everything done, it is now easy to put all the ingredients and recipe together into a Dockerfile.&lt;/p&gt;
 &lt;hr&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Example Dockerfile for python&lt;/span&gt;
-cat &amp;gt; Dockerfile &lt;span class="s"&gt;&amp;lt;&amp;lt;EOF&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# Example Dockerfile for python&lt;/span&gt;
+cat&lt;span class="w"&gt; &lt;/span&gt;&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;Dockerfile&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;lt;&amp;lt;EOF&lt;/span&gt;
 &lt;span class="s"&gt;FROM python:3&lt;/span&gt;
 
 &lt;span class="s"&gt;WORKDIR /usr/src/app&lt;/span&gt;
@@ -1049,10 +1158,9 @@ cat &amp;gt; Dockerfile &lt;span class="s"&gt;&amp;lt;&amp;lt;EOF&lt;/span&gt;
 &lt;span class="s"&gt;EOF&lt;/span&gt;
 
 &lt;span class="c1"&gt;# build&lt;/span&gt;
-docker build -t pydev .
-docker run -it --rm pydev
-&lt;/pre&gt;&lt;/div&gt;
-
+docker&lt;span class="w"&gt; &lt;/span&gt;build&lt;span class="w"&gt; &lt;/span&gt;-t&lt;span class="w"&gt; &lt;/span&gt;pydev&lt;span class="w"&gt; &lt;/span&gt;.
+docker&lt;span class="w"&gt; &lt;/span&gt;run&lt;span class="w"&gt; &lt;/span&gt;-it&lt;span class="w"&gt; &lt;/span&gt;--rm&lt;span class="w"&gt; &lt;/span&gt;pydev
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;hr&gt;
 &lt;p&gt;&lt;strong&gt;2. Demo: Markdown + Scripts -&amp;gt; Jupyter notebook&lt;/strong&gt;&lt;/p&gt;
@@ -1086,13 +1194,12 @@ docker run -it --rm pydev
 &lt;hr&gt;
 &lt;p&gt;&lt;strong&gt;3. Slideshow: nbconvert + reveal.js&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Wrap up commands to convert notebook into slideshow&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;jupyter nbconvert notebook.ipynb --to slides --reveal-prefix reveal.js &lt;span class="o"&gt;[&lt;/span&gt;--template hidecode/rmcode.tpl&lt;span class="o"&gt;]&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;jupyter&lt;span class="w"&gt; &lt;/span&gt;nbconvert&lt;span class="w"&gt; &lt;/span&gt;notebook.ipynb&lt;span class="w"&gt; &lt;/span&gt;--to&lt;span class="w"&gt; &lt;/span&gt;slides&lt;span class="w"&gt; &lt;/span&gt;--reveal-prefix&lt;span class="w"&gt; &lt;/span&gt;reveal.js&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;--template&lt;span class="w"&gt; &lt;/span&gt;hidecode/rmcode.tpl&lt;span class="o"&gt;]&lt;/span&gt;
 
-wget https://github.com/hakimel/reveal.js/archive/3.6.0.tar.gz &lt;span class="p"&gt;|&lt;/span&gt; tar -xvzf -
+wget&lt;span class="w"&gt; &lt;/span&gt;https://github.com/hakimel/reveal.js/archive/3.6.0.tar.gz&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;tar&lt;span class="w"&gt; &lt;/span&gt;-xvzf&lt;span class="w"&gt; &lt;/span&gt;-
 
-open notebook.slides.html
-&lt;/pre&gt;&lt;/div&gt;
-
+open&lt;span class="w"&gt; &lt;/span&gt;notebook.slides.html
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;hr&gt;
 &lt;h3&gt;Repository: GitHub&lt;/h3&gt;
@@ -1133,38 +1240,38 @@ open notebook.slides.html
 &lt;p&gt;Follow the manual/documentation! &lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;tricks&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# load dataset based on memory&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# load dataset based on memory&lt;/span&gt;
 &lt;span class="n"&gt;sources&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read_csv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;chunksize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;100000&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; 
 &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;chunk&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;enumerate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sources&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="o"&gt;...&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</content><category term="articles"></category></entry><entry><title>Neural Networks</title><link href="https://domijin.github.io/neural-networks.html" rel="alternate"></link><published>2018-07-05T00:00:00-05:00</published><updated>2018-07-05T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io/domij.github.io,2018-07-05:/neural-networks.html</id><summary type="html">&lt;h2&gt;Building Blocks&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="articles"></category></entry><entry><title>Neural Networks</title><link href="https://domijin.github.io/neural-networks.html" rel="alternate"></link><published>2018-07-05T00:00:00-05:00</published><updated>2018-07-05T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io,2018-07-05:/neural-networks.html</id><summary type="html">&lt;h2&gt;Building Blocks&lt;/h2&gt;
 &lt;h3&gt;Gradient Descent&lt;/h3&gt;
 &lt;p&gt;&lt;code&gt;finding the optimum in parameter space&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Strategies:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Batch: &lt;span class="math"&gt;\(\theta = \theta - \eta \cdot \nabla_ \theta J(\theta)\)&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;Stochastic: &lt;span class="math"&gt;\(\theta = \theta - \eta \cdot \nabla_\theta J(\theta;x_i;y_i)\)&lt;/span&gt;, faster but biased&lt;/li&gt;
-&lt;li&gt;Mini-batch: &lt;span class="math"&gt;\(\theta = \theta - \eta \cdot \nabla_\theta J(\theta;x_{i:i+m};y …&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;h2&gt;Building Blocks&lt;/h2&gt;
+&lt;li&gt;Batch: $\theta = \theta - \eta \cdot \nabla_ \theta J(\theta)$&lt;/li&gt;
+&lt;li&gt;Stochastic: $\theta = \theta - \eta \cdot \nabla_\theta J(\theta;x_i;y_i)$, faster but biased&lt;/li&gt;
+&lt;li&gt;Mini-batch: $\theta = \theta - \eta \cdot \nabla_\theta J(\theta;x_{i:i+m};y_{i:i …&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;h2&gt;Building Blocks&lt;/h2&gt;
 &lt;h3&gt;Gradient Descent&lt;/h3&gt;
 &lt;p&gt;&lt;code&gt;finding the optimum in parameter space&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Strategies:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Batch: &lt;span class="math"&gt;\(\theta = \theta - \eta \cdot \nabla_ \theta J(\theta)\)&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;Stochastic: &lt;span class="math"&gt;\(\theta = \theta - \eta \cdot \nabla_\theta J(\theta;x_i;y_i)\)&lt;/span&gt;, faster but biased&lt;/li&gt;
-&lt;li&gt;Mini-batch: &lt;span class="math"&gt;\(\theta = \theta - \eta \cdot \nabla_\theta J(\theta;x_{i:i+m};y_{i:i+m})\)&lt;/span&gt;, intermediate&lt;/li&gt;
+&lt;li&gt;Batch: $\theta = \theta - \eta \cdot \nabla_ \theta J(\theta)$&lt;/li&gt;
+&lt;li&gt;Stochastic: $\theta = \theta - \eta \cdot \nabla_\theta J(\theta;x_i;y_i)$, faster but biased&lt;/li&gt;
+&lt;li&gt;Mini-batch: $\theta = \theta - \eta \cdot \nabla_\theta J(\theta;x_{i:i+m};y_{i:i+m})$, intermediate&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Challenges:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;span class="math"&gt;\(\eta\)&lt;/span&gt;: apply learning rate schedules&lt;/li&gt;
+&lt;li&gt;$\eta$: apply learning rate schedules&lt;/li&gt;
 &lt;li&gt;Saddle points as local minimum: spiking NN for quantum tunneling?&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Improvements for SDG:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;em&gt;add momentum:&lt;/em&gt; &lt;span class="math"&gt;\(v_t = \gamma v_t - 1 + \eta \cdot \nabla_\theta J(\theta); \theta = \theta -v_t\)&lt;/span&gt;, reduce damping&lt;/li&gt;
-&lt;li&gt;NAG, Nesterov accelerated gradient: add correction based on momentum, &lt;span class="math"&gt;\(J(\theta) -&amp;gt; J(\theta - \gamma v_t - 1)\)&lt;/span&gt;, avoid momentum crash&lt;/li&gt;
-&lt;li&gt;Adagrad, adaptive gradient: &lt;span class="math"&gt;\(\eta_i\)&lt;/span&gt; for each &lt;span class="math"&gt;\(\theta_i\)&lt;/span&gt;, &lt;span class="math"&gt;\(\theta_{t+1}=\theta_t - \frac{\eta}{\sqrt{G_t+\epsilon}}\odot g_t\)&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;Adadelta: reduce the calculation of &lt;span class="math"&gt;\(G_t\)&lt;/span&gt; with a window-based average, &lt;span class="math"&gt;\(E_t\)&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;RMSprop: &lt;span class="math"&gt;\(E_t = \gamma E_{t-1} + (1-\gamma)g_t^2\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;add momentum:&lt;/em&gt; $v_t = \gamma v_t - 1 + \eta \cdot \nabla_\theta J(\theta); \theta = \theta -v_t$, reduce damping&lt;/li&gt;
+&lt;li&gt;NAG, Nesterov accelerated gradient: add correction based on momentum, $J(\theta) -&amp;gt; J(\theta - \gamma v_t - 1)$, avoid momentum crash&lt;/li&gt;
+&lt;li&gt;Adagrad, adaptive gradient: $\eta_i$ for each $\theta_i$, $\theta_{t+1}=\theta_t - \frac{\eta}{\sqrt{G_t+\epsilon}}\odot g_t$&lt;/li&gt;
+&lt;li&gt;Adadelta: reduce the calculation of $G_t$ with a window-based average, $E_t$&lt;/li&gt;
+&lt;li&gt;RMSprop: $E_t = \gamma E_{t-1} + (1-\gamma)g_t^2$&lt;/li&gt;
 &lt;li&gt;Adam, adaptive moment estimation: bias-corrected from weighted average mean and variance
 &lt;img alt="" src="http://mmbiz.qpic.cn/mmbiz_gif/951TjTgiabkyJ1ncktgIzgdVgpUe849nG1tAmkb37t25NwNPibkcpEsAn530iakP0VmgW6OHOc2QLX4QOAWarnNug/0?wx_fmt=gif&amp;amp;tp=webp&amp;amp;wxfrom=5&amp;amp;wx_lazy=1"&gt;
 &lt;img alt="" src="http://mmbiz.qpic.cn/mmbiz_gif/951TjTgiabkyJ1ncktgIzgdVgpUe849nGicQibxqDqcNBZqBEWhCs5fCgjU8buq6B2DVKbJUJFTDqDNhibw8J387EQ/0?wx_fmt=gif&amp;amp;tp=webp&amp;amp;wxfrom=5&amp;amp;wx_lazy=1"&gt;&lt;/li&gt;
@@ -1191,20 +1298,20 @@ open notebook.slides.html
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;code&gt;keep nonlinearity &amp;amp; non-vanishing gradient&lt;/code&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Sigmoid: &lt;span class="math"&gt;\(f(x) = \frac{1}{1 + e^{-x}}\)&lt;/span&gt;, work with cross-entropy cost function &lt;span class="math"&gt;\(y\ln{a}+(1-y)\ln{(1-a)}\)&lt;/span&gt; to avoid gradient vanishing&lt;/li&gt;
-&lt;li&gt;tanh, &lt;span class="math"&gt;\(tanh(x)= 2 \sigmoid(2x)-1\)&lt;/span&gt;: better but not the final solution&lt;/li&gt;
-&lt;li&gt;ReLU, &lt;span class="math"&gt;\(y=x\ge0? x:0\)&lt;/span&gt;&lt;ul&gt;
+&lt;li&gt;Sigmoid: $f(x) = \frac{1}{1 + e^{-x}}$, work with cross-entropy cost function $y\ln{a}+(1-y)\ln{(1-a)}$ to avoid gradient vanishing&lt;/li&gt;
+&lt;li&gt;tanh, $tanh(x)= 2 \sigmoid(2x)-1$: better but not the final solution&lt;/li&gt;
+&lt;li&gt;ReLU, $y=x\ge0? x:0$&lt;ul&gt;
 &lt;li&gt;constant gradient on one side&lt;/li&gt;
 &lt;li&gt;output shift &amp;amp; hard to converge&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;PReLU, &lt;span class="math"&gt;\(f(y_i)= y_i&amp;gt;0? y_i: a_iy_i\)&lt;/span&gt;: regulate the left side&lt;ul&gt;
+&lt;li&gt;PReLU, $f(y_i)= y_i&amp;gt;0? y_i: a_iy_i$: regulate the left side&lt;ul&gt;
 &lt;li&gt;&lt;a href=""&gt;He, K., et al. Delving Deep into Rectifiers: Surpassing Human-Level Performance on ImageNet Classification. ICCV 2015&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;RReLU, &lt;a href=""&gt;Xu, B., et al. Empirical Evaluation of Rectified Activations in Convolutional Network. ICML Deep Learning Workshop 2015&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;Maxout, &lt;span class="math"&gt;\(\max{w_ix+b_i}\)&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;ELU, &lt;span class="math"&gt;\(f(x)= x&amp;gt;0?x:\alpha (\exp(x)-1)\)&lt;/span&gt;&lt;ul&gt;
+&lt;li&gt;Maxout, $\max{w_ix+b_i}$&lt;/li&gt;
+&lt;li&gt;ELU, $f(x)= x&amp;gt;0?x:\alpha (\exp(x)-1)$&lt;ul&gt;
 &lt;li&gt;&lt;a href="https://github.com/Coldmooon/Code-for-MPELU/"&gt;ImageNet example&lt;/a&gt; &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
@@ -1221,8 +1328,8 @@ open notebook.slides.html
 &lt;/ul&gt;
 &lt;h3&gt;Regularization&lt;/h3&gt;
 &lt;p&gt;&lt;code&gt;minimize the loss function with reasonable complexity&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Supervised learning: &lt;span class="math"&gt;\(w^* = \arg\min_w \sum_i L(y_i, f(x_i;w)) + \lambda \Omega(w)\)&lt;/span&gt;, solve ill-conditioned matrix&lt;/p&gt;
-&lt;p&gt;L0/L1, minimize the absolute sum: Lasso regularization, make &lt;span class="math"&gt;\(w\)&lt;/span&gt; sparse, &lt;span class="math"&gt;\(||w||_1 \le C\)&lt;/span&gt;, linear bound&lt;/p&gt;
+&lt;p&gt;Supervised learning: $w^* = \arg\min_w \sum_i L(y_i, f(x_i;w)) + \lambda \Omega(w)$, solve ill-conditioned matrix&lt;/p&gt;
+&lt;p&gt;L0/L1, minimize the absolute sum: Lasso regularization, make $w$ sparse, $||w||_1 \le C$, linear bound&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Feature Selection: less feature needed&lt;/li&gt;
 &lt;li&gt;Interpretability: less complex&lt;/li&gt;
@@ -1230,7 +1337,7 @@ open notebook.slides.html
 &lt;blockquote&gt;
 &lt;p&gt;less features &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;L2, minimize the square sum: Ridge Regression/Weight Decay, &lt;span class="math"&gt;\(||w||_2 \le C\)&lt;/span&gt;, quadratic bound&lt;/p&gt;
+&lt;p&gt;L2, minimize the square sum: Ridge Regression/Weight Decay, $||w||_2 \le C$, quadratic bound&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;won't reduce features&lt;br&gt;
 but reduce certain feature dependence&lt;/p&gt;
@@ -1250,18 +1357,18 @@ but reduce certain feature dependence&lt;/p&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Denoising Autoencoders: obtain good representation&lt;ul&gt;
-&lt;li&gt;perform noise mapping: &lt;span class="math"&gt;\(x \rightarrow \tilde{ x}\)&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;keep loss as &lt;span class="math"&gt;\(\mathcal{L}(x,\tilde{x'})\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;perform noise mapping: $x \rightarrow \tilde{ x}$&lt;/li&gt;
+&lt;li&gt;keep loss as $\mathcal{L}(x,\tilde{x'})$&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Restricted Boltzmann Machine: unsupervised learning&lt;ul&gt;
-&lt;li&gt;generative approach: obtain &lt;span class="math"&gt;\(P(X,Y)\)&lt;/span&gt; for P(Y|X); in contrast of discriminative approach, which only cares about &lt;span class="math"&gt;\(P(Y|X)\)&lt;/span&gt;&lt;ul&gt;
+&lt;li&gt;generative approach: obtain $P(X,Y)$ for P(Y|X); in contrast of discriminative approach, which only cares about $P(Y|X)$&lt;ul&gt;
 &lt;li&gt;methods: Markov process &amp;amp; Gibbs sampling&lt;/li&gt;
-&lt;li&gt;metrics: KL divergence, Shannon entropy, &lt;span class="math"&gt;\(\sum_i P(i)\log\frac{P(i)}{Q(i)}\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;metrics: KL divergence, Shannon entropy, $\sum_i P(i)\log\frac{P(i)}{Q(i)}$&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;probability distribution: &lt;span class="math"&gt;\(P = \frac{1}{Z}e^{-E(v,h)}\)&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;energy function: &lt;span class="math"&gt;\(E(v,h) =-v^T Wh -a^Tv -b^Th\)&lt;/span&gt;, &lt;span class="math"&gt;\(v\)&lt;/span&gt; visible unit, &lt;span class="math"&gt;\(h\)&lt;/span&gt; hidden unit&lt;/li&gt;
+&lt;li&gt;probability distribution: $P = \frac{1}{Z}e^{-E(v,h)}$&lt;/li&gt;
+&lt;li&gt;energy function: $E(v,h) =-v^T Wh -a^Tv -b^Th$, $v$ visible unit, $h$ hidden unit&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Generative Adversarial Network: Turing learning&lt;ul&gt;
@@ -1278,8 +1385,8 @@ but reduce certain feature dependence&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;a href="https://arxiv.org/abs/1512.03385"&gt;Residual Neural Network&lt;/a&gt;&lt;ul&gt;
 &lt;li&gt;plain layer + shortcuts&lt;/li&gt;
-&lt;li&gt;residual function: &lt;span class="math"&gt;\(\mathcal{F}(x):=h(x) - x\)&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;shortcut: &lt;span class="math"&gt;\(y=w_s x + \mathcal{F}(x, \{w_i\})\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;residual function: $\mathcal{F}(x):=h(x) - x$&lt;/li&gt;
+&lt;li&gt;shortcut: $y=w_s x + \mathcal{F}(x, {w_i})$&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Convolutional Neural Network: computer vision&lt;ul&gt;
@@ -1287,7 +1394,7 @@ but reduce certain feature dependence&lt;/p&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Recurrent Neural Network&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://arxiv.org/pdf/1503.04069.pdf"&gt;LSTM&lt;/a&gt;: a memory cell &lt;span class="math"&gt;\(c_t\)&lt;/span&gt;, an input gate &lt;span class="math"&gt;\(i_t\)&lt;/span&gt;, an 'output' gate &lt;span class="math"&gt;\(o_t\)&lt;/span&gt; and a forget gate &lt;span class="math"&gt;\(f_t\)&lt;/span&gt;. &lt;span class="math"&gt;\(x_t \rightarrow h_t\)&lt;/span&gt; &lt;img alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Peephole_Long_Short-Term_Memory.svg/2000px-Peephole_Long_Short-Term_Memory.svg.png"&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://arxiv.org/pdf/1503.04069.pdf"&gt;LSTM&lt;/a&gt;: a memory cell $c_t$, an input gate $i_t$, an 'output' gate $o_t$ and a forget gate $f_t$. $x_t \rightarrow h_t$ &lt;img alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Peephole_Long_Short-Term_Memory.svg/2000px-Peephole_Long_Short-Term_Memory.svg.png"&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://distill.pub/2016/augmented-rnns/"&gt;Attention&lt;/a&gt;: potential of &lt;code&gt;memory&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;applications&lt;ul&gt;
 &lt;li&gt;&lt;a href="https://skr3.nlm.nih.gov/SemMed/"&gt;Semantic MEDLINE&lt;/a&gt;: MEDLINE intelligence, NLP on medical papers&lt;/li&gt;
@@ -1324,83 +1431,28 @@ but reduce certain feature dependence&lt;/p&gt;
 &lt;h3&gt;Extras&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://qz.com/1316050/tech-companies-just-woke-up-to-a-big-problem-with-their-ai/amp/"&gt;ethics principles&lt;/a&gt;: bias imposed by training data&lt;/li&gt;
-&lt;/ul&gt;
-&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "center",
-        indent = "0em",
-        linebreak = "false";
-
-    if (false) {
-        align = (screen.width &lt; 768) ? "left" : align;
-        indent = (screen.width &lt; 768) ? "0em" : indent;
-        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
-    }
-
-    var mathjaxscript = document.createElement('script');
-    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
-    mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
-    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
-        "MathJax.Hub.Config({" +
-        "    config: ['MMLorHTML.js']," +
-        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
-        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
-        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-        "    displayAlign: '"+ align +"'," +
-        "    displayIndent: '"+ indent +"'," +
-        "    showMathMenu: true," +
-        "    messageStyle: 'normal'," +
-        "    tex2jax: { " +
-        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
-        "        displayMath: [ ['$$','$$'] ]," +
-        "        processEscapes: true," +
-        "        preview: 'TeX'," +
-        "    }, " +
-        "    'HTML-CSS': { " +
-        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
-        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
-        "    }, " +
-        "}); " +
-        "if ('default' !== 'default') {" +
-            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-        "}";
-    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
-}
-&lt;/script&gt;</content><category term="articles"></category></entry><entry><title>SlideShow with reveal.js</title><link href="https://domijin.github.io/slideshow-with-revealjs.html" rel="alternate"></link><published>2018-06-17T00:00:00-05:00</published><updated>2018-06-17T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io/domij.github.io,2018-06-17:/slideshow-with-revealjs.html</id><summary type="html">&lt;p&gt;&lt;a href="http://lsst.domij.info"&gt;Presentation&lt;/a&gt;&lt;/p&gt;
+&lt;/ul&gt;</content><category term="articles"></category></entry><entry><title>SlideShow with reveal.js</title><link href="https://domijin.github.io/slideshow-with-revealjs.html" rel="alternate"></link><published>2018-06-17T00:00:00-05:00</published><updated>2018-06-17T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io,2018-06-17:/slideshow-with-revealjs.html</id><summary type="html">&lt;p&gt;&lt;a href="http://lsst.domij.info"&gt;Presentation&lt;/a&gt;&lt;/p&gt;
 &lt;h3&gt;Docker&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;configure a docker with necessary ingredients&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# based on jupyter/base-notebook&lt;/span&gt;
-docker pull jupyter/base-notebook
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# based on jupyter/base-notebook&lt;/span&gt;
+docker&lt;span class="w"&gt; &lt;/span&gt;pull&lt;span class="w"&gt; &lt;/span&gt;jupyter/base-notebook
 
 &lt;span class="c1"&gt;# or use Dockerfile, if need root, https://github.com/jupyter/docker-stacks/issues/211&lt;/span&gt;
-cat &lt;span class="s"&gt;&amp;lt;&amp;lt; EOF &amp;gt; Dockerfile&lt;/span&gt;
+cat&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;lt;&amp;lt; EOF &amp;gt; Dockerfile&lt;/span&gt;
 &lt;span class="s"&gt;# Copyright (C) 2018 by Dongming Jin&lt;/span&gt;
 &lt;span class="s"&gt;# Licensed under the Academic Free License version 3.0&lt;/span&gt;
-&lt;span class="s"&gt;# This program comes …&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;&lt;a href="http://lsst.domij.info"&gt;Presentation&lt;/a&gt;&lt;/p&gt;
+&lt;span class="s"&gt;# This program comes …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;&lt;a href="http://lsst.domij.info"&gt;Presentation&lt;/a&gt;&lt;/p&gt;
 &lt;h3&gt;Docker&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;configure a docker with necessary ingredients&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# based on jupyter/base-notebook&lt;/span&gt;
-docker pull jupyter/base-notebook
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# based on jupyter/base-notebook&lt;/span&gt;
+docker&lt;span class="w"&gt; &lt;/span&gt;pull&lt;span class="w"&gt; &lt;/span&gt;jupyter/base-notebook
 
 &lt;span class="c1"&gt;# or use Dockerfile, if need root, https://github.com/jupyter/docker-stacks/issues/211&lt;/span&gt;
-cat &lt;span class="s"&gt;&amp;lt;&amp;lt; EOF &amp;gt; Dockerfile&lt;/span&gt;
+cat&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;lt;&amp;lt; EOF &amp;gt; Dockerfile&lt;/span&gt;
 &lt;span class="s"&gt;# Copyright (C) 2018 by Dongming Jin&lt;/span&gt;
 &lt;span class="s"&gt;# Licensed under the Academic Free License version 3.0&lt;/span&gt;
 &lt;span class="s"&gt;# This program comes with ABSOLUTELY NO WARRANTY.&lt;/span&gt;
@@ -1420,9 +1472,8 @@ cat &lt;span class="s"&gt;&amp;lt;&amp;lt; EOF &amp;gt; Dockerfile&lt;/span&gt;
 &lt;span class="s"&gt;EOF&lt;/span&gt;
 
 &lt;span class="c1"&gt;# build from Dockerfile&lt;/span&gt;
-docker build -t jupyslides .
-&lt;/pre&gt;&lt;/div&gt;
-
+docker&lt;span class="w"&gt; &lt;/span&gt;build&lt;span class="w"&gt; &lt;/span&gt;-t&lt;span class="w"&gt; &lt;/span&gt;jupyslides&lt;span class="w"&gt; &lt;/span&gt;.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;&lt;a href="https://github.com/jupyter/docker-stacks/issues/211"&gt;sudo for docker&lt;/a&gt;&lt;/p&gt;
@@ -1430,18 +1481,17 @@ docker build -t jupyslides .
 &lt;ul&gt;
 &lt;li&gt;run the container&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# test system configuration&lt;/span&gt;
-docker run -it jupyslides /bin/bash
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# test system configuration&lt;/span&gt;
+docker&lt;span class="w"&gt; &lt;/span&gt;run&lt;span class="w"&gt; &lt;/span&gt;-it&lt;span class="w"&gt; &lt;/span&gt;jupyslides&lt;span class="w"&gt; &lt;/span&gt;/bin/bash
 
 &lt;span class="c1"&gt;# load with data and slides&lt;/span&gt;
-docker run -it -p &lt;span class="m"&gt;10000&lt;/span&gt;:8888 --rm -v /Users/domi/Dropbox/Research/Local_universe:/home/jovyan/slides -v /Users/domi/Desktop/LISA:/home/jovyan/LISA jupyslides /bin/bash
+docker&lt;span class="w"&gt; &lt;/span&gt;run&lt;span class="w"&gt; &lt;/span&gt;-it&lt;span class="w"&gt; &lt;/span&gt;-p&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;10000&lt;/span&gt;:8888&lt;span class="w"&gt; &lt;/span&gt;--rm&lt;span class="w"&gt; &lt;/span&gt;-v&lt;span class="w"&gt; &lt;/span&gt;/Users/domi/Dropbox/Research/Local_universe:/home/jovyan/slides&lt;span class="w"&gt; &lt;/span&gt;-v&lt;span class="w"&gt; &lt;/span&gt;/Users/domi/Desktop/LISA:/home/jovyan/LISA&lt;span class="w"&gt; &lt;/span&gt;jupyslides&lt;span class="w"&gt; &lt;/span&gt;/bin/bash
 
 &lt;span class="c1"&gt;# convert to slides&lt;/span&gt;
-jupyter nbconvert report.ipynb --to slides --reveal-prefix reveal.js --template hidecode.tpl
+jupyter&lt;span class="w"&gt; &lt;/span&gt;nbconvert&lt;span class="w"&gt; &lt;/span&gt;report.ipynb&lt;span class="w"&gt; &lt;/span&gt;--to&lt;span class="w"&gt; &lt;/span&gt;slides&lt;span class="w"&gt; &lt;/span&gt;--reveal-prefix&lt;span class="w"&gt; &lt;/span&gt;reveal.js&lt;span class="w"&gt; &lt;/span&gt;--template&lt;span class="w"&gt; &lt;/span&gt;hidecode.tpl
 
 &lt;span class="c1"&gt;# replace initialization &amp;lt;script&amp;gt;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h3&gt;Toggle/Remove Code&lt;/h3&gt;
 &lt;ul&gt;
@@ -1505,26 +1555,25 @@ jupyter nbconvert report.ipynb --to slides --reveal-prefix reveal.js --template 
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;            &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;N  ,  SPACE&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;:          &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;Next slide&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;,
-            &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;P&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;:                    &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;Previous slide&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;,
-            &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;&amp;amp;#8592;  ,  H&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;:        &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;Navigate left&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;,
-            &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;&amp;amp;#8594;  ,  L&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;:        &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;Navigate right&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;,
-            &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;&amp;amp;#8593;  ,  K&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;:        &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;Navigate up&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;,
-            &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;&amp;amp;#8595;  ,  J&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;:        &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;Navigate down&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;,
-            &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;Fn + &amp;lt;&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;:                   &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;First slide&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;,
-            &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;Fn + &amp;gt;&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;:                   &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;Last slide&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;,
-            &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;B  ,  .&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;:              &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;Pause&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;,
-            &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;F&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;:                    &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;Fullscreen&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;,
-            &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;ESC, O&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;:               &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;Slide overview&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;N  ,  SPACE&amp;#39;&lt;/span&gt;:&lt;span class="w"&gt;          &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Next slide&amp;#39;&lt;/span&gt;,
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;P&amp;#39;&lt;/span&gt;:&lt;span class="w"&gt;                    &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Previous slide&amp;#39;&lt;/span&gt;,
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&amp;amp;#8592;  ,  H&amp;#39;&lt;/span&gt;:&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Navigate left&amp;#39;&lt;/span&gt;,
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&amp;amp;#8594;  ,  L&amp;#39;&lt;/span&gt;:&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Navigate right&amp;#39;&lt;/span&gt;,
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&amp;amp;#8593;  ,  K&amp;#39;&lt;/span&gt;:&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Navigate up&amp;#39;&lt;/span&gt;,
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&amp;amp;#8595;  ,  J&amp;#39;&lt;/span&gt;:&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Navigate down&amp;#39;&lt;/span&gt;,
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Fn + &amp;lt;&amp;#39;&lt;/span&gt;:&lt;span class="w"&gt;                   &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;First slide&amp;#39;&lt;/span&gt;,
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Fn + &amp;gt;&amp;#39;&lt;/span&gt;:&lt;span class="w"&gt;                   &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Last slide&amp;#39;&lt;/span&gt;,
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;B  ,  .&amp;#39;&lt;/span&gt;:&lt;span class="w"&gt;              &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Pause&amp;#39;&lt;/span&gt;,
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;F&amp;#39;&lt;/span&gt;:&lt;span class="w"&gt;                    &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Fullscreen&amp;#39;&lt;/span&gt;,
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;ESC, O&amp;#39;&lt;/span&gt;:&lt;span class="w"&gt;               &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Slide overview&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Remark: &lt;a href="https://remarkjs.com/#1"&gt;demo&lt;/a&gt;: &lt;a href="https://github.com/gnab/remark"&gt;github doc&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;nbconvert&lt;/h3&gt;
 &lt;p&gt;set config in notebook, no need when use reveal.js&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;traitlets.config.manager&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;BaseJSONConfigManager&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;traitlets.config.manager&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;BaseJSONConfigManager&lt;/span&gt;
 &lt;span class="c1"&gt;# get path: jupyter --path&lt;/span&gt;
 &lt;span class="n"&gt;path&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;/Users/domi/anaconda3/envs/py35/etc/jupyter/nbconfig&amp;quot;&lt;/span&gt;
 &lt;span class="n"&gt;cm&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;BaseJSONConfigManager&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;config_dir&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -1533,8 +1582,7 @@ jupyter nbconvert report.ipynb --to slides --reveal-prefix reveal.js --template 
               &lt;span class="s2"&gt;&amp;quot;transition&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;fade&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
               &lt;span class="s2"&gt;&amp;quot;start_slideshow_at&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;selected&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
 &lt;span class="p"&gt;})&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h3&gt;command&lt;/h3&gt;
 &lt;ul&gt;
@@ -1551,85 +1599,83 @@ jupyter nbconvert report.ipynb --to slides --reveal-prefix reveal.js --template 
 &lt;li&gt;&lt;a href="https://stackoverflow.com/questions/34166856/is-there-a-way-to-print-a-jupyter-ipython-notebook-slide-presentation"&gt;print pdf&lt;/a&gt;: not working as well&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;a name="reveal"&gt; replace in html &lt;/a&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cm"&gt;&amp;lt;!--reveal.js initilization--&amp;gt;&lt;/span&gt;
-&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="nx"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="c1"&gt;// it makes sense to wait a little bit when you are loading&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="c1"&gt;// reveal from a cdn in a slow connection environment&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="nx"&gt;waitSeconds&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;10&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;reveal.js/lib/js/head.min.js&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;reveal.js/js/reveal.js&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="cm"&gt;&amp;lt;!--reveal.js initilization--&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="nx"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="c1"&gt;// it makes sense to wait a little bit when you are loading&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="c1"&gt;// reveal from a cdn in a slow connection environment&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="nx"&gt;waitSeconds&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;10&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;reveal.js/lib/js/head.min.js&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;reveal.js/js/reveal.js&amp;quot;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
 
-&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;head&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;Reveal&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;head&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;Reveal&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
 
-&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="c1"&gt;// Full list of configuration options available here: https://github.com/hakimel/reveal.js#configuration&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="nx"&gt;Reveal&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;initialize&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="nx"&gt;controls&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="nx"&gt;progress&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="nx"&gt;history&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="nx"&gt;center&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="c1"&gt;// Full list of configuration options available here: https://github.com/hakimel/reveal.js#configuration&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="nx"&gt;Reveal&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;initialize&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="nx"&gt;controls&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="nx"&gt;progress&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="nx"&gt;history&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="nx"&gt;center&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
 
-&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="nx"&gt;transition&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;slide&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="nx"&gt;transition&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;slide&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
 
-&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="c1"&gt;// Optional libraries used to extend on reveal.js&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="nx"&gt;dependencies&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;                &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;src&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;reveal.js/lib/js/classList.js&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;                  &lt;/span&gt;&lt;span class="nx"&gt;condition&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="nb"&gt;document&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;body&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;classList&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="c1"&gt;// Optional libraries used to extend on reveal.js&lt;/span&gt;
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="nx"&gt;dependencies&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;
+&lt;span class="w"&gt;                &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;src&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;reveal.js/lib/js/classList.js&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="w"&gt;                  &lt;/span&gt;&lt;span class="nx"&gt;condition&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="nb"&gt;document&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;body&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;classList&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
 &lt;span class="w"&gt;                &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;src&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;reveal.js/plugin/markdown/marked.js&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;condition&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;!!&lt;/span&gt;&lt;span class="nb"&gt;document&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;querySelector&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;[data-markdown]&amp;#39;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;&lt;span class="w"&gt;            &lt;/span&gt;
-&lt;span class="w"&gt;                &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;src&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;reveal.js/plugin/notes/notes.js&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;                  &lt;/span&gt;&lt;span class="k"&gt;async&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;                  &lt;/span&gt;&lt;span class="nx"&gt;condition&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;!!&lt;/span&gt;&lt;span class="nb"&gt;document&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;body&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;classList&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;                &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;src&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;reveal.js/plugin/highlight/highlight.js&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;async&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;callback&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;hljs&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;initHighlightingOnLoad&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;                &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;src&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;reveal.js/plugin/zoom-js/zoom.js&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;async&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;// using zoom.js&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="p"&gt;});&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;                &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;src&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;reveal.js/plugin/notes/notes.js&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="w"&gt;                  &lt;/span&gt;&lt;span class="k"&gt;async&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="w"&gt;                  &lt;/span&gt;&lt;span class="nx"&gt;condition&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;!!&lt;/span&gt;&lt;span class="nb"&gt;document&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;body&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;classList&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
+&lt;span class="w"&gt;                &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;src&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;reveal.js/plugin/highlight/highlight.js&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;async&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;callback&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;hljs&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;initHighlightingOnLoad&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
+&lt;span class="w"&gt;                &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;src&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;reveal.js/plugin/zoom-js/zoom.js&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;async&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;// using zoom.js&lt;/span&gt;
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="p"&gt;});&lt;/span&gt;
 
-&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="kd"&gt;var&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;update&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;event&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;          &lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;MathJax&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Hub&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;getAllJax&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;Reveal&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;getCurrentSlide&lt;/span&gt;&lt;span class="p"&gt;())){&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="nx"&gt;MathJax&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Hub&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Rerender&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;Reveal&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;getCurrentSlide&lt;/span&gt;&lt;span class="p"&gt;());&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;          &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="p"&gt;};&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="kd"&gt;var&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;update&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;event&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
+&lt;span class="w"&gt;          &lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;MathJax&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Hub&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;getAllJax&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;Reveal&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;getCurrentSlide&lt;/span&gt;&lt;span class="p"&gt;())){&lt;/span&gt;
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="nx"&gt;MathJax&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Hub&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Rerender&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;Reveal&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;getCurrentSlide&lt;/span&gt;&lt;span class="p"&gt;());&lt;/span&gt;
+&lt;span class="w"&gt;          &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="p"&gt;};&lt;/span&gt;
 
-&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="nx"&gt;Reveal&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;addEventListener&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;slidechanged&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;update&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="nx"&gt;Reveal&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;addEventListener&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;slidechanged&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;update&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 
-&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;setScrollingSlide&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="kd"&gt;var&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;scroll&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;scroll&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;===&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;              &lt;/span&gt;&lt;span class="kd"&gt;var&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;h&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;.reveal&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;height&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;0.95&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;              &lt;/span&gt;&lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;section.present&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;find&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;section&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;                &lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;filter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;                  &lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;height&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;h&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;                &lt;/span&gt;&lt;span class="p"&gt;})&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;                &lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;css&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;height&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;calc(95vh)&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;                &lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;css&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;overflow-y&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;scroll&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;                &lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;css&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;margin-top&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;20px&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;setScrollingSlide&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="kd"&gt;var&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;scroll&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kc"&gt;true&lt;/span&gt;
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;scroll&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;===&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;              &lt;/span&gt;&lt;span class="kd"&gt;var&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;h&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;.reveal&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;height&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;0.95&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="w"&gt;              &lt;/span&gt;&lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;section.present&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;find&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;section&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="w"&gt;                &lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;filter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;                  &lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;height&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;h&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="w"&gt;                &lt;/span&gt;&lt;span class="p"&gt;})&lt;/span&gt;
+&lt;span class="w"&gt;                &lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;css&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;height&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;calc(95vh)&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="w"&gt;                &lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;css&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;overflow-y&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;scroll&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="w"&gt;                &lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;css&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;margin-top&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;20px&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
 
-&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="c1"&gt;// check and set the scrolling slide every time the slide change&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="c1"&gt;// check and set the scrolling slide every time the slide change&lt;/span&gt;
 &lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="nx"&gt;Reveal&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;addEventListener&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;slidechanged&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;setScrollingSlide&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;
-&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;a name="rmcode"&gt; rmcode.tpl &lt;/a&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;{%&lt;/span&gt;- &lt;span class="k"&gt;extends&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;slides_reveal.tpl&amp;#39;&lt;/span&gt; -&lt;span class="cp"&gt;%}&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
-&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;block&lt;/span&gt; &lt;span class="nv"&gt;input&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
-&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;endblock&lt;/span&gt; &lt;span class="nv"&gt;input&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="cp"&gt;{%&lt;/span&gt;- &lt;span class="k"&gt;extends&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;slides_reveal.tpl&amp;#39;&lt;/span&gt; -&lt;span class="cp"&gt;%}&lt;/span&gt;
+&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;block&lt;/span&gt; &lt;span class="nv"&gt;input&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;
+&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;endblock&lt;/span&gt; &lt;span class="nv"&gt;input&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;a name="hidecode"&gt; hidecode.tpl &lt;/a&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;{%&lt;/span&gt;- &lt;span class="k"&gt;extends&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;slides_reveal.tpl&amp;#39;&lt;/span&gt; -&lt;span class="cp"&gt;%}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="cp"&gt;{%&lt;/span&gt;- &lt;span class="k"&gt;extends&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;slides_reveal.tpl&amp;#39;&lt;/span&gt; -&lt;span class="cp"&gt;%}&lt;/span&gt;
 
 &lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;block&lt;/span&gt; &lt;span class="nv"&gt;input_group&lt;/span&gt; -&lt;span class="cp"&gt;%}&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;input_hidden&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;input_hidden&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
 &lt;span class="cp"&gt;{{&lt;/span&gt; &lt;span class="nb"&gt;super&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="cp"&gt;}}&lt;/span&gt;
 &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
 &lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;endblock&lt;/span&gt; &lt;span class="nv"&gt;input_group&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;
@@ -1637,27 +1683,27 @@ jupyter nbconvert report.ipynb --to slides --reveal-prefix reveal.js --template 
 &lt;span class="cp"&gt;{%&lt;/span&gt;- &lt;span class="k"&gt;block&lt;/span&gt; &lt;span class="nv"&gt;header&lt;/span&gt; -&lt;span class="cp"&gt;%}&lt;/span&gt;
 &lt;span class="cp"&gt;{{&lt;/span&gt; &lt;span class="nb"&gt;super&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="cp"&gt;}}&lt;/span&gt;
 
-&lt;span class="nt"&gt;&amp;lt;script&lt;/span&gt; &lt;span class="na"&gt;src=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;script&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;src=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
 
-&lt;span class="nt"&gt;&amp;lt;style&lt;/span&gt; &lt;span class="na"&gt;type=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;text/css&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
-//div.output_wrapper {
-//  margin-top: 0px;
+&lt;span class="nt"&gt;&amp;lt;style&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;type=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;text/css&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+//div.output_wrapper&lt;span class="w"&gt; &lt;/span&gt;{
+//&lt;span class="w"&gt;  &lt;/span&gt;margin-top:&lt;span class="w"&gt; &lt;/span&gt;0px;
 //}
-.input_hidden {
-  display: none;
-//  margin-top: 5px;
+.input_hidden&lt;span class="w"&gt; &lt;/span&gt;{
+&lt;span class="w"&gt;  &lt;/span&gt;display:&lt;span class="w"&gt; &lt;/span&gt;none;
+//&lt;span class="w"&gt;  &lt;/span&gt;margin-top:&lt;span class="w"&gt; &lt;/span&gt;5px;
 }
 &lt;span class="nt"&gt;&amp;lt;/style&amp;gt;&lt;/span&gt;
 
 &lt;span class="nt"&gt;&amp;lt;script&amp;gt;&lt;/span&gt;
 $(document).ready(function(){
-  $(&amp;quot;.output_wrapper&amp;quot;).click(function(){
-      $(this).prev(&amp;#39;.input_hidden&amp;#39;).slideToggle();
-  });
+&lt;span class="w"&gt;  &lt;/span&gt;$(&amp;quot;.output_wrapper&amp;quot;).click(function(){
+&lt;span class="w"&gt;      &lt;/span&gt;$(this).prev(&amp;#39;.input_hidden&amp;#39;).slideToggle();
+&lt;span class="w"&gt;  &lt;/span&gt;});
 })
 &lt;span class="nt"&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
 &lt;span class="cp"&gt;{%&lt;/span&gt;- &lt;span class="k"&gt;endblock&lt;/span&gt; &lt;span class="nv"&gt;header&lt;/span&gt; -&lt;span class="cp"&gt;%}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</content><category term="articles"></category></entry><entry><title>Opening Notes for Defense</title><link href="https://domijin.github.io/opening-notes-for-defense.html" rel="alternate"></link><published>2018-04-27T00:00:00-05:00</published><updated>2018-04-27T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io/domij.github.io,2018-04-27:/opening-notes-for-defense.html</id><summary type="html">&lt;h3&gt;Graduate Study in a Glance&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="articles"></category></entry><entry><title>Opening Notes for Defense</title><link href="https://domijin.github.io/opening-notes-for-defense.html" rel="alternate"></link><published>2018-04-27T00:00:00-05:00</published><updated>2018-04-27T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io,2018-04-27:/opening-notes-for-defense.html</id><summary type="html">&lt;h3&gt;Graduate Study in a Glance&lt;/h3&gt;
 &lt;p&gt;During my Ph.D. study, I've been questioning about, what is re-search.&lt;/p&gt;
 &lt;p&gt;It seems to me that research is about &lt;/p&gt;
 &lt;ul&gt;

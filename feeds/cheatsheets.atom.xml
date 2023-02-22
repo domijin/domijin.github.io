@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Domi's Universe - cheatsheets</title><link href="https://domijin.github.io/" rel="alternate"></link><link href="https://domijin.github.io/feeds/cheatsheets.atom.xml" rel="self"></link><id>https://domijin.github.io/</id><updated>2018-09-01T00:00:00-05:00</updated><entry><title>Quickguide to start a static website with Pelican</title><link href="https://domijin.github.io/quickguide-to-start-a-static-website-with-pelican.html" rel="alternate"></link><published>2018-09-01T00:00:00-05:00</published><updated>2018-09-01T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io/domij.github.io,2018-09-01:/quickguide-to-start-a-static-website-with-pelican.html</id><summary type="html">&lt;p&gt;There are many options to build a website. My reason to use Pelican is because&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Domi's Universe - cheatsheets</title><link href="https://domijin.github.io/" rel="alternate"></link><link href="https://domijin.github.io/feeds/cheatsheets.atom.xml" rel="self"></link><id>https://domijin.github.io/</id><updated>2018-09-01T00:00:00-05:00</updated><entry><title>Quickguide to start a static website with Pelican</title><link href="https://domijin.github.io/quickguide-to-start-a-static-website-with-pelican.html" rel="alternate"></link><published>2018-09-01T00:00:00-05:00</published><updated>2018-09-01T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io,2018-09-01:/quickguide-to-start-a-static-website-with-pelican.html</id><summary type="html">&lt;p&gt;There are many options to build a website. My reason to use Pelican is because&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;It's open sourced at &lt;a href="https://github.com/getpelican/pelican"&gt;github/pelican&lt;/a&gt;, with many &lt;a href="https://github.com/getpelican/pelican-plugins"&gt;plugins&lt;/a&gt; and &lt;a href="http://www.pelicanthemes.com/"&gt;themes&lt;/a&gt;. &lt;/li&gt;
 &lt;li&gt;I want to get my website up and running in one week.&lt;/li&gt;
@@ -25,40 +25,38 @@
 &lt;li&gt;&lt;a href="#tricks"&gt;Useful tricks&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;&lt;a name="install"&gt; Get started &lt;/a&gt;&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# installation&lt;/span&gt;
-pip install pelican markdown
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# installation&lt;/span&gt;
+pip&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;pelican&lt;span class="w"&gt; &lt;/span&gt;markdown
 
 &lt;span class="c1"&gt;# start a project&lt;/span&gt;
-mkdir -p ~/projects/yoursite  &lt;span class="c1"&gt;# make sure there is no special character in the path to your project&lt;/span&gt;
-&lt;span class="nb"&gt;cd&lt;/span&gt; ~/projects/yoursite
+mkdir&lt;span class="w"&gt; &lt;/span&gt;-p&lt;span class="w"&gt; &lt;/span&gt;~/projects/yoursite&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# make sure there is no special character in the path to your project&lt;/span&gt;
+&lt;span class="nb"&gt;cd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;~/projects/yoursite
 pelican-quickstart
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;For questions that have default values denoted in brackets, feel free to use the Return key to accept those default values. Don't worry too much. Most of the values are stored in &lt;code&gt;pelicanconf.py&lt;/code&gt; and &lt;code&gt;publishconf.py&lt;/code&gt;.&lt;/p&gt;
 &lt;h3&gt;&lt;a name="files"&gt; File structure &lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Here is an example of the file structure for a demo project. &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;.
-├── Makefile  &lt;span class="c1"&gt;# use `make help` for manual, it is very self-descriptive &lt;/span&gt;
-├── content
-│   ├── articles  &lt;span class="c1"&gt;# folder for blog articles&lt;/span&gt;
-│   │   └── hello.md
-│   ├── pdfs  &lt;span class="c1"&gt;# local pdfs to include in articles&lt;/span&gt;
-│   │   └── file.pdf
-│   ├── images  &lt;span class="c1"&gt;# local images to include in articles&lt;/span&gt;
-│   │   └── picture.png
-│   └── pages  &lt;span class="c1"&gt;# front pages like About Me, Research&lt;/span&gt;
-│       ├── Research.md
-│       └── About Me.md
-├── develop_server.sh  &lt;span class="c1"&gt;# script to control a local pelican server, i.e. on a RPi&lt;/span&gt;
-├── fabfile.py  &lt;span class="c1"&gt;# script to control a remote server by Fabric&lt;/span&gt;
-├── output  &lt;span class="c1"&gt;# output of html files&lt;/span&gt;
-│   ├── ...
-│   └── ...
-├── pelicanconf.py  &lt;span class="c1"&gt;# configure file based on answered values&lt;/span&gt;
-└── publishconf.py  &lt;span class="c1"&gt;# configure only used in `make publish`&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;.
+├──&lt;span class="w"&gt; &lt;/span&gt;Makefile&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# use `make help` for manual, it is very self-descriptive &lt;/span&gt;
+├──&lt;span class="w"&gt; &lt;/span&gt;content
+│&lt;span class="w"&gt;   &lt;/span&gt;├──&lt;span class="w"&gt; &lt;/span&gt;articles&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# folder for blog articles&lt;/span&gt;
+│&lt;span class="w"&gt;   &lt;/span&gt;│&lt;span class="w"&gt;   &lt;/span&gt;└──&lt;span class="w"&gt; &lt;/span&gt;hello.md
+│&lt;span class="w"&gt;   &lt;/span&gt;├──&lt;span class="w"&gt; &lt;/span&gt;pdfs&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# local pdfs to include in articles&lt;/span&gt;
+│&lt;span class="w"&gt;   &lt;/span&gt;│&lt;span class="w"&gt;   &lt;/span&gt;└──&lt;span class="w"&gt; &lt;/span&gt;file.pdf
+│&lt;span class="w"&gt;   &lt;/span&gt;├──&lt;span class="w"&gt; &lt;/span&gt;images&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# local images to include in articles&lt;/span&gt;
+│&lt;span class="w"&gt;   &lt;/span&gt;│&lt;span class="w"&gt;   &lt;/span&gt;└──&lt;span class="w"&gt; &lt;/span&gt;picture.png
+│&lt;span class="w"&gt;   &lt;/span&gt;└──&lt;span class="w"&gt; &lt;/span&gt;pages&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# front pages like About Me, Research&lt;/span&gt;
+│&lt;span class="w"&gt;       &lt;/span&gt;├──&lt;span class="w"&gt; &lt;/span&gt;Research.md
+│&lt;span class="w"&gt;       &lt;/span&gt;└──&lt;span class="w"&gt; &lt;/span&gt;About&lt;span class="w"&gt; &lt;/span&gt;Me.md
+├──&lt;span class="w"&gt; &lt;/span&gt;develop_server.sh&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# script to control a local pelican server, i.e. on a RPi&lt;/span&gt;
+├──&lt;span class="w"&gt; &lt;/span&gt;fabfile.py&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# script to control a remote server by Fabric&lt;/span&gt;
+├──&lt;span class="w"&gt; &lt;/span&gt;output&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# output of html files&lt;/span&gt;
+│&lt;span class="w"&gt;   &lt;/span&gt;├──&lt;span class="w"&gt; &lt;/span&gt;...
+│&lt;span class="w"&gt;   &lt;/span&gt;└──&lt;span class="w"&gt; &lt;/span&gt;...
+├──&lt;span class="w"&gt; &lt;/span&gt;pelicanconf.py&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# configure file based on answered values&lt;/span&gt;
+└──&lt;span class="w"&gt; &lt;/span&gt;publishconf.py&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# configure only used in `make publish`&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;Note: Pelican doesn't recognize HTML files in &lt;code&gt;content/pdfs&lt;/code&gt; folder at the moment. Any self-generated HTML files has to be manually copied to the &lt;code&gt;output/pdfs&lt;/code&gt; folder.&lt;/p&gt;
@@ -82,20 +80,19 @@ pelican-quickstart
 &lt;/ol&gt;
 &lt;p&gt;Or use flag when build a project, &lt;code&gt;pelican -t ~/pelican-themes/theme-name&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;The basic structure of a theme folder is: &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;.
-├── static
-│   ├── css
-│   │   ├── pygments.css
-│   │   └── style.css
-│   ├── images
-│   │   └── icons
-│   └── js
-│       └── comments.js
-└── templates
-    ├── archives.html
-    └── ...
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;.
+├──&lt;span class="w"&gt; &lt;/span&gt;static
+│&lt;span class="w"&gt;   &lt;/span&gt;├──&lt;span class="w"&gt; &lt;/span&gt;css
+│&lt;span class="w"&gt;   &lt;/span&gt;│&lt;span class="w"&gt;   &lt;/span&gt;├──&lt;span class="w"&gt; &lt;/span&gt;pygments.css
+│&lt;span class="w"&gt;   &lt;/span&gt;│&lt;span class="w"&gt;   &lt;/span&gt;└──&lt;span class="w"&gt; &lt;/span&gt;style.css
+│&lt;span class="w"&gt;   &lt;/span&gt;├──&lt;span class="w"&gt; &lt;/span&gt;images
+│&lt;span class="w"&gt;   &lt;/span&gt;│&lt;span class="w"&gt;   &lt;/span&gt;└──&lt;span class="w"&gt; &lt;/span&gt;icons
+│&lt;span class="w"&gt;   &lt;/span&gt;└──&lt;span class="w"&gt; &lt;/span&gt;js
+│&lt;span class="w"&gt;       &lt;/span&gt;└──&lt;span class="w"&gt; &lt;/span&gt;comments.js
+└──&lt;span class="w"&gt; &lt;/span&gt;templates
+&lt;span class="w"&gt;    &lt;/span&gt;├──&lt;span class="w"&gt; &lt;/span&gt;archives.html
+&lt;span class="w"&gt;    &lt;/span&gt;└──&lt;span class="w"&gt; &lt;/span&gt;...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;To customize or build a theme:&lt;/p&gt;
 &lt;ol&gt;
@@ -105,7 +102,7 @@ pelican-quickstart
 &lt;h3&gt;&lt;a name="setup"&gt; Setups &lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;The complete setting list can be found at &lt;a href="http://docs.getpelican.com/en/3.6.3/settings.html"&gt;here&lt;/a&gt;. Many of which are not needed. Here I covered some setups for this website. &lt;/p&gt;
 &lt;p&gt;The &lt;code&gt;pelicanconf.py&lt;/code&gt; file explained: &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;...&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;...&lt;/span&gt;
 &lt;span class="c1"&gt;# some general setup&lt;/span&gt;
 &lt;span class="n"&gt;SITEURL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;http://localhost:8000&amp;#39;&lt;/span&gt;  &lt;span class="c1"&gt;# use the url for test/local server&lt;/span&gt;
 &lt;span class="n"&gt;PATH&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;content&amp;#39;&lt;/span&gt;  &lt;span class="c1"&gt;# path to the folder of contents&lt;/span&gt;
@@ -130,14 +127,13 @@ pelican-quickstart
     &lt;span class="s1"&gt;&amp;#39;timeout_duration_ms&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1000&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
     &lt;span class="s1"&gt;&amp;#39;timeout_is_error&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;    &lt;span class="kc"&gt;False&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;Note: FAVICON is the icon &lt;img alt="" src="/images/favicon.ico"&gt; for this website, mine is made of my initials using &lt;a href="https://www.favicon-generator.org/"&gt;favicon-generator&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;The &lt;code&gt;publishconf.py&lt;/code&gt; file explained: &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;SITEURL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;  &lt;span class="c1"&gt;# your web domain&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;SITEURL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;  &lt;span class="c1"&gt;# your web domain&lt;/span&gt;
 &lt;span class="n"&gt;MENUITEMS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Blogs&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;SITEURL&lt;/span&gt;&lt;span class="p"&gt;),)&lt;/span&gt;  &lt;span class="c1"&gt;# add index into site map formed by pages&lt;/span&gt;
 &lt;span class="n"&gt;RELATIVE_URLS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;False&lt;/span&gt;  &lt;span class="c1"&gt;# document-relative URLs, useful when developing&lt;/span&gt;
 
@@ -150,8 +146,7 @@ pelican-quickstart
 
 &lt;span class="n"&gt;DISQUS_SITENAME&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;  &lt;span class="c1"&gt;# see notes&lt;/span&gt;
 &lt;span class="n"&gt;GOOGLE_ANALYTICS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;  &lt;span class="c1"&gt;# see notes&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;Note:&lt;/p&gt;
@@ -175,7 +170,7 @@ Google Analytics: Set to ‘UA-XXXX-YYYY’ from Google Analytics to help track 
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;&lt;a name="hellomd"&gt; Write the first article &lt;/a&gt;&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Title: My First Article
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;Title: My First Article
 Date: 2010-12-03 10:20
 Category: Articles
 Tags: tag1, tag2
@@ -185,8 +180,7 @@ Modified: 08/14/2018
 
 
 Article Content In Markdown Format
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h3&gt;&lt;a name='plugin'&gt; Add plugins &lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;A collection of plugins can be found &lt;a href="https://github.com/getpelican/pelican-plugins"&gt;here&lt;/a&gt;&lt;/p&gt;
@@ -202,14 +196,14 @@ Article Content In Markdown Format
 &lt;li&gt;render_math: support math in markdown&lt;/li&gt;
 &lt;li&gt;representative_image: extracts a representative image (i.e, featured image) from the article's summary or content.&lt;/li&gt;
 &lt;li&gt;pin_to_top: pin an article to top&lt;/li&gt;
-&lt;/ul&gt;</content><category term="cheatsheets"></category></entry><entry><title>PPTP on OS X Just One Last Time</title><link href="https://domijin.github.io/pptp-on-os-x-just-one-last-time.html" rel="alternate"></link><published>2018-08-14T00:00:00-05:00</published><updated>2018-08-14T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io/domij.github.io,2018-08-14:/pptp-on-os-x-just-one-last-time.html</id><summary type="html">&lt;p&gt;TL;DR manual for connecting to PPTP VPN on a MacBook, summarized by &lt;a href="http://domij.info"&gt;Dongming Jin&lt;/a&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;## 1. create the PPTP configuration&lt;/span&gt;
-sudo mkdir /etc/ppp/peers &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo cat &lt;span class="s"&gt;&amp;lt;&amp;lt;EOF &amp;gt; /etc/ppp/peers/pptpvpn&lt;/span&gt;
+&lt;/ul&gt;</content><category term="cheatsheets"></category></entry><entry><title>PPTP on OS X Just One Last Time</title><link href="https://domijin.github.io/pptp-on-os-x-just-one-last-time.html" rel="alternate"></link><published>2018-08-14T00:00:00-05:00</published><updated>2018-08-14T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io,2018-08-14:/pptp-on-os-x-just-one-last-time.html</id><summary type="html">&lt;p&gt;TL;DR manual for connecting to PPTP VPN on a MacBook, summarized by &lt;a href="http://domij.info"&gt;Dongming Jin&lt;/a&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;## 1. create the PPTP configuration&lt;/span&gt;
+sudo&lt;span class="w"&gt; &lt;/span&gt;mkdir&lt;span class="w"&gt; &lt;/span&gt;/etc/ppp/peers&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;cat&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;lt;&amp;lt;EOF &amp;gt; /etc/ppp/peers/pptpvpn&lt;/span&gt;
 &lt;span class="s"&gt;plugin PPTP.ppp&lt;/span&gt;
 &lt;span class="s"&gt;noauth&lt;/span&gt;
-&lt;span class="s"&gt;remoteaddress xxx.xxx.xxx.xxx  # address of the VPN server, in my case: 23 …&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;TL;DR manual for connecting to PPTP VPN on a MacBook, summarized by &lt;a href="http://domij.info"&gt;Dongming Jin&lt;/a&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;## 1. create the PPTP configuration&lt;/span&gt;
-sudo mkdir /etc/ppp/peers &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo cat &lt;span class="s"&gt;&amp;lt;&amp;lt;EOF &amp;gt; /etc/ppp/peers/pptpvpn&lt;/span&gt;
+&lt;span class="s"&gt;remoteaddress xxx.xxx.xxx.xxx  # address of the VPN server, in my case: 23 …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;TL;DR manual for connecting to PPTP VPN on a MacBook, summarized by &lt;a href="http://domij.info"&gt;Dongming Jin&lt;/a&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;## 1. create the PPTP configuration&lt;/span&gt;
+sudo&lt;span class="w"&gt; &lt;/span&gt;mkdir&lt;span class="w"&gt; &lt;/span&gt;/etc/ppp/peers&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;cat&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;lt;&amp;lt;EOF &amp;gt; /etc/ppp/peers/pptpvpn&lt;/span&gt;
 &lt;span class="s"&gt;plugin PPTP.ppp&lt;/span&gt;
 &lt;span class="s"&gt;noauth&lt;/span&gt;
 &lt;span class="s"&gt;remoteaddress xxx.xxx.xxx.xxx  # address of the VPN server, in my case: 23.24.218.210&lt;/span&gt;
@@ -239,52 +233,50 @@ sudo mkdir /etc/ppp/peers &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; 
 &lt;span class="s"&gt;EOF&lt;/span&gt;
 
 &lt;span class="c1"&gt;## 2. start the connection&lt;/span&gt;
-sudo pppd call pptpvpn
+sudo&lt;span class="w"&gt; &lt;/span&gt;pppd&lt;span class="w"&gt; &lt;/span&gt;call&lt;span class="w"&gt; &lt;/span&gt;pptpvpn
 
 &lt;span class="c1"&gt;## 3. direct the traffic, this is the ip address of the remote desktop&lt;/span&gt;
-sudo route add -host xxx.xxx.xxx.xxx -interface ppp0  &lt;span class="c1"&gt;# in my case: 192.168.51.12&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
+sudo&lt;span class="w"&gt; &lt;/span&gt;route&lt;span class="w"&gt; &lt;/span&gt;add&lt;span class="w"&gt; &lt;/span&gt;-host&lt;span class="w"&gt; &lt;/span&gt;xxx.xxx.xxx.xxx&lt;span class="w"&gt; &lt;/span&gt;-interface&lt;span class="w"&gt; &lt;/span&gt;ppp0&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# in my case: 192.168.51.12&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2&gt;Important Note&lt;/h2&gt;
 &lt;p&gt;OS X has discontinued the support of PPTP since 2016. PPTP VPN is not secure as brute force attack tool exists to decrypt traffic over the VPN tunnel. The most practical advice is to move on to IPSec or SSL VPN.&lt;/p&gt;
-&lt;h3&gt;&lt;a href="https://www.cts-llc.net/2017/02/21/pptp-on-osx-just-one-last-time.html"&gt;reference&lt;/a&gt;&lt;/h3&gt;</content><category term="cheatsheets"></category></entry><entry><title>Docker Commands</title><link href="https://domijin.github.io/docker-commands.html" rel="alternate"></link><published>2018-05-30T00:00:00-05:00</published><updated>2018-05-30T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io/domij.github.io,2018-05-30:/docker-commands.html</id><summary type="html">&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;docker build &lt;span class="o"&gt;[&lt;/span&gt;--no-cache&lt;span class="o"&gt;]&lt;/span&gt; -t img_name path/to/Dockerfile  &lt;span class="c1"&gt;# build image based on dockerfile&lt;/span&gt;
-docker images  &lt;span class="c1"&gt;# all images&lt;/span&gt;
-docker ps &lt;span class="o"&gt;[&lt;/span&gt;-a&lt;span class="o"&gt;]&lt;/span&gt;  &lt;span class="c1"&gt;# show [all] running containers&lt;/span&gt;
+&lt;h3&gt;&lt;a href="https://www.cts-llc.net/2017/02/21/pptp-on-osx-just-one-last-time.html"&gt;reference&lt;/a&gt;&lt;/h3&gt;</content><category term="cheatsheets"></category></entry><entry><title>Docker Commands</title><link href="https://domijin.github.io/docker-commands.html" rel="alternate"></link><published>2018-05-30T00:00:00-05:00</published><updated>2018-05-30T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io,2018-05-30:/docker-commands.html</id><summary type="html">&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;docker&lt;span class="w"&gt; &lt;/span&gt;build&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;--no-cache&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-t&lt;span class="w"&gt; &lt;/span&gt;img_name&lt;span class="w"&gt; &lt;/span&gt;path/to/Dockerfile&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# build image based on dockerfile&lt;/span&gt;
+docker&lt;span class="w"&gt; &lt;/span&gt;images&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# all images&lt;/span&gt;
+docker&lt;span class="w"&gt; &lt;/span&gt;ps&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;-a&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# show [all] running containers&lt;/span&gt;
 
-docker start/attach con_id  &lt;span class="c1"&gt;# restart excited container&lt;/span&gt;
-       stop con_id  &lt;span class="c1"&gt;# stop container&lt;/span&gt;
-       rm con_id  &lt;span class="c1"&gt;# rm container&lt;/span&gt;
-       rmi img_id  &lt;span class="c1"&gt;# rm image&lt;/span&gt;
+docker&lt;span class="w"&gt; &lt;/span&gt;start/attach&lt;span class="w"&gt; &lt;/span&gt;con_id&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# restart excited container&lt;/span&gt;
+&lt;span class="w"&gt;       &lt;/span&gt;stop&lt;span class="w"&gt; &lt;/span&gt;con_id&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# stop container&lt;/span&gt;
+&lt;span class="w"&gt;       &lt;/span&gt;rm&lt;span class="w"&gt; &lt;/span&gt;con_id&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# rm container&lt;/span&gt;
+&lt;span class="w"&gt;       &lt;/span&gt;rmi&lt;span class="w"&gt; &lt;/span&gt;img_id&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# rm image&lt;/span&gt;
 
-docker run …&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;docker build &lt;span class="o"&gt;[&lt;/span&gt;--no-cache&lt;span class="o"&gt;]&lt;/span&gt; -t img_name path/to/Dockerfile  &lt;span class="c1"&gt;# build image based on dockerfile&lt;/span&gt;
-docker images  &lt;span class="c1"&gt;# all images&lt;/span&gt;
-docker ps &lt;span class="o"&gt;[&lt;/span&gt;-a&lt;span class="o"&gt;]&lt;/span&gt;  &lt;span class="c1"&gt;# show [all] running containers&lt;/span&gt;
+docker&lt;span class="w"&gt; &lt;/span&gt;run&lt;span class="w"&gt; &lt;/span&gt;-d&lt;span class="w"&gt; &lt;/span&gt;-p&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;2222&lt;/span&gt;:22&lt;span class="w"&gt; &lt;/span&gt;&amp;lt;Image …&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;docker&lt;span class="w"&gt; &lt;/span&gt;build&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;--no-cache&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-t&lt;span class="w"&gt; &lt;/span&gt;img_name&lt;span class="w"&gt; &lt;/span&gt;path/to/Dockerfile&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# build image based on dockerfile&lt;/span&gt;
+docker&lt;span class="w"&gt; &lt;/span&gt;images&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# all images&lt;/span&gt;
+docker&lt;span class="w"&gt; &lt;/span&gt;ps&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;-a&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# show [all] running containers&lt;/span&gt;
 
-docker start/attach con_id  &lt;span class="c1"&gt;# restart excited container&lt;/span&gt;
-       stop con_id  &lt;span class="c1"&gt;# stop container&lt;/span&gt;
-       rm con_id  &lt;span class="c1"&gt;# rm container&lt;/span&gt;
-       rmi img_id  &lt;span class="c1"&gt;# rm image&lt;/span&gt;
+docker&lt;span class="w"&gt; &lt;/span&gt;start/attach&lt;span class="w"&gt; &lt;/span&gt;con_id&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# restart excited container&lt;/span&gt;
+&lt;span class="w"&gt;       &lt;/span&gt;stop&lt;span class="w"&gt; &lt;/span&gt;con_id&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# stop container&lt;/span&gt;
+&lt;span class="w"&gt;       &lt;/span&gt;rm&lt;span class="w"&gt; &lt;/span&gt;con_id&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# rm container&lt;/span&gt;
+&lt;span class="w"&gt;       &lt;/span&gt;rmi&lt;span class="w"&gt; &lt;/span&gt;img_id&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# rm image&lt;/span&gt;
 
-docker run -d -p &lt;span class="m"&gt;2222&lt;/span&gt;:22 &amp;lt;Image Name&amp;gt;
+docker&lt;span class="w"&gt; &lt;/span&gt;run&lt;span class="w"&gt; &lt;/span&gt;-d&lt;span class="w"&gt; &lt;/span&gt;-p&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;2222&lt;/span&gt;:22&lt;span class="w"&gt; &lt;/span&gt;&amp;lt;Image&lt;span class="w"&gt; &lt;/span&gt;Name&amp;gt;
 
-docker run -it  &lt;span class="c1"&gt;# interactive&lt;/span&gt;
-           --rm  &lt;span class="c1"&gt;# rm container when exit, use with caution&lt;/span&gt;
-           -d  &lt;span class="c1"&gt;# detached&lt;/span&gt;
-           -p &lt;span class="m"&gt;8888&lt;/span&gt;:80  &lt;span class="c1"&gt;# port fwd to host&lt;/span&gt;
-           -e &lt;span class="nv"&gt;DISPLAY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$DISPLAY&lt;/span&gt;  &lt;span class="c1"&gt;# set environment variable&lt;/span&gt;
-           -u docker  &lt;span class="c1"&gt;# username/uid&lt;/span&gt;
-           -v &amp;lt;data_location&amp;gt;:~/data  &lt;span class="c1"&gt;# mount data directory&lt;/span&gt;
-           --name&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;rdev&amp;quot;&lt;/span&gt;  &lt;span class="c1"&gt;# container name&lt;/span&gt;
-           ubuntu  &lt;span class="c1"&gt;# image name&lt;/span&gt;
-           /bin/bash  &lt;span class="c1"&gt;# command&lt;/span&gt;
+docker&lt;span class="w"&gt; &lt;/span&gt;run&lt;span class="w"&gt; &lt;/span&gt;-it&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# interactive&lt;/span&gt;
+&lt;span class="w"&gt;           &lt;/span&gt;--rm&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# rm container when exit, use with caution&lt;/span&gt;
+&lt;span class="w"&gt;           &lt;/span&gt;-d&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# detached&lt;/span&gt;
+&lt;span class="w"&gt;           &lt;/span&gt;-p&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;8888&lt;/span&gt;:80&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# port fwd to host&lt;/span&gt;
+&lt;span class="w"&gt;           &lt;/span&gt;-e&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;DISPLAY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$DISPLAY&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# set environment variable&lt;/span&gt;
+&lt;span class="w"&gt;           &lt;/span&gt;-u&lt;span class="w"&gt; &lt;/span&gt;docker&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# username/uid&lt;/span&gt;
+&lt;span class="w"&gt;           &lt;/span&gt;-v&lt;span class="w"&gt; &lt;/span&gt;&amp;lt;data_location&amp;gt;:~/data&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# mount data directory&lt;/span&gt;
+&lt;span class="w"&gt;           &lt;/span&gt;--name&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;rdev&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# container name&lt;/span&gt;
+&lt;span class="w"&gt;           &lt;/span&gt;ubuntu&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# image name&lt;/span&gt;
+&lt;span class="w"&gt;           &lt;/span&gt;/bin/bash&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# command&lt;/span&gt;
 
-docker port con_id  &lt;span class="c1"&gt;# show port fwd&lt;/span&gt;
-ssh -p &lt;span class="m"&gt;2222&lt;/span&gt; root@localhost
+docker&lt;span class="w"&gt; &lt;/span&gt;port&lt;span class="w"&gt; &lt;/span&gt;con_id&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# show port fwd&lt;/span&gt;
+ssh&lt;span class="w"&gt; &lt;/span&gt;-p&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;2222&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;root@localhost
 
-docker cp local_file con_id:path/to/target  &lt;span class="c1"&gt;# copy file to container&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
+docker&lt;span class="w"&gt; &lt;/span&gt;cp&lt;span class="w"&gt; &lt;/span&gt;local_file&lt;span class="w"&gt; &lt;/span&gt;con_id:path/to/target&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# copy file to container&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Images&lt;/em&gt; - The blueprints of our application which form the basis of containers. In the demo above, we used the &lt;code&gt;docker pull&lt;/code&gt; command to download the &lt;strong&gt;busybox&lt;/strong&gt; image.&lt;/li&gt;
@@ -295,180 +287,167 @@ docker cp local_file con_id:path/to/target  &lt;span class="c1"&gt;# copy file t
 &lt;/ul&gt;
 &lt;p&gt;Refs
 - &lt;a href="https://prakhar.me/docker-curriculum/"&gt;Docker Q&amp;amp;A&lt;/a&gt;
-- &lt;a href="https://dev.to/napicellatwit/containers-from-scratch-in-18-lines-of-code-3pmn"&gt;container from scratch&lt;/a&gt;&lt;/p&gt;</content><category term="cheatsheets"></category></entry><entry><title>Bash Commands</title><link href="https://domijin.github.io/bash-commands.html" rel="alternate"></link><published>2017-01-18T00:00:00-06:00</published><updated>2018-07-24T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io/domij.github.io,2017-01-18:/bash-commands.html</id><summary type="html">&lt;p&gt;Practical notes for future references.&lt;/p&gt;
+- &lt;a href="https://dev.to/napicellatwit/containers-from-scratch-in-18-lines-of-code-3pmn"&gt;container from scratch&lt;/a&gt;&lt;/p&gt;</content><category term="cheatsheets"></category></entry><entry><title>Bash Commands</title><link href="https://domijin.github.io/bash-commands.html" rel="alternate"></link><published>2017-01-18T00:00:00-06:00</published><updated>2018-07-24T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io,2017-01-18:/bash-commands.html</id><summary type="html">&lt;p&gt;Practical notes for future references.&lt;/p&gt;
 &lt;p&gt;TeX on OS X&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;install the BasicTeX from &lt;a href="http://www.tug.org/mactex/"&gt;MacTeX&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;GUI full application: &lt;a href="http://pages.uoregon.edu/koch/texshop/"&gt;TeXshop&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;lightweight math validator: &lt;a href="https://www.chachatelier.fr/latexit/"&gt;LaTeXit&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# configure&lt;/span&gt;
-which pdftex
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# configure&lt;/span&gt;
+which&lt;span class="w"&gt; &lt;/span&gt;pdftex
 &lt;span class="c1"&gt;# install style fiel&lt;/span&gt;
-tlmgr install 
-&lt;/pre&gt;&lt;/div&gt;
-
+tlmgr&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;hr&gt;
 &lt;p&gt;basic Encrypt &amp;amp; Decrypt&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;openssl enc -in foo.bar&lt;span class="o"&gt;[&lt;/span&gt;.enc&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="se"&gt;\&lt;/span&gt;
-                     &lt;span class="o"&gt;[&lt;/span&gt;-d&lt;span class="o"&gt;]&lt;/span&gt; -aes-256-cbc &lt;span class="se"&gt;\&lt;/span&gt;
-                     -pass stdin &lt;span class="se"&gt;\&lt;/span&gt;
-                     &amp;gt; foo.bar.enc 
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;openssl&lt;span class="w"&gt; &lt;/span&gt;enc&lt;span class="w"&gt; &lt;/span&gt;-in&lt;span class="w"&gt; &lt;/span&gt;foo.bar&lt;span class="o"&gt;[&lt;/span&gt;.enc&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="w"&gt;                     &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;-d&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-aes-256-cbc&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="w"&gt;                     &lt;/span&gt;-pass&lt;span class="w"&gt; &lt;/span&gt;stdin&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="w"&gt;                     &lt;/span&gt;&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;foo.bar.enc&lt;span class="w"&gt; &lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;hr&gt;
 &lt;p&gt;system&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;scheduling&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# backend&lt;/span&gt;
-crontab …&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;Practical notes for future references.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# backend&lt;/span&gt;
+crontab …&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;Practical notes for future references.&lt;/p&gt;
 &lt;p&gt;TeX on OS X&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;install the BasicTeX from &lt;a href="http://www.tug.org/mactex/"&gt;MacTeX&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;GUI full application: &lt;a href="http://pages.uoregon.edu/koch/texshop/"&gt;TeXshop&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;lightweight math validator: &lt;a href="https://www.chachatelier.fr/latexit/"&gt;LaTeXit&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# configure&lt;/span&gt;
-which pdftex
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# configure&lt;/span&gt;
+which&lt;span class="w"&gt; &lt;/span&gt;pdftex
 &lt;span class="c1"&gt;# install style fiel&lt;/span&gt;
-tlmgr install 
-&lt;/pre&gt;&lt;/div&gt;
-
+tlmgr&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;hr&gt;
 &lt;p&gt;basic Encrypt &amp;amp; Decrypt&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;openssl enc -in foo.bar&lt;span class="o"&gt;[&lt;/span&gt;.enc&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="se"&gt;\&lt;/span&gt;
-                     &lt;span class="o"&gt;[&lt;/span&gt;-d&lt;span class="o"&gt;]&lt;/span&gt; -aes-256-cbc &lt;span class="se"&gt;\&lt;/span&gt;
-                     -pass stdin &lt;span class="se"&gt;\&lt;/span&gt;
-                     &amp;gt; foo.bar.enc 
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;openssl&lt;span class="w"&gt; &lt;/span&gt;enc&lt;span class="w"&gt; &lt;/span&gt;-in&lt;span class="w"&gt; &lt;/span&gt;foo.bar&lt;span class="o"&gt;[&lt;/span&gt;.enc&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="w"&gt;                     &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;-d&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-aes-256-cbc&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="w"&gt;                     &lt;/span&gt;-pass&lt;span class="w"&gt; &lt;/span&gt;stdin&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="w"&gt;                     &lt;/span&gt;&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;foo.bar.enc&lt;span class="w"&gt; &lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;hr&gt;
 &lt;p&gt;system&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;scheduling&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# backend&lt;/span&gt;
-crontab -e  ... &lt;span class="c1"&gt;# m h dom mon dow  command,  2 7-18 * * 1-5  do something&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# backend&lt;/span&gt;
+crontab&lt;span class="w"&gt; &lt;/span&gt;-e&lt;span class="w"&gt;  &lt;/span&gt;...&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;# m h dom mon dow  command,  2 7-18 * * 1-5  do something&lt;/span&gt;
 &lt;span class="c1"&gt;# in-situ&lt;/span&gt;
-watch -n &lt;span class="m"&gt;5&lt;/span&gt;  ... &lt;span class="c1"&gt;# every 5 sec&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
+watch&lt;span class="w"&gt; &lt;/span&gt;-n&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;5&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;...&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;# every 5 sec&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;ul&gt;
 &lt;li&gt;info&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;df -h  &lt;span class="c1"&gt;# disk storage&lt;/span&gt;
-du -h  &lt;span class="c1"&gt;# file size&lt;/span&gt;
-tree  &lt;span class="c1"&gt;# directory in tree&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;df&lt;span class="w"&gt; &lt;/span&gt;-h&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# disk storage&lt;/span&gt;
+du&lt;span class="w"&gt; &lt;/span&gt;-h&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# file size&lt;/span&gt;
+tree&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# directory in tree&lt;/span&gt;
 
 updatedb/locate
 which/whereis
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;-manage&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;purge  &lt;span class="c1"&gt;# memory&lt;/span&gt;
-chmod  &lt;span class="c1"&gt;# 4: r--; 5 r-x; 6 rw-; 7 rwx&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;purge&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# memory&lt;/span&gt;
+chmod&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# 4: r--; 5 r-x; 6 rw-; 7 rwx&lt;/span&gt;
 
-&lt;span class="k"&gt;for&lt;/span&gt; file &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="sb"&gt;`&lt;/span&gt;ls *&lt;span class="sb"&gt;`&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="nv"&gt;$file&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;done&lt;/span&gt;  &lt;span class="c1"&gt;# ``: prior execution&lt;/span&gt;
-find . -type f -print -name *.bak &lt;span class="p"&gt;|&lt;/span&gt; xargs rm  &lt;span class="c1"&gt;# xargs: streamline&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;file&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;in&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;ls&lt;span class="w"&gt; &lt;/span&gt;*&lt;span class="sb"&gt;`&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;do&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$file&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;done&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# ``: prior execution&lt;/span&gt;
+find&lt;span class="w"&gt; &lt;/span&gt;.&lt;span class="w"&gt; &lt;/span&gt;-type&lt;span class="w"&gt; &lt;/span&gt;f&lt;span class="w"&gt; &lt;/span&gt;-print&lt;span class="w"&gt; &lt;/span&gt;-name&lt;span class="w"&gt; &lt;/span&gt;*.bak&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;xargs&lt;span class="w"&gt; &lt;/span&gt;rm&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# xargs: streamline&lt;/span&gt;
 
-Ctrl-Z  &lt;span class="c1"&gt;# push to background&lt;/span&gt;
+Ctrl-Z&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# push to background&lt;/span&gt;
 &lt;span class="nb"&gt;jobs&lt;/span&gt;
-&lt;span class="nb"&gt;fg&lt;/span&gt;  &lt;span class="c1"&gt;# bring back&lt;/span&gt;
-&lt;span class="nb"&gt;kill&lt;/span&gt; -STOP/-CONT 
+&lt;span class="nb"&gt;fg&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# bring back&lt;/span&gt;
+&lt;span class="nb"&gt;kill&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-STOP/-CONT&lt;span class="w"&gt; &lt;/span&gt;
 
-wget  &lt;span class="c1"&gt;# -nd: no directories; -e exclude_file; -A file_type&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
+wget&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# -nd: no directories; -e exclude_file; -A file_type&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;a href="https://www.tldp.org/LDP/abs/html/special-chars.html"&gt;special characters&lt;/a&gt;: &lt;code&gt;#      ;      .      \      /      *      ?      ${}    {a..z} $[ ...]       &amp;amp;      |&lt;/code&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;files&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# stdin&lt;/span&gt;
-sort/uniqu &lt;span class="o"&gt;[&lt;/span&gt;-c&lt;span class="o"&gt;]&lt;/span&gt; 
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# stdin&lt;/span&gt;
+sort/uniqu&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;-c&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;
 diff
-less &lt;span class="o"&gt;[&lt;/span&gt;-S&lt;span class="o"&gt;]&lt;/span&gt;
+less&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;-S&lt;span class="o"&gt;]&lt;/span&gt;
 
-cat &lt;span class="s"&gt;&amp;lt;&amp;lt; EOF &amp;gt;&amp;gt; file&lt;/span&gt;
+cat&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;lt;&amp;lt; EOF &amp;gt;&amp;gt; file&lt;/span&gt;
 &lt;span class="s"&gt;xxx&lt;/span&gt;
 &lt;span class="s"&gt;xxx&lt;/span&gt;
 &lt;span class="s"&gt;EOF&lt;/span&gt;
 
-cat file &lt;span class="p"&gt;|&lt;/span&gt; sudo tee &lt;span class="o"&gt;[&lt;/span&gt;-a&lt;span class="o"&gt;]&lt;/span&gt; newfile 
+cat&lt;span class="w"&gt; &lt;/span&gt;file&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;tee&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;-a&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;newfile&lt;span class="w"&gt; &lt;/span&gt;
 
-sed &lt;span class="o"&gt;[&lt;/span&gt;-i.bak&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;s/foo/bar/g&amp;#39;&lt;/span&gt; file  &lt;span class="o"&gt;[&lt;/span&gt;&amp;gt; newfile&lt;span class="o"&gt;]&lt;/span&gt;
-tr &lt;span class="s1"&gt;&amp;#39;\r&amp;#39;&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;\n&amp;#39;&lt;/span&gt;  &lt;span class="c1"&gt;# translate characters&lt;/span&gt;
-              &lt;span class="c1"&gt;# \a    &amp;lt;alert character&amp;gt;&lt;/span&gt;
-              &lt;span class="c1"&gt;# \b    &amp;lt;backspace&amp;gt;&lt;/span&gt;
-              &lt;span class="c1"&gt;# \f    &amp;lt;form-feed&amp;gt;&lt;/span&gt;
-              &lt;span class="c1"&gt;# \n    &amp;lt;newline&amp;gt;&lt;/span&gt;
-              &lt;span class="c1"&gt;# \r    &amp;lt;carriage return&amp;gt;&lt;/span&gt;
-              &lt;span class="c1"&gt;# \t    &amp;lt;tab&amp;gt;&lt;/span&gt;
-              &lt;span class="c1"&gt;# \v    &amp;lt;vertical tab&amp;gt;&lt;/span&gt;
+sed&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;-i.bak&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;s/foo/bar/g&amp;#39;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;file&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;newfile&lt;span class="o"&gt;]&lt;/span&gt;
+tr&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;\r&amp;#39;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;\n&amp;#39;&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# translate characters&lt;/span&gt;
+&lt;span class="w"&gt;              &lt;/span&gt;&lt;span class="c1"&gt;# \a    &amp;lt;alert character&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;              &lt;/span&gt;&lt;span class="c1"&gt;# \b    &amp;lt;backspace&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;              &lt;/span&gt;&lt;span class="c1"&gt;# \f    &amp;lt;form-feed&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;              &lt;/span&gt;&lt;span class="c1"&gt;# \n    &amp;lt;newline&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;              &lt;/span&gt;&lt;span class="c1"&gt;# \r    &amp;lt;carriage return&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;              &lt;/span&gt;&lt;span class="c1"&gt;# \t    &amp;lt;tab&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;              &lt;/span&gt;&lt;span class="c1"&gt;# \v    &amp;lt;vertical tab&amp;gt;&lt;/span&gt;
 
 &lt;span class="c1"&gt;# interactive&lt;/span&gt;
 nano/emacs
-vi  &lt;span class="c1"&gt;# 1G/G: top/end; crtl-f/b: forward/backward&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
+vi&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# 1G/G: top/end; crtl-f/b: forward/backward&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;ul&gt;
 &lt;li&gt;manipulating&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;grep key file
-awk &lt;span class="s1"&gt;&amp;#39;BEGIN {} {print substr($m,n,p)} END {print FNR}&amp;#39;&lt;/span&gt; file
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;grep&lt;span class="w"&gt; &lt;/span&gt;key&lt;span class="w"&gt; &lt;/span&gt;file
+awk&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;BEGIN {} {print substr($m,n,p)} END {print FNR}&amp;#39;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;file
 
-&lt;span class="nb"&gt;echo&lt;/span&gt; t1/ t2/ t3/ &lt;span class="p"&gt;|&lt;/span&gt; xargs -n &lt;span class="m"&gt;1&lt;/span&gt; cp &lt;span class="o"&gt;(&lt;/span&gt;-r&lt;span class="o"&gt;)&lt;/span&gt; xxx  &lt;span class="c1"&gt;# copy files into one place&lt;/span&gt;
-&lt;span class="nb"&gt;echo&lt;/span&gt; operate-file &lt;span class="p"&gt;|&lt;/span&gt; xargs -n &lt;span class="m"&gt;1&lt;/span&gt; cp -r target position
-&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="nv"&gt;$string&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; cut -d’-’ -f &lt;span class="m"&gt;1&lt;/span&gt;
+&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;t1/&lt;span class="w"&gt; &lt;/span&gt;t2/&lt;span class="w"&gt; &lt;/span&gt;t3/&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;xargs&lt;span class="w"&gt; &lt;/span&gt;-n&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;cp&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;-r&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;xxx&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# copy files into one place&lt;/span&gt;
+&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;operate-file&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;xargs&lt;span class="w"&gt; &lt;/span&gt;-n&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;cp&lt;span class="w"&gt; &lt;/span&gt;-r&lt;span class="w"&gt; &lt;/span&gt;target&lt;span class="w"&gt; &lt;/span&gt;position
+&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$string&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;cut&lt;span class="w"&gt; &lt;/span&gt;-d’-’&lt;span class="w"&gt; &lt;/span&gt;-f&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;
 
-qlmanage -t -s &lt;span class="m"&gt;200&lt;/span&gt; -o . weixin-brands.svg  &lt;span class="c1"&gt;# generate thumbnails, convert svg to png&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
+qlmanage&lt;span class="w"&gt; &lt;/span&gt;-t&lt;span class="w"&gt; &lt;/span&gt;-s&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;200&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-o&lt;span class="w"&gt; &lt;/span&gt;.&lt;span class="w"&gt; &lt;/span&gt;weixin-brands.svg&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# generate thumbnails, convert svg to png&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;ul&gt;
 &lt;li&gt;compress/decompress&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;tar -xvzf / -cvzf
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;tar&lt;span class="w"&gt; &lt;/span&gt;-xvzf&lt;span class="w"&gt; &lt;/span&gt;/&lt;span class="w"&gt; &lt;/span&gt;-cvzf
 zip/unzip/gzip/gunzip
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;ul&gt;
 &lt;li&gt;sync &amp;amp; exchange&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;scp -p port 
-rsync --rsh&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;ssh -p port&amp;#39;&lt;/span&gt; -av --progress -partial 
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;scp&lt;span class="w"&gt; &lt;/span&gt;-p&lt;span class="w"&gt; &lt;/span&gt;port&lt;span class="w"&gt; &lt;/span&gt;
+rsync&lt;span class="w"&gt; &lt;/span&gt;--rsh&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;ssh -p port&amp;#39;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-av&lt;span class="w"&gt; &lt;/span&gt;--progress&lt;span class="w"&gt; &lt;/span&gt;-partial&lt;span class="w"&gt; &lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Cluster &amp;amp; Special systems
 - Laohu&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;bqueues -l
-bjobs -l job_id
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;bqueues&lt;span class="w"&gt; &lt;/span&gt;-l
+bjobs&lt;span class="w"&gt; &lt;/span&gt;-l&lt;span class="w"&gt; &lt;/span&gt;job_id
 bkill
 btop
 busers
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;ul&gt;
 &lt;li&gt;TACC&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;squeue -u domij
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;squeue&lt;span class="w"&gt; &lt;/span&gt;-u&lt;span class="w"&gt; &lt;/span&gt;domij
 sbatch
-showq -U domij
-scancel job_id
+showq&lt;span class="w"&gt; &lt;/span&gt;-U&lt;span class="w"&gt; &lt;/span&gt;domij
+scancel&lt;span class="w"&gt; &lt;/span&gt;job_id
 idev
 
 cdw/cds
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;a href="https://portal.tacc.utexas.edu/user-guides"&gt;user guides&lt;/a&gt;&lt;/p&gt;</content><category term="cheatsheets"></category></entry></feed>

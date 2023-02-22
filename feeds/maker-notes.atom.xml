@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Domi's Universe - maker-notes</title><link href="https://domijin.github.io/" rel="alternate"></link><link href="https://domijin.github.io/feeds/maker-notes.atom.xml" rel="self"></link><id>https://domijin.github.io/</id><updated>2018-07-21T00:00:00-05:00</updated><entry><title>Boarding Glasses for Motion Sickness</title><link href="https://domijin.github.io/boarding-glasses-for-motion-sickness.html" rel="alternate"></link><published>2018-07-21T00:00:00-05:00</published><updated>2018-07-21T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io/domij.github.io,2018-07-21:/boarding-glasses-for-motion-sickness.html</id><summary type="html">&lt;p&gt;&lt;a href="https://www.boardingglasses.com/"&gt;Boarding Glasses&lt;/a&gt; built a pair of glasses filled with colored liquid to act as reference of ground, which can reduce the Motion Sickness. &lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Domi's Universe - maker-notes</title><link href="https://domijin.github.io/" rel="alternate"></link><link href="https://domijin.github.io/feeds/maker-notes.atom.xml" rel="self"></link><id>https://domijin.github.io/</id><updated>2018-07-21T00:00:00-05:00</updated><entry><title>Boarding Glasses for Motion Sickness</title><link href="https://domijin.github.io/boarding-glasses-for-motion-sickness.html" rel="alternate"></link><published>2018-07-21T00:00:00-05:00</published><updated>2018-07-21T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io,2018-07-21:/boarding-glasses-for-motion-sickness.html</id><summary type="html">&lt;p&gt;&lt;a href="https://www.boardingglasses.com/"&gt;Boarding Glasses&lt;/a&gt; built a pair of glasses filled with colored liquid to act as reference of ground, which can reduce the Motion Sickness. &lt;/p&gt;
 &lt;p&gt;There must be more patented techniques involved but 99 euro is a bit pricey. So I prototype this one to print and test it out. &lt;/p&gt;
 &lt;p&gt;Next steps …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;a href="https://www.boardingglasses.com/"&gt;Boarding Glasses&lt;/a&gt; built a pair of glasses filled with colored liquid to act as reference of ground, which can reduce the Motion Sickness. &lt;/p&gt;
 &lt;p&gt;There must be more patented techniques involved but 99 euro is a bit pricey. So I prototype this one to print and test it out. &lt;/p&gt;
@@ -11,7 +11,7 @@
 &lt;li&gt;FOV coverage: optimize the shape and size to set a standard for flexible design.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Here is my knock-off design to reverse engineering the &lt;strong&gt;Boarding Ring technique&lt;/strong&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="https://www.dropbox.com/s/mxl42eup2a0ah4r/Screenshot%202018-07-21%2010.55.57.png?dl=1"&gt;&lt;/p&gt;</content><category term="maker-notes"></category></entry><entry><title>CHIP Projects</title><link href="https://domijin.github.io/chip-projects.html" rel="alternate"></link><published>2016-03-05T00:00:00-06:00</published><updated>2016-03-05T00:00:00-06:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io/domij.github.io,2016-03-05:/chip-projects.html</id><summary type="html">&lt;h2&gt;Ideas&lt;/h2&gt;
+&lt;p&gt;&lt;img alt="" src="https://www.dropbox.com/s/mxl42eup2a0ah4r/Screenshot%202018-07-21%2010.55.57.png?dl=1"&gt;&lt;/p&gt;</content><category term="maker-notes"></category></entry><entry><title>CHIP Projects</title><link href="https://domijin.github.io/chip-projects.html" rel="alternate"></link><published>2016-03-05T00:00:00-06:00</published><updated>2016-03-05T00:00:00-06:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io,2016-03-05:/chip-projects.html</id><summary type="html">&lt;h2&gt;Ideas&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;[x] &lt;a href="https://chip.hackster.io/inmyorbit/connect-a-mobile-application-to-your-c-h-i-p-using-ble-96fe96?ref=platform&amp;amp;ref_id=5276_trending___&amp;amp;offset=5"&gt;BLE&lt;/a&gt;&lt;/p&gt;
@@ -34,14 +34,13 @@
 &lt;p&gt;[x] &lt;a href="https://www.repetier-server.com/manuals/0.50/index.html"&gt;RepetierServer&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Start server&lt;/span&gt;
-/etc/init.d/RepetierServer start
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# Start server&lt;/span&gt;
+/etc/init.d/RepetierServer&lt;span class="w"&gt; &lt;/span&gt;start
 &lt;span class="c1"&gt;# Stop server&lt;/span&gt;
-/etc/init.d/RepetierServer stop
+/etc/init.d/RepetierServer&lt;span class="w"&gt; &lt;/span&gt;stop
 &lt;span class="c1"&gt;# Restart server&lt;/span&gt;
-/etc/init.d/RepetierServer restart
-&lt;/pre&gt;&lt;/div&gt;
-
+/etc/init.d/RepetierServer&lt;span class="w"&gt; &lt;/span&gt;restart
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;ul&gt;
 &lt;li&gt;
@@ -68,14 +67,13 @@
 &lt;p&gt;[x] &lt;a href="https://www.repetier-server.com/manuals/0.50/index.html"&gt;RepetierServer&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Start server&lt;/span&gt;
-/etc/init.d/RepetierServer start
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# Start server&lt;/span&gt;
+/etc/init.d/RepetierServer&lt;span class="w"&gt; &lt;/span&gt;start
 &lt;span class="c1"&gt;# Stop server&lt;/span&gt;
-/etc/init.d/RepetierServer stop
+/etc/init.d/RepetierServer&lt;span class="w"&gt; &lt;/span&gt;stop
 &lt;span class="c1"&gt;# Restart server&lt;/span&gt;
-/etc/init.d/RepetierServer restart
-&lt;/pre&gt;&lt;/div&gt;
-
+/etc/init.d/RepetierServer&lt;span class="w"&gt; &lt;/span&gt;restart
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;ul&gt;
 &lt;li&gt;
@@ -131,61 +129,58 @@ doc"&gt;Conference&lt;/a&gt;    &lt;/li&gt;
 &lt;ul&gt;
 &lt;li&gt;USB connect&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;screen /dev/tty.usbmodem1413 &lt;span class="m"&gt;115200&lt;/span&gt;
-&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;TERM&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;ansi  &lt;span class="c1"&gt;# correct encoding&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;screen&lt;span class="w"&gt; &lt;/span&gt;/dev/tty.usbmodem1413&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;115200&lt;/span&gt;
+&lt;span class="nb"&gt;export&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;TERM&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;ansi&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# correct encoding&lt;/span&gt;
 
-cu -l /dev/tty.usbmodem1413 -s &lt;span class="m"&gt;115200&lt;/span&gt;
-~.  &lt;span class="c1"&gt;# to escape&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
+cu&lt;span class="w"&gt; &lt;/span&gt;-l&lt;span class="w"&gt; &lt;/span&gt;/dev/tty.usbmodem1413&lt;span class="w"&gt; &lt;/span&gt;-s&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;115200&lt;/span&gt;
+~.&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# to escape&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;ul&gt;
 &lt;li&gt;system admin&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;usermod -l new old  &lt;span class="c1"&gt;# change username, check man for more&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;usermod&lt;span class="w"&gt; &lt;/span&gt;-l&lt;span class="w"&gt; &lt;/span&gt;new&lt;span class="w"&gt; &lt;/span&gt;old&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# change username, check man for more&lt;/span&gt;
 
-sudo usermod -a -G i2c chip  &lt;span class="c1"&gt;# use i2c tools without sudo for chip&lt;/span&gt;
+sudo&lt;span class="w"&gt; &lt;/span&gt;usermod&lt;span class="w"&gt; &lt;/span&gt;-a&lt;span class="w"&gt; &lt;/span&gt;-G&lt;span class="w"&gt; &lt;/span&gt;i2c&lt;span class="w"&gt; &lt;/span&gt;chip&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# use i2c tools without sudo for chip&lt;/span&gt;
 
-sudo shutdown now
+sudo&lt;span class="w"&gt; &lt;/span&gt;shutdown&lt;span class="w"&gt; &lt;/span&gt;now
 
-ip addr show wlan0
+ip&lt;span class="w"&gt; &lt;/span&gt;addr&lt;span class="w"&gt; &lt;/span&gt;show&lt;span class="w"&gt; &lt;/span&gt;wlan0
 
-ps -p&lt;span class="nv"&gt;$$&lt;/span&gt; -ocmd&lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="c1"&gt;# check shell&lt;/span&gt;
+ps&lt;span class="w"&gt; &lt;/span&gt;-p&lt;span class="nv"&gt;$$&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-ocmd&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;# check shell&lt;/span&gt;
 
-apt-get update/upgrade
+apt-get&lt;span class="w"&gt; &lt;/span&gt;update/upgrade
 
-apt-cache search keyword
+apt-cache&lt;span class="w"&gt; &lt;/span&gt;search&lt;span class="w"&gt; &lt;/span&gt;keyword
 
-sudo apt-get install sysstat
+sudo&lt;span class="w"&gt; &lt;/span&gt;apt-get&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;sysstat
 
 mpstat/vmstat/netstat/instat
 
-htop 
+htop&lt;span class="w"&gt; &lt;/span&gt;
 
 last
 
-updatedb &lt;span class="c1"&gt;# for locate database &lt;/span&gt;
+updatedb&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;# for locate database &lt;/span&gt;
 
-virtualenv venv
+virtualenv&lt;span class="w"&gt; &lt;/span&gt;venv
 
 deactivate
 
-stty &amp;lt; /dev/tty*  &lt;span class="c1"&gt;# check band rate&lt;/span&gt;
+stty&lt;span class="w"&gt; &lt;/span&gt;&amp;lt;&lt;span class="w"&gt; &lt;/span&gt;/dev/tty*&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# check band rate&lt;/span&gt;
 
-update-rc.d -f xxx remove &lt;span class="c1"&gt;# remove service&lt;/span&gt;
+update-rc.d&lt;span class="w"&gt; &lt;/span&gt;-f&lt;span class="w"&gt; &lt;/span&gt;xxx&lt;span class="w"&gt; &lt;/span&gt;remove&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;# remove service&lt;/span&gt;
 
-uname -a
-&lt;/pre&gt;&lt;/div&gt;
-
+uname&lt;span class="w"&gt; &lt;/span&gt;-a
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Install GUI&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;apt-get install lxde-core
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;apt-get&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;lxde-core
 
 startlxde
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h3&gt;Hardware&lt;/h3&gt;
 &lt;ul&gt;
@@ -195,29 +190,27 @@ startlxde
 &lt;ul&gt;
 &lt;li&gt;Wi-Fi: &lt;a href="http://docs.getchip.com/chip.html#wifi-connection"&gt;Ref.&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo nmtui
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;nmtui
 
-nmcli device wifi list
+nmcli&lt;span class="w"&gt; &lt;/span&gt;device&lt;span class="w"&gt; &lt;/span&gt;wifi&lt;span class="w"&gt; &lt;/span&gt;list
 
-sudo nmcli device wifi connect &lt;span class="s1"&gt;&amp;#39;(your wifi network name/SSID)&amp;#39;&lt;/span&gt; password &lt;span class="s1"&gt;&amp;#39;(your wifi password)&amp;#39;&lt;/span&gt; ifname wlan0 
+sudo&lt;span class="w"&gt; &lt;/span&gt;nmcli&lt;span class="w"&gt; &lt;/span&gt;device&lt;span class="w"&gt; &lt;/span&gt;wifi&lt;span class="w"&gt; &lt;/span&gt;connect&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;(your wifi network name/SSID)&amp;#39;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;password&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;(your wifi password)&amp;#39;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;ifname&lt;span class="w"&gt; &lt;/span&gt;wlan0&lt;span class="w"&gt; &lt;/span&gt;
 
-nmcli device status
-&lt;/pre&gt;&lt;/div&gt;
-
+nmcli&lt;span class="w"&gt; &lt;/span&gt;device&lt;span class="w"&gt; &lt;/span&gt;status
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Bluetooth&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo hcitool lescan  &lt;span class="c1"&gt;# search BLE device&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;hcitool&lt;span class="w"&gt; &lt;/span&gt;lescan&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# search BLE device&lt;/span&gt;
 
 bluetoothctl
-     power on
-     scan on
-     pair
-     agent on
-     connect
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;span class="w"&gt;     &lt;/span&gt;power&lt;span class="w"&gt; &lt;/span&gt;on
+&lt;span class="w"&gt;     &lt;/span&gt;scan&lt;span class="w"&gt; &lt;/span&gt;on
+&lt;span class="w"&gt;     &lt;/span&gt;pair
+&lt;span class="w"&gt;     &lt;/span&gt;agent&lt;span class="w"&gt; &lt;/span&gt;on
+&lt;span class="w"&gt;     &lt;/span&gt;connect
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;ul&gt;
 &lt;li&gt;
@@ -227,11 +220,10 @@ bluetoothctl
 &lt;p&gt;Onboard Power LED&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo i2cset -f -y &lt;span class="m"&gt;0&lt;/span&gt; 0x34 0x93 0x0 &lt;span class="c1"&gt;# OFF&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;i2cset&lt;span class="w"&gt; &lt;/span&gt;-f&lt;span class="w"&gt; &lt;/span&gt;-y&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;0x34&lt;span class="w"&gt; &lt;/span&gt;0x93&lt;span class="w"&gt; &lt;/span&gt;0x0&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;# OFF&lt;/span&gt;
 
-sudo i2cset -f -y &lt;span class="m"&gt;0&lt;/span&gt; 0x34 0x93 0x1 &lt;span class="c1"&gt;# ON&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
+sudo&lt;span class="w"&gt; &lt;/span&gt;i2cset&lt;span class="w"&gt; &lt;/span&gt;-f&lt;span class="w"&gt; &lt;/span&gt;-y&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;0x34&lt;span class="w"&gt; &lt;/span&gt;0x93&lt;span class="w"&gt; &lt;/span&gt;0x1&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;# ON&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;ul&gt;
 &lt;li&gt;GPIO&lt;ul&gt;
