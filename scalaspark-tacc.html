@@ -134,7 +134,7 @@
 
 
                 <p>4/20/17 </p>
-<h2>Introduction to Hadoop and Spark</h2>
+<h2 id="introduction-to-hadoop-and-spark">Introduction to Hadoop and Spark</h2>
 <p>Dr. Weijia Xu, Dr. Ruizhu Huang @ UTA</p>
 <ul>
 <li>Hadoop and Spark on Wrangler</li>
@@ -144,7 +144,7 @@
 <p><img src="https://www.dropbox.com/s/bnoc10ju03mzgk6/Screenshot%202017-04-20%2013.33.00.png?raw=1" /></p>
 <p><a href="https://www.youtube.com/watch?v=KByS8QYpamw">Webcast</a>
 <a href="https://public.etherpad-mozilla.org/p/Intro_Hadoop_and_Spark_on_Wrangler">Discussion</a></p>
-<h3>Big Data v.s. HPC</h3>
+<h3 id="big-data-vs-hpc">Big Data v.s. HPC</h3>
 <ul>
 <li>Traditional</li>
 <li>separate data</li>
@@ -159,7 +159,7 @@
 <li>scale out, not scale up</li>
 <li>hardware indepedent</li>
 </ul>
-<h3>Hadoop</h3>
+<h3 id="hadoop">Hadoop</h3>
 <ul>
 <li>distributed data</li>
 <li>key-value pair</li>
@@ -172,9 +172,9 @@
 * hadoop: open source implementation of MapReduce, programming in JAVA but interface to others
 * zeppelin: similiar to jupyter, hundreds of interpretator
 * spark, in-memory</p>
-<h2>Hadoop and Yarn</h2>
+<h2 id="hadoop-and-yarn">Hadoop and Yarn</h2>
 <p><img src="https://www.dropbox.com/s/62m198hltjwt154/Screenshot%202017-04-20%2013.37.51.png?raw=1"  /></p>
-<h3>Procedure</h3>
+<h3 id="procedure">Procedure</h3>
 <ul>
 <li>input</li>
 <li>splitting</li>
@@ -230,7 +230,7 @@ wiki_wc<span class="w"> </span><span class="c1">#folder to store the output</spa
 hadoop<span class="w"> </span>fs<span class="w"> </span>–get<span class="w"> </span>/tmp/wiki_wc<span class="w"> </span>wiki_wc
 </code></pre></div>
 
-<h2>Hadoop API</h2>
+<h2 id="hadoop-api">Hadoop API</h2>
 <p>Check example at <code>/Users/domi/Dropbox/Open_Course/TACC webinars/Hadoop_Spark/hadoop-training</code></p>
 <div class="highlight"><pre><span></span><code><span class="c1"># recap of hadoop streaming</span>
 hadoop<span class="w"> </span>jar<span class="w"> </span>/usr/lib/hadoop-mapreduce/hadoop-streaming.jar
@@ -244,14 +244,14 @@ hadoop<span class="w"> </span>jar<span class="w"> </span>/usr/lib/hadoop-mapredu
 -file<span class="w"> </span>reduce<span class="w"> </span>system.
 </code></pre></div>
 
-<h3>vs Spark</h3>
+<h3 id="vs-spark">vs Spark</h3>
 <p><img src="https://www.dropbox.com/s/a5kv07y2p7e68we/Screenshot%202017-04-20%2015.10.53.png?raw=1" /></p>
 <ul>
 <li>Spark is faster</li>
 <li>more language support</li>
 <li>MLib for Machine Learning</li>
 </ul>
-<h3>Zeppelin</h3>
+<h3 id="zeppelin">Zeppelin</h3>
 <ul>
 <li>web-based notebook</li>
 <li>interactive</li>
@@ -274,20 +274,20 @@ sbatch<span class="w"> </span>--reservation<span class="o">=</span>hadoop+TRAINI
 <span class="nf">%sh</span>
 </code></pre></div>
 
-<h3>Contacts</h3>
+<h3 id="contacts">Contacts</h3>
 <p><a href="data@tacc.utexas.edu">Data Group @ TACC</a>
 <a href="xwj@tacc.utexas.edu">Weijia Xu</a> 
 <a href="rhuang@tacc.utexas.edu">Ruizhu Huang</a></p>
 <hr>
 <p>04/27/2017</p>
-<h2>Programming with Scala/Spark</h2>
+<h2 id="programming-with-scalaspark">Programming with Scala/Spark</h2>
 <p>Zhao Zhang</p>
 <p><code>Wrangler Setup</code></p>
 <div class="highlight"><pre><span></span><code>idev<span class="w"> </span>-r<span class="w"> </span>hadoop+TRAINING-HPC+2187<span class="w"> </span>-t<span class="w"> </span><span class="m">240</span><span class="w"> </span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>/opt/apps/scala/scala-2.11.8/bin:<span class="nv">$PATH</span><span class="w"> </span>
 </code></pre></div>
 
-<h3>Scala</h3>
+<h3 id="scala">Scala</h3>
 <p><a href="http://www.scala-lang.org/api/2.11.8/#package">Google Scala API</a></p>
 <ul>
 <li>Variables</li>
@@ -352,7 +352,7 @@ sbatch<span class="w"> </span>--reservation<span class="o">=</span>hadoop+TRAINI
 <span class="nc">Thread</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
 </code></pre></div>
 
-<h3>RDD: Resilient Distributed Dataset</h3>
+<h3 id="rdd-resilient-distributed-dataset">RDD: Resilient Distributed Dataset</h3>
 <p><code>immutable, partitioned collection of elements that can be operated on in parallel</code>
 Programming Models
 * Transformations
@@ -368,12 +368,12 @@ Programming Models
   * reduce
   * saveAsTextFiles</p>
 <hr>
-<h2>Using Scala/Spark</h2>
+<h2 id="using-scalaspark">Using Scala/Spark</h2>
 <p>Weijia Xu</p>
 <p>Start zepplin on Wrangler:
 <code>sbatch --reservation hadoop+TRAINING-HPC+2188
 -A TRAINING-HPC /data/apps/.zeppelin/job.zeppelin.work -t 240</code></p>
-<h3>Data APIs</h3>
+<h3 id="data-apis">Data APIs</h3>
 <ul>
 <li>RDD: Resilient Distributed Dataset</li>
 <li><code>rdd.map(x =&gt; x*2)</code></li>
@@ -424,7 +424,7 @@ Programming Models
 <span class="err">           [ORDERBY col1, ...]&quot;)</span>
 </code></pre></div>
 
-<h3>IO in Spark</h3>
+<h3 id="io-in-spark">IO in Spark</h3>
 <ul>
 <li>File format</li>
 <li>JSON: schema</li>
@@ -450,7 +450,7 @@ Programming Models
 <span class="n">val</span><span class="w"> </span><span class="n">df_parquet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">parquet</span><span class="p">(</span><span class="s2">&quot;cars.parquet&quot;</span><span class="p">)</span>
 </code></pre></div>
 
-<h3>Workflow</h3>
+<h3 id="workflow">Workflow</h3>
 <ul>
 <li>prepare datasets</li>
 <li><code>val cars = spark.read.format("csv").option(...).load("path_to_file").selectExpr("mpg + 0.0 as mpg", "cyl + 0.0 as label")</code>: easy convert to double</li>

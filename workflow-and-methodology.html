@@ -32,12 +32,12 @@
     <meta name="twitter:creator" content="domij_info">
     <meta name="twitter:url" content="https://domijin.github.io/workflow-and-methodology.html">
     <meta name="twitter:title" content="Domi's Universe ~ WorkFlow and Methodology">
-    <meta name="twitter:description" content="Overview The following map summarized my general WorkFlow for data analysis based on Python, which is a popular community-driven and user-friendly language. I hope the WorkFlow and Methodology beneath can also serve as a reference for other language/projects, where Python is found useful as a prototyping/demonstration tool. This …">
+    <meta name="twitter:description" content="Table of contents: Overview Drafting Outline: MindNode Extend: export to Markdown Developing Environment: Docker Prototyping: Python Packaging: iPython Publishing Presentation Workshop Repository: GitHub Overview The following map summarized my general WorkFlow for data analysis based on Python, which is a popular community-driven and user-friendly language. I hope the WorkFlow and …">
     <meta name="twitter:image" content="https://www.dropbox.com/s/1mozhbbi0pvqteh/WorkFlow.png?dl=1"/>
 
     <!-- Facebook Meta Data -->
     <meta property="og:title" content="Domi's Universe ~ WorkFlow and Methodology"/>
-    <meta property="og:description" content="Overview The following map summarized my general WorkFlow for data analysis based on Python, which is a popular community-driven and user-friendly language. I hope the WorkFlow and Methodology beneath can also serve as a reference for other language/projects, where Python is found useful as a prototyping/demonstration tool. This …"/>
+    <meta property="og:description" content="Table of contents: Overview Drafting Outline: MindNode Extend: export to Markdown Developing Environment: Docker Prototyping: Python Packaging: iPython Publishing Presentation Workshop Repository: GitHub Overview The following map summarized my general WorkFlow for data analysis based on Python, which is a popular community-driven and user-friendly language. I hope the WorkFlow and …"/>
     <meta property="og:image" content="https://www.dropbox.com/s/1mozhbbi0pvqteh/WorkFlow.png?dl=1"/>
 </head>
 
@@ -133,10 +133,31 @@
 
 
 
-                <h2>Overview</h2>
+                <div class="toc"><span class="toctitle">Table of contents:</span><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#drafting">Drafting</a><ul>
+<li><a href="#outline-mindnode">Outline: MindNode</a></li>
+<li><a href="#extend-export-to-markdown">Extend: export to Markdown</a></li>
+</ul>
+</li>
+<li><a href="#developing">Developing</a><ul>
+<li><a href="#environment-docker">Environment: Docker</a></li>
+<li><a href="#prototyping-python">Prototyping: Python</a></li>
+<li><a href="#packaging-ipython">Packaging: iPython</a></li>
+</ul>
+</li>
+<li><a href="#publishing">Publishing</a><ul>
+<li><a href="#presentation">Presentation</a></li>
+<li><a href="#workshop">Workshop</a></li>
+<li><a href="#repository-github">Repository: GitHub</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="overview">Overview</h2>
 <ul>
 <li>
-<p>The following map summarized my general WorkFlow for data analysis based on <strong>Python</strong>, which is a popular community-driven and user-friendly language. </p>
+<p>The following map summarized my general WorkFlow for data analysis based on <strong>Python</strong>, which is a popular community-driven and user-friendly language.</p>
 </li>
 <li>
 <p>I hope the WorkFlow and Methodology beneath can also serve as a reference for other language/projects, where Python is found useful as a prototyping/demonstration tool.</p>
@@ -146,7 +167,7 @@
 <p><img alt="" src="https://www.dropbox.com/s/1mozhbbi0pvqteh/WorkFlow.png?dl=1"></p>
 <hr>
 <ul>
-<li>This is a work in progress, and will be aggregated into a talk about <a href="http://dongming.uta.cloud/pdfs/WorkFlow.html#/title-slide">Open Research</a>. My idea of open research is adopted from the computational thinking from open source community. </li>
+<li>This is a work in progress, and will be aggregated into a talk about <a href="http://dongming.uta.cloud/pdfs/WorkFlow.html#/title-slide">Open Research</a>. My idea of open research is adopted from the computational thinking from open source community.</li>
 </ul>
 <p><a href="http://domij.info">About ME</a></p>
 <hr>
@@ -154,12 +175,12 @@
 <ul>
 <li>continuous integration: test-driven and object-oriented for easier maintenances.</li>
 <li>well documented: including report/web-page/presentation for better understanding.</li>
-<li>reproducibility: containerized developing environment, archived data and git-logged code repository should be accessible to replicate. </li>
+<li>reproducibility: containerized developing environment, archived data and git-logged code repository should be accessible to replicate.</li>
 <li>community driven: public ready to communicate on peer reviews and general feedbacks.</li>
 </ul>
 <hr>
-<h2>Drafting</h2>
-<h3>Outline: MindNode</h3>
+<h2 id="drafting">Drafting</h2>
+<h3 id="outline-mindnode">Outline: MindNode</h3>
 <p>Use mind map to conveniently remark and organize the outline of a project.</p>
 <p><img alt="" src="https://mindnode.com/content/2-mindnode/1-mac/1-capture/capture.gif"></p>
 <hr>
@@ -171,27 +192,31 @@
 <li>task</li>
 </ul>
 <hr>
-<h3>Extend: export to Markdown</h3>
+<h3 id="extend-export-to-markdown">Extend: export to Markdown</h3>
 <p>Export the mind map to markdown document to extend the details on each topic.</p>
 <p><img alt="" src="https://mindnode.com/content/4-news/20170606-2017-06-06-introducing-ulysses/screen-capture-mindnode-export.png"></p>
 <hr>
 <p><a href="http://markdown-guide.readthedocs.io/en/latest/basics.html">Markdown Basics</a>: the key formatting syntax. Markdown is also compatible to use html markup most of the time.</p>
 <div class="highlight"><pre><span></span><code>&lt;!-- image with style --&gt;
+
 [<span class="nt">&lt;img src=&quot;img_url&quot; style=&quot;float: right&quot; width=&quot;100px&quot;&gt;</span>](<span class="na">img_url</span>)
 
 &lt;!-- cross reference --&gt;
+
 TOC
+
 <span class="k">-</span><span class="w"> </span>[<span class="nt">title</span>](<span class="na">#tag</span>)
-&lt;a name=&#39;#tag&#39;&gt;title&lt;/a&gt;
+  &lt;a name=&#39;#tag&#39;&gt;title&lt;/a&gt;
 
 &lt;!-- footnote --&gt;
+
 &lt;sup&gt;[1](#myfootnote1)&lt;/sup&gt;
 &lt;a name=&quot;myfootnote1&quot;&gt;1&lt;/a&gt;: Footnote content goes here
 </code></pre></div>
 
 <hr>
-<h2>Developing</h2>
-<h3>Environment: Docker</h3>
+<h2 id="developing">Developing</h2>
+<h3 id="environment-docker">Environment: Docker</h3>
 <p><a href="https://docker-curriculum.com/">Containerize</a>: balancing between system isolation and performance like a sandbox for <em>micro-service</em>.</p>
 <p>Basic concepts</p>
 <ul>
@@ -234,7 +259,7 @@ docker<span class="w"> </span>rmi<span class="w"> </span>image_id<span class="w"
 </ul>
 <hr>
 <p><strong>2. Record needed ingredients in requirement.txt</strong></p>
-<p>While developing, record the additional python packages in a text file named <code>requirement.txt</code>, which will be useful to <a href="#dockerfile">construct the <code>Dockerfile</code></a> to automatically configure the developing environment, as well as <a href="#mybinder">hosting an interactive Jupyter notebook</a> with mybinder. </p>
+<p>While developing, record the additional python packages in a text file named <code>requirement.txt</code>, which will be useful to <a href="#dockerfile">construct the <code>Dockerfile</code></a> to automatically configure the developing environment, as well as <a href="#mybinder">hosting an interactive Jupyter notebook</a> with mybinder.</p>
 <hr>
 <ul>
 <li><a href="https://pip.pypa.io/en/stable/reference/pip_install/#requirements-file-format">file format</a> and <a href="https://pip.pypa.io/en/stable/reference/pip_install/#requirement-specifiers">specifiers</a></li>
@@ -264,26 +289,24 @@ docker<span class="w"> </span>rmi<span class="w"> </span>image_id<span class="w"
 <li>add special system setup and port configuration as needed</li>
 </ol>
 <hr>
-<h3>Prototyping: Python</h3>
+<h3 id="prototyping-python">Prototyping: Python</h3>
 <p>Some principles</p>
 <ul>
-<li>Object-oriented programing<ul>
+<li>Object-oriented programing</li>
 <li>function -&gt; method</li>
 <li>variable -&gt; attribute</li>
-</ul>
-</li>
 <li>Computational thinking: see the full image <a href="/images/Methodology_DS_blue.png">here</a>
-    <img alt="" src="https://www.dropbox.com/s/d4jk8tso9vc9bjj/Screenshot%202018-08-14%2020.18.33.png?dl=1"></li>
+  <img alt="" src="https://www.dropbox.com/s/d4jk8tso9vc9bjj/Screenshot%202018-08-14%2020.18.33.png?dl=1"></li>
 </ul>
 <hr>
 <p>A few suggestions</p>
 <ul>
-<li>think about goals of code </li>
-<li>break into reasonable classes </li>
+<li>think about goals of code</li>
+<li>break into reasonable classes</li>
 <li>pseudocode it up</li>
 <li>check for efficient algorithm</li>
 <li>test each function and class</li>
-<li>assemble code in <strong>main</strong> </li>
+<li>assemble code in <strong>main</strong></li>
 <li>run</li>
 <li>optimize if necessary</li>
 </ul>
@@ -293,7 +316,7 @@ docker<span class="w"> </span>rmi<span class="w"> </span>image_id<span class="w"
 <li>indentation: 4 spaces</li>
 <li>snake_case: packages, modules, functions</li>
 <li>CamelCase: classes, attributes</li>
-<li><em>alltogether: variables, add <code>_</code> for build-in variables</em></li>
+<li>_alltogether: variables, add <code>_</code> for build-in variables_</li>
 <li>space near operators, except for <code>func(a=1, b=3)</code> or <code>c = a/b</code></li>
 <li>separate imports</li>
 <li><code>&gt;2 space # 1 space</code> inline comments, docstring</li>
@@ -305,10 +328,12 @@ docker<span class="w"> </span>rmi<span class="w"> </span>image_id<span class="w"
 <ul>
 <li>
 <p><a href="(http://dongming.uta.cloud/pdfs/LSST18.slides.html#/5)">Pitfall with interactive notebook</a></p>
-<ul>
-<li>execution order matters</li>
-<li>memory consuming</li>
-</ul>
+</li>
+<li>
+<p>execution order matters</p>
+</li>
+<li>
+<p>memory consuming</p>
 </li>
 <li>
 <p>See my LSST talk about <a href="http://lsst.domij.info/">Jupyter as a Research Tool</a> for example.</p>
@@ -324,12 +349,10 @@ docker<span class="w"> </span>rmi<span class="w"> </span>image_id<span class="w"
 </li>
 <li>
 <p>Test-driven design</p>
-<ul>
+</li>
 <li>modular code</li>
 <li>specific and fine-grained test</li>
 <li>regression test for bugs</li>
-</ul>
-</li>
 </ul>
 <hr>
 <p><strong>3. Checkpoint scripts with git</strong>: git log the progress</p>
@@ -353,18 +376,16 @@ git<span class="w"> </span>push<span class="w"> </span>mygitserver<span class="w
 </code></pre></div>
 
 <hr>
-<h3>Packaging: iPython</h3>
+<h3 id="packaging-ipython">Packaging: iPython</h3>
 <p>When the code is ready to share,</p>
 <ol>
 <li>create a parent directory</li>
 <li>create <a href="https://docs.python.org/2/distutils/introduction.html#distutils-simple-example">setup script</a></li>
-<li>create <a href="https://docs.python.org/2/distutils/sourcedist.html">MANIFEST.in</a> for list of files<ul>
+<li>create <a href="https://docs.python.org/2/distutils/sourcedist.html">MANIFEST.in</a> for list of files</li>
 <li>include README</li>
 <li>include LICENSE</li>
 <li>include setup.py</li>
 <li>recursive-include folders scripts</li>
-</ul>
-</li>
 <li><code>python setup.py sdist</code></li>
 </ol>
 <hr>
@@ -372,7 +393,7 @@ git<span class="w"> </span>push<span class="w"> </span>mygitserver<span class="w
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">CamelCase</span><span class="p">():</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">():</span>  <span class="c1"># initialize</span>
         <span class="bp">self</span><span class="o">.</span> <span class="o">...</span>
-    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>  <span class="c1"># print </span>
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>  <span class="c1"># print</span>
         <span class="k">return</span> <span class="s2">&quot;...&quot;</span>
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
@@ -395,12 +416,10 @@ git<span class="w"> </span>push<span class="w"> </span>mygitserver<span class="w
 <hr>
 <p>testing framework</p>
 <ul>
-<li>pytest<ul>
+<li>pytest</li>
 <li>conda install <code>pytest pytest-cov</code></li>
 <li>compose tests under <code>tests/</code></li>
 <li>run <code>py.test</code></li>
-</ul>
-</li>
 <li>nose</li>
 </ul>
 <hr>
@@ -417,7 +436,7 @@ git<span class="w"> </span>push<span class="w"> </span>mygitserver<span class="w
 <span class="n">python</span><span class="p">:</span>
   <span class="o">-</span> <span class="s2">&quot;3.6&quot;</span>
 <span class="c1"># command to install dependencies</span>
-<span class="n">install</span><span class="p">:</span> <span class="s2">&quot;pip install -r requirement.txt&quot;</span> 
+<span class="n">install</span><span class="p">:</span> <span class="s2">&quot;pip install -r requirement.txt&quot;</span>
 <span class="c1"># command to run tests</span>
 <span class="n">script</span><span class="p">:</span> <span class="n">pytest</span>
 </code></pre></div>
@@ -436,13 +455,13 @@ git<span class="w"> </span>push<span class="w"> </span>mygitserver<span class="w
 <hr>
 <p>Tips from Cameron Hummels</p>
 <ul>
-<li>Decide what you are optimizing over </li>
-<li>Computer time versus person time </li>
-<li>Write readable code first, then optimize </li>
-<li>Use profilers to identify bottlenecks </li>
-<li>Address bottlenecks one at a time </li>
+<li>Decide what you are optimizing over</li>
+<li>Computer time versus person time</li>
+<li>Write readable code first, then optimize</li>
+<li>Use profilers to identify bottlenecks</li>
+<li>Address bottlenecks one at a time</li>
 <li>Latest Python is most optimized</li>
-<li>Try new approaches and profile/testit </li>
+<li>Try new approaches and profile/testit</li>
 </ul>
 <hr>
 <ul>
@@ -490,8 +509,8 @@ memory_profiler<span class="w">  </span><span class="c1"># memory consumption an
 <li>docstring</li>
 </ul>
 <hr>
-<h2>Publishing</h2>
-<h3>Presentation</h3>
+<h2 id="publishing">Publishing</h2>
+<h3 id="presentation">Presentation</h3>
 <p>Following my WorkFlow, most of the work has been done at this stage. The rest can be carried out in very minimum effort with decent finish.</p>
 <hr>
 <p>Example finish: use <code>?</code> for keyboard shortcuts to control the slides.</p>
@@ -501,7 +520,7 @@ memory_profiler<span class="w">  </span><span class="c1"># memory consumption an
 <li><a href="http://dongming.uta.cloud/pdfs/WorkFlow.html#/title-slide">MindNode to markdown to html slides</a>: my draft slides of this document</li>
 </ul>
 <hr>
-<p><strong>1. MindNote -&gt; Markdown</strong>: re-arrange and convert the outline mind map to markdown. </p>
+<p><strong>1. MindNote -&gt; Markdown</strong>: re-arrange and convert the outline mind map to markdown.</p>
 <p><img alt="" src="https://mindnode.com/content/4-news/20170606-2017-06-06-introducing-ulysses/screen-capture-mindnode-export.png"></p>
 <hr>
 <p>Warning: Jupyter notebook should be re-organized for presentation, especially dissertation defense! The order of work is not necessary the order of talk! Check my <a href="http://dongming.uta.cloud/pdfs/LSST18.slides.html#/11/1">LSST talk</a> for some tips.</p>
@@ -525,7 +544,7 @@ memory_profiler<span class="w">  </span><span class="c1"># memory consumption an
 </li>
 </ul>
 <hr>
-<h3>Workshop</h3>
+<h3 id="workshop">Workshop</h3>
 <p>To take the research/project to a workshop, we need to recall what we've done.</p>
 <p><strong>1. Config env.: Dockerfile</strong></p>
 <p>With everything done, it is now easy to put all the ingredients and recipe together into a Dockerfile.</p>
@@ -555,28 +574,20 @@ docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </s
 <hr>
 <p>My secret on toggling code cells</p>
 <ul>
-<li><code>nbextension</code><ul>
+<li><code>nbextension</code></li>
 <li><code>codefolding</code>: <code>$ jupyter nbextension enable codefolding/main</code></li>
 <li>more <a href="https://github.com/ipython-contrib/jupyter_contrib_nbextensions">extenstions</a>: spellchecker, Table of Contents, Autoscroll,...</li>
-</ul>
-</li>
-<li><code>nbconvert</code> with <code>--template template.tpl</code><ul>
+<li><code>nbconvert</code> with <code>--template template.tpl</code></li>
 <li>hide/remove code in one step <a href="http://www.damian.oquanta.info/posts/hide-the-input-cells-from-your-ipython-slides.html">templates</a></li>
 <li>more functionality available</li>
-</ul>
-</li>
 </ul>
 <hr>
 <p>Another wheel to edit slide styles on the fly</p>
 <ul>
-<li><a href="https://damianavila.github.io/RISE/usage.html#">RISE</a>: good for dev./workshop<ul>
+<li><a href="https://damianavila.github.io/RISE/usage.html#">RISE</a>: good for dev./workshop</li>
 <li><a href="https://mybinder.org/v2/gh/parmentelat/RISE.git/doc2?filepath=examples%2FREADME.ipynb">demo</a>: interactive live rendering, based on reveal.js</li>
-</ul>
-</li>
-<li>reveal.js: good for prod./presentation<ul>
+<li>reveal.js: good for prod./presentation</li>
 <li>post-process with nbconvert</li>
-</ul>
-</li>
 </ul>
 <hr>
 <p><strong>3. Slideshow: nbconvert + reveal.js</strong></p>
@@ -589,7 +600,7 @@ open<span class="w"> </span>notebook.slides.html
 </code></pre></div>
 
 <hr>
-<h3>Repository: GitHub</h3>
+<h3 id="repository-github">Repository: GitHub</h3>
 <p>When it is ready to take the project to the public, there are a few wheels very handy to make it more appealing.</p>
 <hr>
 <p><strong>Live slideshow</strong>: add some markup in the url of the html file in repository to render the slideshow in live, not always working.</p>
@@ -624,11 +635,11 @@ open<span class="w"> </span>notebook.slides.html
 </ul>
 <hr>
 <p><strong>Building test: Travis CI</strong></p>
-<p>Follow the manual/documentation! </p>
+<p>Follow the manual/documentation!</p>
 <hr>
 <p>tricks</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># load dataset based on memory</span>
-<span class="n">sources</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">chunksize</span><span class="o">=</span><span class="mi">100000</span><span class="p">)</span> 
+<span class="n">sources</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">chunksize</span><span class="o">=</span><span class="mi">100000</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sources</span><span class="p">):</span>
     <span class="o">...</span>
 </code></pre></div>

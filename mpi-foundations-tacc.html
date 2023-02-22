@@ -149,7 +149,7 @@
 <li>Process: preferred terminology in talking about MPI.</li>
 <li><strong>SPMD model: <code>simple program multiple data</code></strong></li>
 </ul>
-<h2>MPI</h2>
+<h2 id="mpi">MPI</h2>
 <p><code>prototype</code>: declarnation </p>
 <p>Collectives</p>
 <ul>
@@ -194,7 +194,7 @@
 <li>MPI_MINLOC - Returns the minimum value and the rank of the process that owns it.</li>
 </ul>
 </blockquote>
-<h3>buffer</h3>
+<h3 id="buffer">buffer</h3>
 <p><code>void pointer</code>: memory address of the data</p>
 <blockquote>
 <p>C</p>
@@ -209,26 +209,26 @@
 <ul>
 <li><a href="http://mpitutorial.com/tutorials/mpi-reduce-and-allreduce/">find max random number with Reduce</a></li>
 </ul>
-<h3>Scan or 'parallel prefix'</h3>
-<h3><em>Barrier</em>: Synchronize procs</h3>
+<h3 id="scan-or-parallel-prefix">Scan or 'parallel prefix'</h3>
+<h3 id="barrier-synchronize-procs"><em>Barrier</em>: Synchronize procs</h3>
 <ul>
 <li><em>almost never needed</em></li>
 <li>only for timing</li>
 </ul>
-<h3>Naive realization</h3>
+<h3 id="naive-realization">Naive realization</h3>
 <ul>
 <li>root to all $\alpha + \beta*n$</li>
 <li>better, p2p</li>
 </ul>
-<h2>Distributed data</h2>
+<h2 id="distributed-data">Distributed data</h2>
 <ul>
 <li>local_index + rank</li>
 <li>global_index</li>
 </ul>
-<h3>Load balancing</h3>
+<h3 id="load-balancing">Load balancing</h3>
 <p>$f(i) = \floor(iN/p)$
 given proc $i$: $[f(i),f(i+1)]$</p>
-<h3>Local info. exchange</h3>
+<h3 id="local-info-exchange">Local info. exchange</h3>
 <p>Matrices in parallel: distribute domain, not the matrix</p>
 <p><strong>p2p: ping-pong</strong>
 * two side: A &amp; B
@@ -250,7 +250,7 @@ given proc $i$: $[f(i),f(i+1)]$</p>
 <blockquote>
 <p>communication across nodes is x100 slower than within nodes</p>
 </blockquote>
-<h4>Blocking</h4>
+<h4 id="blocking">Blocking</h4>
 <p><code>send &amp; recv are blocking operations</code></p>
 <ul>
 <li>deadlock</li>
@@ -266,12 +266,12 @@ given proc $i$: $[f(i),f(i+1)]$</p>
 <span class="nv">receive</span>
 </code></pre></div>
 
-<h4>Bypass blocking</h4>
+<h4 id="bypass-blocking">Bypass blocking</h4>
 <ul>
 <li>odds &amp; evens: exchange sort, compare-and-swap</li>
 <li>pairwise exchange</li>
 </ul>
-<h4>Non-blocking</h4>
+<h4 id="non-blocking">Non-blocking</h4>
 <ul>
 <li><code>isend, irecv</code></li>
 </ul>
@@ -280,7 +280,7 @@ given proc $i$: $[f(i),f(i+1)]$</p>
 <code>Latency hiding</code>: don't need to hold until comm is done
 <code>TEST</code>: non-blacking wait, do local work if no incoming msg by test</p>
 </blockquote>
-<h4>More</h4>
+<h4 id="more">More</h4>
 <blockquote>
 <ul>
 <li>MPI_Bsend, MPI_Ibsend: buffered send</li>

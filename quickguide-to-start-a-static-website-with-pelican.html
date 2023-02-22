@@ -153,7 +153,7 @@
 <li><a href="#plugin">Add plugins</a></li>
 <li><a href="#tricks">Useful tricks</a></li>
 </ul>
-<h3><a name="install"> Get started </a></h3>
+<h3 id="get-started"><a name="install"> Get started </a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># installation</span>
 pip<span class="w"> </span>install<span class="w"> </span>pelican<span class="w"> </span>markdown
 
@@ -164,7 +164,7 @@ pelican-quickstart
 </code></pre></div>
 
 <p>For questions that have default values denoted in brackets, feel free to use the Return key to accept those default values. Don't worry too much. Most of the values are stored in <code>pelicanconf.py</code> and <code>publishconf.py</code>.</p>
-<h3><a name="files"> File structure </a></h3>
+<h3 id="file-structure"><a name="files"> File structure </a></h3>
 <p>Here is an example of the file structure for a demo project. </p>
 <div class="highlight"><pre><span></span><code>.
 ├──<span class="w"> </span>Makefile<span class="w">  </span><span class="c1"># use `make help` for manual, it is very self-descriptive </span>
@@ -190,7 +190,7 @@ pelican-quickstart
 <blockquote>
 <p>Note: Pelican doesn't recognize HTML files in <code>content/pdfs</code> folder at the moment. Any self-generated HTML files has to be manually copied to the <code>output/pdfs</code> folder.</p>
 </blockquote>
-<h3><a name="themes"> Themes </a></h3>
+<h3 id="themes"><a name="themes"> Themes </a></h3>
 <ul>
 <li>Resources<ul>
 <li><a href="http://www.pelicanthemes.com/">Themes gallery</a></li>
@@ -228,7 +228,7 @@ pelican-quickstart
 <li>modify or create new <code>css, js</code> files and <code>html</code> templates. </li>
 <li><code>pelican-themes -i {your_theme_name}</code></li>
 </ol>
-<h3><a name="setup"> Setups </a></h3>
+<h3 id="setups"><a name="setup"> Setups </a></h3>
 <p>The complete setting list can be found at <a href="http://docs.getpelican.com/en/3.6.3/settings.html">here</a>. Many of which are not needed. Here I covered some setups for this website. </p>
 <p>The <code>pelicanconf.py</code> file explained: </p>
 <div class="highlight"><pre><span></span><code><span class="o">...</span>
@@ -284,7 +284,7 @@ pelican-quickstart
 Google Analytics: Set to ‘UA-XXXX-YYYY’ from Google Analytics to help track traffic.</p>
 </blockquote>
 </blockquote>
-<h3><a name="dev"> Developing </a></h3>
+<h3 id="developing"><a name="dev"> Developing </a></h3>
 <p>It is very straight-forward if you know how to read the <code>Makefile</code>.</p>
 <ul>
 <li>Start the server: <code>make devserver</code> or <code>./develop_server.sh start</code></li>
@@ -298,7 +298,7 @@ Google Analytics: Set to ‘UA-XXXX-YYYY’ from Google Analytics to help track 
 </ul>
 </li>
 </ul>
-<h3><a name="hellomd"> Write the first article </a></h3>
+<h3 id="write-the-first-article"><a name="hellomd"> Write the first article </a></h3>
 <div class="highlight"><pre><span></span><code>Title: My First Article
 Date: 2010-12-03 10:20
 Category: Articles
@@ -311,7 +311,7 @@ Modified: 08/14/2018
 Article Content In Markdown Format
 </code></pre></div>
 
-<h3><a name='plugin'> Add plugins </a></h3>
+<h3 id="add-plugins"><a name='plugin'> Add plugins </a></h3>
 <p>A collection of plugins can be found <a href="https://github.com/getpelican/pelican-plugins">here</a></p>
 <p>Use of plugin: </p>
 <ol>
@@ -319,7 +319,7 @@ Article Content In Markdown Format
 <li>In <code>pelicanconf.py</code>, define <code>PLUGIN_PATHS</code> and <code>PLUGINs</code> as explained in <a href="#setup">Setups</a>. </li>
 <li>Add additional setup following special instruction of the plugin.</li>
 </ol>
-<h3><a name='tricks'> Useful tricks </a></h3>
+<h3 id="useful-tricks"><a name='tricks'> Useful tricks </a></h3>
 <ul>
 <li>copyright footer: generate <a href="https://www.freeprivacypolicy.com/">free privacy policy</a> and style it to protect your website</li>
 <li>render_math: support math in markdown</li>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>Domi's Universe - study-notes</title><link href="https://domijin.github.io/" rel="alternate"></link><link href="https://domijin.github.io/feeds/study-notes.atom.xml" rel="self"></link><id>https://domijin.github.io/</id><updated>2018-07-17T00:00:00-05:00</updated><entry><title>Disrupting Yourself for greater</title><link href="https://domijin.github.io/disrupting-yourself-for-greater.html" rel="alternate"></link><published>2018-07-17T00:00:00-05:00</published><updated>2018-07-17T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io,2018-07-17:/disrupting-yourself-for-greater.html</id><summary type="html">&lt;p&gt;This is what I learned from &lt;a href="https://www.linkedin.com/learning/disrupting-yourself/stepping-back-or-sideways-to-move-forward"&gt;Video Link&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Outline&lt;/p&gt;
-&lt;h2&gt;Disrupted innovation&lt;/h2&gt;
+&lt;h2 id="disrupted-innovation"&gt;Disrupted innovation&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Taking the right risks&lt;ul&gt;
 &lt;li&gt;Look at what others are not doing: open new doors instead of red seas&lt;/li&gt;
@@ -15,7 +15,7 @@
 &lt;/li&gt;
 &lt;li&gt;Embracing …&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;p&gt;This is what I learned from &lt;a href="https://www.linkedin.com/learning/disrupting-yourself/stepping-back-or-sideways-to-move-forward"&gt;Video Link&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Outline&lt;/p&gt;
-&lt;h2&gt;Disrupted innovation&lt;/h2&gt;
+&lt;h2 id="disrupted-innovation"&gt;Disrupted innovation&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Taking the right risks&lt;ul&gt;
 &lt;li&gt;Look at what others are not doing: open new doors instead of red seas&lt;/li&gt;
@@ -52,7 +52,7 @@
 &lt;li&gt;Show up, practice: try and improve&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;/ul&gt;</content><category term="study-notes"></category></entry><entry><title>Quantum Computing</title><link href="https://domijin.github.io/quantum-computing.html" rel="alternate"></link><published>2018-07-01T00:00:00-05:00</published><updated>2018-07-01T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io,2018-07-01:/quantum-computing.html</id><summary type="html">&lt;h2&gt;Quantum Computing &amp;amp; Neural Networks&lt;/h2&gt;
+&lt;/ul&gt;</content><category term="study-notes"></category></entry><entry><title>Quantum Computing</title><link href="https://domijin.github.io/quantum-computing.html" rel="alternate"></link><published>2018-07-01T00:00:00-05:00</published><updated>2018-07-01T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io,2018-07-01:/quantum-computing.html</id><summary type="html">&lt;h2 id="quantum-computing-neural-networks"&gt;Quantum Computing &amp;amp; Neural Networks&lt;/h2&gt;
 &lt;p&gt;&lt;a href="https://www.quantiki.org/wiki/basic-concepts-quantum-computation"&gt;basic concepts&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Superposition: $\ket{+}, \ket{-}$&lt;/li&gt;
@@ -69,7 +69,7 @@
 &lt;li&gt;&lt;a href="http://xxx.lanl.gov/list/quant-ph/recent"&gt;New ArXiv papers in quantum physics&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://oxfordquantum.org/"&gt;Research in Oxford Quantum&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;IBM Open Quantum&lt;/h3&gt;
+&lt;h3 id="ibm-open-quantum"&gt;IBM Open Quantum&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://www.research.ibm.com/ibm-q/"&gt;ibm-q&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://quantumexperience.ng.bluemix.net/qx/tutorial?sectionId=beginners-guide&amp;amp;page=000-FAQ_for_Beginners~2F001-FAQ_for_Beginners"&gt;beginner's guide&lt;/a&gt;&lt;/li&gt;
@@ -78,7 +78,7 @@
 &lt;/ul&gt;
 &lt;p&gt;OpenQasm Input&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;// My First Score&lt;/span&gt;
-&lt;span class="n"&gt;OPENQASM …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;h2&gt;Quantum Computing &amp;amp; Neural Networks&lt;/h2&gt;
+&lt;span class="n"&gt;OPENQASM …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;h2 id="quantum-computing-neural-networks"&gt;Quantum Computing &amp;amp; Neural Networks&lt;/h2&gt;
 &lt;p&gt;&lt;a href="https://www.quantiki.org/wiki/basic-concepts-quantum-computation"&gt;basic concepts&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Superposition: $\ket{+}, \ket{-}$&lt;/li&gt;
@@ -95,7 +95,7 @@
 &lt;li&gt;&lt;a href="http://xxx.lanl.gov/list/quant-ph/recent"&gt;New ArXiv papers in quantum physics&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://oxfordquantum.org/"&gt;Research in Oxford Quantum&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;IBM Open Quantum&lt;/h3&gt;
+&lt;h3 id="ibm-open-quantum"&gt;IBM Open Quantum&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://www.research.ibm.com/ibm-q/"&gt;ibm-q&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://quantumexperience.ng.bluemix.net/qx/tutorial?sectionId=beginners-guide&amp;amp;page=000-FAQ_for_Beginners~2F001-FAQ_for_Beginners"&gt;beginner's guide&lt;/a&gt;&lt;/li&gt;
@@ -177,7 +177,7 @@
 &lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nv"&gt;Y&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="nv"&gt;i&lt;/span&gt;−&lt;span class="nv"&gt;i0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="nv"&gt;XZ&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;h3&gt;Quantum Algorithms&lt;/h3&gt;
+&lt;h3 id="quantum-algorithms"&gt;Quantum Algorithms&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Shor%27s_algorithm"&gt;Shor's algorithm&lt;/a&gt;: ordering, factoring&lt;ul&gt;
 &lt;li&gt;period finding: modular exponential function, $a^r = 1 (\mod N)$&lt;/li&gt;
@@ -195,15 +195,15 @@
 &lt;li&gt;&lt;a href="https://quantumexperience.ng.bluemix.net/qx/tutorial?sectionId=full-user-guide&amp;amp;page=004-Quantum_Algorithms~2F070-Grover%27s_Algorithm"&gt;Grover's algorithm&lt;/a&gt;: reflection^n to amplify the matched state&lt;/li&gt;
 &lt;li&gt;Quantum Annealing &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;Technicals&lt;/h3&gt;
+&lt;h3 id="technicals"&gt;Technicals&lt;/h3&gt;
 &lt;p&gt;Building blocks
 - &lt;a href="https://www.quora.com/What-is-the-equivalent-of-the-transistor-in-a-quantum-computer"&gt;Discussion of transistor&lt;/a&gt;&lt;/p&gt;
-&lt;h3&gt;Neruoscience&lt;/h3&gt;
+&lt;h3 id="neruoscience"&gt;Neruoscience&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://www.ncbi.nlm.nih.gov/pubmedhealth/PMH0072574/"&gt;brief about nervous system&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://www.ncbi.nlm.nih.gov/pubmedhealth/PMHT0024269/"&gt;neurons&lt;/a&gt;: chemical interactions between neurons as communication, not fixed, multi-connected&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;Ideas&lt;/h3&gt;
+&lt;h3 id="ideas"&gt;Ideas&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;3D transistor to resemble neuro, spiking instead&lt;/li&gt;
 &lt;li&gt;growing network, mimic brain development, let network layers to change &amp;amp; train&lt;ul&gt;
@@ -229,7 +229,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;</content><category term="study-notes"></category></entry><entry><title>Data Management @ LSST</title><link href="https://domijin.github.io/data-management-lsst.html" rel="alternate"></link><published>2017-10-19T00:00:00-05:00</published><updated>2017-10-19T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io,2017-10-19:/data-management-lsst.html</id><summary type="html">&lt;p&gt;4/24/17&lt;/p&gt;
-&lt;h3&gt;SQLite with python&lt;/h3&gt;
+&lt;h3 id="sqlite-with-python"&gt;SQLite with python&lt;/h3&gt;
 &lt;p&gt;Basic operation syntax&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sqlite3&lt;/span&gt;
 &lt;span class="n"&gt;conn&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sqlite3&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;connect&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;reintro.db&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; 
@@ -243,7 +243,7 @@
 &lt;span class="n"&gt;cur&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fetchall&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;display&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;cursor&lt;/span&gt;      
 &lt;span class="n"&gt;conn&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;commit&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;commit&lt;/span&gt; &lt;span class="n"&gt;change&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;database&lt;/span&gt;
 &lt;span class="n"&gt;cur&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;execute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&amp;quot;drop …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;4/24/17&lt;/p&gt;
-&lt;h3&gt;SQLite with python&lt;/h3&gt;
+&lt;h3 id="sqlite-with-python"&gt;SQLite with python&lt;/h3&gt;
 &lt;p&gt;Basic operation syntax&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sqlite3&lt;/span&gt;
 &lt;span class="n"&gt;conn&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sqlite3&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;connect&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;reintro.db&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; 
@@ -268,7 +268,7 @@
 &lt;img src="https://www.dropbox.com/s/c8tutz6p5f9gvmj/Screenshot%202017-04-24%2011.29.49.png?raw=1" /&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;4/25/17&lt;/p&gt;
-&lt;h2&gt;SQL byYusra AlSayyad&lt;/h2&gt;
+&lt;h2 id="sql-byyusra-alsayyad"&gt;SQL byYusra AlSayyad&lt;/h2&gt;
 &lt;p&gt;Data Management: building database, storing data&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;SQL database&lt;/li&gt;
@@ -348,7 +348,7 @@
 
 &lt;hr&gt;
 &lt;p&gt;4/26/17&lt;/p&gt;
-&lt;h2&gt;Data Management: extracting data&lt;/h2&gt;
+&lt;h2 id="data-management-extracting-data"&gt;Data Management: extracting data&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Scaling up -&amp;gt; scaling out&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -409,14 +409,14 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;Cost Function&lt;/h3&gt;
+&lt;h3 id="cost-function"&gt;Cost Function&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Regularization&lt;/li&gt;
 &lt;li&gt;Maximum Likelihood&lt;/li&gt;
 &lt;li&gt;KL divergence&lt;/li&gt;
 &lt;li&gt;cross-entropy&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;Graph Processing&lt;/h2&gt;
+&lt;h2 id="graph-processing"&gt;Graph Processing&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;frameworks&lt;/li&gt;
 &lt;li&gt;PageRank: direct graph by …&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;p&gt;&lt;a href="mailto:zzhang@tacc.utexas.edu"&gt;Zhao Zhang&lt;/a&gt;&lt;/p&gt;
@@ -444,14 +444,14 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;Cost Function&lt;/h3&gt;
+&lt;h3 id="cost-function"&gt;Cost Function&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Regularization&lt;/li&gt;
 &lt;li&gt;Maximum Likelihood&lt;/li&gt;
 &lt;li&gt;KL divergence&lt;/li&gt;
 &lt;li&gt;cross-entropy&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;Graph Processing&lt;/h2&gt;
+&lt;h2 id="graph-processing"&gt;Graph Processing&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;frameworks&lt;/li&gt;
 &lt;li&gt;PageRank: direct graph by Google&lt;/li&gt;
@@ -460,7 +460,7 @@
 &lt;li&gt;GraphLab&lt;/li&gt;
 &lt;li&gt;GraphX&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;GraphX&lt;/h3&gt;
+&lt;h3 id="graphx"&gt;GraphX&lt;/h3&gt;
 &lt;p&gt;&lt;code&gt;GraphX abstracts a graph with an RDD of vertices and an RDD of edges&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://spark.apache.org/docs/0.9.1/graphx-programming-guide.html"&gt;graphx from Apache Spark&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src="https://www.dropbox.com/s/y809vf5vyv07q6y/Screenshot%202017-05-05%2012.58.52.png?raw=1" /&gt;&lt;/p&gt;
@@ -469,7 +469,7 @@
 &lt;li&gt;Triangle Counting: &lt;code&gt;org.apache.spark.graphx.lib.triangleCount&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Shortest Paths: &lt;code&gt;org.apache.spark.graphx.lib.Shortestpaths&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;</content><category term="study-notes"></category></entry><entry><title>Scala/Spark @ TACC</title><link href="https://domijin.github.io/scalaspark-tacc.html" rel="alternate"></link><published>2017-05-04T00:00:00-05:00</published><updated>2017-05-04T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io,2017-05-04:/scalaspark-tacc.html</id><summary type="html">&lt;p&gt;4/20/17 &lt;/p&gt;
-&lt;h2&gt;Introduction to Hadoop and Spark&lt;/h2&gt;
+&lt;h2 id="introduction-to-hadoop-and-spark"&gt;Introduction to Hadoop and Spark&lt;/h2&gt;
 &lt;p&gt;Dr. Weijia Xu, Dr. Ruizhu Huang @ UTA&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Hadoop and Spark on Wrangler&lt;/li&gt;
@@ -479,7 +479,7 @@
 &lt;p&gt;&lt;img src="https://www.dropbox.com/s/bnoc10ju03mzgk6/Screenshot%202017-04-20%2013.33.00.png?raw=1" /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=KByS8QYpamw"&gt;Webcast&lt;/a&gt;
 &lt;a href="https://public.etherpad-mozilla.org/p/Intro_Hadoop_and_Spark_on_Wrangler"&gt;Discussion&lt;/a&gt;&lt;/p&gt;
-&lt;h3&gt;Big Data v.s. HPC&lt;/h3&gt;
+&lt;h3 id="big-data-vs-hpc"&gt;Big Data v.s. HPC&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Traditional&lt;/li&gt;
 &lt;li&gt;separate data&lt;/li&gt;
@@ -488,7 +488,7 @@
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;MapReduce: programing model, platform for customized computation …&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;p&gt;4/20/17 &lt;/p&gt;
-&lt;h2&gt;Introduction to Hadoop and Spark&lt;/h2&gt;
+&lt;h2 id="introduction-to-hadoop-and-spark"&gt;Introduction to Hadoop and Spark&lt;/h2&gt;
 &lt;p&gt;Dr. Weijia Xu, Dr. Ruizhu Huang @ UTA&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Hadoop and Spark on Wrangler&lt;/li&gt;
@@ -498,7 +498,7 @@
 &lt;p&gt;&lt;img src="https://www.dropbox.com/s/bnoc10ju03mzgk6/Screenshot%202017-04-20%2013.33.00.png?raw=1" /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=KByS8QYpamw"&gt;Webcast&lt;/a&gt;
 &lt;a href="https://public.etherpad-mozilla.org/p/Intro_Hadoop_and_Spark_on_Wrangler"&gt;Discussion&lt;/a&gt;&lt;/p&gt;
-&lt;h3&gt;Big Data v.s. HPC&lt;/h3&gt;
+&lt;h3 id="big-data-vs-hpc"&gt;Big Data v.s. HPC&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Traditional&lt;/li&gt;
 &lt;li&gt;separate data&lt;/li&gt;
@@ -513,7 +513,7 @@
 &lt;li&gt;scale out, not scale up&lt;/li&gt;
 &lt;li&gt;hardware indepedent&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;Hadoop&lt;/h3&gt;
+&lt;h3 id="hadoop"&gt;Hadoop&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;distributed data&lt;/li&gt;
 &lt;li&gt;key-value pair&lt;/li&gt;
@@ -526,9 +526,9 @@
 * hadoop: open source implementation of MapReduce, programming in JAVA but interface to others
 * zeppelin: similiar to jupyter, hundreds of interpretator
 * spark, in-memory&lt;/p&gt;
-&lt;h2&gt;Hadoop and Yarn&lt;/h2&gt;
+&lt;h2 id="hadoop-and-yarn"&gt;Hadoop and Yarn&lt;/h2&gt;
 &lt;p&gt;&lt;img src="https://www.dropbox.com/s/62m198hltjwt154/Screenshot%202017-04-20%2013.37.51.png?raw=1"  /&gt;&lt;/p&gt;
-&lt;h3&gt;Procedure&lt;/h3&gt;
+&lt;h3 id="procedure"&gt;Procedure&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;input&lt;/li&gt;
 &lt;li&gt;splitting&lt;/li&gt;
@@ -584,7 +584,7 @@ wiki_wc&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;#folder to sto
 hadoop&lt;span class="w"&gt; &lt;/span&gt;fs&lt;span class="w"&gt; &lt;/span&gt;–get&lt;span class="w"&gt; &lt;/span&gt;/tmp/wiki_wc&lt;span class="w"&gt; &lt;/span&gt;wiki_wc
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;h2&gt;Hadoop API&lt;/h2&gt;
+&lt;h2 id="hadoop-api"&gt;Hadoop API&lt;/h2&gt;
 &lt;p&gt;Check example at &lt;code&gt;/Users/domi/Dropbox/Open_Course/TACC webinars/Hadoop_Spark/hadoop-training&lt;/code&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# recap of hadoop streaming&lt;/span&gt;
 hadoop&lt;span class="w"&gt; &lt;/span&gt;jar&lt;span class="w"&gt; &lt;/span&gt;/usr/lib/hadoop-mapreduce/hadoop-streaming.jar
@@ -598,14 +598,14 @@ hadoop&lt;span class="w"&gt; &lt;/span&gt;jar&lt;span class="w"&gt; &lt;/span&gt
 -file&lt;span class="w"&gt; &lt;/span&gt;reduce&lt;span class="w"&gt; &lt;/span&gt;system.
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;h3&gt;vs Spark&lt;/h3&gt;
+&lt;h3 id="vs-spark"&gt;vs Spark&lt;/h3&gt;
 &lt;p&gt;&lt;img src="https://www.dropbox.com/s/a5kv07y2p7e68we/Screenshot%202017-04-20%2015.10.53.png?raw=1" /&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Spark is faster&lt;/li&gt;
 &lt;li&gt;more language support&lt;/li&gt;
 &lt;li&gt;MLib for Machine Learning&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;Zeppelin&lt;/h3&gt;
+&lt;h3 id="zeppelin"&gt;Zeppelin&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;web-based notebook&lt;/li&gt;
 &lt;li&gt;interactive&lt;/li&gt;
@@ -628,20 +628,20 @@ sbatch&lt;span class="w"&gt; &lt;/span&gt;--reservation&lt;span class="o"&gt;=&l
 &lt;span class="nf"&gt;%sh&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;h3&gt;Contacts&lt;/h3&gt;
+&lt;h3 id="contacts"&gt;Contacts&lt;/h3&gt;
 &lt;p&gt;&lt;a href="data@tacc.utexas.edu"&gt;Data Group @ TACC&lt;/a&gt;
 &lt;a href="xwj@tacc.utexas.edu"&gt;Weijia Xu&lt;/a&gt; 
 &lt;a href="rhuang@tacc.utexas.edu"&gt;Ruizhu Huang&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;04/27/2017&lt;/p&gt;
-&lt;h2&gt;Programming with Scala/Spark&lt;/h2&gt;
+&lt;h2 id="programming-with-scalaspark"&gt;Programming with Scala/Spark&lt;/h2&gt;
 &lt;p&gt;Zhao Zhang&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;Wrangler Setup&lt;/code&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;idev&lt;span class="w"&gt; &lt;/span&gt;-r&lt;span class="w"&gt; &lt;/span&gt;hadoop+TRAINING-HPC+2187&lt;span class="w"&gt; &lt;/span&gt;-t&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;240&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;
 &lt;span class="nb"&gt;export&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/opt/apps/scala/scala-2.11.8/bin:&lt;span class="nv"&gt;$PATH&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;h3&gt;Scala&lt;/h3&gt;
+&lt;h3 id="scala"&gt;Scala&lt;/h3&gt;
 &lt;p&gt;&lt;a href="http://www.scala-lang.org/api/2.11.8/#package"&gt;Google Scala API&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Variables&lt;/li&gt;
@@ -706,7 +706,7 @@ sbatch&lt;span class="w"&gt; &lt;/span&gt;--reservation&lt;span class="o"&gt;=&l
 &lt;span class="nc"&gt;Thread&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sleep&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1000&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;h3&gt;RDD: Resilient Distributed Dataset&lt;/h3&gt;
+&lt;h3 id="rdd-resilient-distributed-dataset"&gt;RDD: Resilient Distributed Dataset&lt;/h3&gt;
 &lt;p&gt;&lt;code&gt;immutable, partitioned collection of elements that can be operated on in parallel&lt;/code&gt;
 Programming Models
 * Transformations
@@ -722,12 +722,12 @@ Programming Models
   * reduce
   * saveAsTextFiles&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2&gt;Using Scala/Spark&lt;/h2&gt;
+&lt;h2 id="using-scalaspark"&gt;Using Scala/Spark&lt;/h2&gt;
 &lt;p&gt;Weijia Xu&lt;/p&gt;
 &lt;p&gt;Start zepplin on Wrangler:
 &lt;code&gt;sbatch --reservation hadoop+TRAINING-HPC+2188
 -A TRAINING-HPC /data/apps/.zeppelin/job.zeppelin.work -t 240&lt;/code&gt;&lt;/p&gt;
-&lt;h3&gt;Data APIs&lt;/h3&gt;
+&lt;h3 id="data-apis"&gt;Data APIs&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;RDD: Resilient Distributed Dataset&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;rdd.map(x =&amp;gt; x*2)&lt;/code&gt;&lt;/li&gt;
@@ -778,7 +778,7 @@ Programming Models
 &lt;span class="err"&gt;           [ORDERBY col1, ...]&amp;quot;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;h3&gt;IO in Spark&lt;/h3&gt;
+&lt;h3 id="io-in-spark"&gt;IO in Spark&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;File format&lt;/li&gt;
 &lt;li&gt;JSON: schema&lt;/li&gt;
@@ -804,7 +804,7 @@ Programming Models
 &lt;span class="n"&gt;val&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;df_parquet&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;spark&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;parquet&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;cars.parquet&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;h3&gt;Workflow&lt;/h3&gt;
+&lt;h3 id="workflow"&gt;Workflow&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;prepare datasets&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;val cars = spark.read.format("csv").option(...).load("path_to_file").selectExpr("mpg + 0.0 as mpg", "cyl + 0.0 as label")&lt;/code&gt;: easy convert to double&lt;/li&gt;
@@ -875,7 +875,7 @@ SPARK_EXECUTOR_CORES (default 1)  # Thread&lt;/p&gt;
 &lt;li&gt;YARN: use flag &lt;code&gt;--executor-memory 2g&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;/ul&gt;</content><category term="study-notes"></category></entry><entry><title>Scale Computing on Clusters</title><link href="https://domijin.github.io/scale-computing-on-clusters.html" rel="alternate"></link><published>2017-04-28T00:00:00-05:00</published><updated>2017-04-28T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io,2017-04-28:/scale-computing-on-clusters.html</id><summary type="html">&lt;h2&gt;Configure &amp;amp; utilize HPCs&lt;/h2&gt;
+&lt;/ul&gt;</content><category term="study-notes"></category></entry><entry><title>Scale Computing on Clusters</title><link href="https://domijin.github.io/scale-computing-on-clusters.html" rel="alternate"></link><published>2017-04-28T00:00:00-05:00</published><updated>2017-04-28T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io,2017-04-28:/scale-computing-on-clusters.html</id><summary type="html">&lt;h2 id="configure-utilize-hpcs"&gt;Configure &amp;amp; utilize HPCs&lt;/h2&gt;
 &lt;p&gt;&lt;a href="nirav@email.arizona.edu"&gt;Nirav Merchant&lt;/a&gt; @CyVerseOrg&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;computational thinking&lt;/code&gt;&lt;/li&gt;
@@ -883,7 +883,7 @@ SPARK_EXECUTOR_CORES (default 1)  # Thread&lt;/p&gt;
 &lt;li&gt;establish and manage data driven collaborations at global scale&lt;/li&gt;
 &lt;li&gt;efficient and coordinated use of CI resources: NSF XSEDE, iPlant, campus HPC and high bandwidth&lt;/li&gt;
 &lt;li&gt;adopting best practices: HEP, Life science&lt;/li&gt;
-&lt;li&gt;community driven, self-provisioning, extensible and open …&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;h2&gt;Configure &amp;amp; utilize HPCs&lt;/h2&gt;
+&lt;li&gt;community driven, self-provisioning, extensible and open …&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;h2 id="configure-utilize-hpcs"&gt;Configure &amp;amp; utilize HPCs&lt;/h2&gt;
 &lt;p&gt;&lt;a href="nirav@email.arizona.edu"&gt;Nirav Merchant&lt;/a&gt; @CyVerseOrg&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;computational thinking&lt;/code&gt;&lt;/li&gt;
@@ -936,7 +936,7 @@ SPARK_EXECUTOR_CORES (default 1)  # Thread&lt;/p&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;Jetstream demo&lt;/h3&gt;
+&lt;h3 id="jetstream-demo"&gt;Jetstream demo&lt;/h3&gt;
 &lt;p&gt;&lt;a href="https://use.jetstream-cloud.org"&gt;jetstream homepage&lt;/a&gt;
 train56: 091Z67OEe8jE&lt;/p&gt;
 &lt;ul&gt;
@@ -960,12 +960,12 @@ train56: 091Z67OEe8jE&lt;/p&gt;
 * evolving technology landscape
 * data/metadata
 * extreme information technology -&amp;gt; renew computational platform every x years&lt;/p&gt;
-&lt;h3&gt;Docker&lt;/h3&gt;
+&lt;h3 id="docker"&gt;Docker&lt;/h3&gt;
 &lt;p&gt;&lt;code&gt;docker run -it -p 8888:8888 tensorflow/tensorflow&lt;/code&gt;
 &lt;a href="https://hub.docker.com/r/tensorflow/tensorflow/"&gt;tensorflow docker&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://singularity.lbl.gov/"&gt;singularity&lt;/a&gt;: prepare and configure HPCs&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2&gt;Spark @ Amazon&lt;/h2&gt;
+&lt;h2 id="spark-amazon"&gt;Spark @ Amazon&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Industrial&lt;/strong&gt;
 * databricks
 * myria
@@ -992,7 +992,7 @@ Consistency&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;hadoop REDUNDANCY: default 3, for fault torelance&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h4&gt;Amazon demo&lt;/h4&gt;
+&lt;h4 id="amazon-demo"&gt;Amazon demo&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://console.aws.amazon.com/console/home"&gt;AWS&lt;/a&gt; &lt;/li&gt;
 &lt;li&gt;S3: distributed storage &lt;/li&gt;
@@ -1029,7 +1029,7 @@ Consistency&lt;/p&gt;
 Spark: lazy, not computing until request data&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;hr&gt;
-&lt;h2&gt;XSEDE by TACC&lt;/h2&gt;
+&lt;h2 id="xsede-by-tacc"&gt;XSEDE by TACC&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Resources&lt;/li&gt;
 &lt;li&gt;HPC&lt;/li&gt;
@@ -1052,7 +1052,7 @@ Spark: lazy, not computing until request data&lt;/p&gt;
 &lt;li&gt;Process: preferred terminology in talking about MPI.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;SPMD model: &lt;code&gt;simple program multiple data&lt;/code&gt;&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;MPI&lt;/h2&gt;
+&lt;h2 id="mpi"&gt;MPI&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;prototype&lt;/code&gt;: declarnation &lt;/p&gt;
 &lt;p&gt;Collectives&lt;/p&gt;
 &lt;ul&gt;
@@ -1073,7 +1073,7 @@ Spark: lazy, not computing until request data&lt;/p&gt;
 &lt;li&gt;Process: preferred terminology in talking about MPI.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;SPMD model: &lt;code&gt;simple program multiple data&lt;/code&gt;&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;MPI&lt;/h2&gt;
+&lt;h2 id="mpi"&gt;MPI&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;prototype&lt;/code&gt;: declarnation &lt;/p&gt;
 &lt;p&gt;Collectives&lt;/p&gt;
 &lt;ul&gt;
@@ -1118,7 +1118,7 @@ Spark: lazy, not computing until request data&lt;/p&gt;
 &lt;li&gt;MPI_MINLOC - Returns the minimum value and the rank of the process that owns it.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/blockquote&gt;
-&lt;h3&gt;buffer&lt;/h3&gt;
+&lt;h3 id="buffer"&gt;buffer&lt;/h3&gt;
 &lt;p&gt;&lt;code&gt;void pointer&lt;/code&gt;: memory address of the data&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;C&lt;/p&gt;
@@ -1133,26 +1133,26 @@ Spark: lazy, not computing until request data&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://mpitutorial.com/tutorials/mpi-reduce-and-allreduce/"&gt;find max random number with Reduce&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;Scan or 'parallel prefix'&lt;/h3&gt;
-&lt;h3&gt;&lt;em&gt;Barrier&lt;/em&gt;: Synchronize procs&lt;/h3&gt;
+&lt;h3 id="scan-or-parallel-prefix"&gt;Scan or 'parallel prefix'&lt;/h3&gt;
+&lt;h3 id="barrier-synchronize-procs"&gt;&lt;em&gt;Barrier&lt;/em&gt;: Synchronize procs&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;almost never needed&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;only for timing&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;Naive realization&lt;/h3&gt;
+&lt;h3 id="naive-realization"&gt;Naive realization&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;root to all $\alpha + \beta*n$&lt;/li&gt;
 &lt;li&gt;better, p2p&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;Distributed data&lt;/h2&gt;
+&lt;h2 id="distributed-data"&gt;Distributed data&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;local_index + rank&lt;/li&gt;
 &lt;li&gt;global_index&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;Load balancing&lt;/h3&gt;
+&lt;h3 id="load-balancing"&gt;Load balancing&lt;/h3&gt;
 &lt;p&gt;$f(i) = \floor(iN/p)$
 given proc $i$: $[f(i),f(i+1)]$&lt;/p&gt;
-&lt;h3&gt;Local info. exchange&lt;/h3&gt;
+&lt;h3 id="local-info-exchange"&gt;Local info. exchange&lt;/h3&gt;
 &lt;p&gt;Matrices in parallel: distribute domain, not the matrix&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;p2p: ping-pong&lt;/strong&gt;
 * two side: A &amp;amp; B
@@ -1174,7 +1174,7 @@ given proc $i$: $[f(i),f(i+1)]$&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;communication across nodes is x100 slower than within nodes&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h4&gt;Blocking&lt;/h4&gt;
+&lt;h4 id="blocking"&gt;Blocking&lt;/h4&gt;
 &lt;p&gt;&lt;code&gt;send &amp;amp; recv are blocking operations&lt;/code&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;deadlock&lt;/li&gt;
@@ -1190,12 +1190,12 @@ given proc $i$: $[f(i),f(i+1)]$&lt;/p&gt;
 &lt;span class="nv"&gt;receive&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;h4&gt;Bypass blocking&lt;/h4&gt;
+&lt;h4 id="bypass-blocking"&gt;Bypass blocking&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;odds &amp;amp; evens: exchange sort, compare-and-swap&lt;/li&gt;
 &lt;li&gt;pairwise exchange&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4&gt;Non-blocking&lt;/h4&gt;
+&lt;h4 id="non-blocking"&gt;Non-blocking&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;isend, irecv&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -1204,7 +1204,7 @@ given proc $i$: $[f(i),f(i+1)]$&lt;/p&gt;
 &lt;code&gt;Latency hiding&lt;/code&gt;: don't need to hold until comm is done
 &lt;code&gt;TEST&lt;/code&gt;: non-blacking wait, do local work if no incoming msg by test&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h4&gt;More&lt;/h4&gt;
+&lt;h4 id="more"&gt;More&lt;/h4&gt;
 &lt;blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;MPI_Bsend, MPI_Ibsend: buffered send&lt;/li&gt;
@@ -1223,7 +1223,7 @@ given proc $i$: $[f(i),f(i+1)]$&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=HvAM7RrwQLg"&gt;Webcast&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://public.etherpad-mozilla.org/p/Data_Management_At_TACC"&gt;Discussion&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://portal.tacc.utexas.edu/training#/session/45"&gt;Slides&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;Life cycle of the data&lt;/h2&gt;
+&lt;h2 id="life-cycle-of-the-data"&gt;Life cycle of the data&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Generation for specific purposes&lt;/li&gt;
 &lt;li&gt;Creation of metadata&lt;/li&gt;
@@ -1237,7 +1237,7 @@ given proc $i$: $[f(i),f(i+1)]$&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=HvAM7RrwQLg"&gt;Webcast&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://public.etherpad-mozilla.org/p/Data_Management_At_TACC"&gt;Discussion&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://portal.tacc.utexas.edu/training#/session/45"&gt;Slides&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;Life cycle of the data&lt;/h2&gt;
+&lt;h2 id="life-cycle-of-the-data"&gt;Life cycle of the data&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Generation for specific purposes&lt;/li&gt;
 &lt;li&gt;Creation of metadata&lt;/li&gt;
@@ -1249,7 +1249,7 @@ given proc $i$: $[f(i),f(i+1)]$&lt;/p&gt;
 &lt;li&gt;Incorporation into larger repositories&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;Open Access, multi-collection repositories&lt;/strong&gt;&lt;/p&gt;
-&lt;h2&gt;Collection Structure&lt;/h2&gt;
+&lt;h2 id="collection-structure"&gt;Collection Structure&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;dated, type doc&lt;/li&gt;
 &lt;li&gt;consistent in structure&lt;/li&gt;
@@ -1261,24 +1261,24 @@ given proc $i$: $[f(i),f(i+1)]$&lt;/p&gt;
 &lt;p&gt;Data Management Plan&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;Data Type&lt;/h2&gt;
-&lt;h3&gt;Structured&lt;/h3&gt;
+&lt;h2 id="data-type"&gt;Data Type&lt;/h2&gt;
+&lt;h3 id="structured"&gt;Structured&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;SQL/RDBMS&lt;/li&gt;
 &lt;li&gt;semi-structured, HTML/XML&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;Unstructured&lt;/h3&gt;
+&lt;h3 id="unstructured"&gt;Unstructured&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;NoSQL&lt;/li&gt;
 &lt;li&gt;images, audio, mesh data...&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;HDF5 - Hierarchical Data Formats&lt;/h3&gt;
+&lt;h3 id="hdf5-hierarchical-data-formats"&gt;HDF5 - Hierarchical Data Formats&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;self-description&lt;/li&gt;
 &lt;li&gt;inclusion of metadata&lt;/li&gt;
 &lt;li&gt;coherence in storing output data&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;Metadata&lt;/h3&gt;
+&lt;h3 id="metadata"&gt;Metadata&lt;/h3&gt;
 &lt;p&gt;&lt;code&gt;metadata&lt;/code&gt;: data about data, &lt;em&gt;header&lt;/em&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Provenance: "audit trail" for research&lt;/li&gt;
@@ -1293,7 +1293,7 @@ given proc $i$: $[f(i),f(i+1)]$&lt;/p&gt;
 &lt;li&gt;automate extraction/creation&lt;/li&gt;
 &lt;li&gt;enforce good recording&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;Archiving Research Data&lt;/h2&gt;
+&lt;h2 id="archiving-research-data"&gt;Archiving Research Data&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Repositories&lt;ul&gt;
 &lt;li&gt;centralized&lt;/li&gt;
@@ -1337,7 +1337,7 @@ don't use personal hard drive&lt;br&gt;
 don't use commercial "cloud" as primary data store&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;a href="https://bluewaters.ncsa.illinois.edu/webinars"&gt;Workflow Management tutorials&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;TACC Stockyard&lt;/h2&gt;
+&lt;h2 id="tacc-stockyard"&gt;TACC Stockyard&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;$work&lt;/code&gt;: 1TB/2TB by request&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;project-term&lt;/code&gt;: 1 year storage&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;$scratch&lt;/code&gt;: computational work&lt;/p&gt;
@@ -1351,7 +1351,7 @@ http://arctos.database.museum&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;XSEDE/Wranger&lt;/code&gt;: 500TB flash HP storage&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;GridFTP/Globus Online&lt;/code&gt;: web-based, graphical interfaces, useful for XSEDE&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;iRODS&lt;/code&gt;: APIS, web/GUI/cmd, automated enforcement&lt;/p&gt;
-&lt;h2&gt;Get Help&lt;/h2&gt;
+&lt;h2 id="get-help"&gt;Get Help&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://portal.tacc.utexas.edu/tacc-consulting/-/consult/tickets/create"&gt;Tickets&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://portal.xsede.org/help-desk"&gt;Help Desk&lt;/a&gt;&lt;/li&gt;

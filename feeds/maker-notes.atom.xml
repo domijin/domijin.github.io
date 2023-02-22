@@ -11,7 +11,7 @@
 &lt;li&gt;FOV coverage: optimize the shape and size to set a standard for flexible design.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Here is my knock-off design to reverse engineering the &lt;strong&gt;Boarding Ring technique&lt;/strong&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="https://www.dropbox.com/s/mxl42eup2a0ah4r/Screenshot%202018-07-21%2010.55.57.png?dl=1"&gt;&lt;/p&gt;</content><category term="maker-notes"></category></entry><entry><title>CHIP Projects</title><link href="https://domijin.github.io/chip-projects.html" rel="alternate"></link><published>2016-03-05T00:00:00-06:00</published><updated>2016-03-05T00:00:00-06:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io,2016-03-05:/chip-projects.html</id><summary type="html">&lt;h2&gt;Ideas&lt;/h2&gt;
+&lt;p&gt;&lt;img alt="" src="https://www.dropbox.com/s/mxl42eup2a0ah4r/Screenshot%202018-07-21%2010.55.57.png?dl=1"&gt;&lt;/p&gt;</content><category term="maker-notes"></category></entry><entry><title>CHIP Projects</title><link href="https://domijin.github.io/chip-projects.html" rel="alternate"></link><published>2016-03-05T00:00:00-06:00</published><updated>2016-03-05T00:00:00-06:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io,2016-03-05:/chip-projects.html</id><summary type="html">&lt;h2 id="ideas"&gt;Ideas&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;[x] &lt;a href="https://chip.hackster.io/inmyorbit/connect-a-mobile-application-to-your-c-h-i-p-using-ble-96fe96?ref=platform&amp;amp;ref_id=5276_trending___&amp;amp;offset=5"&gt;BLE&lt;/a&gt;&lt;/p&gt;
@@ -44,7 +44,7 @@
 
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;RTL-SDR …&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;h2&gt;Ideas&lt;/h2&gt;
+&lt;p&gt;RTL-SDR …&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;h2 id="ideas"&gt;Ideas&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;[x] &lt;a href="https://chip.hackster.io/inmyorbit/connect-a-mobile-application-to-your-c-h-i-p-using-ble-96fe96?ref=platform&amp;amp;ref_id=5276_trending___&amp;amp;offset=5"&gt;BLE&lt;/a&gt;&lt;/p&gt;
@@ -120,12 +120,12 @@ doc"&gt;Conference&lt;/a&gt;    &lt;/li&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
-&lt;h3&gt;Useful Links:&lt;/h3&gt;
+&lt;h3 id="useful-links"&gt;Useful Links:&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://docs.getchip.com/#chip-boot-repair-tool"&gt;CHIP Boot Repair&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://www.penguintutor.com/linux/tightvnc"&gt;tigervnc&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;Headless Server&lt;/h3&gt;
+&lt;h3 id="headless-server"&gt;Headless Server&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;USB connect&lt;/li&gt;
 &lt;/ul&gt;
@@ -182,7 +182,7 @@ uname&lt;span class="w"&gt; &lt;/span&gt;-a
 startlxde
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;h3&gt;Hardware&lt;/h3&gt;
+&lt;h3 id="hardware"&gt;Hardware&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;power management: &lt;a href="http://learn.linksprite.com/pcduino/arduino-ish-program/adc/axp-209-internal-temperature/"&gt;check temperature&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;

@@ -133,8 +133,8 @@
 
 
 
-                <h2>Building Blocks</h2>
-<h3>Gradient Descent</h3>
+                <h2 id="building-blocks">Building Blocks</h2>
+<h3 id="gradient-descent">Gradient Descent</h3>
 <p><code>finding the optimum in parameter space</code></p>
 <p>Strategies:</p>
 <ul>
@@ -174,7 +174,7 @@
 <li>Gradient noise: shuffle away from local</li>
 </ul>
 <p><a href="http://ruder.io/optimizing-gradient-descent/index.html">Overview of Gradient Descent</a> <a href="https://blog.csdn.net/heyongluoyao8/article/details/52478715">refs</a></p>
-<h3>Activation Function</h3>
+<h3 id="activation-function">Activation Function</h3>
 <blockquote>
 <p>back-propagatable, non-linear projection</p>
 </blockquote>
@@ -208,7 +208,7 @@
 <li>ELU</li>
 <li>PReLU/MPELU with <a href="https://blog.csdn.net/zouxy09/article/details/24971995"><strong>regularizer</strong>/penalty</a></li>
 </ul>
-<h3>Regularization</h3>
+<h3 id="regularization">Regularization</h3>
 <p><code>minimize the loss function with reasonable complexity</code></p>
 <p>Supervised learning: $w^* = \arg\min_w \sum_i L(y_i, f(x_i;w)) + \lambda \Omega(w)$, solve ill-conditioned matrix</p>
 <p>L0/L1, minimize the absolute sum: Lasso regularization, make $w$ sparse, $||w||_1 \le C$, linear bound</p>
@@ -224,12 +224,12 @@
 <p>won't reduce features<br>
 but reduce certain feature dependence</p>
 </blockquote>
-<h3>Tuning Methods</h3>
+<h3 id="tuning-methods">Tuning Methods</h3>
 <blockquote>
 <p>the evil approach</p>
 </blockquote>
 <p><img alt="" src="http://pic2.zhimg.com/70/v2-247ecfca25fcad04aa4122eb1e892765_b.jpg"></p>
-<h2>Neural Networks</h2>
+<h2 id="neural-networks">Neural Networks</h2>
 <p><img alt="" src="http://www.asimovinstitute.org/wp-content/uploads/2016/09/neuralnetworks.png"></p>
 <ul>
 <li>Feedforward Neural Network: <a href="https://www.cnblogs.com/peghoty/p/3857839.html">word2vec</a><ul>
@@ -289,7 +289,7 @@ but reduce certain feature dependence</p>
 </li>
 </ul>
 <p><img alt="" src="https://www.dropbox.com/s/b5u56yamb4tlrzg/Screenshot%202018-07-05%2015.08.56.png?dl=1"></p>
-<h3>Spiking Neural Network (3rd generation)</h3>
+<h3 id="spiking-neural-network-3rd-generation">Spiking Neural Network (3rd generation)</h3>
 <p>Spiking neuron: accumulate their activation into a potential over time, and only send out a signal (a "spike") when this potential crosses a threshold and the neuron is reset.</p>
 <p>Integrator: memory or nonlinear response</p>
 <ul>
@@ -297,7 +297,7 @@ but reduce certain feature dependence</p>
 <li><a href="https://arxiv.org/abs/1604.04383">SNN on very low bit rate speech coding</a>: replace HMM</li>
 <li><a href="https://arxiv.org/abs/1804.08150">DL in SNN</a>: low energy cost, but no BP, spike time &amp; spike rate</li>
 </ul>
-<h3>Refs</h3>
+<h3 id="refs">Refs</h3>
 <ul>
 <li><a href="https://www.evl.uic.edu/creativecoding/courses/cs523/slides/week3/DeepLearning_LeCun.pdf">Nature review paper, LeCun</a><ul>
 <li><a href="http://www.bioinfo.org.cn/~casp/temp/DeepLearning.pdf">Slides</a></li>
@@ -306,11 +306,11 @@ but reduce certain feature dependence</p>
 <li><a href="http://neuralnetworksanddeeplearning.com/index.html">Book by Michael Nielsen</a></li>
 <li><a href="http://colah.github.io/">Colah's blog of different topics</a></li>
 </ul>
-<h3>To Explore</h3>
+<h3 id="to-explore">To Explore</h3>
 <ul>
 <li><a href="https://colab.research.google.com/notebooks/welcome.ipynb">Google Collaboration Lab for notebook dev</a></li>
 </ul>
-<h3>Extras</h3>
+<h3 id="extras">Extras</h3>
 <ul>
 <li><a href="https://qz.com/1316050/tech-companies-just-woke-up-to-a-big-problem-with-their-ai/amp/">ethics principles</a>: bias imposed by training data</li>
 </ul>
