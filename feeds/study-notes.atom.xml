@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Domi's Universe - study-notes</title><link href="https://domijin.github.io/domij.github.io/" rel="alternate"></link><link href="https://domijin.github.io/domij.github.io/feeds/study-notes.atom.xml" rel="self"></link><id>https://domijin.github.io/domij.github.io/</id><updated>2018-07-17T00:00:00-05:00</updated><entry><title>Disrupting Yourself for greater</title><link href="https://domijin.github.io/domij.github.io/disrupting-yourself-for-greater.html" rel="alternate"></link><published>2018-07-17T00:00:00-05:00</published><updated>2018-07-17T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io/domij.github.io,2018-07-17:/disrupting-yourself-for-greater.html</id><summary type="html">&lt;p&gt;This is what I learned from &lt;a href="https://www.linkedin.com/learning/disrupting-yourself/stepping-back-or-sideways-to-move-forward"&gt;Video Link&lt;/a&gt;.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Domi's Universe - study-notes</title><link href="https://domijin.github.io/" rel="alternate"></link><link href="https://domijin.github.io/feeds/study-notes.atom.xml" rel="self"></link><id>https://domijin.github.io/</id><updated>2018-07-17T00:00:00-05:00</updated><entry><title>Disrupting Yourself for greater</title><link href="https://domijin.github.io/disrupting-yourself-for-greater.html" rel="alternate"></link><published>2018-07-17T00:00:00-05:00</published><updated>2018-07-17T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io/domij.github.io,2018-07-17:/disrupting-yourself-for-greater.html</id><summary type="html">&lt;p&gt;This is what I learned from &lt;a href="https://www.linkedin.com/learning/disrupting-yourself/stepping-back-or-sideways-to-move-forward"&gt;Video Link&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Outline&lt;/p&gt;
 &lt;h2&gt;Disrupted innovation&lt;/h2&gt;
 &lt;ul&gt;
@@ -52,7 +52,7 @@
 &lt;li&gt;Show up, practice: try and improve&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;/ul&gt;</content><category term="study-notes"></category></entry><entry><title>Quantum Computing</title><link href="https://domijin.github.io/domij.github.io/quantum-computing.html" rel="alternate"></link><published>2018-07-01T00:00:00-05:00</published><updated>2018-07-01T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io/domij.github.io,2018-07-01:/quantum-computing.html</id><summary type="html">&lt;h2&gt;Quantum Computing &amp;amp; Neural Networks&lt;/h2&gt;
+&lt;/ul&gt;</content><category term="study-notes"></category></entry><entry><title>Quantum Computing</title><link href="https://domijin.github.io/quantum-computing.html" rel="alternate"></link><published>2018-07-01T00:00:00-05:00</published><updated>2018-07-01T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io/domij.github.io,2018-07-01:/quantum-computing.html</id><summary type="html">&lt;h2&gt;Quantum Computing &amp;amp; Neural Networks&lt;/h2&gt;
 &lt;p&gt;&lt;a href="https://www.quantiki.org/wiki/basic-concepts-quantum-computation"&gt;basic concepts&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Superposition: &lt;span class="math"&gt;\(\ket{+}, \ket{-}\)&lt;/span&gt;&lt;/li&gt;
@@ -285,7 +285,7 @@
         "}";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</content><category term="study-notes"></category></entry><entry><title>Data Management @ LSST</title><link href="https://domijin.github.io/domij.github.io/data-management-lsst.html" rel="alternate"></link><published>2017-10-19T00:00:00-05:00</published><updated>2017-10-19T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io/domij.github.io,2017-10-19:/data-management-lsst.html</id><summary type="html">&lt;p&gt;4/24/17&lt;/p&gt;
+&lt;/script&gt;</content><category term="study-notes"></category></entry><entry><title>Data Management @ LSST</title><link href="https://domijin.github.io/data-management-lsst.html" rel="alternate"></link><published>2017-10-19T00:00:00-05:00</published><updated>2017-10-19T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io/domij.github.io,2017-10-19:/data-management-lsst.html</id><summary type="html">&lt;p&gt;4/24/17&lt;/p&gt;
 &lt;h3&gt;SQLite with python&lt;/h3&gt;
 &lt;p&gt;Basic operation syntax&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sqlite3&lt;/span&gt;
@@ -444,7 +444,7 @@
 &lt;p&gt;10/19/17&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Resources&lt;/strong&gt;
 &lt;em&gt; &lt;a href="https://sqlnotebook.com/index.html"&gt;SQL notebook&lt;/a&gt;
-&lt;/em&gt; &lt;a href="https://www.khanacademy.org/computing/computer-programming/sql/more-advanced-sql-queries/p/calculating-results-with-case"&gt;SQL course on KhanAcademy&lt;/a&gt;&lt;/p&gt;</content><category term="study-notes"></category></entry><entry><title>Machine Learning with MLLib and GraphX @ TACC</title><link href="https://domijin.github.io/domij.github.io/machine-learning-with-mllib-and-graphx-tacc.html" rel="alternate"></link><published>2017-05-04T00:00:00-05:00</published><updated>2017-05-04T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io/domij.github.io,2017-05-04:/machine-learning-with-mllib-and-graphx-tacc.html</id><summary type="html">&lt;p&gt;&lt;a href="mailto:zzhang@tacc.utexas.edu"&gt;Zhao Zhang&lt;/a&gt;&lt;/p&gt;
+&lt;/em&gt; &lt;a href="https://www.khanacademy.org/computing/computer-programming/sql/more-advanced-sql-queries/p/calculating-results-with-case"&gt;SQL course on KhanAcademy&lt;/a&gt;&lt;/p&gt;</content><category term="study-notes"></category></entry><entry><title>Machine Learning with MLLib and GraphX @ TACC</title><link href="https://domijin.github.io/machine-learning-with-mllib-and-graphx-tacc.html" rel="alternate"></link><published>2017-05-04T00:00:00-05:00</published><updated>2017-05-04T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io/domij.github.io,2017-05-04:/machine-learning-with-mllib-and-graphx-tacc.html</id><summary type="html">&lt;p&gt;&lt;a href="mailto:zzhang@tacc.utexas.edu"&gt;Zhao Zhang&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src="https://www.dropbox.com/s/j5mdtxswiolz26a/Screenshot%202017-05-05%2012.02.05.png?raw=1" /&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Supervised Learning&lt;/li&gt;
@@ -528,7 +528,7 @@
 &lt;li&gt;Connectd Components: &lt;code&gt;org.apache.spark.graphx.lib.connectedComponents&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Triangle Counting: &lt;code&gt;org.apache.spark.graphx.lib.triangleCount&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Shortest Paths: &lt;code&gt;org.apache.spark.graphx.lib.Shortestpaths&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="study-notes"></category></entry><entry><title>Scala/Spark @ TACC</title><link href="https://domijin.github.io/domij.github.io/scalaspark-tacc.html" rel="alternate"></link><published>2017-05-04T00:00:00-05:00</published><updated>2017-05-04T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io/domij.github.io,2017-05-04:/scalaspark-tacc.html</id><summary type="html">&lt;p&gt;4/20/17 &lt;/p&gt;
+&lt;/ul&gt;</content><category term="study-notes"></category></entry><entry><title>Scala/Spark @ TACC</title><link href="https://domijin.github.io/scalaspark-tacc.html" rel="alternate"></link><published>2017-05-04T00:00:00-05:00</published><updated>2017-05-04T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io/domij.github.io,2017-05-04:/scalaspark-tacc.html</id><summary type="html">&lt;p&gt;4/20/17 &lt;/p&gt;
 &lt;h2&gt;Introduction to Hadoop and Spark&lt;/h2&gt;
 &lt;p&gt;Dr. Weijia Xu, Dr. Ruizhu Huang @ UTA&lt;/p&gt;
 &lt;ul&gt;
@@ -943,7 +943,7 @@ SPARK_EXECUTOR_CORES (default 1)  # Thread&lt;/p&gt;
 &lt;li&gt;YARN: use flag &lt;code&gt;--executor-memory 2g&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;/ul&gt;</content><category term="study-notes"></category></entry><entry><title>Scale Computing on Clusters</title><link href="https://domijin.github.io/domij.github.io/scale-computing-on-clusters.html" rel="alternate"></link><published>2017-04-28T00:00:00-05:00</published><updated>2017-04-28T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io/domij.github.io,2017-04-28:/scale-computing-on-clusters.html</id><summary type="html">&lt;h2&gt;Configure &amp;amp; utilize HPCs&lt;/h2&gt;
+&lt;/ul&gt;</content><category term="study-notes"></category></entry><entry><title>Scale Computing on Clusters</title><link href="https://domijin.github.io/scale-computing-on-clusters.html" rel="alternate"></link><published>2017-04-28T00:00:00-05:00</published><updated>2017-04-28T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io/domij.github.io,2017-04-28:/scale-computing-on-clusters.html</id><summary type="html">&lt;h2&gt;Configure &amp;amp; utilize HPCs&lt;/h2&gt;
 &lt;p&gt;&lt;a href="nirav@email.arizona.edu"&gt;Nirav Merchant&lt;/a&gt; @CyVerseOrg&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;computational thinking&lt;/code&gt;&lt;/li&gt;
@@ -1106,7 +1106,7 @@ Spark: lazy, not computing until request data&lt;/p&gt;
 &lt;li&gt;ECSS: Extended Collaborative Support Service&lt;/li&gt;
 &lt;li&gt;Science Gateways&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;a href="https://www.globus.org/"&gt;globus connect&lt;/a&gt;&lt;/p&gt;</content><category term="study-notes"></category></entry><entry><title>MPI Foundations @ TACC</title><link href="https://domijin.github.io/domij.github.io/mpi-foundations-tacc.html" rel="alternate"></link><published>2017-04-14T00:00:00-05:00</published><updated>2017-04-14T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io/domij.github.io,2017-04-14:/mpi-foundations-tacc.html</id><summary type="html">&lt;p&gt;Contact: &lt;a href="eijkhout@tacc.utexas.edu"&gt;Victor Eijkhout&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.globus.org/"&gt;globus connect&lt;/a&gt;&lt;/p&gt;</content><category term="study-notes"></category></entry><entry><title>MPI Foundations @ TACC</title><link href="https://domijin.github.io/mpi-foundations-tacc.html" rel="alternate"></link><published>2017-04-14T00:00:00-05:00</published><updated>2017-04-14T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io/domij.github.io,2017-04-14:/mpi-foundations-tacc.html</id><summary type="html">&lt;p&gt;Contact: &lt;a href="eijkhout@tacc.utexas.edu"&gt;Victor Eijkhout&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Res:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=EMPvXAHGn6o"&gt;Webcast I&lt;/a&gt;&lt;/li&gt;
@@ -1347,7 +1347,7 @@ given proc &lt;span class="math"&gt;\(i\)&lt;/span&gt;: &lt;span class="math"&gt
         "}";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</content><category term="study-notes"></category></entry><entry><title>Data Management @ TACC</title><link href="https://domijin.github.io/domij.github.io/data-management-tacc.html" rel="alternate"></link><published>2017-04-06T00:00:00-05:00</published><updated>2017-04-06T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io/domij.github.io,2017-04-06:/data-management-tacc.html</id><summary type="html">&lt;p&gt;&lt;code&gt;data@tacc.utexas.edu&lt;/code&gt;&lt;/p&gt;
+&lt;/script&gt;</content><category term="study-notes"></category></entry><entry><title>Data Management @ TACC</title><link href="https://domijin.github.io/data-management-tacc.html" rel="alternate"></link><published>2017-04-06T00:00:00-05:00</published><updated>2017-04-06T00:00:00-05:00</updated><author><name>Dongming Jin</name></author><id>tag:domijin.github.io/domij.github.io,2017-04-06:/data-management-tacc.html</id><summary type="html">&lt;p&gt;&lt;code&gt;data@tacc.utexas.edu&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;by &lt;strong&gt;Chris Jordan&lt;/strong&gt; &lt;code&gt;ctjordan@tacc.utexas.edu&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=HvAM7RrwQLg"&gt;Webcast&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://public.etherpad-mozilla.org/p/Data_Management_At_TACC"&gt;Discussion&lt;/a&gt;&lt;/p&gt;
