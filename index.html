@@ -3,8 +3,16 @@
   <head>
     <meta charset="utf-8" />
     <!-- Site Meta Data -->
-    <title>Domi's Universe | sci-fi mind, engineer hand</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Domi's Universe | sci-fi mind, engineer hand</title>
+    <script>
+      // Redirect only if visiting the root domain
+      if (window.location.pathname === "/") {
+        document.title = "Redirecting to About Me...";
+        window.location.href = "/pages/about-me.html";
+      }
+    </script>
+
     <meta name="description" content="" />
     <meta name="author" content="Dongming Jin" />
 
@@ -50,6 +58,10 @@
   </head>
 
   <body>
+    <p>
+      Redirecting to the About Me page. If you are not redirected, click
+      <a href="/pages/about-me.html">here</a>.
+    </p>
     <!-- Sidebar -->
     <aside>
       <center>
