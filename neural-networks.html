@@ -1,486 +1,782 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" itemscope itemtype="http://schema.org/Person">
-
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
     <!-- Site Meta Data -->
     <title>Neural Networks</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Dongming Jin">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="Dongming Jin" />
 
-    <link rel="shortcut icon" href="/images/favicon.ico">
+    <link rel="shortcut icon" href="/images/favicon.ico" />
 
     <!-- schema.org -->
-    <meta itemprop="name" content="Domi's Universe">
-    <meta itemprop="image" content="">
-    <meta itemprop="description" content="">
+    <meta itemprop="name" content="Domi's Universe" />
+    <meta itemprop="image" content="" />
+    <meta itemprop="description" content="" />
 
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700"
+      rel="stylesheet"
+      type="text/css"
+    />
     <!-- Style Meta Data -->
-    <link rel="stylesheet" href="https://domijin.github.io/theme/css/style.css" type="text/css" />
-    <link rel="stylesheet" href="https://domijin.github.io/theme/css/pygments.css" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="https://domijin.github.io/theme/css/style.css"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://domijin.github.io/theme/css/pygments.css"
+      type="text/css"
+    />
 
     <!-- Feed Meta Data -->
-    <link href="https://domijin.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
-        title="Domi's Universe ATOM Feed" />
+    <link
+      href="https://domijin.github.io/feeds/all.atom.xml"
+      type="application/atom+xml"
+      rel="alternate"
+      title="Domi's Universe ATOM Feed"
+    />
 
     <!-- Twitter Feed -->
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:site" content="domij_info">
-    <meta name="twitter:image" content="">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="domij_info" />
+    <meta name="twitter:image" content="" />
 
-    <meta name="twitter:creator" content="domij_info">
-    <meta name="twitter:url" content="https://domijin.github.io/neural-networks.html">
-    <meta name="twitter:title" content="Domi's Universe ~ Neural Networks">
-    <meta name="twitter:description"
-        content="Building Blocks Gradient Descent finding the optimum in parameter space Strategies: Batch: $\theta = \theta - \eta \cdot \nabla_ \theta J(\theta)$ Stochastic: $\theta = \theta - \eta \cdot \nabla_\theta J(\theta;x_i;y_i)$, faster but biased Mini-batch: $\theta = \theta - \eta \cdot \nabla_\theta J(\theta;x_{i:i+m};y_{i:i …">
-    <meta name="twitter:image"
-        content="http://mmbiz.qpic.cn/mmbiz_gif/951TjTgiabkyJ1ncktgIzgdVgpUe849nG1tAmkb37t25NwNPibkcpEsAn530iakP0VmgW6OHOc2QLX4QOAWarnNug/0?wx_fmt=gif&tp=webp&wxfrom=5&wx_lazy=1" />
+    <meta name="twitter:creator" content="domij_info" />
+    <meta
+      name="twitter:url"
+      content="https://domijin.github.io/neural-networks.html"
+    />
+    <meta name="twitter:title" content="Domi's Universe ~ Neural Networks" />
+    <meta
+      name="twitter:description"
+      content="Building Blocks Gradient Descent finding the optimum in parameter space Strategies: Batch: $\theta = \theta - \eta \cdot \nabla_ \theta J(\theta)$ Stochastic: $\theta = \theta - \eta \cdot \nabla_\theta J(\theta;x_i;y_i)$, faster but biased Mini-batch: $\theta = \theta - \eta \cdot \nabla_\theta J(\theta;x_{i:i+m};y_{i:i …"
+    />
+    <meta
+      name="twitter:image"
+      content="http://mmbiz.qpic.cn/mmbiz_gif/951TjTgiabkyJ1ncktgIzgdVgpUe849nG1tAmkb37t25NwNPibkcpEsAn530iakP0VmgW6OHOc2QLX4QOAWarnNug/0?wx_fmt=gif&tp=webp&wxfrom=5&wx_lazy=1"
+    />
 
     <!-- Facebook Meta Data -->
     <meta property="og:title" content="Domi's Universe ~ Neural Networks" />
-    <meta property="og:description"
-        content="Building Blocks Gradient Descent finding the optimum in parameter space Strategies: Batch: $\theta = \theta - \eta \cdot \nabla_ \theta J(\theta)$ Stochastic: $\theta = \theta - \eta \cdot \nabla_\theta J(\theta;x_i;y_i)$, faster but biased Mini-batch: $\theta = \theta - \eta \cdot \nabla_\theta J(\theta;x_{i:i+m};y_{i:i …" />
-    <meta property="og:image"
-        content="http://mmbiz.qpic.cn/mmbiz_gif/951TjTgiabkyJ1ncktgIzgdVgpUe849nG1tAmkb37t25NwNPibkcpEsAn530iakP0VmgW6OHOc2QLX4QOAWarnNug/0?wx_fmt=gif&tp=webp&wxfrom=5&wx_lazy=1" />
-</head>
+    <meta
+      property="og:description"
+      content="Building Blocks Gradient Descent finding the optimum in parameter space Strategies: Batch: $\theta = \theta - \eta \cdot \nabla_ \theta J(\theta)$ Stochastic: $\theta = \theta - \eta \cdot \nabla_\theta J(\theta;x_i;y_i)$, faster but biased Mini-batch: $\theta = \theta - \eta \cdot \nabla_\theta J(\theta;x_{i:i+m};y_{i:i …"
+    />
+    <meta
+      property="og:image"
+      content="http://mmbiz.qpic.cn/mmbiz_gif/951TjTgiabkyJ1ncktgIzgdVgpUe849nG1tAmkb37t25NwNPibkcpEsAn530iakP0VmgW6OHOc2QLX4QOAWarnNug/0?wx_fmt=gif&tp=webp&wxfrom=5&wx_lazy=1"
+    />
+  </head>
 
-<body>
+  <body>
     <!-- Sidebar -->
     <aside>
-        <center>
-            <a href="https://domijin.github.io/pages/about-me.html">
-                <img alt="Photograph" style="width:120px; height:120px; border-radius:60px; border:0;"
-                    src="https://www.dropbox.com/s/x95wh69c17kntbb/Photo_2015.JPG?dl=1">
-            </a>
-        </center>
+      <center>
+        <a href="https://domijin.github.io/pages/about-me.html">
+          <img
+            alt="Photograph"
+            style="width: 120px; height: 120px; border-radius: 60px; border: 0"
+            src="https://www.dropbox.com/scl/fi/tjm4ocrkn6c1lbfgyeeca/Photo.JPG?rlkey=uv7mhafaatp1osd05lrxn07bp&st=kcf5jw7k&dl=0"
+          />
+        </a>
+      </center>
 
-        <br>
-        <!-- <h1>Dongming Jin</h1> -->
+      <br />
+      <!-- <h1>Dongming Jin</h1> -->
 
-        <p>
-            sci-fi mind, engineer hand
+      <p>
+        sci-fi mind, engineer hand
 
-            <br>
-            <br>
+        <br />
+        <br />
 
-            <a class="twitter-follow-button" href="https://twitter.com/domij_info" data-show-count="false"
-                data-lang="en">
-                Follow @twitterdev
-            </a>
-            <script type="text/javascript">
-                window.twttr = (function (d, s, id) {
-                    var t, js, fjs = d.getElementsByTagName(s)[0];
-                    if (d.getElementById(id)) return;
-                    js = d.createElement(s);
-                    js.id = id;
-                    js.src = "https://platform.twitter.com/widgets.js";
-                    fjs.parentNode.insertBefore(js, fjs);
-                    return window.twttr || (t = {
-                        _e: [],
-                        ready: function (f) {
-                            t._e.push(f)
-                        }
-                    });
-                }(document, "script", "twitter-wjs"));
-            </script>
-        </p>
+        <a
+          class="twitter-follow-button"
+          href="https://twitter.com/domij_info"
+          data-show-count="false"
+          data-lang="en"
+        >
+          Follow @twitterdev
+        </a>
+        <script type="text/javascript">
+          window.twttr = (function (d, s, id) {
+            var t,
+              js,
+              fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "https://platform.twitter.com/widgets.js";
+            fjs.parentNode.insertBefore(js, fjs);
+            return (
+              window.twttr ||
+              (t = {
+                _e: [],
+                ready: function (f) {
+                  t._e.push(f);
+                },
+              })
+            );
+          })(document, "script", "twitter-wjs");
+        </script>
+      </p>
 
-        <nav class="nav">
-            <ul class="list-bare">
+      <nav class="nav">
+        <ul class="list-bare">
+          <li>
+            <a class="nav__link" href="https://domijin.github.io/">Blogs</a>
+          </li>
 
-                <li><a class="nav__link" href="https://domijin.github.io/">Blogs</a></li>
-
-                <li><a class="nav__link" href="https://domijin.github.io/pages/about-me.html">About Me</a></li>
-                <li><a class="nav__link" href="https://domijin.github.io/pages/footprint.html">Footprint</a></li>
-                <li><a class="nav__link" href="https://domijin.github.io/pages/research.html">Research</a></li>
-                <li><a class="nav__link"
-                        href="https://domijin.github.io/pages/zhe-li-xiao-zhong-hai-wai-xiao-you.html">浙里萧中-海外校友</a>
-                </li>
-
-            </ul>
-        </nav>
-
-        <p class="social">
-            <a href="https://www.linkedin.com/in/domijin" target="_blank"><img
-                    src="https://domijin.github.io/theme/images/icons/linkedin.png"></a>
-            <a href="https://github.com/domijin" target="_blank"><img
-                    src="https://domijin.github.io/theme/images/icons/github.png"></a>
-            <a href="https://domijin.github.io/feeds/all.atom.xml" rel="alternate">
-                <img src="https://domijin.github.io/theme/images/icons/rss.png"></a>
-        </p>
-
-        <h2>Categories</h2>
-        <ul class="navbar">
-            <li class="active"><a href="https://domijin.github.io/category/articles.html">articles</a></li>
-            <li><a href="https://domijin.github.io/category/cheatsheets.html">cheatsheets</a></li>
-            <li><a href="https://domijin.github.io/category/maker-notes.html">maker-notes</a></li>
-            <li><a href="https://domijin.github.io/category/study-notes.html">study-notes</a></li>
+          <li>
+            <a
+              class="nav__link"
+              href="https://domijin.github.io/pages/about-me.html"
+              >About Me</a
+            >
+          </li>
+          <li>
+            <a
+              class="nav__link"
+              href="https://domijin.github.io/pages/footprint.html"
+              >Footprint</a
+            >
+          </li>
+          <li>
+            <a
+              class="nav__link"
+              href="https://domijin.github.io/pages/research.html"
+              >Research</a
+            >
+          </li>
+          <li>
+            <a
+              class="nav__link"
+              href="https://domijin.github.io/pages/zhe-li-xiao-zhong-hai-wai-xiao-you.html"
+              >浙里萧中-海外校友</a
+            >
+          </li>
         </ul>
+      </nav>
 
+      <p class="social">
+        <a href="https://www.linkedin.com/in/domijin" target="_blank"
+          ><img src="https://domijin.github.io/theme/images/icons/linkedin.png"
+        /></a>
+        <a href="https://github.com/domijin" target="_blank"
+          ><img src="https://domijin.github.io/theme/images/icons/github.png"
+        /></a>
+        <a href="https://domijin.github.io/feeds/all.atom.xml" rel="alternate">
+          <img src="https://domijin.github.io/theme/images/icons/rss.png"
+        /></a>
+      </p>
 
+      <h2>Categories</h2>
+      <ul class="navbar">
+        <li class="active">
+          <a href="https://domijin.github.io/category/articles.html"
+            >articles</a
+          >
+        </li>
+        <li>
+          <a href="https://domijin.github.io/category/cheatsheets.html"
+            >cheatsheets</a
+          >
+        </li>
+        <li>
+          <a href="https://domijin.github.io/category/maker-notes.html"
+            >maker-notes</a
+          >
+        </li>
+        <li>
+          <a href="https://domijin.github.io/category/study-notes.html"
+            >study-notes</a
+          >
+        </li>
+      </ul>
     </aside>
 
     <!-- Content -->
     <article>
-
-
-
-        <section id="content">
-            <article>
-                <h2 class="post_title post_detail"><a href="https://domijin.github.io/neural-networks.html"
-                        rel="bookmark" title="Permalink to Neural Networks">Neural Networks</a></h2>
-                <div class="entry-content blog-post">
-
-
-
-
-                    <h2 id="building-blocks">Building Blocks</h2>
-                    <h3 id="gradient-descent">Gradient Descent</h3>
-                    <p><code>finding the optimum in parameter space</code></p>
-                    <p>Strategies:</p>
+      <section id="content">
+        <article>
+          <h2 class="post_title post_detail">
+            <a
+              href="https://domijin.github.io/neural-networks.html"
+              rel="bookmark"
+              title="Permalink to Neural Networks"
+              >Neural Networks</a
+            >
+          </h2>
+          <div class="entry-content blog-post">
+            <h2 id="building-blocks">Building Blocks</h2>
+            <h3 id="gradient-descent">Gradient Descent</h3>
+            <p><code>finding the optimum in parameter space</code></p>
+            <p>Strategies:</p>
+            <ul>
+              <li>
+                Batch: $\theta = \theta - \eta \cdot \nabla_ \theta J(\theta)$
+              </li>
+              <li>
+                Stochastic: $\theta = \theta - \eta \cdot \nabla_\theta
+                J(\theta;x_i;y_i)$, faster but biased
+              </li>
+              <li>
+                Mini-batch: $\theta = \theta - \eta \cdot \nabla_\theta
+                J(\theta;x_{i:i+m};y_{i:i+m})$, intermediate
+              </li>
+            </ul>
+            <p>Challenges:</p>
+            <ul>
+              <li>$\eta$: apply learning rate schedules</li>
+              <li>
+                Saddle points as local minimum: spiking NN for quantum
+                tunneling?
+              </li>
+            </ul>
+            <p>Improvements for SDG:</p>
+            <ul>
+              <li>
+                <em>add momentum:</em> $v_t = \gamma v_t - 1 + \eta \cdot
+                \nabla_\theta J(\theta); \theta = \theta -v_t$, reduce damping
+              </li>
+              <li>
+                NAG, Nesterov accelerated gradient: add correction based on
+                momentum, $J(\theta) -&gt; J(\theta - \gamma v_t - 1)$, avoid
+                momentum crash
+              </li>
+              <li>
+                Adagrad, adaptive gradient: $\eta_i$ for each $\theta_i$,
+                $\theta_{t+1}=\theta_t - \frac{\eta}{\sqrt{G_t+\epsilon}}\odot
+                g_t$
+              </li>
+              <li>
+                Adadelta: reduce the calculation of $G_t$ with a window-based
+                average, $E_t$
+              </li>
+              <li>RMSprop: $E_t = \gamma E_{t-1} + (1-\gamma)g_t^2$</li>
+              <li>
+                Adam, adaptive moment estimation: bias-corrected from weighted
+                average mean and variance
+                <img
+                  alt=""
+                  src="http://mmbiz.qpic.cn/mmbiz_gif/951TjTgiabkyJ1ncktgIzgdVgpUe849nG1tAmkb37t25NwNPibkcpEsAn530iakP0VmgW6OHOc2QLX4QOAWarnNug/0?wx_fmt=gif&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1"
+                />
+                <img
+                  alt=""
+                  src="http://mmbiz.qpic.cn/mmbiz_gif/951TjTgiabkyJ1ncktgIzgdVgpUe849nGicQibxqDqcNBZqBEWhCs5fCgjU8buq6B2DVKbJUJFTDqDNhibw8J387EQ/0?wx_fmt=gif&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1"
+                />
+              </li>
+            </ul>
+            <p>Asynchronous SGD for parallelization:</p>
+            <ul>
+              <li>Hogwild</li>
+              <li>Downpour SGD</li>
+              <li>Delay-tolerant Algorithms for SGD</li>
+              <li>TensorFlow</li>
+              <li>
+                EASGD, elastic Averaging SGD: local variable fluctuate from
+                center variable
+              </li>
+            </ul>
+            <p>Extra to explore:</p>
+            <ul>
+              <li>Shuffling and Curriculum Learning</li>
+              <li>Batch normalization: keep N(0,1)</li>
+              <li>Early stopping: avoid overfitting</li>
+              <li>Gradient noise: shuffle away from local</li>
+            </ul>
+            <p>
+              <a href="http://ruder.io/optimizing-gradient-descent/index.html"
+                >Overview of Gradient Descent</a
+              >
+              <a
+                href="https://blog.csdn.net/heyongluoyao8/article/details/52478715"
+                >refs</a
+              >
+            </p>
+            <h3 id="activation-function">Activation Function</h3>
+            <blockquote>
+              <p>back-propagatable, non-linear projection</p>
+            </blockquote>
+            <p><code>keep nonlinearity &amp; non-vanishing gradient</code></p>
+            <ul>
+              <li>
+                Sigmoid: $f(x) = \frac{1}{1 + e^{-x}}$, work with cross-entropy
+                cost function $y\ln{a}+(1-y)\ln{(1-a)}$ to avoid gradient
+                vanishing
+              </li>
+              <li>
+                tanh, $tanh(x)= 2 \sigmoid(2x)-1$: better but not the final
+                solution
+              </li>
+              <li>
+                ReLU, $y=x\ge0? x:0$
+                <ul>
+                  <li>constant gradient on one side</li>
+                  <li>output shift &amp; hard to converge</li>
+                </ul>
+              </li>
+              <li>
+                PReLU, $f(y_i)= y_i&gt;0? y_i: a_iy_i$: regulate the left side
+                <ul>
+                  <li>
+                    <a href=""
+                      >He, K., et al. Delving Deep into Rectifiers: Surpassing
+                      Human-Level Performance on ImageNet Classification. ICCV
+                      2015</a
+                    >
+                  </li>
+                  <li>
+                    RReLU,
+                    <a href=""
+                      >Xu, B., et al. Empirical Evaluation of Rectified
+                      Activations in Convolutional Network. ICML Deep Learning
+                      Workshop 2015</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>Maxout, $\max{w_ix+b_i}$</li>
+              <li>
+                ELU, $f(x)= x&gt;0?x:\alpha (\exp(x)-1)$
+                <ul>
+                  <li>
+                    <a href="https://github.com/Coldmooon/Code-for-MPELU/"
+                      >ImageNet example</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Noisy Activation Functions,
+                <a href=""
+                  >Gulcehre, C., et al., Noisy Activation Functions, in ICML
+                  2016. 2016</a
+                >
+              </li>
+              <li>CReLU, pair-grouping phenomenon</li>
+              <li>
+                <a href="https://github.com/Coldmooon/Code-for-MPELU/">MPELU</a>
+                <img
+                  alt=""
+                  src="http://mmbiz.qpic.cn/mmbiz_jpg/xRp3sibCWzgEibibmQgFot91Viawy89yZmwgKkQOxwUjo8BvKzROLWkXuTAMrLydcpBt1M9oOShicWOA1M8fa3bMcBA/640?wx_fmt=jpeg"
+                />
+              </li>
+            </ul>
+            <p>Practical tips:</p>
+            <ul>
+              <li>ReLU</li>
+              <li>ELU</li>
+              <li>
+                PReLU/MPELU with
+                <a href="https://blog.csdn.net/zouxy09/article/details/24971995"
+                  ><strong>regularizer</strong>/penalty</a
+                >
+              </li>
+            </ul>
+            <h3 id="regularization">Regularization</h3>
+            <p>
+              <code>minimize the loss function with reasonable complexity</code>
+            </p>
+            <p>
+              Supervised learning: $w^* = \arg\min_w \sum_i L(y_i, f(x_i;w)) +
+              \lambda \Omega(w)$, solve ill-conditioned matrix
+            </p>
+            <p>
+              L0/L1, minimize the absolute sum: Lasso regularization, make $w$
+              sparse, $||w||_1 \le C$, linear bound
+            </p>
+            <ul>
+              <li>Feature Selection: less feature needed</li>
+              <li>Interpretability: less complex</li>
+            </ul>
+            <blockquote>
+              <p>less features</p>
+            </blockquote>
+            <p>
+              L2, minimize the square sum: Ridge Regression/Weight Decay,
+              $||w||_2 \le C$, quadratic bound
+            </p>
+            <blockquote>
+              <p>
+                won't reduce features<br />
+                but reduce certain feature dependence
+              </p>
+            </blockquote>
+            <h3 id="tuning-methods">Tuning Methods</h3>
+            <blockquote>
+              <p>the evil approach</p>
+            </blockquote>
+            <p>
+              <img
+                alt=""
+                src="http://pic2.zhimg.com/70/v2-247ecfca25fcad04aa4122eb1e892765_b.jpg"
+              />
+            </p>
+            <h2 id="neural-networks">Neural Networks</h2>
+            <p>
+              <img
+                alt=""
+                src="http://www.asimovinstitute.org/wp-content/uploads/2016/09/neuralnetworks.png"
+              />
+            </p>
+            <ul>
+              <li>
+                Feedforward Neural Network:
+                <a href="https://www.cnblogs.com/peghoty/p/3857839.html"
+                  >word2vec</a
+                >
+                <ul>
+                  <li>Huffman tree</li>
+                  <li>CBOW: words -&gt; word</li>
+                  <li>skip-gram: word -&gt; words</li>
+                </ul>
+              </li>
+              <li>
+                Denoising Autoencoders: obtain good representation
+                <ul>
+                  <li>perform noise mapping: $x \rightarrow \tilde{ x}$</li>
+                  <li>keep loss as $\mathcal{L}(x,\tilde{x'})$</li>
+                </ul>
+              </li>
+              <li>
+                Restricted Boltzmann Machine: unsupervised learning
+                <ul>
+                  <li>
+                    generative approach: obtain $P(X,Y)$ for P(Y|X); in contrast
+                    of discriminative approach, which only cares about $P(Y|X)$
                     <ul>
-                        <li>Batch: $\theta = \theta - \eta \cdot \nabla_ \theta J(\theta)$</li>
-                        <li>Stochastic: $\theta = \theta - \eta \cdot \nabla_\theta J(\theta;x_i;y_i)$, faster but
-                            biased</li>
-                        <li>Mini-batch: $\theta = \theta - \eta \cdot \nabla_\theta J(\theta;x_{i:i+m};y_{i:i+m})$,
-                            intermediate</li>
+                      <li>methods: Markov process &amp; Gibbs sampling</li>
+                      <li>
+                        metrics: KL divergence, Shannon entropy, $\sum_i
+                        P(i)\log\frac{P(i)}{Q(i)}$
+                      </li>
                     </ul>
-                    <p>Challenges:</p>
+                  </li>
+                  <li>
+                    probability distribution: $P = \frac{1}{Z}e^{-E(v,h)}$
+                  </li>
+                  <li>
+                    energy function: $E(v,h) =-v^T Wh -a^Tv -b^Th$, $v$ visible
+                    unit, $h$ hidden unit
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Generative Adversarial Network: Turing learning
+                <ul>
+                  <li>discriminator: convolutional</li>
+                  <li>generator: deconvolutional</li>
+                  <li>
+                    applications
                     <ul>
-                        <li>$\eta$: apply learning rate schedules</li>
-                        <li>Saddle points as local minimum: spiking NN for quantum tunneling?</li>
+                      <li>
+                        <a href="https://github.com/akanimax/T2F"
+                          >synthesis face from text</a
+                        >: progressive growing of GANs, training method
+                      </li>
+                      <li>
+                        <a href="https://arxiv.org/abs/1702.00403"
+                          >recover features in astrophysical images of galaxies
+                          beyond the deconvolution limit</a
+                        >
+                      </li>
+                      <li>
+                        <a href="https://arxiv.org/abs/1612.07919"
+                          >EnhanceNet: Single Image Super-Resolution Through
+                          Automated Texture Synthesis</a
+                        >
+                      </li>
+                      <li>
+                        <a href="http://www.evolvingai.org/ppgn"
+                          >generating images in latent space</a
+                        >
+                      </li>
                     </ul>
-                    <p>Improvements for SDG:</p>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="https://arxiv.org/abs/1512.03385"
+                  >Residual Neural Network</a
+                >
+                <ul>
+                  <li>plain layer + shortcuts</li>
+                  <li>residual function: $\mathcal{F}(x):=h(x) - x$</li>
+                  <li>shortcut: $y=w_s x + \mathcal{F}(x, {w_i})$</li>
+                </ul>
+              </li>
+              <li>
+                Convolutional Neural Network: computer vision
+                <ul>
+                  <li>convolutional layer with kernels</li>
+                </ul>
+              </li>
+              <li>
+                Recurrent Neural Network
+                <ul>
+                  <li>
+                    <a href="https://arxiv.org/pdf/1503.04069.pdf">LSTM</a>: a
+                    memory cell $c_t$, an input gate $i_t$, an 'output' gate
+                    $o_t$ and a forget gate $f_t$. $x_t \rightarrow h_t$
+                    <img
+                      alt=""
+                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Peephole_Long_Short-Term_Memory.svg/2000px-Peephole_Long_Short-Term_Memory.svg.png"
+                    />
+                  </li>
+                  <li>
+                    <a href="https://distill.pub/2016/augmented-rnns/"
+                      >Attention</a
+                    >: potential of <code>memory</code>
+                  </li>
+                  <li>
+                    applications
                     <ul>
-                        <li><em>add momentum:</em> $v_t = \gamma v_t - 1 + \eta \cdot \nabla_\theta J(\theta); \theta =
-                            \theta -v_t$, reduce damping</li>
-                        <li>NAG, Nesterov accelerated gradient: add correction based on momentum, $J(\theta) -&gt;
-                            J(\theta - \gamma v_t - 1)$, avoid momentum crash</li>
-                        <li>Adagrad, adaptive gradient: $\eta_i$ for each $\theta_i$, $\theta_{t+1}=\theta_t -
-                            \frac{\eta}{\sqrt{G_t+\epsilon}}\odot g_t$</li>
-                        <li>Adadelta: reduce the calculation of $G_t$ with a window-based average, $E_t$</li>
-                        <li>RMSprop: $E_t = \gamma E_{t-1} + (1-\gamma)g_t^2$</li>
-                        <li>Adam, adaptive moment estimation: bias-corrected from weighted average mean and variance
-                            <img alt=""
-                                src="http://mmbiz.qpic.cn/mmbiz_gif/951TjTgiabkyJ1ncktgIzgdVgpUe849nG1tAmkb37t25NwNPibkcpEsAn530iakP0VmgW6OHOc2QLX4QOAWarnNug/0?wx_fmt=gif&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1">
-                            <img alt=""
-                                src="http://mmbiz.qpic.cn/mmbiz_gif/951TjTgiabkyJ1ncktgIzgdVgpUe849nGicQibxqDqcNBZqBEWhCs5fCgjU8buq6B2DVKbJUJFTDqDNhibw8J387EQ/0?wx_fmt=gif&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1">
-                        </li>
+                      <li>
+                        <a href="https://skr3.nlm.nih.gov/SemMed/"
+                          >Semantic MEDLINE</a
+                        >: MEDLINE intelligence, NLP on medical papers
+                      </li>
+                      <li>
+                        <a href="https://hypothesis.ornl.gov/semmed/semmed.php"
+                          >ORiGAMI</a
+                        >: term weight and so on
+                      </li>
+                      <li>
+                        <a
+                          href="https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/43905.pdf"
+                          >Acoustic modeling</a
+                        >: ASR
+                      </li>
+                      <li>
+                        <a
+                          href="https://cs.stanford.edu/people/karpathy/deepimagesent/"
+                          >Image description</a
+                        >
+                      </li>
                     </ul>
-                    <p>Asynchronous SGD for parallelization:</p>
-                    <ul>
-                        <li>Hogwild</li>
-                        <li>Downpour SGD</li>
-                        <li>Delay-tolerant Algorithms for SGD</li>
-                        <li>TensorFlow</li>
-                        <li>EASGD, elastic Averaging SGD: local variable fluctuate from center variable</li>
-                    </ul>
-                    <p>Extra to explore:</p>
-                    <ul>
-                        <li>Shuffling and Curriculum Learning </li>
-                        <li>Batch normalization: keep N(0,1)</li>
-                        <li>Early stopping: avoid overfitting</li>
-                        <li>Gradient noise: shuffle away from local</li>
-                    </ul>
-                    <p><a href="http://ruder.io/optimizing-gradient-descent/index.html">Overview of Gradient Descent</a>
-                        <a href="https://blog.csdn.net/heyongluoyao8/article/details/52478715">refs</a></p>
-                    <h3 id="activation-function">Activation Function</h3>
-                    <blockquote>
-                        <p>back-propagatable, non-linear projection</p>
-                    </blockquote>
-                    <p><code>keep nonlinearity &amp; non-vanishing gradient</code></p>
-                    <ul>
-                        <li>Sigmoid: $f(x) = \frac{1}{1 + e^{-x}}$, work with cross-entropy cost function
-                            $y\ln{a}+(1-y)\ln{(1-a)}$ to avoid gradient vanishing</li>
-                        <li>tanh, $tanh(x)= 2 \sigmoid(2x)-1$: better but not the final solution</li>
-                        <li>ReLU, $y=x\ge0? x:0$<ul>
-                                <li>constant gradient on one side</li>
-                                <li>output shift &amp; hard to converge</li>
-                            </ul>
-                        </li>
-                        <li>PReLU, $f(y_i)= y_i&gt;0? y_i: a_iy_i$: regulate the left side<ul>
-                                <li><a href="">He, K., et al. Delving Deep into Rectifiers: Surpassing Human-Level
-                                        Performance on ImageNet Classification. ICCV 2015</a></li>
-                                <li>RReLU, <a href="">Xu, B., et al. Empirical Evaluation of Rectified Activations in
-                                        Convolutional Network. ICML Deep Learning Workshop 2015</a></li>
-                            </ul>
-                        </li>
-                        <li>Maxout, $\max{w_ix+b_i}$</li>
-                        <li>ELU, $f(x)= x&gt;0?x:\alpha (\exp(x)-1)$<ul>
-                                <li><a href="https://github.com/Coldmooon/Code-for-MPELU/">ImageNet example</a> </li>
-                            </ul>
-                        </li>
-                        <li>Noisy Activation Functions, <a href="">Gulcehre, C., et al., Noisy Activation Functions, in
-                                ICML 2016. 2016</a></li>
-                        <li>CReLU, pair-grouping phenomenon</li>
-                        <li><a href="https://github.com/Coldmooon/Code-for-MPELU/">MPELU</a>
-                            <img alt=""
-                                src="http://mmbiz.qpic.cn/mmbiz_jpg/xRp3sibCWzgEibibmQgFot91Viawy89yZmwgKkQOxwUjo8BvKzROLWkXuTAMrLydcpBt1M9oOShicWOA1M8fa3bMcBA/640?wx_fmt=jpeg">
-                        </li>
-                    </ul>
-                    <p>Practical tips:</p>
-                    <ul>
-                        <li>ReLU</li>
-                        <li>ELU</li>
-                        <li>PReLU/MPELU with <a
-                                href="https://blog.csdn.net/zouxy09/article/details/24971995"><strong>regularizer</strong>/penalty</a>
-                        </li>
-                    </ul>
-                    <h3 id="regularization">Regularization</h3>
-                    <p><code>minimize the loss function with reasonable complexity</code></p>
-                    <p>Supervised learning: $w^* = \arg\min_w \sum_i L(y_i, f(x_i;w)) + \lambda \Omega(w)$, solve
-                        ill-conditioned matrix</p>
-                    <p>L0/L1, minimize the absolute sum: Lasso regularization, make $w$ sparse, $||w||_1 \le C$, linear
-                        bound</p>
-                    <ul>
-                        <li>Feature Selection: less feature needed</li>
-                        <li>Interpretability: less complex</li>
-                    </ul>
-                    <blockquote>
-                        <p>less features </p>
-                    </blockquote>
-                    <p>L2, minimize the square sum: Ridge Regression/Weight Decay, $||w||_2 \le C$, quadratic bound</p>
-                    <blockquote>
-                        <p>won't reduce features<br>
-                            but reduce certain feature dependence</p>
-                    </blockquote>
-                    <h3 id="tuning-methods">Tuning Methods</h3>
-                    <blockquote>
-                        <p>the evil approach</p>
-                    </blockquote>
-                    <p><img alt="" src="http://pic2.zhimg.com/70/v2-247ecfca25fcad04aa4122eb1e892765_b.jpg"></p>
-                    <h2 id="neural-networks">Neural Networks</h2>
-                    <p><img alt="" src="http://www.asimovinstitute.org/wp-content/uploads/2016/09/neuralnetworks.png">
-                    </p>
-                    <ul>
-                        <li>Feedforward Neural Network: <a
-                                href="https://www.cnblogs.com/peghoty/p/3857839.html">word2vec</a>
-                            <ul>
-                                <li>Huffman tree</li>
-                                <li>CBOW: words -&gt; word</li>
-                                <li>skip-gram: word -&gt; words</li>
-                            </ul>
-                        </li>
-                        <li>Denoising Autoencoders: obtain good representation<ul>
-                                <li>perform noise mapping: $x \rightarrow \tilde{ x}$</li>
-                                <li>keep loss as $\mathcal{L}(x,\tilde{x'})$</li>
-                            </ul>
-                        </li>
-                        <li>Restricted Boltzmann Machine: unsupervised learning<ul>
-                                <li>generative approach: obtain $P(X,Y)$ for P(Y|X); in contrast of discriminative
-                                    approach, which only cares about $P(Y|X)$<ul>
-                                        <li>methods: Markov process &amp; Gibbs sampling</li>
-                                        <li>metrics: KL divergence, Shannon entropy, $\sum_i P(i)\log\frac{P(i)}{Q(i)}$
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>probability distribution: $P = \frac{1}{Z}e^{-E(v,h)}$</li>
-                                <li>energy function: $E(v,h) =-v^T Wh -a^Tv -b^Th$, $v$ visible unit, $h$ hidden unit
-                                </li>
-                            </ul>
-                        </li>
-                        <li>Generative Adversarial Network: Turing learning<ul>
-                                <li>discriminator: convolutional</li>
-                                <li>generator: deconvolutional</li>
-                                <li>applications<ul>
-                                        <li><a href="https://github.com/akanimax/T2F">synthesis face from text</a>:
-                                            progressive growing of GANs, training method</li>
-                                        <li><a href="https://arxiv.org/abs/1702.00403">recover features in astrophysical
-                                                images of galaxies beyond the deconvolution limit</a></li>
-                                        <li><a href="https://arxiv.org/abs/1612.07919">EnhanceNet: Single Image
-                                                Super-Resolution Through Automated Texture Synthesis</a></li>
-                                        <li><a href="http://www.evolvingai.org/ppgn">generating images in latent
-                                                space</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><a href="https://arxiv.org/abs/1512.03385">Residual Neural Network</a>
-                            <ul>
-                                <li>plain layer + shortcuts</li>
-                                <li>residual function: $\mathcal{F}(x):=h(x) - x$</li>
-                                <li>shortcut: $y=w_s x + \mathcal{F}(x, {w_i})$</li>
-                            </ul>
-                        </li>
-                        <li>Convolutional Neural Network: computer vision<ul>
-                                <li>convolutional layer with kernels</li>
-                            </ul>
-                        </li>
-                        <li>Recurrent Neural Network<ul>
-                                <li><a href="https://arxiv.org/pdf/1503.04069.pdf">LSTM</a>: a memory cell $c_t$, an
-                                    input gate $i_t$, an 'output' gate $o_t$ and a forget gate $f_t$. $x_t \rightarrow
-                                    h_t$ <img alt=""
-                                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Peephole_Long_Short-Term_Memory.svg/2000px-Peephole_Long_Short-Term_Memory.svg.png">
-                                </li>
-                                <li><a href="https://distill.pub/2016/augmented-rnns/">Attention</a>: potential of
-                                    <code>memory</code></li>
-                                <li>applications<ul>
-                                        <li><a href="https://skr3.nlm.nih.gov/SemMed/">Semantic MEDLINE</a>: MEDLINE
-                                            intelligence, NLP on medical papers</li>
-                                        <li><a href="https://hypothesis.ornl.gov/semmed/semmed.php">ORiGAMI</a>: term
-                                            weight and so on</li>
-                                        <li><a
-                                                href="https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/43905.pdf">Acoustic
-                                                modeling</a>: ASR</li>
-                                        <li><a href="https://cs.stanford.edu/people/karpathy/deepimagesent/">Image
-                                                description</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <p><img alt=""
-                            src="https://www.dropbox.com/s/b5u56yamb4tlrzg/Screenshot%202018-07-05%2015.08.56.png?dl=1">
-                    </p>
-                    <h3 id="spiking-neural-network-3rd-generation">Spiking Neural Network (3rd generation)</h3>
-                    <p>Spiking neuron: accumulate their activation into a potential over time, and only send out a
-                        signal (a "spike") when this potential crosses a threshold and the neuron is reset.</p>
-                    <p>Integrator: memory or nonlinear response</p>
-                    <ul>
-                        <li><a href="https://arxiv.org/abs/1602.08323">BP on SNN</a></li>
-                        <li><a href="https://arxiv.org/abs/1604.04383">SNN on very low bit rate speech coding</a>:
-                            replace HMM</li>
-                        <li><a href="https://arxiv.org/abs/1804.08150">DL in SNN</a>: low energy cost, but no BP, spike
-                            time &amp; spike rate</li>
-                    </ul>
-                    <h3 id="refs">Refs</h3>
-                    <ul>
-                        <li><a
-                                href="https://www.evl.uic.edu/creativecoding/courses/cs523/slides/week3/DeepLearning_LeCun.pdf">Nature
-                                review paper, LeCun</a>
-                            <ul>
-                                <li><a href="http://www.bioinfo.org.cn/~casp/temp/DeepLearning.pdf">Slides</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="http://neuralnetworksanddeeplearning.com/index.html">Book by Michael Nielsen</a>
-                        </li>
-                        <li><a href="http://colah.github.io/">Colah's blog of different topics</a></li>
-                    </ul>
-                    <h3 id="to-explore">To Explore</h3>
-                    <ul>
-                        <li><a href="https://colab.research.google.com/notebooks/welcome.ipynb">Google Collaboration Lab
-                                for notebook dev</a></li>
-                    </ul>
-                    <h3 id="extras">Extras</h3>
-                    <ul>
-                        <li><a
-                                href="https://qz.com/1316050/tech-companies-just-woke-up-to-a-big-problem-with-their-ai/amp/">ethics
-                                principles</a>: bias imposed by training data</li>
-                    </ul>
-                </div>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <p>
+              <img
+                alt=""
+                src="https://www.dropbox.com/s/b5u56yamb4tlrzg/Screenshot%202018-07-05%2015.08.56.png?dl=1"
+              />
+            </p>
+            <h3 id="spiking-neural-network-3rd-generation">
+              Spiking Neural Network (3rd generation)
+            </h3>
+            <p>
+              Spiking neuron: accumulate their activation into a potential over
+              time, and only send out a signal (a "spike") when this potential
+              crosses a threshold and the neuron is reset.
+            </p>
+            <p>Integrator: memory or nonlinear response</p>
+            <ul>
+              <li><a href="https://arxiv.org/abs/1602.08323">BP on SNN</a></li>
+              <li>
+                <a href="https://arxiv.org/abs/1604.04383"
+                  >SNN on very low bit rate speech coding</a
+                >: replace HMM
+              </li>
+              <li>
+                <a href="https://arxiv.org/abs/1804.08150">DL in SNN</a>: low
+                energy cost, but no BP, spike time &amp; spike rate
+              </li>
+            </ul>
+            <h3 id="refs">Refs</h3>
+            <ul>
+              <li>
+                <a
+                  href="https://www.evl.uic.edu/creativecoding/courses/cs523/slides/week3/DeepLearning_LeCun.pdf"
+                  >Nature review paper, LeCun</a
+                >
+                <ul>
+                  <li>
+                    <a
+                      href="http://www.bioinfo.org.cn/~casp/temp/DeepLearning.pdf"
+                      >Slides</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="http://neuralnetworksanddeeplearning.com/index.html"
+                  >Book by Michael Nielsen</a
+                >
+              </li>
+              <li>
+                <a href="http://colah.github.io/"
+                  >Colah's blog of different topics</a
+                >
+              </li>
+            </ul>
+            <h3 id="to-explore">To Explore</h3>
+            <ul>
+              <li>
+                <a
+                  href="https://colab.research.google.com/notebooks/welcome.ipynb"
+                  >Google Collaboration Lab for notebook dev</a
+                >
+              </li>
+            </ul>
+            <h3 id="extras">Extras</h3>
+            <ul>
+              <li>
+                <a
+                  href="https://qz.com/1316050/tech-companies-just-woke-up-to-a-big-problem-with-their-ai/amp/"
+                  >ethics principles</a
+                >: bias imposed by training data
+              </li>
+            </ul>
+          </div>
 
-                <div class="post_list">
-                    <span class="published" title="2018-07-05T00:00:00-05:00">
-                        Published: Thu 05 July 2018.
-                    </span>
+          <div class="post_list">
+            <span class="published" title="2018-07-05T00:00:00-05:00">
+              Published: Thu 05 July 2018.
+            </span>
 
+            <span> By </span>
+            <a href="https://domijin.github.io/pages/about-me.html"
+              >Dongming Jin</a
+            >
+            <span> in </span>
+            <span class="post_category"
+              ><a
+                href="https://domijin.github.io/category/articles.html"
+                rel="bookmark"
+                title="Permalink to articles"
+              >
+                #articles.
+              </a></span
+            >
 
-                    <span> By </span>
-                    <a href="https://domijin.github.io/pages/about-me.html">Dongming Jin</a>
-                    <span> in </span>
-                    <span class="post_category"><a href="https://domijin.github.io/category/articles.html"
-                            rel="bookmark" title="Permalink to articles"> #articles. </a></span>
+            <div class="entry-social">
+              <span class="twitter"
+                ><a
+                  target="_blank"
+                  rel="nofollow"
+                  onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=700');return false;"
+                  title="Twitter"
+                  href="https://twitter.com/share?url=https://domijin.github.io/neural-networks.html&text=Neural Networks&via=domij_info"
+                  ><img
+                    src="https://domijin.github.io/theme/images/icons/twitter-s.png" /></a
+              ></span>
 
+              <span class="gplus"
+                ><a
+                  target="_blank"
+                  title="Google +"
+                  href="https://plus.google.com/share?url=https://domijin.github.io/neural-networks.html&hl=fr"
+                  rel="nofollow"
+                  onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"
+                  ><img
+                    src="https://domijin.github.io/theme/images/icons/google-s.png" /></a
+              ></span>
 
+              <span class="facebook"
+                ><a
+                  target="_blank"
+                  title="Facebook"
+                  rel="nofollow"
+                  onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;"
+                  href="https://www.facebook.com/sharer.php?u=https://domijin.github.io/neural-networks.html&t=Neural Networks"
+                  ><img
+                    src="https://domijin.github.io/theme/images/icons/facebook-s.png" /></a
+              ></span>
 
+              <a
+                target="_blank"
+                title="Linkedin"
+                href="https://www.linkedin.com/shareArticle?mini=true&url=https://domijin.github.io/neural-networks.html&title=Neural Networks"
+                rel="nofollow"
+                onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"
+                ><img
+                  src="https://domijin.github.io/theme/images/icons/linkedin-s.png"
+              /></a>
 
-                    <div class="entry-social">
-                        <span class="twitter"><a target="_blank" rel="nofollow"
-                                onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=700');return false;"
-                                title="Twitter"
-                                href="https://twitter.com/share?url=https://domijin.github.io/neural-networks.html&text=Neural Networks&via=domij_info"><img
-                                    src="https://domijin.github.io/theme/images/icons/twitter-s.png"></a></span>
-
-                        <span class="gplus"><a target="_blank" title="Google +"
-                                href="https://plus.google.com/share?url=https://domijin.github.io/neural-networks.html&hl=fr"
-                                rel="nofollow"
-                                onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"><img
-                                    src="https://domijin.github.io/theme/images/icons/google-s.png"></a></span>
-
-                        <span class="facebook"><a target="_blank" title="Facebook" rel="nofollow"
-                                onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;"
-                                href="https://www.facebook.com/sharer.php?u=https://domijin.github.io/neural-networks.html&t=Neural Networks"><img
-                                    src="https://domijin.github.io/theme/images/icons/facebook-s.png"></a></span>
-
-                        <a target="_blank" title="Linkedin"
-                            href="https://www.linkedin.com/shareArticle?mini=true&url=https://domijin.github.io/neural-networks.html&title=Neural Networks"
-                            rel="nofollow"
-                            onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"><img
-                                src="https://domijin.github.io/theme/images/icons/linkedin-s.png"></a>
-
-                        <span class="mail"><a
-                                href="mailto:?subject=Neural Networks&amp;body=Checkout this article about [Neural Networks] written byDongming Jin. https://domijin.github.io/neural-networks.html"
-                                title="Share by Email" target="_blank"><img
-                                    src="https://domijin.github.io/theme/images/icons/mail-s.png"></a></span>
-                    </div>
-                </div>
-                <div class="comments">
-                    <h2>Comments !</h2>
-                    <div id="disqus_thread"></div>
-                    <script type="text/javascript">
-                        var disqus_identifier = "neural-networks.html";
-                        (function () {
-                            var dsq = document.createElement('script');
-                            dsq.type = 'text/javascript';
-                            dsq.async = true;
-                            dsq.src = 'https://domij.disqus.com/embed.js';
-                            (document.getElementsByTagName('head')[0] ||
-                                document.getElementsByTagName('body')[0]).appendChild(dsq);
-                        })();
-                    </script>
-                </div>
-            </article>
-
-
-
-
-
-
-        </section>
+              <span class="mail"
+                ><a
+                  href="mailto:?subject=Neural Networks&amp;body=Checkout this article about [Neural Networks] written byDongming Jin. https://domijin.github.io/neural-networks.html"
+                  title="Share by Email"
+                  target="_blank"
+                  ><img
+                    src="https://domijin.github.io/theme/images/icons/mail-s.png" /></a
+              ></span>
+            </div>
+          </div>
+          <div class="comments">
+            <h2>Comments !</h2>
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+              var disqus_identifier = "neural-networks.html";
+              (function () {
+                var dsq = document.createElement("script");
+                dsq.type = "text/javascript";
+                dsq.async = true;
+                dsq.src = "https://domij.disqus.com/embed.js";
+                (
+                  document.getElementsByTagName("head")[0] ||
+                  document.getElementsByTagName("body")[0]
+                ).appendChild(dsq);
+              })();
+            </script>
+          </div>
+        </article>
+      </section>
     </article>
 
     <!-- Footer -->
     <footer>
-        <p>
-            © Copyright 2018 <a href="mailto:admin@domij.info"> Dongming Jin</a> | <a
-                href="https://www.freeprivacypolicy.com/privacy/view/bc11c24cc8faf2a9a506ffd5aa40278d">Privacy
-                Policy</a> | Powered by <a href="http://getpelican.com/">Pelican</a> and <a
-                href="https://github.com/parbhat/pelican-blue">Pelican-Blue</a>.
-        </p>
+      <p>
+        © Copyright 2018 <a href="mailto:admin@domij.info"> Dongming Jin</a> |
+        <a
+          href="https://www.freeprivacypolicy.com/privacy/view/bc11c24cc8faf2a9a506ffd5aa40278d"
+          >Privacy Policy</a
+        >
+        | Powered by <a href="http://getpelican.com/">Pelican</a> and
+        <a href="https://github.com/parbhat/pelican-blue">Pelican-Blue</a>.
+      </p>
     </footer>
 
     <!-- Analytics -->
     <script type="text/javascript">
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-121123490-1']);
-        _gaq.push(['_trackPageview']);
-        (function () {
-            var ga = document.createElement('script');
-            ga.type = 'text/javascript';
-            ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') +
-                '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(ga, s);
-        })();
+      var _gaq = _gaq || [];
+      _gaq.push(["_setAccount", "UA-121123490-1"]);
+      _gaq.push(["_trackPageview"]);
+      (function () {
+        var ga = document.createElement("script");
+        ga.type = "text/javascript";
+        ga.async = true;
+        ga.src =
+          ("https:" == document.location.protocol
+            ? "https://ssl"
+            : "http://www") + ".google-analytics.com/ga.js";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(ga, s);
+      })();
     </script>
 
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MWRTXBB8DD"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-MWRTXBB8DD"
+    ></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
+      window.dataLayer = window.dataLayer || [];
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-        gtag('config', 'G-MWRTXBB8DD');
+      gtag("config", "G-MWRTXBB8DD");
     </script>
-
-
-</body>
-
+  </body>
 </html>
