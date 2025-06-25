@@ -24,6 +24,7 @@ var CommentSystem = {
 		$('#pcs-comment-form-display-replyto').show();
 	},
 
+	// test to add a comment line
 	getMailtoLink: function (slug) {
 		var subject = 'Comment for \'' + slug + '\'';
 
