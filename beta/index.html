@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Invite-only beta for an AI assistant you can reach through iMessage." />
+    <meta property="og:title" content="An AI assistant you can reach through iMessage" />
+    <meta property="og:description" content="Check information, manage emergency contacts, and explore lightweight AI help through familiar messaging — currently in invite-only beta." />
+    <meta property="og:type" content="website" />
+    <title>iMessage AI Assistant Beta</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#signup">Skip to signup</a>
+
+    <header class="site-header" aria-label="Page header">
+      <a class="brand" href="#top" aria-label="iMessage AI Assistant Beta home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Message AI Beta</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#today">Today</a>
+        <a href="#expectations">Beta</a>
+        <a href="#signup" class="nav-cta">Request access</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero section-shell" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Invite-only experimental beta</p>
+          <h1 id="hero-title">An AI assistant you can reach through iMessage.</h1>
+          <p class="hero-subtitle">Check information, manage emergency contacts, and explore lightweight AI help through familiar messaging — currently in invite-only beta.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#signup">Request Beta Access</a>
+            <a class="button button-secondary" href="#expectations">Read beta expectations</a>
+          </div>
+          <p class="microcopy">Manual approval required. Onboarding may take up to 12 hours to preserve quality and continuity for existing users.</p>
+        </div>
+
+        <aside class="phone-card" aria-label="Example iMessage assistant conversation">
+          <div class="phone-topbar">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="message-thread">
+            <p class="bubble user">Can you check weather tomorrow morning?</p>
+            <p class="bubble assistant">Tomorrow looks cool and cloudy. Bring a jacket if you’re out before 9am.</p>
+            <p class="bubble user">Add Maya as an emergency contact.</p>
+            <p class="bubble assistant">Added. Want to include her in your escalation plan?</p>
+            <p class="bubble assistant subtle">Beta abilities are limited and improving based on real usage.</p>
+          </div>
+        </aside>
+      </section>
+
+      <section id="today" class="section-shell split-section" aria-labelledby="today-title">
+        <div>
+          <p class="eyebrow">What it can do today</p>
+          <h2 id="today-title">Useful, low-friction help inside a familiar thread.</h2>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <h3>Information checks</h3>
+            <p>Ask for weather, stocks, and summarized news without opening another app.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Emergency contacts</h3>
+            <p>Add emergency contacts and keep a lightweight support plan close at hand.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Emergency emails</h3>
+            <p>Draft and send predefined emergency emails when you need quick outreach.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Escalation planning</h3>
+            <p>Set up a simple escalation plan so the assistant knows who to contact and when.</p>
+          </article>
+          <article class="feature-card wide">
+            <h3>New skills over time</h3>
+            <p>More abilities will be added based on actual beta usage patterns, not a giant speculative roadmap.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-shell why-section" aria-labelledby="why-title">
+        <p class="eyebrow">Why messaging</p>
+        <h2 id="why-title">Most AI tools assume you are sitting in front of a browser with full attention.</h2>
+        <p>This beta explores AI as a lightweight communication layer — accessible through messaging, useful for quick retrieval and personal support, and shaped by what people actually ask for.</p>
+      </section>
+
+      <section id="expectations" class="section-shell expectations" aria-labelledby="expectations-title">
+        <div>
+          <p class="eyebrow">Beta expectations</p>
+          <h2 id="expectations-title">Early, manual, and intentionally small.</h2>
+          <p>Access is invite-only for now. Every signup is reviewed manually before activation.</p>
+        </div>
+        <ul class="check-list">
+          <li>Manual approval is required before activation.</li>
+          <li>Approval and onboarding may take up to 12 hours.</li>
+          <li>You will receive a confirmation message if approved.</li>
+          <li>Early limitations, rough edges, and occasional misses are expected.</li>
+          <li>Feedback is part of the beta and helps decide what gets built next.</li>
+        </ul>
+      </section>
+
+      <section class="section-shell safety-note" aria-labelledby="safety-title">
+        <p class="eyebrow">Limitations and safety</p>
+        <h2 id="safety-title">Experimental software, not a replacement for professional or emergency help.</h2>
+        <p>This service is not a replacement for 911, emergency services, medical professionals, legal professionals, financial advisors, or human caregivers. In emergencies, contact local emergency services directly.</p>
+      </section>
+
+      <section id="signup" class="section-shell signup-section" aria-labelledby="signup-title">
+        <div class="signup-copy">
+          <p class="eyebrow">Request access</p>
+          <h2 id="signup-title">Join the beta waitlist.</h2>
+          <p>Keep this short. If approved, more setup can happen through the assistant itself.</p>
+          <div class="privacy-box">
+            <h3>Privacy and consent</h3>
+            <p>Your signup information is used to review access, onboard you, request feedback, and improve the beta. Do not submit highly sensitive details here. This static page does not store data locally beyond form submission.</p>
+          </div>
+        </div>
+
+        <form id="beta-form" class="signup-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+          <div class="form-row">
+            <label for="name">Name <span aria-hidden="true">*</span></label>
+            <input id="name" name="name" type="text" autocomplete="name" required />
+            <p class="field-error" id="name-error"></p>
+          </div>
+
+          <div class="form-row">
+            <label for="imessage">iMessage account / phone number <span aria-hidden="true">*</span></label>
+            <input id="imessage" name="imessage" type="text" autocomplete="tel" placeholder="Phone number or Apple ID" required />
+            <p class="field-error" id="imessage-error"></p>
+          </div>
+
+          <div class="form-row">
+            <label for="email">Email <span aria-hidden="true">*</span></label>
+            <input id="email" name="email" type="email" autocomplete="email" required />
+            <p class="field-error" id="email-error"></p>
+          </div>
+
+          <div class="form-row">
+            <label for="source">How did you hear about this beta? <span aria-hidden="true">*</span></label>
+            <input id="source" name="source" type="text" required />
+            <p class="field-error" id="source-error"></p>
+          </div>
+
+          <fieldset class="form-row">
+            <legend>What would you most likely use this for? <span aria-hidden="true">*</span></legend>
+            <div class="radio-grid">
+              <label><input type="radio" name="use_case" value="Daily AI assistant" required /> Daily AI assistant</label>
+              <label><input type="radio" name="use_case" value="Weather / news / stock lookup" /> Weather / news / stock lookup</label>
+              <label><input type="radio" name="use_case" value="Emergency contact / escalation plan" /> Emergency contact / escalation plan</label>
+              <label><input type="radio" name="use_case" value="Productivity / memory / reminders" /> Productivity / memory / reminders</label>
+              <label><input type="radio" name="use_case" value="Family / caregiver support" /> Family / caregiver support</label>
+              <label><input type="radio" name="use_case" value="Other" /> Other</label>
+            </div>
+            <p class="field-error" id="use_case-error"></p>
+          </fieldset>
+
+          <fieldset class="form-row">
+            <legend>Are you comfortable receiving proactive messages for onboarding, feedback, and beta improvement? <span aria-hidden="true">*</span></legend>
+            <div class="radio-stack">
+              <label><input type="radio" name="proactive_messages" value="Yes" required /> Yes</label>
+              <label><input type="radio" name="proactive_messages" value="No" /> No</label>
+            </div>
+            <p class="field-error" id="proactive_messages-error"></p>
+          </fieldset>
+
+          <div class="form-row">
+            <label for="note">What problem would you most like this assistant to solve for you? <span class="optional">Optional</span></label>
+            <textarea id="note" name="note" rows="4"></textarea>
+          </div>
+
+          <div class="consent-row">
+            <input id="consent" name="consent" type="checkbox" value="Accepted" required />
+            <label for="consent">I understand this is an invite-only beta. Access requires manual approval. I may receive a confirmation message if approved. I understand this service is experimental and should not replace emergency services, medical advice, legal advice, or financial advice.</label>
+          </div>
+          <p class="field-error" id="consent-error"></p>
+
+          <input type="hidden" name="form_name" value="iMessage AI Assistant Beta Signup" />
+          <button class="button button-primary form-submit" type="submit">Request Beta Access</button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Founder/beta contact: <a href="mailto:Contact@domij.info">Contact@domij.info</a></p>
+      <p>Privacy note: this beta only uses signup information to review access, onboard approved users, request feedback, and improve the service. <a href="privacy.html">Read privacy note</a>.</p>
+      <p>Hosted as a static GitHub Pages site.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
