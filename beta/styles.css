@@ -93,13 +93,23 @@ nav {
   font-size: 0.95rem;
 }
 
-nav a {
+nav a,
+.language-toggle {
   padding: 10px 12px;
   border-radius: 4px;
 }
 
+.language-toggle {
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.68);
+  color: var(--muted);
+  cursor: pointer;
+}
+
 nav a:hover,
-nav a:focus-visible {
+nav a:focus-visible,
+.language-toggle:hover,
+.language-toggle:focus-visible {
   color: var(--ink);
   background: rgba(17, 17, 17, 0.06);
   outline: none;
@@ -535,7 +545,8 @@ input[type="checkbox"] {
 }
 
 @media (max-width: 860px) {
-  nav a:not(.nav-cta) {
+  nav a:not(.nav-cta),
+  .language-toggle {
     display: none;
   }
 
