@@ -66,21 +66,41 @@ function validateForm() {
   return true;
 }
 
-form?.addEventListener('submit', (event) => {
+form?.addEventListener('submit', async (event) => {
+  event.preventDefault();
   statusEl.textContent = '';
 
   if (!validateForm()) {
-    event.preventDefault();
     statusEl.textContent = 'Please fix the highlighted fields.';
     return;
   }
 
   const action = form.getAttribute('action') || '';
-  if (action.includes('YOUR_FORM_ID')) {
-    event.preventDefault();
-    statusEl.textContent = 'Form endpoint is not configured yet. Replace YOUR_FORM_ID with your Formspree endpoint or connect a Google Form before launch.';
-    return;
-  }
+  const submitButton = form.querySelector('[type="submit"]');
+  const formData = new FormData(form);
+  const payload = Object.fromEntries(formData.entries());
 
   statusEl.textContent = 'Submitting request…';
+  if (submitButton) submitButton.disabled = true;
+
+  try {
+    const response = await fetch(action, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    const result = await response.json().catch(() => ({}));
+
+    if (!response.ok || !result.ok) {
+      statusEl.textContent = result.error || 'Submission failed. Please check the form and try again.';
+      return;
+    }
+
+    form.reset();
+    statusEl.textContent = 'Request received. If approved, you may receive a confirmation message after manual review.';
+  } catch (error) {
+    statusEl.textContent = 'Submission failed. Please try again later or contact Contact@domij.info.';
+  } finally {
+    if (submitButton) submitButton.disabled = false;
+  }
 });
