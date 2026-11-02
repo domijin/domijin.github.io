@@ -1,17 +1,20 @@
 import type { Metadata } from "next";
+import { PERSONA_DATA } from "@/data/contextMapData";
 import "./globals.css";
 
+const profileDescription =
+  "Domi Jin works on machine learning and decision systems, with a background in computational astrophysics. Research, projects and notes on learning and human–AI collaboration.";
+
 export const metadata: Metadata = {
-  title: "Domi Jin | Scientist. Builder. Founder. — A sci-fi mind. An engineer’s hands.",
-  description:
-    "Exploring how technology can expand human potential and empower people to achieve more together. Computational astrophysics, applied machine learning, and human-centered AI systems.",
+  title: "Domi Jin | Research, projects and notes",
+  description: profileDescription,
   authors: [{ name: "Domi Jin (Dongming Jin)", url: "https://domij.info" }],
   keywords: [
     "Domi Jin",
     "Dongming Jin",
     "Collective Intelligence",
     "Human-AI Collaboration",
-    "Organizational Intelligence",
+    "Organisational Intelligence",
     "Complex Adaptive Systems",
     "Decision Intelligence",
     "Human Potential",
@@ -21,11 +24,10 @@ export const metadata: Metadata = {
     "Kin Domi"
   ],
   openGraph: {
-    title: "Domi Jin | Scientist. Builder. Founder.",
-    description:
-      "A sci-fi mind. An engineer’s hands. Exploring how technology can expand human potential and empower people to achieve more together.",
+    title: "Domi Jin | Research, projects and notes",
+    description: profileDescription,
     url: "https://domij.info/next/",
-    siteName: "Domi Jin — Personal Universe & Context Map",
+    siteName: "Domi Jin",
     images: [
       {
         url: "https://domij.info/images/Photo.JPG",
@@ -34,14 +36,13 @@ export const metadata: Metadata = {
         alt: "Domi Jin"
       }
     ],
-    locale: "en_US",
+    locale: "en_GB",
     type: "profile"
   },
   twitter: {
     card: "summary_large_image",
-    title: "Domi Jin | Scientist. Builder. Founder.",
-    description:
-      "A sci-fi mind. An engineer’s hands. Exploring how technology can expand human potential and empower people to achieve more together.",
+    title: "Domi Jin | Research, projects and notes",
+    description: profileDescription,
     creator: "@domij_info",
     images: ["https://domij.info/images/Photo.JPG"]
   },
@@ -62,8 +63,7 @@ const jsonLdGraph = {
       "name": "Domi Jin",
       "alternateName": "Dongming Jin",
       "jobTitle": "Scientist, Builder, Founder",
-      "description":
-        "Exploring how technology can expand human potential and empower people to achieve more together. Ph.D. in Computational Astrophysics, Applied Machine Learning Builder, and Founder.",
+      "description": profileDescription,
       "url": "https://domij.info/",
       "image": "https://domij.info/images/Photo.JPG",
       "alumniOf": {
@@ -73,7 +73,7 @@ const jsonLdGraph = {
       "knowsAbout": [
         "Collective Intelligence",
         "Human-AI Collaboration",
-        "Organizational Intelligence",
+        "Organisational Intelligence",
         "Complex Adaptive Systems",
         "Decision Intelligence",
         "Human Potential",
@@ -93,7 +93,8 @@ const jsonLdGraph = {
       "@type": "ProfilePage",
       "@id": "https://domij.info/next/#webpage",
       "url": "https://domij.info/next/",
-      "name": "Domi Jin — Scientist. Builder. Founder.",
+      "name": "Domi Jin — Research, projects and notes",
+      "description": PERSONA_DATA.mission,
       "mainEntity": {
         "@id": "https://domij.info/#domi-jin"
       }
@@ -107,7 +108,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en-GB">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
         <link rel="llms-txt" href="https://domij.info/llms.txt" />

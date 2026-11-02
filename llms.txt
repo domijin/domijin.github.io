@@ -3,65 +3,84 @@
 > Scientist. Builder. Founder.
 > A sci-fi mind. An engineer’s hands.
 
-- **Canonical URL**: https://domij.info/
-- **Green Environment (Next.js + Three.js)**: https://domij.info/next/
-- **Blue Environment (Classic Pelican Archive)**: https://domij.info/pages/about-me.html
-- **Substack (Domi's Mind Waves)**: https://domijin.substack.com/
+- **Website**: https://domij.info/
+- **Current edition**: https://domij.info/next/
+- **Archive profile**: https://domij.info/pages/about-me.html
+- **Substack (Domi’s Mind Waves)**: https://domijin.substack.com/
 - **Medium**: https://medium.com/@domijin
 - **GitHub**: https://github.com/domijin
 - **LinkedIn**: https://www.linkedin.com/in/domijin
 - **Contact**: mailto:contact@domij.info
-- **Structured Agent Context Map (JSON)**: https://domij.info/agent-context.json
-- **Extended LLM Context**: https://domij.info/llms-full.txt
+- **Structured profile and source index**: https://domij.info/agent-context.json
+- **Background and reading notes**: https://domij.info/llms-full.txt
 
----
+## About
 
-## Mission
+I work on machine learning and decision systems. My background is in computational astrophysics; my current interests are learning, human judgement and how people work together.
 
-Exploring how technology can expand human potential and empower people to achieve more together.
+## Background
 
-## Background & Trajectory
+### Computational astrophysics
+Ph.D. Physics (2013–2018) · LSST Data Science Fellow
 
-1. **Fundamental Science (Computational Astrophysics, Ph.D. 2018)**
-   My journey began with fundamental science, studying the universe through computational astrophysics, numerical simulations, and statistical modeling. Conducted 3,140 numerical simulations (>100 TB, 25k supercomputer node-hours on TACC) of 1-million-body globular clusters ($O(N^3)$ N-body and $O(N \log N)$ Monte Carlo dynamics) to extract a 17M x 14 database of binary black holes and evaluate gravitational wave detection prospects for space-borne detectors (LISA). Fellow in the LSST Data Science Fellowship Program (2016–2018).
+I began in computational astrophysics, studying stellar dynamics and binary black holes through numerical simulation and statistical modelling.
 
-2. **Applied Machine Learning & Decision Systems**
-   I subsequently moved into applied machine learning, building decision systems for consumer products, marketplaces, and advertising technology—spanning real-time contextual recommendation engines from mobility signals, marketplace pricing and GenAI request flows, and deep-learning performance advertising analytics, causal lift, and demand mining.
+- Numerical simulations of globular clusters using N-body and Monte Carlo methods.
+- Analysis of binary black hole evolution and gravitational-wave detection prospects for LISA.
+- LSST Data Science Fellowship: statistical modelling, image processing and reproducible research workflows.
 
-3. **Entrepreneurship, Open Research & Human-Centered AI**
-   Entrepreneurship brought a different perspective: understanding what people actually need, how they make decisions, and why technically promising solutions sometimes fail in the real world.
-   Across these experiences, one question has remained central:
-   **How can we use technology to help individuals become more capable and enable people to collaborate more effectively?**
+### Decision systems
+Applied ML & Decision Intelligence (2018–2024)
 
-## Philosophy & Epistemology
+I then worked on machine learning for consumer products, marketplaces and advertising, where a model has to be useful within the constraints of a working system.
 
-- **Collaboration First**: I believe humanity’s greatest achievements emerge through collaboration. Intelligence matters, but so do communication, trust, complementary capabilities, incentives, and the freedom to make meaningful choices.
-- **Technology as a Means**: Technology is a means rather than an end. Its value should ultimately be measured by how it improves people’s opportunities, autonomy, relationships, and quality of life.
-- **Scientific Rigor & Practical Experimentation**: My approach combines scientific curiosity with practical experimentation: challenge assumptions, build working systems, measure outcomes, learn from failure, and revise our understanding.
+- Recommendation systems using behavioural and contextual signals from mobility data.
+- Marketplace pricing, generative AI request workflows and information exchange between users.
+- Advertising analytics, model evaluation and causal attribution; published architecture notes on real-time bidding and multi-agent control.
 
-## Intellectual Interests (Continuing Explorations)
+### Learning and human–AI collaboration
+Independent projects & ventures (2018–present)
 
-*Note: These are continuing intellectual interests and active engineering explorations, not claims of completed research or established scientific findings.*
+Building a company brought me closer to the people using the technology. It made me more attentive to what they need, and to the gap between a promising idea and something useful.
+
+- Kin Domi, Inc.: AI and community projects concerned with older adults’ independence and access to technology.
+- Open Learning Lab and baby-AI: open research into learning, and specifications for a household agent that runs on local hardware.
+- Essays on learning, team coordination and human–AI collaboration in Domi’s Mind Waves and elsewhere.
+
+## A question I keep returning to
+
+What helps people make better decisions, learn well and work together?
+
+## How I work
+
+- **Working together**: Good work depends on more than individual ability. Shared context, trust, complementary skills and sensible incentives matter, as does room for people to exercise their own judgement.
+- **Usefulness**: I judge technology by what it helps people do: understand a problem, make a choice, learn a skill or spend their time better. Technical elegance is valuable when it serves that purpose.
+- **Testing the idea**: I try to make assumptions explicit, build something that can be tested and pay attention to the result. Revising an explanation is part of the work.
+
+## Questions I am exploring
+
+These are ongoing questions. The linked work distinguishes observations, proposals and research findings.
 
 - **Collective Intelligence**: How do individual capabilities combine to produce collective outcomes?
-- **Human–AI Collaboration**: How can intelligent systems augment human judgment and agency?
-- **Organizational Intelligence**: How do communication, coordination, trust, and incentives shape collaboration?
-- **Complex Adaptive Systems**: How do interactions among individuals give rise to emergent social and organizational behavior?
+- **Human–AI Collaboration**: How can intelligent systems support human judgement and agency?
+- **Organisational Intelligence**: How do communication, coordination, trust, and incentives shape collaboration?
+- **Complex Adaptive Systems**: How do interactions among individuals give rise to emergent social and organisational behaviour?
 - **Decision Intelligence**: How can information, feedback, and experimentation improve decisions?
 - **Human Potential**: How can technology make learning, opportunity, and meaningful participation more accessible?
 - **AI and Society**: How might increasingly capable intelligence change the ways we work, cooperate, and live?
 
-## Open-Source & Founder Projects
+## Selected projects
 
-- **[Open Learning Lab](https://github.com/domijin/open-learning-lab)**: An open experiment in evidence-driven personalized learning (`goal -> hypothesis -> experiment -> observation/evidence -> finding -> decision`). Optimizes durable, transferable capability outside the tutoring session rather than conversational fluency.
-- **[baby-AI](https://github.com/domijin/baby-AI)**: Open-specs, receipt-verified edge-deployed household agent (<$200 BOM: Raspberry Pi 5 + Hailo-8L + ReSpeaker 4-Mic Array) that learns verbally without shipping personal data off-device. Every claim is backed by a cryptographically signed evaluation receipt.
-- **[Life Hack: iMessage AI Router](https://domij.info/beta/)**: A low-bandwidth HCI harness routing iMessage and satellite text channels to internet-connected reasoning agents when normal browsing is constrained or unavailable.
-- **[Kin Domi, Inc.](https://kindomi.net/)**: Building human-centered AI and community systems that empower senior independence, dignity, and intergenerational wisdom.
-- **[Agent-Based Advertising System & Observations](https://github.com/domijin/observations_in_advertising)**: Architectural specifications and economic analysis of scaling laws, demand mining, adaptive marketing, and multi-agent control planes for sub-50ms real-time decision systems.
-- **[LibertyEarth](https://github.com/domijin/LibertyEarth)** & **[The Future Project](https://github.com/domijin/future)**: Open-source living archives exploring collaborative governance, social contracts, and actionable technical strategies.
-- **[HackerTube RSS](https://github.com/domijin/HackerTube)**: Curated, subscribable RSS feeds of high-signal technical talks from Hacker News (2007–2026).
+Research notes, software and specifications at different stages of development. Design targets are not measured results; consult the linked work for evidence and status.
 
-## Selected Public Writings (Context Map)
+- **[Open Learning Lab](https://github.com/domijin/open-learning-lab)**: An open research ledger comparing approaches to learning with language models. The focus is on what learners retain and can apply independently, relative to the effort involved.
+- **[baby-AI](https://github.com/domijin/baby-AI)**: Five subsystem specifications covering perception, speech recognition, memory, adaptation and evaluation. The design targets local hardware costing under $200, with signed evaluation records.
+- **[Life Hack: iMessage AI Router](https://domij.info/beta/)**: An experiment in using iMessage to reach internet-connected agents when normal browsing is limited. It explores how a familiar, asynchronous interface can work with constrained connections.
+- **[Kin Domi, Inc.](https://kindomi.net/)**: Work on AI companions, accessible interfaces and community activities in Palo Alto, informed by older adults’ experiences of technology, mobility and learning.
+- **[Advertising decision systems](https://github.com/domijin/observations_in_advertising)**: An architecture proposal for an eight-agent control plane alongside a latency-sensitive serving path. Accompanying notes consider advertising economics, experimentation and causal measurement.
+- **[LibertyEarth & The Future Project](https://github.com/domijin/LibertyEarth)**: An evolving collection of proposals about social contracts, liquid democracy, local manufacturing and ways of turning ideas into practical experiments.
+
+## Selected writing
 
 ### Substack (*Domi's Mind Waves*)
 - [Reclaiming Play as a Life Skill](https://domijin.substack.com/p/reclaiming-play-as-a-life-skill) (2025): Gameful mindsets, feedback loops, and voluntary agency in lifelong learning and aging well.
@@ -86,8 +105,8 @@ Exploring how technology can expand human potential and empower people to achiev
 - [Free Market in a Possibility Universe](https://domij.info/free-market-in-a-possibility-universe.html) & [Manifesto](https://domij.info/manifesto.html) (2019): Liquid democracy, communication bandwidth, and organizational scaling.
 - [WorkFlow and Methodology](https://domij.info/workflow-and-methodology.html) & [Research: Gravitational Waves from Binary Black Holes in Globular Clusters](https://domij.info/pages/research.html) (2018): Open reproducible science, HPC at TACC, and statistical modeling.
 
-## What I’m Looking For
+## Correspondence
 
-I enjoy working with intellectually curious people who combine ambitious questions with rigorous thinking and practical execution.
+If you are working on a related question, I would be glad to compare notes. Questions, useful references and considered disagreements are welcome.
 
-I’m particularly interested in connecting with **researchers, lead AI teams, builders, and early-stage founder-centric investors** who value interdisciplinary thinking, experimentation, human-centered technology, and long-term impact.
+contact@domij.info

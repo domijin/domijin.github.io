@@ -17,8 +17,8 @@ const ConstellationCanvas = dynamic(
     loading: () => (
       <div className="w-full h-[360px] sm:h-[480px] lg:h-[580px] rounded-2xl border border-slate-200 bg-[#0b2034] flex flex-col items-center justify-center text-sky-200 font-mono text-xs sm:text-sm shadow-inner p-6 text-center">
         <div className="w-8 h-8 rounded-full border-2 border-[#1DAEDF] border-t-transparent animate-spin mb-3" />
-        <span>Initializing Three.js N-Body Celestial Field...</span>
-        <span className="text-[11px] text-sky-300/70 mt-1">Modeling 1,200 stellar bodies &amp; 7 intellectual axes</span>
+        <span>Loading the map…</span>
+        <span className="text-[11px] text-sky-300/70 mt-1">Connections between ideas, projects and writing</span>
       </div>
     ),
   }
@@ -67,11 +67,11 @@ export default function GreenExperience() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex flex-wrap items-center justify-between gap-2 text-xs">
           <div className="flex items-center gap-2.5">
             <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-sky-50 border border-[#1DAEDF]/30 text-[#0369a1] font-mono font-medium text-[11px]">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#1DAEDF] animate-pulse" />
-              GREEN ARCHITECTURE // NEXT.JS + THREE.JS
+              <span className="w-1.5 h-1.5 rounded-full bg-[#1DAEDF]" />
+              NOTES & PROJECTS
             </span>
             <span className="text-slate-500 hidden md:inline text-[11px]">
-              Interactive Knowledge Graph &amp; Machine-Readable Context
+              Research, experiments and occasional writing
             </span>
           </div>
 
@@ -81,14 +81,14 @@ export default function GreenExperience() {
               className="text-[#2980b9] hover:text-[#1DAEDF] font-mono cursor-pointer transition flex items-center gap-1"
             >
               <span className="text-[10px]">✦</span>
-              <span>{agentModalOpen ? "Close Protocol" : "Agent Protocol (/llms.txt)"}</span>
+              <span>{agentModalOpen ? "Close site data" : "Site data"}</span>
             </button>
             <span className="text-slate-300">|</span>
             <a
               href="/pages/about-me.html?env=blue"
               className="inline-flex items-center gap-1 text-slate-600 hover:text-[#2980b9] transition font-medium"
             >
-              <span>Classic Archive</span>
+              <span>Archive</span>
               <span aria-hidden="true" className="text-[10px]">↗</span>
             </a>
           </div>
@@ -102,10 +102,10 @@ export default function GreenExperience() {
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
               <div>
                 <p className="text-[11px] font-mono uppercase tracking-widest text-[#2980b9]">
-                  Machine-Readable Context Endpoints
+                  Text and structured data
                 </p>
                 <h3 className="text-base sm:text-lg font-semibold text-slate-900 mt-0.5">
-                  Structured Epistemic Context for Autonomous Systems &amp; Evaluators
+                  A plain-text profile and source index
                 </h3>
               </div>
               <div className="flex flex-wrap gap-2">
@@ -136,9 +136,9 @@ export default function GreenExperience() {
               </div>
             </div>
             <pre className="p-4 rounded-xl bg-slate-900 text-slate-100 text-xs font-mono overflow-x-auto leading-relaxed shadow-sm">
-{`# Machine-verifiable endpoints for AI evaluators and researchers
-curl -s https://domij.info/llms.txt          # Concise Markdown synthesis & intellectual interests
-curl -s https://domij.info/llms-full.txt     # Deep 7-pillar trajectory & complete writing index
+{`# Profile and source files
+curl -s https://domij.info/llms.txt          # Profile and interests
+curl -s https://domij.info/llms-full.txt     # Background, topics and sources
 curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInterests'`}
             </pre>
           </div>
@@ -168,19 +168,19 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-slate-600">
             <a href="#trajectory" className="hover:text-[#2980b9] transition">
-              Trajectory
+              About
             </a>
             <a href="#constellation" className="hover:text-[#2980b9] transition">
-              Context Map
+              Ideas
             </a>
             <a href="#systems" className="hover:text-[#2980b9] transition">
-              Systems
+              Projects
             </a>
             <a href="#writings" className="hover:text-[#2980b9] transition">
-              Monographs ({WRITINGS_DATA.length})
+              Writing
             </a>
             <a href="#inquiries" className="hover:text-[#2980b9] transition">
-              Discourse
+              Contact
             </a>
           </nav>
 
@@ -198,7 +198,7 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
               href="#inquiries"
               className="hidden sm:inline-flex px-4 py-1.5 rounded-lg bg-[#2980b9] hover:bg-[#20638f] text-white font-medium text-xs transition shadow-sm"
             >
-              Discourse
+              Contact
             </a>
 
             {/* Mobile Hamburger Button */}
@@ -229,35 +229,35 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
                 onClick={() => setMobileMenuOpen(false)}
                 className="px-3 py-2 rounded-lg hover:bg-sky-50 hover:text-[#2980b9] transition"
               >
-                Trajectory &amp; Foundations
+                About
               </a>
               <a
                 href="#constellation"
                 onClick={() => setMobileMenuOpen(false)}
                 className="px-3 py-2 rounded-lg hover:bg-sky-50 hover:text-[#2980b9] transition"
               >
-                Context Constellation (3D Map)
+                Ideas
               </a>
               <a
                 href="#systems"
                 onClick={() => setMobileMenuOpen(false)}
                 className="px-3 py-2 rounded-lg hover:bg-sky-50 hover:text-[#2980b9] transition"
               >
-                Selected Systems &amp; Protocols
+                Selected projects
               </a>
               <a
                 href="#writings"
                 onClick={() => setMobileMenuOpen(false)}
                 className="px-3 py-2 rounded-lg hover:bg-sky-50 hover:text-[#2980b9] transition"
               >
-                Monographs &amp; Essays ({WRITINGS_DATA.length})
+                Writing and notes
               </a>
               <a
                 href="#inquiries"
                 onClick={() => setMobileMenuOpen(false)}
                 className="px-3 py-2 rounded-lg hover:bg-sky-50 hover:text-[#2980b9] transition"
               >
-                Discourse &amp; Inquiries
+                Correspondence
               </a>
             </nav>
 
@@ -290,16 +290,16 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
       </header>
 
       <main id="top" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-20 sm:space-y-28">
-        {/* HERO SECTION // AESTHETIC MONOGRAPH & SOVEREIGN INTELLECT */}
+        {/* Introduction */}
         <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           <div className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#1DAEDF]/40 text-[#0284c7] text-xs font-mono shadow-sm">
+            <div className="inline-flex flex-wrap items-center gap-2 text-[#2980b9] text-xs font-mono">
               <span className="w-2 h-2 rounded-full bg-[#1DAEDF]" />
-              <span>COMPUTATIONAL ASTROPHYSICS</span>
+              <span>Astrophysics</span>
               <span className="text-slate-300">·</span>
-              <span>DECISION SYSTEMS</span>
+              <span>Machine learning</span>
               <span className="text-slate-300">·</span>
-              <span>HUMAN-AI AGENCY</span>
+              <span>Human–AI collaboration</span>
             </div>
 
             <div className="space-y-3">
@@ -314,32 +314,29 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
               </p>
             </div>
 
-            {/* Central Scientific & Philosophical Inscription */}
+            {/* Ongoing question */}
             <div className="p-6 rounded-2xl bg-white border border-slate-200/90 shadow-[0_2px_12px_rgba(41,128,185,0.06)] space-y-3">
               <p className="text-[11px] font-mono uppercase tracking-widest text-[#2980b9] font-semibold">
-                Central Inquiry
+                A question I keep returning to
               </p>
               <blockquote className="text-base sm:text-lg text-slate-800 leading-relaxed font-serif italic border-l-2 border-[#1DAEDF] pl-4">
                 &ldquo;{PERSONA_DATA.centralQuestion}&rdquo;
               </blockquote>
-              <p className="text-xs text-slate-500 pt-2 border-t border-slate-100 font-sans">
-                {PERSONA_DATA.epistemicDisclaimer}
-              </p>
             </div>
 
-            {/* Poised Action Row */}
+            {/* Explore the work */}
             <div className="flex flex-wrap items-center gap-3 pt-2">
               <a
                 href="#constellation"
                 className="px-5 py-2.5 rounded-xl bg-[#2980b9] hover:bg-[#20638f] text-white font-medium text-sm transition shadow-sm"
               >
-                Explore Context Constellation
+                Explore the ideas
               </a>
               <a
                 href="#trajectory"
                 className="px-5 py-2.5 rounded-xl bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 font-medium text-sm transition shadow-xs"
               >
-                Read Foundations
+                About my work
               </a>
               <a
                 href="https://domijin.substack.com/"
@@ -352,16 +349,16 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
             </div>
           </div>
 
-          {/* Right Column: Architectural Provenance Card */}
+          {/* Background overview */}
           <div className="lg:col-span-5">
             <div className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-7 shadow-[0_4px_20px_rgba(41,128,185,0.07)] space-y-6">
               <div className="flex items-center justify-between border-b border-slate-100 pb-4">
                 <div>
                   <span className="text-[11px] font-mono uppercase tracking-wider text-[#2980b9] font-semibold block">
-                    Provenance &amp; Trajectory
+                    Background
                   </span>
                   <h2 className="text-lg font-bold text-slate-900 mt-0.5">
-                    First Principles × Real-World Scale
+                    Research and practice
                   </h2>
                 </div>
                 <span className="px-2.5 py-1 rounded-md bg-sky-50 border border-sky-100 text-[11px] font-mono text-[#0369a1] font-medium">
@@ -381,32 +378,10 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
                 </p>
               </div>
 
-              {/* Undeniable Provenance Metrics */}
-              <div className="grid grid-cols-3 gap-2.5 pt-3 border-t border-slate-100 text-center">
-                <div className="p-3 rounded-xl bg-[#f8fafc] border border-slate-200/80">
-                  <div className="text-base sm:text-lg font-bold text-[#2980b9] font-mono">
-                    3,140
-                  </div>
-                  <div className="text-[11px] text-slate-500 font-medium leading-tight mt-0.5">
-                    HPC Sims (&gt;100 TB)
-                  </div>
-                </div>
-                <div className="p-3 rounded-xl bg-[#f8fafc] border border-slate-200/80">
-                  <div className="text-base sm:text-lg font-bold text-[#1DAEDF] font-mono">
-                    &lt;50ms
-                  </div>
-                  <div className="text-[11px] text-slate-500 font-medium leading-tight mt-0.5">
-                    Real-Time Inference
-                  </div>
-                </div>
-                <div className="p-3 rounded-xl bg-[#f8fafc] border border-slate-200/80">
-                  <div className="text-base sm:text-lg font-bold text-[#2980b9] font-mono">
-                    7 Pillars
-                  </div>
-                  <div className="text-[11px] text-slate-500 font-medium leading-tight mt-0.5">
-                    Unified Graph
-                  </div>
-                </div>
+              <div className="flex flex-wrap gap-x-5 gap-y-2 pt-4 border-t border-slate-100 text-sm text-[#2980b9]">
+                <a href="/pages/research.html" className="hover:underline underline-offset-4">Research archive ↗</a>
+                <a href="#systems" className="hover:underline underline-offset-4">Current projects</a>
+                <a href="#writings" className="hover:underline underline-offset-4">Writing</a>
               </div>
             </div>
           </div>
@@ -417,13 +392,13 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div className="space-y-2">
               <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#2980b9] font-semibold">
-                <span>Interactive Knowledge Graph</span>
+                <span>Connections</span>
               </div>
               <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
-                Context Constellation
+                A map of interests
               </h2>
               <p className="text-sm text-slate-600 max-w-3xl leading-relaxed">
-                Derived from $10^6$-body globular cluster dynamics: 7 central spheres represent interconnected intellectual inquiries, while orbiting nodes chart public monographs across Substack, Medium, GitHub, and scientific archives.
+                A way to browse the questions behind my work. The larger nodes represent areas of interest; the smaller ones link to essays, research and project notes.
               </p>
             </div>
 
@@ -501,7 +476,7 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
               />
               <div className="mt-2 flex items-center justify-between text-[11px] text-slate-500 font-mono px-1">
                 <span>✦ Orbit: Drag · Zoom: Pinch / Scroll · Inspect: Tap node</span>
-                <span className="hidden sm:inline">N-Body gravitational simulation</span>
+                <span className="hidden sm:inline">A visual reference to stellar clusters</span>
               </div>
             </div>
 
@@ -510,7 +485,7 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
               <div className="lg:hidden col-span-1 space-y-4">
                 <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-xs space-y-3">
                   <span className="text-[11px] font-mono uppercase tracking-wider text-[#2980b9] font-medium">
-                    Structured Pillar Index
+                    Topics
                   </span>
                   <div className="space-y-3">
                     {INTELLECTUAL_PILLARS.map((p) => (
@@ -548,7 +523,7 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
               <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
                 <div className="flex items-center justify-between">
                   <span className="text-[11px] font-mono uppercase tracking-wider text-slate-500 font-medium">
-                    {activePillarObj ? "Focused Pillar" : "Intellectual Interconnections"}
+                    {activePillarObj ? "Selected topic" : "Related ideas"}
                   </span>
                   {activePillarObj && (
                     <span
@@ -573,10 +548,10 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
                 ) : (
                   <>
                     <h3 className="text-base font-semibold text-slate-900">
-                      Unified Intellectual Graph
+                      Explore a connection
                     </h3>
                     <p className="text-xs text-slate-600 leading-relaxed">
-                      Select any node in the constellation to focus on an inquiry domain and inspect its corresponding public essays, formal papers, and open specifications.
+                      Select a topic or a piece of writing to see how it relates to the other work collected here.
                     </p>
                   </>
                 )}
@@ -586,7 +561,7 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
                 </div>
               </div>
 
-              {/* Selected Monograph Inspector */}
+              {/* Selected writing */}
               {selectedWriting && (
                 <div className="p-6 rounded-2xl bg-white border-2 border-[#1DAEDF]/50 shadow-md space-y-3">
                   <div className="flex items-center justify-between gap-2">
@@ -613,7 +588,7 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
 
                   <div className="p-3.5 rounded-xl bg-[#f8fafc] border border-slate-200/90 space-y-1">
                     <span className="text-[10px] font-mono uppercase tracking-wider text-[#2980b9] font-semibold block">
-                      Core Insight
+                      Reading note
                     </span>
                     <p className="text-xs text-slate-700 leading-relaxed">
                       {selectedWriting.keyInsight}
@@ -629,17 +604,17 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
         <section id="trajectory" className="space-y-10 scroll-mt-24">
           <div className="space-y-2">
             <span className="text-xs font-mono uppercase tracking-widest text-[#2980b9] font-semibold">
-              Trajectory &amp; Epistemic Foundations
+              About
             </span>
             <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
-              From Multi-Body Physics to Human-Centered Intelligence
+              From astrophysics to applied machine learning
             </h2>
             <p className="text-sm text-slate-600 max-w-3xl leading-relaxed">
-              A continuous thread: testing hypotheses, building real-world systems, and measuring outcomes against empirical reality.
+              The subject matter has changed. The habit of making a model, testing it and revising it has stayed with me.
             </p>
           </div>
 
-          {/* 3 Stage Monograph Cards */}
+          {/* Research and work */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {PERSONA_DATA.background.map((item) => (
               <div
@@ -673,11 +648,11 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
             ))}
           </div>
 
-          {/* Working Principles & 7 Pillars Exploration */}
+          {/* How I work & 7 Pillars Exploration */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start pt-4">
             <div className="lg:col-span-5 space-y-4">
               <h3 className="text-xl font-bold text-slate-900">
-                Working Principles
+                How I work
               </h3>
               {PERSONA_DATA.philosophy.map((phil, idx) => (
                 <div
@@ -697,10 +672,10 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
             <div className="lg:col-span-7 space-y-4">
               <div className="flex items-center justify-between">
                 <h3 className="text-xl font-bold text-slate-900">
-                  Continuing Intellectual Inquiries
+                  Questions I am exploring
                 </h3>
                 <span className="text-xs font-mono text-slate-500">
-                  7 Interconnected Domains
+                  Seven related topics
                 </span>
               </div>
 
@@ -743,13 +718,13 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
         <section id="systems" className="space-y-8 scroll-mt-24">
           <div className="space-y-2">
             <span className="text-xs font-mono uppercase tracking-widest text-[#2980b9] font-semibold">
-              An Engineer&rsquo;s Hands // Verifiable Systems
+              Work in progress
             </span>
             <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
-              Selected Systems &amp; Protocols
+              Selected projects
             </h2>
             <p className="text-sm text-slate-600 max-w-3xl leading-relaxed">
-              Moving beyond theoretical assertions toward executable code, reproducible benchmarks, and verifiable human empowerment.
+              Research notes, software and design specifications at different stages of development. The linked repositories describe the work and how it is evaluated.
             </p>
           </div>
 
@@ -770,7 +745,7 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
                       rel="noopener noreferrer"
                       className="text-xs font-medium text-[#2980b9] hover:text-[#1DAEDF] underline underline-offset-4"
                     >
-                      Inspect ↗
+                      View project ↗
                     </a>
                   </div>
 
@@ -786,7 +761,7 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
                 <div className="space-y-3 pt-3 border-t border-slate-100">
                   <div className="text-[11px] text-slate-600">
                     <span className="font-mono text-slate-900 font-semibold block mb-0.5">
-                      Protocol Specification:
+                      Documentation:
                     </span>
                     {proj.verificationArtifact}
                   </div>
@@ -806,18 +781,18 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
           </div>
         </section>
 
-        {/* SELECTED MONOGRAPHS & PUBLIC DISCOURSE */}
+        {/* Writing and notes */}
         <section id="writings" className="space-y-6 scroll-mt-24">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div className="space-y-2">
               <span className="text-xs font-mono uppercase tracking-widest text-[#2980b9] font-semibold">
-                Synthesized Discourse
+                Writing
               </span>
               <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
-                Selected Monographs &amp; Technical Essays
+                Essays and technical notes
               </h2>
               <p className="text-sm text-slate-600 max-w-2xl leading-relaxed">
-                Essays spanning Substack (Domi&rsquo;s Mind Waves), Medium, GitHub engineering specifications, and classic research publications.
+                Collected from Domi&rsquo;s Mind Waves, Medium, GitHub and the research archive. Each entry links to its source.
               </p>
             </div>
 
@@ -907,7 +882,7 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
 
                   <div className="pt-3 border-t border-slate-100 text-xs text-slate-600">
                     <span className="font-mono text-[#2980b9] font-medium mr-1.5">
-                      Takeaway:
+                      Reading note:
                     </span>
                     {w.keyInsight}
                   </div>
@@ -917,59 +892,36 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
           </div>
         </section>
 
-        {/* INQUIRIES & DISCOURSE // HIGH-STATUS INVITATION */}
+        {/* Correspondence */}
         <section
           id="inquiries"
-          className="rounded-3xl border border-[#2980b9]/20 bg-gradient-to-br from-[#2980b9] via-[#2471a3] to-[#1a5276] p-8 sm:p-12 space-y-8 shadow-xl text-white scroll-mt-24"
+          className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-10 space-y-6 scroll-mt-24"
         >
           <div className="max-w-3xl space-y-3">
-            <span className="text-xs font-mono uppercase tracking-widest text-sky-200 font-semibold">
-              Discourse &amp; Inquiries
-            </span>
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
-              Where Ambitious Questions Meet Rigorous Systems
+            <h2 className="text-2xl sm:text-3xl font-semibold text-slate-900 tracking-tight">
+              Correspondence
             </h2>
-            <p className="text-base sm:text-lg text-sky-100 leading-relaxed font-light">
-              {PERSONA_DATA.lookingFor.intro}
+            <p className="text-base sm:text-lg text-slate-700 leading-relaxed">
+              {PERSONA_DATA.correspondence.intro}
             </p>
-            <p className="text-sm text-sky-200/90 leading-relaxed">
-              {PERSONA_DATA.lookingFor.detail}
+            <p className="text-sm text-slate-600 leading-relaxed">
+              {PERSONA_DATA.correspondence.detail}
             </p>
           </div>
 
-          {/* Understated Audience Tracks */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {PERSONA_DATA.lookingFor.tracks.map((track, idx) => (
-              <div
-                key={idx}
-                className="p-5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 space-y-2.5"
-              >
-                <h3 className="text-base font-bold text-white">
-                  {track.audience}
-                </h3>
-                <p className="text-xs font-mono text-sky-200">
-                  Focus: {track.focus}
-                </p>
-                <p className="text-xs text-sky-100 leading-relaxed pt-1">
-                  {track.valueProp}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-white/20">
+          <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-slate-100">
             <div className="flex flex-wrap items-center gap-3">
               <a
                 href="mailto:contact@domij.info"
-                className="px-5 py-2.5 rounded-xl bg-white hover:bg-sky-50 text-[#2980b9] font-bold text-sm transition shadow-sm"
+                className="px-5 py-2.5 rounded-xl bg-[#2980b9] hover:bg-[#20638f] text-white font-medium text-sm transition"
               >
-                Inquire: contact@domij.info
+                contact@domij.info
               </a>
               <a
                 href="https://domijin.substack.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2.5 rounded-xl bg-white/15 hover:bg-white/25 border border-white/30 text-white text-sm font-medium transition"
+                className="px-4 py-2.5 rounded-xl hover:bg-sky-50 border border-slate-200 text-[#2980b9] text-sm font-medium transition"
               >
                 Substack (Domi&rsquo;s Mind Waves) ↗
               </a>
@@ -977,7 +929,7 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
                 href="https://github.com/domijin"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2.5 rounded-xl bg-white/15 hover:bg-white/25 border border-white/30 text-white text-sm font-medium transition"
+                className="px-4 py-2.5 rounded-xl hover:bg-sky-50 border border-slate-200 text-[#2980b9] text-sm font-medium transition"
               >
                 GitHub (@domijin) ↗
               </a>
@@ -985,23 +937,23 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
                 href="https://www.linkedin.com/in/domijin"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2.5 rounded-xl bg-white/15 hover:bg-white/25 border border-white/30 text-white text-sm font-medium transition"
+                className="px-4 py-2.5 rounded-xl hover:bg-sky-50 border border-slate-200 text-[#2980b9] text-sm font-medium transition"
               >
                 LinkedIn ↗
               </a>
             </div>
 
-            <div className="flex items-center gap-3 text-xs font-mono text-sky-200">
-              <a href="/llms.txt" className="hover:text-white underline underline-offset-4">
+            <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-slate-500">
+              <a href="/llms.txt" className="hover:text-[#2980b9] underline underline-offset-4">
                 /llms.txt
               </a>
               <span>·</span>
-              <a href="/agent-context.json" className="hover:text-white underline underline-offset-4">
+              <a href="/agent-context.json" className="hover:text-[#2980b9] underline underline-offset-4">
                 /agent-context.json
               </a>
               <span>·</span>
-              <a href="/pages/about-me.html?env=blue" className="hover:text-white underline underline-offset-4">
-                Classic Blue Archive
+              <a href="/pages/about-me.html?env=blue" className="hover:text-[#2980b9] underline underline-offset-4">
+                Archive
               </a>
             </div>
           </div>
@@ -1014,13 +966,13 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
           <p>
             &copy; {new Date().getFullYear()} Domi Jin (Dongming Jin) · Scientist. Builder. Founder.
           </p>
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center gap-4">
             <a href="/pages/about-me.html?env=blue" className="hover:text-[#2980b9] transition">
-              Blue Environment (Classic Pelican)
+              Archive
             </a>
             <span>·</span>
             <a href="/next/" className="text-[#2980b9] font-medium">
-              Green Environment (Next.js + Three.js)
+              Current edition
             </a>
             <span>·</span>
             <a href="/beta/" className="hover:text-[#2980b9] transition">
