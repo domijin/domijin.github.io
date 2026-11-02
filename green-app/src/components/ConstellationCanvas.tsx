@@ -22,14 +22,13 @@ function GlobularClusterCore() {
   const pointsRef = useRef<THREE.Points>(null);
 
   const { positions, colors } = useMemo(() => {
-    const count = 1400;
+    const count = 1200;
     const pos = new Float32Array(count * 3);
     const col = new Float32Array(count * 3);
-    const colorCore = new THREE.Color("#38bdf8");
-    const colorOuter = new THREE.Color("#818cf8");
+    const colorCore = new THREE.Color("#1DAEDF"); // Domi's signature cyan
+    const colorOuter = new THREE.Color("#2980b9"); // Pelican primary blue
 
     for (let i = 0; i < count; i++) {
-      // Plummer-like spherical density profile inspired by globular cluster astrophysics
       const u = Math.random();
       const r = 0.55 * Math.pow(Math.pow(u, -2 / 3) - 1, -0.5);
       const clampedR = Math.min(r, 3.8);
@@ -51,8 +50,8 @@ function GlobularClusterCore() {
 
   useFrame((_, delta) => {
     if (pointsRef.current) {
-      pointsRef.current.rotation.y += delta * 0.04;
-      pointsRef.current.rotation.x += delta * 0.015;
+      pointsRef.current.rotation.y += delta * 0.035;
+      pointsRef.current.rotation.x += delta * 0.012;
     }
   });
 
@@ -69,10 +68,10 @@ function GlobularClusterCore() {
         />
       </bufferGeometry>
       <pointsMaterial
-        size={0.032}
+        size={0.035}
         vertexColors
         transparent
-        opacity={0.55}
+        opacity={0.65}
         blending={THREE.AdditiveBlending}
         depthWrite={false}
       />
@@ -90,7 +89,7 @@ function ConstellationGraph({
 
   useFrame((_, delta) => {
     if (groupRef.current && !selectedPillar && !selectedWriting) {
-      groupRef.current.rotation.y += delta * 0.055;
+      groupRef.current.rotation.y += delta * 0.05;
     }
   });
 
@@ -100,7 +99,6 @@ function ConstellationGraph({
     return map;
   }, []);
 
-  // Build edges between center and pillars, pillars to pillars, and pillars to writings
   const edges = useMemo(() => {
     const list: {
       start: [number, number, number];
@@ -110,7 +108,7 @@ function ConstellationGraph({
       isSecondary?: boolean;
     }[] = [];
 
-    // Ring connections between pillars
+    // Core to pillars & pillar ring
     for (let i = 0; i < INTELLECTUAL_PILLARS.length; i++) {
       const current = INTELLECTUAL_PILLARS[i];
       const next = INTELLECTUAL_PILLARS[(i + 1) % INTELLECTUAL_PILLARS.length];
@@ -129,7 +127,7 @@ function ConstellationGraph({
       });
     }
 
-    // Connections from writings to their primary pillar
+    // Pillar to writings
     WRITINGS_DATA.forEach((w) => {
       const p = pillarMap.get(w.pillar);
       if (p) {
@@ -147,7 +145,7 @@ function ConstellationGraph({
 
   return (
     <group ref={groupRef}>
-      {/* Central Singularity / Core Question Node */}
+      {/* Central Singularity Node */}
       <Float speed={1.5} rotationIntensity={0.2} floatIntensity={0.3}>
         <mesh
           onClick={(e) => {
@@ -156,20 +154,20 @@ function ConstellationGraph({
             onSelectWriting(null);
           }}
         >
-          <sphereGeometry args={[0.24, 32, 32]} />
+          <sphereGeometry args={[0.22, 32, 32]} />
           <meshStandardMaterial
-            color="#f8fafc"
-            emissive="#38bdf8"
-            emissiveIntensity={1.6}
+            color="#ffffff"
+            emissive="#1DAEDF"
+            emissiveIntensity={1.8}
             roughness={0.1}
           />
-          <Html distanceFactor={10} position={[0, 0.42, 0]} center>
+          <Html distanceFactor={10} position={[0, 0.38, 0]} center>
             <button
               onClick={() => {
                 onSelectPillar(null);
                 onSelectWriting(null);
               }}
-              className="px-2.5 py-1 rounded-full bg-slate-950/85 border border-sky-400/50 text-[10px] font-mono tracking-wider uppercase text-sky-200 whitespace-nowrap shadow-lg backdrop-blur-md hover:bg-sky-950/90 transition cursor-pointer"
+              className="px-2.5 py-1 rounded-full bg-[#1b3a57]/90 border border-[#1DAEDF]/60 text-[10px] font-mono tracking-wider text-white whitespace-nowrap shadow-md backdrop-blur-md cursor-pointer hover:bg-[#2980b9] transition"
             >
               Core: Human + Collective Agency
             </button>
@@ -186,14 +184,14 @@ function ConstellationGraph({
             key={idx}
             points={[edge.start, edge.end]}
             color={edge.color}
-            lineWidth={isHighlighted ? (edge.isSecondary ? 0.8 : 1.4) : 0.4}
+            lineWidth={isHighlighted ? (edge.isSecondary ? 0.9 : 1.5) : 0.3}
             transparent
-            opacity={isHighlighted ? (edge.isSecondary ? 0.25 : 0.5) : 0.08}
+            opacity={isHighlighted ? (edge.isSecondary ? 0.35 : 0.6) : 0.08}
           />
         );
       })}
 
-      {/* 7 Intellectual Interest Pillar Nodes */}
+      {/* 7 Intellectual Interest Pillars */}
       {INTELLECTUAL_PILLARS.map((pillar) => {
         const isSelected = selectedPillar === pillar.id;
         const isDimmed = selectedPillar && !isSelected;
@@ -212,7 +210,7 @@ function ConstellationGraph({
                 <meshStandardMaterial
                   color={pillar.color}
                   emissive={pillar.color}
-                  emissiveIntensity={isSelected ? 2.2 : isDimmed ? 0.3 : 1.2}
+                  emissiveIntensity={isSelected ? 2.4 : isDimmed ? 0.3 : 1.3}
                 />
               </mesh>
               <Html distanceFactor={10} position={[0, 0.3, 0]} center>
@@ -221,15 +219,12 @@ function ConstellationGraph({
                     onSelectPillar(isSelected ? null : pillar.id);
                     onSelectWriting(null);
                   }}
-                  style={{
-                    borderColor: isSelected ? pillar.color : "rgba(148,163,184,0.3)",
-                  }}
-                  className={`px-2 py-0.5 rounded-md text-[10px] font-medium whitespace-nowrap transition backdrop-blur-md cursor-pointer border ${
+                  className={`px-2 py-0.5 rounded text-[10px] font-medium whitespace-nowrap transition backdrop-blur-md cursor-pointer border ${
                     isSelected
-                      ? "bg-slate-900/95 text-white shadow-lg scale-105"
+                      ? "bg-[#2980b9] border-white text-white shadow-lg scale-105"
                       : isDimmed
-                      ? "bg-slate-950/50 text-slate-500"
-                      : "bg-slate-950/80 text-slate-200 hover:text-white"
+                      ? "bg-[#0d2238]/60 border-[#2980b9]/30 text-slate-400"
+                      : "bg-[#0d2238]/85 border-[#328cc7]/60 text-slate-100 hover:border-[#1DAEDF] hover:text-white"
                   }`}
                 >
                   {pillar.shortTitle}
@@ -240,10 +235,10 @@ function ConstellationGraph({
         );
       })}
 
-      {/* 20 Writing & Artifact Satellite Nodes */}
+      {/* 20 Writing Artifact Nodes */}
       {WRITINGS_DATA.map((w) => {
         const pillar = pillarMap.get(w.pillar);
-        const color = pillar?.color || "#94a3b8";
+        const color = pillar?.color || "#1DAEDF";
         const isPillarMatch =
           !selectedPillar ||
           w.pillar === selectedPillar ||
@@ -265,7 +260,7 @@ function ConstellationGraph({
               <meshStandardMaterial
                 color={isSelected ? "#ffffff" : color}
                 emissive={color}
-                emissiveIntensity={isSelected ? 2.5 : isPillarMatch ? 1.1 : 0.15}
+                emissiveIntensity={isSelected ? 2.6 : isPillarMatch ? 1.2 : 0.15}
                 wireframe={!isPillarMatch}
               />
             </mesh>
@@ -273,7 +268,7 @@ function ConstellationGraph({
               <Html distanceFactor={10} position={[0, 0.2, 0]} center>
                 <button
                   onClick={() => onSelectWriting(w)}
-                  className="px-2 py-0.5 rounded bg-slate-900/95 border border-white/25 text-[9px] text-sky-100 max-w-[170px] truncate shadow-md cursor-pointer"
+                  className="px-2 py-0.5 rounded bg-[#102a45]/95 border border-[#1DAEDF]/50 text-[9px] text-[#e0f2fe] max-w-[160px] truncate shadow-md cursor-pointer"
                 >
                   {w.source}: {w.title}
                 </button>
@@ -288,41 +283,41 @@ function ConstellationGraph({
 
 export default function ConstellationCanvas(props: ConstellationProps) {
   return (
-    <div className="relative w-full h-[520px] lg:h-[600px] rounded-2xl overflow-hidden border border-slate-800/80 bg-gradient-to-b from-[#050814] via-[#070b1c] to-[#04060e] shadow-2xl">
+    <div className="relative w-full h-[340px] sm:h-[460px] lg:h-[580px] rounded-2xl overflow-hidden border border-[#b9d9eb] bg-gradient-to-b from-[#0b2034] via-[#102b45] to-[#081827] shadow-xl touch-manipulation">
       <Canvas
         camera={{ position: [0, 0.8, 6.2], fov: 50 }}
         gl={{ antialias: true, alpha: true }}
       >
-        <ambientLight intensity={0.6} />
-        <pointLight position={[6, 6, 6]} intensity={1.5} color="#38bdf8" />
-        <pointLight position={[-6, -4, -4]} intensity={1.0} color="#c084fc" />
+        <ambientLight intensity={0.7} />
+        <pointLight position={[6, 6, 6]} intensity={1.6} color="#1DAEDF" />
+        <pointLight position={[-6, -4, -4]} intensity={1.2} color="#2980b9" />
         <Stars
           radius={60}
           depth={40}
-          count={2200}
+          count={1800}
           factor={3}
-          saturation={0.4}
+          saturation={0.3}
           fade
-          speed={0.8}
+          speed={0.7}
         />
         <GlobularClusterCore />
         <ConstellationGraph {...props} />
         <OrbitControls
           enablePan={false}
-          minDistance={3.4}
+          minDistance={3.2}
           maxDistance={9.5}
           autoRotate={!props.selectedPillar && !props.selectedWriting}
           autoRotateSpeed={0.35}
         />
       </Canvas>
 
-      {/* Subtle HUD Overlay */}
-      <div className="pointer-events-none absolute top-4 left-4 flex flex-wrap items-center gap-2">
-        <span className="px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-800 text-[11px] font-mono text-sky-400 backdrop-blur-md">
-          THREE.JS // N-BODY &amp; CONTEXT GRAPH SIMULATION
+      {/* Responsive HUD */}
+      <div className="pointer-events-none absolute top-3 left-3 right-3 flex flex-wrap items-center justify-between gap-2">
+        <span className="px-2.5 py-1 rounded-full bg-[#0a1a2b]/85 border border-[#1DAEDF]/40 text-[10px] sm:text-[11px] font-mono text-[#7dd3fc] backdrop-blur-md">
+          THREE.JS // N-BODY DYNAMICS &amp; CONTEXT GRAPH
         </span>
-        <span className="px-2.5 py-1 rounded-full bg-slate-950/75 border border-slate-800/80 text-[11px] text-slate-400 backdrop-blur-md">
-          Drag to orbit · Scroll to zoom · Click nodes to inspect
+        <span className="hidden sm:inline-block px-2.5 py-1 rounded-full bg-[#0a1a2b]/80 border border-slate-700 text-[11px] text-slate-300 backdrop-blur-md">
+          Drag to orbit · Pinch to zoom · Tap nodes
         </span>
       </div>
     </div>

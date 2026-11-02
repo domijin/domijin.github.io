@@ -1,11 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 html {
   scroll-behavior: smooth;
-  background-color: #040711;
-  color: #f1f5f9;
+  background-color: #f8fafc;
+  color: #1e293b;
 }
+
+/* Custom scrollbar and smooth touch adjustments */
+@media (max-width: 640px) {
+  html, body {
+    overflow-x: hidden;
+  }
+}
+

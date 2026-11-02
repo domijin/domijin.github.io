@@ -15,9 +15,10 @@ const ConstellationCanvas = dynamic(
   {
     ssr: false,
     loading: () => (
-      <div className="w-full h-[520px] lg:h-[600px] rounded-2xl border border-slate-800 bg-[#050814] flex flex-col items-center justify-center text-slate-400 font-mono text-sm">
-        <div className="w-8 h-8 rounded-full border-2 border-sky-400 border-t-transparent animate-spin mb-3" />
-        Initializing Three.js N-Body &amp; Context Constellation...
+      <div className="w-full h-[360px] sm:h-[480px] lg:h-[580px] rounded-2xl border border-slate-200 bg-[#0b2034] flex flex-col items-center justify-center text-sky-200 font-mono text-xs sm:text-sm shadow-inner p-6 text-center">
+        <div className="w-8 h-8 rounded-full border-2 border-[#1DAEDF] border-t-transparent animate-spin mb-3" />
+        <span>Initializing Three.js N-Body Celestial Field...</span>
+        <span className="text-[11px] text-sky-300/70 mt-1">Modeling 1,200 stellar bodies &amp; 7 intellectual axes</span>
       </div>
     ),
   }
@@ -31,6 +32,8 @@ export default function GreenExperience() {
   const [sourceFilter, setSourceFilter] = useState<string>("All");
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [agentModalOpen, setAgentModalOpen] = useState<boolean>(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
+  const [mobileMapView, setMobileMapView] = useState<"3d" | "list">("3d");
 
   const activePillarObj = useMemo(
     () => INTELLECTUAL_PILLARS.find((p) => p.id === selectedPillar) || null,
@@ -58,49 +61,51 @@ export default function GreenExperience() {
   const sources = ["All", "Substack", "Medium", "GitHub", "Blog", "Research"];
 
   return (
-    <div className="min-h-screen bg-[#040711] text-slate-100 selection:bg-sky-500/30 selection:text-sky-200">
-      {/* Top Blue-Green Environment Switcher Bar */}
-      <div className="border-b border-emerald-500/20 bg-emerald-950/25 backdrop-blur-md">
+    <div className="min-h-screen bg-[#f8fafc] text-slate-800 selection:bg-[#1DAEDF]/20 selection:text-[#0c4a6e] font-sans antialiased">
+      {/* Discreet Environment & Protocol Ribbon */}
+      <div className="border-b border-slate-200/80 bg-white/90 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex flex-wrap items-center justify-between gap-2 text-xs">
           <div className="flex items-center gap-2.5">
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-400/40 text-emerald-300 font-mono font-medium">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              GREEN ENVIRONMENT // v2026 NEXT.JS + THREE.JS
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-sky-50 border border-[#1DAEDF]/30 text-[#0369a1] font-mono font-medium text-[11px]">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#1DAEDF] animate-pulse" />
+              GREEN ARCHITECTURE // NEXT.JS + THREE.JS
             </span>
-            <span className="text-slate-400 hidden sm:inline">
-              Interactive Context Map &amp; Agent-First Architecture
+            <span className="text-slate-500 hidden md:inline text-[11px]">
+              Interactive Knowledge Graph &amp; Machine-Readable Context
             </span>
           </div>
-          <div className="flex items-center gap-3">
+
+          <div className="flex items-center gap-3 text-xs">
             <button
               onClick={() => setAgentModalOpen(!agentModalOpen)}
-              className="text-sky-300 hover:text-sky-200 font-mono underline underline-offset-4 cursor-pointer"
+              className="text-[#2980b9] hover:text-[#1DAEDF] font-mono cursor-pointer transition flex items-center gap-1"
             >
-              {agentModalOpen ? "Hide Agent Protocol" : "AI / LLM Protocol (/llms.txt)"}
+              <span className="text-[10px]">✦</span>
+              <span>{agentModalOpen ? "Close Protocol" : "Agent Protocol (/llms.txt)"}</span>
             </button>
-            <span className="text-slate-700">|</span>
+            <span className="text-slate-300">|</span>
             <a
               href="/pages/about-me.html?env=blue"
-              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-slate-900/90 hover:bg-slate-800 border border-slate-700 text-slate-300 transition"
+              className="inline-flex items-center gap-1 text-slate-600 hover:text-[#2980b9] transition font-medium"
             >
-              <span>Switch to Blue (Classic Archive)</span>
-              <span aria-hidden="true">↗</span>
+              <span>Classic Archive</span>
+              <span aria-hidden="true" className="text-[10px]">↗</span>
             </a>
           </div>
         </div>
       </div>
 
-      {/* Collapsible Agent & Search Engine Discovery Drawer (KR 3) */}
+      {/* Machine-Readable Protocol Drawer (AEO / GEO / Autonomous Agents) */}
       {agentModalOpen && (
-        <div className="border-b border-sky-500/30 bg-slate-950/95 backdrop-blur-xl">
+        <div className="border-b border-sky-100 bg-white/95 backdrop-blur-xl shadow-md transition-all">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
               <div>
-                <p className="text-xs font-mono uppercase tracking-widest text-sky-400">
-                  KR 3 // Agent &amp; Search Engine Optimization (AEO / GEO)
+                <p className="text-[11px] font-mono uppercase tracking-widest text-[#2980b9]">
+                  Machine-Readable Context Endpoints
                 </p>
-                <h3 className="text-lg font-semibold text-white mt-0.5">
-                  Machine-Readable Context Endpoints for Autonomous Agents &amp; Stakeholders
+                <h3 className="text-base sm:text-lg font-semibold text-slate-900 mt-0.5">
+                  Structured Epistemic Context for Autonomous Systems &amp; Evaluators
                 </h3>
               </div>
               <div className="flex flex-wrap gap-2">
@@ -108,7 +113,7 @@ export default function GreenExperience() {
                   href="/llms.txt"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-3 py-1.5 rounded-lg bg-sky-500/15 border border-sky-400/40 text-sky-200 text-xs font-mono hover:bg-sky-500/25 transition"
+                  className="px-3 py-1.5 rounded-lg bg-sky-50 border border-sky-200 text-[#0369a1] text-xs font-mono hover:bg-sky-100 transition"
                 >
                   GET /llms.txt ↗
                 </a>
@@ -116,7 +121,7 @@ export default function GreenExperience() {
                   href="/llms-full.txt"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-3 py-1.5 rounded-lg bg-indigo-500/15 border border-indigo-400/40 text-indigo-200 text-xs font-mono hover:bg-indigo-500/25 transition"
+                  className="px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-700 text-xs font-mono hover:bg-slate-100 transition"
                 >
                   GET /llms-full.txt ↗
                 </a>
@@ -124,169 +129,247 @@ export default function GreenExperience() {
                   href="/agent-context.json"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-3 py-1.5 rounded-lg bg-emerald-500/15 border border-emerald-400/40 text-emerald-200 text-xs font-mono hover:bg-emerald-500/25 transition"
+                  className="px-3 py-1.5 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-mono hover:bg-emerald-100 transition"
                 >
                   GET /agent-context.json ↗
                 </a>
               </div>
             </div>
-            <pre className="p-4 rounded-xl bg-[#02040a] border border-slate-800 text-xs font-mono text-slate-300 overflow-x-auto leading-relaxed">
-{`# Quick Agent Verification & Context Ingestion
-curl -s https://domij.info/llms.txt          # Concise Markdown Context Map & Persona
-curl -s https://domij.info/llms-full.txt     # Deep 7-Pillar Synthesis & Full Writing Archive
+            <pre className="p-4 rounded-xl bg-slate-900 text-slate-100 text-xs font-mono overflow-x-auto leading-relaxed shadow-sm">
+{`# Machine-verifiable endpoints for AI evaluators and researchers
+curl -s https://domij.info/llms.txt          # Concise Markdown synthesis & intellectual interests
+curl -s https://domij.info/llms-full.txt     # Deep 7-pillar trajectory & complete writing index
 curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInterests'`}
             </pre>
           </div>
         </div>
       )}
 
-      {/* Sticky Navigation Header */}
-      <header className="sticky top-0 z-40 border-b border-slate-800/80 bg-[#040711]/85 backdrop-blur-xl">
+      {/* Primary Sticky Header */}
+      <header className="sticky top-0 z-40 border-b border-slate-200/90 bg-white/95 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+          {/* Logo / Identity */}
           <a href="#top" className="flex items-center gap-3 group">
             <img
               src="/images/Photo.JPG"
               alt="Domi Jin"
-              className="w-9 h-9 rounded-full object-cover border border-sky-400/50 group-hover:border-sky-300 transition"
+              className="w-9 h-9 rounded-full object-cover border-2 border-[#1DAEDF]/80 group-hover:border-[#2980b9] transition shadow-sm"
             />
             <div>
-              <span className="font-semibold tracking-tight text-white block leading-none">
+              <span className="font-bold tracking-tight text-slate-900 group-hover:text-[#2980b9] transition block leading-tight">
                 {PERSONA_DATA.name}
               </span>
-              <span className="text-[11px] font-mono text-slate-400 block mt-0.5">
-                {PERSONA_DATA.tagline}
+              <span className="text-[11px] font-mono text-[#2980b9] block font-medium">
+                {PERSONA_DATA.roles.join(" ")}
               </span>
             </div>
           </a>
 
-          <nav className="hidden md:flex items-center gap-6 text-sm text-slate-300">
-            <a href="#mission" className="hover:text-white transition">
-              Trajectory &amp; Philosophy
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-slate-600">
+            <a href="#trajectory" className="hover:text-[#2980b9] transition">
+              Trajectory
             </a>
-            <a href="#constellation" className="hover:text-white transition">
-              3D Context Map
+            <a href="#constellation" className="hover:text-[#2980b9] transition">
+              Context Map
             </a>
-            <a href="#systems" className="hover:text-white transition">
-              Systems &amp; Protocols
+            <a href="#systems" className="hover:text-[#2980b9] transition">
+              Systems
             </a>
-            <a href="#writings" className="hover:text-white transition">
-              Public Writings ({WRITINGS_DATA.length})
+            <a href="#writings" className="hover:text-[#2980b9] transition">
+              Monographs ({WRITINGS_DATA.length})
             </a>
-            <a href="#connect" className="hover:text-white transition">
-              What I’m Looking For
+            <a href="#inquiries" className="hover:text-[#2980b9] transition">
+              Discourse
             </a>
           </nav>
 
-          <div className="flex items-center gap-2.5">
+          {/* Desktop Direct Links & Mobile Toggle */}
+          <div className="flex items-center gap-3">
             <a
               href="https://domijin.substack.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:inline-flex px-3 py-1.5 rounded-lg border border-slate-700 hover:border-slate-500 text-xs font-medium text-slate-200 transition"
+              className="hidden sm:inline-flex px-3 py-1.5 rounded-lg border border-slate-200 hover:border-[#1DAEDF] text-xs font-medium text-slate-700 hover:text-[#2980b9] transition bg-white"
             >
               Substack ↗
             </a>
             <a
-              href="#connect"
-              className="px-3.5 py-1.5 rounded-lg bg-sky-500 hover:bg-sky-400 text-slate-950 font-semibold text-xs transition shadow-lg shadow-sky-500/20"
+              href="#inquiries"
+              className="hidden sm:inline-flex px-4 py-1.5 rounded-lg bg-[#2980b9] hover:bg-[#20638f] text-white font-medium text-xs transition shadow-sm"
             >
-              Connect
+              Discourse
             </a>
+
+            {/* Mobile Hamburger Button */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle navigation menu"
+              className="md:hidden p-2 rounded-lg border border-slate-200 text-slate-700 hover:bg-slate-100 transition cursor-pointer"
+            >
+              {mobileMenuOpen ? (
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              )}
+            </button>
           </div>
         </div>
-      </header>
 
-      <main id="top" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-24">
-        {/* HERO SECTION + SEEDING MISSION */}
-        <section className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center pt-4">
-          <div className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-400/30 text-sky-300 text-xs font-mono">
-              <span>PH.D. COMPUTATIONAL ASTROPHYSICS</span>
-              <span>·</span>
-              <span>APPLIED ML</span>
-              <span>·</span>
-              <span>FOUNDER</span>
-            </div>
-
-            <div className="space-y-2">
-              <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-white">
-                {PERSONA_DATA.name}
-              </h1>
-              <p className="text-2xl sm:text-3xl font-semibold bg-gradient-to-r from-sky-300 via-indigo-300 to-purple-300 bg-clip-text text-transparent">
-                {PERSONA_DATA.roles.join(" ")}
-              </p>
-              <p className="text-lg font-mono text-slate-400">
-                {PERSONA_DATA.tagline}
-              </p>
-            </div>
-
-            <div className="p-5 rounded-2xl bg-slate-900/60 border border-slate-800/90 space-y-3">
-              <p className="text-xs font-mono uppercase tracking-widest text-sky-400">
-                Mission
-              </p>
-              <p className="text-lg sm:text-xl text-slate-100 leading-relaxed font-medium">
-                {PERSONA_DATA.mission}
-              </p>
-              <div className="pt-2 border-t border-slate-800/80">
-                <p className="text-xs font-mono uppercase tracking-widest text-indigo-400 mb-1">
-                  Central Question
-                </p>
-                <p className="text-sm sm:text-base text-slate-300 italic">
-                  “{PERSONA_DATA.centralQuestion}”
-                </p>
-              </div>
-            </div>
-
-            <div className="flex flex-wrap items-center gap-3 pt-1">
+        {/* Mobile Navigation Drawer */}
+        {mobileMenuOpen && (
+          <div className="md:hidden border-b border-slate-200 bg-white/98 backdrop-blur-2xl px-4 py-4 space-y-3 shadow-lg">
+            <nav className="flex flex-col space-y-2 text-sm font-medium text-slate-700">
               <a
-                href="#constellation"
-                className="px-5 py-2.5 rounded-xl bg-sky-500 hover:bg-sky-400 text-slate-950 font-semibold text-sm transition shadow-lg shadow-sky-500/20"
+                href="#trajectory"
+                onClick={() => setMobileMenuOpen(false)}
+                className="px-3 py-2 rounded-lg hover:bg-sky-50 hover:text-[#2980b9] transition"
               >
-                Explore 3D Context Map
+                Trajectory &amp; Foundations
               </a>
               <a
-                href="#connect"
-                className="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-100 font-medium text-sm transition"
+                href="#constellation"
+                onClick={() => setMobileMenuOpen(false)}
+                className="px-3 py-2 rounded-lg hover:bg-sky-50 hover:text-[#2980b9] transition"
               >
-                For AI Teams &amp; Investors
+                Context Constellation (3D Map)
+              </a>
+              <a
+                href="#systems"
+                onClick={() => setMobileMenuOpen(false)}
+                className="px-3 py-2 rounded-lg hover:bg-sky-50 hover:text-[#2980b9] transition"
+              >
+                Selected Systems &amp; Protocols
+              </a>
+              <a
+                href="#writings"
+                onClick={() => setMobileMenuOpen(false)}
+                className="px-3 py-2 rounded-lg hover:bg-sky-50 hover:text-[#2980b9] transition"
+              >
+                Monographs &amp; Essays ({WRITINGS_DATA.length})
+              </a>
+              <a
+                href="#inquiries"
+                onClick={() => setMobileMenuOpen(false)}
+                className="px-3 py-2 rounded-lg hover:bg-sky-50 hover:text-[#2980b9] transition"
+              >
+                Discourse &amp; Inquiries
+              </a>
+            </nav>
+
+            <div className="pt-3 border-t border-slate-100 flex items-center justify-between gap-3 text-xs">
+              <a
+                href="https://domijin.substack.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#2980b9] font-medium"
+              >
+                Substack ↗
               </a>
               <a
                 href="https://github.com/domijin"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2.5 rounded-xl bg-slate-950 hover:bg-slate-900 border border-slate-800 text-slate-300 text-sm font-mono transition"
+                className="text-slate-600 hover:text-[#2980b9]"
               >
                 GitHub ↗
               </a>
               <a
-                href="https://www.linkedin.com/in/domijin"
+                href="/llms.txt"
+                className="font-mono text-slate-500 hover:text-[#2980b9]"
+              >
+                /llms.txt
+              </a>
+            </div>
+          </div>
+        )}
+      </header>
+
+      <main id="top" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-20 sm:space-y-28">
+        {/* HERO SECTION // AESTHETIC MONOGRAPH & SOVEREIGN INTELLECT */}
+        <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <div className="lg:col-span-7 space-y-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#1DAEDF]/40 text-[#0284c7] text-xs font-mono shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-[#1DAEDF]" />
+              <span>COMPUTATIONAL ASTROPHYSICS</span>
+              <span className="text-slate-300">·</span>
+              <span>DECISION SYSTEMS</span>
+              <span className="text-slate-300">·</span>
+              <span>HUMAN-AI AGENCY</span>
+            </div>
+
+            <div className="space-y-3">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-tight">
+                {PERSONA_DATA.name}
+              </h1>
+              <p className="text-2xl sm:text-3xl font-semibold text-[#2980b9] tracking-tight">
+                {PERSONA_DATA.tagline}
+              </p>
+              <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal pt-1">
+                {PERSONA_DATA.mission}
+              </p>
+            </div>
+
+            {/* Central Scientific & Philosophical Inscription */}
+            <div className="p-6 rounded-2xl bg-white border border-slate-200/90 shadow-[0_2px_12px_rgba(41,128,185,0.06)] space-y-3">
+              <p className="text-[11px] font-mono uppercase tracking-widest text-[#2980b9] font-semibold">
+                Central Inquiry
+              </p>
+              <blockquote className="text-base sm:text-lg text-slate-800 leading-relaxed font-serif italic border-l-2 border-[#1DAEDF] pl-4">
+                &ldquo;{PERSONA_DATA.centralQuestion}&rdquo;
+              </blockquote>
+              <p className="text-xs text-slate-500 pt-2 border-t border-slate-100 font-sans">
+                {PERSONA_DATA.epistemicDisclaimer}
+              </p>
+            </div>
+
+            {/* Poised Action Row */}
+            <div className="flex flex-wrap items-center gap-3 pt-2">
+              <a
+                href="#constellation"
+                className="px-5 py-2.5 rounded-xl bg-[#2980b9] hover:bg-[#20638f] text-white font-medium text-sm transition shadow-sm"
+              >
+                Explore Context Constellation
+              </a>
+              <a
+                href="#trajectory"
+                className="px-5 py-2.5 rounded-xl bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 font-medium text-sm transition shadow-xs"
+              >
+                Read Foundations
+              </a>
+              <a
+                href="https://domijin.substack.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2.5 rounded-xl bg-slate-950 hover:bg-slate-900 border border-slate-800 text-slate-300 text-sm font-mono transition"
+                className="px-4 py-2.5 rounded-xl bg-white hover:bg-slate-50 border border-slate-200 text-[#2980b9] font-medium text-sm transition shadow-xs"
               >
-                LinkedIn ↗
+                Domi&rsquo;s Mind Waves ↗
               </a>
             </div>
           </div>
 
-          {/* Right Column: Executive Synthesis Card for Critical Stakeholders */}
+          {/* Right Column: Architectural Provenance Card */}
           <div className="lg:col-span-5">
-            <div className="rounded-2xl border border-slate-800 bg-gradient-to-b from-slate-900/80 to-slate-950/90 p-6 shadow-2xl space-y-5">
-              <div className="flex items-center justify-between border-b border-slate-800 pb-4">
+            <div className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-7 shadow-[0_4px_20px_rgba(41,128,185,0.07)] space-y-6">
+              <div className="flex items-center justify-between border-b border-slate-100 pb-4">
                 <div>
-                  <span className="text-[11px] font-mono uppercase tracking-widest text-emerald-400 block">
-                    Persona &amp; Trust Alignment
+                  <span className="text-[11px] font-mono uppercase tracking-wider text-[#2980b9] font-semibold block">
+                    Provenance &amp; Trajectory
                   </span>
-                  <h2 className="text-lg font-semibold text-white">
-                    Why First Principles × Real-World Systems
+                  <h2 className="text-lg font-bold text-slate-900 mt-0.5">
+                    First Principles × Real-World Scale
                   </h2>
                 </div>
-                <span className="px-2.5 py-1 rounded bg-slate-800 text-[11px] font-mono text-slate-300">
-                  2013 → 2026
+                <span className="px-2.5 py-1 rounded-md bg-sky-50 border border-sky-100 text-[11px] font-mono text-[#0369a1] font-medium">
+                  2013 &rarr; Present
                 </span>
               </div>
 
-              <div className="space-y-4 text-sm text-slate-300 leading-relaxed">
+              <div className="space-y-4 text-sm text-slate-600 leading-relaxed font-sans">
                 <p>
                   {PERSONA_DATA.background[0].narrative}
                 </p>
@@ -298,29 +381,30 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
                 </p>
               </div>
 
-              <div className="grid grid-cols-3 gap-2 pt-2 border-t border-slate-800/80 text-center">
-                <div className="p-2.5 rounded-xl bg-slate-900/70 border border-slate-800/70">
-                  <div className="text-base font-bold text-sky-300 font-mono">
+              {/* Undeniable Provenance Metrics */}
+              <div className="grid grid-cols-3 gap-2.5 pt-3 border-t border-slate-100 text-center">
+                <div className="p-3 rounded-xl bg-[#f8fafc] border border-slate-200/80">
+                  <div className="text-base sm:text-lg font-bold text-[#2980b9] font-mono">
                     3,140
                   </div>
-                  <div className="text-[11px] text-slate-400">
-                    HPC N-Body Sims (&gt;100 TB)
+                  <div className="text-[11px] text-slate-500 font-medium leading-tight mt-0.5">
+                    HPC Sims (&gt;100 TB)
                   </div>
                 </div>
-                <div className="p-2.5 rounded-xl bg-slate-900/70 border border-slate-800/70">
-                  <div className="text-base font-bold text-indigo-300 font-mono">
+                <div className="p-3 rounded-xl bg-[#f8fafc] border border-slate-200/80">
+                  <div className="text-base sm:text-lg font-bold text-[#1DAEDF] font-mono">
                     &lt;50ms
                   </div>
-                  <div className="text-[11px] text-slate-400">
-                    Real-Time ML &amp; Agent Spec
+                  <div className="text-[11px] text-slate-500 font-medium leading-tight mt-0.5">
+                    Real-Time Inference
                   </div>
                 </div>
-                <div className="p-2.5 rounded-xl bg-slate-900/70 border border-slate-800/70">
-                  <div className="text-base font-bold text-emerald-300 font-mono">
+                <div className="p-3 rounded-xl bg-[#f8fafc] border border-slate-200/80">
+                  <div className="text-base sm:text-lg font-bold text-[#2980b9] font-mono">
                     7 Pillars
                   </div>
-                  <div className="text-[11px] text-slate-400">
-                    Unified Context Graph
+                  <div className="text-[11px] text-slate-500 font-medium leading-tight mt-0.5">
+                    Unified Graph
                   </div>
                 </div>
               </div>
@@ -328,32 +412,60 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
           </div>
         </section>
 
-        {/* INTERACTIVE 3D THREE.JS CONTEXT CONSTELLATION (KR 1 & KR 4) */}
-        <section id="constellation" className="space-y-6 scroll-mt-20">
+        {/* 3D KNOWLEDGE CONSTELLATION SECTION */}
+        <section id="constellation" className="space-y-6 scroll-mt-24">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div className="space-y-2">
-              <p className="text-xs font-mono uppercase tracking-widest text-sky-400">
-                KR 1 &amp; KR 4 // Interactive Three.js Knowledge Constellation
-              </p>
-              <h2 className="text-2xl sm:text-3xl font-bold text-white">
-                Intellectual Interests &amp; Public Writings Context Map
+              <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#2980b9] font-semibold">
+                <span>Interactive Knowledge Graph</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+                Context Constellation
               </h2>
-              <p className="text-sm text-slate-400 max-w-3xl">
-                Inspired by $10^6$-body globular cluster simulations: the 7 core spheres represent continuing intellectual interests, while the orbiting polyhedra represent 20 public essays and open-source specifications across Substack, Medium, GitHub, and research archives.
+              <p className="text-sm text-slate-600 max-w-3xl leading-relaxed">
+                Derived from $10^6$-body globular cluster dynamics: 7 central spheres represent interconnected intellectual inquiries, while orbiting nodes chart public monographs across Substack, Medium, GitHub, and scientific archives.
               </p>
             </div>
-            {selectedPillar && (
-              <button
-                onClick={() => setSelectedPillar(null)}
-                className="self-start md:self-auto px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-mono text-sky-300 transition cursor-pointer"
-              >
-                Reset Pillar Filter ✕
-              </button>
-            )}
+
+            {/* Mobile View Toggle & Filter Reset */}
+            <div className="flex items-center gap-2 self-start md:self-auto">
+              {/* Mobile View Switcher */}
+              <div className="flex lg:hidden rounded-lg bg-slate-200/70 p-1 text-xs font-medium">
+                <button
+                  onClick={() => setMobileMapView("3d")}
+                  className={`px-3 py-1 rounded-md transition ${
+                    mobileMapView === "3d"
+                      ? "bg-white text-[#2980b9] shadow-xs font-semibold"
+                      : "text-slate-600 hover:text-slate-900"
+                  }`}
+                >
+                  3D View
+                </button>
+                <button
+                  onClick={() => setMobileMapView("list")}
+                  className={`px-3 py-1 rounded-md transition ${
+                    mobileMapView === "list"
+                      ? "bg-white text-[#2980b9] shadow-xs font-semibold"
+                      : "text-slate-600 hover:text-slate-900"
+                  }`}
+                >
+                  List View
+                </button>
+              </div>
+
+              {selectedPillar && (
+                <button
+                  onClick={() => setSelectedPillar(null)}
+                  className="px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-xs font-mono text-[#2980b9] hover:bg-slate-50 transition cursor-pointer shadow-xs"
+                >
+                  Reset Focus ✕
+                </button>
+              )}
+            </div>
           </div>
 
           {/* 7 Intellectual Interest Filter Pills */}
-          <div className="flex flex-wrap gap-2">
+          <div className="flex items-center gap-2 overflow-x-auto pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 no-scrollbar">
             {INTELLECTUAL_PILLARS.map((pillar) => {
               const active = selectedPillar === pillar.id;
               return (
@@ -362,18 +474,15 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
                   onClick={() =>
                     setSelectedPillar(active ? null : pillar.id)
                   }
-                  style={{
-                    borderColor: active ? pillar.color : undefined,
-                  }}
-                  className={`px-3 py-1.5 rounded-xl text-xs font-medium transition flex items-center gap-2 cursor-pointer border ${
+                  className={`px-3.5 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition flex items-center gap-2 cursor-pointer border shrink-0 ${
                     active
-                      ? "bg-slate-900 text-white shadow-lg"
-                      : "bg-slate-900/50 border-slate-800 text-slate-300 hover:border-slate-700 hover:text-white"
+                      ? "bg-[#2980b9] border-[#2980b9] text-white shadow-sm"
+                      : "bg-white border-slate-200 text-slate-700 hover:border-[#1DAEDF] hover:text-[#2980b9]"
                   }`}
                 >
                   <span
-                    className="w-2.5 h-2.5 rounded-full"
-                    style={{ backgroundColor: pillar.color }}
+                    className="w-2 h-2 rounded-full"
+                    style={{ backgroundColor: active ? "#ffffff" : pillar.color }}
                   />
                   <span>{pillar.title}</span>
                 </button>
@@ -381,24 +490,65 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
             })}
           </div>
 
-          {/* 3D Canvas + Live Node Inspector Split View */}
+          {/* Dual View Display: 3D Canvas vs Structured List on Mobile */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-            <div className="lg:col-span-8">
+            <div className={`lg:col-span-8 ${mobileMapView === "list" ? "hidden lg:block" : "block"}`}>
               <ConstellationCanvas
                 selectedPillar={selectedPillar}
                 onSelectPillar={setSelectedPillar}
                 selectedWriting={selectedWriting}
                 onSelectWriting={setSelectedWriting}
               />
+              <div className="mt-2 flex items-center justify-between text-[11px] text-slate-500 font-mono px-1">
+                <span>✦ Orbit: Drag · Zoom: Pinch / Scroll · Inspect: Tap node</span>
+                <span className="hidden sm:inline">N-Body gravitational simulation</span>
+              </div>
             </div>
 
-            {/* Right Panel: Selected Pillar + Writing Inspector */}
+            {/* Mobile-Only Structured List View for Quick Reading */}
+            {mobileMapView === "list" && (
+              <div className="lg:hidden col-span-1 space-y-4">
+                <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-xs space-y-3">
+                  <span className="text-[11px] font-mono uppercase tracking-wider text-[#2980b9] font-medium">
+                    Structured Pillar Index
+                  </span>
+                  <div className="space-y-3">
+                    {INTELLECTUAL_PILLARS.map((p) => (
+                      <div
+                        key={p.id}
+                        onClick={() => setSelectedPillar(p.id)}
+                        className={`p-3 rounded-lg border transition cursor-pointer ${
+                          selectedPillar === p.id
+                            ? "bg-sky-50 border-[#1DAEDF]"
+                            : "bg-[#f8fafc] border-slate-200 hover:border-slate-300"
+                        }`}
+                      >
+                        <div className="flex items-center justify-between">
+                          <h4 className="text-sm font-semibold text-slate-900">
+                            {p.title}
+                          </h4>
+                          <span
+                            className="w-2.5 h-2.5 rounded-full"
+                            style={{ backgroundColor: p.color }}
+                          />
+                        </div>
+                        <p className="text-xs text-slate-600 italic mt-1">
+                          &ldquo;{p.question}&rdquo;
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Context Inspector Panel */}
             <div className="lg:col-span-4 space-y-4">
               {/* Active Pillar Card */}
-              <div className="p-5 rounded-2xl bg-slate-900/75 border border-slate-800 space-y-3">
+              <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="text-[11px] font-mono uppercase tracking-wider text-slate-400">
-                    {activePillarObj ? "Selected Pillar" : "All 7 Intellectual Interests"}
+                  <span className="text-[11px] font-mono uppercase tracking-wider text-slate-500 font-medium">
+                    {activePillarObj ? "Focused Pillar" : "Intellectual Interconnections"}
                   </span>
                   {activePillarObj && (
                     <span
@@ -410,62 +560,62 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
 
                 {activePillarObj ? (
                   <>
-                    <h3 className="text-lg font-bold text-white">
+                    <h3 className="text-lg font-bold text-slate-900">
                       {activePillarObj.title}
                     </h3>
-                    <p className="text-sm font-medium text-sky-300 italic">
-                      “{activePillarObj.question}”
+                    <p className="text-sm font-medium text-[#2980b9] italic">
+                      &ldquo;{activePillarObj.question}&rdquo;
                     </p>
-                    <p className="text-xs text-slate-300 leading-relaxed">
+                    <p className="text-xs text-slate-600 leading-relaxed">
                       {activePillarObj.synthesis}
                     </p>
                   </>
                 ) : (
                   <>
-                    <h3 className="text-base font-semibold text-white">
-                      Interconnected Inquiry
+                    <h3 className="text-base font-semibold text-slate-900">
+                      Unified Intellectual Graph
                     </h3>
-                    <p className="text-xs text-slate-300 leading-relaxed">
-                      Click any colored sphere in the 3D constellation (or a pill above) to isolate an intellectual pillar and inspect its connected essays and open-source artifacts.
+                    <p className="text-xs text-slate-600 leading-relaxed">
+                      Select any node in the constellation to focus on an inquiry domain and inspect its corresponding public essays, formal papers, and open specifications.
                     </p>
                   </>
                 )}
 
-                <div className="pt-2 border-t border-slate-800/80 text-[11px] text-slate-400 italic">
+                <div className="pt-3 border-t border-slate-100 text-[11px] text-slate-400 italic">
                   {PERSONA_DATA.epistemicDisclaimer}
                 </div>
               </div>
 
-              {/* Selected Writing / Artifact Card */}
+              {/* Selected Monograph Inspector */}
               {selectedWriting && (
-                <div className="p-5 rounded-2xl bg-gradient-to-b from-slate-900 to-slate-950 border border-sky-500/30 space-y-3 shadow-xl">
+                <div className="p-6 rounded-2xl bg-white border-2 border-[#1DAEDF]/50 shadow-md space-y-3">
                   <div className="flex items-center justify-between gap-2">
-                    <span className="px-2 py-0.5 rounded bg-sky-500/15 border border-sky-400/30 text-[11px] font-mono text-sky-300">
+                    <span className="px-2.5 py-0.5 rounded bg-sky-50 text-[11px] font-mono text-[#0369a1] font-medium border border-sky-100">
                       {selectedWriting.source} · {selectedWriting.date}
                     </span>
                     <a
                       href={selectedWriting.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-xs font-mono text-sky-400 hover:text-sky-300 underline underline-offset-4"
+                      className="text-xs font-medium text-[#2980b9] hover:text-[#1DAEDF] underline underline-offset-4"
                     >
                       Read Source ↗
                     </a>
                   </div>
 
-                  <h4 className="text-base font-semibold text-white leading-snug">
+                  <h4 className="text-base font-bold text-slate-900 leading-snug">
                     {selectedWriting.title}
                   </h4>
 
-                  <p className="text-xs text-slate-300 leading-relaxed">
+                  <p className="text-xs text-slate-600 leading-relaxed">
                     {selectedWriting.summary}
                   </p>
 
-                  <div className="p-3 rounded-xl bg-slate-950/90 border border-slate-800/90">
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-emerald-400 block mb-1">
-                      Core Takeaway / First-Principles Insight
+                  <div className="p-3.5 rounded-xl bg-[#f8fafc] border border-slate-200/90 space-y-1">
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-[#2980b9] font-semibold block">
+                      Core Insight
                     </span>
-                    <p className="text-xs text-slate-200 leading-relaxed">
+                    <p className="text-xs text-slate-700 leading-relaxed">
                       {selectedWriting.keyInsight}
                     </p>
                   </div>
@@ -475,46 +625,46 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
           </div>
         </section>
 
-        {/* BACKGROUND TRAJECTORY & PHILOSOPHY (KR 2) */}
-        <section id="mission" className="space-y-12 scroll-mt-20">
+        {/* FOUNDATIONS & TRAJECTORY SECTION */}
+        <section id="trajectory" className="space-y-10 scroll-mt-24">
           <div className="space-y-2">
-            <p className="text-xs font-mono uppercase tracking-widest text-indigo-400">
-              KR 2 // Coherent Trajectory &amp; Epistemic Trustworthiness
-            </p>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              Background &amp; Philosophy
+            <span className="text-xs font-mono uppercase tracking-widest text-[#2980b9] font-semibold">
+              Trajectory &amp; Epistemic Foundations
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+              From Multi-Body Physics to Human-Centered Intelligence
             </h2>
-            <p className="text-sm text-slate-400 max-w-3xl">
-              From fundamental physics simulations to real-time decision systems and zero-to-one human-centered ventures.
+            <p className="text-sm text-slate-600 max-w-3xl leading-relaxed">
+              A continuous thread: testing hypotheses, building real-world systems, and measuring outcomes against empirical reality.
             </p>
           </div>
 
-          {/* 3 Background Stages */}
+          {/* 3 Stage Monograph Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {PERSONA_DATA.background.map((item) => (
               <div
                 key={item.id}
-                className="p-6 rounded-2xl bg-slate-900/60 border border-slate-800/90 flex flex-col justify-between space-y-5 hover:border-slate-700 transition"
+                className="p-6 rounded-2xl bg-white border border-slate-200 hover:border-[#1DAEDF] transition-all flex flex-col justify-between space-y-5 shadow-xs hover:shadow-md"
               >
                 <div className="space-y-3">
-                  <span className="text-xs font-mono text-sky-400 block">
+                  <span className="text-xs font-mono text-[#2980b9] font-semibold block">
                     {item.stage}
                   </span>
-                  <h3 className="text-lg font-bold text-white">
+                  <h3 className="text-lg font-bold text-slate-900">
                     {item.title}
                   </h3>
-                  <p className="text-xs font-mono text-slate-400">
+                  <p className="text-xs font-mono text-slate-500">
                     {item.period}
                   </p>
-                  <p className="text-sm text-slate-200 leading-relaxed pt-1">
+                  <p className="text-sm text-slate-600 leading-relaxed pt-1">
                     {item.narrative}
                   </p>
                 </div>
 
-                <ul className="space-y-2 pt-4 border-t border-slate-800/80 text-xs text-slate-400">
+                <ul className="space-y-2 pt-4 border-t border-slate-100 text-xs text-slate-600">
                   {item.proofPoints.map((pt, i) => (
                     <li key={i} className="flex items-start gap-2">
-                      <span className="text-sky-400 mt-0.5">▹</span>
+                      <span className="text-[#1DAEDF] mt-0.5 font-bold">▹</span>
                       <span>{pt}</span>
                     </li>
                   ))}
@@ -523,19 +673,21 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
             ))}
           </div>
 
-          {/* Philosophy Cards + 7 Intellectual Interests Explicit Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          {/* Working Principles & 7 Pillars Exploration */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start pt-4">
             <div className="lg:col-span-5 space-y-4">
-              <h3 className="text-xl font-bold text-white">Philosophy</h3>
+              <h3 className="text-xl font-bold text-slate-900">
+                Working Principles
+              </h3>
               {PERSONA_DATA.philosophy.map((phil, idx) => (
                 <div
                   key={idx}
-                  className="p-5 rounded-2xl bg-slate-900/50 border border-slate-800/80 space-y-2"
+                  className="p-5 rounded-2xl bg-white border border-slate-200 space-y-2 shadow-xs"
                 >
-                  <h4 className="text-sm font-semibold text-sky-300">
+                  <h4 className="text-sm font-bold text-[#2980b9]">
                     {phil.title}
                   </h4>
-                  <p className="text-sm text-slate-300 leading-relaxed">
+                  <p className="text-sm text-slate-600 leading-relaxed">
                     {phil.body}
                   </p>
                 </div>
@@ -544,10 +696,10 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
 
             <div className="lg:col-span-7 space-y-4">
               <div className="flex items-center justify-between">
-                <h3 className="text-xl font-bold text-white">
-                  Intellectual Interests
+                <h3 className="text-xl font-bold text-slate-900">
+                  Continuing Intellectual Inquiries
                 </h3>
-                <span className="text-xs font-mono text-slate-400">
+                <span className="text-xs font-mono text-slate-500">
                   7 Interconnected Domains
                 </span>
               </div>
@@ -562,10 +714,10 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
                         .getElementById("constellation")
                         ?.scrollIntoView({ behavior: "smooth" });
                     }}
-                    className="text-left p-4 rounded-xl bg-slate-900/45 hover:bg-slate-900 border border-slate-800/90 hover:border-slate-700 transition space-y-1.5 cursor-pointer group"
+                    className="text-left p-4 rounded-xl bg-white hover:bg-sky-50/50 border border-slate-200 hover:border-[#1DAEDF] transition space-y-1.5 cursor-pointer group shadow-xs hover:shadow-sm"
                   >
                     <div className="flex items-center justify-between">
-                      <span className="text-sm font-semibold text-white group-hover:text-sky-300 transition">
+                      <span className="text-sm font-semibold text-slate-900 group-hover:text-[#2980b9] transition">
                         {pillar.title}
                       </span>
                       <span
@@ -573,31 +725,31 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
                         style={{ backgroundColor: pillar.color }}
                       />
                     </div>
-                    <p className="text-xs text-slate-300 leading-relaxed">
+                    <p className="text-xs text-slate-600 leading-relaxed">
                       {pillar.question}
                     </p>
                   </button>
                 ))}
               </div>
 
-              <p className="text-xs text-slate-400 italic px-1">
+              <p className="text-xs text-slate-500 italic px-1">
                 * {PERSONA_DATA.epistemicDisclaimer}
               </p>
             </div>
           </div>
         </section>
 
-        {/* OPEN-SOURCE & FOUNDER SYSTEMS (VERIFIABLE ARTIFACTS) */}
-        <section id="systems" className="space-y-8 scroll-mt-20">
+        {/* SELECTED SYSTEMS & OPEN PROTOCOLS */}
+        <section id="systems" className="space-y-8 scroll-mt-24">
           <div className="space-y-2">
-            <p className="text-xs font-mono uppercase tracking-widest text-emerald-400">
-              An Engineer’s Hands // Verifiable Systems &amp; Open Protocols
-            </p>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              Selected Open-Source &amp; Founder Projects
+            <span className="text-xs font-mono uppercase tracking-widest text-[#2980b9] font-semibold">
+              An Engineer&rsquo;s Hands // Verifiable Systems
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+              Selected Systems &amp; Protocols
             </h2>
-            <p className="text-sm text-slate-400 max-w-3xl">
-              Challenge assumptions, build working systems, measure outcomes with signed receipts and preregistered ledgers, and revise our understanding.
+            <p className="text-sm text-slate-600 max-w-3xl leading-relaxed">
+              Moving beyond theoretical assertions toward executable code, reproducible benchmarks, and verifiable human empowerment.
             </p>
           </div>
 
@@ -605,36 +757,36 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
             {OPEN_PROJECTS.map((proj) => (
               <div
                 key={proj.id}
-                className="p-6 rounded-2xl bg-slate-900/60 border border-slate-800/90 hover:border-sky-500/40 transition flex flex-col justify-between space-y-5"
+                className="p-6 rounded-2xl bg-white border border-slate-200 hover:border-[#1DAEDF] transition flex flex-col justify-between space-y-5 shadow-xs hover:shadow-md"
               >
                 <div className="space-y-3">
                   <div className="flex items-center justify-between gap-2">
-                    <span className="text-[11px] font-mono text-sky-400">
+                    <span className="text-[11px] font-mono text-[#0369a1] font-semibold px-2 py-0.5 rounded bg-sky-50 border border-sky-100">
                       {proj.category}
                     </span>
                     <a
                       href={proj.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-xs font-mono text-slate-300 hover:text-white underline underline-offset-4"
+                      className="text-xs font-medium text-[#2980b9] hover:text-[#1DAEDF] underline underline-offset-4"
                     >
                       Inspect ↗
                     </a>
                   </div>
 
-                  <h3 className="text-lg font-bold text-white">{proj.name}</h3>
-                  <p className="text-xs font-medium text-indigo-300">
+                  <h3 className="text-lg font-bold text-slate-900">{proj.name}</h3>
+                  <p className="text-xs font-medium text-[#2980b9]">
                     {proj.tagline}
                   </p>
-                  <p className="text-xs text-slate-300 leading-relaxed">
+                  <p className="text-xs text-slate-600 leading-relaxed">
                     {proj.description}
                   </p>
                 </div>
 
-                <div className="space-y-3 pt-3 border-t border-slate-800/80">
-                  <div className="text-[11px] text-slate-400">
-                    <span className="font-mono text-emerald-400 block mb-0.5">
-                      Verification Contract:
+                <div className="space-y-3 pt-3 border-t border-slate-100">
+                  <div className="text-[11px] text-slate-600">
+                    <span className="font-mono text-slate-900 font-semibold block mb-0.5">
+                      Protocol Specification:
                     </span>
                     {proj.verificationArtifact}
                   </div>
@@ -642,7 +794,7 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
                     {proj.metrics.map((m, i) => (
                       <span
                         key={i}
-                        className="px-2 py-0.5 rounded bg-slate-950 border border-slate-800 text-[10px] font-mono text-slate-300"
+                        className="px-2 py-0.5 rounded bg-[#f8fafc] border border-slate-200 text-[10px] font-mono text-slate-600"
                       >
                         {m}
                       </span>
@@ -654,18 +806,18 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
           </div>
         </section>
 
-        {/* PUBLIC WRITINGS ARCHIVE (SUBSTACK, MEDIUM, GITHUB, BLOG) */}
-        <section id="writings" className="space-y-6 scroll-mt-20">
+        {/* SELECTED MONOGRAPHS & PUBLIC DISCOURSE */}
+        <section id="writings" className="space-y-6 scroll-mt-24">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div className="space-y-2">
-              <p className="text-xs font-mono uppercase tracking-widest text-sky-400">
-                KR 1 // Unified Cross-Platform Context Map
-              </p>
-              <h2 className="text-2xl sm:text-3xl font-bold text-white">
-                Public Writings &amp; Technical Essays
+              <span className="text-xs font-mono uppercase tracking-widest text-[#2980b9] font-semibold">
+                Synthesized Discourse
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+                Selected Monographs &amp; Technical Essays
               </h2>
-              <p className="text-sm text-slate-400 max-w-2xl">
-                Synthesizing essays across Substack (Domi’s Mind Waves), Medium, GitHub specifications, and classic research notes.
+              <p className="text-sm text-slate-600 max-w-2xl leading-relaxed">
+                Essays spanning Substack (Domi&rsquo;s Mind Waves), Medium, GitHub engineering specifications, and classic research publications.
               </p>
             </div>
 
@@ -677,21 +829,23 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search essays, concepts..."
                 aria-label="Search essays and concepts"
-                className="px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-xs text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-sky-400"
+                className="w-full sm:w-auto px-3.5 py-1.5 rounded-lg bg-white border border-slate-200 text-xs text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-[#1DAEDF] shadow-xs"
               />
-              {sources.map((src) => (
-                <button
-                  key={src}
-                  onClick={() => setSourceFilter(src)}
-                  className={`px-2.5 py-1.5 rounded-lg text-xs font-mono transition cursor-pointer ${
-                    sourceFilter === src
-                      ? "bg-sky-500 text-slate-950 font-semibold"
-                      : "bg-slate-900 border border-slate-800 text-slate-300 hover:text-white"
-                  }`}
-                >
-                  {src}
-                </button>
-              ))}
+              <div className="flex items-center gap-1.5 overflow-x-auto pb-1 max-w-full no-scrollbar">
+                {sources.map((src) => (
+                  <button
+                    key={src}
+                    onClick={() => setSourceFilter(src)}
+                    className={`px-3 py-1 rounded-lg text-xs font-medium transition cursor-pointer shrink-0 ${
+                      sourceFilter === src
+                        ? "bg-[#2980b9] text-white font-semibold shadow-xs"
+                        : "bg-white border border-slate-200 text-slate-600 hover:text-slate-900"
+                    }`}
+                  >
+                    {src}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
 
@@ -703,24 +857,29 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
               return (
                 <article
                   key={w.id}
-                  onClick={() => setSelectedWriting(w)}
-                  className="p-5 rounded-2xl bg-slate-900/50 hover:bg-slate-900/80 border border-slate-800/90 hover:border-slate-700 transition flex flex-col justify-between space-y-4 cursor-pointer"
+                  onClick={() => {
+                    setSelectedWriting(w);
+                    document
+                      .getElementById("constellation")
+                      ?.scrollIntoView({ behavior: "smooth" });
+                  }}
+                  className="p-5 rounded-2xl bg-white hover:bg-sky-50/30 border border-slate-200 hover:border-[#1DAEDF] transition flex flex-col justify-between space-y-4 cursor-pointer shadow-xs hover:shadow-sm"
                 >
                   <div className="space-y-2">
                     <div className="flex items-center justify-between gap-2 text-xs">
                       <div className="flex items-center gap-2">
-                        <span className="px-2 py-0.5 rounded bg-slate-800 font-mono text-sky-300">
+                        <span className="px-2 py-0.5 rounded bg-slate-100 font-mono text-slate-700 text-[11px]">
                           {w.source}
                         </span>
-                        <span className="font-mono text-slate-400">
+                        <span className="font-mono text-slate-500 text-[11px]">
                           {w.date}
                         </span>
                       </div>
                       {pillar && (
                         <span
-                          className="px-2 py-0.5 rounded-full text-[11px] font-medium"
+                          className="px-2.5 py-0.5 rounded-full text-[11px] font-medium"
                           style={{
-                            backgroundColor: `${pillar.color}20`,
+                            backgroundColor: `${pillar.color}15`,
                             color: pillar.color,
                           }}
                         >
@@ -729,26 +888,26 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
                       )}
                     </div>
 
-                    <h3 className="text-base font-bold text-white leading-snug">
+                    <h3 className="text-base font-bold text-slate-900 leading-snug">
                       <a
                         href={w.url}
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={(e) => e.stopPropagation()}
-                        className="hover:text-sky-300 transition"
+                        className="hover:text-[#2980b9] transition"
                       >
                         {w.title} ↗
                       </a>
                     </h3>
 
-                    <p className="text-xs text-slate-300 leading-relaxed">
+                    <p className="text-xs text-slate-600 leading-relaxed">
                       {w.summary}
                     </p>
                   </div>
 
-                  <div className="pt-3 border-t border-slate-800/70 text-xs text-slate-400">
-                    <span className="font-mono text-emerald-400 mr-1.5">
-                      Insight:
+                  <div className="pt-3 border-t border-slate-100 text-xs text-slate-600">
+                    <span className="font-mono text-[#2980b9] font-medium mr-1.5">
+                      Takeaway:
                     </span>
                     {w.keyInsight}
                   </div>
@@ -758,111 +917,113 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
           </div>
         </section>
 
-        {/* WHAT I'M LOOKING FOR (STAKEHOLDER ALIGNMENT) */}
+        {/* INQUIRIES & DISCOURSE // HIGH-STATUS INVITATION */}
         <section
-          id="connect"
-          className="rounded-3xl border border-sky-500/30 bg-gradient-to-br from-slate-900 via-[#070d20] to-slate-950 p-8 sm:p-12 space-y-8 shadow-2xl scroll-mt-20"
+          id="inquiries"
+          className="rounded-3xl border border-[#2980b9]/20 bg-gradient-to-br from-[#2980b9] via-[#2471a3] to-[#1a5276] p-8 sm:p-12 space-y-8 shadow-xl text-white scroll-mt-24"
         >
           <div className="max-w-3xl space-y-3">
-            <p className="text-xs font-mono uppercase tracking-widest text-sky-400">
-              What I’m Looking For
-            </p>
-            <h2 className="text-2xl sm:text-4xl font-bold text-white">
-              Let’s Build Where Ambitious Questions Meet Rigorous Execution
+            <span className="text-xs font-mono uppercase tracking-widest text-sky-200 font-semibold">
+              Discourse &amp; Inquiries
+            </span>
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+              Where Ambitious Questions Meet Rigorous Systems
             </h2>
-            <p className="text-base text-slate-200 leading-relaxed">
+            <p className="text-base sm:text-lg text-sky-100 leading-relaxed font-light">
               {PERSONA_DATA.lookingFor.intro}
             </p>
-            <p className="text-sm text-slate-300 leading-relaxed">
+            <p className="text-sm text-sky-200/90 leading-relaxed">
               {PERSONA_DATA.lookingFor.detail}
             </p>
           </div>
 
+          {/* Understated Audience Tracks */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {PERSONA_DATA.lookingFor.tracks.map((track, idx) => (
               <div
                 key={idx}
-                className="p-5 rounded-2xl bg-slate-950/75 border border-slate-800/90 space-y-2.5"
+                className="p-5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 space-y-2.5"
               >
-                <h3 className="text-base font-bold text-sky-300">
+                <h3 className="text-base font-bold text-white">
                   {track.audience}
                 </h3>
-                <p className="text-xs font-mono text-slate-400">
+                <p className="text-xs font-mono text-sky-200">
                   Focus: {track.focus}
                 </p>
-                <p className="text-xs text-slate-200 leading-relaxed pt-1">
+                <p className="text-xs text-sky-100 leading-relaxed pt-1">
                   {track.valueProp}
                 </p>
               </div>
             ))}
           </div>
 
-          <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-slate-800/80">
+          <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-white/20">
             <div className="flex flex-wrap items-center gap-3">
               <a
                 href="mailto:contact@domij.info"
-                className="px-5 py-2.5 rounded-xl bg-sky-500 hover:bg-sky-400 text-slate-950 font-semibold text-sm transition"
+                className="px-5 py-2.5 rounded-xl bg-white hover:bg-sky-50 text-[#2980b9] font-bold text-sm transition shadow-sm"
               >
-                Email: contact@domij.info
-              </a>
-              <a
-                href="https://www.linkedin.com/in/domijin"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 text-sm transition"
-              >
-                LinkedIn (/in/domijin) ↗
+                Inquire: contact@domij.info
               </a>
               <a
                 href="https://domijin.substack.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 text-sm transition"
+                className="px-4 py-2.5 rounded-xl bg-white/15 hover:bg-white/25 border border-white/30 text-white text-sm font-medium transition"
               >
-                Substack (Domi’s Mind Waves) ↗
+                Substack (Domi&rsquo;s Mind Waves) ↗
               </a>
               <a
                 href="https://github.com/domijin"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 text-sm transition"
+                className="px-4 py-2.5 rounded-xl bg-white/15 hover:bg-white/25 border border-white/30 text-white text-sm font-medium transition"
               >
                 GitHub (@domijin) ↗
               </a>
+              <a
+                href="https://www.linkedin.com/in/domijin"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2.5 rounded-xl bg-white/15 hover:bg-white/25 border border-white/30 text-white text-sm font-medium transition"
+              >
+                LinkedIn ↗
+              </a>
             </div>
 
-            <div className="flex items-center gap-3 text-xs font-mono text-slate-400">
-              <a href="/llms.txt" className="hover:text-sky-300">
+            <div className="flex items-center gap-3 text-xs font-mono text-sky-200">
+              <a href="/llms.txt" className="hover:text-white underline underline-offset-4">
                 /llms.txt
               </a>
               <span>·</span>
-              <a href="/agent-context.json" className="hover:text-sky-300">
+              <a href="/agent-context.json" className="hover:text-white underline underline-offset-4">
                 /agent-context.json
               </a>
               <span>·</span>
-              <a href="/archives.html" className="hover:text-sky-300">
-                Classic Archive (Blue)
+              <a href="/pages/about-me.html?env=blue" className="hover:text-white underline underline-offset-4">
+                Classic Blue Archive
               </a>
             </div>
           </div>
         </section>
       </main>
 
-      <footer className="border-t border-slate-900 bg-[#02040a] py-8 mt-16">
+      {/* FOOTER */}
+      <footer className="border-t border-slate-200 bg-white py-8 mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <p>
-            © {new Date().getFullYear()} Domi Jin (Dongming Jin) · Scientist. Builder. Founder.
+            &copy; {new Date().getFullYear()} Domi Jin (Dongming Jin) · Scientist. Builder. Founder.
           </p>
           <div className="flex items-center gap-4">
-            <a href="/pages/about-me.html?env=blue" className="hover:text-slate-300">
+            <a href="/pages/about-me.html?env=blue" className="hover:text-[#2980b9] transition">
               Blue Environment (Classic Pelican)
             </a>
             <span>·</span>
-            <a href="/next/" className="text-emerald-400">
+            <a href="/next/" className="text-[#2980b9] font-medium">
               Green Environment (Next.js + Three.js)
             </a>
             <span>·</span>
-            <a href="/beta/" className="hover:text-slate-300">
+            <a href="/beta/" className="hover:text-[#2980b9] transition">
               iMessage AI Beta
             </a>
           </div>

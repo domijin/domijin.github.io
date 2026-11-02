@@ -107,8 +107,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
         <link rel="llms-txt" href="https://domij.info/llms.txt" />
         <link rel="alternate" type="application/json" href="https://domij.info/agent-context.json" title="Agent Context Graph" />
         <script
@@ -116,7 +117,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdGraph) }}
         />
       </head>
-      <body className="antialiased bg-[#040711] text-slate-100">
+      <body className="antialiased bg-[#f8fafc] text-slate-800 selection:bg-[#1DAEDF]/20 selection:text-[#0c4a6e]">
         {children}
       </body>
     </html>

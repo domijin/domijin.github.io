@@ -132,7 +132,7 @@ export const INTELLECTUAL_PILLARS: IntellectualPillar[] = [
     title: "Collective Intelligence",
     shortTitle: "Collective Intel",
     question: "How do individual capabilities combine to produce collective outcomes?",
-    color: "#38bdf8",
+    color: "#1DAEDF", // Domi's signature cyan
     position: [0, 2.3, 0],
     synthesis:
       "Bridging fixed biological I/O (~39 bits/sec) and exploding network complexity through shared knowledge graphs, open protocols, and high-trust social contracts."
@@ -142,7 +142,7 @@ export const INTELLECTUAL_PILLARS: IntellectualPillar[] = [
     title: "Human–AI Collaboration",
     shortTitle: "Human–AI Collab",
     question: "How can intelligent systems augment human judgment and agency?",
-    color: "#818cf8",
+    color: "#2980b9", // Pelican primary blue
     position: [2.1, 1.1, 0.7],
     synthesis:
       "Moving beyond generic chatbots toward ambient, privacy-preserving personal memory, low-bandwidth resilient harnesses (iMessage/voice), and receipt-verified edge agents."
@@ -152,7 +152,7 @@ export const INTELLECTUAL_PILLARS: IntellectualPillar[] = [
     title: "Organizational Intelligence",
     shortTitle: "Org Intelligence",
     question: "How do communication, coordination, trust, and incentives shape collaboration?",
-    color: "#c084fc",
+    color: "#0284c7", // Sky blue
     position: [1.8, -1.3, -0.6],
     synthesis:
       "Designing teams that maximize both their Greatest Common Divisor (shared values that reduce friction) and Least Common Multiple (complementary skills), putting incentives before expectations."
@@ -162,7 +162,7 @@ export const INTELLECTUAL_PILLARS: IntellectualPillar[] = [
     title: "Complex Adaptive Systems",
     shortTitle: "Complex Systems",
     question: "How do interactions among individuals give rise to emergent social and organizational behavior?",
-    color: "#f472b6",
+    color: "#0369a1", // Deep ocean blue
     position: [0, -2.3, 0.8],
     synthesis:
       "Applying multi-body physics intuition—from 1M-star globular clusters to urban traffic probes and digital marketplaces—to understand emergence, scaling laws, and feedback loops."
@@ -172,7 +172,7 @@ export const INTELLECTUAL_PILLARS: IntellectualPillar[] = [
     title: "Decision Intelligence",
     shortTitle: "Decision Intel",
     question: "How can information, feedback, and experimentation improve decisions?",
-    color: "#fb923c",
+    color: "#0ea5e9", // Bright azure
     position: [-1.9, -1.2, -0.5],
     synthesis:
       "Combining causal inference, multi-stage latent demand mining, structured A/B experimentation, and multi-agent control planes to optimize long-term value over short-term clicks."
@@ -182,7 +182,7 @@ export const INTELLECTUAL_PILLARS: IntellectualPillar[] = [
     title: "Human Potential",
     shortTitle: "Human Potential",
     question: "How can technology make learning, opportunity, and meaningful participation more accessible?",
-    color: "#34d399",
+    color: "#0284c7", // Electric cyan-blue
     position: [-2.1, 1.1, 0.6],
     synthesis:
       "Validating learning policies that produce durable, transferable capability outside the tutoring session, and embracing gameful agency across every stage of life."
@@ -192,7 +192,7 @@ export const INTELLECTUAL_PILLARS: IntellectualPillar[] = [
     title: "AI and Society",
     shortTitle: "AI & Society",
     question: "How might increasingly capable intelligence change the ways we work, cooperate, and live?",
-    color: "#facc15",
+    color: "#328cc7", // Pelican hover blue
     position: [0.2, 0.1, 2.2],
     synthesis:
       "Steering technical progress away from surveillance/inception capitalism toward human autonomy, accessible safety (from senior mobility to public alignment), and creative abundance."
