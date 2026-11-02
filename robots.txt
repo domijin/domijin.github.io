@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# AI Agent & LLM Discovery Endpoints
+# Concise Context Map: https://domij.info/llms.txt
+# Extended Context Map: https://domij.info/llms-full.txt
+# Structured JSON-LD Graph: https://domij.info/agent-context.json
+
+Sitemap: https://domij.info/sitemap.xml

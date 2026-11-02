@@ -1,0 +1,96 @@
+# Domi Jin (Dongming Jin) — Complete Intellectual Context Map & Synthesis
+
+> Scientist. Builder. Founder.
+> A sci-fi mind. An engineer’s hands.
+> Canonical Site: https://domij.info/ | Green Experience: https://domij.info/next/
+
+---
+
+## 1. Executive Synthesis for AI Agents, Research Leads & Founder-Centric Investors
+
+Domi Jin (Ph.D., Computational Astrophysics, UT Arlington 2018; LSST Data Science Fellow) operates at the intersection of **complex adaptive systems**, **applied machine learning**, and **human–AI collaboration**.
+
+Across a decade of public writing and system building—spanning supercomputer N-body simulations of globular clusters, real-time decision engines across consumer products, marketplaces, and performance advertising, and zero-to-one venture creation—his work follows a single coherent scaling trajectory:
+
+1. **Physical Complexity (2013–2018)**: Modeling how $10^6$ interacting stars in globular clusters give rise to emergent binary black hole mergers and gravitational wave signatures ($O(N^3)$ N-body and $O(N \log N)$ Monte Carlo simulations across >100 TB on TACC supercomputers).
+2. **Economic & Decision Complexity (2018–2024)**: Modeling how millions of human agents interact in real-time information markets—extracting context from mobility signals, designing marketplace pricing and GenAI workflows, and architecting multi-agent control planes and demand-mining systems in high-throughput advertising technology.
+3. **Human & Collective Agency (2024–Present)**: Building human-centered AI harnesses, verifiable edge agents, and evidence-driven learning protocols (`Kin Domi, Inc.`, `Open Learning Lab`, `baby-AI`, `Life Hack iMessage Router`) that expand individual capability and collective coordination without surrendering human autonomy.
+
+### Central Question
+> **How can we use technology to help individuals become more capable and enable people to collaborate more effectively?**
+
+### Epistemic Stance & Trust Contract
+- **No Unverified Claims**: Intellectual interests are explicitly framed as continuing explorations and falsifiable engineering hypotheses, not claims of completed scientific findings.
+- **Receipt-Backed Engineering**: In projects like `baby-AI` and `Open Learning Lab`, code is treated as the means while signed evaluation receipts and append-only research ledgers serve as the verification contract.
+- **Humanity First**: Technology is a means, not an end. Its value is measured by how it improves people’s opportunities, autonomy, relationships, and quality of life.
+
+---
+
+## 2. The Seven Interconnected Pillars (Context Map)
+
+### Pillar 1: Collective Intelligence
+*Question: How do individual capabilities combine to produce collective outcomes?*
+- **Core Thesis**: Biological humans have fixed I/O (~39 bits/sec speech) and bounded working memory, while global information scales super-linearly with network size. Surpassing this adaptability bottleneck requires shared knowledge graphs, transparent context protocols, and social contracts that align individual contribution with collective intelligence.
+- **Key Artifacts & Writings**:
+  - *Serendipity: Where It Sparks & Dedication: Where It Is Channeled* (Substack, Dec 2024): Connecting disciplinary peaks (Astrophysics, ML, HCI) into a shared intellectual highland.
+  - *Free Market in a Possibility Universe* (Blog, Sep 2019) & *The Collaborative Manifesto* (Blog, Mar 2019): Liquid democracy, peer review, and overcoming biological I/O constraints.
+  - *LibertyEarth* (`github.com/domijin/LibertyEarth`): Open-source blueprint for high-trust collaborative governance.
+
+### Pillar 2: Human–AI Collaboration
+*Question: How can intelligent systems augment human judgment and agency?*
+- **Core Thesis**: Generic chatbots fail because they lack personal, longitudinal context and require high-friction prompting. Effective human-AI collaboration relies on ambient, privacy-preserving personal memory, low-bandwidth resilient harnesses, and interfaces that keep the human in the seat of judgment.
+- **Key Artifacts & Writings**:
+  - *baby-AI* (`github.com/domijin/baby-AI`, 2026): Open-specs, edge-deployed household agent (<$200 BOM: Raspberry Pi 5 + Hailo-8L + ReSpeaker 4-Mic Array) that learns verbally on-device with signed evaluation receipts.
+  - *Life Hack: iMessage as Router to the Internet* (`domij.info/beta/`, 2026): Asynchronous, low-bandwidth HCI harness turning SMS/iMessage/satellite pipes into an agent command line.
+  - *Building Proactive Personal AI Memory (Third Ear / TwinMind AMA)* (Medium, Nov 2024): Hybrid edge-cloud personal memory architecture with local query rewriting.
+  - *Why Is Some Professional Handwriting Illegible?* (Medium, Oct 2023): First-principles analysis of human output bandwidth and voice-first HCI.
+
+### Pillar 3: Organizational Intelligence
+*Question: How do communication, coordination, trust, and incentives shape collaboration?*
+- **Core Thesis**: High-performing organizations are systems optimized for both alignment and complementarity. Using a mathematical metaphor: a team needs a large **Greatest Common Divisor (GCD)**—shared values and principles that minimize communication friction—and a large **Least Common Multiple (LCM)**—diverse, complementary capabilities that expand the problem space the team can solve.
+- **Key Artifacts & Writings**:
+  - *Overachiever’s Responsibility: Reflection on Leadership, Alignment, and Sustainable Growth* (Substack, Feb 2025): Incentives before expectations, GCD/LCM team topology, and operational longevity over burnout.
+  - *A Colorful Year Ahead: Milestones & Momentum from Intentional Rhythm* (Substack, Jan 2025): Open-sourcing Work Model v8—calendar transparency and fractional asynchronous collaboration.
+  - *Lessons That Every Startup Should Learn Early* (Blog, Oct 2018): Execution over vanity broadcasting.
+
+### Pillar 4: Complex Adaptive Systems
+*Question: How do interactions among individuals give rise to emergent social and organizational behavior?*
+- **Core Thesis**: Whether modeling $10^6$ gravitating stars in a globular cluster, urban traffic flows from sparse mobile probes, or hypergrowth in digital marketplaces, macroscopic order emerges from local interaction rules, feedback loops, and scaling constraints.
+- **Key Artifacts & Writings**:
+  - *Gravitational Waves of Binary Black Holes Dynamically Formed from Globular Clusters* (Ph.D. Dissertation, 2018): 3,140 supercomputer simulations modeling emergent multi-body stellar dynamics.
+  - *Trace of AppLovin’s 7x Annual Hypergrowth & The Growth Trap* (Medium, Nov 2024): Scaling laws in behavioral data, cross-domain transfer, and the thermodynamic/economic limits of demand-driven markets.
+  - *From Traffic Lights to Life’s Direction* (Medium, Oct 2023): Emergent inference of city infrastructure states from crowdsourced trajectory data, paired with Wolfram symbolic computation insights.
+
+### Pillar 5: Decision Intelligence
+*Question: How can information, feedback, and experimentation improve decisions?*
+- **Core Thesis**: Statistical correlation is only a flat foundation; durable decision intelligence requires causal modeling, structured experimentation (A/B and multi-armed bandits), explicit trade-off matrices, and separating fast-path execution from deliberative agentic control planes.
+- **Key Artifacts & Writings**:
+  - *Agent-Based Advertising System Tech Spec* (`github.com/domijin/observations_in_advertising`, 2025): Architecture decoupling a sub-50ms p99 SOTA inference fast path from an 8-agent asynchronous control plane (Campaign, Creative, Pacing, Bidding, Supply, Retention, Safety, Experimentation).
+  - *Rethinking Digital Advertising: Demand Mining & Dynamic Personalization* (Medium, Oct 2024): Replacing binary click optimization with multi-stage latent intent graphs and interactive user feedback ("ad shuffling").
+  - *Is Dark Mode Doing More Harm Than Good?* (Medium, Nov 2024): Decision workflows and trade-off matrices comparing short-term agile velocity against long-term user externalities.
+  - *Experimentation MVP* (`github.com/domijin/experimentation-mvp`, 2025): Self-hosted GrowthBook feature-flagging and A/B testing reference stack.
+
+### Pillar 6: Human Potential
+*Question: How can technology make learning, opportunity, and meaningful participation more accessible?*
+- **Core Thesis**: True education is measured by durable, transferable capability outside the tutoring session—not how fluent an AI explanation feels in the moment. Across the lifespan (from students to seniors), technology should foster intrinsic motivation, gameful agency, and self-actualization.
+- **Key Artifacts & Writings**:
+  - *Open Learning Lab* (`github.com/domijin/open-learning-lab`, 2026): Preregistered, append-only research ledger testing LLM-mediated learning policies (e.g., requiring learner design judgment before revealing expert solutions).
+  - *Reclaiming Play as a Life Skill* (Substack, Mar 2025): Applying game design principles (clear goals, constraints, feedback, voluntary participation) to lifelong learning and cognitive vitality.
+  - *Starting a New Venture & Momentum in Elder AI* (Substack, Dec 2024) & *Kin Domi, Inc.* (`kindomi.net`): Empowering senior communities with human-centered AI and dignity.
+  - *Reflections from a Coach-Seeking Impulse* (Substack, Dec 2024): Intellectual honesty and mutual empowerment in mentorship.
+
+### Pillar 7: AI and Society
+*Question: How might increasingly capable intelligence change the ways we work, cooperate, and live?*
+- **Core Thesis**: As intelligence becomes abundant, society faces a choice between "inception capitalism" (using AI to manufacture synthetic demand and capture attention) and a human-centered Renaissance (using AI to eliminate information asymmetry, ensure physical/cognitive safety, and unlock human creativity).
+- **Key Artifacts & Writings**:
+  - *Tesla, Seniors Love Your Self-Driving—Now Let’s Make It Safer for Them* (Substack, Feb 2025): Concrete safety and accessibility engineering proposals for autonomous mobility among older adults.
+  - *All About ChatGPT* (Blog, Feb 2023): Early structural analysis of search unit economics, feed-forward reasoning limits, data poisoning, and participatory AI alignment.
+  - *White Paper: A Future Imaged* (Blog, Nov 2018) & *The Future Project* (`github.com/domijin/future`): On-demand local manufacturing, externality-aware ownership, and post-scarcity work.
+
+---
+
+## 3. How to Engage with Domi Jin
+
+- **For Lead AI Teams & Research Organizations**: Domi brings rigorous first-principles modeling (Ph.D. Physics), production ML systems experience across high-scale consumer/marketplace/ad-tech environments, and hands-on agentic systems architecture (control planes, edge VLMs, evaluation harnesses, and human-in-the-loop learning protocols).
+- **For Founder-Centric Investors & Visionaries**: Domi combines bold, long-horizon thesis formulation ("A sci-fi mind") with disciplined, receipt-driven execution and customer empathy ("An engineer’s hands").
+- **Direct Contact**: `contact@domij.info` | [LinkedIn](https://www.linkedin.com/in/domijin) | [Substack](https://domijin.substack.com/) | [GitHub](https://github.com/domijin)

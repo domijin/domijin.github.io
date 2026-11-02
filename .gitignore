@@ -1,0 +1,5 @@
+node_modules/
+green-app/node_modules/
+green-app/.next/
+green-app/out/
+.DS_Store

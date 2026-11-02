@@ -1,0 +1,340 @@
+{
+  "$schema": "https://schema.org/Person",
+  "version": "2026.11.02",
+  "deployment": {
+    "strategy": "blue-green",
+    "activeRoot": "blue",
+    "blueEnvironment": {
+      "name": "Classic Pelican Archive (Blue)",
+      "url": "https://domij.info/",
+      "aboutUrl": "https://domij.info/pages/about-me.html",
+      "archiveUrl": "https://domij.info/archives.html"
+    },
+    "greenEnvironment": {
+      "name": "Next.js + Three.js Interactive Constellation (Green)",
+      "url": "https://domij.info/next/",
+      "framework": "Next.js 15 App Router + Three.js (@react-three/fiber)"
+    }
+  },
+  "persona": {
+    "name": "Domi Jin",
+    "alternateName": "Dongming Jin",
+    "headline": "Scientist. Builder. Founder.",
+    "tagline": "A sci-fi mind. An engineer’s hands.",
+    "education": {
+      "degree": "Ph.D. in Applied Physics & Astrophysics",
+      "institution": "University of Texas at Arlington",
+      "year": 2018,
+      "fellowship": "LSST Data Science Fellowship Program (2016–2018)"
+    },
+    "mission": "Exploring how technology can expand human potential and empower people to achieve more together.",
+    "centralQuestion": "How can we use technology to help individuals become more capable and enable people to collaborate more effectively?",
+    "background": [
+      {
+        "era": "Fundamental Science",
+        "period": "2013–2018",
+        "summary": "My journey began with fundamental science, studying the universe through computational astrophysics, numerical simulations, and statistical modeling.",
+        "evidence": "Conducted 3,140 numerical simulations (>100 TB, 25,000+ node-hours on TACC supercomputers) of 1M-body globular clusters using N-body O(N^3) and Monte Carlo O(N log N) methods, extracting a 17M x 14 database of binary black holes to evaluate gravitational wave signals for ESA's space-borne LISA detector."
+      },
+      {
+        "era": "Applied Machine Learning",
+        "period": "2018–2024",
+        "summary": "I subsequently moved into applied machine learning, building decision systems for consumer products, marketplaces, and advertising technology.",
+        "evidence": "Built context-extraction and recommendation engines from real-time mobility telemetry, marketplace pricing and generative AI request workflows, and deep-learning performance advertising evaluation, causal attribution, and demand-mining architectures."
+      },
+      {
+        "era": "Entrepreneurship & Human-Centered AI",
+        "period": "2018–Present",
+        "summary": "Entrepreneurship brought a different perspective: understanding what people actually need, how they make decisions, and why technically promising solutions sometimes fail in the real world.",
+        "evidence": "Founder of Kin Domi, Inc. and creator of open-source research protocols (Open Learning Lab, baby-AI, Life Hack iMessage Router, LibertyEarth) focused on human agency, verifiable edge intelligence, and collective coordination."
+      }
+    ],
+    "philosophy": {
+      "coreBelief": "I believe humanity’s greatest achievements emerge through collaboration. Intelligence matters, but so do communication, trust, complementary capabilities, incentives, and the freedom to make meaningful choices.",
+      "valueMeasure": "Technology is a means rather than an end. Its value should ultimately be measured by how it improves people’s opportunities, autonomy, relationships, and quality of life.",
+      "methodology": "My approach combines scientific curiosity with practical experimentation: challenge assumptions, build working systems, measure outcomes, learn from failure, and revise our understanding.",
+      "epistemicNote": "My intellectual interests represent continuing explorations and engineering hypotheses, not claims of completed research or established scientific findings."
+    },
+    "lookingFor": {
+      "summary": "I enjoy working with intellectually curious people who combine ambitious questions with rigorous thinking and practical execution.",
+      "stakeholders": [
+        "Lead AI Teams & Research Labs (Human-AI Collaboration, Agentic Control Planes, Edge/Personal Memory, Post-Training & Evaluation)",
+        "Founder-Centric Investors & Visionaries (Long-horizon thesis alignment, human-centered AI, collective intelligence)",
+        "Interdisciplinary Builders & Researchers (Complex adaptive systems, decision intelligence, durable learning policies)"
+      ],
+      "contact": {
+        "email": "contact@domij.info",
+        "linkedin": "https://www.linkedin.com/in/domijin",
+        "github": "https://github.com/domijin",
+        "substack": "https://domijin.substack.com/",
+        "medium": "https://medium.com/@domijin"
+      }
+    }
+  },
+  "intellectualInterests": [
+    {
+      "id": "collective-intelligence",
+      "title": "Collective Intelligence",
+      "question": "How do individual capabilities combine to produce collective outcomes?",
+      "color": "#38bdf8"
+    },
+    {
+      "id": "human-ai-collaboration",
+      "title": "Human–AI Collaboration",
+      "question": "How can intelligent systems augment human judgment and agency?",
+      "color": "#818cf8"
+    },
+    {
+      "id": "organizational-intelligence",
+      "title": "Organizational Intelligence",
+      "question": "How do communication, coordination, trust, and incentives shape collaboration?",
+      "color": "#c084fc"
+    },
+    {
+      "id": "complex-adaptive-systems",
+      "title": "Complex Adaptive Systems",
+      "question": "How do interactions among individuals give rise to emergent social and organizational behavior?",
+      "color": "#f472b6"
+    },
+    {
+      "id": "decision-intelligence",
+      "title": "Decision Intelligence",
+      "question": "How can information, feedback, and experimentation improve decisions?",
+      "color": "#fb923c"
+    },
+    {
+      "id": "human-potential",
+      "title": "Human Potential",
+      "question": "How can technology make learning, opportunity, and meaningful participation more accessible?",
+      "color": "#34d399"
+    },
+    {
+      "id": "ai-and-society",
+      "title": "AI and Society",
+      "question": "How might increasingly capable intelligence change the ways we work, cooperate, and live?",
+      "color": "#facc15"
+    }
+  ],
+  "writings": [
+    {
+      "id": "open-learning-lab-protocol",
+      "title": "Open Learning Lab: Evidence-Driven Personalized Learning Policies",
+      "date": "2026-08",
+      "source": "GitHub",
+      "url": "https://github.com/domijin/open-learning-lab",
+      "pillar": "human-potential",
+      "secondaryPillars": ["human-ai-collaboration", "decision-intelligence"],
+      "summary": "An open research ledger testing which LLM-mediated learning policies produce durable, transferable capability per unit of learner effort outside the tutoring session.",
+      "keyInsight": "Asking a learner to make the underlying design judgment before revealing how an expert system solved the problem improves reconstruction and transfer compared with explanation-first tutoring."
+    },
+    {
+      "id": "baby-ai-edge-specs",
+      "title": "baby-AI: Receipt-Verified Edge Household Agent Architecture",
+      "date": "2026-05",
+      "source": "GitHub",
+      "url": "https://github.com/domijin/baby-AI",
+      "pillar": "human-ai-collaboration",
+      "secondaryPillars": ["decision-intelligence", "ai-and-society"],
+      "summary": "Five falsifiable subsystem specs (perception, streaming ASR + DoA, hybrid episodic-vector + KG memory, edge VLM verbal-feedback adapter, cryptographic eval receipts) on <$200 hardware.",
+      "keyInsight": "Code is the means; cryptographically signed evaluation receipts on named benchmarks are the trust contract—enabling privacy-preserving personal AI that learns verbally on-device."
+    },
+    {
+      "id": "imessage-ai-router",
+      "title": "Life Hack: iMessage as a Low-Bandwidth Router to the Internet",
+      "date": "2026-04",
+      "source": "Blog",
+      "url": "https://domij.info/beta/",
+      "pillar": "human-ai-collaboration",
+      "secondaryPillars": ["human-potential"],
+      "summary": "A minimalist HCI harness turning constrained messaging pipes (in-flight Wi-Fi, satellite text) into a universal command line for internet-connected reasoning agents.",
+      "keyInsight": "Before neural links, the most resilient interface for everyday agents is the asynchronous, interruptible messaging pipe already in your pocket."
+    },
+    {
+      "id": "reclaiming-play",
+      "title": "Reclaiming Play as a Life Skill",
+      "date": "2025-03",
+      "source": "Substack",
+      "url": "https://domijin.substack.com/p/reclaiming-play-as-a-life-skill",
+      "pillar": "human-potential",
+      "secondaryPillars": ["complex-adaptive-systems", "ai-and-society"],
+      "summary": "Examines Jane McGonigal's game mechanics (goals, rules, feedback systems, voluntary participation) through conversations with senior learners and retirees.",
+      "keyInsight": "Lifelong learning, health management, and technological exploration are high-order 'social games'—embracing clarity, feedback, and voluntary challenge keeps people in flow across every stage of life."
+    },
+    {
+      "id": "tesla-seniors-safety",
+      "title": "Tesla, Seniors Love Your Self-Driving—Now Let’s Make It Safer for Them",
+      "date": "2025-02",
+      "source": "Substack",
+      "url": "https://domijin.substack.com/p/tesla-seniors-love-your-self-drivingnow",
+      "pillar": "ai-and-society",
+      "secondaryPillars": ["human-ai-collaboration", "decision-intelligence"],
+      "summary": "Field observations from Kin Domi showing how autonomous driving restores senior independence, paired with 6 concrete HCI and safety engineering recommendations.",
+      "keyInsight": "Panic-inducing alerts and touchscreen menus degrade safety for older drivers; delaying non-urgent alerts, adding pre-drive diagnostics, and prioritizing voice control directly bridge the human-AI trust gap."
+    },
+    {
+      "id": "overachievers-responsibility",
+      "title": "Overachiever’s Responsibility: Leadership, Alignment, and Sustainable Growth",
+      "date": "2025-02",
+      "source": "Substack",
+      "url": "https://domijin.substack.com/p/overachievers-responsibility-reflection",
+      "pillar": "organizational-intelligence",
+      "secondaryPillars": ["collective-intelligence"],
+      "summary": "A mathematical and operational reflection on how founders can build enduring teams without operational burnout.",
+      "keyInsight": "High-performing teams maximize both their Greatest Common Divisor (shared values that minimize communication friction) and Least Common Multiple (complementary capabilities that expand collective reach), while putting incentives before expectations."
+    },
+    {
+      "id": "colorful-year-rhythm",
+      "title": "A Colorful Year Ahead: Milestones & Momentum from Intentional Rhythm",
+      "date": "2025-01",
+      "source": "Substack",
+      "url": "https://domijin.substack.com/p/a-colorful-year-ahead",
+      "pillar": "organizational-intelligence",
+      "secondaryPillars": ["decision-intelligence"],
+      "summary": "Open-sources an 8th-iteration operational work model combining shared calendar transparency, fractional asynchronous collaboration, and structured weekly reflection.",
+      "keyInsight": "Sharing calendars for inclusion and enabling fractional, asynchronous contributions reduces coordination overhead while respecting natural human rhythms."
+    },
+    {
+      "id": "agent-based-ad-tech-spec",
+      "title": "Agent-Based Advertising System & Observations in Performance Advertising",
+      "date": "2025-01",
+      "source": "GitHub",
+      "url": "https://github.com/domijin/observations_in_advertising",
+      "pillar": "decision-intelligence",
+      "secondaryPillars": ["complex-adaptive-systems", "ai-and-society"],
+      "summary": "Technical specification for an 8-agent control plane operating alongside a sub-50ms p99 SOTA ad serving fast path, paired with an economic analysis of scaling laws in performance advertising.",
+      "keyInsight": "Decoupling the sub-50ms inference fast path from an asynchronous multi-agent control plane (campaign, creative, pacing, bidding, retention, safety, experimentation) shifts digital systems from reactive clicks to long-term demand realization."
+    },
+    {
+      "id": "serendipity-and-highlands",
+      "title": "Serendipity: Where It Sparks & Dedication: Where It Is Channeled",
+      "date": "2024-12",
+      "source": "Substack",
+      "url": "https://domijin.substack.com/p/serendipity-where-it-sparks",
+      "pillar": "collective-intelligence",
+      "secondaryPillars": ["human-potential"],
+      "summary": "Personal synthesis of how astrophysics timescales, Confucian ethics, and interdisciplinary exploration connect disparate domain peaks into a unified highland.",
+      "keyInsight": "Standing on the shoulders of giants is not enough; connecting the peaks across physics, machine learning, and human-computer interaction builds an intellectual highland from which new solutions emerge."
+    },
+    {
+      "id": "starting-new-venture-kindomi",
+      "title": "Starting a New Venture & Momentum in Human-Centered Elder AI",
+      "date": "2024-12",
+      "source": "Substack",
+      "url": "https://domijin.substack.com/p/starting-a-new-venture",
+      "pillar": "human-potential",
+      "secondaryPillars": ["ai-and-society", "organizational-intelligence"],
+      "summary": "Chronicles the zero-to-one customer discovery, ethical community outreach, and multidisciplinary team formation behind Kin Domi, Inc.",
+      "keyInsight": "Beneath technical barriers like smartphone dexterity lie deeper human needs for autonomy, dignity, and intergenerational connection—requiring field empathy before code."
+    },
+    {
+      "id": "coach-seeking-reflection",
+      "title": "Reflections from a Coach-Seeking Impulse",
+      "date": "2024-12",
+      "source": "Substack",
+      "url": "https://domijin.substack.com/p/relections-from-coach-seeking-impulse",
+      "pillar": "human-potential",
+      "secondaryPillars": ["organizational-intelligence"],
+      "summary": "Examines the mechanics of coaching, intellectual honesty, and why shared context determines the effectiveness of feedback.",
+      "keyInsight": "Coaching is guided self-reflection; its effectiveness is bounded by intellectual honesty and the density of shared context between partners."
+    },
+    {
+      "id": "third-ear-twinmind-ama",
+      "title": "Building Proactive Personal AI Memory (Third Ear / TwinMind AMA)",
+      "date": "2024-11",
+      "source": "Medium",
+      "url": "https://medium.com/@domijin/another-team-building-skynet-in-the-name-of-jarvis-ama-163389dc5285",
+      "pillar": "human-ai-collaboration",
+      "secondaryPillars": ["human-potential"],
+      "summary": "Architectural discussion on platform-agnostic personal AI memory combining edge voice processing, query-rewriting privacy, and visual browser context.",
+      "keyInsight": "Generic AI fails because it lacks personal context; hybrid edge-cloud memory with identifier stripping reduces API costs by 20x while preserving user privacy."
+    },
+    {
+      "id": "dark-mode-decision-workflow",
+      "title": "Is Dark Mode Doing More Harm Than Good? A Deeper Look at Our Choices",
+      "date": "2024-11",
+      "source": "Medium",
+      "url": "https://medium.com/@domijin/is-dark-mode-doing-more-harm-than-good-a-deeper-look-at-our-choices-a9685daad170",
+      "pillar": "decision-intelligence",
+      "secondaryPillars": ["ai-and-society", "organizational-intelligence"],
+      "summary": "Uses the visual ergonomics of dark mode as a case study to critique short-term agile feature shipping versus long-term user welfare.",
+      "keyInsight": "Agile iteration reduces launch risk but systematically underweights long-term externalities unless paired with first-principles research and adaptive user onboarding."
+    },
+    {
+      "id": "applovin-hypergrowth-trace",
+      "title": "Trace of AppLovin’s 7x Annual Hypergrowth & The Growth Trap",
+      "date": "2024-11",
+      "source": "Medium",
+      "url": "https://medium.com/@domijin/trace-of-applovins-7x-annual-hypergrowth-39dcb154f5d0",
+      "pillar": "complex-adaptive-systems",
+      "secondaryPillars": ["decision-intelligence", "ai-and-society"],
+      "summary": "Dissects how cross-domain behavioral data, scaling laws, and latency tolerance drove hypergrowth in ad tech, and why surveillance capitalism hits diminishing returns.",
+      "keyInsight": "While scaling laws reward denser behavioral context, demand-driven markets inevitably face consumer fatigue and escalating social costs unless technology shifts toward user enlightenment."
+    },
+    {
+      "id": "rethinking-digital-advertising",
+      "title": "Rethinking Digital Advertising: Demand Mining & Dynamic Personalization",
+      "date": "2024-10",
+      "source": "Medium",
+      "url": "https://domijin.medium.com/rethinking-digital-advertising-from-guesswork-to-user-engagement-6e1916a2aced",
+      "pillar": "decision-intelligence",
+      "secondaryPillars": ["human-ai-collaboration"],
+      "summary": "Proposes replacing binary click optimization with multi-stage intent graphs, compact profile distillation, and user-controlled 'ad shuffling' UX.",
+      "keyInsight": "Giving users active agency (such as shuffling creatives in-slot) transforms passive impressions into high-signal preference feedback."
+    },
+    {
+      "id": "traffic-lights-to-life-direction",
+      "title": "From Traffic Lights to Life’s Direction: Crowdsourced Inference & Symbolic AI",
+      "date": "2023-10",
+      "source": "Medium",
+      "url": "https://domijin.medium.com/from-traffic-lights-to-lifes-direction-57176d5d7a06",
+      "pillar": "complex-adaptive-systems",
+      "secondaryPillars": ["human-ai-collaboration", "decision-intelligence"],
+      "summary": "Reverse-engineers how navigation apps predict traffic light countdowns via crowdsourced probe trajectories rather than hardware sensors, alongside reflections from Wolfram Summer School.",
+      "keyInsight": "Emergent statistical inference over crowdsourced trajectories can replicate expensive physical infrastructure—while combining LLMs (memory) with symbolic computation (Wolfram) bridges correlation and causal reasoning."
+    },
+    {
+      "id": "illegible-handwriting-bandwidth",
+      "title": "Why Is Some Professional Handwriting Illegible? Information Bandwidth & HCI",
+      "date": "2023-10",
+      "source": "Medium",
+      "url": "https://medium.com/@domijin/why-is-some-professional-handwriting-illegible-d07bd8acb818",
+      "pillar": "human-ai-collaboration",
+      "secondaryPillars": ["organizational-intelligence"],
+      "summary": "First-principles exploration of medical documentation bottlenecks, human speech transmission rates (~39 bits/sec), and institutional information barriers.",
+      "keyInsight": "When human output bandwidth is constrained in high-stress environments, voice-first HCI and ambient capture solve the root bottleneck better than post-hoc OCR."
+    },
+    {
+      "id": "all-about-chatgpt",
+      "title": "All About ChatGPT: Flat Correlation, Unit Economics & Alignment",
+      "date": "2023-02",
+      "source": "Blog",
+      "url": "https://domij.info/all-about-chatgpt.html",
+      "pillar": "ai-and-society",
+      "secondaryPillars": ["collective-intelligence", "human-ai-collaboration"],
+      "summary": "Analyzes search engine margin disruption, feed-forward computational flatness vs. symbolic loops, RLHF selection bias, and collective knowledge graphs.",
+      "keyInsight": "Flat token correlation is the foundation of knowledge, not causality—and alignment is an ongoing organizational governance problem that cannot be solved behind closed doors."
+    },
+    {
+      "id": "free-market-possibility-universe",
+      "title": "Free Market in a Possibility Universe & The Collaborative Manifesto",
+      "date": "2019-09",
+      "source": "Blog",
+      "url": "https://domij.info/free-market-in-a-possibility-universe.html",
+      "pillar": "collective-intelligence",
+      "secondaryPillars": ["complex-adaptive-systems", "organizational-intelligence"],
+      "summary": "Explores information asymmetry, resource coordination among autonomous agents, and liquid democracy in high-entropy social systems.",
+      "keyInsight": "Overcoming human biological limits in information I/O and processing requires new social contracts that align individual ownership with collective decision-making."
+    },
+    {
+      "id": "astrophysics-bbh-research",
+      "title": "Gravitational Waves from Binary Black Holes in Globular Clusters & Open Research Workflow",
+      "date": "2018-07",
+      "source": "Research",
+      "url": "https://domij.info/pages/research.html",
+      "pillar": "complex-adaptive-systems",
+      "secondaryPillars": ["decision-intelligence", "collective-intelligence"],
+      "summary": "Ph.D. dissertation modeling 1M-body globular clusters across 3,140 supercomputer simulations (100+ TB) and establishing reproducible Jupyter-based open science workflows.",
+      "keyInsight": "Simulating emergent multi-body dynamics from first principles—and making the entire computational pipeline reproducible—creates the methodological foundation for modeling complex human and AI systems."
+    }
+  ]
+}

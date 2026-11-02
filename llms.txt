@@ -1,0 +1,93 @@
+# Domi Jin (Dongming Jin)
+
+> Scientist. Builder. Founder.
+> A sci-fi mind. An engineer’s hands.
+
+- **Canonical URL**: https://domij.info/
+- **Green Environment (Next.js + Three.js)**: https://domij.info/next/
+- **Blue Environment (Classic Pelican Archive)**: https://domij.info/pages/about-me.html
+- **Substack (Domi's Mind Waves)**: https://domijin.substack.com/
+- **Medium**: https://medium.com/@domijin
+- **GitHub**: https://github.com/domijin
+- **LinkedIn**: https://www.linkedin.com/in/domijin
+- **Contact**: mailto:contact@domij.info
+- **Structured Agent Context Map (JSON)**: https://domij.info/agent-context.json
+- **Extended LLM Context**: https://domij.info/llms-full.txt
+
+---
+
+## Mission
+
+Exploring how technology can expand human potential and empower people to achieve more together.
+
+## Background & Trajectory
+
+1. **Fundamental Science (Computational Astrophysics, Ph.D. 2018)**
+   My journey began with fundamental science, studying the universe through computational astrophysics, numerical simulations, and statistical modeling. Conducted 3,140 numerical simulations (>100 TB, 25k supercomputer node-hours on TACC) of 1-million-body globular clusters ($O(N^3)$ N-body and $O(N \log N)$ Monte Carlo dynamics) to extract a 17M x 14 database of binary black holes and evaluate gravitational wave detection prospects for space-borne detectors (LISA). Fellow in the LSST Data Science Fellowship Program (2016–2018).
+
+2. **Applied Machine Learning & Decision Systems**
+   I subsequently moved into applied machine learning, building decision systems for consumer products, marketplaces, and advertising technology—spanning real-time contextual recommendation engines from mobility signals, marketplace pricing and GenAI request flows, and deep-learning performance advertising analytics, causal lift, and demand mining.
+
+3. **Entrepreneurship, Open Research & Human-Centered AI**
+   Entrepreneurship brought a different perspective: understanding what people actually need, how they make decisions, and why technically promising solutions sometimes fail in the real world.
+   Across these experiences, one question has remained central:
+   **How can we use technology to help individuals become more capable and enable people to collaborate more effectively?**
+
+## Philosophy & Epistemology
+
+- **Collaboration First**: I believe humanity’s greatest achievements emerge through collaboration. Intelligence matters, but so do communication, trust, complementary capabilities, incentives, and the freedom to make meaningful choices.
+- **Technology as a Means**: Technology is a means rather than an end. Its value should ultimately be measured by how it improves people’s opportunities, autonomy, relationships, and quality of life.
+- **Scientific Rigor & Practical Experimentation**: My approach combines scientific curiosity with practical experimentation: challenge assumptions, build working systems, measure outcomes, learn from failure, and revise our understanding.
+
+## Intellectual Interests (Continuing Explorations)
+
+*Note: These are continuing intellectual interests and active engineering explorations, not claims of completed research or established scientific findings.*
+
+- **Collective Intelligence**: How do individual capabilities combine to produce collective outcomes?
+- **Human–AI Collaboration**: How can intelligent systems augment human judgment and agency?
+- **Organizational Intelligence**: How do communication, coordination, trust, and incentives shape collaboration?
+- **Complex Adaptive Systems**: How do interactions among individuals give rise to emergent social and organizational behavior?
+- **Decision Intelligence**: How can information, feedback, and experimentation improve decisions?
+- **Human Potential**: How can technology make learning, opportunity, and meaningful participation more accessible?
+- **AI and Society**: How might increasingly capable intelligence change the ways we work, cooperate, and live?
+
+## Open-Source & Founder Projects
+
+- **[Open Learning Lab](https://github.com/domijin/open-learning-lab)**: An open experiment in evidence-driven personalized learning (`goal -> hypothesis -> experiment -> observation/evidence -> finding -> decision`). Optimizes durable, transferable capability outside the tutoring session rather than conversational fluency.
+- **[baby-AI](https://github.com/domijin/baby-AI)**: Open-specs, receipt-verified edge-deployed household agent (<$200 BOM: Raspberry Pi 5 + Hailo-8L + ReSpeaker 4-Mic Array) that learns verbally without shipping personal data off-device. Every claim is backed by a cryptographically signed evaluation receipt.
+- **[Life Hack: iMessage AI Router](https://domij.info/beta/)**: A low-bandwidth HCI harness routing iMessage and satellite text channels to internet-connected reasoning agents when normal browsing is constrained or unavailable.
+- **[Kin Domi, Inc.](https://kindomi.net/)**: Building human-centered AI and community systems that empower senior independence, dignity, and intergenerational wisdom.
+- **[Agent-Based Advertising System & Observations](https://github.com/domijin/observations_in_advertising)**: Architectural specifications and economic analysis of scaling laws, demand mining, adaptive marketing, and multi-agent control planes for sub-50ms real-time decision systems.
+- **[LibertyEarth](https://github.com/domijin/LibertyEarth)** & **[The Future Project](https://github.com/domijin/future)**: Open-source living archives exploring collaborative governance, social contracts, and actionable technical strategies.
+- **[HackerTube RSS](https://github.com/domijin/HackerTube)**: Curated, subscribable RSS feeds of high-signal technical talks from Hacker News (2007–2026).
+
+## Selected Public Writings (Context Map)
+
+### Substack (*Domi's Mind Waves*)
+- [Reclaiming Play as a Life Skill](https://domijin.substack.com/p/reclaiming-play-as-a-life-skill) (2025): Gameful mindsets, feedback loops, and voluntary agency in lifelong learning and aging well.
+- [Tesla, Seniors Love Your Self-Driving—Now Let’s Make It Safer for Them](https://domijin.substack.com/p/tesla-seniors-love-your-self-drivingnow) (2025): Field research with senior autonomous vehicle users on HCI, voice control, and cognitive load.
+- [Overachiever’s Responsibility: Reflection on Leadership, Alignment, and Sustainable Growth](https://domijin.substack.com/p/overachievers-responsibility-reflection) (Feb 2025): Incentives before expectations, the GCD/LCM model of team alignment vs. complementarity, and sustainable execution.
+- [A Colorful Year Ahead: Rhythm of Intentional Planning & Execution](https://domijin.substack.com/p/a-colorful-year-ahead) (Jan 2025): Asynchronous collaboration, transparent calendars, and iterative work models.
+- [Serendipity: Where It Sparks & Dedication: Where It Is Channeled](https://domijin.substack.com/p/serendipity-where-it-sparks) (Dec 2024): Connecting peaks across astrophysics, ML, and HCI into an interdisciplinary highland.
+- [Momentum, Momentum, Momentum!](https://domijin.substack.com/p/momentum-momentum-momentum) & [Starting a New Venture](https://domijin.substack.com/p/starting-a-new-venture) (Dec 2024): Zero-to-one customer discovery, ethics in community research, and building Kin Domi, Inc.
+- [Reflections from Coach-Seeking Impulse](https://domijin.substack.com/p/relections-from-coach-seeking-impulse) (Dec 2024): Intellectual honesty, context building, and mutually empowering mentorship.
+- [Building the Context for Reading Expectations](https://domijin.substack.com/p/building-the-context-for-reading) & [Hello World!](https://domijin.substack.com/p/hello-world) (Nov 2024): Open-sourcing personal growth practices and synthesizing cross-platform writings.
+
+### Medium (`@domijin`)
+- [Trace of AppLovin’s 7x Annual Hypergrowth & Observations in Performance Advertising](https://medium.com/@domijin/trace-of-applovins-7x-annual-hypergrowth-39dcb154f5d0) (Nov 2024): Scaling laws in ad tech, latency tolerance vs. model depth, and the economic limits of surveillance/demand-driven capitalism.
+- [Is Dark Mode Doing More Harm Than Good? A Deeper Look at Our Choices](https://medium.com/@domijin/is-dark-mode-doing-more-harm-than-good-a-deeper-look-at-our-choices-a9685daad170) (Nov 2024): First-principles critique of agile short-termism vs. long-term user well-being and structured decision workflows.
+- [Rethinking Digital Advertising: From Guesswork to User Engagement](https://domijin.medium.com/rethinking-digital-advertising-from-guesswork-to-user-engagement-6e1916a2aced) & [Moving Beyond Relevance to Demand Profiling and Dynamic Personalization](https://domijin.medium.com/the-future-of-advertising-moving-beyond-relevance-to-demand-profiling-and-dynamic-personalization-5f4ccc03697c) (Oct 2024): Multi-stage intent graphs, profile distillation, and interactive feedback loops.
+- [From Traffic Lights to Life’s Direction](https://domijin.medium.com/from-traffic-lights-to-lifes-direction-57176d5d7a06) (Oct 2023): Algorithmic crowdsourcing, Wolfram Summer School (LLM + symbolic computation), and career recalibration.
+- [Why Is Some Professional Handwriting Illegible?](https://medium.com/@domijin/why-is-some-professional-handwriting-illegible-d07bd8acb818) (Oct 2023): Information bandwidth (39 bits/sec speech vs. text), HCI bottlenecks, and institutional friction.
+- [Observation: The Dilemma and Cultural Difference Behind the eVTOL Field](https://domijin.medium.com/observation-the-dilemma-and-cultural-difference-behind-the-evtol-field-df42e91af109) & [Boeing’s Future at Stake: The Growing Challenge from SpaceX](https://domijin.medium.com/boeings-future-at-stake-the-growing-challenge-from-spacex-177b63b10882) (2023): First-principles analysis of aerospace manufacturing, regulatory dynamics, and service-based business models.
+
+### Canonical Blog & Technical Archive (`domij.info`)
+- [All About ChatGPT](https://domij.info/all-about-chatgpt.html) & [Hello World Again](https://domij.info/hello-world-again.html) (Feb 2023): Search unit economics, flat correlation vs. symbolic/causal reasoning, RLHF alignment bottlenecks, and collective knowledge graphs.
+- [Free Market in a Possibility Universe](https://domij.info/free-market-in-a-possibility-universe.html) & [Manifesto](https://domij.info/manifesto.html) (2019): Liquid democracy, communication bandwidth, and organizational scaling.
+- [WorkFlow and Methodology](https://domij.info/workflow-and-methodology.html) & [Research: Gravitational Waves from Binary Black Holes in Globular Clusters](https://domij.info/pages/research.html) (2018): Open reproducible science, HPC at TACC, and statistical modeling.
+
+## What I’m Looking For
+
+I enjoy working with intellectually curious people who combine ambitious questions with rigorous thinking and practical execution.
+
+I’m particularly interested in connecting with **researchers, lead AI teams, builders, and early-stage founder-centric investors** who value interdisciplinary thinking, experimentation, human-centered technology, and long-term impact.
