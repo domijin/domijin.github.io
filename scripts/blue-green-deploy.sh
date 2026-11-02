@@ -45,6 +45,8 @@ case "$cmd" in
     fi
     cd "${GREEN_APP_DIR}"
     NEXT_BASE_PATH="" npx next build
+    # Remove the previous root export so stale hashed chunks do not accumulate.
+    rm -rf "${ROOT_DIR}/_next" "${ROOT_DIR}/404" "${ROOT_DIR}/index.txt" "${ROOT_DIR}/404.html"
     cp -R "${GREEN_APP_DIR}/out/"* "${ROOT_DIR}/"
     touch "${ROOT_DIR}/.nojekyll"
     echo "Green promoted to root (/). Classic home page backed up to /classic/index.html."

@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Rethinking Digital Advertising: From Guesswork to User Engagement — Domi Jin</title>
-  <meta name="description" content="Rethinking Digital Advertising: From Guesswork to User Engagement — Essay and technical notes by Domi Jin." />
+  <meta name="description" content="Digital advertising should read user intent through interactive engagement rather than guess it from incomplete behavioural data." />
   <link rel="canonical" href="https://domij.info/articles/medium/rethinking-digital-advertising-from-guesswork-to-user-engagement-6e1916a2aced.html" />
   <style>
     :root {
@@ -19,7 +19,7 @@
       margin: 0;
       background: var(--bg);
       color: var(--ink);
-      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "PingFang SC", "Hiragino Sans GB", "Noto Serif CJK SC", serif;
       font-size: 19px;
       line-height: 1.78;
       -webkit-font-smoothing: antialiased;
@@ -49,7 +49,7 @@
       font-weight: 500;
     }
     .topbar a:hover { text-decoration: underline; }
-    .chapter-badge {
+    .publication-badge {
       color: var(--muted);
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 11px;
@@ -66,7 +66,7 @@
       padding-bottom: 24px;
       border-bottom: 1px solid var(--border);
     }
-    .essay-eyebrow {
+    .essay-eyebrow, .article-kicker {
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 12px;
       text-transform: uppercase;
@@ -117,6 +117,10 @@
     article li {
       margin-bottom: 0.45em;
     }
+    article ul ul, article ol ul {
+      margin-top: 0.4em;
+      margin-bottom: 0.6em;
+    }
     article code {
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 0.86em;
@@ -129,21 +133,43 @@
       text-decoration: underline;
       text-underline-offset: 3px;
     }
+    .diagram-figure {
+      margin: 2.2em 0;
+      padding: 20px;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+    }
+    .diagram-figure svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .diagram-figure figcaption {
+      margin-top: 12px;
+      font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--muted);
+      text-align: center;
+    }
     .table-wrap {
       overflow-x: auto;
-      margin: 1.5em 0;
+      margin: 1.8em 0;
     }
-    table {
+    table, table.editorial-table {
       width: 100%;
       border-collapse: collapse;
       font-family: ui-sans-serif, system-ui, sans-serif;
       font-size: 14px;
-      line-height: 1.5;
+      line-height: 1.55;
     }
     th, td {
       border: 1px solid var(--border);
-      padding: 8px 12px;
+      padding: 10px 14px;
       text-align: left;
+      vertical-align: top;
     }
     th {
       background: #f8fafc;
@@ -169,65 +195,175 @@
   </style>
 </head>
 <body>
-  <nav class="topbar" aria-label="Book navigation">
+  <nav class="topbar" aria-label="Site navigation">
     <div class="topbar-inner">
-      <a href="/">&larr; Domi Jin &middot; Notes from Research &amp; Practice</a>
-      <span class="chapter-badge">Chapter II · Decisions Under Constraints</span>
-      <a href="/articles/">Table of Contents</a>
+      <a href="/">&larr; Domi Jin</a>
+      <span class="publication-badge">Medium &middot; AdTech &amp; ML Systems</span>
+      <a href="/articles/">All Writing</a>
     </div>
   </nav>
   <main>
     <header class="essay-header">
-      <span class="essay-eyebrow">Chapter II · Decisions Under Constraints</span>
+      <span class="essay-eyebrow article-kicker">Medium &middot; AdTech &amp; ML Systems &middot; October 2024</span>
       <h1>Rethinking Digital Advertising: From Guesswork to User Engagement</h1>
       <div class="essay-byline">By Domi Jin (Dongming Jin) &middot; October 2024</div>
     </header>
     <article>
-      <p>Traditional digital advertising often relies on guessing user needs based on incomplete data. Instead, we should focus on understanding users through interactive engagement, creating a more refined and dynamic ad delivery system.</p>
-      <p>Here are some thoughts on how to achieve that:</p>
-      <p><strong>1. Increase User Interactions &amp; Positive Sample Rate</strong></p>
-      <p>• <strong>Objective</strong>: Design interactions that actively encourage users to engage with ads beyond clicks, increasing the volume of data collected per session.</p>
-      <p>• <strong>Tactics</strong>:</p>
-      <p>• <strong>Dynamic Ad Switching</strong>: Implement a “shuffle” feature within a single ad slot to allow users to change the ad if it doesn’t resonate. Track these interactions as a proxy for content preference.</p>
-      <ul><li><strong>Interactive Ad Units</strong>: Create rich media formats like swipeable image carousels, quick polls, or “choose your adventure” stories to capture richer behavioral data.</li></ul>
-      <p><strong>2. Refine Intent Labels Using Marketing Funnel</strong></p>
-      <p>• <strong>Objective</strong>: Move beyond simple “click or not” labels. Use refined intent labels to create a granular understanding of where users are in their journey.</p>
-      <p>• <strong>Tactics</strong>:</p>
-      <p>• <strong>User State Tracking</strong>: Implement a multi-stage label system to track the user’s stage across <strong>awareness, interest, consideration, and conversion</strong>.</p>
-      <p><strong>3. Expand Ad Types Using GenAI &amp; UGC</strong></p>
-      <p>• <strong>Objective</strong>: Use generative AI and creator-generated content to diversify ad styles, ensuring there’s always a relevant format for every type of user.</p>
-      <p>• <strong>Tactics</strong>:</p>
-      <p>• <strong>Ad Content Generator</strong>: Implement a GenAI system that can auto-generate multiple ad creatives based on high-performing templates (e.g., explainer videos, parameter-based comparisons, and visual storytelling).</p>
-      <p>• <strong>Creator Ecosystem</strong>: Build an API to allow third-party creators to submit branded content and automatically match it with user segments based on their style preference (e.g., educational, humorous, inspirational).</p>
-      <p><strong>4. Build Detailed &amp; Reusable User Profiles</strong></p>
-      <p>• <strong>Objective</strong>: Develop detailed user profiles that can serve as a long-term competitive advantage (moat) by enhancing both targeting precision and model efficiency.</p>
-      <p>• <strong>Tactics</strong>:</p>
-      <p>• <strong>Interest Graphs</strong>: Create a multi-layered interest graph that captures not just primary interests but also contextual and session-level nuances (e.g., “workday interest” vs. “weekend leisure interest”).</p>
-      <p>• <strong>Profile Distillation</strong>: Use fine-tuning techniques to distill session-level behavior and historical data into compact embeddings, reducing the need for large-scale models.</p>
-      <p>• <strong>Adaptive Profiles</strong>: Allow profiles to dynamically update based on real-time interactions and adapt targeting strategies (e.g., shifting from product-focused to lifestyle-based ads as interests evolve).</p>
-      <p><strong>5. Deploy Efficient Candidate Generation Models</strong></p>
-      <p>• <strong>Objective</strong>: Use distilled user profiles and session-level data to build smaller, cost-efficient models that can handle candidate generation without compromising performance.</p>
-      <p><strong>System Architecture &amp; Implementation Roadmap</strong></p>
-      <ol><li><strong>Data Pipeline</strong>:</li></ol>
-      <p>• Set up a <strong>real-time data ingestion pipeline</strong> to handle user feedback, engagement data, and contextual signals.</p>
-      <p>• Use <strong>feature stores</strong> to maintain session-level and long-term user features.</p>
-      <ol><li><strong>Labeling &amp; Profile Service</strong>:</li></ol>
-      <p>• Build a centralized <strong>user state service</strong> that maps interactions to funnel stages.</p>
-      <p>• Implement a <strong>profile aggregation service</strong> that combines session data with historical data, outputting refined user embeddings.</p>
-      <ol><li><strong>Dynamic Ad Serving</strong>:</li></ol>
-      <p>• Design a <strong>dynamic ad delivery system</strong> that supports in-session creative switching, real-time updates, and multi-variant testing.</p>
-      <p>• Introduce a <strong>creative generation engine</strong> powered by GenAI to scale up content production.</p>
-      <ol><li><strong>Profile Distillation &amp; Efficient Candidate Models</strong>:</li></ol>
-      <p>• Use compact transformer models to distill user behavior into high-quality embeddings.</p>
-      <p>• Deploy <strong>multi-stage candidate generation models</strong> with fine-tuning capabilities to minimize system footprint.</p>
+      <p>Traditional digital advertising often relies on guessing user needs based on incomplete data. Instead, we should focus on understanding users through interactive engagement, creating a more refined and dynamic ad delivery system.</p>
+
+      <figure class="diagram-figure">
+        <svg viewBox="0 0 760 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Closed-Loop Interactive Ad Delivery and Profile Distillation Architecture">
+          <defs>
+            <marker id="arrow-ra" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 1 L 10 5 L 0 9 z" fill="#2980b9"/>
+            </marker>
+          </defs>
+          <rect width="760" height="280" rx="10" fill="#f8fafc"/>
+          <text x="380" y="26" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13.5" font-weight="700" fill="#0f172a">CLOSED-LOOP INTERACTIVE AD DELIVERY &amp; PROFILE DISTILLATION ARCHITECTURE</text>
+
+          <!-- Stage 1 -->
+          <rect x="18" y="48" width="166" height="176" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+          <rect x="18" y="48" width="166" height="28" rx="8" fill="#e0f2fe"/>
+          <text x="101" y="66" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="700" fill="#0369a1">1. INTERACTIVE AD UNIT</text>
+          <text x="30" y="96" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="600" fill="#1e293b">• In-Slot “Shuffle” UI</text>
+          <text x="36" y="112" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10" fill="#64748b">User swaps non-resonant ad</text>
+          <text x="30" y="136" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="600" fill="#1e293b">• Polls &amp; Carousels</text>
+          <text x="36" y="152" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10" fill="#64748b">Rich micro-interactions</text>
+          <rect x="28" y="188" width="146" height="24" rx="4" fill="#dcfce7"/>
+          <text x="101" y="204" text-anchor="middle" font-family="ui-monospace, monospace" font-size="9.5" font-weight="600" fill="#166534">+Positive Sample Rate</text>
+
+          <line x1="184" y1="136" x2="204" y2="136" stroke="#2980b9" stroke-width="2" marker-end="url(#arrow-ra)"/>
+
+          <!-- Stage 2 -->
+          <rect x="208" y="48" width="166" height="176" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+          <rect x="208" y="48" width="166" height="28" rx="8" fill="#e0f2fe"/>
+          <text x="291" y="66" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="700" fill="#0369a1">2. FUNNEL STATE LABELS</text>
+          <text x="220" y="96" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="600" fill="#1e293b">• Multi-Stage Intent</text>
+          <text x="226" y="112" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10" fill="#64748b">Awareness → Interest →</text>
+          <text x="226" y="126" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10" fill="#64748b">Consideration → Conversion</text>
+          <text x="220" y="150" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="600" fill="#1e293b">• Real-Time Feature Store</text>
+          <text x="226" y="166" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10" fill="#64748b">Session + historical signals</text>
+          <rect x="218" y="188" width="146" height="24" rx="4" fill="#f1f5f9"/>
+          <text x="291" y="204" text-anchor="middle" font-family="ui-monospace, monospace" font-size="9.5" fill="#475569">Granular State Tracking</text>
+
+          <line x1="374" y1="136" x2="394" y2="136" stroke="#2980b9" stroke-width="2" marker-end="url(#arrow-ra)"/>
+
+          <!-- Stage 3 -->
+          <rect x="398" y="48" width="166" height="176" rx="8" fill="#ffffff" stroke="#0284c7" stroke-width="2"/>
+          <rect x="398" y="48" width="166" height="28" rx="8" fill="#0284c7"/>
+          <text x="481" y="66" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="700" fill="#ffffff">3. PROFILE DISTILLATION</text>
+          <text x="410" y="96" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="600" fill="#1e293b">• Layered Interest Graph</text>
+          <text x="416" y="112" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10" fill="#64748b">Workday vs. weekend context</text>
+          <text x="410" y="136" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="600" fill="#1e293b">• Compact Transformers</text>
+          <text x="416" y="152" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10" fill="#64748b">Distills behavior to embeddings</text>
+          <rect x="408" y="188" width="146" height="24" rx="4" fill="#e0f2fe"/>
+          <text x="481" y="204" text-anchor="middle" font-family="ui-monospace, monospace" font-size="9.5" font-weight="600" fill="#0369a1">Reusable User Moat</text>
+
+          <line x1="564" y1="136" x2="584" y2="136" stroke="#2980b9" stroke-width="2" marker-end="url(#arrow-ra)"/>
+
+          <!-- Stage 4 -->
+          <rect x="588" y="48" width="154" height="176" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+          <rect x="588" y="48" width="154" height="28" rx="8" fill="#e0f2fe"/>
+          <text x="665" y="66" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="700" fill="#0369a1">4. GENAI + UGC SERVING</text>
+          <text x="600" y="96" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="600" fill="#1e293b">• GenAI Variants</text>
+          <text x="606" y="112" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10" fill="#64748b">Explainers, specs &amp; stories</text>
+          <text x="600" y="136" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="600" fill="#1e293b">• Creator Ecosystem API</text>
+          <text x="606" y="152" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10" fill="#64748b">Style-matched UGC creatives</text>
+          <rect x="598" y="188" width="134" height="24" rx="4" fill="#fef3c7"/>
+          <text x="665" y="204" text-anchor="middle" font-family="ui-monospace, monospace" font-size="9.5" font-weight="600" fill="#92400e">Positive-Sum Utility</text>
+
+          <text x="380" y="256" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#475569">Replacing zero-sum click guesswork with interactive feedback loops, distilled embeddings, and adaptive creatives.</text>
+        </svg>
+        <figcaption>Figure 1: Closed-loop interactive ad architecture connecting in-slot user interactions (“Shuffle”, polls) to funnel-stage labeling, transformer profile distillation, and GenAI/creator candidate serving.</figcaption>
+      </figure>
+
+      <p>Here are some thoughts on how to achieve that:</p>
+
+      <h3>1. Increase User Interactions &amp; Positive Sample Rate</h3>
+      <ul>
+        <li><strong>Objective</strong>: Design interactions that actively encourage users to engage with ads beyond clicks, increasing the volume of data collected per session.</li>
+        <li><strong>Tactics</strong>:
+          <ul>
+            <li><strong>Dynamic Ad Switching</strong>: Implement a “shuffle” feature within a single ad slot to allow users to change the ad if it doesn’t resonate. Track these interactions as a proxy for content preference.</li>
+            <li><strong>Interactive Ad Units</strong>: Create rich media formats like swipeable image carousels, quick polls, or “choose your adventure” stories to capture richer behavioral data.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>2. Refine Intent Labels Using Marketing Funnel</h3>
+      <ul>
+        <li><strong>Objective</strong>: Move beyond simple “click or not” labels. Use refined intent labels to create a granular understanding of where users are in their journey.</li>
+        <li><strong>Tactics</strong>:
+          <ul>
+            <li><strong>User State Tracking</strong>: Implement a multi-stage label system to track the user’s stage across <strong>awareness, interest, consideration, and conversion</strong>.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>3. Expand Ad Types Using GenAI &amp; UGC</h3>
+      <ul>
+        <li><strong>Objective</strong>: Use generative AI and creator-generated content to diversify ad styles, ensuring there’s always a relevant format for every type of user.</li>
+        <li><strong>Tactics</strong>:
+          <ul>
+            <li><strong>Ad Content Generator</strong>: Implement a GenAI system that can auto-generate multiple ad creatives based on high-performing templates (e.g., explainer videos, parameter-based comparisons, and visual storytelling).</li>
+            <li><strong>Creator Ecosystem</strong>: Build an API to allow third-party creators to submit branded content and automatically match it with user segments based on their style preference (e.g., educational, humorous, inspirational).</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>4. Build Detailed &amp; Reusable User Profiles</h3>
+      <ul>
+        <li><strong>Objective</strong>: Develop detailed user profiles that can serve as a long-term competitive advantage (moat) by enhancing both targeting precision and model efficiency.</li>
+        <li><strong>Tactics</strong>:
+          <ul>
+            <li><strong>Interest Graphs</strong>: Create a multi-layered interest graph that captures not just primary interests but also contextual and session-level nuances (e.g., “workday interest” vs. “weekend leisure interest”).</li>
+            <li><strong>Profile Distillation</strong>: Use fine-tuning techniques to distill session-level behavior and historical data into compact embeddings, reducing the need for large-scale models.</li>
+            <li><strong>Adaptive Profiles</strong>: Allow profiles to dynamically update based on real-time interactions and adapt targeting strategies (e.g., shifting from product-focused to lifestyle-based ads as interests evolve).</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>5. Deploy Efficient Candidate Generation Models</h3>
+      <ul>
+        <li><strong>Objective</strong>: Use distilled user profiles and session-level data to build smaller, cost-efficient models that can handle candidate generation without compromising performance.</li>
+      </ul>
+
+      <h2>System Architecture &amp; Implementation Roadmap</h2>
+      <ol>
+        <li>
+          <strong>Data Pipeline</strong>:
+          <ul>
+            <li>Set up a <strong>real-time data ingestion pipeline</strong> to handle user feedback, engagement data, and contextual signals.</li>
+            <li>Use <strong>feature stores</strong> to maintain session-level and long-term user features.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Labeling &amp; Profile Service</strong>:
+          <ul>
+            <li>Build a centralized <strong>user state service</strong> that maps interactions to funnel stages.</li>
+            <li>Implement a <strong>profile aggregation service</strong> that combines session data with historical data, outputting refined user embeddings.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Dynamic Ad Serving</strong>:
+          <ul>
+            <li>Design a <strong>dynamic ad delivery system</strong> that supports in-session creative switching, real-time updates, and multi-variant testing.</li>
+            <li>Introduce a <strong>creative generation engine</strong> powered by GenAI to scale up content production.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Profile Distillation &amp; Efficient Candidate Models</strong>:
+          <ul>
+            <li>Use compact transformer models to distill user behavior into high-quality embeddings.</li>
+            <li>Deploy <strong>multi-stage candidate generation models</strong> with fine-tuning capabilities to minimize system footprint.</li>
+          </ul>
+        </li>
+      </ol>
+
       <p>By shifting from a reactive to a proactive system, we can transform digital advertising from guesswork into a structured process of user education, engagement, and demand realization. This approach builds deeper user relationships and creates a sustainable competitive advantage for the platform.</p>
     </article>
     <footer class="colophon">
-      <p>
-        <strong>Footnote:</strong> First published in
-        <a href="https://medium.com/@domijin/rethinking-digital-advertising-from-guesswork-to-user-engagement-6e1916a2aced" rel="noopener noreferrer" target="_blank">Medium</a>
-        (October 2024). Part of <em>Domi Jin — Notes from Research and Practice</em>.
-      </p>
+      <p>Originally published on <a href="https://medium.com/@domijin/rethinking-digital-advertising-from-guesswork-to-user-engagement-6e1916a2aced" rel="noopener noreferrer" target="_blank">Medium</a> &middot; October 2024.</p>
     </footer>
   </main>
 </body>

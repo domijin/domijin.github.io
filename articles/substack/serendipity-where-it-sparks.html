@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Serendipity: where it sparks — Domi Jin</title>
-  <meta name="description" content="Serendipity: where it sparks — Essay and technical notes by Domi Jin." />
+  <meta name="description" content="Curiosity, intergenerational friendships, and authentic collaboration turn chance encounters into a shared mission to support older adults." />
   <link rel="canonical" href="https://domij.info/articles/substack/serendipity-where-it-sparks.html" />
   <style>
     :root {
@@ -19,7 +19,7 @@
       margin: 0;
       background: var(--bg);
       color: var(--ink);
-      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "PingFang SC", "Hiragino Sans GB", "Noto Serif CJK SC", serif;
       font-size: 19px;
       line-height: 1.78;
       -webkit-font-smoothing: antialiased;
@@ -49,7 +49,7 @@
       font-weight: 500;
     }
     .topbar a:hover { text-decoration: underline; }
-    .chapter-badge {
+    .publication-badge {
       color: var(--muted);
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 11px;
@@ -66,7 +66,7 @@
       padding-bottom: 24px;
       border-bottom: 1px solid var(--border);
     }
-    .essay-eyebrow {
+    .essay-eyebrow, .article-kicker {
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 12px;
       text-transform: uppercase;
@@ -117,6 +117,9 @@
     article li {
       margin-bottom: 0.45em;
     }
+    article ul ul {
+      margin: 0.4em 0 0.6em 0;
+    }
     article code {
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 0.86em;
@@ -129,26 +132,25 @@
       text-decoration: underline;
       text-underline-offset: 3px;
     }
-    .table-wrap {
-      overflow-x: auto;
-      margin: 1.5em 0;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-family: ui-sans-serif, system-ui, sans-serif;
-      font-size: 14px;
-      line-height: 1.5;
-    }
-    th, td {
+    .diagram-figure {
+      margin: 36px 0;
+      padding: 24px;
+      background: rgba(255, 255, 255, 0.65);
       border: 1px solid var(--border);
-      padding: 8px 12px;
-      text-align: left;
+      border-radius: 16px;
+      box-shadow: 0 10px 28px rgba(31, 42, 58, 0.05);
     }
-    th {
-      background: #f8fafc;
-      font-weight: 600;
-      color: #0f172a;
+    .diagram-figure svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .diagram-figure figcaption {
+      margin-top: 12px;
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-align: center;
+      font-family: 'Inter', -apple-system, sans-serif;
     }
     footer.colophon {
       margin-top: 64px;
@@ -169,56 +171,50 @@
   </style>
 </head>
 <body>
-  <nav class="topbar" aria-label="Book navigation">
+  <nav class="topbar" aria-label="Site navigation">
     <div class="topbar-inner">
-      <a href="/">&larr; Domi Jin &middot; Notes from Research &amp; Practice</a>
-      <span class="chapter-badge">Chapter IV · Institutions, Incentives and Possible Futures</span>
-      <a href="/articles/">Table of Contents</a>
+      <a href="/">&larr; Domi Jin</a>
+      <span class="publication-badge">Domi’s Mind Waves &middot; Serendipity &amp; Chance</span>
+      <a href="/articles/">All Writing</a>
     </div>
   </nav>
   <main>
     <header class="essay-header">
-      <span class="essay-eyebrow">Chapter IV · Institutions, Incentives and Possible Futures</span>
+      <span class="essay-eyebrow article-kicker">Substack &middot; Domi’s Mind Waves &middot; Serendipity &amp; Chance &middot; By Domi Jin (December 2024)</span>
       <h1>Serendipity: where it sparks</h1>
       <div class="essay-byline">By Domi Jin (Dongming Jin) &middot; December 2024</div>
     </header>
     <article>
-      <h2><strong>A Childhood Rooted in Stories and Tradition</strong></h2>
-      <p>I have always been drawn to stories. Growing up, I found myself gravitating toward conversations with seniors. Perhaps it stemmed from my unique upbringing. My parents, often busy working, left me in the company of older relatives or neighbors.  With my parents busy working, and my grandparents passing early, I often spent time with older relatives and neighbors. Their stories of challenges and triumphs became a rich source of wisdom, opening my eyes to the breadth of human experience.</p>
-      <p>My affinity for the elderly and children did not go unnoticed. Friends often remarked on how naturally I connected with them, calling it a gift of “亲和力”—an innate ability to make people feel at ease. From chatting with teachers and neighbors to forming friendships with strangers at dining table, traveling, community events or family gathering, I’ve always found joy in building relationships. This connection extends to my involvement in activities that engage seniors, such as volunteering at garden &amp; libraries, attending lawn bowling events, and participating in living history and Renaissance fairs. These moments have shaped my understanding of intergenerational bonds and the value of diverse perspectives.</p>
-      <h2><strong>Living with Curiosity and Gratitude</strong></h2>
-      <p>My life has been guided by open-ended curiosity and a deep appreciation for serendipity—those unplanned moments that spark growth and insight. Influenced by Confucian values of “礼” (ritual propriety) and “仁” (benevolence), I’ve cultivated respect, humility, and a commitment to lifelong learning.</p>
-      <p>Recognizing the fleeting nature of life has further inspired me (studying astrophysics in universe timescale also contributes to this). As the reflection &quot;人就这么一辈子&quot; reminds us, life is brief, and each moment is irreversible. The words of Su Dongpo, &quot;寄蜉蝣于天地，渺沧海之一粟&quot; resonate deeply, urging me to cherish each instant and channel my limited time into meaningful action. I&#x27;m known by my friends for my diverse interests, which you may find the trace from our conversation or some of my past <a href="https://domijin.github.io/pages/footprint.html">footprints</a>.</p>
-      <h2><strong>Standing on the Shoulders of Giants</strong></h2>
-      <p>The phrase “standing on the shoulders of giants” has shaped my intellectual journey. Yet, I’ve come to realize that standing isn’t enough. While giants illuminate paths, more innovations lie in finding what they might have missed. It requires courage to question, explore, and build beyond existing paradigms.</p>
-      <p>My approach has always been interdisciplinary. I’ve sought to understand the different peaks those decisive giants have climbed and aimed to connect these peaks (dots). By connecting insights from astrophysics, machine learning, and human-computer interaction, I aim to build a “highland” of understanding—a vantage point from which to see further and think deeper. Each summit climbed reveals new horizons, and this broader perspective enables me to envision solutions that transcend individual disciplines.</p>
-      <h2><strong>Collaboration Through Authenticity</strong></h2>
-      <p>I&#x27;ve realized that collaboration is essential. Authenticity, grounded in mutual respect and understanding, is important to foster trust and align values across diverse groups. Following this principle, a diverse team of like-minded individuals, each bringing complementary strengths to the table is coming to shape. In traditional Chinese terms, we are “八仙过海，各显神通”—a collective united by shared goals yet enriched by individual talents.</p>
-      <p>I’m deeply grateful for the trust and support I&#x27;ve received from this family and friends. Their belief in me fuels my determination and inspires our shared commitment to meaningful progress.</p>
-      <h2><strong>The Mission Ahead</strong></h2>
-      <p>As I look forward, I’m filled with conviction. This team is ready to learn, act, and share together. We will identify our shared strengths and gaps, and build consensus rooted in mutual trust, advancing toward the narrow gate of ultimate fulfillment—a sense of purpose and actualization. While the journey may never be fully accomplished, like Sisyphus pushing his boulder, the striving itself brings meaning and inspires others to join and contribute.</p>
-      <h2><strong>Final Thoughts</strong></h2>
-      <p>Serendipity has been the invisible thread weaving my life together. From childhood conversations with seniors to the timely &amp; relevant connections that contributes to the journey. These moments have inspired me to &quot;Carpe diem. Seize the day, boys. Make your lives extraordinary.&quot;--Dead Poets Society.</p>
-      <h2>Good To Have - Jan/2025</h2>
-      <p>Find a User Researcher -</p>
-      <p>Find a Graphic Designer -</p>
-      <p>Make connection to Keren Etkin: A well-connected author in the Age Tech industry -</p>
-      <p>Refer the Seniors In Need by filling this <a href="https://airtable.com/appMyzotZpggvg2PG/shrg8oIMCL9PAGcKm">form</a></p>
-      <blockquote><p>Aging is a journey we all share, offering both challenges and opportunities. As we grow older, we often find ourselves reflecting on the paths our parents walked and the roads we are paving for the next generation.
-In today’s fast-paced, competitive world, many of us feel the weight of shrinking margins for error—financially, emotionally, and mentally. These pressures can make it harder to pursue our true potential or fully realize our aspirations. Not everyone has equal access to the resources and support needed to thrive.
-At Kin Domi, we are committed to reimagining what it means to age gracefully and purposefully. Our mission is to empower senior communities, transforming them into hubs of wisdom and resilience where heritage and legacy flourish.
-Your insights are invaluable. By participating in this survey, you can help us better understand the challenges and opportunities that come with aging, and together, we can shape a future where every generation has the confidence and support to find their unique path.
-Thank you for lending your voice to this important research. Your perspective makes a difference.</p></blockquote>
-      <p>Paid content will be available to free subscribers after 30 days of posting.</p>
-      <p>爱妻谏言：但行好事，莫问前程；匹夫自白：也许闻名天下，愿付十年寒窗。</p>
-      <p>Advice from my beloved wife: &quot;Just do good, without asking about the future;&quot; Reflection from myself: &quot;Regardless (the mission) to be valued across the world or not, I would devote a decade of hard work.&quot;</p>
+<h2>A Childhood Rooted in Stories and Tradition</h2>
+<p>I have always been drawn to stories. Growing up, I found myself gravitating toward conversations with seniors. Perhaps it stemmed from my unique upbringing. My parents, often busy working, left me in the company of older relatives or neighbors. With my parents busy working, and my grandparents passing early, I often spent time with older relatives and neighbors. Their stories of challenges and triumphs became a rich source of wisdom, opening my eyes to the breadth of human experience.</p>
+<p>My affinity for the elderly and children did not go unnoticed. Friends often remarked on how naturally I connected with them, calling it a gift of “亲和力”—an innate ability to make people feel at ease. From chatting with teachers and neighbors to forming friendships with strangers at the dining table, while traveling, or at community events or family gatherings, I’ve always found joy in building relationships. This connection extends to my involvement in activities that engage seniors, such as volunteering at gardens &amp; libraries, attending lawn bowling events, and participating in living history and Renaissance fairs. These moments have shaped my understanding of intergenerational bonds and the value of diverse perspectives.</p>
+<h2>Living with Curiosity and Gratitude</h2>
+<p>My life has been guided by open-ended curiosity and a deep appreciation for serendipity—those unplanned moments that spark growth and insight. Influenced by Confucian values of “礼” (ritual propriety) and “仁” (benevolence), I’ve cultivated respect, humility, and a commitment to lifelong learning.</p>
+<p>Recognizing the fleeting nature of life has further inspired me (studying astrophysics on the timescale of the universe also contributes to this). As the reflection "人就这么一辈子" reminds us, life is brief, and each moment is irreversible. The words of Su Dongpo, "寄蜉蝣于天地，渺沧海之一粟" resonate deeply, urging me to cherish each instant and channel my limited time into meaningful action. I’m known by my friends for my diverse interests, which you may find traces of in our conversation or some of my past <a href="https://domijin.github.io/pages/footprint.html">footprints</a>.</p>
+<h2>Standing on the Shoulders of Giants</h2>
+<p>The phrase “standing on the shoulders of giants” has shaped my intellectual journey. Yet, I’ve come to realize that standing isn’t enough. While giants illuminate paths, more innovations lie in finding what they might have missed. It requires courage to question, explore, and build beyond existing paradigms.</p>
+<p>My approach has always been interdisciplinary. I’ve sought to understand the different peaks those decisive giants have climbed and aimed to connect these peaks (dots). By connecting insights from astrophysics, machine learning, and human-computer interaction, I aim to build a “highland” of understanding—a vantage point from which to see further and think deeper. Each summit climbed reveals new horizons, and this broader perspective enables me to envision solutions that transcend individual disciplines.</p>
+<h2>Collaboration Through Authenticity</h2>
+<p>I’ve realized that collaboration is essential. Authenticity, grounded in mutual respect and understanding, is important to foster trust and align values across diverse groups. Following this principle, a diverse team of like-minded individuals, each bringing complementary strengths to the table, is taking shape. In traditional Chinese terms, we are “八仙过海，各显神通”—a collective united by shared goals yet enriched by individual talents.</p>
+<p>I’m deeply grateful for the trust and support I’ve received from this family and friends. Their belief in me fuels my determination and inspires our shared commitment to meaningful progress.</p>
+<h2>The Mission Ahead</h2>
+<p>As I look forward, I’m filled with conviction. This team is ready to learn, act, and share together. We will identify our shared strengths and gaps, and build consensus rooted in mutual trust, advancing toward the narrow gate of ultimate fulfillment—a sense of purpose and actualization. While the journey may never be fully accomplished, like Sisyphus pushing his boulder, the striving itself brings meaning and inspires others to join and contribute.</p>
+<h2>Final Thoughts</h2>
+<p>Serendipity has been the invisible thread weaving my life together. From childhood conversations with seniors to the timely &amp; relevant connections that contribute to the journey. These moments have inspired me to “Carpe diem. Seize the day, boys. Make your lives extraordinary.” — Dead Poets Society.</p>
+<h2>Good To Have — Jan/2025</h2>
+<ul>
+<li>Find a User Researcher</li>
+<li>Find a Graphic Designer</li>
+<li>Make a connection to Keren Etkin: A well-connected author in the Age Tech industry</li>
+<li>Refer the Seniors In Need by filling in this <a href="https://airtable.com/appMyzotZpggvg2PG/shrg8oIMCL9PAGcKm">form</a></li>
+</ul>
+<blockquote><p>Aging is a journey we all share, offering both challenges and opportunities. As we grow older, we often find ourselves reflecting on the paths our parents walked and the roads we are paving for the next generation. In today’s fast-paced, competitive world, many of us feel the weight of shrinking margins for error—financially, emotionally, and mentally. These pressures can make it harder to pursue our true potential or fully realize our aspirations. Not everyone has equal access to the resources and support needed to thrive. At Kin Domi, we are committed to reimagining what it means to age gracefully and purposefully. Our mission is to empower senior communities, transforming them into hubs of wisdom and resilience where heritage and legacy flourish. Your insights are invaluable. By participating in this survey, you can help us better understand the challenges and opportunities that come with aging, and together, we can shape a future where every generation has the confidence and support to find their unique path. Thank you for lending your voice to this important research. Your perspective makes a difference.</p></blockquote>
+<p>Paid content will be available to free subscribers after 30 days of posting.</p>
+<p>爱妻谏言：但行好事，莫问前程；匹夫自白：也许闻名天下，愿付十年寒窗。</p>
+<p>Advice from my beloved wife: "Just do good, without asking about the future;" Reflection from myself: "Regardless (the mission) to be valued across the world or not, I would devote a decade of hard work."</p>
     </article>
     <footer class="colophon">
-      <p>
-        <strong>Footnote:</strong> First published in
-        <a href="https://domijin.substack.com/p/serendipity-where-it-sparks" rel="noopener noreferrer" target="_blank">Substack (Domi’s Mind Waves)</a>
-        (December 2024). Part of <em>Domi Jin — Notes from Research and Practice</em>.
-      </p>
+      <p>Originally published on <a href="https://domijin.substack.com/p/serendipity-where-it-sparks" rel="noopener noreferrer" target="_blank">Substack (Domi’s Mind Waves)</a> &middot; December 2024.</p>
     </footer>
   </main>
 </body>

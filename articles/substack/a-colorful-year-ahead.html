@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>A Colorful Year Ahead — Domi Jin</title>
-  <meta name="description" content="A Colorful Year Ahead — Essay and technical notes by Domi Jin." />
+  <meta name="description" content="Milestones since Hello World, San Francisco founder events, and the v8 Evolving Work & Collaboration Model by Domi Jin." />
   <link rel="canonical" href="https://domij.info/articles/substack/a-colorful-year-ahead.html" />
   <style>
     :root {
@@ -19,7 +19,7 @@
       margin: 0;
       background: var(--bg);
       color: var(--ink);
-      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "PingFang SC", "Hiragino Sans GB", "Noto Serif CJK SC", serif;
       font-size: 19px;
       line-height: 1.78;
       -webkit-font-smoothing: antialiased;
@@ -49,7 +49,7 @@
       font-weight: 500;
     }
     .topbar a:hover { text-decoration: underline; }
-    .chapter-badge {
+    .publication-badge {
       color: var(--muted);
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 11px;
@@ -66,7 +66,7 @@
       padding-bottom: 24px;
       border-bottom: 1px solid var(--border);
     }
-    .essay-eyebrow {
+    .essay-eyebrow, .article-kicker {
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 12px;
       text-transform: uppercase;
@@ -117,6 +117,9 @@
     article li {
       margin-bottom: 0.45em;
     }
+    article ul ul {
+      margin: 0.4em 0 0.6em 0;
+    }
     article code {
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 0.86em;
@@ -129,26 +132,25 @@
       text-decoration: underline;
       text-underline-offset: 3px;
     }
-    .table-wrap {
-      overflow-x: auto;
-      margin: 1.5em 0;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-family: ui-sans-serif, system-ui, sans-serif;
-      font-size: 14px;
-      line-height: 1.5;
-    }
-    th, td {
+    .diagram-figure {
+      margin: 36px 0;
+      padding: 24px;
+      background: rgba(255, 255, 255, 0.65);
       border: 1px solid var(--border);
-      padding: 8px 12px;
-      text-align: left;
+      border-radius: 16px;
+      box-shadow: 0 10px 28px rgba(31, 42, 58, 0.05);
     }
-    th {
-      background: #f8fafc;
-      font-weight: 600;
-      color: #0f172a;
+    .diagram-figure svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .diagram-figure figcaption {
+      margin-top: 12px;
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-align: center;
+      font-family: 'Inter', -apple-system, sans-serif;
     }
     footer.colophon {
       margin-top: 64px;
@@ -169,64 +171,146 @@
   </style>
 </head>
 <body>
-  <nav class="topbar" aria-label="Book navigation">
+  <nav class="topbar" aria-label="Site navigation">
     <div class="topbar-inner">
-      <a href="/">&larr; Domi Jin &middot; Notes from Research &amp; Practice</a>
-      <span class="chapter-badge">Chapter IV · Institutions, Incentives and Possible Futures</span>
-      <a href="/articles/">Table of Contents</a>
+      <a href="/">&larr; Domi Jin</a>
+      <span class="publication-badge">Domi’s Mind Waves &middot; Founder’s Log</span>
+      <a href="/articles/">All Writing</a>
     </div>
   </nav>
   <main>
     <header class="essay-header">
-      <span class="essay-eyebrow">Chapter IV · Institutions, Incentives and Possible Futures</span>
+      <span class="essay-eyebrow article-kicker">Substack &middot; Domi’s Mind Waves &middot; Founder’s Log &middot; January 2025</span>
       <h1>A Colorful Year Ahead</h1>
       <div class="essay-byline">By Domi Jin (Dongming Jin) &middot; January 2025</div>
     </header>
     <article>
       <h2>Milestones since <a href="https://substack.com/@domijin/note/c-79120023">Hello World</a></h2>
       <h2>Momentum at the Moment!</h2>
-      <p>Meet me this week at</p>
-      <p><a href="https://lu.ma/ocy5vyc6">JPM Investment Forum &amp; China Night</a> -</p>
-      <p><a href="https://events.ycombinator.com/jpm-25">YC Happy Hour at JP Morgan 2025</a> -</p>
-      <p><a href="https://lu.ma/32vl9dbd?tk=Hu7vk0">AI Founder Investor MeetUp @SF</a> -</p>
-      <p>Poster Presentation - <a href="https://aihealthcareconference.com/">AI in HealthCare Conference</a></p>
+      <p>Meet me this week at:</p>
+      <ul>
+        <li><a href="https://lu.ma/ocy5vyc6">JPM Investment Forum &amp; China Night</a></li>
+        <li><a href="https://events.ycombinator.com/jpm-25">YC Happy Hour at JP Morgan 2025</a></li>
+        <li><a href="https://lu.ma/32vl9dbd?tk=Hu7vk0">AI Founder Investor MeetUp @SF</a></li>
+        <li>Poster Presentation — <a href="https://aihealthcareconference.com/">AI in HealthCare Conference</a></li>
+      </ul>
       <p>Got my v1 stack of business cards to distribute to 100 customers!</p>
-      <h2>Rhythm - Evolving Work Model (v8)</h2>
-      <p>Content below will be available to free subscribers after Feb. 13th.</p>
+
+      <h2>Rhythm — Evolving Work Model (v8)</h2>
+
+      <figure class="diagram-figure">
+        <svg viewBox="0 0 760 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Work Model v8 Architecture Diagram showing Daily Loop, Weekly Loop, and Async Collaboration Layer">
+          <defs>
+            <marker id="arrow-v8" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 1 L 9 5 L 0 9 z" fill="#2980b9" />
+            </marker>
+          </defs>
+          <rect x="4" y="4" width="752" height="272" rx="14" fill="#f8fafc" stroke="#e2e8f0" />
+          <text x="380" y="28" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="700" fill="#0f172a" letter-spacing="0.06em">EVOLVING WORK &amp; COLLABORATION MODEL (v8)</text>
+
+          <!-- Column 1: Daily Loop -->
+          <rect x="24" y="46" width="218" height="206" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+          <rect x="24" y="46" width="218" height="32" rx="10" fill="#eff6ff" />
+          <text x="133" y="67" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="700" fill="#1d4ed8">1. DAILY LOOP</text>
+          <text x="40" y="100" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5" font-weight="600" fill="#1e293b">Standup Cadence</text>
+          <text x="48" y="118" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#475569">• Completed tasks</text>
+          <text x="48" y="135" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#475569">• Tasks with blockers</text>
+          <text x="48" y="152" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#475569">• Next priority action</text>
+          <line x1="40" y1="166" x2="226" y2="166" stroke="#e2e8f0" />
+          <text x="40" y="186" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5" font-weight="600" fill="#1e293b">Self-Discipline</text>
+          <text x="48" y="204" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#475569">• Monday task-board sync</text>
+          <text x="48" y="221" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#475569">• CRM → talked-to users</text>
+
+          <!-- Arrow 1 -> 2 -->
+          <line x1="244" y1="148" x2="266" y2="148" stroke="#2980b9" stroke-width="1.8" marker-end="url(#arrow-v8)" />
+
+          <!-- Column 2: Weekly Loop -->
+          <rect x="271" y="46" width="218" height="206" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+          <rect x="271" y="46" width="218" height="32" rx="10" fill="#f0fdf4" />
+          <text x="380" y="67" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="700" fill="#15803d">2. WEEKLY LOOP</text>
+          <text x="287" y="100" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5" font-weight="600" fill="#1e293b">Team Review &amp; Planning</text>
+          <text x="295" y="118" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#475569">• Reflect, plan &amp; collaborate</text>
+          <line x1="287" y1="132" x2="473" y2="132" stroke="#e2e8f0" />
+          <text x="287" y="152" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5" font-weight="600" fill="#1e293b">YC Startup School Sync</text>
+          <text x="295" y="170" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#475569">• Weeks to launch &amp; users</text>
+          <text x="295" y="187" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#475569">• Goals &amp; team morale</text>
+          <line x1="287" y1="201" x2="473" y2="201" stroke="#e2e8f0" />
+          <text x="287" y="221" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5" font-weight="600" fill="#1e293b">Public Narrative</text>
+          <text x="295" y="238" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#475569">• Substack: 1–2 stories</text>
+
+          <!-- Arrow 2 -> 3 -->
+          <line x1="491" y1="148" x2="513" y2="148" stroke="#2980b9" stroke-width="1.8" marker-end="url(#arrow-v8)" />
+
+          <!-- Column 3: Async Collaboration & Guardrails -->
+          <rect x="518" y="46" width="218" height="206" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+          <rect x="518" y="46" width="218" height="32" rx="10" fill="#fef3c7" />
+          <text x="627" y="67" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="700" fill="#b45309">3. ASYNC INCLUSION</text>
+          <text x="534" y="100" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5" font-weight="600" fill="#1e293b">Open Calendar Context</text>
+          <text x="542" y="118" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#475569">• Shared focus &amp; availability</text>
+          <text x="542" y="135" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#475569">• Fractional async input</text>
+          <line x1="534" y1="149" x2="720" y2="149" stroke="#e2e8f0" />
+          <text x="534" y="169" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5" font-weight="600" fill="#1e293b">Human Guardrails</text>
+          <text x="542" y="187" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#475569">• Rest, balance &amp; family first</text>
+          <text x="542" y="204" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#475569">• Zero obligation; bias to DIY</text>
+          <text x="542" y="221" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#475569">• Slack for real innovation</text>
+        </svg>
+        <figcaption>Figure 1 — Domi’s v8 Evolving Work &amp; Collaboration Rhythm: linking daily execution discipline, weekly reflection metrics, and asynchronous team inclusion.</figcaption>
+      </figure>
+
       <h3>Daily updates</h3>
-      <p>Standup</p>
-      <p>Completed task -</p>
-      <p>Tasks w blockers -</p>
-      <p>Next thing to do</p>
-      <p>Self-discipline</p>
-      <p>Project board update -</p>
-      <p>Monday task-board update -</p>
-      <p>CRM update -&gt; talked users</p>
+      <ul>
+        <li>Standup
+          <ul>
+            <li>Completed task</li>
+            <li>Tasks with blockers</li>
+            <li>Next thing to do</li>
+          </ul>
+        </li>
+        <li>Self-discipline
+          <ul>
+            <li>Project board update</li>
+            <li>Monday task-board update</li>
+            <li>CRM update &rarr; talked-to users</li>
+          </ul>
+        </li>
+      </ul>
+
       <h3>Weekly updates</h3>
-      <p>Team discuss: review, reflect, planning, collaborate -</p>
-      <p>YC Startup School Weekly Update</p>
-      <p>Primary metrics</p>
-      <p>Weeks to launch -</p>
-      <p>Talked Users</p>
-      <p>Goals &amp; Moral</p>
-      <p>Substack: weekly/bi-weekly update with 1-2 stories</p>
+      <ul>
+        <li>Team discuss: review, reflect, planning, collaborate</li>
+        <li>YC Startup School Weekly Update
+          <ul>
+            <li>Primary metrics
+              <ul>
+                <li>Weeks to launch</li>
+                <li>Talked Users</li>
+              </ul>
+            </li>
+            <li>Goals &amp; Morale</li>
+          </ul>
+        </li>
+        <li>Substack: weekly/bi-weekly update with 1–2 stories</li>
+      </ul>
+
       <h3>How I collaborate</h3>
-      <p>Share calendar for inclusion: show what I’m doing, when I’m available, what I will be working on (add tasks on calendar to show my focus - need to move from apple reminder to google reminder) -</p>
-      <p>Fractional &amp; asynchronous contribution: others can check their availability and decide if they wanna know the problem, progress and share their experience</p>
-      <p>A few personal principle or promises</p>
-      <p>Rest &amp; balance is important! -</p>
-      <p>Family is important! -</p>
-      <p>No need to feel obligated. If others are not available, it’s fine. Try to do it yourself &amp; ask for feedback. -</p>
-      <p>This might not seem to be efficient, but this often happens when we are actually innovating.</p>
+      <ul>
+        <li>Share calendar for inclusion: show what I’m doing, when I’m available, what I will be working on (add tasks on calendar to show my focus — need to move from Apple Reminder to Google Reminder)</li>
+        <li>Fractional &amp; asynchronous contribution: others can check their availability and decide if they want to know the problem, progress, and share their experience</li>
+      </ul>
+
+      <p>A few personal principles and promises:</p>
+      <ul>
+        <li>Rest &amp; balance is important!</li>
+        <li>Family is important!</li>
+        <li>No need to feel obligated. If others are not available, it’s fine. Try to do it yourself &amp; ask for feedback.</li>
+        <li>This might not seem to be efficient, but this often happens when we are actually innovating.</li>
+      </ul>
+
       <h2>Line of Work</h2>
       <p>Blurred intentionally :)</p>
     </article>
     <footer class="colophon">
-      <p>
-        <strong>Footnote:</strong> First published in
-        <a href="https://domijin.substack.com/p/a-colorful-year-ahead" rel="noopener noreferrer" target="_blank">Substack (Domi’s Mind Waves)</a>
-        (January 2025). Part of <em>Domi Jin — Notes from Research and Practice</em>.
-      </p>
+      <p>Originally published on <a href="https://domijin.substack.com/p/a-colorful-year-ahead" rel="noopener noreferrer" target="_blank">Substack (Domi’s Mind Waves)</a> &middot; January 2025.</p>
     </footer>
   </main>
 </body>

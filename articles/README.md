@@ -21,7 +21,7 @@ Each local copy includes an explicit reference and canonical link to the origina
 - **Starting a New Venture** (Sun, 08 Dec 2024 15:38:34 GMT)  
   Local: [`/articles/substack/starting-a-new-venture.html`](/articles/substack/starting-a-new-venture.html) · [`Markdown`](/articles/substack/starting-a-new-venture.md) · Original: [https://domijin.substack.com/p/starting-a-new-venture](https://domijin.substack.com/p/starting-a-new-venture)
 - **Reflections from coach-seeking impulse** (Sun, 01 Dec 2024 19:01:27 GMT)  
-  Local: [`/articles/substack/relections-from-coach-seeking-impulse.html`](/articles/substack/relections-from-coach-seeking-impulse.html) · [`Markdown`](/articles/substack/relections-from-coach-seeking-impulse.md) · Original: [https://domijin.substack.com/p/relections-from-coach-seeking-impulse](https://domijin.substack.com/p/relections-from-coach-seeking-impulse)
+  Local: [`/articles/substack/reflections-from-coach-seeking-impulse.html`](/articles/substack/reflections-from-coach-seeking-impulse.html) · [`Markdown`](/articles/substack/reflections-from-coach-seeking-impulse.md) · Original: [https://domijin.substack.com/p/reflections-from-coach-seeking-impulse](https://domijin.substack.com/p/reflections-from-coach-seeking-impulse)
 - **Building the context for reading expectations** (Wed, 27 Nov 2024 19:48:00 GMT)  
   Local: [`/articles/substack/building-the-context-for-reading.html`](/articles/substack/building-the-context-for-reading.html) · [`Markdown`](/articles/substack/building-the-context-for-reading.md) · Original: [https://domijin.substack.com/p/building-the-context-for-reading](https://domijin.substack.com/p/building-the-context-for-reading)
 - **Hello World!** (Wed, 27 Nov 2024 17:23:56 GMT)  
@@ -54,11 +54,11 @@ Each local copy includes an explicit reference and canonical link to the origina
 
 - **Open Learning Lab: Evidence-Driven Personalized Learning Policies** (August 2026)  
   Local: [`/articles/github/open-learning-lab.html`](/articles/github/open-learning-lab.html) · [`Markdown`](/articles/github/open-learning-lab.md) · Original: [https://github.com/domijin/open-learning-lab](https://github.com/domijin/open-learning-lab)
-- **baby-AI: Receipt-Verified Edge Household Agent Architecture** (May 2026)  
+- **baby-AI: Receipt-Verified Edge Household Agent Architecture** (April 2026)  
   Local: [`/articles/github/baby-ai.html`](/articles/github/baby-ai.html) · [`Markdown`](/articles/github/baby-ai.md) · Original: [https://github.com/domijin/baby-AI](https://github.com/domijin/baby-AI)
-- **Agent-Based Advertising System & Observations in Performance Advertising** (January 2025)  
+- **Agent-Based Advertising System & Observations in Performance Advertising** (November 2024)  
   Local: [`/articles/github/observations-in-advertising.html`](/articles/github/observations-in-advertising.html) · [`Markdown`](/articles/github/observations-in-advertising.md) · Original: [https://github.com/domijin/observations_in_advertising](https://github.com/domijin/observations_in_advertising)
-- **LibertyEarth & The Future Project: Collaborative Society & Living Archive** (2019–2024)  
+- **LibertyEarth & The Future Project: Collaborative Society & Living Archive** (2019–2025)  
   Local: [`/articles/github/libertyearth-and-future.html`](/articles/github/libertyearth-and-future.html) · [`Markdown`](/articles/github/libertyearth-and-future.md) · Original: [https://github.com/domijin/LibertyEarth](https://github.com/domijin/LibertyEarth)
 
 ## 4. Native Repository Articles & Doctoral Research

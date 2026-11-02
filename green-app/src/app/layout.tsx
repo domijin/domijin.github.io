@@ -5,6 +5,11 @@ import "./globals.css";
 const profileDescription =
   "Domi Jin works on machine learning and decision systems, with a background in computational astrophysics. Research, projects and notes on learning and human–AI collaboration.";
 
+// Blue-green: when exported to /next the site is the staged "green" environment;
+// when promoted to the root it becomes the canonical domij.info home page.
+const basePath = process.env.NEXT_BASE_PATH ?? "/next";
+const siteUrl = basePath === "" ? "https://domij.info/" : `https://domij.info${basePath}/`;
+
 export const metadata: Metadata = {
   title: "Domi Jin | Research, projects and notes",
   description: profileDescription,
@@ -26,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Domi Jin | Research, projects and notes",
     description: profileDescription,
-    url: "https://domij.info/next/",
+    url: siteUrl,
     siteName: "Domi Jin",
     images: [
       {
@@ -47,7 +52,7 @@ export const metadata: Metadata = {
     images: ["https://domij.info/images/Photo.JPG"]
   },
   alternates: {
-    canonical: "https://domij.info/next/",
+    canonical: siteUrl,
     types: {
       "application/atom+xml": "https://domij.info/feeds/all.atom.xml"
     }
@@ -91,8 +96,8 @@ const jsonLdGraph = {
     },
     {
       "@type": "ProfilePage",
-      "@id": "https://domij.info/next/#webpage",
-      "url": "https://domij.info/next/",
+      "@id": `${siteUrl}#webpage`,
+      "url": siteUrl,
       "name": "Domi Jin — Research, projects and notes",
       "description": PERSONA_DATA.mission,
       "mainEntity": {

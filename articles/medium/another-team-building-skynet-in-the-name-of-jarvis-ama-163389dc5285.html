@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Another team building Skynet, in the name of Jarvis — AMA — Domi Jin</title>
-  <meta name="description" content="Another team building Skynet, in the name of Jarvis — AMA — Essay and technical notes by Domi Jin." />
+  <title>Another team building Skynet, in the name of Jarvis — AMA — Domi Jin</title>
+  <meta name="description" content="An AMA on building ThirdEar, later TwinMind: a Chrome extension and proactive personal AI memory for voice, privacy and retrieval." />
   <link rel="canonical" href="https://domij.info/articles/medium/another-team-building-skynet-in-the-name-of-jarvis-ama-163389dc5285.html" />
   <style>
     :root {
@@ -19,7 +19,7 @@
       margin: 0;
       background: var(--bg);
       color: var(--ink);
-      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "PingFang SC", "Hiragino Sans GB", "Noto Serif CJK SC", serif;
       font-size: 19px;
       line-height: 1.78;
       -webkit-font-smoothing: antialiased;
@@ -49,7 +49,7 @@
       font-weight: 500;
     }
     .topbar a:hover { text-decoration: underline; }
-    .chapter-badge {
+    .publication-badge {
       color: var(--muted);
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 11px;
@@ -66,7 +66,7 @@
       padding-bottom: 24px;
       border-bottom: 1px solid var(--border);
     }
-    .essay-eyebrow {
+    .essay-eyebrow, .article-kicker {
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 12px;
       text-transform: uppercase;
@@ -100,15 +100,27 @@
       color: #1e293b;
       margin: 1.8em 0 0.6em;
     }
+    article h4 {
+      font-size: 17px;
+      line-height: 1.4;
+      color: #0f172a;
+      margin: 1.4em 0 0.4em;
+      font-family: ui-sans-serif, system-ui, sans-serif;
+    }
     article p {
       margin: 0 0 1.35em 0;
     }
     article blockquote {
       margin: 1.6em 0;
-      padding: 4px 0 4px 20px;
+      padding: 12px 20px;
       border-left: 3px solid var(--accent);
+      background: #f8fafc;
+      border-radius: 0 8px 8px 0;
       color: #334155;
       font-style: italic;
+    }
+    article blockquote p:last-child {
+      margin-bottom: 0;
     }
     article ul, article ol {
       margin: 0 0 1.4em 0;
@@ -129,26 +141,58 @@
       text-decoration: underline;
       text-underline-offset: 3px;
     }
+    .diagram-figure {
+      margin: 2.2em 0;
+      padding: 20px;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+    }
+    .diagram-figure svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .diagram-figure figcaption {
+      margin-top: 12px;
+      font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--muted);
+      text-align: center;
+    }
     .table-wrap {
       overflow-x: auto;
-      margin: 1.5em 0;
+      margin: 1.8em 0;
     }
-    table {
+    table, table.editorial-table {
       width: 100%;
       border-collapse: collapse;
       font-family: ui-sans-serif, system-ui, sans-serif;
       font-size: 14px;
-      line-height: 1.5;
+      line-height: 1.55;
     }
     th, td {
       border: 1px solid var(--border);
-      padding: 8px 12px;
+      padding: 10px 14px;
       text-align: left;
+      vertical-align: top;
     }
     th {
       background: #f8fafc;
       font-weight: 600;
       color: #0f172a;
+    }
+    .cta-callout {
+      margin: 2em 0 1em;
+      padding: 16px 20px;
+      background: #f0f9ff;
+      border: 1px solid #bae6fd;
+      border-radius: 8px;
+      font-family: ui-sans-serif, system-ui, sans-serif;
+      font-size: 15px;
+      color: #0c4a6e;
     }
     footer.colophon {
       margin-top: 64px;
@@ -169,53 +213,113 @@
   </style>
 </head>
 <body>
-  <nav class="topbar" aria-label="Book navigation">
+  <nav class="topbar" aria-label="Site navigation">
     <div class="topbar-inner">
-      <a href="/">&larr; Domi Jin &middot; Notes from Research &amp; Practice</a>
-      <span class="chapter-badge">Chapter III · Human Agency, Older People’s Independence and Lifelong Play</span>
-      <a href="/articles/">Table of Contents</a>
+      <a href="/">&larr; Domi Jin</a>
+      <span class="publication-badge">Medium &middot; AI &amp; Product</span>
+      <a href="/articles/">All Writing</a>
     </div>
   </nav>
   <main>
     <header class="essay-header">
-      <span class="essay-eyebrow">Chapter III · Human Agency, Older People’s Independence and Lifelong Play</span>
-      <h1>Another team building Skynet, in the name of Jarvis — AMA</h1>
+      <span class="essay-eyebrow article-kicker">Medium &middot; AI &amp; Product &middot; November 2024</span>
+      <h1>Another team building Skynet, in the name of Jarvis — AMA</h1>
       <div class="essay-byline">By Domi Jin (Dongming Jin) &middot; November 2024</div>
     </header>
     <article>
-      <h3>Building Jarvis — AMA</h3>
-      <blockquote><p>Background, my friends and I started this venture named ThirdEar, rebranded as TwinMind later on. We released a Chrome Extension and did a launch on <a href="https://twinmind.co/ph-launch-dj">Product Hunt</a>. To help gain visibility and promote our branding, I wrote this up, in order to do an live AMA to acquire potential users.</p></blockquote>
-      <blockquote><p>We were ranked #2 Product of the Day, but this is just the first step of the beginning. Feel free to reach out and continue supporting the product!</p></blockquote>
+      <h2>Building Jarvis — AMA</h2>
+      <blockquote>
+        <p><strong>Author’s Note:</strong> For background: my friends and I started this venture named ThirdEar, rebranded as TwinMind later on. We released a Chrome Extension and did a launch on <a href="https://twinmind.co/ph-launch-dj">Product Hunt</a>. To help gain visibility and promote our branding, I wrote this up in order to do a live AMA to acquire potential users.</p>
+        <p>We were ranked #2 Product of the Day, but this is just the first step of the beginning. Feel free to reach out and continue supporting the product!</p>
+      </blockquote>
       <p><strong>Intro:</strong></p>
-      <p>Hey Reddit, we’re a team of PhDs creating something we believe will fundamentally change how you interact with AI. Our project is called <strong>Third Ear</strong>: the first always-on, proactive AI that listens to you, understands your context, and evolves with you. Think of it as your personal Jarvis, except it’s always learning to assist you better.</p>
+      <p>Hey Reddit, we’re a team of PhDs creating something we believe will fundamentally change how you interact with AI. Our project is called <strong>Third Ear</strong>: the first always-on, proactive AI that listens to you, understands your context, and evolves with you. Think of it as your personal Jarvis, except it’s always learning to assist you better.</p>
       <h3>What is Third Ear and TwinMind?</h3>
-      <p><strong>Third Ear</strong> is our iOS app that works as an always-on AI, listening (with your permission) and building a memory of your context. <strong>TwinMind</strong> takes it further, providing personalized insights and real-time assistance, like an AI twin that knows your world.</p>
+      <p><strong>Third Ear</strong> is our iOS app that works as an always-on AI, listening (with your permission) and building a memory of your context. <strong>TwinMind</strong> takes it further, providing personalized insights and real-time assistance, like an AI twin that knows your world.</p>
       <p>We also have a <strong>Chrome extension</strong> that adds online context to TwinMind, creating a richer AI memory. Together, these tools help you work, communicate, and learn more effectively.</p>
-      <h3>What Problem Are We Solving?</h3>
-      <p>Today’s AI is fundamentally limited because it’s generic — it doesn’t know you. Whether it’s a chatbot, an assistant, or a search engine, the experience is the same for everyone. This lack of personalization means AI can’t truly help you in the ways you need. We believe AI should be a deeply personal tool, tailored to your specific context, needs, and goals. <strong>Third Ear</strong> and <strong>TwinMind</strong> are built to solve this — giving you an AI that evolves with you, remembers what’s important to you, and proactively assists you based on what it knows about <em>you</em>.</p>
-      <h3>Why Should You Try Us?</h3>
-      <p>If you’ve ever wished for an AI that feels like it’s truly yours, instead of just a generic tool, <strong>Third Ear</strong> and <strong>TwinMind</strong> are for you. We’re building an AI that helps you think, communicate, and navigate your day with the benefit of memory and context — an AI that’s always learning about you, for you. Whether you’re in meetings, browsing the web, or having important conversations, our AI is there to make sure you never miss a beat, offering support when you need it most.</p>
+      <h3>What Problem Are We Solving?</h3>
+      <p>Today’s AI is fundamentally limited because it’s generic — it doesn’t know you. Whether it’s a chatbot, an assistant, or a search engine, the experience is the same for everyone. This lack of personalization means AI can’t truly help you in the ways you need. We believe AI should be a deeply personal tool, tailored to your specific context, needs, and goals. <strong>Third Ear</strong> and <strong>TwinMind</strong> are built to solve this — giving you an AI that evolves with you, remembers what’s important to you, and proactively assists you based on what it knows about <em>you</em>.</p>
+      <h3>Why Should You Try Us?</h3>
+      <p>If you’ve ever wished for an AI that feels like it’s truly yours, instead of just a generic tool, <strong>Third Ear</strong> and <strong>TwinMind</strong> are for you. We’re building an AI that helps you think, communicate, and navigate your day with the benefit of memory and context — an AI that’s always learning about you, for you. Whether you’re in meetings, browsing the web, or having important conversations, our AI is there to make sure you never miss a beat, offering support when you need it most.</p>
       <h3>Privacy Concerns</h3>
       <p>We understand that privacy is a major concern, and we take it very seriously. Our iOS app and Chrome extension use edge models to process your information locally, meaning your data is processed directly on your device. We only connect to the cloud model when it’s absolutely necessary, and even then, we use a query rewrite to remove any personal identifiers. This ensures that the server doesn’t know anything about you, maintaining your privacy while still providing the benefits of personalized AI.</p>
+
+      <figure class="diagram-figure">
+        <svg viewBox="0 0 760 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="TwinMind Hybrid Edge-Cloud Privacy Architecture">
+          <defs>
+            <marker id="arrow-tm" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 1 L 10 5 L 0 9 z" fill="#2980b9"/>
+            </marker>
+          </defs>
+          <rect width="760" height="280" rx="10" fill="#f8fafc"/>
+          <text x="380" y="28" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="700" fill="#0f172a">TWINMIND / THIRD EAR: HYBRID EDGE-CLOUD PRIVACY ARCHITECTURE</text>
+          
+          <!-- Stage 1 -->
+          <rect x="24" y="54" width="210" height="175" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+          <rect x="24" y="54" width="210" height="32" rx="8" fill="#e0f2fe"/>
+          <text x="129" y="75" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="700" fill="#0369a1">1. MULTIMODAL CAPTURE</text>
+          <text x="40" y="110" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="600" fill="#1e293b">• Third Ear iOS App</text>
+          <text x="48" y="128" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#64748b">Permissioned ambient voice</text>
+          <text x="40" y="156" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="600" fill="#1e293b">• Chrome Extension</text>
+          <text x="48" y="174" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#64748b">Real-time browser &amp; tab context</text>
+          <rect x="38" y="192" width="182" height="24" rx="4" fill="#f1f5f9"/>
+          <text x="129" y="208" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#475569">Continuous Personal Stream</text>
+
+          <!-- Arrow 1 -> 2 -->
+          <line x1="234" y1="140" x2="270" y2="140" stroke="#2980b9" stroke-width="2" marker-end="url(#arrow-tm)"/>
+
+          <!-- Stage 2 -->
+          <rect x="276" y="54" width="216" height="175" rx="8" fill="#ffffff" stroke="#0284c7" stroke-width="2"/>
+          <rect x="276" y="54" width="216" height="32" rx="8" fill="#0284c7"/>
+          <text x="384" y="75" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="700" fill="#ffffff">2. ON-DEVICE EDGE ENGINE</text>
+          <text x="292" y="110" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="600" fill="#1e293b">• Local Memory Graph</text>
+          <text x="300" y="128" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#64748b">Indexed directly on user device</text>
+          <text x="292" y="156" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="600" fill="#1e293b">• PII Scrubber &amp; Rewriter</text>
+          <text x="300" y="174" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#64748b">Strips names, IDs &amp; raw audio</text>
+          <rect x="292" y="192" width="184" height="24" rx="4" fill="#dcfce7"/>
+          <text x="384" y="208" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" font-weight="600" fill="#166534">Raw data stays on device</text>
+
+          <!-- Arrow 2 -> 3 -->
+          <line x1="492" y1="140" x2="528" y2="140" stroke="#2980b9" stroke-width="2" marker-end="url(#arrow-tm)"/>
+
+          <!-- Stage 3 -->
+          <rect x="534" y="54" width="202" height="175" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+          <rect x="534" y="54" width="202" height="32" rx="8" fill="#e0f2fe"/>
+          <text x="635" y="75" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="700" fill="#0369a1">3. CLOUD LLM REASONING</text>
+          <text x="550" y="110" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="600" fill="#1e293b">• Anonymized Query</text>
+          <text x="558" y="128" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#64748b">Only scrubbed prompts sent</text>
+          <text x="550" y="156" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="600" fill="#1e293b">• Proactive Synthesis</text>
+          <text x="558" y="174" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#64748b">Real-time insights &amp; actions</text>
+          <rect x="548" y="192" width="174" height="24" rx="4" fill="#fef3c7"/>
+          <text x="635" y="208" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" font-weight="600" fill="#92400e">20x lower API cost · 0 PII</text>
+
+          <text x="380" y="256" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" fill="#475569">Platform-agnostic software memory layer that evolves with the user without compromising identity.</text>
+        </svg>
+        <figcaption>Figure 1: TwinMind’s hybrid edge-cloud architecture processes audio and browser streams locally, scrubbing personal identifiers before invoking cloud LLMs—reducing API costs by 20x while keeping raw context on-device.</figcaption>
+      </figure>
+
       <h3>FAQs</h3>
-      <p><strong>How do you make money?</strong></p>
-      <p>We want to leverage capital to make our service free for everyone. Our hybrid approach has reduced the cost of LLM API calls by at least 20x. Additionally, we plan to build premium features on top of your AI memory, such as advanced agent functions and a potential function store.</p>
-      <p><strong>Why software and not hardware?</strong></p>
-      <p>We believe that building a truly personalized AI should be independent of hardware. The best hardware teams, like Apple, are already doing amazing things, and we see our role as creating the software layer that works across all devices. Our focus is on building an AI memory that is platform-agnostic, meaning it travels with you no matter what device or ecosystem you use.</p>
-      <p><strong>Why are we focusing on B2C instead of B2B?</strong></p>
-      <p>We believe that the power of a personalized AI like <strong>TwinMind</strong> is best experienced by individual users. Our mission is to empower people in their daily lives — whether it’s enhancing personal productivity, improving communication, or simply being a supportive companion. While there are B2B applications, we want to start by making a tangible difference for individuals, one person at a time.</p>
-      <p><strong>Why both an iOS app and a Chrome extension?</strong></p>
-      <p>Our iOS app provides the always-on, voice-based context building, while the Chrome extension helps <strong>TwinMind</strong> understand what you’re doing online. Many of our users find that having both provides a more complete experience — voice and visual context together allow the AI to understand you more fully and provide better assistance. Plus, the Chrome extension offers instant value by giving real-time insights during your online activities.</p>
-      <p><strong>Can I use the Chrome extension without the iOS app?</strong></p>
-      <p>Yes, you can use the Chrome extension independently, but keep in mind that it won’t feel as personalized at first. Over time, as you use it more, the AI will start to understand you better, building a personalized memory. It’s like training your own AI — the more you use it, the better it gets at serving <em>you</em>.</p>
-      <h3><strong>Join us at Discord and support us at Product Hunt!</strong></h3>
+      <h4>How do you make money?</h4>
+      <p>We want to leverage capital to make our service free for everyone. Our hybrid approach has reduced the cost of LLM API calls by at least 20x. Additionally, we plan to build premium features on top of your AI memory, such as advanced agent functions and a potential function store.</p>
+
+      <h4>Why software and not hardware?</h4>
+      <p>We believe that building a truly personalized AI should be independent of hardware. The best hardware teams, like Apple, are already doing amazing things, and we see our role as creating the software layer that works across all devices. Our focus is on building an AI memory that is platform-agnostic, meaning it travels with you no matter what device or ecosystem you use.</p>
+
+      <h4>Why are we focusing on B2C instead of B2B?</h4>
+      <p>We believe that the power of a personalized AI like <strong>TwinMind</strong> is best experienced by individual users. Our mission is to empower people in their daily lives — whether it’s enhancing personal productivity, improving communication, or simply being a supportive companion. While there are B2B applications, we want to start by making a tangible difference for individuals, one person at a time.</p>
+
+      <h4>Why both an iOS app and a Chrome extension?</h4>
+      <p>Our iOS app provides the always-on, voice-based context building, while the Chrome extension helps <strong>TwinMind</strong> understand what you’re doing online. Many of our users find that having both provides a more complete experience — voice and visual context together allow the AI to understand you more fully and provide better assistance. Plus, the Chrome extension offers instant value by giving real-time insights during your online activities.</p>
+
+      <h4>Can I use the Chrome extension without the iOS app?</h4>
+      <p>Yes, you can use the Chrome extension independently, but keep in mind that it won’t feel as personalized at first. Over time, as you use it more, the AI will start to understand you better, building a personalized memory. It’s like training your own AI — the more you use it, the better it gets at serving <em>you</em>.</p>
+
+      <div class="cta-callout">
+        <strong>Join the community:</strong> Come chat with us on Discord and support our launch on <a href="https://twinmind.co/ph-launch-dj" rel="noopener noreferrer" target="_blank">Product Hunt</a>!
+      </div>
     </article>
     <footer class="colophon">
-      <p>
-        <strong>Footnote:</strong> First published in
-        <a href="https://medium.com/@domijin/another-team-building-skynet-in-the-name-of-jarvis-ama-163389dc5285" rel="noopener noreferrer" target="_blank">Medium</a>
-        (November 2024). Part of <em>Domi Jin — Notes from Research and Practice</em>.
-      </p>
+      <p>Originally published on <a href="https://medium.com/@domijin/another-team-building-skynet-in-the-name-of-jarvis-ama-163389dc5285" rel="noopener noreferrer" target="_blank">Medium</a> &middot; November 2024.</p>
     </footer>
   </main>
 </body>

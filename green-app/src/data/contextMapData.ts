@@ -588,9 +588,9 @@ export const WRITINGS_DATA: WritingNode[] = [
     title: "Reflections from a Coach-Seeking Impulse",
     date: "2024-12",
     source: "Substack",
-    url: "https://domijin.substack.com/p/relections-from-coach-seeking-impulse",
-    localUrl: "/articles/substack/relections-from-coach-seeking-impulse.html",
-    localMarkdownUrl: "/articles/substack/relections-from-coach-seeking-impulse.md",
+    url: "https://domijin.substack.com/p/reflections-from-coach-seeking-impulse",
+    localUrl: "/articles/substack/reflections-from-coach-seeking-impulse.html",
+    localMarkdownUrl: "/articles/substack/reflections-from-coach-seeking-impulse.md",
     pillar: "human-potential",
     secondaryPillars: ["organizational-intelligence"],
     summary:

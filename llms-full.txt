@@ -141,7 +141,7 @@ Open Learning Lab asks whether learning with AI leads to understanding that last
   Reading note: The essay considers what clear goals, feedback and voluntary participation can contribute to learning throughout life.
 - [Starting a New Venture & Momentum in Human-Centered Elder AI](https://domijin.substack.com/p/starting-a-new-venture) ([Local HTML](https://domij.info/articles/substack/starting-a-new-venture.html) · [Markdown](https://domij.info/articles/substack/starting-a-new-venture.md)) (Substack, 2024-12): Notes on customer research, community outreach and forming the team behind Kin Domi, Inc.
   Reading note: Conversations about difficulties with technology often led to broader questions about independence, dignity and relationships.
-- [Reflections from a Coach-Seeking Impulse](https://domijin.substack.com/p/relections-from-coach-seeking-impulse) ([Local HTML](https://domij.info/articles/substack/relections-from-coach-seeking-impulse.html) · [Markdown](https://domij.info/articles/substack/relections-from-coach-seeking-impulse.md)) (Substack, 2024-12): Examines the mechanics of coaching, intellectual honesty, and why shared context determines the effectiveness of feedback.
+- [Reflections from a Coach-Seeking Impulse](https://domijin.substack.com/p/reflections-from-coach-seeking-impulse) ([Local HTML](https://domij.info/articles/substack/reflections-from-coach-seeking-impulse.html) · [Markdown](https://domij.info/articles/substack/reflections-from-coach-seeking-impulse.md)) (Substack, 2024-12): Examines the mechanics of coaching, intellectual honesty, and why shared context determines the effectiveness of feedback.
   Reading note: The reflection considers how honesty and shared context affect the usefulness of coaching.
 
 ### AI and Society

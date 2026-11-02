@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Life Hack: iMessage as a Low-Bandwidth Router to the Internet — Domi Jin</title>
-  <meta name="description" content="Life Hack: iMessage as a Low-Bandwidth Router to the Internet — Essay and technical notes by Domi Jin." />
+  <meta name="description" content="Why the best AI interface is a zero-UI text message you already use: inside the 4-stage local SQLite chat.db to AppleScript pipeline and bandwidth transformer." />
   <link rel="canonical" href="https://domij.info/articles/blog/imessage-ai-router.html" />
   <style>
     :root {
@@ -19,7 +19,7 @@
       margin: 0;
       background: var(--bg);
       color: var(--ink);
-      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "PingFang SC", "Hiragino Sans GB", "Noto Serif CJK SC", serif;
       font-size: 19px;
       line-height: 1.78;
       -webkit-font-smoothing: antialiased;
@@ -49,7 +49,7 @@
       font-weight: 500;
     }
     .topbar a:hover { text-decoration: underline; }
-    .chapter-badge {
+    .publication-badge {
       color: var(--muted);
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 11px;
@@ -66,7 +66,7 @@
       padding-bottom: 24px;
       border-bottom: 1px solid var(--border);
     }
-    .essay-eyebrow {
+    .essay-eyebrow, .article-kicker {
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 12px;
       text-transform: uppercase;
@@ -129,26 +129,26 @@
       text-decoration: underline;
       text-underline-offset: 3px;
     }
-    .table-wrap {
-      overflow-x: auto;
-      margin: 1.5em 0;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-family: ui-sans-serif, system-ui, sans-serif;
-      font-size: 14px;
-      line-height: 1.5;
-    }
-    th, td {
+    figure.diagram-figure {
+      margin: 2.2em 0;
+      background: #ffffff;
       border: 1px solid var(--border);
-      padding: 8px 12px;
-      text-align: left;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
     }
-    th {
-      background: #f8fafc;
-      font-weight: 600;
-      color: #0f172a;
+    figure.diagram-figure svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    figure.diagram-figure figcaption {
+      margin-top: 12px;
+      font-family: ui-sans-serif, system-ui, sans-serif;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+      text-align: center;
     }
     footer.colophon {
       margin-top: 64px;
@@ -169,33 +169,156 @@
   </style>
 </head>
 <body>
-  <nav class="topbar" aria-label="Book navigation">
+  <nav class="topbar" aria-label="Site navigation">
     <div class="topbar-inner">
-      <a href="/">&larr; Domi Jin &middot; Notes from Research &amp; Practice</a>
-      <span class="chapter-badge">Chapter III · Human Agency, Older People’s Independence and Lifelong Play</span>
-      <a href="/articles/">Table of Contents</a>
+      <a href="/">&larr; Domi Jin</a>
+      <span class="publication-badge">Domi’s Universe &middot; Zero-UI Interfaces</span>
+      <a href="/articles/">All Writing</a>
     </div>
   </nav>
   <main>
     <header class="essay-header">
-      <span class="essay-eyebrow">Chapter III · Human Agency, Older People’s Independence and Lifelong Play</span>
+      <span class="essay-eyebrow article-kicker">Human Agency &amp; Zero-UI Interfaces &middot; April 2026</span>
       <h1>Life Hack: iMessage as a Low-Bandwidth Router to the Internet</h1>
       <div class="essay-byline">By Domi Jin (Dongming Jin) &middot; April 2026</div>
     </header>
     <article>
-      <h2>Overview</h2>
-      <p>A tiny HCI harness for agent interfaces: use the ordinary iMessage channel to query an internet-connected agent when normal browsing is expensive, blocked, or unavailable (such as in-flight messaging tiers or satellite text channels).</p>
-      <h3>Core Mechanisms</h3>
-      <ul><li><strong>Plane Mode Internet</strong>: On many flights, messaging works without full Wi-Fi. The agent turns that narrow channel into web search, synthesis, and practical answers.</li><li><strong>Satellite-Text Edge Cases</strong>: When cellular data is unavailable but satellite text survives, short prompts route to an internet-connected machine.</li><li><strong>Constrained I/O Compression</strong>: Accepts brief, informal messages and returns high-density answers tailored to messaging constraints.</li><li><strong>Human-Centered Harness</strong>: Treats messaging as an asynchronous, interruptible, low-attention control surface for agents.</li></ul>
-      <h3>Original Page</h3>
-      <ul><li><a href="/beta/">Interactive Beta Page (<code>/beta/</code>)</a></li></ul>
+      <p>We spend a surprising amount of engineering energy inventing new apps, dashboards, and wearable form factors for artificial intelligence. Yet if you watch how people actually communicate when life gets busy—or when network conditions deteriorate—they almost always fall back to the simplest, most resilient channel on their phone: <strong>an ordinary text message</strong>.</p>
+
+      <p>Last year, while sitting at 35,000 feet on a flight where the airline offered free basic messaging (<code>iMessage</code>) without full browser Wi-Fi, I needed to check landing weather, look up a recent technical paper, and coordinate an evening schedule. My web browser was completely dead. Every native AI app on my phone timed out waiting for heavy REST handshakes and streaming WebSockets.</p>
+
+      <p>Yet the narrow iMessage pipe was wide open.</p>
+
+      <p>That moment sparked a simple human-computer interaction hypothesis: <strong>before neural links or AR glasses, the best AI interface is the zero-UI text message you already use every day.</strong> And when you place a capable local agent at the other end of that narrow messaging pipe, iMessage stops being just a chat app—it becomes a <strong>bandwidth transformer and universal router to the internet</strong>.</p>
+
+      <h2>Why Zero-UI Messaging Beats Another App</h2>
+
+      <p>Working with older adults in Palo Alto through Kin Domi taught me a humbling lesson about interface design: every new login screen, unfamiliar icon, or modal settings menu is a tax on human agency. Even for power users, switching across five specialized apps drains cognitive bandwidth.</p>
+
+      <p>Treating iMessage as an asynchronous command line for agents solves four structural problems at once:</p>
+
+      <ol>
+        <li><strong>Plane Mode &amp; Satellite Edge Cases:</strong> On many commercial flights, in remote cellular dead zones with satellite SMS/iMessage fallback, or while roaming internationally on throttled carriers, full web browsing is blocked or prohibitively expensive. A 120-byte text message still gets through.</li>
+        <li><strong>High-Ratio Semantic Compression:</strong> Modern web pages are bloated with megabytes of JavaScript, tracking pixels, and layout chrome. When you ask a question over a constrained text pipe, the agent absorbs the heavy bandwidth cost on its own fiber connection—browsing, reading, reasoning, and returning a crisp, 300-character synthesis tailored to your screen.</li>
+        <li><strong>Zero Learning Curve:</strong> Anyone who knows how to text a family member already knows how to use the interface. There is no app to update, no account password to reset, and no new habit to form.</li>
+        <li><strong>Asynchronous, Low-Attention Ergonomics:</strong> Unlike voice assistants that demand immediate real-time turn-taking or browser tabs that trap you in a loading spinner, a text thread is naturally interruptible. You fire off a messy, shorthand thought, put your phone back in your pocket, and read the distilled answer whenever you are ready.</li>
+      </ol>
+
+      <h2>Architecture: The 4-Stage Local Zero-UI Pipeline</h2>
+
+      <p>To build an iMessage router without surrendering personal conversations to third-party webhook brokers or cloud relays, the harness runs entirely on a dedicated local macOS node (a Mac mini sitting on home fiber) using a <strong>4-stage closed-loop local pipeline</strong>:</p>
+
+      <figure class="diagram-figure">
+        <svg viewBox="0 0 760 390" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="4-Stage Local Zero-UI Pipeline SVG Diagram: SQLite chat.db Poll, Context and Intent Classifier, LLM Tool Router, and AppleScript Reply Loop">
+          <defs>
+            <marker id="arrow-imsg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 1 L 10 5 L 0 9 z" fill="#2980b9" />
+            </marker>
+          </defs>
+          <rect x="0" y="0" width="760" height="390" rx="10" fill="#f8fafc" />
+          <text x="24" y="28" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" font-weight="700" fill="#2980b9" letter-spacing="0.08em">4-STAGE LOCAL ZERO-UI PIPELINE · BANDWIDTH TRANSFORMER HARNESS</text>
+
+          <!-- Stage 1 -->
+          <rect x="24" y="48" width="160" height="172" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+          <rect x="24" y="48" width="160" height="28" rx="8" fill="#e0f2fe" />
+          <text x="34" y="66" font-family="ui-monospace, monospace" font-size="10.5" font-weight="700" fill="#0369a1">01 · SQLITE POLL</text>
+          <text x="34" y="96" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0f172a">chat.db WAL Reader</text>
+          <text x="34" y="118" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#475569">• Read-only SQLite tail</text>
+          <text x="34" y="136" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#475569">• ROWID deduplication</text>
+          <text x="34" y="154" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#475569">• &lt;200ms local poll</text>
+          <rect x="34" y="172" width="140" height="36" rx="5" fill="#f1f5f9" />
+          <text x="42" y="187" font-family="ui-monospace, monospace" font-size="9.5" font-weight="700" fill="#0f766e">PRIVACY GATE 01</text>
+          <text x="42" y="201" font-family="ui-sans-serif, sans-serif" font-size="10.5" fill="#334155">Strict handle allowlist</text>
+
+          <line x1="184" y1="134" x2="204" y2="134" stroke="#2980b9" stroke-width="2" marker-end="url(#arrow-imsg)" />
+
+          <!-- Stage 2 -->
+          <rect x="208" y="48" width="160" height="172" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+          <rect x="208" y="48" width="160" height="28" rx="8" fill="#e0f2fe" />
+          <text x="218" y="66" font-family="ui-monospace, monospace" font-size="10.5" font-weight="700" fill="#0369a1">02 · CLASSIFIER</text>
+          <text x="218" y="96" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0f172a">Context &amp; Intent</text>
+          <text x="218" y="118" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#475569">• Thread state assembly</text>
+          <text x="218" y="136" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#475569">• Shorthand expansion</text>
+          <text x="218" y="154" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#475569">• Tool route selection</text>
+          <rect x="218" y="172" width="140" height="36" rx="5" fill="#f1f5f9" />
+          <text x="226" y="187" font-family="ui-monospace, monospace" font-size="9.5" font-weight="700" fill="#0f766e">PRIVACY GATE 02</text>
+          <text x="226" y="201" font-family="ui-sans-serif, sans-serif" font-size="10.5" fill="#334155">Scoped thread-only read</text>
+
+          <line x1="368" y1="134" x2="388" y2="134" stroke="#2980b9" stroke-width="2" marker-end="url(#arrow-imsg)" />
+
+          <!-- Stage 3 -->
+          <rect x="392" y="48" width="160" height="172" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+          <rect x="392" y="48" width="160" height="28" rx="8" fill="#e0f2fe" />
+          <text x="402" y="66" font-family="ui-monospace, monospace" font-size="10.5" font-weight="700" fill="#0369a1">03 · TOOL ROUTER</text>
+          <text x="402" y="96" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0f172a">LLM &amp; Compressor</text>
+          <text x="402" y="118" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#475569">• Full-web fiber fetch</text>
+          <text x="402" y="136" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#475569">• Multi-page synthesis</text>
+          <text x="402" y="154" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#475569">• 1000:1 byte ratio</text>
+          <rect x="402" y="172" width="140" height="36" rx="5" fill="#f1f5f9" />
+          <text x="410" y="187" font-family="ui-monospace, monospace" font-size="9.5" font-weight="700" fill="#0f766e">BANDWIDTH GAIN</text>
+          <text x="410" y="201" font-family="ui-sans-serif, sans-serif" font-size="10.5" fill="#334155">5 MB web &rarr; 300B text</text>
+
+          <line x1="552" y1="134" x2="572" y2="134" stroke="#2980b9" stroke-width="2" marker-end="url(#arrow-imsg)" />
+
+          <!-- Stage 4 -->
+          <rect x="576" y="48" width="160" height="172" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+          <rect x="576" y="48" width="160" height="28" rx="8" fill="#dcfce7" />
+          <text x="586" y="66" font-family="ui-monospace, monospace" font-size="10.5" font-weight="700" fill="#15803d">04 · REPLY LOOP</text>
+          <text x="586" y="96" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0f172a">AppleScript Bridge</text>
+          <text x="586" y="118" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#475569">• Local Messages.app</text>
+          <text x="586" y="136" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#475569">• Native APNs delivery</text>
+          <text x="586" y="154" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#475569">• Rate-limit guard</text>
+          <rect x="586" y="172" width="140" height="36" rx="5" fill="#dcfce7" />
+          <text x="594" y="187" font-family="ui-monospace, monospace" font-size="9.5" font-weight="700" fill="#15803d">ZERO-UI DELIVERY</text>
+          <text x="594" y="201" font-family="ui-sans-serif, sans-serif" font-size="10.5" fill="#14532d">Works on plane / sat</text>
+
+          <!-- Bottom Concrete Exchange Strip -->
+          <rect x="24" y="242" width="712" height="126" rx="8" fill="#ffffff" stroke="#bae6fd" stroke-width="1.5" />
+          <text x="42" y="266" font-family="ui-monospace, monospace" font-size="11" font-weight="700" fill="#0284c7">LIVE BANDWIDTH TRANSFORMATION · IN-FLIGHT / SATELLITE EDGE CASE</text>
+
+          <rect x="42" y="280" width="290" height="70" rx="8" fill="#eff6ff" stroke="#bfdbfe" />
+          <text x="54" y="298" font-family="ui-monospace, monospace" font-size="10" font-weight="700" fill="#1d4ed8">USER PROMPT (84 BYTES OVER AIRLINE iMESSAGE)</text>
+          <text x="54" y="318" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" fill="#1e293b">“On UA flight to SFO, landing 6pm. Weather +</text>
+          <text x="54" y="336" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" fill="#1e293b">3 bullets on today’s AI eval news?”</text>
+
+          <line x1="336" y1="315" x2="386" y2="315" stroke="#2980b9" stroke-width="2" marker-end="url(#arrow-imsg)" />
+
+          <rect x="392" y="280" width="326" height="70" rx="8" fill="#f0fdf4" stroke="#bbf7d0" />
+          <text x="404" y="298" font-family="ui-monospace, monospace" font-size="10" font-weight="700" fill="#15803d">ROUTER REPLY (240 BYTES COMPRESSED SYNTHESIS)</text>
+          <text x="404" y="318" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" fill="#1e293b">“SFO 6pm: 54°F, light wind—grab a jacket.</text>
+          <text x="404" y="336" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" fill="#1e293b">1) New edge VLM benchmarks 2) Safety eval stds...”</text>
+        </svg>
+        <figcaption>Figure 1: The 4-stage local zero-UI pipeline. Incoming messages are read locally from macOS <code>chat.db</code>, filtered by sender allowlist, routed to web/LLM tools on home fiber, and compressed into high-density replies dispatched via AppleScript.</figcaption>
+      </figure>
+
+      <h3>Stage 1: Read-Only <code>SQLite chat.db</code> Polling</h3>
+      <p>On macOS, <code>Messages.app</code> persists incoming and outgoing messages in a local SQLite database (<code>~/Library/Messages/chat.db</code>) running in Write-Ahead Logging (<code>WAL</code>) mode. Rather than hooking private system frameworks or routing credentials through an external server, the router polls new <code>ROWID</code> entries in read-only mode, immediately filtering against an explicit cryptographic allowlist of approved sender handles (<code>phone</code> or <code>Apple ID</code>).</p>
+
+      <h3>Stage 2: Context &amp; Intent Classifier</h3>
+      <p>Text messages written on the move are naturally terse, fragmented, and full of implicit context (<em>“landing around 6, need a jacket?”</em> or <em>“3 bullets on today’s AI eval news”</em>). Stage 2 reconstructs recent thread turns from local state, strips personally identifiable metadata, and classifies whether the prompt requires live web search, structured API lookup, or direct reasoning.</p>
+
+      <h3>Stage 3: LLM Tool Router &amp; Bandwidth Transformer</h3>
+      <p>Here the bandwidth inversion happens. While the user’s phone only transmitted a few dozen bytes over satellite or aircraft Wi-Fi, the home macOS node executes full-bandwidth retrieval—fetching live weather telemetry, reading long-form documentation, or querying search indexes—and compresses the result into a high-density, zero-fluff reply designed for a small mobile screen.</p>
+
+      <h3>Stage 4: Local <code>AppleScript</code> Reply Loop</h3>
+      <p>Finally, the synthesized answer is handed to a minimalist <code>osascript</code> / AppleScript bridge that instructs the local <code>Messages.app</code> client to deliver the reply back down the native Apple Push Notification service (<code>APNs</code>) channel—completing the round trip in seconds.</p>
+
+      <h2>Enforcing Strict Local Privacy Boundaries</h2>
+
+      <p>Whenever you bridge a personal messaging client to an LLM, <strong>privacy and safety boundaries</strong> are paramount:</p>
+
+      <ul>
+        <li><strong>Strict Handle Allowlisting:</strong> Unknown senders are ignored at the SQLite query layer before any text ever reaches a tokenizer or classifier. Zero messages from unapproved threads are read or indexed.</li>
+        <li><strong>Ephemeral Scoped Context:</strong> The router only inspects messages within the dedicated assistant thread; it has zero visibility into personal family or work conversations elsewhere in <code>chat.db</code>.</li>
+        <li><strong>Human-Centered Safety Expectations:</strong> As we emphasize on the live <a href="/beta/">Interactive Beta (<code>/beta/</code>)</a> page, an experimental low-bandwidth router is a cognitive convenience—never a substitute for 911, emergency infrastructure, medical or legal professionals, or human caregivers.</li>
+      </ul>
+
+      <h2>The Quiet Power of Boring Interfaces</h2>
+
+      <p>In engineering, there is a perennial temptation to equate innovation with visual complexity. Yet some of the most liberating tools are the ones that disappear into habits we already trust. By turning an ordinary iMessage thread into a resilient, low-bandwidth router to the world’s knowledge, we can keep human agency connected even when the rest of the modern web drops offline.</p>
     </article>
     <footer class="colophon">
-      <p>
-        <strong>Footnote:</strong> First published in
-        <a href="https://domij.info/beta/" rel="noopener noreferrer" target="_blank">Domi’s Universe (domij.info/beta)</a>
-        (April 2026). Part of <em>Domi Jin — Notes from Research and Practice</em>.
-      </p>
+      <p>Originally published on <a href="https://domij.info/beta/" rel="noopener noreferrer" target="_blank">Domi’s Universe (domij.info/beta)</a> (April 2026).</p>
     </footer>
   </main>
 </body>

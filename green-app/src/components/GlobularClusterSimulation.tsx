@@ -38,9 +38,9 @@ const TAU_RH_MYR = 800; // Fiducial half-mass relaxation time = 800 Myr (0.8 Gyr
 const DYNAMIC_BINARIES: DynamicBinaryPair[] = [
   {
     id: "gc-284-1-ref",
-    label: "Model 284-1 (e=0.631, 𝓜_c=17.0 M☉)",
+    label: "Model 284-1 (e=0.631, ℳ_c=17.0 M☉)",
     formTau: 0.18,
-    ejectTau: 0.39, // Ejected at t_ej = 0.3134 Gyr ≈ 0.39 tau_rh (Table 6-1)
+    ejectTau: 0.39,
     eccentricity: 0.6307,
     chirpMass: 16.991,
     freqMHz: 0.125,
@@ -560,15 +560,15 @@ export default function GlobularClusterSimulation({
 
   const currentRegimeLabel = useMemo(() => {
     if (tauRh < 0.025) {
-      return "Epoch I (t < 0.02 τ_rh · ~5–15 Myr): Massive OB stars (M > 20 M☉) undergo core-collapse supernovae into stellar-mass BHs.";
+      return "Stage 1 · Heavy Stars Collapse (~10 Myr): Massive blue stars (>20 M☉) go supernova and leave behind black holes.";
     }
     if (tauRh < 0.25) {
-      return "Epoch II (t ~ t_seg ≈ 0.05–0.20 τ_rh · ~40–160 Myr): Dynamical friction drives BH remnants into the dense core (mass segregation).";
+      return "Stage 2 · Gravity Sorts by Mass (~100 Myr): Heavy black holes lose energy to lighter stars and sink into the dense core.";
     }
     if (tauRh < 2.5) {
-      return "Epoch III (t ~ 0.25–2.5 τ_rh · ~0.2–2 Gyr): Core 3-body & 4-body (Fewbody) interactions dynamically pair & harden compact BBHs.";
+      return "Stage 3 · Core Encounters Pair Black Holes (~1 Gyr): Three-body gravitational dances lock black holes into tight binaries.";
     }
-    return "Epoch IV (t ~ 2.5–16.9 τ_rh · up to 13.5 Gyr): Relativistic GW inspiral (ḟ = k₀ f¹¹/³) & LISA multi-harmonic detection.";
+    return "Stage 4 · Gravitational-Wave Sirens (up to 13.5 Gyr): Relativistic binaries spiral together, radiating ripples LISA can hear across 30 Mpc.";
   }, [tauRh]);
 
   const activeSystem =
@@ -727,18 +727,15 @@ export default function GlobularClusterSimulation({
 
   return (
     <figure className="rounded-2xl overflow-hidden border border-[#b9d9eb] bg-gradient-to-b from-[#0b2034] via-[#0e263f] to-[#081827] shadow-xl">
-      {/* Top Figure Header & Playback Bar */}
+      {/* Top Playback Bar */}
       <div className="px-4 py-3 border-b border-sky-900/70 bg-[#081827]/90 flex flex-wrap items-center justify-between gap-3">
         <div className="flex flex-wrap items-center gap-2.5">
           <span className="px-2.5 py-1 rounded-full bg-[#0d2642] border border-[#1DAEDF]/50 text-[10px] sm:text-[11px] font-mono text-[#7dd3fc] font-semibold">
-            INTERACTIVE FIGURE 1.1 · GLOBULAR CLUSTER RELAXATION &amp; LISA STRAIN
+            3D GLOBULAR CLUSTER SANDBOX · LISA WAVE OBSERVATORY
           </span>
           <span className="text-[11px] font-mono text-slate-300">
-            t = <strong className="text-white">{tauRh.toFixed(2)} τ_rh</strong>{" "}
-            <span className="text-sky-300/80">({timeGyr} Gyr)</span>
-          </span>
-          <span className="hidden md:inline text-[11px] font-mono text-slate-400">
-            · τ_rh ≈ 800 Myr · t_seg ≈ 0.08 τ_rh
+            Cluster Age: <strong className="text-white">{timeGyr} Billion Yrs</strong>{" "}
+            <span className="text-sky-300/80">({tauRh.toFixed(2)} τ_rh)</span>
           </span>
         </div>
 
@@ -748,7 +745,7 @@ export default function GlobularClusterSimulation({
             onClick={() => setIsPlaying(!isPlaying)}
             className="px-2.5 py-1 rounded-lg bg-[#2980b9] hover:bg-[#1DAEDF] text-white text-[11px] font-mono font-medium transition cursor-pointer"
           >
-            {isPlaying ? "Pause animation ❚❚" : "Evolve cluster ▶"}
+            {isPlaying ? "Pause ❚❚" : "Play ▶"}
           </button>
 
           {[0.25, 1, 4].map((spd) => (
@@ -767,14 +764,14 @@ export default function GlobularClusterSimulation({
         </div>
       </div>
 
-      {/* Interactive Relaxation-Time Scrubber & Preset Epochs */}
+      {/* Interactive Scrubber & Plain-English Stage Presets */}
       <div className="px-4 py-2.5 border-b border-sky-900/60 bg-[#0a1d31]/90 space-y-2">
         <div className="flex flex-col sm:flex-row sm:items-center gap-3">
           <label
             htmlFor="gc-tau-slider"
             className="text-[11px] font-mono text-sky-200 shrink-0"
           >
-            Cluster Age (t / τ_rh):
+            Scrub Cosmic Time:
           </label>
           <input
             id="gc-tau-slider"
@@ -791,10 +788,10 @@ export default function GlobularClusterSimulation({
           />
           <div className="flex items-center gap-1.5 shrink-0 overflow-x-auto max-w-full">
             {[
-              { label: "0.01 τ_rh (OB→BH)", val: 0.01 },
-              { label: "0.12 τ_rh (Segregation)", val: 0.12 },
-              { label: "1.0 τ_rh (Core BBHs)", val: 1.0 },
-              { label: "16.9 τ_rh (13.5 Gyr)", val: 16.875 },
+              { label: "1 · Supernovae (10 Myr)", val: 0.01 },
+              { label: "2 · BH Sinking (100 Myr)", val: 0.12 },
+              { label: "3 · Core Binaries (1 Gyr)", val: 1.0 },
+              { label: "4 · Today (13.5 Gyr)", val: 16.875 },
             ].map((preset) => (
               <button
                 key={preset.label}
@@ -816,7 +813,7 @@ export default function GlobularClusterSimulation({
           </p>
           <div className="flex flex-wrap items-center gap-3 text-[10px] font-mono text-slate-300">
             <span className="inline-flex items-center gap-1">
-              <span className="w-2 h-2 rounded-full bg-[#93c5fd]" /> OB Stars
+              <span className="w-2 h-2 rounded-full bg-[#93c5fd]" /> Young Blue Stars
             </span>
             <span className="inline-flex items-center gap-1">
               <span className="w-2 h-2 rounded-full bg-[#fb923c]" /> Red Giants
@@ -825,13 +822,13 @@ export default function GlobularClusterSimulation({
               <span className="w-2 h-2 rounded-full bg-[#e2e8f0]" /> White Dwarfs ({clusterStats.wdCount})
             </span>
             <span className="inline-flex items-center gap-1">
-              <span className="w-2 h-2 rounded-full bg-[#f59e0b]" /> Segregated BHs ({clusterStats.bhCount})
+              <span className="w-2 h-2 rounded-full bg-[#f59e0b]" /> Black Holes ({clusterStats.bhCount})
             </span>
           </div>
         </div>
       </div>
 
-      {/* Pure Astrophysical Split Window: Left = 3D Globular Cluster | Right = LISA GW Side Window */}
+      {/* Split Window: Left = 3D Globular Cluster | Right = LISA GW Side Window */}
       <div className="grid grid-cols-1 xl:grid-cols-12">
         {/* Left 7 Columns: Pure 3D Globular Cluster N-Body & Stellar Evolution */}
         <div className="xl:col-span-7 relative h-[360px] sm:h-[460px] xl:h-[540px] border-b xl:border-b-0 xl:border-r border-sky-900/60 touch-manipulation">
@@ -880,20 +877,20 @@ export default function GlobularClusterSimulation({
           <div className="pointer-events-none absolute bottom-3 left-3 right-3 flex flex-wrap items-center justify-between gap-2">
             <div className="px-2.5 py-1.5 rounded-lg bg-[#071524]/85 border border-sky-800/70 text-[10px] font-mono text-slate-200 backdrop-blur-md flex flex-wrap items-center gap-3">
               <span>
-                r_c: <strong className="text-[#7dd3fc]">{clusterStats.coreRadiusPc} pc</strong>
+                Core radius: <strong className="text-[#7dd3fc]">{clusterStats.coreRadiusPc} pc</strong>
               </span>
               <span>
-                r_h: <strong className="text-[#7dd3fc]">{clusterStats.halfMassRadiusPc} pc</strong>
+                Half-mass radius: <strong className="text-[#7dd3fc]">{clusterStats.halfMassRadiusPc} pc</strong>
               </span>
               <span>
                 Core BHs: <strong className="text-amber-300">{clusterStats.bhCount}</strong>
               </span>
               <span>
-                Dynamic BBHs: <strong className="text-sky-300">{clusterStats.activeBbhCount}</strong>
+                Active BBHs: <strong className="text-sky-300">{clusterStats.activeBbhCount}</strong>
               </span>
             </div>
             <span className="hidden sm:inline-block px-2.5 py-1 rounded-full bg-[#071524]/80 border border-slate-700 text-[10px] font-mono text-slate-300 backdrop-blur-md">
-              Illustrative 1,650-star Plummer/Spitzer model
+              1,650-star N-body visualization
             </span>
           </div>
         </div>
@@ -904,7 +901,7 @@ export default function GlobularClusterSimulation({
           <div className="space-y-2">
             <div className="flex items-center justify-between gap-2">
               <span className="text-[10px] font-mono uppercase tracking-widest text-[#1DAEDF] font-semibold">
-                LISA Space Interferometer Side Window
+                LISA Space Interferometer Readout
               </span>
               {onOpenEssay ? (
                 <button
@@ -915,14 +912,14 @@ export default function GlobularClusterSimulation({
                   }
                   className="text-[10px] font-mono text-sky-300 hover:text-white underline underline-offset-4 cursor-pointer"
                 >
-                  Read chapter essay &rarr;
+                  Read full essay &rarr;
                 </button>
               ) : (
                 <a
                   href="/articles/research/astrophysics-bbh-dissertation.html"
                   className="text-[10px] font-mono text-sky-300 hover:text-white underline underline-offset-4"
                 >
-                  Read chapter essay &rarr;
+                  Read full essay &rarr;
                 </a>
               )}
             </div>
@@ -930,19 +927,18 @@ export default function GlobularClusterSimulation({
             <div className="p-3 rounded-xl bg-[#0c2138] border border-sky-800/80 space-y-1.5">
               <div className="flex flex-wrap items-baseline justify-between gap-2">
                 <span className="text-[11px] font-mono text-slate-300">
-                  Local Universe Lower-Bound BBH Merger Rate:
+                  Local Universe BBH Merger Rate:
                 </span>
                 <span className="text-sm sm:text-base font-mono font-bold text-amber-300">
                   η ≃ 587 Gpc⁻³ yr⁻¹
                 </span>
               </div>
               <p className="text-[11px] text-slate-300 leading-relaxed">
-                Derived from{" "}
+                Synthesized across{" "}
                 <strong className="text-white">662,772 globular clusters</strong>{" "}
-                across <strong className="text-white">8,946 galaxies</strong>{" "}
-                within D ≤ 30 Mpc (3,240 MOCCA simulations; 17,883,760
-                inspiralling BBHs; 86,939 mergers vs. ~100 Gpc⁻³ yr⁻¹ pre-LIGO
-                &amp; 9–240 Gpc⁻³ yr⁻¹ early LIGO O1).
+                in <strong className="text-white">8,946 galaxies</strong>{" "}
+                within 30 Mpc (3,240 MOCCA supercomputer runs; 17.88M
+                inspiralling BBHs; 17 LISA standard sirens).
               </p>
             </div>
           </div>
@@ -951,7 +947,7 @@ export default function GlobularClusterSimulation({
           <div className="space-y-1.5">
             <div className="flex items-center justify-between text-[10px] font-mono text-slate-300">
               <span>
-                LISA Sensitivity √(f·S_n(f)) &amp; Peters Inspiral (ḟ = k₀ f¹¹/³)
+                LISA Sensitivity Curve &amp; Multi-Harmonic Chirp
               </span>
               <span className="text-sky-300">0.1 mHz – 0.1 Hz</span>
             </div>
@@ -1089,7 +1085,7 @@ export default function GlobularClusterSimulation({
           <div className="space-y-1.5">
             <div className="flex items-center justify-between text-[10px] font-mono text-slate-300">
               <span>
-                Detector Strain h_α(t) = (√3/2) A_α(t) cos[2πf₀t + ψ_p + ψ_D(t)]
+                2-Year Orbital Doppler Modulation h(t)
               </span>
               <span className="text-amber-300">T_obs = 2.0 yr</span>
             </div>
@@ -1137,7 +1133,7 @@ export default function GlobularClusterSimulation({
                   fontSize="8"
                   fontFamily="monospace"
                 >
-                  0.0 yr (1 AU Orbit, 20° behind Earth)
+                  0.0 yr (LISA 1 AU Orbit)
                 </text>
                 <text
                   x={timeWaveform.width - timeWaveform.padR}
@@ -1147,7 +1143,7 @@ export default function GlobularClusterSimulation({
                   fontSize="8"
                   fontFamily="monospace"
                 >
-                  2.0 yr (ΔV ≤ 1 Mpc³ Siren)
+                  2.0 yr (Pinpointed to ≤ 1 Mpc³)
                 </text>
               </svg>
             </div>
@@ -1156,9 +1152,9 @@ export default function GlobularClusterSimulation({
           {/* Selectable Compact Binary Catalog (Table 6-1 & Table 6-2 Standard Sirens) */}
           <div className="space-y-2">
             <div className="flex items-center justify-between text-[10px] font-mono text-slate-300">
-              <span>Select Dissertation Compact Binary System:</span>
+              <span>Inspect a Pinpointed Binary System:</span>
               <span className="text-sky-300">
-                17 Systems Localized to ΔV ≤ 1 Mpc³
+                17 Standard Sirens (ΔV ≤ 1 Mpc³)
               </span>
             </div>
 
@@ -1187,7 +1183,7 @@ export default function GlobularClusterSimulation({
                 <span>
                   M₁={activeSystem.m1Solar} M☉, M₂={activeSystem.m2Solar} M☉
                 </span>
-                <span>𝓜_c={activeSystem.chirpMassSolar} M☉</span>
+                <span>ℳ_c={activeSystem.chirpMassSolar} M☉</span>
                 <span>e={activeSystem.eccentricity}</span>
                 <span className="text-amber-300">
                   ΔV={activeSystem.errorVolumeMpc3} Mpc³
@@ -1201,11 +1197,10 @@ export default function GlobularClusterSimulation({
         </div>
       </div>
 
-      {/* Explicit Figure Caption & Epistemic Note (Distill / Ciechanowski discipline) */}
+      {/* Caption */}
       <figcaption className="px-4 py-2.5 bg-[#061220] border-t border-sky-900/60 text-[11px] text-slate-300 flex flex-wrap items-center justify-between gap-2">
         <span>
-          <strong className="text-sky-200 font-mono">Figure 1.1 Note:</strong>{" "}
-          Left panel renders an illustrative 1,650-star Plummer cluster following Spitzer relaxation (τ_rh) and mass-segregation (t_seg) scaling; right panel plots quantitative LISA strain and standard-siren parameters from the 3,240-model MOCCA doctoral catalog.
+          Left: 1,650-star cluster evolving under gravitational relaxation and mass segregation. Right: LISA space-interferometer strain and standard-siren localization from my 2018 doctoral catalog.
         </span>
         <a
           href="/pdfs/main.pdf"

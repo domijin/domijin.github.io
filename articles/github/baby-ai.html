@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>baby-AI: Receipt-Verified Edge Household Agent Architecture — Domi Jin</title>
-  <meta name="description" content="baby-AI: Receipt-Verified Edge Household Agent Architecture — Essay and technical notes by Domi Jin." />
+  <title>baby-AI: Raising a Household Agent on Edge Hardware — Domi Jin</title>
+  <meta name="description" content="Why building a trustworthy household AI feels like raising a developing mind: reversible vs. high-regret gates, transparent memory, and verifiable edge execution on $100 of local hardware." />
   <link rel="canonical" href="https://domij.info/articles/github/baby-ai.html" />
   <style>
     :root {
@@ -19,7 +19,7 @@
       margin: 0;
       background: var(--bg);
       color: var(--ink);
-      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "PingFang SC", "Hiragino Sans GB", "Noto Serif CJK SC", serif;
       font-size: 19px;
       line-height: 1.78;
       -webkit-font-smoothing: antialiased;
@@ -49,7 +49,7 @@
       font-weight: 500;
     }
     .topbar a:hover { text-decoration: underline; }
-    .chapter-badge {
+    .publication-badge {
       color: var(--muted);
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 11px;
@@ -66,7 +66,7 @@
       padding-bottom: 24px;
       border-bottom: 1px solid var(--border);
     }
-    .essay-eyebrow {
+    .essay-eyebrow, .article-kicker {
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 12px;
       text-transform: uppercase;
@@ -129,21 +129,43 @@
       text-decoration: underline;
       text-underline-offset: 3px;
     }
+    figure.diagram-figure {
+      margin: 2.2em 0;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+    }
+    figure.diagram-figure svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    figure.diagram-figure figcaption {
+      margin-top: 12px;
+      font-family: ui-sans-serif, system-ui, sans-serif;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+      text-align: center;
+    }
     .table-wrap {
       overflow-x: auto;
-      margin: 1.5em 0;
+      margin: 1.8em 0;
     }
     table {
       width: 100%;
       border-collapse: collapse;
       font-family: ui-sans-serif, system-ui, sans-serif;
       font-size: 14px;
-      line-height: 1.5;
+      line-height: 1.55;
     }
     th, td {
       border: 1px solid var(--border);
-      padding: 8px 12px;
+      padding: 10px 12px;
       text-align: left;
+      vertical-align: top;
     }
     th {
       background: #f8fafc;
@@ -169,49 +191,223 @@
   </style>
 </head>
 <body>
-  <nav class="topbar" aria-label="Book navigation">
+  <nav class="topbar" aria-label="Site navigation">
     <div class="topbar-inner">
-      <a href="/">&larr; Domi Jin &middot; Notes from Research &amp; Practice</a>
-      <span class="chapter-badge">Chapter III · Human Agency, Older People’s Independence and Lifelong Play</span>
-      <a href="/articles/">Table of Contents</a>
+      <a href="/">&larr; Domi Jin</a>
+      <span class="publication-badge">GitHub Specification &middot; Edge AI</span>
+      <a href="/articles/">All Writing</a>
     </div>
   </nav>
   <main>
     <header class="essay-header">
-      <span class="essay-eyebrow">Chapter III · Human Agency, Older People’s Independence and Lifelong Play</span>
-      <h1>baby-AI: Receipt-Verified Edge Household Agent Architecture</h1>
-      <div class="essay-byline">By Domi Jin (Dongming Jin) &middot; May 2026</div>
+      <span class="essay-eyebrow article-kicker">Human Agency &amp; Edge AI &middot; April 2026</span>
+      <h1>baby-AI: Raising a Household Agent on Edge Hardware</h1>
+      <div class="essay-byline">By Domi Jin (Dongming Jin) &middot; April 2026</div>
     </header>
     <article>
-      <blockquote><p>An open-specs, bounty-style project for an edge-deployed, verbally-trainable
-household agent. Five subsystems, one charter, every claim backed by a
-signed receipt.</p></blockquote>
-      <h2>What this is</h2>
-      <p>baby-AI builds toward a small AI that <em>learns about your household by being talked to</em>, runs on hardware that costs less than a phone, and gets better without ever shipping your data off-device for training.</p>
-      <p>The work is split across five specs. Each one carries a falsifiable hypothesis and a numeric metric on a named benchmark — see <a href="https://github.com/domijin/baby-AI/blob/main/specs/"><code>specs/</code></a>. Code is the means. Signed receipts in <a href="https://github.com/domijin/baby-AI/blob/main/receipts/"><code>receipts/</code></a> are the goal.</p>
-      <div class="table-wrap"><table><thead><tr><th>Spec</th><th>Owns</th><th>Headline metric (target)</th></tr></thead><tbody><tr><td><a href="https://github.com/domijin/baby-AI/blob/main/specs/00-charter.md"><code>00-charter</code></a></td><td>the whole project</td><td>—</td></tr><tr><td><a href="https://github.com/domijin/baby-AI/blob/main/specs/01-perception.md"><code>01-perception</code></a></td><td>smart-moment selection</td><td>precision@10 ≥ 0.55</td></tr><tr><td><a href="https://github.com/domijin/baby-AI/blob/main/specs/02-audio.md"><code>02-audio</code></a></td><td>streaming ASR + DoA fusion</td><td>+0.10 referent accuracy</td></tr><tr><td><a href="https://github.com/domijin/baby-AI/blob/main/specs/03-memory.md"><code>03-memory</code></a></td><td>hybrid episodic-vector + KG</td><td>+0.10 hybrid recall@5</td></tr><tr><td><a href="https://github.com/domijin/baby-AI/blob/main/specs/04-interaction.md"><code>04-interaction</code></a></td><td>edge VLM + verbal-feedback adapter</td><td>≥ 3 tok/s; +0.20 concept acc</td></tr><tr><td><a href="https://github.com/domijin/baby-AI/blob/main/specs/05-eval.md"><code>05-eval</code></a></td><td>the receipt contract itself</td><td>100% receipt validity</td></tr></tbody></table></div>
-      <h2>Hardware target</h2>
-      <p>The compute floor is intentionally cheap so contributors don&#x27;t need a lab:</p>
-      <ul><li><strong>Yi Dome 1080p</strong> (Hi3518EV200, ARMv5, ~ USD 30 used) — frame source only.</li><li><strong>Raspberry Pi 5 16 GB</strong> — stream router, audio, memory, dialogue.</li><li><strong>Hailo-8L M.2</strong> (13 TOPS, ~ USD 70) — VLM + embedding inference.</li><li><strong>ReSpeaker 4-Mic Array</strong> — audio capture + direction-of-arrival.</li></ul>
-      <p>Off-device GPU (RTX 4070-class) is used only for periodic adapter training. The full envelope and tier IDs live in <a href="https://github.com/domijin/baby-AI/blob/main/specs/00-charter.md"><code>specs/00-charter.md</code></a>.</p>
-      <h2>SOTA anchors</h2>
-      <p>Each spec cites its load-bearing references; the project as a whole stands on top of these (circa 2025–2026):</p>
-      <p>SmolVLM2 / Moondream2 / PaliGemma 2 (small open VLMs) · SigLIP-2 (image–text encoder) · V-JEPA 2 (predictive video reps, alt backbone) · Distil-Whisper / Whisper.cpp · DPO and KTO (preference tuning) · LoRA / QLoRA · mem0 / Letta (memory frameworks).</p>
-      <p>Original 2018 brain-dump (motion-flag + MobileNet + static KG + hand-wavy &quot;verbal RL&quot;) is preserved in git history; see commits before <code>claude/design-specs-evaluation-UUNNc</code>.</p>
-      <h2>For humans</h2>
-      <p>Repo state today: this is the <strong>specs and contract</strong>, not the code. There is no working subsystem implementation yet — that&#x27;s the work being distributed. The one piece of operational tooling that exists is the cron script that pulls recordings from a Yi Dome to a Pi; it lives in <a href="https://github.com/domijin/baby-AI/blob/main/CLAUDE.md"><code>CLAUDE.md</code></a> so it&#x27;s not lost.</p>
-      <p>To pledge a bounty against a specific spec / tier, see <a href="https://github.com/domijin/baby-AI/blob/main/CONTRIBUTING.md"><code>CONTRIBUTING.md</code></a> § Bounty mechanism.</p>
-      <p>To propose a new spec (e.g. a V-JEPA-2 alternative to spec 01), open a <a href="https://github.com/domijin/baby-AI/blob/main/github/ISSUE_TEMPLATE/feature-proposal.yml">feature proposal</a>.</p>
-      <h2>License</h2>
-      <p>Code under <a href="https://github.com/domijin/baby-AI/blob/main/LICENSE">LICENSE</a>. Datasets and model artifacts produced under this project are released as each spec dictates (CC-BY-NC 4.0 is the default for human-collected sensor data after PII review).</p>
-      <p>spec_id: charter status: active version: 0.1.0 last_updated: 2026-04-25</p>
+      <p>When you watch a child learn how a home works, you notice something remarkable: they do not ingest ten million unlabeled hours of raw surveillance footage from strangers’ living rooms. They learn because the people around them point, speak, correct, and explain in context. <em>“That mug belongs to Grandpa.”</em> <em>“Don’t touch the stove when the red light is on.”</em> <em>“We leave the keys in the wooden bowl by the door.”</em></p>
+
+      <p>Back in 2018, I sketched an early note about a household AI that could learn the same way—by being talked to. Years later, after working with older adults through Kin Domi in Palo Alto and listening to their quiet reservations about smart cameras and cloud voice assistants, that question returned with much sharper urgency. People want helpful intelligence in their homes, especially as they age or juggle busy family routines. What they do not want is an always-on sensor pipeline streaming their most intimate spaces to a distant data center for model training.</p>
+
+      <p><strong>baby-AI</strong> is my architectural answer to that tension: an open-specification, edge-deployed household agent that learns about your home by being spoken to, runs on roughly $100 of off-the-shelf local hardware, and improves over time without ever shipping family video or audio streams to the cloud.</p>
+
+      <h2>Why Building a Domestic AI Feels Like Raising a Developing Mind</h2>
+
+      <p>Most agent frameworks treat autonomy as a binary switch: either the model is a passive chatbot waiting for a prompt, or it is given unconstrained tool access and left to improvise. In a real household, neither extreme works. Trust is earned developmentally, through clear boundaries between reversible exploration and high-regret actions:</p>
+
+      <ul>
+        <li><strong>Reversible vs. High-Regret Gates:</strong> When a developing system indexes an episodic memory, tags an object in a room, or drafts a gentle reminder, the action is locally reversible. When an action crosses the boundary into external communication, physical actuation, or modifying long-term core rules, it hits a strict human-in-the-loop gate.</li>
+        <li><strong>Transparent, Inspectable Memory:</strong> If an assistant remembers a household preference wrongly, you should not have to retrain a black-box neural network to fix it. Memory must combine fast episodic recall with an explicit, human-editable local knowledge graph so anyone in the home can ask <em>“Why did you think that?”</em> and correct it in one sentence.</li>
+        <li><strong>Safety Escalation Over Silent Hallucination:</strong> A trustworthy companion knows what it does not know. When acoustic direction-of-arrival and visual grounding disagree—or when a spoken instruction conflicts with a safety boundary—the system escalates to a clarifying question rather than guessing silently.</li>
+      </ul>
+
+      <figure class="diagram-figure">
+        <svg viewBox="0 0 760 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="4-Stage Developmental Autonomy and Guardrail Architecture for baby-AI">
+          <defs>
+            <marker id="arrow-baby" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 1 L 10 5 L 0 9 z" fill="#2980b9" />
+            </marker>
+            <marker id="arrow-guard" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 1 L 10 5 L 0 9 z" fill="#0d9488" />
+            </marker>
+          </defs>
+          <rect x="0" y="0" width="760" height="400" rx="10" fill="#f8fafc" />
+          <text x="24" y="30" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" font-weight="700" fill="#2980b9" letter-spacing="0.08em">4-STAGE DEVELOPMENTAL AUTONOMY &amp; EDGE GUARDRAIL LOOP</text>
+
+          <!-- Stage 1 -->
+          <rect x="24" y="52" width="156" height="176" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+          <rect x="24" y="52" width="156" height="28" rx="8" fill="#e0f2fe" />
+          <text x="36" y="70" font-family="ui-monospace, monospace" font-size="11" font-weight="700" fill="#0369a1">STAGE 01 · SENSING</text>
+          <text x="36" y="98" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0f172a">Edge Capture</text>
+          <text x="36" y="120" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#475569">• Yi Dome 1080p (~$30)</text>
+          <text x="36" y="138" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#475569">• ReSpeaker 4-Mic Array</text>
+          <text x="36" y="156" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#475569">• Smart-Moment Filter</text>
+          <rect x="34" y="176" width="136" height="38" rx="5" fill="#f1f5f9" />
+          <text x="42" y="192" font-family="ui-monospace, monospace" font-size="10" fill="#0f766e" font-weight="600">GUARDRAIL GATE</text>
+          <text x="42" y="206" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10.5" fill="#334155">Zero cloud WAN egress</text>
+
+          <!-- Arrow 1->2 -->
+          <line x1="180" y1="140" x2="202" y2="140" stroke="#2980b9" stroke-width="2" marker-end="url(#arrow-baby)" />
+
+          <!-- Stage 2 -->
+          <rect x="208" y="52" width="162" height="176" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+          <rect x="208" y="52" width="162" height="28" rx="8" fill="#e0f2fe" />
+          <text x="220" y="70" font-family="ui-monospace, monospace" font-size="11" font-weight="700" fill="#0369a1">STAGE 02 · GROUNDING</text>
+          <text x="220" y="98" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0f172a">Audio-Visual Fusion</text>
+          <text x="220" y="120" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#475569">• Raspberry Pi 5 (16 GB)</text>
+          <text x="220" y="138" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#475569">• Whisper ASR + DoA</text>
+          <text x="220" y="156" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#475569">• Referent Alignment</text>
+          <rect x="218" y="176" width="142" height="38" rx="5" fill="#f1f5f9" />
+          <text x="226" y="192" font-family="ui-monospace, monospace" font-size="10" fill="#0f766e" font-weight="600">GUARDRAIL GATE</text>
+          <text x="226" y="206" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10.5" fill="#334155">Clarify if DoA &lt; conf</text>
+
+          <!-- Arrow 2->3 -->
+          <line x1="370" y1="140" x2="392" y2="140" stroke="#2980b9" stroke-width="2" marker-end="url(#arrow-baby)" />
+
+          <!-- Stage 3 -->
+          <rect x="398" y="52" width="162" height="176" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+          <rect x="398" y="52" width="162" height="28" rx="8" fill="#e0f2fe" />
+          <text x="410" y="70" font-family="ui-monospace, monospace" font-size="11" font-weight="700" fill="#0369a1">STAGE 03 · MEMORY</text>
+          <text x="410" y="98" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0f172a">Hybrid Store + VLM</text>
+          <text x="410" y="120" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#475569">• Hailo-8L NPU (13 TOPS)</text>
+          <text x="410" y="138" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#475569">• Episodic Vec + Local KG</text>
+          <text x="410" y="156" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#475569">• Verbal LoRA / KTO / DPO</text>
+          <rect x="408" y="176" width="142" height="38" rx="5" fill="#f1f5f9" />
+          <text x="416" y="192" font-family="ui-monospace, monospace" font-size="10" fill="#0f766e" font-weight="600">GUARDRAIL GATE</text>
+          <text x="416" y="206" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10.5" fill="#334155">Inspectable &amp; erasable KG</text>
+
+          <!-- Arrow 3->4 -->
+          <line x1="560" y1="140" x2="582" y2="140" stroke="#2980b9" stroke-width="2" marker-end="url(#arrow-baby)" />
+
+          <!-- Stage 4 -->
+          <rect x="588" y="52" width="148" height="176" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+          <rect x="588" y="52" width="148" height="28" rx="8" fill="#dcfce7" />
+          <text x="598" y="70" font-family="ui-monospace, monospace" font-size="11" font-weight="700" fill="#15803d">STAGE 04 · AGENCY</text>
+          <text x="598" y="98" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0f172a">Action &amp; Receipt</text>
+          <text x="598" y="120" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#475569">• Reversible: Auto-log</text>
+          <text x="598" y="138" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#475569">• High-Regret: Ask Human</text>
+          <text x="598" y="156" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#475569">• Signed Eval Receipt</text>
+          <rect x="598" y="176" width="128" height="38" rx="5" fill="#fef3c7" />
+          <text x="606" y="192" font-family="ui-monospace, monospace" font-size="10" fill="#b45309" font-weight="600">HIGH-REGRET GATE</text>
+          <text x="606" y="206" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10.5" fill="#78350f">Explicit voice sign-off</text>
+
+          <!-- Bottom Feedback Loop Bar -->
+          <rect x="24" y="256" width="712" height="118" rx="8" fill="#ffffff" stroke="#bae6fd" stroke-width="1.5" />
+          <text x="42" y="280" font-family="ui-monospace, monospace" font-size="11" font-weight="700" fill="#0284c7">VERBAL REINFORCEMENT &amp; CRYPTOGRAPHIC RECEIPT CONTRACT (SPECS 00–07)</text>
+          <text x="42" y="304" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12.5" fill="#334155">1. Reversible Path (Green): Episodic tagging &amp; soft reminders execute locally with full audit trace.</text>
+          <text x="42" y="326" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12.5" fill="#334155">2. High-Regret Escalation (Amber): Core rule edits, external calls, or low-confidence grounding require human confirmation.</text>
+          <text x="42" y="348" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12.5" fill="#334155">3. Nightly Adapter Consolidation: Verified verbal corrections update local LoRA weights &amp; emit a signed benchmark receipt.</text>
+        </svg>
+        <figcaption>Figure 1: The 4-stage developmental autonomy pipeline in baby-AI. Sensor streams stay strictly on local edge hardware ($100 BOM), while actions are separated into reversible memory updates and human-gated high-regret decisions.</figcaption>
+      </figure>
+
+      <h2>Privacy and Agency on $100 of Local Silicon</h2>
+
+      <p>If an architecture requires an $8,000 workstation in the closet, it remains a hobbyist toy for engineers. We set the compute floor deliberately low so that any family, student, or independent researcher can replicate the entire node for less than the price of a budget smartphone:</p>
+
+      <ul>
+        <li><strong>Yi Dome 1080p Camera (~USD 30 used, Hi3518EV200 ARMv5):</strong> Acts strictly as a local RTSP/cron frame source on an isolated subnet.</li>
+        <li><strong>ReSpeaker 4-Mic Array:</strong> Captures far-field speech alongside acoustic Direction-of-Arrival (DoA) vectors so the system knows <em>where</em> a speaker is standing relative to the room.</li>
+        <li><strong>Raspberry Pi 5 (16 GB RAM):</strong> Orchestrates stream routing, voice activity detection, hybrid memory storage, and dialogue state.</li>
+        <li><strong>Hailo-8L M.2 NPU (13 TOPS, ~USD 70):</strong> Handles real-time vision-language embedding (<code>SigLIP-2</code>, <code>SmolVLM2</code>, <code>Moondream2</code>) and token generation at the edge.</li>
+        <li><strong>Periodic Off-Path Adapter Training:</strong> An optional desktop GPU (RTX 4070 class) is invoked only overnight or offline to consolidate verified verbal feedback into lightweight <code>LoRA</code> / <code>QLoRA</code> weights via <code>DPO</code> and <code>KTO</code> preference tuning.</li>
+      </ul>
+
+      <h2>The Eight Core Specifications &amp; Falsifiable Contracts</h2>
+
+      <p>In open-source AI, hype is cheap and reproducible benchmarks are rare. Rather than publishing a monolithic codebase full of hand-wavy claims, <code>baby-AI</code> is structured around <strong>falsifiable specifications and cryptographic receipts</strong>. Code is the means; signed evaluation receipts on named benchmarks are the contract.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Spec ID</th>
+              <th>Subsystem &amp; Scope</th>
+              <th>Core Mechanism &amp; SOTA Anchors</th>
+              <th>Falsifiable Target Metric</th>
+              <th>Safety &amp; Guardrail Gate</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>00-charter</code></td>
+              <td>System Envelope &amp; Hardware Bill of Materials</td>
+              <td>Defines the $100 edge hardware floor (Pi 5 + Hailo-8L + Yi Dome + 4-Mic) and zero-cloud training boundary</td>
+              <td>Hardware BOM &le; $150; 0 bytes unapproved WAN egress</td>
+              <td>Hardware-enforced local VLAN isolation</td>
+            </tr>
+            <tr>
+              <td><code>01-perception</code></td>
+              <td>Smart-Moment Selection</td>
+              <td>Novelty-gated frame sampling using lightweight <code>SigLIP-2</code> / <code>V-JEPA 2</code> predictive embeddings</td>
+              <td><code>precision@10 &ge; 0.55</code> on household key-event retrieval</td>
+              <td>Immediate discard of routine background frames</td>
+            </tr>
+            <tr>
+              <td><code>02-audio</code></td>
+              <td>Streaming ASR &amp; Spatial DoA Fusion</td>
+              <td>Low-latency <code>Whisper.cpp</code> / <code>Distil-Whisper</code> fused with 4-mic acoustic Direction-of-Arrival</td>
+              <td><code>+0.10</code> referent resolution accuracy over audio-only baseline</td>
+              <td>Local voice activity gating; physical mute override</td>
+            </tr>
+            <tr>
+              <td><code>03-memory</code></td>
+              <td>Hybrid Episodic-Vector + Knowledge Graph</td>
+              <td>Dual-store architecture (<code>mem0</code> / <code>Letta</code> style) pairing vector episodes with a relational entity graph</td>
+              <td><code>+0.10</code> hybrid <code>recall@5</code> on multi-hop household queries</td>
+              <td>Human-inspectable &amp; verbally erasable graph triples</td>
+            </tr>
+            <tr>
+              <td><code>04-interaction</code></td>
+              <td>Edge VLM &amp; Verbal-Feedback Adapter</td>
+              <td>Small open VLM (<code>SmolVLM2</code> / <code>Moondream2</code> / <code>PaliGemma 2</code>) with overnight <code>LoRA</code> + <code>KTO</code>/<code>DPO</code> updates</td>
+              <td><code>&ge; 3 tok/s</code> edge latency; <code>+0.20</code> concept accuracy after 5 verbal corrections</td>
+              <td>Confirmation gate before overwriting core household rules</td>
+            </tr>
+            <tr>
+              <td><code>05-eval</code></td>
+              <td>Signed Evaluation Receipt Contract</td>
+              <td>Deterministic harness emitting cryptographically signed JSON benchmark receipts</td>
+              <td><code>100%</code> schema &amp; signature verification across submitted runs</td>
+              <td>Rejects unverified or cherry-picked model checkpoints</td>
+            </tr>
+            <tr>
+              <td><code>06-privacy-gate</code></td>
+              <td>Local Redaction &amp; PII Boundary</td>
+              <td>Pre-storage face/PII scrubbing for any diagnostic trace exported by the household owner</td>
+              <td><code>0</code> unredacted PII leaks across diagnostic test suite</td>
+              <td>Mandatory owner sign-off before any trace leaves device</td>
+            </tr>
+            <tr>
+              <td><code>07-escalation</code></td>
+              <td>Uncertainty &amp; Human-in-the-Loop Escalation</td>
+              <td>Calibrated abstention when visual-acoustic grounding confidence falls below threshold</td>
+              <td><code>&ge; 90%</code> abstention accuracy on ambiguous/high-regret prompts</td>
+              <td>Hard block on high-regret actions without verbal confirmation</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Verbal Reinforcement Over Surveillance</h2>
+
+      <p>When someone says, <em>“Hey, that pill bottle on the counter is my morning vitamin, not my evening blood pressure medicine,”</em> a household agent has to do four things well:</p>
+
+      <ol>
+        <li><strong>Ground the moment in space and time</strong> (<code>01-perception</code> + <code>02-audio</code>): Align the spoken demonstratives (<em>“that pill bottle on the counter”</em>) with the acoustic direction of the speaker’s voice and the active visual frame.</li>
+        <li><strong>Update explicit relational memory</strong> (<code>03-memory</code>): Write a structured, inspectable link in the local knowledge graph (<code>[Blue Bottle @ Kitchen Counter] &rarr; [Role: Morning Vitamin]</code>) while archiving the episodic context.</li>
+        <li><strong>Adapt visual-language priors</strong> (<code>04-interaction</code>): Queue the verified correction as a positive/negative preference pair so the next local <code>LoRA</code> adapter pass internalizes the visual concept without catastrophic forgetting.</li>
+        <li><strong>Verify without regressing</strong> (<code>05-eval</code> + <code>07-escalation</code>): Run the updated adapter against the household regression suite and issue a signed receipt confirming that learning the new object did not degrade prior safety rules.</li>
+      </ol>
+
+      <h2>The Mission Ahead</h2>
+
+      <p>When we design AI for the home, we are not just optimizing tokens per second—we are shaping the quiet architecture of domestic trust. Whether a system is helping an older adult keep track of daily essentials or helping a young family coordinate a busy week, dignity depends on keeping ownership, memory, and control in the hands of the people who live there.</p>
+
+      <p>By separating specifications from implementations and requiring every claim to carry a verifiable receipt, <code>baby-AI</code> invites engineers, researchers, and tinkerers to build domestic intelligence the right way: small enough to own, humble enough to ask when uncertain, and wise enough to learn from a human voice.</p>
     </article>
     <footer class="colophon">
-      <p>
-        <strong>Footnote:</strong> First published in
-        <a href="https://github.com/domijin/baby-AI" rel="noopener noreferrer" target="_blank">GitHub Specification (baby-AI)</a>
-        (May 2026). Part of <em>Domi Jin — Notes from Research and Practice</em>.
-      </p>
+      <p>Originally published on <a href="https://github.com/domijin/baby-AI" rel="noopener noreferrer" target="_blank">GitHub (domijin/baby-AI)</a> (April 2026).</p>
     </footer>
   </main>
 </body>

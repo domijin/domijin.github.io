@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>The Future of Advertising — Moving Beyond Relevance to Demand Profiling and Dynamic Personalization — Domi Jin</title>
-  <meta name="description" content="The Future of Advertising — Moving Beyond Relevance to Demand Profiling and Dynamic Personalization — Essay and technical notes by Domi Jin." />
+  <title>The Future of Advertising — Moving Beyond Relevance to Demand Profiling and Dynamic Personalization — Domi Jin</title>
+  <meta name="description" content="Demand profiling and dynamically personalised ads move past binary intent toward latent needs, using generative content at scale." />
   <link rel="canonical" href="https://domij.info/articles/medium/the-future-of-advertising-moving-beyond-relevance-to-demand-profiling-and-dynamic-personalization-5f4ccc03697c.html" />
   <style>
     :root {
@@ -19,7 +19,7 @@
       margin: 0;
       background: var(--bg);
       color: var(--ink);
-      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "PingFang SC", "Hiragino Sans GB", "Noto Serif CJK SC", serif;
       font-size: 19px;
       line-height: 1.78;
       -webkit-font-smoothing: antialiased;
@@ -49,7 +49,7 @@
       font-weight: 500;
     }
     .topbar a:hover { text-decoration: underline; }
-    .chapter-badge {
+    .publication-badge {
       color: var(--muted);
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 11px;
@@ -66,7 +66,7 @@
       padding-bottom: 24px;
       border-bottom: 1px solid var(--border);
     }
-    .essay-eyebrow {
+    .essay-eyebrow, .article-kicker {
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 12px;
       text-transform: uppercase;
@@ -129,21 +129,43 @@
       text-decoration: underline;
       text-underline-offset: 3px;
     }
+    .diagram-figure {
+      margin: 2.2em 0;
+      padding: 20px;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+    }
+    .diagram-figure svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .diagram-figure figcaption {
+      margin-top: 12px;
+      font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--muted);
+      text-align: center;
+    }
     .table-wrap {
       overflow-x: auto;
-      margin: 1.5em 0;
+      margin: 1.8em 0;
     }
-    table {
+    table, table.editorial-table {
       width: 100%;
       border-collapse: collapse;
       font-family: ui-sans-serif, system-ui, sans-serif;
       font-size: 14px;
-      line-height: 1.5;
+      line-height: 1.55;
     }
     th, td {
       border: 1px solid var(--border);
-      padding: 8px 12px;
+      padding: 10px 14px;
       text-align: left;
+      vertical-align: top;
     }
     th {
       background: #f8fafc;
@@ -169,54 +191,116 @@
   </style>
 </head>
 <body>
-  <nav class="topbar" aria-label="Book navigation">
+  <nav class="topbar" aria-label="Site navigation">
     <div class="topbar-inner">
-      <a href="/">&larr; Domi Jin &middot; Notes from Research &amp; Practice</a>
-      <span class="chapter-badge">Chapter II · Decisions Under Constraints</span>
-      <a href="/articles/">Table of Contents</a>
+      <a href="/">&larr; Domi Jin</a>
+      <span class="publication-badge">Medium &middot; AdTech &amp; Personalization</span>
+      <a href="/articles/">All Writing</a>
     </div>
   </nav>
   <main>
     <header class="essay-header">
-      <span class="essay-eyebrow">Chapter II · Decisions Under Constraints</span>
-      <h1>The Future of Advertising — Moving Beyond Relevance to Demand Profiling and Dynamic Personalization</h1>
+      <span class="essay-eyebrow article-kicker">Medium &middot; AdTech &amp; Personalization &middot; October 2024</span>
+      <h1>The Future of Advertising — Moving Beyond Relevance to Demand Profiling and Dynamic Personalization</h1>
       <div class="essay-byline">By Domi Jin (Dongming Jin) &middot; October 2024</div>
     </header>
     <article>
-      <h3><strong>The Future of Advertising — Moving Beyond Relevance to Demand Profiling and Dynamic Personalization</strong></h3>
       <p>In the competitive world of digital advertising, where every second counts and user attention is at a premium, traditional recommendation and ad delivery systems have focused primarily on optimizing <strong>relevance</strong> and <strong>timeliness</strong>. These systems are adept at showing ads that are likely to resonate with users in a given moment, leveraging real-time data and complex machine learning models to match the right content with the right user. However, the next frontier in digital advertising will go beyond mere relevance; it will focus on <strong>understanding and nurturing demand</strong> over the long term, turning ad delivery into a process of <strong>educational engagement and demand realization</strong>.</p>
-      <p><strong>Reimagining Advertising: Demand Mining and Marketing Synergy</strong></p>
-      <p>Today’s most sophisticated ad platforms, such as those used by Meta, Google, and AppLovin, are optimized for immediate outcomes, such as clicks, installs, or conversions. This strategy works because it aligns the right content with a user’s apparent intent. However, this approach has a fundamental bottleneck: it treats demand as <strong>binary</strong> — either the user is ready to convert or not. It lacks the nuance to address evolving, <strong>latent user needs</strong> that are <strong>not yet fully realized</strong>.</p>
+
+      <h2>Reimagining Advertising: Demand Mining and Marketing Synergy</h2>
+      <p>Today’s most sophisticated ad platforms, such as those used by Meta, Google, and AppLovin, are optimized for immediate outcomes, such as clicks, installs, or conversions. This strategy works because it aligns the right content with a user’s apparent intent. However, this approach has a fundamental bottleneck: it treats demand as <strong>binary</strong> — either the user is ready to convert or not. It lacks the nuance to address evolving, <strong>latent user needs</strong> that are <strong>not yet fully realized</strong>.</p>
       <p>To overcome this limitation, I propose an advanced framework that integrates two critical components: <strong>demand mining</strong> and <strong>adaptive marketing</strong>. Let’s break down these concepts and explore how this paradigm shift can redefine the future of digital advertising.</p>
-      <p><strong>1. Demand Mining: Building a Granular Understanding of Users</strong></p>
-      <p>At its core, demand mining is about building a nuanced user profile that evolves over the course of the user journey. Instead of viewing each interaction as a static event, demand mining treats each engagement as a <strong>data point in an ongoing narrative</strong>, allowing the system to build a <strong>latent user profile</strong> that is more comprehensive and precise over time. This means that every click, skip, hover, and even time spent watching an ad is an input that refines our understanding of the user’s preferences and needs.</p>
+
+      <figure class="diagram-figure">
+        <svg viewBox="0 0 760 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Demand Clarity Continuum: From Binary Relevance to Adaptive Demand Profiling">
+          <defs>
+            <marker id="arrow-fa" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 1 L 10 5 L 0 9 z" fill="#2980b9"/>
+            </marker>
+          </defs>
+          <rect width="760" height="280" rx="10" fill="#f8fafc"/>
+          <text x="380" y="25" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13.5" font-weight="700" fill="#0f172a">DEMAND CLARITY CONTINUUM: LEGACY BINARY RELEVANCE vs. ADAPTIVE DEMAND PROFILING</text>
+
+          <!-- Top Track: Legacy Binary -->
+          <rect x="24" y="42" width="712" height="58" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+          <rect x="24" y="42" width="165" height="58" rx="8" fill="#fee2e2"/>
+          <text x="106" y="68" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" font-weight="700" fill="#991b1b">LEGACY BINARY AD-TECH</text>
+          <text x="106" y="84" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10" fill="#b91c1c">(One-Shot Relevance)</text>
+          <text x="210" y="66" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" font-weight="600" fill="#334155">Static Ad Impression  →  Binary Click / No-Click  →  Immediate Conversion or Discard</text>
+          <text x="210" y="84" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10.5" fill="#64748b">Bottleneck: Ignores latent, evolving user needs; treats non-clicks as dead ends.</text>
+
+          <!-- Bottom Track: Adaptive Continuum -->
+          <text x="380" y="122" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5" font-weight="700" fill="#0369a1">NEXT-GEN ECOSYSTEM: CONTINUOUS DEMAND MINING × GENERATIVE ADAPTIVE CREATIVE</text>
+
+          <!-- Stage 1: Fuzzy Demand -->
+          <rect x="24" y="134" width="218" height="112" rx="8" fill="#ffffff" stroke="#0284c7" stroke-width="1.5"/>
+          <rect x="24" y="134" width="218" height="26" rx="8" fill="#e0f2fe"/>
+          <text x="133" y="151" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" font-weight="700" fill="#0369a1">1. FUZZY / LATENT DEMAND</text>
+          <text x="36" y="176" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="600" fill="#1e293b">Signals: Dwell, Hover, Shuffle</text>
+          <text x="36" y="194" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10" fill="#64748b">• Exploratory lifestyle curiosity</text>
+          <text x="36" y="212" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="600" fill="#0369a1">Creative: Story &amp; Creator UGC</text>
+          <text x="36" y="228" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10" fill="#475569">Emotion-rich branding &amp; vibes</text>
+
+          <line x1="242" y1="190" x2="266" y2="190" stroke="#2980b9" stroke-width="2" marker-end="url(#arrow-fa)"/>
+
+          <!-- Stage 2: Evolving Interest -->
+          <rect x="271" y="134" width="218" height="112" rx="8" fill="#ffffff" stroke="#0284c7" stroke-width="1.5"/>
+          <rect x="271" y="134" width="218" height="26" rx="8" fill="#e0f2fe"/>
+          <text x="380" y="151" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" font-weight="700" fill="#0369a1">2. EVOLVING CONSIDERATION</text>
+          <text x="283" y="176" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="600" fill="#1e293b">Signals: Poll, Carousel Swipe</text>
+          <text x="283" y="194" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10" fill="#64748b">• Latent profile shifts to category</text>
+          <text x="283" y="212" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="600" fill="#0369a1">Creative: Dynamic Explainers</text>
+          <text x="283" y="228" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10" fill="#475569">GenAI use-case &amp; feature framing</text>
+
+          <line x1="489" y1="190" x2="513" y2="190" stroke="#2980b9" stroke-width="2" marker-end="url(#arrow-fa)"/>
+
+          <!-- Stage 3: Clear Demand -->
+          <rect x="518" y="134" width="218" height="112" rx="8" fill="#ffffff" stroke="#16a34a" stroke-width="2"/>
+          <rect x="518" y="134" width="218" height="26" rx="8" fill="#dcfce7"/>
+          <text x="627" y="151" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" font-weight="700" fill="#166534">3. CLEAR / HIGH-INTENT DEMAND</text>
+          <text x="530" y="176" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="600" fill="#1e293b">Signals: Spec Check, High Intent</text>
+          <text x="530" y="194" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10" fill="#64748b">• Ready for specific product match</text>
+          <text x="530" y="212" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="600" fill="#166534">Creative: Specs, Demos &amp; Offer</text>
+          <text x="530" y="228" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10" fill="#475569">High-utility conversion &amp; trust</text>
+
+          <text x="380" y="266" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#475569">Matching generative &amp; creator-driven ad formats to the user’s real-time position on the demand clarity continuum.</text>
+        </svg>
+        <figcaption>Figure 1: Contrasting legacy one-shot binary ad targeting (top) with the Demand Clarity Continuum (bottom), where reinforcement learning tracks latent intent from Fuzzy Demand to Clear Demand and adapts creative formats accordingly.</figcaption>
+      </figure>
+
+      <h3>1. Demand Mining: Building a Granular Understanding of Users</h3>
+      <p>At its core, demand mining is about building a nuanced user profile that evolves over the course of the user journey. Instead of viewing each interaction as a static event, demand mining treats each engagement as a <strong>data point in an ongoing narrative</strong>, allowing the system to build a <strong>latent user profile</strong> that is more comprehensive and precise over time. This means that every click, skip, hover, and even time spent watching an ad is an input that refines our understanding of the user’s preferences and needs.</p>
       <p>Through deep learning models and reinforcement learning, demand mining can generate <strong>latent features</strong> that capture the subtle shifts in user behavior and sentiment. For instance, a user who frequently engages with content about fitness may exhibit varying degrees of interest, from general health awareness to specific product needs like nutritional supplements. Identifying and tracking these shifts in real time allows us to create a more <strong>granular demand profile</strong>, which is far more predictive and actionable than traditional user segmentation.</p>
-      <p><strong>Practical Application</strong>: One potential UI/UX innovation is to introduce <strong>dynamic ad switching</strong> within a single impression slot. For example, if a user is shown a branding ad that doesn’t fully resonate, the system can allow them to “shuffle” to the next ad — not by skipping it but by dynamically replacing it with a new one. This approach not only captures more refined feedback but also creates a more engaging ad experience that <strong>empowers the user</strong> to guide the ad delivery process.</p>
-      <p><strong>2. Adaptive Marketing: Delivering Tailored Content Based on Demand State</strong></p>
-      <p>Once we have a more refined understanding of user demand, the focus shifts to <strong>adaptive marketing</strong>, where the goal is to match the user’s current demand state with the <strong>right type of content</strong>. This is where the traditional notion of ad relevance is expanded. Instead of showing just any relevant ad, adaptive marketing considers <strong>the demand clarity and context</strong>:</p>
-      <p>• <strong>Fuzzy Demand</strong>: When user demand is still vague or exploratory, we should lean towards showing <strong>branding ads</strong> that are rich in <strong>emotions, sentiments, and experiences</strong>. This could include influencer testimonials, interactive video ads, or engaging story-driven content.</p>
-      <p>• <strong>Clear Demand</strong>: As the user’s demand becomes more defined, the ad content should become more <strong>use-case specific</strong>. This includes product demonstrations, targeted offers, or detailed technical specifications that address the exact need identified in the demand mining phase.</p>
+      <p><strong>Practical Application</strong>: One potential UI/UX innovation is to introduce <strong>dynamic ad switching</strong> within a single impression slot. For example, if a user is shown a branding ad that doesn’t fully resonate, the system can allow them to “shuffle” to the next ad — not by skipping it but by dynamically replacing it with a new one. This approach not only captures more refined feedback but also creates a more engaging ad experience that <strong>empowers the user</strong> to guide the ad delivery process.</p>
+
+      <h3>2. Adaptive Marketing: Delivering Tailored Content Based on Demand State</h3>
+      <p>Once we have a more refined understanding of user demand, the focus shifts to <strong>adaptive marketing</strong>, where the goal is to match the user’s current demand state with the <strong>right type of content</strong>. This is where the traditional notion of ad relevance is expanded. Instead of showing just any relevant ad, adaptive marketing considers <strong>the demand clarity and context</strong>:</p>
+      <ul>
+        <li><strong>Fuzzy Demand</strong>: When user demand is still vague or exploratory, we should lean towards showing <strong>branding ads</strong> that are rich in <strong>emotions, sentiments, and experiences</strong>. This could include influencer testimonials, interactive video ads, or engaging story-driven content.</li>
+        <li><strong>Clear Demand</strong>: As the user’s demand becomes more defined, the ad content should become more <strong>use-case specific</strong>. This includes product demonstrations, targeted offers, or detailed technical specifications that address the exact need identified in the demand mining phase.</li>
+      </ul>
       <p>This dynamic approach means that an ad experience for a single user can evolve from initial brand awareness to specific product recommendations over a series of interactions, effectively guiding them through the funnel with <strong>content that adapts to their evolving preferences</strong>.</p>
-      <p><strong>Leveraging Deep Learning for Dynamic Ad Generation</strong></p>
-      <p>One of the greatest challenges in scaling this vision is ensuring that there is <strong>enough diversity and richness in ad content</strong> to match the sophistication of user profiles. Current ad inventories, even those of major platforms, pale in comparison to the <strong>improvisational and evolving interests</strong> of users. This is where <strong>deep learning-based content generation</strong> comes into play.</p>
+
+      <h2>Leveraging Deep Learning for Dynamic Ad Generation</h2>
+      <p>One of the greatest challenges in scaling this vision is ensuring that there is <strong>enough diversity and richness in ad content</strong> to match the sophistication of user profiles. Current ad inventories, even those of major platforms, pale in comparison to the <strong>improvisational and evolving interests</strong> of users. This is where <strong>deep learning-based content generation</strong> comes into play.</p>
       <p>By leveraging Generative Adversarial Networks (GANs) and transformer models, we can create dynamic ad content that is tailored to the user’s <strong>demand state</strong> in real time. For example, if a user’s demand is still vague, a GAN model could generate a series of visually compelling ads that emphasize <strong>emotional engagement</strong> rather than product features. As the demand becomes clearer, these models can adapt to generate more <strong>product-centric ads</strong>, such as customer testimonials or detailed feature comparisons.</p>
       <p><strong>New Opportunity</strong>: Imagine a future ecosystem where <strong>creators</strong> (e.g., TikTok influencers) contribute dynamic ad content that is constantly evaluated and refined based on real-time performance data. Advertisers would then <strong>subsidize the creation of new ad variations</strong> by rewarding creators whose content performs well, creating a symbiotic relationship that continuously enriches the ad inventory.</p>
-      <p><strong>Implications for the Future: From Static Ad Creatives to Dynamic Ecosystems</strong></p>
+
+      <h2>Implications for the Future: From Static Ad Creatives to Dynamic Ecosystems</h2>
       <p>The long-term vision for this demand-driven ad ecosystem is a <strong>completely new paradigm</strong> for campaign management:</p>
-      <ol><li><strong>New UI/UX for User Feedback</strong>: By offering more interactive and empowering ad experiences (e.g., ad shuffling, content personalization controls), platforms can collect <strong>highly granular feedback</strong>, which in turn refines the demand profile.</li></ol>
-      <ol><li><strong>Dynamic Ad Creation and Evolution</strong>: Campaigns would no longer rely on static creatives but instead employ <strong>adaptive content libraries</strong> that evolve based on real-time user engagement.</li></ol>
-      <ol><li><strong>Creator-Driven Ad Ecosystem</strong>: Similar to how TikTok has democratized content creation, platforms could incentivize creators to generate branded content, which is then dynamically inserted into campaigns based on its relevance and performance. This would create a <strong>self-sustaining ecosystem</strong> where ad quality and diversity scale organically, addressing the current bottleneck of content availability.</li></ol>
-      <p><strong>Conclusion: Shaping the Next Generation of Digital Advertising</strong></p>
+      <ol>
+        <li><strong>New UI/UX for User Feedback</strong>: By offering more interactive and empowering ad experiences (e.g., ad shuffling, content personalization controls), platforms can collect <strong>highly granular feedback</strong>, which in turn refines the demand profile.</li>
+        <li><strong>Dynamic Ad Creation and Evolution</strong>: Campaigns would no longer rely on static creatives but instead employ <strong>adaptive content libraries</strong> that evolve based on real-time user engagement.</li>
+        <li><strong>Creator-Driven Ad Ecosystem</strong>: Similar to how TikTok has democratized content creation, platforms could incentivize creators to generate branded content, which is then dynamically inserted into campaigns based on its relevance and performance. This would create a <strong>self-sustaining ecosystem</strong> where ad quality and diversity scale organically, addressing the current bottleneck of content availability.</li>
+      </ol>
+
+      <h2>Conclusion: Shaping the Next Generation of Digital Advertising</h2>
       <p>The future of digital advertising lies not just in showing the right ad at the right time, but in <strong>understanding the user’s evolving needs</strong> and <strong>guiding them through a journey of demand realization</strong>. By combining advanced demand mining techniques with dynamic, adaptive marketing strategies, we can create a new generation of ad systems that are not just relevant, but also engaging, educational, and deeply personal.</p>
       <p>This vision, however, requires a fundamental rethinking of how we approach <strong>user modeling</strong>, <strong>content generation</strong>, and <strong>campaign management</strong>. With innovations in <strong>dynamic UI/UX</strong> and <strong>deep learning-driven content creation</strong>, we can turn advertising from a transactional experience into a truly transformative one.</p>
-      <p>By embracing these changes, digital advertisers can unlock a wealth of new opportunities — not just for higher conversions, but for creating <strong>meaningful and lasting relationships</strong> between brands and users, driving value for everyone in the ecosystem.</p>
+      <p>By embracing these changes, digital advertisers can unlock a wealth of new opportunities — not just for higher conversions, but for creating <strong>meaningful and lasting relationships</strong> between brands and users, driving value for everyone in the ecosystem.</p>
     </article>
     <footer class="colophon">
-      <p>
-        <strong>Footnote:</strong> First published in
-        <a href="https://medium.com/@domijin/the-future-of-advertising-moving-beyond-relevance-to-demand-profiling-and-dynamic-personalization-5f4ccc03697c" rel="noopener noreferrer" target="_blank">Medium</a>
-        (October 2024). Part of <em>Domi Jin — Notes from Research and Practice</em>.
-      </p>
+      <p>Originally published on <a href="https://medium.com/@domijin/the-future-of-advertising-moving-beyond-relevance-to-demand-profiling-and-dynamic-personalization-5f4ccc03697c" rel="noopener noreferrer" target="_blank">Medium</a> &middot; October 2024.</p>
     </footer>
   </main>
 </body>

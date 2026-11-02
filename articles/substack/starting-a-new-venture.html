@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Starting a New Venture — Domi Jin</title>
-  <meta name="description" content="Starting a New Venture — Essay and technical notes by Domi Jin." />
+  <meta name="description" content="A founder reflects on building an AI venture for older adults, connecting technology barriers and loneliness with team building and mentorship." />
   <link rel="canonical" href="https://domij.info/articles/substack/starting-a-new-venture.html" />
   <style>
     :root {
@@ -19,7 +19,7 @@
       margin: 0;
       background: var(--bg);
       color: var(--ink);
-      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "PingFang SC", "Hiragino Sans GB", "Noto Serif CJK SC", serif;
       font-size: 19px;
       line-height: 1.78;
       -webkit-font-smoothing: antialiased;
@@ -49,7 +49,7 @@
       font-weight: 500;
     }
     .topbar a:hover { text-decoration: underline; }
-    .chapter-badge {
+    .publication-badge {
       color: var(--muted);
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 11px;
@@ -66,7 +66,7 @@
       padding-bottom: 24px;
       border-bottom: 1px solid var(--border);
     }
-    .essay-eyebrow {
+    .essay-eyebrow, .article-kicker {
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 12px;
       text-transform: uppercase;
@@ -117,6 +117,9 @@
     article li {
       margin-bottom: 0.45em;
     }
+    article ul ul {
+      margin: 0.4em 0 0.6em 0;
+    }
     article code {
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 0.86em;
@@ -129,26 +132,25 @@
       text-decoration: underline;
       text-underline-offset: 3px;
     }
-    .table-wrap {
-      overflow-x: auto;
-      margin: 1.5em 0;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-family: ui-sans-serif, system-ui, sans-serif;
-      font-size: 14px;
-      line-height: 1.5;
-    }
-    th, td {
+    .diagram-figure {
+      margin: 36px 0;
+      padding: 24px;
+      background: rgba(255, 255, 255, 0.65);
       border: 1px solid var(--border);
-      padding: 8px 12px;
-      text-align: left;
+      border-radius: 16px;
+      box-shadow: 0 10px 28px rgba(31, 42, 58, 0.05);
     }
-    th {
-      background: #f8fafc;
-      font-weight: 600;
-      color: #0f172a;
+    .diagram-figure svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .diagram-figure figcaption {
+      margin-top: 12px;
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-align: center;
+      font-family: 'Inter', -apple-system, sans-serif;
     }
     footer.colophon {
       margin-top: 64px;
@@ -169,40 +171,72 @@
   </style>
 </head>
 <body>
-  <nav class="topbar" aria-label="Book navigation">
+  <nav class="topbar" aria-label="Site navigation">
     <div class="topbar-inner">
-      <a href="/">&larr; Domi Jin &middot; Notes from Research &amp; Practice</a>
-      <span class="chapter-badge">Chapter III · Human Agency, Older People’s Independence and Lifelong Play</span>
-      <a href="/articles/">Table of Contents</a>
+      <a href="/">&larr; Domi Jin</a>
+      <span class="publication-badge">Domi’s Mind Waves &middot; Founder’s Log</span>
+      <a href="/articles/">All Writing</a>
     </div>
   </nav>
   <main>
     <header class="essay-header">
-      <span class="essay-eyebrow">Chapter III · Human Agency, Older People’s Independence and Lifelong Play</span>
+      <span class="essay-eyebrow article-kicker">Substack &middot; Domi’s Mind Waves &middot; Founder’s Log &middot; By Domi Jin (December 2024)</span>
       <h1>Starting a New Venture</h1>
       <div class="essay-byline">By Domi Jin (Dongming Jin) &middot; December 2024</div>
     </header>
     <article>
-      <p>Reflecting on this journey into entrepreneurship, I am reminded of how small sparks of inspiration can ignite significant transformations. Earlier this year, a shared curiosity with a trusted neighbor—a medical professional at Stanford—led to the realization of an unmet need: using AI to improve the lives of older adults. What started as a simple idea is now evolving into a mission-driven venture with the potential to bring meaningful change.</p>
-      <p>The challenges we aim to address are both technical and deeply human. Many older adults struggle with modern technology—not just with the physical dexterity required to use smartphones but also with navigating complex systems of accounts and apps. Beneath these challenges, however, lie issues of loneliness, misinformation, and a lack of purpose in later life. Our work is about addressing these needs while celebrating the wisdom and rich experiences that seniors bring to our communities.</p>
-      <p>Two weeks ago, I made the decision to dedicate myself fully to this venture. Since then, the momentum has been incredible. Our progress has been guided by a balance of vision, strategy, and action, underpinned by our unwavering commitment to serving this cause. Below, I’ve outlined the milestones achieved over the past week.</p>
-      <h3><strong>Strategic Planning and Team Building</strong></h3>
-      <p>Refined multiple versions of project descriptions, mission statements, and problem-solving approaches tailored to different audiences. -</p>
-      <p>Confirmed my co-founder—a medical psychiatrist with deep insights into elder care—solidifying the partnership. -</p>
-      <p>Secured commitments from a diverse group, including a long-time partner, family members, a prior investor, and collaborators from my volunteer community, all aligned with our mission and vision. -</p>
-      <p>Prioritized execution planning for the month, leveraging tools like Monday.com for tracking and managing progress.</p>
-      <h3><strong>Advisory and Mentorship</strong></h3>
-      <p>Attended onboarding and office hours at Moon Creative Lab under Mitsui Group to refine our pitch and clarify project strategy. -</p>
-      <p>Engaged in conversations with mentors to gain insights into entrepreneurial best practices, organizational structures, and investment strategies.</p>
-      <h3><strong>Professional Development</strong></h3>
-      <p>Visited an early stage AI infra company, broadening my professional network and refining my perspective on scalable, tech-driven solutions.</p>
+<p>Reflecting on this journey into entrepreneurship, I am reminded of how small sparks of inspiration can ignite significant transformations. Earlier this year, a shared curiosity with a trusted neighbor—a medical professional at Stanford—led to the realization of an unmet need: using AI to improve the lives of older adults. What started as a simple idea is now evolving into a mission-driven venture with the potential to bring meaningful change.</p>
+<p>The challenges we aim to address are both technical and deeply human. Many older adults struggle with modern technology—not just with the physical dexterity required to use smartphones but also with navigating complex systems of accounts and apps. Beneath these challenges, however, lie issues of loneliness, misinformation, and a lack of purpose in later life. Our work is about addressing these needs while celebrating the wisdom and rich experiences that seniors bring to our communities.</p>
+<figure class="diagram-figure">
+  <svg viewBox="0 0 760 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="VENTURE THESIS: TECHNOLOGY AND HUMAN NEEDS">
+    <defs>
+      <marker id="arrow-starting-a-new-venture" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M 0 1 L 9 5 L 0 9 z" fill="#2980b9" />
+      </marker>
+    </defs>
+    <rect x="4" y="4" width="752" height="272" rx="14" fill="#f8fafc" stroke="#e2e8f0" />
+    <text x="380" y="32" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="700" fill="#0f172a">VENTURE THESIS: TECHNOLOGY AND HUMAN NEEDS</text>
+    <rect x="24" y="60" width="218" height="190" rx="10" fill="#ffffff" stroke="#cbd5e1" />
+    <text x="40" y="90" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="700" fill="#1d4ed8">Barriers</text>
+    <text x="40" y="120" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#475569">Smartphone dexterity</text>
+    <text x="40" y="145" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#475569">Complex accounts and apps</text>
+    <text x="40" y="170" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#475569">Loneliness and misinformation</text>
+    <text x="40" y="195" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#475569">Lack of purpose</text>
+    <line x1="244" y1="155" x2="264" y2="155" stroke="#2980b9" stroke-width="1.6" marker-end="url(#arrow-starting-a-new-venture)" />
+    <rect x="271" y="60" width="218" height="190" rx="10" fill="#ffffff" stroke="#cbd5e1" />
+    <text x="287" y="90" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="700" fill="#1d4ed8">Proposed approach</text>
+    <text x="287" y="120" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#475569">AI for older adults</text>
+    <text x="287" y="145" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#475569">Technical and human needs</text>
+    <text x="287" y="170" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#475569">Celebrate seniors’ wisdom</text>
+    <line x1="491" y1="155" x2="511" y2="155" stroke="#2980b9" stroke-width="1.6" marker-end="url(#arrow-starting-a-new-venture)" />
+    <rect x="518" y="60" width="218" height="190" rx="10" fill="#ffffff" stroke="#cbd5e1" />
+    <text x="534" y="90" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="700" fill="#1d4ed8">Building the venture</text>
+    <text x="534" y="120" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#475569">Strategy and team building</text>
+    <text x="534" y="145" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#475569">Advisory and mentorship</text>
+    <text x="534" y="170" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#475569">Professional development</text>
+  </svg>
+  <figcaption>Figure 1 — The venture connects older adults’ technical and human needs with an AI mission supported by team building and mentorship.</figcaption>
+</figure>
+<p>Two weeks ago, I made the decision to dedicate myself fully to this venture. Since then, the momentum has been incredible. Our progress has been guided by a balance of vision, strategy, and action, underpinned by our unwavering commitment to serving this cause. Below, I’ve outlined the milestones achieved over the past week.</p>
+<h2>Strategic Planning and Team Building</h2>
+<ul>
+<li>Refined multiple versions of project descriptions, mission statements, and problem-solving approaches tailored to different audiences.</li>
+<li>Confirmed my co-founder—a medical psychiatrist with deep insights into elder care—solidifying the partnership.</li>
+<li>Secured commitments from a diverse group, including a long-time partner, family members, a prior investor, and collaborators from my volunteer community, all aligned with our mission and vision.</li>
+<li>Prioritized execution planning for the month, leveraging tools like Monday.com for tracking and managing progress.</li>
+</ul>
+<h2>Advisory and Mentorship</h2>
+<ul>
+<li>Attended onboarding and office hours at Moon Creative Lab under Mitsui Group to refine our pitch and clarify project strategy.</li>
+<li>Engaged in conversations with mentors to gain insights into entrepreneurial best practices, organizational structures, and investment strategies.</li>
+</ul>
+<h2>Professional Development</h2>
+<ul>
+<li>Visited an early-stage AI infra company, broadening my professional network and refining my perspective on scalable, tech-driven solutions.</li>
+</ul>
     </article>
     <footer class="colophon">
-      <p>
-        <strong>Footnote:</strong> First published in
-        <a href="https://domijin.substack.com/p/starting-a-new-venture" rel="noopener noreferrer" target="_blank">Substack (Domi’s Mind Waves)</a>
-        (December 2024). Part of <em>Domi Jin — Notes from Research and Practice</em>.
-      </p>
+      <p>Originally published on <a href="https://domijin.substack.com/p/starting-a-new-venture" rel="noopener noreferrer" target="_blank">Substack (Domi’s Mind Waves)</a> &middot; December 2024.</p>
     </footer>
   </main>
 </body>

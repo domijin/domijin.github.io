@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Why TikTok is so popular — Domi Jin</title>
-  <meta name="description" content="Why TikTok is so popular — Essay and technical notes by Domi Jin." />
+  <meta name="description" content="Short video reaches broad audiences through low effort, accessibility, emotion, and continuous flow, while text retains depth and efficiency." />
   <link rel="canonical" href="https://domij.info/articles/medium/why-tiktok-is-so-popular-6fcc7b678bc7.html" />
   <style>
     :root {
@@ -19,7 +19,7 @@
       margin: 0;
       background: var(--bg);
       color: var(--ink);
-      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "PingFang SC", "Hiragino Sans GB", "Noto Serif CJK SC", serif;
       font-size: 19px;
       line-height: 1.78;
       -webkit-font-smoothing: antialiased;
@@ -49,7 +49,7 @@
       font-weight: 500;
     }
     .topbar a:hover { text-decoration: underline; }
-    .chapter-badge {
+    .publication-badge {
       color: var(--muted);
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 11px;
@@ -66,7 +66,7 @@
       padding-bottom: 24px;
       border-bottom: 1px solid var(--border);
     }
-    .essay-eyebrow {
+    .essay-eyebrow, .article-kicker {
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 12px;
       text-transform: uppercase;
@@ -117,6 +117,9 @@
     article li {
       margin-bottom: 0.45em;
     }
+    article ul ul {
+      margin: 0.4em 0 0.6em 0;
+    }
     article code {
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 0.86em;
@@ -129,26 +132,25 @@
       text-decoration: underline;
       text-underline-offset: 3px;
     }
-    .table-wrap {
-      overflow-x: auto;
-      margin: 1.5em 0;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-family: ui-sans-serif, system-ui, sans-serif;
-      font-size: 14px;
-      line-height: 1.5;
-    }
-    th, td {
+    .diagram-figure {
+      margin: 36px 0;
+      padding: 24px;
+      background: rgba(255, 255, 255, 0.65);
       border: 1px solid var(--border);
-      padding: 8px 12px;
-      text-align: left;
+      border-radius: 16px;
+      box-shadow: 0 10px 28px rgba(31, 42, 58, 0.05);
     }
-    th {
-      background: #f8fafc;
-      font-weight: 600;
-      color: #0f172a;
+    .diagram-figure svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .diagram-figure figcaption {
+      margin-top: 12px;
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-align: center;
+      font-family: 'Inter', -apple-system, sans-serif;
     }
     footer.colophon {
       margin-top: 64px;
@@ -169,34 +171,30 @@
   </style>
 </head>
 <body>
-  <nav class="topbar" aria-label="Book navigation">
+  <nav class="topbar" aria-label="Site navigation">
     <div class="topbar-inner">
-      <a href="/">&larr; Domi Jin &middot; Notes from Research &amp; Practice</a>
-      <span class="chapter-badge">Chapter IV · Institutions, Incentives and Possible Futures</span>
-      <a href="/articles/">Table of Contents</a>
+      <a href="/">&larr; Domi Jin</a>
+      <span class="publication-badge">Medium &middot; Media &amp; Behaviour</span>
+      <a href="/articles/">All Writing</a>
     </div>
   </nav>
   <main>
     <header class="essay-header">
-      <span class="essay-eyebrow">Chapter IV · Institutions, Incentives and Possible Futures</span>
+      <span class="essay-eyebrow article-kicker">Medium &middot; Media &amp; Behaviour &middot; November 2024 — By Domi Jin</span>
       <h1>Why TikTok is so popular</h1>
-      <div class="essay-byline">By Domi Jin (Dongming Jin) &middot; February 2020</div>
+      <div class="essay-byline">By Domi Jin (Dongming Jin) &middot; November 2024</div>
     </header>
     <article>
       <h2>Why is video taking over text? A few thoughts</h2>
-      <ol><li>Low effort, high reward: Watching a video is easier than reading — it’s like having the info spoon-fed. No need to think too hard, just sit back and absorb.</li></ol>
-      <ol><li>Accessible for all: My mom can’t read well, but she’s a pro at scrolling through short videos. Video breaks down barriers for people who don’t engage with text.</li></ol>
-      <ol><li>Rich experience: Video isn’t just info — it’s visuals, sound, emotions, all rolled into one. It makes things more relatable and memorable, even if the actual info density is lower.</li></ol>
-      <ol><li>Universal appeal: Pretty much anyone with eyesight can watch a video. That’s huge for reaching more people, especially if you want to educate, entertain, or persuade.</li></ol>
-      <ol><li>Continuous flow = influence: Videos don’t let you pause and think the way text does. That’s why they’re perfect for subtle nudges, storytelling, or even low-key persuasion.</li></ol>
+      <ol><li>Low effort, high reward: Watching a video is easier than reading — it’s like having the info spoon-fed. No need to think too hard, just sit back and absorb.</li>
+        <li>Accessible for all: My mom can’t read well, but she’s a pro at scrolling through short videos. Video breaks down barriers for people who don’t engage with text.</li>
+        <li>Rich experience: Video isn’t just info — it’s visuals, sound, emotions, all rolled into one. It makes things more relatable and memorable, even if the actual info density is lower.</li>
+        <li>Universal appeal: Pretty much anyone with eyesight can watch a video. That’s huge for reaching more people, especially if you want to educate, entertain, or persuade.</li>
+        <li>Continuous flow = influence: Videos don’t let you pause and think the way text does. That’s why they’re perfect for subtle nudges, storytelling, or even low-key persuasion.</li></ol>
       <p>Sure, text is still king when it comes to depth and efficiency, but video wins in reach and relatability. It’s not better or worse — just different tools for different audiences.</p>
     </article>
     <footer class="colophon">
-      <p>
-        <strong>Footnote:</strong> First published in
-        <a href="https://medium.com/@domijin/why-tiktok-is-so-popular-6fcc7b678bc7" rel="noopener noreferrer" target="_blank">Medium</a>
-        (February 2020). Part of <em>Domi Jin — Notes from Research and Practice</em>.
-      </p>
+      <p>Originally published on <a href="https://medium.com/@domijin/why-tiktok-is-so-popular-6fcc7b678bc7" rel="noopener noreferrer" target="_blank">Medium</a> &middot; November 2024.</p>
     </footer>
   </main>
 </body>

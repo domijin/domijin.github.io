@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Tesla, Seniors Love Your Self-Driving—Now Let’s Make It Safer for Them — Domi Jin</title>
-  <meta name="description" content="Tesla, Seniors Love Your Self-Driving—Now Let’s Make It Safer for Them — Essay and technical notes by Domi Jin." />
+  <meta name="description" content="Feedback from older Tesla users points to calmer alerts, pre-drive checks, voice control, training, and service support for safer independence." />
   <link rel="canonical" href="https://domij.info/articles/substack/tesla-seniors-love-your-self-drivingnow.html" />
   <style>
     :root {
@@ -19,7 +19,7 @@
       margin: 0;
       background: var(--bg);
       color: var(--ink);
-      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "PingFang SC", "Hiragino Sans GB", "Noto Serif CJK SC", serif;
       font-size: 19px;
       line-height: 1.78;
       -webkit-font-smoothing: antialiased;
@@ -49,7 +49,7 @@
       font-weight: 500;
     }
     .topbar a:hover { text-decoration: underline; }
-    .chapter-badge {
+    .publication-badge {
       color: var(--muted);
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 11px;
@@ -66,7 +66,7 @@
       padding-bottom: 24px;
       border-bottom: 1px solid var(--border);
     }
-    .essay-eyebrow {
+    .essay-eyebrow, .article-kicker {
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 12px;
       text-transform: uppercase;
@@ -117,6 +117,9 @@
     article li {
       margin-bottom: 0.45em;
     }
+    article ul ul {
+      margin: 0.4em 0 0.6em 0;
+    }
     article code {
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 0.86em;
@@ -129,26 +132,25 @@
       text-decoration: underline;
       text-underline-offset: 3px;
     }
-    .table-wrap {
-      overflow-x: auto;
-      margin: 1.5em 0;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-family: ui-sans-serif, system-ui, sans-serif;
-      font-size: 14px;
-      line-height: 1.5;
-    }
-    th, td {
+    .diagram-figure {
+      margin: 36px 0;
+      padding: 24px;
+      background: rgba(255, 255, 255, 0.65);
       border: 1px solid var(--border);
-      padding: 8px 12px;
-      text-align: left;
+      border-radius: 16px;
+      box-shadow: 0 10px 28px rgba(31, 42, 58, 0.05);
     }
-    th {
-      background: #f8fafc;
-      font-weight: 600;
-      color: #0f172a;
+    .diagram-figure svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .diagram-figure figcaption {
+      margin-top: 12px;
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-align: center;
+      font-family: 'Inter', -apple-system, sans-serif;
     }
     footer.colophon {
       margin-top: 64px;
@@ -169,42 +171,68 @@
   </style>
 </head>
 <body>
-  <nav class="topbar" aria-label="Book navigation">
+  <nav class="topbar" aria-label="Site navigation">
     <div class="topbar-inner">
-      <a href="/">&larr; Domi Jin &middot; Notes from Research &amp; Practice</a>
-      <span class="chapter-badge">Chapter III · Human Agency, Older People’s Independence and Lifelong Play</span>
-      <a href="/articles/">Table of Contents</a>
+      <a href="/">&larr; Domi Jin</a>
+      <span class="publication-badge">Domi’s Mind Waves &middot; AgeTech &amp; Human Agency</span>
+      <a href="/articles/">All Writing</a>
     </div>
   </nav>
   <main>
     <header class="essay-header">
-      <span class="essay-eyebrow">Chapter III · Human Agency, Older People’s Independence and Lifelong Play</span>
+      <span class="essay-eyebrow article-kicker">Substack &middot; Domi’s Mind Waves &middot; AgeTech &amp; Human Agency &middot; By Domi Jin (March 2025)</span>
       <h1>Tesla, Seniors Love Your Self-Driving—Now Let’s Make It Safer for Them</h1>
-      <div class="essay-byline">By Domi Jin (Dongming Jin) &middot; February 2025</div>
+      <div class="essay-byline">By Domi Jin (Dongming Jin) &middot; March 2025</div>
     </header>
     <article>
-      <p>Many seniors I serve through <strong>Kin Domi</strong> are raving about how Tesla’s self-driving has given them newfound independence. They’re now confident driving on highways, taking long trips, and handling emergency night drives—something they wouldn’t have dared before. Seeing their joy and mobility improve is heartwarming.</p>
-      <p>But I can’t shake my concerns. Tesla’s self-driving is impressive, but it’s not foolproof. <strong>Engineers, take a well-deserved pat on the back—but also a deep breath.</strong> You wouldn’t want your grandparents or parents on the road with a potential safety risk.</p>
-      <p>I struggle to discourage them from using it because it genuinely enhances their lives. Instead, here’s some feedback I’m hearing from senior users that could make the experience safer and more user-friendly:</p>
-      <p>1️⃣ <strong>Reduce panic-inducing alerts.</strong> Sudden warnings make them anxious, sometimes leading to worse reactions. Can non-urgent alerts be delayed until they’re in a safer situation? Also, keeping messages visible longer would help.</p>
-      <p>2️⃣ <strong>Pre-drive self-check system.</strong> Some have had minor accidents and worry that sensors might be compromised. A clear checklist or self-diagnostic before engaging self-driving would be invaluable.</p>
-      <p>3️⃣ <strong>Better voice control.</strong> The touchscreen is hard to navigate for them—voice commands are their most intuitive interface. Making it more powerful would improve accessibility.</p>
-      <p>4️⃣ <strong>Senior-friendly training.</strong> Educational demos or tailored classes could help them understand self-driving better and use it more safely.</p>
-      <p>5️⃣ <strong>Vent feature is a hit!</strong> One senior specifically praised the Vent feature for reducing the odor of a new car. She worries that the strong odor could be a health hazard—this highlights the importance of air quality considerations for older users.</p>
-      <p>6️⃣ <strong>Senior-focused insurance and service options.</strong> One senior had minor incidents and had to keep driving with concerns because:</p>
-      <p>The wait time for service was too long. -</p>
-      <p>She wasn’t sure if third-party services were qualified to assess safety. -</p>
-      <p>She just needed <strong>assurance</strong>.</p>
-      <p>Could Tesla offer <strong>a special tier of insurance for seniors</strong>? If service centers are at capacity, could inspections be done remotely or automatically? Could there be clearer guidance on the best next steps for minor incidents?</p>
-      <p>Tesla engineers, your work is changing lives. Let’s make sure it’s doing so safely.</p>
-      <p>How can we ensure tech empowers without compromising safety? 🚀💡 #Tesla #SelfDriving #SeniorMobility #Accessibility #TechForGood</p>
+<p>Many seniors I serve through <strong>Kin Domi</strong> are raving about how Tesla’s self-driving has given them newfound independence. They’re now confident driving on highways, taking long trips, and handling emergency night drives—something they wouldn’t have dared before. Seeing their joy and mobility improve is heartwarming.</p>
+<p>But I can’t shake my concerns. Tesla’s self-driving is impressive, but it’s not foolproof. <strong>Engineers, take a well-deserved pat on the back—but also a deep breath.</strong> You wouldn’t want your grandparents or parents on the road with a potential safety risk.</p>
+<p>I struggle to discourage them from using it because it genuinely enhances their lives. Instead, here’s some feedback I’m hearing from senior users that could make the experience safer and more user-friendly:</p>
+<p>1️⃣ <strong>Reduce panic-inducing alerts.</strong> Sudden warnings make them anxious, sometimes leading to worse reactions. Can non-urgent alerts be delayed until they’re in a safer situation? Also, keeping messages visible longer would help.</p>
+<p>2️⃣ <strong>Pre-drive self-check system.</strong> Some have had minor accidents and worry that sensors might be compromised. A clear checklist or self-diagnostic before engaging self-driving would be invaluable.</p>
+<p>3️⃣ <strong>Better voice control.</strong> The touchscreen is hard to navigate for them—voice commands are their most intuitive interface. Making it more powerful would improve accessibility.</p>
+<p>4️⃣ <strong>Senior-friendly training.</strong> Educational demos or tailored classes could help them understand self-driving better and use it more safely.</p>
+<p>5️⃣ <strong>Vent feature is a hit!</strong> One senior specifically praised the Vent feature for reducing the odor of a new car. She worries that the strong odor could be a health hazard—this highlights the importance of air quality considerations for older users.</p>
+<p>6️⃣ <strong>Senior-focused insurance and service options.</strong> One senior had minor incidents and had to keep driving with concerns because:</p>
+<ul>
+<li>The wait time for service was too long.</li>
+<li>She wasn’t sure if third-party services were qualified to assess safety.</li>
+<li>She just needed <strong>assurance</strong>.</li>
+</ul>
+<p>Could Tesla offer <strong>a special tier of insurance for seniors</strong>? If service centers are at capacity, could inspections be done remotely or automatically? Could there be clearer guidance on the best next steps for minor incidents?</p>
+<figure class="diagram-figure">
+  <svg viewBox="0 0 760 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="SENIOR FEEDBACK: SUPPORT THROUGHOUT THE JOURNEY">
+    <defs>
+      <marker id="arrow-tesla-seniors-love-your-self-drivingnow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M 0 1 L 9 5 L 0 9 z" fill="#2980b9" />
+      </marker>
+    </defs>
+    <rect x="4" y="4" width="752" height="272" rx="14" fill="#f8fafc" stroke="#e2e8f0" />
+    <text x="380" y="32" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="700" fill="#0f172a">SENIOR FEEDBACK: SUPPORT THROUGHOUT THE JOURNEY</text>
+    <rect x="24" y="60" width="218" height="190" rx="10" fill="#ffffff" stroke="#cbd5e1" />
+    <text x="40" y="90" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="700" fill="#1d4ed8">Before driving</text>
+    <text x="40" y="120" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#475569">Pre-drive self-check</text>
+    <text x="40" y="145" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#475569">Senior-friendly training</text>
+    <line x1="244" y1="155" x2="264" y2="155" stroke="#2980b9" stroke-width="1.6" marker-end="url(#arrow-tesla-seniors-love-your-self-drivingnow)" />
+    <rect x="271" y="60" width="218" height="190" rx="10" fill="#ffffff" stroke="#cbd5e1" />
+    <text x="287" y="90" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="700" fill="#1d4ed8">While using the car</text>
+    <text x="287" y="120" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#475569">Calmer, longer-lasting alerts</text>
+    <text x="287" y="145" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#475569">Better voice control</text>
+    <text x="287" y="170" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#475569">Air quality: Vent feature</text>
+    <line x1="491" y1="155" x2="511" y2="155" stroke="#2980b9" stroke-width="1.6" marker-end="url(#arrow-tesla-seniors-love-your-self-drivingnow)" />
+    <rect x="518" y="60" width="218" height="190" rx="10" fill="#ffffff" stroke="#cbd5e1" />
+    <text x="534" y="90" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="700" fill="#1d4ed8">After minor incidents</text>
+    <text x="534" y="120" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#475569">Timely service</text>
+    <text x="534" y="145" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#475569">Qualified safety assessments</text>
+    <text x="534" y="170" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#475569">Insurance and reassurance</text>
+  </svg>
+  <figcaption>Figure 1 — Senior feedback identifies support before driving, while using the car, and after minor incidents.</figcaption>
+</figure>
+<p>Tesla engineers, your work is changing lives. Let’s make sure it’s doing so safely.</p>
+<p>How can we ensure tech empowers without compromising safety? 🚀💡 #Tesla #SelfDriving #SeniorMobility #Accessibility #TechForGood</p>
     </article>
     <footer class="colophon">
-      <p>
-        <strong>Footnote:</strong> First published in
-        <a href="https://domijin.substack.com/p/tesla-seniors-love-your-self-drivingnow" rel="noopener noreferrer" target="_blank">Substack (Domi’s Mind Waves)</a>
-        (February 2025). Part of <em>Domi Jin — Notes from Research and Practice</em>.
-      </p>
+      <p>Originally published on <a href="https://domijin.substack.com/p/tesla-seniors-love-your-self-drivingnow" rel="noopener noreferrer" target="_blank">Substack (Domi’s Mind Waves)</a> &middot; March 2025.</p>
     </footer>
   </main>
 </body>

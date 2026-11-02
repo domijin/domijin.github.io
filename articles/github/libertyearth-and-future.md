@@ -1,300 +1,109 @@
-# LibertyEarth & The Future Project: Collaborative Society & Living Archive
+# LibertyEarth & The Future Project: Civic Stewardship and the Collaborative Society
 
-*Chapter IV · Institutions, Incentives and Possible Futures — By Domi Jin (2020–2025)*
+*Working Together & Civic Architecture · By Domi Jin (2019–2025)*
 
-### __The Vision: Technically Empower People to Collaborate Better__
+What is the challenge that keeps a builder and systems thinker awake at night?
 
-> preliminary
+For me, it has always been a quiet paradox at the heart of modern civilization: **our communication networks grow exponentially faster, yet our capacity to coordinate on large-scale, mutually beneficial problems seems to hit a biological and institutional ceiling.**
 
-TOC
+Look around at how human societies respond to planetary or generational challenges—whether climate resilience, economic polarization, aging populations, or the governance of artificial intelligence. We have more fiber-optic bandwidth, more PhDs, and more computing power than at any point in history. Yet our public discourse fragments into echo chambers, our institutions ossify around rent-seeking barriers, and talented individuals feel locked into narrow career tracks by anxiety rather than inspired by shared purpose.
 
-- Motivation
-    - [Situation: Challenges We Face](#challenges-we-face)
-    - [Why This Vision](#why-this-vision)
-- Hypothesis
-    - [Reason: The Root Cause](#the-root-cause)
-    - [Solution: What Do We Do](#what-do-we-do)
-- Approaches
-    - [Market (progressive goals)](#first-step)
-    - Product (technology road map), [tech R&D](https://github.com/domijin/LibertyEarth/blob/main/images/R&D.png)
-    - Execution Plan: sustainability and feasibility
-        - [education approach](#education-approach) 
-        - [business approach](#business-approach)
-- [Manifesto](https://github.com/domijin/LibertyEarth/blob/main/manifesto.md): Brief message of the vision.
-- [Principles Guideline](https://github.com/domijin/LibertyEarth/blob/main/Principles.md)
-- [Toy Model of Organization](https://github.com/domijin/LibertyEarth/blob/main/Execution.md)
-- [Alliance](#Alliance): different paths towards the similar direction
-
-## Motivation
-
-### Challenges We Face
-
-`one liner`: Humans are approaching the cognitive limitation in resolving conflicts of interest to land larger-scale mutual-beneficial collaboration. 
-
-__What's The Challenge Keeps You Up In The Night?__
-
-### Why This Vision
-
-__One Reason__
-
-It is `how people communicate their thoughts and how people are organized to deliver` the biggest asset of human civilization, from academic research to corporate governance.
-
-Technologies like `electricity`, `machineries`, `Internet`, `artificial general intelligence` and `blockchain` are the byproducts (tools). Organizations like `communities`, `corporations` and `governments` are the forms (means). 
-
-It is how everyone is valued and matched, to take ownership to develop, under aligned interest and agreed principles, that delivers more. Academic research is the most successful example with its open access and credible reference. 
-
-More about Why: [Initiatives on Sociological Practice](http://dongming.uta.cloud/initiatives-on-sociological-practice.html)
-
-__What's Your Story To Keep You Up In The Morning?__
-
-## Hypothesis
-
-### The Root Cause
-
-__Some Thoughts__
-
-The coordination challenge in governance: Larger educated population is more frequently generating denser information through communications. 
-
-- more information: bigger networks with larger population connected;
-- faster generation: better connectivity with devices having more efficient human-computer interface;
-- higher density: more intense competition drive deeper domain specified skills and experience through higher education. 
-
-The Dilemma: Our adaptability (learning ability) are biologically limited, as
-
-- limited attention (information I/O);
-- limited computing（information processing).
-
-Alternative explanation: Cognitive Bandwidth issue, nailed by César Hidalgo with [Augmented Democracy](https://www.peopledemocracy.com/).
-
-Direct Consequences: Information Overload that results in divergent cognitive abilities:
-
-- bias from selection effect over the process of learning; 
-- redundant information rephrased from different sources that occupied limited attention;
-- conflicting information that causes recursive cognitive processing cost.
-
-In together with the `institutional barriers` detailed below, causes 
-
-- personal `anxiety` of `career lock-in` due to solidified skill and experience with new tools and methods flushing in;
-- `sociological segregation` due to difficulties to trace the source of divergence:
-    - `fragmentation of Internet` that intensifies alienation;
-    - expediting `economic rising inequality` that raises concerns;
-    - democracy failure that discouraged voters with abusive attention occupation of marketing campaign and cognitive cost to identify fake news (bad faith);
-    - collaboration difficulty to resolve global challenges without __effective communication__ with __comprehensive information__ and __constructive organization__ practical in larger scale. 
-
-I believe `diversity` is `liberal` and `collaborative`, not discriminative or alienating. 
-
-__Cause of `Institutional Barriers`__
-
-The [free market](https://en.wikipedia.org/wiki/Free_market) is supposed to optimize the supply and demand without intervention. But information asymmetry naturally exists, which inspired capitalism to take advantage to build `institutional barriers`. Such institutional barriers include, but not limited to military (politics, policies, ideologies), economics (capitals, market power, information), technology (patents, IPs, manufacturing techniques). 
-
-The economic and sociological segregations are then rationalized with [Darwinism](https://en.wikipedia.org/wiki/Darwinism) for the favor of politicians, capitalists, institutions that also fosters religionists, nationalists, racists, sexists, etc.
-
-Any minority faces [inequality bargaining power](https://en.wikipedia.org/wiki/Inequality_of_bargaining_power) due to the information asymmetry caused by `institutional barriers`.
-
-To fill the gap of cognitive ability and information asymmetry caused by such `institutional barriers`, we need to re-confirm the [root cause](#the-root-cause) and find [radical solutions](#what-do-we-do). 
-
-## What Do We Do
-
-__One Plan__
-
-> This part is still under reconstruction: 1. bottom-up way to demonstrate how it can be done; 2. top-down way to demonstrate why I think so. Both are illuminated in the mind note map. 
-
-> Why? My motivation is covered [earlier](#why-this-vision). I also realize that a collaborative society is worth living in that no matter who and how it's been built. And one of the key principle is be [open enough to embrace changes](https://github.com/domijin/LibertyEarth/issues/3). AMA there because at one point, histories are being made regardless. 
-
-To break the `institutional barrier` mentioned above, the radical solution will be improve the biological limit of adaptability. But biological changes don't and won't catch up with the timescale of societal evolution any more, due to the fundamental difference of information propagation speed. 
-
-Thus the only possibility I see is giving everyone the access to `Augmented Decision AI` to augment one's decision making ability in a process of `Adaptive Learning`, which involves retrieving information from the collective knowledge base of human civilization and providing decision suggestions with reasonings, through wearable `Human-computer Interface` based on the personal knowledge base, [draft of the R&D plan](https://github.com/domijin/LibertyEarth/blob/main/images/R&D.png). At the same time, the society needs to be organized with trust and __principles__ to balance `liberty` between individuals and communities. 
-
-Before diving into the detail, let's step back and think about the _cosmology_ of human history. 
-
-My abstraction of `Industrial Revolution` & `Renaissance`:
-
-1. Printing: Enlightenment, less rational barrier due to geographic isolation.
-2. Mechanization, steam power: Industrial Revolution 1.0, more productivity with less labor dependency.
-3. Publishing: Romanticism, less educational barrier due to sociological status.
-4. Mass production, electricity: Industrial Revolution 2.0, more productivity with less gender, age, physical status dependency.
-5. Transportation, telegram: Darwinian, less information barrier due to transportation efficiency.
-6. Computer, automation: Industrial Revolution 3.0, more productivity with less economic status dependency. 
-7. Internet, communication technology: Marketism (Capitalism/Socialism with market adaption), less information barrier due to social network limit.  
-8. Artificial general intelligence, adaptive learning, general purpose robotics: Industrial Revolution 4.0, more productivity with less skill, knowledge dependency.
-9. Smart social contract, social identity & credit system: Collaborative society, less opportunity barrier due to sociological status.
-10. [To be imagined...](#what-to-expect)
-
-With that in mind, building an enterprise is one of the best ways to accumulate resources to empower people to be visionaries. It is also the only way to demonstrate the power of collaborative society when the current form of corporations and governments are reaching the ceiling of efficiency. As a community member with ownership (universal basic income + equity), individuals will be best motivated. With principles to let everyone keeps up and gets involved in decision based on the proved ability. We can focus on what's important, to build a corporation as a government (society), to best liberate everyone's productivity, to eventually create abundance for better tomorrow.
-
-- Who: everyone who wants to be part.
-- How: collaborate as a community, a corporation, a society.
-- What for: liberate productivity to create abundance. 
-
-Revisit the [Vision](#why-this-vision) and be a part in finding the path towards future with us.
-
-### First Step
-
-It sounds like a hopeless optimistic ideal. But it's possible and I'm making it feasible. Smarter minds like you can join force with [my road map](#how-do-we-do), or propose a better path.
-
-We will collaborate on building tools and methodologies for ourselves, other companies, corporations, governments to communicate efficiently and effectively. 
-
-### How To Participate?
-
-Anyone should be a part of the collaborative society, which aims to provide help to liberate everyone, with equal access to the information and basic resources, until catching up by adaptive learning, to become capable, to extend the edge of the collective knowledge base. 
-
-TODO
-- [ ] explain about how to improve cognitive ability to take more responsibility.
-- [ ] write about similarity of marketing and education, the abuse of attention
-- [ ] effective autonomy: principle alignment, proposal oriented instead of group oriented, decentralized management with no opportunistic barrier, normalize peer review power. 
-
-All supports are recognized!
-
-1. `star` this project as pledge to support
-2. join the [mail list](https://forms.gle/pnVim3XRBUrbn54FA)
-3. ask challenging questions at [issues](https://github.com/domijin/LibertyEarth/issues)
-4. pioneer in slack channel, ask for an [invitation](mailto:social@domij.info), form a Think Tank
-    1. talk to any community members for detail
-    2. ask challenging questions
-    3. help congregate into WiKi to iterate the plan
-5. initiate the community principles in slack following the [execution plan](https://github.com/domijin/LibertyEarth/blob/main/Execution.md) 
-6. brainstorm the future of society (how people collaborate), future of education (how people adapt), future of manufacturing (how people prosper), future of future (where are we going), as well as who we are.
-7. sign up as future development support
-    1. knowledge graph
-    2. embedded system developer: biometrics, acoustics, battery
-    3. education theory (adaptive learning)
-    4. mathematician, economist, sociologist, anthropologist, philosopher, PhDs, Post-Docs, Professors in other domains
-    5. chip designers: quantum computing, photonic integrated circuits, biological computing
-8. join as first actors
-    1. _disciples_: visionaries in all backgrounds
-    2. product managers
-    3. speech recognition exports
-    4. data engineers: cloud infrastructure
-    5. data analytics/business intelligence
-    6. iOS/Android developers
-    7. decentralized system developers
-    8. business developments
-
-## How Do We Do
-
-### [A Toy Plan to Collaborate](https://github.com/domijin/LibertyEarth/blob/main/Execution.md)
-
-Remember, remember, the principles to be a member. 
-
-A brief view of [__Principles in Construction__](https://github.com/domijin/LibertyEarth/blob/main/Principles.md)
-
-- Autonomy
-    - Social Contracts
-    - Code of Conduct/Principles
-        - We are a family, community, crowd-owners of a social company with diversity.
-	- Trust first, but keep track of what happens.
-        - Be bold, look for radical solution!
-        - Be modest, `I know that I know nothing`.
-        - Be honest and embrace changes, open source and open management based on credibility.
-- Open Source, no NCA, NDA
-    - Open Meeting
-    - Open Decision
-    - Open Development
-- Open Management
-    - Peer Review
-    - Jury Decision
-    - Liquid Democracy
-
-`One can make the shape, but it is all together that can fill the gap.`
-
-### Education Approach
-
-> Preliminary
-
-Adaptive Education
-
-- Ideology with Popular Science: [The plot](https://github.com/domijin/LibertyEarth/blob/main/sci-fi.md) to build Sci-Fi stories
-- Cognitive ability: [42](https://github.com/domijin/LibertyEarth/blob/main/42.us.org), case study about gamification on effective learning.
-
-### Business Approach
-
-> Preliminary
-
-The project is to build SaaS service to automate workflow from meeting, a voice based Salesforce system. 
-
-The data will be accumulated to develop workforce system like LinkedIn to better evaluate talents for hiring and management. 
-
-Privacy or business security is definitely a challenge but it could be taken care of with open sourcing, bet agreement, shares sharing, etc. The core idea is to be collaborative that using technology to empower people to communicate more efficient and effective. With the data generated, we can build enterprise knowledge base as well as personal knowledge base to model the proportional contribution and collective decision path, to power the development of AGI level automation to create manufacturing abundance for UBI. 
-
-At the same time, the proportional contribution could be the distribution incentive to motivate people to learn more from the enterprise knowledge base through practice in collective decision making. 
-
-By solving the communication scaling challenge and organization scaling challenge, we may surpass humans biological limit of adaptability for a collaborative society based on effective altruism. 
-
-## What To Expect
-
-In the big picture, guided by the Principle:
-
-- A beautiful future to work towards.
-- A meaningful purpose to live on.
-- A community with trusted like-minds.
-- A stage to liberate your talents.
-
-In the short term, detailed in [Execution Plan](https://github.com/domijin/LibertyEarth/blob/main/Execution.md#A-spice-about-the-economic-scene):
-
-- Peace of mind with universal basic income.
-- A share of equity matched to your added value.
-
-Nothing is perfect but in Principles we unite. [QA thread](https://github.com/domijin/LibertyEarth/issues/3#issue-427262167).
-
-### What's the future I expect?
-
-- What's the Future of Manufacturing?
-    - Can it be `on-demand`? Will there be less material cost and inventory?
-    - Can it be `made local`? Will there be less packaging and energy cost in logistics?
-    - Can it be `specialized to customization`? Is choice abundance and personal affiliation a unfulfilled demand?
-    - Can I 
-        - choose the fashion design, fit to body, print at local hub, pick up to go?
-        - land in airport, pick up socks, travel, recycle the socks, fly out?
-        - take chargers to re-engineer for new devices?
-    - What's not in the `Cost`?
-        - Externalities: do we miss out the waste, recycle cost in the price model?
-        - Responsibility: we change from ownership to adoption for pets, should we also care for goods? 
-- What's the Future of Education?
-    - Can we learn more efficiently?
-        - Can it be more `Adaptive`? Can information density be adjusted to the personal knowledge base?
-        - Can it be more `Practical`? Can we learn from practice with the guide of the collective knowledge base?
-    - What's the purpose of education?
-        - Is it a necessity in the future of material abundance?
-        - Can I just be curious to question until the edge of the collective knowledge base?
-- What's the Future of Work? 
-    - Do we need to be skilled when there is artificial general intelligence? 
-    - Will there be income gap when experience of best practice can be supplemented by collective knowledge base?
-    - What's the purpose of work in the Future of Manufacturing?
-        - Do we still need to work to survive?
-        - Can I be creative instead of productive when the demand is specialized?
-- What's the Future of Society?
-    - Is it safe to trust a person knowing one's principles?
-    - Is it more trustworthy showing people one's principles?
-    - ...
-
-My peek to one of the [loosely-pictured future](http://future.domij.info).
-
-## One More Thing
-
-`I know that I know nothing` -- Socrates
-
-- [Current Open Projects](https://github.com/domijin/LibertyEarth/projects)
-	- Ideation with Q&A: happening at [issues](https://github.com/domijin/LibertyEarth/issues)
-        - Privacy challenge
-        - Trust challenge
-	- A better walk-through of the vision, wording, language, etc.
-	- ~~Disclose the road-map towards collective society.~~
-	- Test and iterate the [execution plan](https://github.com/domijin/LibertyEarth/blob/main/Execution.md).
-	- Better Name of the Project and a Website.
-    - Structure the GitHub to be more operational on collaboration.
-        - Directory for Stories
-        - Index Resources and ongoing Projects
-        - Build WiKi
-        - A Website
-
-## Alliance
-
-> Disclaimer, it is towards the same direction that we see them as alliance. There is no actual affiliation unless specified. 
-
-- César Hidalgo, Prof. in MIT on Collective Learning, [Augmented Democracy](https://www.peopledemocracy.com/) to solve [cognitive bandwidth](https://www.youtube.com/watch?v=CyGWML6cI_k&feature=share).
-- [Great American Debate](https://www.greatamericandebate.org/), Internet Governance and collective debate map on Climate Change, lead by [Jamie Joyce](https://twitter.com/JustJamieJoyce).
-- [Canonical Debate Lab](https://canonicaldebatelab.com/), affiliation of Great American Debate and [Democracy Earth](https://democracy.earth/).
-- [Effective Altruism](http://effective-altruism.com), currently an elite group with huge cognitive barrier to scale.
+I began **LibertyEarth & The Future Project** in 2020 as a living notebook to ask why this happens—and how we might design the technical and civic scaffolding for a truly collaborative society.
 
 ---
-*Footnote: First published in [GitHub Repository (LibertyEarth)](https://github.com/domijin/LibertyEarth) (2020–2025).*
+
+## 1. The Coordination Ceiling & The Cognitive Bandwidth Dilemma
+
+Why does human governance struggle as populations grow more educated and connected?
+
+As networks expand and human-computer interfaces accelerate, we generate information at a density and velocity that far outstrip our biological hardware. Our brains remain constrained by two stubborn bottlenecks:
+
+1. **Finite Attention (Information I/O)**: We can only read, listen to, and verify a tiny fraction of the signals competing for our waking hours.
+2. **Bounded Cognitive Processing**: When information is redundant, adversarial, or domain-siloed, the recursive mental cost of sorting truth from noise exhausts even the most diligent citizen.
+
+MIT professor César Hidalgo called this the **Cognitive Bandwidth Dilemma** in his work on *Augmented Democracy*. When biological attention hits a wall, three failure modes emerge: selection bias during learning, career lock-in anxiety as new tools flood the market, and sociological segregation when communities can no longer trace why their worldviews diverged.
+
+Worse still, natural information asymmetry rarely stays innocent. Throughout history, entrenched institutions have turned information asymmetries into **institutional barriers**—using capital lock-in, opaque IP regimes, and algorithmic attention capture to turn human diversity into zero-sum competition rather than liberal collaboration.
+
+---
+
+## 2. The Math of Human Dignity: GCD and LCM
+
+In my Substack reflections on leadership and community, I often return to two concepts from elementary number theory that capture how healthy human institutions actually work:
+
+- **The Greatest Common Divisor (GCD) — Shared Values & Foundational Trust**: What is the irreducible ethical floor that every member of a community shares? In traditional Chinese philosophy, this is rooted in *Ren* (仁, benevolence and shared humanity) and *Li* (礼, mutual respect and civic reciprocity). Without a clear GCD—honesty, open provenance, and basic material dignity—no group can sustain trust at scale.
+- **The Least Common Multiple (LCM) — Complementary Capabilities**: Once a community is anchored by its GCD, its collective reach is not the average of its members, but their *Least Common Multiple*. A physicist, a care worker, an embedded systems engineer, and a teacher bring orthogonal prime factors. When our institutions lower the friction of collaboration, diversity multiplies our collective frontier rather than dividing our attention.
+
+---
+
+## 3. The Three-Tier Civic Value Framework
+
+To turn the GCD/LCM philosophy into a practical blueprint for civic stewardship, LibertyEarth organizes societal infrastructure into a **Three-Tier Value Framework**:
+
+```text
++-------------------------------------------------------------------------+
+| TIER 3 · COLLECTIVE FLOURISHING & DISCOVERY (The LCM Frontier)          |
+| Curiosity-driven exploration to the edge of human knowledge, creative   |
+| work beyond survival, open scientific & artistic co-creation.           |
++-------------------------------------------------------------------------+
+                                    ^
+                                    |
++-------------------------------------------------------------------------+
+| TIER 2 · CAPABILITY EXPANSION & AUGMENTED AGENCY (The Bridge)           |
+| Adaptive Learning tailored to Personal Knowledge Graphs, Augmented      |
+| Decision AI, Liquid Democracy, Peer Review & Proportional Equity.       |
++-------------------------------------------------------------------------+
+                                    ^
+                                    |
++-------------------------------------------------------------------------+
+| TIER 1 · FOUNDATIONAL DIGNITY & BASIC NEEDS (The GCD Floor)             |
+| On-demand local manufacturing with zero externalities, universal basic  |
+| material security (UBI), and equal access to civilizational knowledge.  |
++-------------------------------------------------------------------------+
+```
+
+### Tier 1: Foundational Dignity & Basic Needs (The GCD Floor)
+No one can think long-term or collaborate generously while trapped in survival anxiety. Tier 1 asks how automation, general-purpose robotics, and localized on-demand manufacturing can drive the marginal cost of physical essentials toward zero—internalizing environmental externalities (waste, recycling, logistics energy) while guaranteeing a baseline of material peace of mind.
+
+### Tier 2: Capability Expansion & Augmented Agency (The Bridge)
+Because biological evolution cannot match the speed of technological change, we must augment human adaptability. Tier 2 pairs a **Personal Knowledge Graph** (respecting individual privacy and context) with the **Collective Civilizational Knowledge Base**. Instead of manipulative ad-tech feeds that exploit cognitive vulnerabilities, an *Augmented Decision AI* acts as an adaptive tutor and deliberative copilot—helping every citizen catch up to best practices and participate meaningfully in peer-reviewed governance and proportional equity ownership.
+
+### Tier 3: Collective Flourishing & Discovery (The LCM Frontier)
+When basic needs are secure (Tier 1) and cognitive bandwidth is augmented (Tier 2), the nature of education and work transforms. Education ceases to be a credentialist rat race and becomes lifelong curiosity pushing the boundary of what humanity knows. Work shifts from repetitive survival labor to creative stewardship, care, and discovery.
+
+---
+
+## 4. The Nine-Stage Arc of Human Liberation
+
+Stepping back, we can view the history of technology and Renaissance humanism not as random inventions, but as a continuous effort to remove barriers to human coordination:
+
+| Era | Catalyst | Barrier Lowered | Civic & Economic Paradigm |
+| :--- | :--- | :--- | :--- |
+| **Stage 1** | Printing Press | Geographic isolation of ideas | The Enlightenment & early scientific republics |
+| **Stage 2** | Steam & Mechanization | Raw physical labor dependency | Industrial Revolution 1.0 |
+| **Stage 3** | Mass Publishing | Aristocratic monopoly on literacy | Romanticism & public education |
+| **Stage 4** | Electrification & Mass Production | Physical & demographic barriers to output | Industrial Revolution 2.0 |
+| **Stage 5** | Telegraph & Modern Transit | Continental distance & latency | Globalized trade & evolutionary science |
+| **Stage 6** | Digital Computing & Automation | Manual calculation & clerical bottlenecks | Industrial Revolution 3.0 |
+| **Stage 7** | The Internet & Mobile Networks | Local social-network boundaries | Networked marketism & platform ecosystems |
+| **Stage 8** | AGI, Adaptive Learning & Robotics | Specialized skill & cognitive bandwidth limits | Industrial Revolution 4.0 & personal augmentation |
+| **Stage 9** | Transparent Social Contracts & Shared Equity | Institutional & socioeconomic opportunity lock-in | **The Collaborative Society** |
+
+---
+
+## 5. Reimagining Manufacturing, Education, and Work
+
+What does daily life look like when we build toward Stage 9?
+
+- **On-Demand, Zero-Externality Manufacturing**: Instead of overproducing millions of identical garments or electronics shipped across oceans and dumped in landfills, local micro-hubs fabricate customized goods on demand, pricing in full lifecycle recycling and material stewardship from day one.
+- **Adaptive, Curiosity-Driven Education**: Rather than forcing every student through a standardized conveyor belt, learning adapts dynamically to each person's knowledge graph—using storytelling, simulation, and hands-on practice to guide anyone from foundational literacy to the active edge of research.
+- **Principles Over Pedigree**: In a collaborative enterprise, trust is built not on non-compete clauses or opaque hierarchies, but on transparent principles, open decision ledgers, and peer-reviewed contribution—where *"one person may sketch the shape, but it takes all of us together to fill the gap."*
+
+---
+
+## Final Thought
+
+Building a collaborative society is not about waiting for a distant utopia. It starts in how we structure our teams today, how we design AI tools that expand rather than hijack human attention, and how we care for the oldest and youngest members of our communities. As Socrates reminded us, we begin with the humility of knowing how much we still have to learn—and the courage to build the future together.
+
+---
+*Originally published on [GitHub (domijin/LibertyEarth)](https://github.com/domijin/LibertyEarth) (2019–2025).*

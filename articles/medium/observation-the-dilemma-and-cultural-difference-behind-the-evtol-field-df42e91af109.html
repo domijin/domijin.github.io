@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Observation: the dilemma and cultural difference behind the eVTOL field — Domi Jin</title>
-  <meta name="description" content="Observation: the dilemma and cultural difference behind the eVTOL field — Essay and technical notes by Domi Jin." />
+  <meta name="description" content="A reply on EHang’s CAAC certification: eVTOL progress depends on local regulation and local markets, not on one global standard." />
   <link rel="canonical" href="https://domij.info/articles/medium/observation-the-dilemma-and-cultural-difference-behind-the-evtol-field-df42e91af109.html" />
   <style>
     :root {
@@ -19,7 +19,7 @@
       margin: 0;
       background: var(--bg);
       color: var(--ink);
-      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "PingFang SC", "Hiragino Sans GB", "Noto Serif CJK SC", serif;
       font-size: 19px;
       line-height: 1.78;
       -webkit-font-smoothing: antialiased;
@@ -49,7 +49,7 @@
       font-weight: 500;
     }
     .topbar a:hover { text-decoration: underline; }
-    .chapter-badge {
+    .publication-badge {
       color: var(--muted);
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 11px;
@@ -66,7 +66,7 @@
       padding-bottom: 24px;
       border-bottom: 1px solid var(--border);
     }
-    .essay-eyebrow {
+    .essay-eyebrow, .article-kicker {
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 12px;
       text-transform: uppercase;
@@ -103,12 +103,25 @@
     article p {
       margin: 0 0 1.35em 0;
     }
+    article hr {
+      border: 0;
+      border-top: 1px solid var(--border);
+      margin: 2.4em 0;
+    }
     article blockquote {
       margin: 1.6em 0;
-      padding: 4px 0 4px 20px;
+      padding: 16px 22px;
       border-left: 3px solid var(--accent);
+      background: #f8fafc;
+      border-radius: 0 8px 8px 0;
       color: #334155;
       font-style: italic;
+      font-size: 17.5px;
+      line-height: 1.68;
+    }
+    article blockquote p:last-child,
+    article blockquote ol:last-child {
+      margin-bottom: 0;
     }
     article ul, article ol {
       margin: 0 0 1.4em 0;
@@ -129,21 +142,43 @@
       text-decoration: underline;
       text-underline-offset: 3px;
     }
+    .diagram-figure {
+      margin: 2.2em 0;
+      padding: 20px;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+    }
+    .diagram-figure svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .diagram-figure figcaption {
+      margin-top: 12px;
+      font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--muted);
+      text-align: center;
+    }
     .table-wrap {
       overflow-x: auto;
-      margin: 1.5em 0;
+      margin: 1.8em 0;
     }
-    table {
+    table, table.editorial-table {
       width: 100%;
       border-collapse: collapse;
       font-family: ui-sans-serif, system-ui, sans-serif;
       font-size: 14px;
-      line-height: 1.5;
+      line-height: 1.55;
     }
     th, td {
       border: 1px solid var(--border);
-      padding: 8px 12px;
+      padding: 10px 14px;
       text-align: left;
+      vertical-align: top;
     }
     th {
       background: #f8fafc;
@@ -169,40 +204,95 @@
   </style>
 </head>
 <body>
-  <nav class="topbar" aria-label="Book navigation">
+  <nav class="topbar" aria-label="Site navigation">
     <div class="topbar-inner">
-      <a href="/">&larr; Domi Jin &middot; Notes from Research &amp; Practice</a>
-      <span class="chapter-badge">Chapter IV · Institutions, Incentives and Possible Futures</span>
-      <a href="/articles/">Table of Contents</a>
+      <a href="/">&larr; Domi Jin</a>
+      <span class="publication-badge">Medium &middot; Aviation &amp; Policy</span>
+      <a href="/articles/">All Writing</a>
     </div>
   </nav>
   <main>
     <header class="essay-header">
-      <span class="essay-eyebrow">Chapter IV · Institutions, Incentives and Possible Futures</span>
+      <span class="essay-eyebrow article-kicker">Medium &middot; Aviation &amp; Policy &middot; October 2023</span>
       <h1>Observation: the dilemma and cultural difference behind the eVTOL field</h1>
-      <div class="essay-byline">By Domi Jin (Dongming Jin) &middot; June 2024</div>
+      <div class="essay-byline">By Domi Jin (Dongming Jin) &middot; October 2023</div>
     </header>
     <article>
-      <p>This is a reply to Mark Moore’s post <a href="https://www.linkedin.com/posts/mark-moore-99582787_ehang-certification-my-sources-in-china-activity-7117321587804045312-NIZF?utm_source=share&amp;utm_medium=member_desktop">here</a>.</p>
-      <p>Thank you for sharing the news about eHang and its recent steps towards CAAC certification. I appreciate the insight, but I’d like to offer an alternative perspective, as I believe the post might be presenting an opinion as a definitive statement:</p>
-      <ul><li><strong>Innovation vs. Regulation</strong>: History shows us that innovation often outpaces regulations. This gap isn’t unique to the eVTOL sector but is evident in fields like data privacy, AI, and space exploration. Particularly in developing countries, this lag might be more pronounced.</li><li><strong>Localized Regulations</strong>: Every country has its regulatory nuances, molded by cultural, historical, and socio-economic factors. It’s not always a straightforward comparison. For instance, traffic rules differ across nations. Similarly, a product’s regulatory journey can vary significantly based on its origin.</li><li><strong>Seeking Transparency</strong>: I firmly believe in regulatory transparency and open dialogue. Labeling the CAAC’s process as ‘propaganda’ without detailed insights may not provide the full picture. An open-minded examination is crucial here.</li><li><strong>Safety at the Forefront</strong>: My understanding is that the Chinese government places a high value on public safety. Without specific details on the CAAC’s methods or eHang’s practices, making definitive statements about safety concerns might be premature.</li><li><strong>The ‘First’ Debate</strong>: Being the first in any domain has its merits. However, the real test is in consistent performance and global adaptability. Foreign brands have traditionally found favor in the Chinese market, presenting opportunities for eVTOL entities worldwide. The first CAAC certificated US eVTOL brand, or the first US certificated eVTOL brand are still up for grab. Being first isn’t that meaningful outside FMCG industry.</li><li><strong>Reflection on the Journey</strong>: I’ve been keenly following your mission since 2018. Crafting a product that meets market needs and regulatory criteria is undeniably challenging. I wish you the best of luck and am happy to help if you are interested to learn about the local regulation and evaluate the business opportunity</li></ul>
+      <p>This is a reply to Mark Moore’s post <a href="https://www.linkedin.com/posts/mark-moore-99582787_ehang-certification-my-sources-in-china-activity-7117321587804045312-NIZF?utm_source=share&amp;utm_medium=member_desktop">here</a>.</p>
+      <p>Thank you for sharing the news about EHang and its recent steps towards CAAC certification. I appreciate the insight, but I’d like to offer an alternative perspective, as I believe the post might be presenting an opinion as a definitive statement:</p>
+
+      <figure class="diagram-figure">
+        <svg viewBox="0 0 760 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cross-Border eVTOL Certification and Market Asymmetry Matrix: China CAAC vs. US FAA">
+          <rect width="760" height="280" rx="10" fill="#f8fafc"/>
+          <text x="380" y="26" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13.5" font-weight="700" fill="#0f172a">CROSS-BORDER eVTOL CERTIFICATION &amp; MARKET ASYMMETRY MATRIX (CHINA CAAC vs. US FAA)</text>
+
+          <!-- Top-Left: China Regulatory Posture -->
+          <rect x="24" y="44" width="345" height="96" rx="8" fill="#ffffff" stroke="#0284c7" stroke-width="1.5"/>
+          <rect x="24" y="44" width="345" height="26" rx="8" fill="#e0f2fe"/>
+          <text x="196" y="61" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" font-weight="700" fill="#0369a1">CHINA CAAC: REGULATORY POSTURE &amp; PACING</text>
+          <text x="38" y="88" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10.5" fill="#1e293b">• Sandbox &amp; pilot-zone Type Certification (e.g., EHang EH216-S)</text>
+          <text x="38" y="106" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10.5" fill="#1e293b">• High state accountability for public safety &amp; operational bounds</text>
+          <text x="38" y="124" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10.5" fill="#0369a1">→ Opportunity: First foreign eVTOL certified in China</text>
+
+          <!-- Top-Right: US Regulatory Posture -->
+          <rect x="391" y="44" width="345" height="96" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+          <rect x="391" y="44" width="345" height="26" rx="8" fill="#f1f5f9"/>
+          <text x="563" y="61" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" font-weight="700" fill="#334155">US FAA: REGULATORY POSTURE &amp; PACING</text>
+          <text x="405" y="88" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10.5" fill="#1e293b">• Stringent Part 21.17(b) special class airworthiness standards</text>
+          <text x="405" y="106" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10.5" fill="#1e293b">• Longer upfront certification timeline, global gold-standard trust</text>
+          <text x="405" y="124" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10.5" fill="#475569">→ High entry barrier for non-US airframe OEMs</text>
+
+          <!-- Bottom-Left: China Market & Supply Chain -->
+          <rect x="24" y="150" width="345" height="96" rx="8" fill="#ffffff" stroke="#0284c7" stroke-width="1.5"/>
+          <rect x="24" y="150" width="345" height="26" rx="8" fill="#e0f2fe"/>
+          <text x="196" y="167" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" font-weight="700" fill="#0369a1">CHINA MARKET &amp; INDUSTRIAL SUPPLY CHAIN</text>
+          <text x="38" y="194" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10.5" fill="#1e293b">• Full-stack EV battery, motor &amp; composite manufacturing density</text>
+          <text x="38" y="212" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10.5" fill="#1e293b">• Strong consumer &amp; policy affinity for premium foreign brands</text>
+          <text x="38" y="230" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10.5" fill="#166534">→ Fast execution velocity + favorable foreign-brand reception</text>
+
+          <!-- Bottom-Right: US Market & Supply Chain -->
+          <rect x="391" y="150" width="345" height="96" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+          <rect x="391" y="150" width="345" height="26" rx="8" fill="#f1f5f9"/>
+          <text x="563" y="167" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" font-weight="700" fill="#334155">US MARKET &amp; AEROSPACE IP ECOSYSTEM</text>
+          <text x="405" y="194" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10.5" fill="#1e293b">• Deep avionics, flight-control software &amp; aerospace talent moat</text>
+          <text x="405" y="212" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10.5" fill="#1e293b">• Higher unit manufacturing costs &amp; ITAR/geopolitical friction</text>
+          <text x="405" y="230" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10.5" fill="#475569">→ Global brand leverage once FAA type certificate is secured</text>
+
+          <text x="380" y="266" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#475569">Being “first” matters less than sustained safety, cross-cultural regulatory fluency, and global supply chain execution.</text>
+        </svg>
+        <figcaption>Figure 1: Strategic 2×2 comparison of regulatory pacing and industrial supply-chain asymmetries between China’s CAAC and the US FAA in the emerging eVTOL sector.</figcaption>
+      </figure>
+
+      <ul>
+        <li><strong>Innovation vs. Regulation</strong>: History shows us that innovation often outpaces regulations. This gap isn’t unique to the eVTOL sector but is evident in fields like data privacy, AI, and space exploration. Particularly in developing countries, this lag might be more pronounced.</li>
+        <li><strong>Localized Regulations</strong>: Every country has its regulatory nuances, molded by cultural, historical, and socio-economic factors. It’s not always a straightforward comparison. For instance, traffic rules differ across nations. Similarly, a product’s regulatory journey can vary significantly based on its origin.</li>
+        <li><strong>Seeking Transparency</strong>: I firmly believe in regulatory transparency and open dialogue. Labeling the CAAC’s process as ‘propaganda’ without detailed insights may not provide the full picture. An open-minded examination is crucial here.</li>
+        <li><strong>Safety at the Forefront</strong>: My understanding is that the Chinese government places a high value on public safety. Without specific details on the CAAC’s methods or EHang’s practices, making definitive statements about safety concerns might be premature.</li>
+        <li><strong>The ‘First’ Debate</strong>: Being the first in any domain has its merits. However, the real test is in consistent performance and global adaptability. Foreign brands have traditionally found favor in the Chinese market, presenting opportunities for eVTOL entities worldwide. The first CAAC-certificated US eVTOL brand, or the first US-certificated eVTOL brand, are still up for grabs. Being first isn’t that meaningful outside the FMCG industry.</li>
+        <li><strong>Reflection on the Journey</strong>: I’ve been keenly following your mission since 2018. Crafting a product that meets market needs and regulatory criteria is undeniably challenging. I wish you the best of luck and am happy to help if you are interested to learn about the local regulation and evaluate the business opportunity.</li>
+      </ul>
+
       <p>In wrapping up, while I understand and respect the viewpoint shared in the original post, I find myself disagreeing with some of its premises. It’s essential to approach such significant industry milestones with a balanced perspective and a deeper dive into the facts. With that said, if anyone is keen to explore local regulations further or evaluate potential business opportunities in the region, I’m open and willing to assist. Let’s approach these developments with an open mind and collaborative spirit.</p>
-      <p>— — — — — — — — — —</p>
-      <p>I couldn’t finish this piece without the help of chatGPT. You may tell the difference from the original notes below:</p>
-      <blockquote><p>Here is my perspective before you overstate an opinion as a statement.</p></blockquote>
-      <blockquote><p>1. There is always a lag in regulation compared to innovation. For example, monopolization, data privacy in the digital era, AI safety and IP right in the recent gen AI trend, FAA rule, ITAR restriction for Space X, … The lag is sometimes more sever in developing countries.</p></blockquote>
-      <blockquote><p>2. Regulations are always localized. The rules can be different, or sometimes absurd due to culture difference. One extreme case is you cannot expect people to drive on right-hand side in UK, Japan, etc. The same situation will happen when a Chinese product wants to circulate in the US market.</p></blockquote>
-      <blockquote><p>3. I’m totally in line with regulation transparancy. I’m not familiar with eVTOL industry but I may help if you are interested to learn about the local regulation and evaluate the business opportunity. It is unfair to claim CAAC regulatory process as Chinese propaganda unless the door is closed or the rules are discriminating (but you may need to make effort on evaluating the cultural difference). As a personal opinion, public policies are usually enforced in favor of foreign entities. Chinese culture focuses on introspection and self-fulfillment, which cultivate humble and modesty instead of expressive and persuasive.</p></blockquote>
-      <blockquote><p>4. You will be surprised how seriously the Chinese government values public safety. One cannot complain about the civil rights violation due to strict surveillance and safety measure, while ignoring the security from low crime rate. Again, I don’t have the domain expertise to comment on CAAS certification and eHang. But I won’t worry it manifests and causes a noticable public safety risk. Anything involving public safety has an extremely high stake for risk-takers.</p></blockquote>
-      <blockquote><p>5. Don’t worry too much about being first. There is still chance in being the first CAAS certificated foreign eVTOL company, or being the first US certificated eVTOL company (I assume the difficulty for eHang to get US certificated will be much higher than the other way around). Not to mention that the Chinese market has a tendency to value foreign products/brands more due to historical market dynamic. (It takes so much effort for local smartphone companies to build a high-end brand and being recognized.) Use this as your advantage, but don’t take it as granted forever. The execution efficiency in a country with high educated population density and full-stack industrial supply chain.</p></blockquote>
-      <blockquote><p>6. I’ve been a follower since 2018 when you are working for Uber. Building a working eVTOL product with market validation &amp; pass regulation is hard. Wish you the best of luck!</p></blockquote>
+
+      <hr />
+
+      <p>I couldn’t finish this piece without the help of ChatGPT. You may tell the difference from the original notes below:</p>
+
+      <blockquote>
+        <p><strong>Author’s Original Unedited Draft (Pre-LLM Polish):</strong></p>
+        <p>Here is my perspective before you overstate an opinion as a statement.</p>
+        <ol>
+          <li>There is always a lag in regulation compared to innovation. For example, monopolization, data privacy in the digital era, AI safety and IP right in the recent gen AI trend, FAA rule, ITAR restriction for SpaceX, … The lag is sometimes more severe in developing countries.</li>
+          <li>Regulations are always localized. The rules can be different, or sometimes absurd due to cultural difference. One extreme case is you cannot expect people to drive on right-hand side in UK, Japan, etc. The same situation will happen when a Chinese product wants to circulate in the US market.</li>
+          <li>I’m totally in line with regulatory transparency. I’m not familiar with eVTOL industry but I may help if you are interested to learn about the local regulation and evaluate the business opportunity. It is unfair to claim CAAC regulatory process as Chinese propaganda unless the door is closed or the rules are discriminating (but you may need to make effort on evaluating the cultural difference). As a personal opinion, public policies are usually enforced in favor of foreign entities. Chinese culture focuses on introspection and self-fulfillment, which cultivate humility and modesty instead of being expressive and persuasive.</li>
+          <li>You will be surprised how seriously the Chinese government values public safety. One cannot complain about the civil rights violation due to strict surveillance and safety measure, while ignoring the security from low crime rate. Again, I don’t have the domain expertise to comment on CAAS [CAAC] certification and EHang. But I won’t worry it manifests and causes a noticeable public safety risk. Anything involving public safety has an extremely high stake for risk-takers.</li>
+          <li>Don’t worry too much about being first. There is still chance in being the first CAAS [CAAC] certificated foreign eVTOL company, or being the first US certificated eVTOL company (I assume the difficulty for EHang to get US certificated will be much higher than the other way around). Not to mention that the Chinese market has a tendency to value foreign products/brands more due to historical market dynamic. (It takes so much effort for local smartphone companies to build a high-end brand and be recognized.) Use this as your advantage, but don’t take it as granted forever—given the execution efficiency in a country with high educated population density and full-stack industrial supply chain.</li>
+          <li>I’ve been a follower since 2018 when you were working for Uber. Building a working eVTOL product with market validation &amp; passing regulation is hard. Wish you the best of luck!</li>
+        </ol>
+      </blockquote>
     </article>
     <footer class="colophon">
-      <p>
-        <strong>Footnote:</strong> First published in
-        <a href="https://medium.com/@domijin/observation-the-dilemma-and-cultural-difference-behind-the-evtol-field-df42e91af109" rel="noopener noreferrer" target="_blank">Medium</a>
-        (June 2024). Part of <em>Domi Jin — Notes from Research and Practice</em>.
-      </p>
+      <p>Originally published on <a href="https://medium.com/@domijin/observation-the-dilemma-and-cultural-difference-behind-the-evtol-field-df42e91af109" rel="noopener noreferrer" target="_blank">Medium</a> &middot; October 2023.</p>
     </footer>
   </main>
 </body>

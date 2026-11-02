@@ -5,7 +5,6 @@ import dynamic from "next/dynamic";
 import {
   PERSONA_DATA,
   INTELLECTUAL_PILLARS,
-  OPEN_PROJECTS,
   WRITINGS_DATA,
   GC_RESEARCH_FINDINGS,
   WritingNode,
@@ -19,9 +18,9 @@ const GlobularClusterSimulation = dynamic(
     loading: () => (
       <div className="w-full h-[420px] sm:h-[520px] rounded-2xl border border-slate-200 bg-[#0b2034] flex flex-col items-center justify-center text-sky-200 font-mono text-xs sm:text-sm shadow-inner p-6 text-center">
         <div className="w-8 h-8 rounded-full border-2 border-[#1DAEDF] border-t-transparent animate-spin mb-3" />
-        <span>Initialising Figure 1.1: Globular cluster &amp; LISA gravitational-wave model…</span>
+        <span>Loading 3D Globular Cluster &amp; LISA Gravitational-Wave Sandbox…</span>
         <span className="text-[11px] text-sky-300/70 mt-1">
-          Stellar evolution in relaxation-time units (t / τ_rh) and compact binary strain
+          1,000,000-star relaxation dynamics and binary black hole standard sirens
         </span>
       </div>
     ),
@@ -35,48 +34,46 @@ const ConstellationCanvas = dynamic(
     loading: () => (
       <div className="w-full h-[360px] sm:h-[460px] lg:h-[540px] rounded-2xl border border-slate-200 bg-[#0b2034] flex flex-col items-center justify-center text-sky-200 font-mono text-xs sm:text-sm shadow-inner p-6 text-center">
         <div className="w-8 h-8 rounded-full border-2 border-[#1DAEDF] border-t-transparent animate-spin mb-3" />
-        <span>Initialising Figure E.1: Interactive site map of themes, works and essays…</span>
+        <span>Loading Interactive Idea Constellation…</span>
       </div>
     ),
   }
 );
 
-interface BookChapterSpec {
+interface NarrativeThemeSpec {
   id: string;
-  roman: string;
-  partLabel: string;
+  num: string;
+  shortLabel: string;
+  kicker: string;
   title: string;
   subtitle: string;
-  epigraph: string;
   period: string;
   essayUrls: string[];
   projectIds: string[];
 }
 
-const BOOK_CHAPTERS: BookChapterSpec[] = [
+const NARRATIVE_THEMES: NarrativeThemeSpec[] = [
   {
-    id: "chapter-1",
-    roman: "I",
-    partLabel: "Part I · Understanding and Building",
-    title: "Stellar Dynamics and the Practice of Modelling",
+    id: "stars-and-gravity",
+    num: "01",
+    shortLabel: "01 · Stars & Gravity",
+    kicker: "01 · Cosmic Scale · 2013 – 2018",
+    title: "What a Million Stars Taught Me About Patient Systems",
     subtitle:
-      "How a million stars relax, segregate by mass and forge binary black holes—and what N-body physics teaches about long-horizon dynamical systems.",
-    epigraph:
-      "Before a model can predict a rare event, it must respect the timescale on which ordinary interactions reshape the whole system.",
+      "Simulating 662,772 globular clusters and 17.88 million binary black holes at UT Arlington—and learning why slow baseline interactions always shape rare breakthroughs.",
     period: "2013 – 2018 · UT Arlington Astrophysics & LSST",
     essayUrls: ["/articles/research/astrophysics-bbh-dissertation.html"],
     projectIds: ["astrophysics-lisa-gw"],
   },
   {
-    id: "chapter-2",
-    roman: "II",
-    partLabel: "Part I · Understanding and Building",
-    title: "Decisions Under Constraints",
+    id: "realtime-decisions",
+    num: "02",
+    shortLabel: "02 · 50ms Decisions",
+    kicker: "02 · System Scale · 2018 – 2026",
+    title: "Making Sense in 50 Milliseconds—From Red Lights to Ad Auctions",
     subtitle:
-      "From traffic intersections and marketplace pricing to multi-agent advertising control planes and the ergonomics of everyday interfaces.",
-    epigraph:
-      "In production systems, the hardest constraint is rarely model capacity; it is making a sound decision within fifty milliseconds without eroding human trust.",
-    period: "2018 – 2026 · Uber, Airbnb, SmartNews & Independent Systems",
+      "Waiting at an empty morning intersection, pricing rides and rooms at Uber and Airbnb, and decoupling fast reflex serving (<50 ms) from slow, thoughtful coordination.",
+    period: "2018 – 2026 · Uber, Airbnb, SmartNews & Systems Architecture",
     essayUrls: [
       "/articles/medium/from-traffic-lights-to-lifes-direction-57176d5d7a06.html",
       "/articles/github/observations-in-advertising.html",
@@ -89,14 +86,13 @@ const BOOK_CHAPTERS: BookChapterSpec[] = [
     projectIds: ["agent-ad-systems"],
   },
   {
-    id: "chapter-3",
-    roman: "III",
-    partLabel: "Part II · Living and Working Together",
-    title: "Human Agency, Older People’s Independence and Lifelong Play",
+    id: "human-agency",
+    num: "03",
+    shortLabel: "03 · Human Agency",
+    kicker: "03 · Human Scale · 2024 – 2026",
+    title: "Designing AI That Keeps Us in the Driver’s Seat",
     subtitle:
-      "Field lessons from Palo Alto seniors, autonomous mobility, active reading and tools designed to strengthen human judgement rather than replace it.",
-    epigraph:
-      "Technology serves people best when it preserves the dignity of independent action and leaves room for curiosity at every age.",
+      "Riding in self-driving Teslas with Palo Alto seniors, reclaiming play as lifelong curiosity, and building local tools that sharpen human judgment instead of replacing it.",
     period: "2024 – 2026 · Kin Domi, Open Learning Lab & Household AI",
     essayUrls: [
       "/articles/substack/starting-a-new-venture.html",
@@ -107,20 +103,19 @@ const BOOK_CHAPTERS: BookChapterSpec[] = [
       "/articles/github/baby-ai.html",
       "/articles/blog/imessage-ai-router.html",
       "/articles/medium/another-team-building-skynet-in-the-name-of-jarvis-ama-163389dc5285.html",
-      "/articles/substack/relections-from-coach-seeking-impulse.html",
+      "/articles/substack/reflections-from-coach-seeking-impulse.html",
     ],
     projectIds: ["open-learning-lab", "baby-ai", "imessage-router", "kin-domi"],
   },
   {
-    id: "chapter-4",
-    roman: "IV",
-    partLabel: "Part II · Living and Working Together",
-    title: "Institutions, Incentives and Possible Futures",
+    id: "working-together",
+    num: "04",
+    shortLabel: "04 · Working Together",
+    kicker: "04 · Civic Scale · 2018 – Present",
+    title: "Shared Values (GCD), Complementary Skills (LCM), and Rhythm",
     subtitle:
-      "Shared values as Greatest Common Divisor, complementary skills as Least Common Multiple, intentional life rhythms and civic renovation.",
-    epigraph:
-      "We exhaust our gifts across a whole life to express what lies deep in the soul—and our most durable achievements arise when we build together.",
-    period: "2018 – Present · Civic Notes, Engineering Culture & Synthesis",
+      "Why engineering cultures soar or stall, how eight years of color-coded calendars keep life whole, and how shared ethics let diverse minds build a larger future.",
+    period: "2018 – Present · Domi’s Mind Waves & Civic Notes",
     essayUrls: [
       "/articles/substack/hello-world.html",
       "/articles/substack/overachievers-responsibility-reflection.html",
@@ -137,6 +132,13 @@ const BOOK_CHAPTERS: BookChapterSpec[] = [
     projectIds: ["libertyearth-future"],
   },
 ];
+
+const ORDERED_ESSAY_URLS = NARRATIVE_THEMES.flatMap((t) => t.essayUrls);
+
+// Blue-green: the app is staged at /next/ and promoted to the site root.
+// Self-referential links must follow whichever environment is live.
+const BASE_PATH = process.env.NEXT_BASE_PATH ?? "/next";
+const SELF_HREF = BASE_PATH === "" ? "/" : `${BASE_PATH}/`;
 
 function renderInlineMarkdown(text: string): React.ReactNode[] {
   const tokenRegex =
@@ -191,6 +193,23 @@ function renderInlineMarkdown(text: string): React.ReactNode[] {
 }
 
 function renderFormattedBlock(block: string, idx: number) {
+  const trimmed = block.trim();
+  if (
+    trimmed.startsWith("<figure") ||
+    trimmed.startsWith("<svg") ||
+    trimmed.startsWith("<pre") ||
+    trimmed.startsWith("<div class=\"table") ||
+    trimmed.startsWith("<table")
+  ) {
+    return (
+      <div
+        key={idx}
+        className="my-6 overflow-x-auto rounded-2xl border border-slate-200/90 bg-white/90 p-4 sm:p-6 shadow-xs"
+        dangerouslySetInnerHTML={{ __html: trimmed }}
+      />
+    );
+  }
+
   const lines = block
     .split("\n")
     .map((ln) => ln.trim())
@@ -305,34 +324,56 @@ export default function GreenExperience() {
   const [selectedWriting, setSelectedWriting] = useState<WritingNode | null>(
     WRITINGS_DATA[0]
   );
-  const [chapterFilter, setChapterFilter] = useState<string>("All");
+  const [themeFilter, setThemeFilter] = useState<string>("All");
   const [searchQuery, setSearchQuery] = useState<string>("");
-  const [agentModalOpen, setAgentModalOpen] = useState<boolean>(false);
+  const [dataDrawerOpen, setDataDrawerOpen] = useState<boolean>(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
   const [mobileMapView, setMobileMapView] = useState<"3d" | "list">("3d");
+  const [scrollProgress, setScrollProgress] = useState<number>(0);
 
-  // Active essay open in the self-sufficient In-Page Book Reader
+  // Active essay open in the self-sufficient In-Page Essay Reader
   const [activeReaderUrl, setActiveReaderUrl] = useState<string | null>(null);
   const readerScrollRef = useRef<HTMLDivElement | null>(null);
 
-  // Interactive Figure 2.1 state (Chapter II: Latency vs Coordination & Traffic Signal Experiment)
+  // Act 02 Interactive State (Latency vs Coordination & Traffic Signal Experiment)
   const [fig2Mode, setFig2Mode] = useState<"ad-plane" | "traffic">("ad-plane");
   const [fig2Participation, setFig2Participation] = useState<number>(65);
   const [fig2LatencyBudget, setFig2LatencyBudget] = useState<number>(45);
 
-  // Interactive Figure 3.1 state (Chapter III: 5-Stage Agency-Preserving Learning & Senior Mobility)
+  // Act 03 Interactive State (5-Stage Sparring Partner vs Answer-First AI)
   const [fig3StageIndex, setFig3StageIndex] = useState<number>(0);
 
-  // Interactive Figure 4.1 state (Chapter IV: GCD Shared Values & LCM Complementary Skills)
+  // Act 04 Interactive State (GCD Shared Values & LCM Complementary Skills)
   const [fig4Gcd, setFig4Gcd] = useState<number>(78);
   const [fig4Lcm, setFig4Lcm] = useState<number>(82);
+
+  // Subtle top reading progress bar
+  useEffect(() => {
+    const onScroll = () => {
+      const doc = document.documentElement;
+      const total = doc.scrollHeight - doc.clientHeight;
+      if (total > 0) {
+        setScrollProgress(Math.min(100, Math.max(0, (window.scrollY / total) * 100)));
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const activeReaderEssay: BookEssayEntry | null = useMemo(() => {
     if (!activeReaderUrl) return null;
     return BOOK_ESSAYS_BY_URL[activeReaderUrl] || null;
   }, [activeReaderUrl]);
 
-  // Keyboard Escape handler, scroll lock and scroll-to-top for In-Page Book Reader
+  const nextReaderEssay: BookEssayEntry | null = useMemo(() => {
+    if (!activeReaderUrl) return null;
+    const idx = ORDERED_ESSAY_URLS.indexOf(activeReaderUrl);
+    if (idx === -1) return null;
+    const nextUrl = ORDERED_ESSAY_URLS[(idx + 1) % ORDERED_ESSAY_URLS.length];
+    return BOOK_ESSAYS_BY_URL[nextUrl] || null;
+  }, [activeReaderUrl]);
+
+  // Keyboard Escape handler, scroll lock and scroll-to-top for In-Page Reader
   useEffect(() => {
     if (!activeReaderUrl) return;
     if (readerScrollRef.current) {
@@ -363,29 +404,32 @@ export default function GreenExperience() {
         !selectedPillar ||
         w.pillar === selectedPillar ||
         w.secondaryPillars.includes(selectedPillar);
-      const bookEntry = BOOK_ESSAYS_BY_URL[w.localUrl];
-      const chRoman = bookEntry?.chapterRoman || "IV";
-      const matchesChapter =
-        chapterFilter === "All" || chapterFilter === `Chapter ${chRoman}`;
+      const themeIdx = NARRATIVE_THEMES.findIndex((t) =>
+        t.essayUrls.includes(w.localUrl)
+      );
+      const themeLabel =
+        themeIdx >= 0 ? NARRATIVE_THEMES[themeIdx].shortLabel : "04 · Working Together";
+      const matchesTheme =
+        themeFilter === "All" || themeFilter === themeLabel;
       const q = searchQuery.trim().toLowerCase();
       const matchesQuery =
         !q ||
         w.title.toLowerCase().includes(q) ||
         w.summary.toLowerCase().includes(q) ||
         w.keyInsight.toLowerCase().includes(q);
-      return matchesPillar && matchesChapter && matchesQuery;
+      return matchesPillar && matchesTheme && matchesQuery;
     });
-  }, [selectedPillar, chapterFilter, searchQuery]);
+  }, [selectedPillar, themeFilter, searchQuery]);
 
-  const chapterTabs = [
+  const themeTabs = [
     "All",
-    "Chapter I",
-    "Chapter II",
-    "Chapter III",
-    "Chapter IV",
+    "01 · Stars & Gravity",
+    "02 · 50ms Decisions",
+    "03 · Human Agency",
+    "04 · Working Together",
   ];
 
-  const openEssayInBook = (url: string) => {
+  const openEssayReader = (url: string) => {
     if (BOOK_ESSAYS_BY_URL[url]) {
       setActiveReaderUrl(url);
     } else {
@@ -396,112 +440,132 @@ export default function GreenExperience() {
   const handleCardKeyDown = (e: React.KeyboardEvent, url: string) => {
     if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();
-      openEssayInBook(url);
+      openEssayReader(url);
     }
   };
 
   const fig3Stages = [
     {
-      step: "Stage 1 · Frame the Problem",
-      passive: "User pastes prompt; model immediately outputs a polished answer.",
+      step: "1 · Frame the Question",
+      shortTitle: "Frame",
+      passive: "Paste a prompt and let the model define the problem for you.",
       agency:
-        "Learner states their current hypothesis and what constraints make the problem hard before any generation occurs.",
+        "State your own hypothesis and constraints first, before any AI generation begins.",
       seniorParallel:
-        "In Kin Domi & Tesla FSD interviews: clear route intent before the vehicle begins a complex turn.",
+        "In Tesla FSD ride-alongs: showing clear route intent on screen before the car starts a turn.",
     },
     {
-      step: "Stage 2 · First-Principles Attempt",
-      passive: "Skipped—the user reads a fluent explanation and mistakes fluency for mastery.",
+      step: "2 · First-Principles Try",
+      shortTitle: "Attempt",
+      passive: "Skip the struggle—read a fluent answer and mistake fluency for mastery.",
       agency:
-        "Learner sketches a rough mechanism or calculation first, surfacing hidden gaps in understanding.",
+        "Sketch a rough solution or mechanism yourself to surface where your mental model has gaps.",
       seniorParallel:
-        "Older adults strongly preferred trying a task themselves with a quiet safety net over having a system take over unannounced.",
+        "Palo Alto seniors preferred trying a task themselves with a quiet safety net over sudden automation takeovers.",
     },
     {
-      step: "Stage 3 · Targeted Critique",
-      passive: "Generic praise or full rewrite that erases the author’s voice.",
+      step: "3 · Socratic Sparring",
+      shortTitle: "Spar",
+      passive: "Accept generic praise or a wholesale rewrite that erases your voice.",
       agency:
-        "AI acts as a Socratic sparring partner, questioning a specific assumption or boundary condition.",
+        "Use AI as a sparring partner to challenge a specific assumption or edge case.",
       seniorParallel:
-        "Replacing sudden high-frequency cockpit chimes with calm, intelligible spoken context.",
+        "Replacing jarring high-frequency cockpit beeps with calm, plain-language spoken context.",
     },
     {
-      step: "Stage 4 · Deliberate Revision",
-      passive: "Copy-pasted output with low 30-day retention.",
+      step: "4 · Deliberate Revision",
+      shortTitle: "Revise",
+      passive: "Copy-paste the output with near-zero recall a month later.",
       agency:
-        "Learner revises their own model, code or essay in response to the critique.",
+        "Revise your own code, calculation, or draft in response to the critique.",
       seniorParallel:
-        "Adjusting driving-assistance sensitivity and voice-command confirmation to match personal comfort.",
+        "Letting older drivers tune following distance and voice confirmation to match their own comfort.",
     },
     {
-      step: "Stage 5 · Reflection & Transfer",
-      passive: "Session ends as soon as the immediate task is completed.",
+      step: "5 · Own & Transfer",
+      shortTitle: "Own",
+      passive: "Close the tab the moment the immediate task is finished.",
       agency:
-        "Learner records a short transfer note on what changed in their mental model and where the principle applies next.",
+        "Jot down a one-line note on what changed in your thinking and where it applies next.",
       seniorParallel:
-        "Reclaiming ‘play’ not as frivolous pastime, but as lifelong curiosity and dignified self-reliance.",
+        "Reclaiming ‘play’ not as idle amusement, but as lifelong curiosity and dignified independence.",
     },
   ];
 
-  // Derived illustrative trade-off curves for Figure 2.1
   const fig2Stats = useMemo(() => {
     if (fig2Mode === "ad-plane") {
       const syncServedPct = Math.min(99.8, Math.max(85, 92 + (fig2LatencyBudget - 25) * 0.18));
       const fatigueReduction = Math.round(18 + fig2Participation * 0.28);
+      const loopMin = Math.max(2, Math.round(12 - fig2Participation * 0.08));
       return {
-        headline: `Illustrative hot-path target: ${fig2LatencyBudget} ms p99 budget (${syncServedPct.toFixed(1)}% within SLA curve)`,
-        subline: `In this heuristic scaling model, an 8-agent asynchronous loop recalibrates demand and creative priors every ~${Math.max(2, Math.round(12 - fig2Participation * 0.08))} min, illustrating how separating slow profiling from fast serving bounds repetitive fatigue (~${fatigueReduction}% modeled reduction).`,
+        headline: `Fast Lane: ${fig2LatencyBudget} ms p99 budget (${syncServedPct.toFixed(1)}% within SLA) · Slow Lane: ${loopMin} min agent cycle`,
+        subline: `Decoupling the <50ms serving reflex from an 8-agent background loop cuts repetitive ad fatigue by ~${fatigueReduction}% while keeping tail latency predictable.`,
         metricA: `${fig2LatencyBudget} ms`,
-        labelA: "Hot-path p99 target",
-        metricB: "8 agents",
-        labelB: "Async control plane",
-        metricC: `~${fatigueReduction}%`,
-        labelC: "Modeled fatigue drop",
+        labelA: "Fast reflex budget",
+        metricB: `${loopMin} min`,
+        labelB: "8-agent reflection",
+        metricC: `-${fatigueReduction}%`,
+        labelC: "Ad fatigue drop",
       };
     } else {
       const waitReduction = Math.round(12 + fig2Participation * 0.42);
       const inferConfidence = Math.min(98, Math.round(54 + fig2Participation * 0.44));
       return {
-        headline: `Illustrative telemetry share: ${fig2Participation}% of approaching vehicles`,
-        subline: `In this conceptual traffic-flow model, pairing sparse vehicle kinematics with symbolic conservation laws illustrates how phase-state confidence (~${inferConfidence}%) and queue clearance (~${waitReduction}% less idle wait) scale with participation.`,
+        headline: `Connected Vehicles: ${fig2Participation}% sharing trajectory · Phase Confidence: ${inferConfidence}%`,
+        subline: `Even when only ${fig2Participation}% of approaching cars share speed and position, symbolic flow conservation laws reconstruct the full queue and cut idle red-light waiting by ~${waitReduction}%.`,
         metricA: `${fig2Participation}%`,
-        labelA: "Crowdsourced fleet share",
+        labelA: "Connected cars",
         metricB: `${inferConfidence}%`,
-        labelB: "Modeled phase confidence",
+        labelB: "Signal confidence",
         metricC: `-${waitReduction}%`,
-        labelC: "Modeled idle delay",
+        labelC: "Idle red-light wait",
       };
     }
   }, [fig2Mode, fig2Participation, fig2LatencyBudget]);
 
-  // Derived metrics for Figure 4.1
   const fig4Synthesis = useMemo(() => {
     const trustIndex = Math.round(fig4Gcd * 0.9 + 8);
-    const creativeReach = Math.round((fig4Gcd * 0.45 + fig4Lcm * 0.55));
-    const frictionRisk = Math.max(5, Math.round(100 - fig4Gcd * 0.75 + (fig4Lcm - fig4Gcd) * 0.25));
-    let archetype = "High-Trust Collaborative Guild";
+    const creativeReach = Math.round(fig4Gcd * 0.45 + fig4Lcm * 0.55);
+    const frictionRisk = Math.max(
+      5,
+      Math.round(100 - fig4Gcd * 0.75 + (fig4Lcm - fig4Gcd) * 0.25)
+    );
+    let archetype = "High-Trust Creative Guild (Strong GCD × Wide LCM)";
     if (fig4Gcd < 45 && fig4Lcm >= 60) {
-      archetype = "Fragmented Specialists (High Capability, Low Cohesion)";
+      archetype = "Fragmented Specialists (High Skill Variance, Low Shared Trust)";
     } else if (fig4Gcd >= 65 && fig4Lcm < 45) {
-      archetype = "Harmonious Monoculture (High Cohesion, Narrow Reach)";
+      archetype = "Echo Chamber (High Cohesion, Narrow Perspective)";
     } else if (fig4Gcd < 45 && fig4Lcm < 45) {
-      archetype = "Low-Trust Bureaucracy (High Coordination Tax)";
+      archetype = "High-Friction Bureaucracy (Low Alignment, Low Reach)";
     }
     return { trustIndex, creativeReach, frictionRisk, archetype };
   }, [fig4Gcd, fig4Lcm]);
 
+  const getThemeLabelForUrl = (url: string) => {
+    const found = NARRATIVE_THEMES.find((t) => t.essayUrls.includes(url));
+    return found ? found.shortLabel : "Domi’s Mind Waves";
+  };
+
   return (
     <div className="min-h-screen bg-[#fcfcfd] text-slate-800 selection:bg-[#1DAEDF]/20 selection:text-[#0c4a6e] font-sans antialiased">
-      {/* Top Book Edition Bar */}
+      {/* Subtle Top Reading Progress Bar (Implicit narrative flow) */}
+      <div className="fixed top-0 left-0 right-0 h-0.5 bg-slate-200/50 z-50 pointer-events-none">
+        <div
+          className="h-full bg-gradient-to-r from-[#2980b9] to-[#1DAEDF] transition-all duration-150"
+          style={{ width: `${scrollProgress}%` }}
+        />
+      </div>
+
+      {/* Top Publication Bar */}
       <div className="border-b border-slate-200/80 bg-white/90 backdrop-blur-md">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex flex-wrap items-center justify-between gap-2 text-xs">
           <div className="flex items-center gap-2.5">
             <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-sky-50 border border-[#1DAEDF]/30 text-[#0369a1] font-mono font-medium text-[11px]">
               <span className="w-1.5 h-1.5 rounded-full bg-[#1DAEDF]" />
-              INTERACTIVE MONOGRAPH
+              DOMI’S MIND WAVES
             </span>
             <span className="text-slate-500 hidden md:inline text-[11px] font-serif italic">
-              Notes on modelling, engineering practice, human agency and social renovation
+              Essays, visual models, and field notes on science, systems, and human agency
             </span>
           </div>
 
@@ -510,42 +574,42 @@ export default function GreenExperience() {
               href="/articles/"
               className="text-slate-600 hover:text-[#2980b9] font-mono transition"
             >
-              Table of contents (28 essays)
+              All 28 essays
             </a>
             <span className="text-slate-300">|</span>
             <button
-              onClick={() => setAgentModalOpen(!agentModalOpen)}
+              onClick={() => setDataDrawerOpen(!dataDrawerOpen)}
               className="text-[#2980b9] hover:text-[#1DAEDF] font-mono cursor-pointer transition flex items-center gap-1"
             >
               <span className="text-[10px]">✦</span>
-              <span>{agentModalOpen ? "Close colophon & data" : "Colophon & data"}</span>
+              <span>{dataDrawerOpen ? "Close open feeds" : "Open feeds & JSON"}</span>
             </button>
             <span className="text-slate-300">|</span>
             <a
               href="/pages/about-me.html?env=blue"
               className="inline-flex items-center gap-1 text-slate-600 hover:text-[#2980b9] transition font-medium"
             >
-              <span>2018 Pelican edition</span>
+              <span>2018 Classic Site</span>
               <span aria-hidden="true" className="text-[10px]">↗</span>
             </a>
           </div>
         </div>
       </div>
 
-      {/* Colophon & Machine-Readable Data Drawer */}
-      {agentModalOpen && (
+      {/* Open Feeds & Machine-Readable Index Drawer */}
+      {dataDrawerOpen && (
         <div className="border-b border-sky-100 bg-white/95 backdrop-blur-xl shadow-md transition-all">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
               <div>
                 <p className="text-[11px] font-mono uppercase tracking-widest text-[#2980b9]">
-                  Colophon &amp; Structured Book Index
+                  Self-Hosted Archive &amp; Open Feeds
                 </p>
                 <h3 className="text-base sm:text-lg font-semibold text-slate-900 mt-0.5">
-                  Self-sufficient essays and machine-readable index
+                  Every essay and visual diagram lives directly on this domain
                 </h3>
                 <p className="text-xs text-slate-600 mt-1">
-                  All twenty-eight essays and system specifications are published in full directly on this site, with original publication venues recorded as footnotes.
+                  All 28 Substack, Medium, GitHub, and research essays are published here in full with inline SVG diagrams and original publication footnotes.
                 </p>
               </div>
               <div className="flex flex-wrap gap-2">
@@ -553,7 +617,7 @@ export default function GreenExperience() {
                   href="/articles/"
                   className="px-3 py-1.5 rounded-lg bg-sky-50 border border-sky-200 text-[#0369a1] text-xs font-mono hover:bg-sky-100 transition"
                 >
-                  GET /articles/
+                  /articles/
                 </a>
                 <a
                   href="/llms.txt"
@@ -561,7 +625,7 @@ export default function GreenExperience() {
                   rel="noopener noreferrer"
                   className="px-3 py-1.5 rounded-lg bg-sky-50 border border-sky-200 text-[#0369a1] text-xs font-mono hover:bg-sky-100 transition"
                 >
-                  GET /llms.txt ↗
+                  /llms.txt ↗
                 </a>
                 <a
                   href="/llms-full.txt"
@@ -569,7 +633,7 @@ export default function GreenExperience() {
                   rel="noopener noreferrer"
                   className="px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-700 text-xs font-mono hover:bg-slate-100 transition"
                 >
-                  GET /llms-full.txt ↗
+                  /llms-full.txt ↗
                 </a>
                 <a
                   href="/agent-context.json"
@@ -577,21 +641,15 @@ export default function GreenExperience() {
                   rel="noopener noreferrer"
                   className="px-3 py-1.5 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-mono hover:bg-emerald-100 transition"
                 >
-                  GET /agent-context.json ↗
+                  /agent-context.json ↗
                 </a>
               </div>
             </div>
-            <pre className="p-4 rounded-xl bg-slate-900 text-slate-100 text-xs font-mono overflow-x-auto leading-relaxed shadow-sm">
-{`# Read the book index and structured essays
-curl -s https://domij.info/llms.txt          # Monograph overview and chapter outline
-curl -s https://domij.info/llms-full.txt     # Full chapter notes and essay index
-curl -s https://domij.info/agent-context.json | jq '.persona, .researchFindings, .writings[0]'`}
-            </pre>
           </div>
         </div>
       )}
 
-      {/* Primary Sticky Book Spine Header */}
+      {/* Primary Sticky Header */}
       <header className="sticky top-0 z-40 border-b border-slate-200/90 bg-white/95 backdrop-blur-xl">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <a href="#top" className="flex items-center gap-3 group">
@@ -605,36 +663,36 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .researchFindings,
                 {PERSONA_DATA.name}
               </span>
               <span className="text-[11px] font-mono text-[#2980b9] block font-medium">
-                Notes from Research &amp; Practice
+                Scientist · Builder · Writer
               </span>
             </div>
           </a>
 
-          {/* Desktop Chapter Navigation */}
+          {/* Desktop Navigation */}
           <nav
-            aria-label="Book chapters"
+            aria-label="Primary navigation"
             className="hidden lg:flex items-center gap-5 text-xs font-medium text-slate-600"
           >
-            <a href="#prologue" className="hover:text-[#2980b9] transition">
-              Prologue
+            <a href="#story" className="hover:text-[#2980b9] transition">
+              Start Here
             </a>
-            <a href="#chapter-1" className="hover:text-[#2980b9] transition">
-              I · Stellar Dynamics
+            <a href="#stars-and-gravity" className="hover:text-[#2980b9] transition">
+              01 · Stars &amp; Gravity
             </a>
-            <a href="#chapter-2" className="hover:text-[#2980b9] transition">
-              II · Decisions
+            <a href="#realtime-decisions" className="hover:text-[#2980b9] transition">
+              02 · 50ms Decisions
             </a>
-            <a href="#chapter-3" className="hover:text-[#2980b9] transition">
-              III · Human Agency
+            <a href="#human-agency" className="hover:text-[#2980b9] transition">
+              03 · Human Agency
             </a>
-            <a href="#chapter-4" className="hover:text-[#2980b9] transition">
-              IV · Institutions
+            <a href="#working-together" className="hover:text-[#2980b9] transition">
+              04 · Working Together
             </a>
             <a href="#constellation" className="hover:text-[#2980b9] transition">
-              Site Map
+              Idea Map
             </a>
             <a href="#writings" className="hover:text-[#2980b9] transition">
-              Index
+              All Writing
             </a>
           </nav>
 
@@ -643,18 +701,18 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .researchFindings,
               href="/articles/"
               className="hidden sm:inline-flex px-3 py-1.5 rounded-lg border border-slate-200 hover:border-[#1DAEDF] text-xs font-medium text-slate-700 hover:text-[#2980b9] transition bg-white"
             >
-              All 28 Essays
+              Archive (28)
             </a>
             <a
               href="#inquiries"
               className="hidden sm:inline-flex px-3.5 py-1.5 rounded-lg bg-[#2980b9] hover:bg-[#20638f] text-white font-medium text-xs transition shadow-sm"
             >
-              Correspondence
+              Say Hello
             </a>
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label="Toggle chapter navigation"
+              aria-label="Toggle navigation menu"
               className="lg:hidden p-2 rounded-lg border border-slate-200 text-slate-700 hover:bg-slate-100 transition cursor-pointer"
             >
               {mobileMenuOpen ? (
@@ -670,70 +728,70 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .researchFindings,
           </div>
         </div>
 
-        {/* Mobile Chapter Drawer */}
+        {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
           <div className="lg:hidden border-b border-slate-200 bg-white/98 backdrop-blur-2xl px-4 py-4 space-y-3 shadow-lg">
             <nav className="flex flex-col space-y-1.5 text-sm font-medium text-slate-700">
               <a
-                href="#prologue"
+                href="#story"
                 onClick={() => setMobileMenuOpen(false)}
                 className="px-3 py-2 rounded-lg hover:bg-sky-50 hover:text-[#2980b9] transition"
               >
-                Prologue · Questions Carried Between Fields
+                Start Here · Across Four Scales
               </a>
               <a
-                href="#chapter-1"
+                href="#stars-and-gravity"
                 onClick={() => setMobileMenuOpen(false)}
                 className="px-3 py-2 rounded-lg hover:bg-sky-50 hover:text-[#2980b9] transition"
               >
-                Chapter I · Stellar Dynamics and the Practice of Modelling
+                01 · Stars &amp; Gravity (Astrophysics &amp; LISA)
               </a>
               <a
-                href="#chapter-2"
+                href="#realtime-decisions"
                 onClick={() => setMobileMenuOpen(false)}
                 className="px-3 py-2 rounded-lg hover:bg-sky-50 hover:text-[#2980b9] transition"
               >
-                Chapter II · Decisions Under Constraints
+                02 · 50ms Decisions (Traffic &amp; Ad Systems)
               </a>
               <a
-                href="#chapter-3"
+                href="#human-agency"
                 onClick={() => setMobileMenuOpen(false)}
                 className="px-3 py-2 rounded-lg hover:bg-sky-50 hover:text-[#2980b9] transition"
               >
-                Chapter III · Human Agency, Seniors &amp; Lifelong Play
+                03 · Human Agency (Palo Alto Seniors &amp; AI)
               </a>
               <a
-                href="#chapter-4"
+                href="#working-together"
                 onClick={() => setMobileMenuOpen(false)}
                 className="px-3 py-2 rounded-lg hover:bg-sky-50 hover:text-[#2980b9] transition"
               >
-                Chapter IV · Institutions, Incentives and Possible Futures
+                04 · Working Together (GCD × LCM &amp; Rhythm)
               </a>
               <a
                 href="#constellation"
                 onClick={() => setMobileMenuOpen(false)}
                 className="px-3 py-2 rounded-lg hover:bg-sky-50 hover:text-[#2980b9] transition"
               >
-                Epilogue · Interactive Site Map
+                Interactive Idea Constellation
               </a>
               <a
                 href="#writings"
                 onClick={() => setMobileMenuOpen(false)}
                 className="px-3 py-2 rounded-lg hover:bg-sky-50 hover:text-[#2980b9] transition"
               >
-                Complete Essay Index (28 Essays)
+                All 28 Essays &amp; Notes
               </a>
             </nav>
           </div>
         )}
       </header>
 
-      {/* In-Page Book Reader Modal / Drawer (Self-Sufficient Essay Reading Experience) */}
+      {/* In-Page Essay Reader Drawer (Substack-Style Reading Experience with Next Post flow) */}
       {activeReaderEssay && (
         <div
           role="dialog"
           aria-modal="true"
-          aria-labelledby="book-reader-title"
+          aria-labelledby="essay-reader-title"
           className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex justify-end"
           onClick={() => setActiveReaderUrl(null)}
         >
@@ -746,10 +804,10 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .researchFindings,
               <div className="flex items-center justify-between gap-4 pb-5 mb-8 border-b border-slate-200 sticky top-0 bg-[#fcfcfd]/95 backdrop-blur-md z-10 pt-1">
                 <div>
                   <span className="text-[11px] font-mono uppercase tracking-widest text-[#2980b9] block">
-                    {activeReaderEssay.chapterTitle}
+                    {getThemeLabelForUrl(activeReaderEssay.url)} · {activeReaderEssay.venue}
                   </span>
                   <span className="text-xs text-slate-500">
-                    By Domi Jin (Dongming Jin) · {activeReaderEssay.date}
+                    By Domi Jin · {activeReaderEssay.date}
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
@@ -757,7 +815,7 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .researchFindings,
                     href={activeReaderEssay.url}
                     className="px-3 py-1.5 rounded-lg border border-slate-200 bg-white text-xs font-mono text-slate-700 hover:border-[#1DAEDF] hover:text-[#2980b9] transition"
                   >
-                    Standalone page
+                    Full page ↗
                   </a>
                   <button
                     onClick={() => setActiveReaderUrl(null)}
@@ -771,7 +829,7 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .researchFindings,
 
               <header className="mb-8">
                 <h2
-                  id="book-reader-title"
+                  id="essay-reader-title"
                   className="text-2xl sm:text-4xl font-bold text-slate-900 font-serif leading-tight tracking-tight"
                 >
                   {activeReaderEssay.title}
@@ -785,9 +843,9 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .researchFindings,
               </article>
             </div>
 
-            <footer className="mt-12 pt-6 border-t border-slate-200 text-xs text-slate-500 space-y-2">
+            <footer className="mt-12 pt-6 border-t border-slate-200 text-xs text-slate-500 space-y-4">
               <p>
-                <strong className="text-slate-700">Footnote:</strong> First published in{" "}
+                Originally published on{" "}
                 <a
                   href={activeReaderEssay.originalUrl}
                   target="_blank"
@@ -798,18 +856,38 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .researchFindings,
                 </a>{" "}
                 ({activeReaderEssay.date}).
               </p>
-              <div className="flex items-center justify-between pt-2">
+
+              {nextReaderEssay && (
+                <div className="p-4 rounded-xl bg-sky-50/70 border border-sky-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                  <div>
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-[#0369a1] font-semibold block">
+                      Next Essay in Sequence
+                    </span>
+                    <span className="text-sm font-bold text-slate-900 font-serif">
+                      {nextReaderEssay.title}
+                    </span>
+                  </div>
+                  <button
+                    onClick={() => setActiveReaderUrl(nextReaderEssay.url)}
+                    className="px-3.5 py-2 rounded-lg bg-[#2980b9] hover:bg-[#20638f] text-white text-xs font-medium transition shrink-0 cursor-pointer"
+                  >
+                    Next Post &rarr;
+                  </button>
+                </div>
+              )}
+
+              <div className="flex items-center justify-between pt-1">
                 <button
                   onClick={() => setActiveReaderUrl(null)}
                   className="text-[#2980b9] hover:underline font-medium cursor-pointer"
                 >
-                  &larr; Return to chapter narrative
+                  &larr; Back to main story
                 </button>
                 <a
                   href="/articles/"
                   className="text-slate-500 hover:text-[#2980b9] font-mono"
                 >
-                  Full Table of Contents &rarr;
+                  All 28 essays &rarr;
                 </a>
               </div>
             </footer>
@@ -821,103 +899,164 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .researchFindings,
         id="top"
         className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 space-y-24 sm:space-y-32"
       >
-        {/* BOOK TITLE PAGE & PROLOGUE */}
-        <section id="prologue" className="space-y-12 scroll-mt-24">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+        {/* =====================================================================
+            HERO: SUBSTACK-STYLE PERSONAL OPENING + VISUAL FOUR-SCALE JOURNEY MAP
+           ===================================================================== */}
+        <section id="story" className="space-y-10 scroll-mt-24">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             <div className="lg:col-span-7 space-y-6">
               <div className="inline-flex flex-wrap items-center gap-2 text-[#2980b9] text-xs font-mono uppercase tracking-widest">
-                <span>Prologue · Questions Carried Between Fields</span>
+                <span>A Sci-Fi Mind · An Engineer’s Hands</span>
               </div>
 
-              <div className="space-y-4">
-                <h1 className="text-4xl sm:text-5xl lg:text-[54px] font-bold tracking-tight text-slate-900 leading-[1.12] font-serif">
-                  Notes from Research and Practice
+              <div className="space-y-3">
+                <h1 className="text-4xl sm:text-5xl lg:text-[52px] font-bold tracking-tight text-slate-900 leading-[1.12] font-serif">
+                  From a Million Orbiting Stars to the Human Sitting Next to You
                 </h1>
-                <p className="text-xl sm:text-2xl text-[#2980b9] font-serif italic leading-snug">
-                  A personal monograph on stellar dynamics, real-time decision systems, human agency and collaborative institutions.
+                <p className="text-lg sm:text-xl text-[#2980b9] font-serif italic leading-snug">
+                  How computational astrophysics, 50-millisecond decision systems, and Palo Alto field research shaped one question: what helps people think clearly, keep their independence, and build together?
                 </p>
               </div>
 
-              <div className="space-y-4 text-slate-700 font-serif text-[17px] sm:text-[18px] leading-[1.8]">
+              <div className="space-y-4 text-slate-700 font-serif text-[17px] sm:text-[18px] leading-[1.78]">
                 <p>
-                  The subject matter of my work has shifted over the past decade—from simulating binary black hole mergers inside dense globular clusters at the University of Texas at Arlington, to building pricing, recommendation and advertising systems at Uber, Airbnb and SmartNews, to sitting in living rooms and cars with older residents in Palo Alto. Yet the underlying habit has remained the same: state a clear model of how a system behaves, test it against honest feedback, and revise it when reality disagrees.
+                  Ten years ago at the University of Texas at Arlington, I spent my days watching a million virtual stars tug on one another inside supercomputer simulations, waiting billions of years of model time for two black holes to spiral together. Since then, my work has moved closer and closer to everyday human life—from pricing and recommendation engines at Uber, Airbnb, and SmartNews, to sitting in passenger seats with older drivers in Palo Alto testing self-driving cars.
                 </p>
                 <p>
-                  This site is organised as a self-contained book in four chapters. Rather than scattering work across external platforms, every essay, field note and technical specification lives here in full alongside interactive figures that let you inspect the mechanisms directly. Where a piece first appeared in a dissertation archive, Substack, Medium or a code repository, that provenance is noted quietly as a footnote at the end of the text.
+                  Across every change of scale, the habit that works best has stayed the same: <strong>sketch a clear picture of how the system works, test it in the real world, and listen honestly when human experience pushes back</strong>. Every essay, diagram, and interactive sandbox on this site is self-hosted in full so you can explore the ideas directly.
                 </p>
               </div>
 
-              {/* Epigraph / Central Question */}
-              <div className="p-6 rounded-2xl bg-white border border-slate-200/90 shadow-[0_2px_12px_rgba(41,128,185,0.06)] space-y-2">
-                <p className="text-[11px] font-mono uppercase tracking-widest text-[#2980b9] font-semibold">
-                  The Thread Across All Four Chapters
-                </p>
+              {/* Bilingual Soul Quote Card */}
+              <div className="p-5 sm:p-6 rounded-2xl bg-white border border-slate-200/90 shadow-[0_2px_12px_rgba(41,128,185,0.06)] space-y-2">
                 <blockquote className="text-base sm:text-lg text-slate-800 leading-relaxed font-serif italic border-l-3 border-[#1DAEDF] pl-4">
-                  &ldquo;{PERSONA_DATA.centralQuestion}&rdquo;
+                  “我们都在穷尽自己仅有的一点天赋，来表达内心深处的感受”
                 </blockquote>
-                <p className="text-xs text-slate-500 pt-1">
-                  As I wrote in my first Substack note, translating a favourite Chinese line often attributed to Steve Jobs:{" "}
-                  <span className="font-serif italic text-slate-700">
-                    “我们都在穷尽自己仅有的一点天赋，来表达内心深处的感受”
-                  </span>{" "}
-                  — we spend our whole lives exhausting our modest gifts to express what we feel deep in the soul, and to build things that leave society a little more capable and humane.
+                <p className="text-xs sm:text-sm text-slate-600 pl-4 leading-relaxed">
+                  We spend our whole lives exhausting our modest gifts to express what lies deep in the soul—and, as my family motto reminds me, <strong className="text-slate-800">“但行好事，莫问前程”</strong> (do good work wholeheartedly, without fixating on the reward ahead).
                 </p>
               </div>
             </div>
 
-            {/* Book Table of Contents Spine Card */}
+            {/* Right Column: Visual 4-Scale Journey Diagram ("A picture is worth a thousand words") */}
             <div className="lg:col-span-5">
-              <div className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-7 shadow-[0_4px_24px_rgba(15,23,42,0.05)] space-y-5">
-                <div className="flex items-center justify-between border-b border-slate-100 pb-4">
+              <div className="rounded-2xl border border-slate-200 bg-white p-5 sm:p-6 shadow-[0_8px_30px_rgba(15,23,42,0.06)] space-y-4">
+                <div className="flex items-center justify-between border-b border-slate-100 pb-3">
                   <div>
-                    <span className="text-[11px] font-mono uppercase tracking-wider text-[#2980b9] font-semibold block">
-                      Contents of This Book
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-[#2980b9] font-semibold block">
+                      Visual Overview · Click Any Scale to Jump
                     </span>
-                    <h2 className="text-lg font-bold text-slate-900 font-serif mt-0.5">
-                      Two Parts · Four Chapters · 28 Essays
+                    <h2 className="text-base sm:text-lg font-bold text-slate-900 font-serif">
+                      One Thread Across Four Scales of Work
                     </h2>
                   </div>
                   <span className="px-2.5 py-1 rounded-md bg-sky-50 border border-sky-100 text-[11px] font-mono text-[#0369a1] font-medium">
-                    2013 – 2026
+                    28 Essays
                   </span>
                 </div>
 
-                <div className="space-y-3.5">
-                  {BOOK_CHAPTERS.map((ch) => (
+                {/* Self-Explanatory 4-Scale SVG Diagram */}
+                <svg
+                  viewBox="0 0 420 210"
+                  className="w-full h-auto rounded-xl bg-gradient-to-br from-[#0b2034] via-[#102a45] to-[#081827] p-2 border border-sky-900/60"
+                  role="img"
+                  aria-label="Four scales of work: Cosmic N-body gravity, 50ms real-time systems, 1-on-1 human agency, and GCD by LCM civic cooperation"
+                >
+                  {/* Connecting flow line */}
+                  <line x1="58" y1="92" x2="362" y2="92" stroke="#1DAEDF" strokeWidth="1.5" strokeDasharray="4,3" opacity="0.55" />
+
+                  {/* Node 1: Cosmic */}
+                  <g transform="translate(55, 92)">
+                    <circle r="34" fill="#0d2642" stroke="#38bdf8" strokeWidth="1.5" />
+                    <circle r="18" fill="none" stroke="#7dd3fc" strokeWidth="0.9" strokeDasharray="2,2" />
+                    <circle cx="-6" cy="-3" r="4" fill="#f59e0b" />
+                    <circle cx="7" cy="4" r="3.2" fill="#38bdf8" />
+                    <text x="0" y="-44" textAnchor="middle" fill="#7dd3fc" fontSize="9.5" fontFamily="monospace" fontWeight="bold">
+                      01 · COSMIC
+                    </text>
+                    <text x="0" y="50" textAnchor="middle" fill="#ffffff" fontSize="10" fontWeight="bold">
+                      10⁶ Stars
+                    </text>
+                    <text x="0" y="63" textAnchor="middle" fill="#94a3b8" fontSize="8.5" fontFamily="monospace">
+                      13.5 Gyr · LISA
+                    </text>
+                  </g>
+
+                  {/* Node 2: System */}
+                  <g transform="translate(158, 92)">
+                    <circle r="34" fill="#0d2642" stroke="#1DAEDF" strokeWidth="1.5" />
+                    <path d="M -18 -8 L 18 -8 M -18 8 L 18 8" stroke="#38bdf8" strokeWidth="2" strokeLinecap="round" />
+                    <circle cx="-8" cy="-8" r="3.5" fill="#10b981" />
+                    <circle cx="8" cy="8" r="3.5" fill="#f59e0b" />
+                    <text x="0" y="-44" textAnchor="middle" fill="#7dd3fc" fontSize="9.5" fontFamily="monospace" fontWeight="bold">
+                      02 · SYSTEM
+                    </text>
+                    <text x="0" y="50" textAnchor="middle" fill="#ffffff" fontSize="10" fontWeight="bold">
+                      &lt; 50 ms
+                    </text>
+                    <text x="0" y="63" textAnchor="middle" fill="#94a3b8" fontSize="8.5" fontFamily="monospace">
+                      Fast vs. Slow
+                    </text>
+                  </g>
+
+                  {/* Node 3: Human */}
+                  <g transform="translate(262, 92)">
+                    <circle r="34" fill="#0d2642" stroke="#38bdf8" strokeWidth="1.5" />
+                    <circle cx="-9" cy="-4" r="6" fill="none" stroke="#f59e0b" strokeWidth="1.6" />
+                    <circle cx="9" cy="-4" r="6" fill="none" stroke="#38bdf8" strokeWidth="1.6" />
+                    <path d="M -4 8 Q 0 14 4 8" fill="none" stroke="#7dd3fc" strokeWidth="1.5" />
+                    <text x="0" y="-44" textAnchor="middle" fill="#7dd3fc" fontSize="9.5" fontFamily="monospace" fontWeight="bold">
+                      03 · HUMAN
+                    </text>
+                    <text x="0" y="50" textAnchor="middle" fill="#ffffff" fontSize="10" fontWeight="bold">
+                      1-on-1 Agency
+                    </text>
+                    <text x="0" y="63" textAnchor="middle" fill="#94a3b8" fontSize="8.5" fontFamily="monospace">
+                      Seniors &amp; Play
+                    </text>
+                  </g>
+
+                  {/* Node 4: Civic */}
+                  <g transform="translate(365, 92)">
+                    <polygon points="0,-34 30,-17 30,17 0,34 -30,17 -30,-17" fill="#0d2642" stroke="#f59e0b" strokeWidth="1.5" />
+                    <circle r="13" fill="#1DAEDF" fillOpacity="0.35" stroke="#7dd3fc" strokeWidth="1.4" />
+                    <text x="0" y="3" textAnchor="middle" fill="#ffffff" fontSize="7.5" fontFamily="monospace" fontWeight="bold">
+                      GCD
+                    </text>
+                    <text x="0" y="-44" textAnchor="middle" fill="#fbbf24" fontSize="9.5" fontFamily="monospace" fontWeight="bold">
+                      04 · CIVIC
+                    </text>
+                    <text x="0" y="50" textAnchor="middle" fill="#ffffff" fontSize="10" fontWeight="bold">
+                      GCD × LCM
+                    </text>
+                    <text x="0" y="63" textAnchor="middle" fill="#94a3b8" fontSize="8.5" fontFamily="monospace">
+                      Trust &amp; Rhythm
+                    </text>
+                  </g>
+
+                  <text x="210" y="194" textAnchor="middle" fill="#cbd5e1" fontSize="9" fontFamily="sans-serif">
+                    Same first-principles loop: Observe → Model → Test → Empower People
+                  </text>
+                </svg>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                  {NARRATIVE_THEMES.map((t) => (
                     <a
-                      key={ch.id}
-                      href={`#${ch.id}`}
-                      className="block p-3.5 rounded-xl border border-slate-200/80 hover:border-[#1DAEDF] hover:bg-sky-50/40 transition group"
+                      key={t.id}
+                      href={`#${t.id}`}
+                      className="p-3 rounded-xl border border-slate-200/80 hover:border-[#1DAEDF] hover:bg-sky-50/40 transition group flex flex-col justify-between"
                     >
-                      <div className="flex items-center justify-between text-[11px] font-mono text-slate-500 mb-1">
+                      <div className="flex items-center justify-between text-[10px] font-mono text-slate-500">
                         <span className="text-[#2980b9] font-semibold">
-                          CHAPTER {ch.roman}
+                          {t.shortLabel}
                         </span>
-                        <span>{ch.essayUrls.length} essays · {ch.period.split("·")[0]}</span>
+                        <span>{t.essayUrls.length} {t.essayUrls.length === 1 ? "essay" : "essays"}</span>
                       </div>
-                      <h3 className="text-sm font-bold text-slate-900 group-hover:text-[#2980b9] font-serif transition">
-                        {ch.title}
-                      </h3>
-                      <p className="text-xs text-slate-600 mt-1 line-clamp-2 leading-relaxed">
-                        {ch.subtitle}
+                      <p className="text-xs font-bold text-slate-900 group-hover:text-[#2980b9] font-serif mt-1 line-clamp-1">
+                        {t.title}
                       </p>
                     </a>
                   ))}
-                </div>
-
-                <div className="pt-3 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2 text-xs">
-                  <a
-                    href="#constellation"
-                    className="text-[#2980b9] hover:underline font-medium"
-                  >
-                    Interactive Site Map &rarr;
-                  </a>
-                  <a
-                    href="/articles/"
-                    className="text-slate-600 hover:text-[#2980b9] font-mono"
-                  >
-                    Complete Table of Contents &rarr;
-                  </a>
                 </div>
               </div>
             </div>
@@ -925,157 +1064,218 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .researchFindings,
         </section>
 
         {/* =====================================================================
-            CHAPTER I: STELLAR DYNAMICS AND THE PRACTICE OF MODELLING
+            01 · STARS & GRAVITY (COMPUTATIONAL ASTROPHYSICS & LISA)
            ===================================================================== */}
         <section
-          id="chapter-1"
+          id="stars-and-gravity"
           className="space-y-10 scroll-mt-24 pt-8 border-t border-slate-200"
         >
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            <div className="lg:col-span-8 space-y-5">
-              <div className="space-y-2">
-                <span className="text-xs font-mono uppercase tracking-widest text-[#2980b9] font-semibold block">
-                  Part I · Understanding and Building — Chapter I
-                </span>
-                <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 font-serif tracking-tight">
-                  Stellar Dynamics and the Practice of Modelling
-                </h2>
-                <p className="text-base sm:text-lg text-slate-600 font-serif italic">
-                  {BOOK_CHAPTERS[0].subtitle}
-                </p>
-              </div>
-
-              <div className="space-y-4 text-slate-700 font-serif text-[17px] leading-[1.82]">
-                <p>
-                  A globular cluster contains between ten thousand and a million stars packed into a sphere only a few parsecs across. On a human timescale it looks static; on the timescale of its half-mass relaxation time (<code className="text-sm font-mono text-[#0369a1]">τ_rh ≈ 800 Myr</code>), weak two-body gravitational encounters steadily redistribute kinetic energy across the cluster. Heavier stellar remnants—neutron stars and stellar-mass black holes—lose kinetic energy to lighter main-sequence stars and sink toward the dense core through Spitzer mass segregation.
-                </p>
-                <p>
-                  In my doctoral dissertation at the University of Texas at Arlington (<em>Prospective Detection of Binary Black Holes in the Local Universe with Gravitational Waves</em>, July 2018), I synthesised a population of <strong>662,772 globular clusters</strong> across <strong>8,946 galaxies</strong> within <code className="text-sm font-mono text-[#0369a1]">30 Mpc</code> by drawing from <strong>3,240 MOCCA Monte Carlo cluster evolution models</strong>. Tracking 17,883,760 inspiralling binary black holes and 86,939 mergers across <code className="text-sm font-mono text-[#0369a1]">13.5 Gyr</code> (<code className="text-sm font-mono text-[#0369a1]">≈ 16.9 τ_rh</code>) established a lower-bound local merger rate density of <code className="text-sm font-mono text-[#0369a1]">η ≃ 587 Gpc⁻³ yr⁻¹</code> and identified <strong>17 extragalactic standard sirens</strong> localised by the LISA space interferometer to within <code className="text-sm font-mono text-[#0369a1]">ΔV ≤ 1 Mpc³</code>.
-                </p>
-              </div>
-            </div>
-
-            {/* Chapter I Marginalia / Footnote Box */}
-            <aside className="lg:col-span-4 rounded-2xl bg-white border border-slate-200 p-6 space-y-4 shadow-xs">
-              <span className="text-[11px] font-mono uppercase tracking-widest text-[#2980b9] font-semibold block">
-                Chapter I · Marginalia &amp; Findings
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-7 space-y-4">
+              <span className="text-xs font-mono uppercase tracking-widest text-[#2980b9] font-semibold block">
+                {NARRATIVE_THEMES[0].kicker}
               </span>
-              <ul className="space-y-2.5 text-xs text-slate-600 leading-relaxed">
-                <li className="flex items-start gap-2">
-                  <span className="text-[#1DAEDF] font-bold">¹</span>
-                  <span>
-                    <strong>Local Merger Rate:</strong> <code className="font-mono text-[#0369a1]">η ≃ 587 Gpc⁻³ yr⁻¹</code> derived from 3,240 MOCCA models across 662,772 globular clusters within 30 Mpc.
-                  </span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-[#1DAEDF] font-bold">²</span>
-                  <span>
-                    <strong>LISA Standard Sirens:</strong> 17 dynamically formed BBHs localised within <code className="font-mono text-[#0369a1]">ΔV ≤ 1 Mpc³</code> (including 4 systems in PGC 1628) for independent Hubble constant (<code className="font-mono">H₀</code>) constraints.
-                  </span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-[#1DAEDF] font-bold">³</span>
-                  <span>
-                    <strong>Practical carryover:</strong> Separating fast local interactions (three-body encounters) from slow global relaxation (<code className="font-mono">t / τ_rh</code>) directly shaped how I later architected real-time vs. asynchronous machine learning loops.
-                  </span>
-                </li>
-              </ul>
-              <div className="pt-3 border-t border-slate-100 flex flex-wrap gap-3 text-xs">
+              <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 font-serif tracking-tight">
+                {NARRATIVE_THEMES[0].title}
+              </h2>
+              <p className="text-base sm:text-lg text-slate-600 font-serif italic">
+                {NARRATIVE_THEMES[0].subtitle}
+              </p>
+
+              <div className="space-y-3.5 text-slate-700 font-serif text-[17px] leading-[1.78]">
+                <p>
+                  Look at a globular cluster through a backyard telescope and it appears frozen—a quiet snow globe of a million stars packed into a sphere a few parsecs wide. Speed up the clock to an 800-million-year relaxation time (<code className="text-sm font-mono text-[#0369a1]">τ_rh</code>), however, and that snow globe turns into a restless gravitational engine. Heavy black holes lose kinetic energy to lighter stars, sink to the core, and lock into tight binary dances.
+                </p>
+                <p>
+                  In my doctoral work at UT Arlington, I ran and synthesized <strong>3,240 MOCCA cluster simulations</strong> across <strong>8,946 galaxies</strong> within 30 Mpc. That cosmic census revealed <strong>17.88 million inspiralling binary black holes</strong>, a local merger rate of <code className="text-sm font-mono text-[#0369a1]">η ≃ 587 Gpc⁻³ yr⁻¹</code>, and <strong>17 LISA “standard sirens”</strong> pinpointed tightly enough (<code className="text-sm font-mono text-[#0369a1]">ΔV ≤ 1 Mpc³</code>) to measure the expansion of the universe independently of starlight.
+                </p>
+              </div>
+
+              <div className="flex flex-wrap gap-3 pt-1 text-xs">
                 <button
                   onClick={() =>
-                    openEssayInBook(
+                    openEssayReader(
                       "/articles/research/astrophysics-bbh-dissertation.html"
                     )
                   }
-                  className="px-3.5 py-2 rounded-xl bg-[#2980b9] hover:bg-[#20638f] text-white font-medium transition cursor-pointer"
+                  className="px-4 py-2 rounded-xl bg-[#2980b9] hover:bg-[#20638f] text-white font-medium transition cursor-pointer shadow-xs"
                 >
-                  Read Dissertation Chapter
+                  Read the Illustrated Astrophysics Essay &rarr;
                 </button>
                 <a
                   href={GC_RESEARCH_FINDINGS.dissertationPdfUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-3.5 py-2 rounded-xl border border-slate-200 hover:border-[#1DAEDF] text-slate-700 hover:text-[#2980b9] font-medium transition"
+                  className="px-4 py-2 rounded-xl border border-slate-200 hover:border-[#1DAEDF] text-slate-700 hover:text-[#2980b9] font-medium transition bg-white"
                 >
-                  Full Thesis PDF ↗
+                  2018 Dissertation PDF ↗
                 </a>
               </div>
-            </aside>
+            </div>
+
+            {/* Right Column: Visual 4-Stage Cosmic Funnel SVG (Replaces text-heavy Marginalia) */}
+            <div className="lg:col-span-5">
+              <div className="rounded-2xl bg-white border border-slate-200 p-5 shadow-xs space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-[11px] font-mono uppercase tracking-widest text-[#2980b9] font-semibold">
+                    From Local Galaxies to LISA Standard Sirens
+                  </span>
+                  <span className="text-[11px] font-mono text-slate-500">
+                    D ≤ 30 Mpc
+                  </span>
+                </div>
+
+                <svg
+                  viewBox="0 0 400 250"
+                  className="w-full h-auto"
+                  role="img"
+                  aria-label="Cosmic synthesis funnel: 8,946 galaxies to 662,772 globular clusters to 17.88M binary black holes to 17 LISA standard sirens"
+                >
+                  {/* Step 1 */}
+                  <rect x="12" y="10" width="376" height="46" rx="10" fill="#f0f9ff" stroke="#bae6fd" strokeWidth="1.2" />
+                  <circle cx="40" cy="33" r="14" fill="#0284c7" />
+                  <text x="40" y="37" textAnchor="middle" fill="#ffffff" fontSize="10" fontFamily="monospace" fontWeight="bold">01</text>
+                  <text x="66" y="29" fill="#0f172a" fontSize="12" fontWeight="bold">8,946 Local Universe Galaxies</text>
+                  <text x="66" y="44" fill="#475569" fontSize="10" fontFamily="monospace">Catalogued within 30 Mpc · Luminosity &amp; morphological scaling</text>
+
+                  <path d="M 200 56 L 200 68" stroke="#0284c7" strokeWidth="1.8" />
+
+                  {/* Step 2 */}
+                  <rect x="28" y="68" width="344" height="46" rx="10" fill="#e0f2fe" stroke="#7dd3fc" strokeWidth="1.2" />
+                  <circle cx="56" cy="91" r="14" fill="#0369a1" />
+                  <text x="56" y="95" textAnchor="middle" fill="#ffffff" fontSize="10" fontFamily="monospace" fontWeight="bold">02</text>
+                  <text x="82" y="87" fill="#0f172a" fontSize="12" fontWeight="bold">662,772 Globular Clusters</text>
+                  <text x="82" y="102" fill="#334155" fontSize="10" fontFamily="monospace">Populated via 3,240 MOCCA N-body runs (25k TACC node-hrs)</text>
+
+                  <path d="M 200 114 L 200 126" stroke="#0369a1" strokeWidth="1.8" />
+
+                  {/* Step 3 */}
+                  <rect x="46" y="126" width="308" height="46" rx="10" fill="#0c2138" stroke="#1DAEDF" strokeWidth="1.2" />
+                  <circle cx="74" cy="149" r="14" fill="#1DAEDF" />
+                  <text x="74" y="153" textAnchor="middle" fill="#081827" fontSize="10" fontFamily="monospace" fontWeight="bold">03</text>
+                  <text x="100" y="145" fill="#ffffff" fontSize="12" fontWeight="bold">17.88M Binary Black Holes</text>
+                  <text x="100" y="160" fill="#7dd3fc" fontSize="10" fontFamily="monospace">86,939 mergers · Lower-bound rate η ≃ 587 Gpc⁻³ yr⁻¹</text>
+
+                  <path d="M 200 172 L 200 184" stroke="#f59e0b" strokeWidth="1.8" />
+
+                  {/* Step 4 */}
+                  <rect x="68" y="184" width="264" height="52" rx="10" fill="#081827" stroke="#f59e0b" strokeWidth="1.6" />
+                  <circle cx="96" cy="210" r="14" fill="#f59e0b" />
+                  <text x="96" y="214" textAnchor="middle" fill="#081827" fontSize="10" fontFamily="monospace" fontWeight="bold">04</text>
+                  <text x="120" y="205" fill="#fbbf24" fontSize="12" fontWeight="bold">17 LISA Standard Sirens</text>
+                  <text x="120" y="221" fill="#e2e8f0" fontSize="9.5" fontFamily="monospace">Pinpointed to ΔV ≤ 1 Mpc³ for H₀ cosmology</text>
+                </svg>
+              </div>
+            </div>
           </div>
 
-          {/* Figure 1.1: Dedicated Globular Cluster & LISA Simulation */}
+          {/* 3D Globular Cluster & LISA Simulation */}
           <div id="gc-simulation" className="space-y-3 scroll-mt-24">
-            <div className="flex flex-wrap items-center justify-between gap-2">
-              <span className="text-xs font-mono uppercase tracking-wider text-slate-500">
-                Figure 1.1 · Interactive Globular Cluster Relaxation (t / τ_rh) &amp; LISA Gravitational-Wave Observatory
-              </span>
-              <span className="text-xs font-mono text-[#0369a1]">
-                Drag to orbit · Pause or scrub evolutionary epoch · Inspect binary strain
-              </span>
-            </div>
-            <GlobularClusterSimulation onOpenEssay={openEssayInBook} />
+            <GlobularClusterSimulation onOpenEssay={openEssayReader} />
           </div>
         </section>
 
         {/* =====================================================================
-            CHAPTER II: DECISIONS UNDER CONSTRAINTS
+            02 · 50ms DECISIONS (TRAFFIC LIGHTS, MARKETPLACES & AD CONTROL PLANES)
            ===================================================================== */}
         <section
-          id="chapter-2"
+          id="realtime-decisions"
           className="space-y-10 scroll-mt-24 pt-8 border-t border-slate-200"
         >
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            <div className="lg:col-span-8 space-y-5">
-              <div className="space-y-2">
-                <span className="text-xs font-mono uppercase tracking-widest text-[#2980b9] font-semibold block">
-                  Part I · Understanding and Building — Chapter II
-                </span>
-                <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 font-serif tracking-tight">
-                  Decisions Under Constraints
-                </h2>
-                <p className="text-base sm:text-lg text-slate-600 font-serif italic">
-                  {BOOK_CHAPTERS[1].subtitle}
-                </p>
-              </div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-7 space-y-4">
+              <span className="text-xs font-mono uppercase tracking-widest text-[#2980b9] font-semibold block">
+                {NARRATIVE_THEMES[1].kicker}
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 font-serif tracking-tight">
+                {NARRATIVE_THEMES[1].title}
+              </h2>
+              <p className="text-base sm:text-lg text-slate-600 font-serif italic">
+                {NARRATIVE_THEMES[1].subtitle}
+              </p>
 
-              <div className="space-y-4 text-slate-700 font-serif text-[17px] leading-[1.82]">
+              <div className="space-y-3.5 text-slate-700 font-serif text-[17px] leading-[1.78]">
                 <p>
-                  Moving from computational astrophysics into industrial machine learning meant trading clean conservation laws for noisy human feedback and strict latency budgets. Waiting at a red light at an empty intersection one morning prompted the essay <em>From Traffic Lights to Life’s Direction</em>: why do cities still rely on rigid fixed-cycle timers when even partial crowdsourced telemetry from approaching vehicles, paired with symbolic physical constraints (such as Stephen Wolfram’s proposals for hybrid neural-symbolic reasoning), can infer phase states and dynamically clear queues?
+                  Sitting at a red light at an empty intersection one morning, I found myself doing the math: why do cities still run intersections on blind, fixed timers when approaching cars already carry GPS sensors? Even if only a fraction of vehicles share telemetry, pairing that sparse data with physical conservation laws (like Stephen Wolfram’s symbolic-neural hybrids) lets a system infer queue lengths and clear traffic dynamically.
                 </p>
                 <p>
-                  The same structural tension appears at scale in digital marketplaces and advertising. At Uber, Airbnb and SmartNews, and later in the open architectural specification <code className="text-sm font-mono text-[#0369a1]">Observations_in_Advertising</code>, the central engineering lesson was to decouple the <strong>synchronous serving hot-path</strong> (targeted at <code className="text-sm font-mono text-[#0369a1]">&lt;50 ms p99</code>) from the <strong>asynchronous multi-agent control plane</strong>. Rather than treating advertising as high-frequency guesswork that exhausts user attention, an eight-agent control plane can continuously profile genuine demand, pace frequency and audit creative ergonomics—much as my essay on <em>Dark Mode</em> argues against shipping superficial visual trends without testing their optical and cognitive cost on human readers.
+                  I ran into the exact same structural puzzle working on marketplace pricing and advertising systems at Uber, Airbnb, and SmartNews. When you have <strong>less than 50 milliseconds</strong> to serve a decision, you cannot run deep reasoning on the hot path—and if you only optimize for immediate clicks, you burn out user trust. The solution is a <strong>two-speed architecture</strong>: a lightweight, safety-bounded reflex lane (<code className="text-sm font-mono text-[#0369a1]">&lt;50 ms p99</code>) steered by an asynchronous 8-agent reflection loop that recalibrates real user demand and creative fatigue every few minutes.
                 </p>
               </div>
             </div>
 
-            {/* Chapter II Marginalia */}
-            <aside className="lg:col-span-4 rounded-2xl bg-white border border-slate-200 p-6 space-y-4 shadow-xs">
-              <span className="text-[11px] font-mono uppercase tracking-widest text-[#2980b9] font-semibold block">
-                Chapter II · Marginalia &amp; Scope Note
-              </span>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                <strong>Epistemic distinction:</strong> Production work at Uber, Airbnb and SmartNews informed the architectural patterns discussed here. The 8-agent advertising control plane (<code className="font-mono text-[#0369a1]">Observations_in_Advertising</code>) is an open reference specification whose <code className="font-mono">&lt;50 ms p99</code> serving budget and asynchronous loop cadence represent explicit engineering design targets.
-              </p>
-              <div className="p-3.5 rounded-xl bg-sky-50/70 border border-sky-100 text-xs text-slate-700 space-y-1">
-                <span className="font-mono text-[10px] uppercase tracking-wider text-[#0369a1] font-semibold block">
-                  Recurring Principle
-                </span>
-                <p>
-                  Pair statistical learning (to estimate noisy human intent) with explicit physical or economic invariants (to bound tail failures).
-                </p>
+            {/* Right Column: Visual Two-Speed Architecture SVG */}
+            <div className="lg:col-span-5">
+              <div className="rounded-2xl bg-white border border-slate-200 p-5 shadow-xs space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-[11px] font-mono uppercase tracking-widest text-[#2980b9] font-semibold">
+                    The Two-Speed Decision Pattern
+                  </span>
+                  <span className="text-[11px] font-mono text-slate-500">
+                    Reflex vs. Reflection
+                  </span>
+                </div>
+
+                <svg
+                  viewBox="0 0 400 220"
+                  className="w-full h-auto"
+                  role="img"
+                  aria-label="Two-speed decision architecture comparing the sub-50ms synchronous reflex path with the multi-minute 8-agent asynchronous control loop"
+                >
+                  {/* Top Lane: Fast Reflex (<50ms) */}
+                  <rect x="12" y="14" width="376" height="74" rx="12" fill="#f0f9ff" stroke="#38bdf8" strokeWidth="1.5" />
+                  <text x="26" y="34" fill="#0369a1" fontSize="10" fontFamily="monospace" fontWeight="bold">
+                    FAST REFLEX LANE · SYNCHRONOUS (&lt; 50 ms p99)
+                  </text>
+                  <g transform="translate(26, 44)">
+                    <rect x="0" y="0" width="96" height="30" rx="6" fill="#ffffff" stroke="#7dd3fc" />
+                    <text x="48" y="19" textAnchor="middle" fill="#0f172a" fontSize="10" fontWeight="bold">Request / Car</text>
+                    <path d="M 98 15 L 122 15" stroke="#0284c7" strokeWidth="1.6" />
+                    <rect x="124" y="0" width="104" height="30" rx="6" fill="#0284c7" />
+                    <text x="176" y="19" textAnchor="middle" fill="#ffffff" fontSize="10" fontWeight="bold">Safety + Rank</text>
+                    <path d="M 230 15 L 254 15" stroke="#0284c7" strokeWidth="1.6" />
+                    <rect x="256" y="0" width="92" height="30" rx="6" fill="#10b981" />
+                    <text x="302" y="19" textAnchor="middle" fill="#ffffff" fontSize="10" fontWeight="bold">Serve Decision</text>
+                  </g>
+
+                  {/* Feedback arrows between lanes */}
+                  <path d="M 310 88 L 310 118" stroke="#f59e0b" strokeWidth="1.6" strokeDasharray="3,2" />
+                  <text x="348" y="107" textAnchor="middle" fill="#b45309" fontSize="8.5" fontFamily="monospace">Telemetry</text>
+                  <path d="M 95 118 L 95 88" stroke="#0284c7" strokeWidth="1.6" strokeDasharray="3,2" />
+                  <text x="54" y="107" textAnchor="middle" fill="#0369a1" fontSize="8.5" fontFamily="monospace">Updated Priors</text>
+
+                  {/* Bottom Lane: Slow Reflection (Minutes) */}
+                  <rect x="12" y="118" width="376" height="88" rx="12" fill="#0b2034" stroke="#1DAEDF" strokeWidth="1.5" />
+                  <text x="26" y="139" fill="#fbbf24" fontSize="10" fontFamily="monospace" fontWeight="bold">
+                    SLOW REFLECTION LANE · ASYNCHRONOUS (MINUTES / HOURS)
+                  </text>
+                  <g transform="translate(26, 148)">
+                    <rect x="0" y="0" width="108" height="42" rx="6" fill="#102a45" stroke="#38bdf8" strokeWidth="0.8" />
+                    <text x="54" y="17" textAnchor="middle" fill="#ffffff" fontSize="9.5" fontWeight="bold">Demand &amp; Flow</text>
+                    <text x="54" y="31" textAnchor="middle" fill="#7dd3fc" fontSize="8.5" fontFamily="monospace">Symbolic Solver</text>
+
+                    <rect x="120" y="0" width="108" height="42" rx="6" fill="#102a45" stroke="#38bdf8" strokeWidth="0.8" />
+                    <text x="174" y="17" textAnchor="middle" fill="#ffffff" fontSize="9.5" fontWeight="bold">Fatigue &amp; Pacing</text>
+                    <text x="174" y="31" textAnchor="middle" fill="#7dd3fc" fontSize="8.5" fontFamily="monospace">Ergonomic Guard</text>
+
+                    <rect x="240" y="0" width="108" height="42" rx="6" fill="#102a45" stroke="#f59e0b" strokeWidth="0.8" />
+                    <text x="294" y="17" textAnchor="middle" fill="#fbbf24" fontSize="9.5" fontWeight="bold">Causal Audit</text>
+                    <text x="294" y="31" textAnchor="middle" fill="#cbd5e1" fontSize="8.5" fontFamily="monospace">8-Agent Loop</text>
+                  </g>
+                </svg>
               </div>
-            </aside>
+            </div>
           </div>
 
-          {/* Figure 2.1: Interactive Explorable Diagram for Chapter II */}
+          {/* Interactive Two-Speed System Sandbox */}
           <figure className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm space-y-6">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-4">
               <div>
                 <span className="text-[11px] font-mono uppercase tracking-widest text-[#2980b9] font-semibold block">
-                  Figure 2.1 · Illustrative Trade-Off Explorer
+                  Interactive System Sandbox
                 </span>
                 <h3 className="text-lg sm:text-xl font-bold text-slate-900 font-serif mt-0.5">
-                  Fast Serving vs. Slow Coordination in Constrained Decision Systems
+                  Explore the Trade-Off: Fast Serving vs. Slow Coordination
                 </h3>
               </div>
               <div className="inline-flex rounded-xl bg-slate-100 p-1 text-xs font-medium self-start">
@@ -1087,7 +1287,7 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .researchFindings,
                       : "text-slate-600 hover:text-slate-900"
                   }`}
                 >
-                  8-Agent Advertising Control Plane
+                  8-Agent Advertising Loop
                 </button>
                 <button
                   onClick={() => setFig2Mode("traffic")}
@@ -1097,7 +1297,7 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .researchFindings,
                       : "text-slate-600 hover:text-slate-900"
                   }`}
                 >
-                  Crowdsourced Traffic Intersection
+                  Smart Traffic Intersection
                 </button>
               </div>
             </div>
@@ -1108,7 +1308,7 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .researchFindings,
                   <div className="space-y-4">
                     <div>
                       <div className="flex justify-between text-xs font-mono text-slate-700 mb-1">
-                        <span>Synchronous Hot-Path Budget (p99)</span>
+                        <span>Fast-Lane Latency Budget (p99)</span>
                         <span className="text-[#2980b9] font-semibold">{fig2LatencyBudget} ms</span>
                       </div>
                       <input
@@ -1117,13 +1317,13 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .researchFindings,
                         max={80}
                         value={fig2LatencyBudget}
                         onChange={(e) => setFig2LatencyBudget(Number(e.target.value))}
-                        aria-label="Synchronous hot-path p99 latency budget in milliseconds"
+                        aria-label="Fast-lane p99 latency budget in milliseconds"
                         className="w-full accent-[#2980b9] cursor-pointer"
                       />
                     </div>
                     <div>
                       <div className="flex justify-between text-xs font-mono text-slate-700 mb-1">
-                        <span>Demand-Feedback Signal Coverage</span>
+                        <span>Explicit User Preference Signal</span>
                         <span className="text-[#2980b9] font-semibold">{fig2Participation}%</span>
                       </div>
                       <input
@@ -1132,7 +1332,7 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .researchFindings,
                         max={95}
                         value={fig2Participation}
                         onChange={(e) => setFig2Participation(Number(e.target.value))}
-                        aria-label="Demand-feedback signal coverage percentage"
+                        aria-label="Explicit user preference signal percentage"
                         className="w-full accent-[#2980b9] cursor-pointer"
                       />
                     </div>
@@ -1141,7 +1341,7 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .researchFindings,
                   <div className="space-y-4">
                     <div>
                       <div className="flex justify-between text-xs font-mono text-slate-700 mb-1">
-                        <span>Approaching Vehicles Sharing Telemetry</span>
+                        <span>Approaching Cars Sharing Telemetry</span>
                         <span className="text-[#2980b9] font-semibold">{fig2Participation}%</span>
                       </div>
                       <input
@@ -1185,50 +1385,67 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .researchFindings,
                 </div>
               </div>
 
-              <div className="lg:col-span-7 p-5 rounded-xl bg-[#0b2034] text-sky-100 space-y-3 font-mono text-xs">
-                <div className="flex items-center justify-between text-[11px] text-sky-300 border-b border-sky-800/70 pb-2">
-                  <span>
+              {/* Dynamic Visual SVG Readout */}
+              <div className="lg:col-span-7 p-5 rounded-xl bg-[#0b2034] text-sky-100 space-y-3">
+                <svg
+                  viewBox="0 0 460 120"
+                  className="w-full h-auto"
+                  role="img"
+                  aria-label="Live visual meter of fast lane latency and slow lane signal quality"
+                >
+                  {/* Fast lane bar */}
+                  <text x="10" y="24" fill="#7dd3fc" fontSize="10" fontFamily="monospace">
+                    {fig2Mode === "ad-plane" ? `HOT PATH SLA (${fig2LatencyBudget}ms / 80ms)` : `CONNECTED TELEMETRY (${fig2Participation}%)`}
+                  </text>
+                  <rect x="10" y="32" width="440" height="14" rx="7" fill="#071524" stroke="#1e293b" />
+                  <rect
+                    x="10"
+                    y="32"
+                    width={Math.round(
+                      440 *
+                        (fig2Mode === "ad-plane"
+                          ? fig2LatencyBudget / 80
+                          : fig2Participation / 100)
+                    )}
+                    height="14"
+                    rx="7"
+                    fill="#38bdf8"
+                  />
+
+                  {/* Slow lane / Outcome bar */}
+                  <text x="10" y="74" fill="#fbbf24" fontSize="10" fontFamily="monospace">
                     {fig2Mode === "ad-plane"
-                      ? "ARCHITECTURE: HOT SERVING PATH vs. ASYNC AGENT LOOP"
-                      : "HYBRID INFERENCE: SPARSE TELEMETRY + SYMBOLIC CONSERVATION"}
-                  </span>
-                  <span className="text-[#1DAEDF]">HEURISTIC SCALING MODEL</span>
-                </div>
-                <p className="text-sm font-sans font-semibold text-white">
+                      ? `USER FATIGUE REDUCTION & RELEVANCE LIFT`
+                      : `INTERSECTION QUEUE CLEARANCE EFFICIENCY`}
+                  </text>
+                  <rect x="10" y="82" width="440" height="14" rx="7" fill="#071524" stroke="#1e293b" />
+                  <rect
+                    x="10"
+                    y="82"
+                    width={Math.round(440 * (0.25 + (fig2Participation / 100) * 0.7))}
+                    height="14"
+                    rx="7"
+                    fill="#10b981"
+                  />
+                </svg>
+
+                <p className="text-sm font-semibold text-white">
                   {fig2Stats.headline}
                 </p>
-                <p className="text-xs font-sans text-sky-200/90 leading-relaxed">
+                <p className="text-xs text-sky-200/90 leading-relaxed">
                   {fig2Stats.subline}
                 </p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2 text-[11px]">
-                  <div className="p-2.5 rounded-lg bg-sky-950/80 border border-sky-800/60">
-                    <span className="text-[#1DAEDF] block font-semibold mb-0.5">
-                      Fast Local Loop (Milliseconds)
-                    </span>
-                    {fig2Mode === "ad-plane"
-                      ? "Candidate retrieval, lightweight ranking & hard safety filters within strict p99 SLA."
-                      : "Local vehicle stop/go kinematics and collision-avoidance invariants at the intersection."}
-                  </div>
-                  <div className="p-2.5 rounded-lg bg-sky-950/80 border border-sky-800/60">
-                    <span className="text-amber-300 block font-semibold mb-0.5">
-                      Slow Structural Loop (Minutes)
-                    </span>
-                    {fig2Mode === "ad-plane"
-                      ? "8 specialised agents recalibrate demand taxonomy, pacing priors and creative fatigue weights."
-                      : "Symbolic flow solver aggregates multi-block arrival waves to adapt green-phase splits."}
-                  </div>
-                </div>
               </div>
             </div>
           </figure>
 
-          {/* Chapter II Primary Essays Shelf */}
+          {/* Act 02 Essays Shelf */}
           <div className="space-y-3">
             <h3 className="text-xs font-mono uppercase tracking-widest text-slate-500 font-semibold">
-              Chapter II · Essays &amp; Technical Specifications
+              Essays &amp; Architecture Notes in This Section
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {BOOK_CHAPTERS[1].essayUrls.map((url) => {
+              {NARRATIVE_THEMES[1].essayUrls.map((url) => {
                 const entry = BOOK_ESSAYS_BY_URL[url];
                 const writing = WRITINGS_DATA.find((w) => w.localUrl === url);
                 if (!entry) return null;
@@ -1237,7 +1454,7 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .researchFindings,
                     key={url}
                     role="button"
                     tabIndex={0}
-                    onClick={() => openEssayInBook(url)}
+                    onClick={() => openEssayReader(url)}
                     onKeyDown={(e) => handleCardKeyDown(e, url)}
                     className="p-5 rounded-2xl bg-white border border-slate-200 hover:border-[#1DAEDF] focus:outline-none focus:ring-2 focus:ring-[#1DAEDF] transition flex flex-col justify-between space-y-4 cursor-pointer shadow-xs hover:shadow-md group"
                   >
@@ -1245,7 +1462,7 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .researchFindings,
                       <div className="flex items-center justify-between text-[11px] font-mono text-slate-500">
                         <span>{entry.date}</span>
                         <span className="text-[#2980b9] group-hover:translate-x-0.5 transition">
-                          Read in book &rarr;
+                          Read essay &rarr;
                         </span>
                       </div>
                       <h4 className="text-base font-bold text-slate-900 group-hover:text-[#2980b9] font-serif leading-snug transition">
@@ -1259,14 +1476,12 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .researchFindings,
                       className="pt-3 border-t border-slate-100 text-[11px] text-slate-400 flex items-center justify-between gap-2"
                       onClick={(e) => e.stopPropagation()}
                     >
-                      <span className="truncate">
-                        Footnote: {entry.venue}
-                      </span>
+                      <span className="truncate">{entry.venue}</span>
                       <a
                         href={entry.url}
                         className="font-mono text-[#0369a1] hover:underline shrink-0"
                       >
-                        Page ↗
+                        Full page ↗
                       </a>
                     </div>
                   </article>
@@ -1277,73 +1492,123 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .researchFindings,
         </section>
 
         {/* =====================================================================
-            CHAPTER III: HUMAN AGENCY, OLDER PEOPLE'S INDEPENDENCE & LIFELONG PLAY
+            03 · HUMAN AGENCY (PALO ALTO SENIORS, PLAY & LOCAL AI)
            ===================================================================== */}
         <section
-          id="chapter-3"
+          id="human-agency"
           className="space-y-10 scroll-mt-24 pt-8 border-t border-slate-200"
         >
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            <div className="lg:col-span-8 space-y-5">
-              <div className="space-y-2">
-                <span className="text-xs font-mono uppercase tracking-widest text-[#2980b9] font-semibold block">
-                  Part II · Living and Working Together — Chapter III
-                </span>
-                <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 font-serif tracking-tight">
-                  Human Agency, Older People’s Independence and Lifelong Play
-                </h2>
-                <p className="text-base sm:text-lg text-slate-600 font-serif italic">
-                  {BOOK_CHAPTERS[2].subtitle}
-                </p>
-              </div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-7 space-y-4">
+              <span className="text-xs font-mono uppercase tracking-widest text-[#2980b9] font-semibold block">
+                {NARRATIVE_THEMES[2].kicker}
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 font-serif tracking-tight">
+                {NARRATIVE_THEMES[2].title}
+              </h2>
+              <p className="text-base sm:text-lg text-slate-600 font-serif italic">
+                {NARRATIVE_THEMES[2].subtitle}
+              </p>
 
-              <div className="space-y-4 text-slate-700 font-serif text-[17px] leading-[1.82]">
+              <div className="space-y-3.5 text-slate-700 font-serif text-[17px] leading-[1.78]">
                 <p>
-                  In late 2024 I stepped out of pure software loops to begin field research in Palo Alto under a simple working name—<em>Kin Domi</em>—listening to older adults talk about how they navigate daily life, mobility and technology. Riding along with senior drivers testing Tesla’s Full Self-Driving (FSD) revealed a striking paradox: older drivers have the most to gain from autonomous mobility—returning the freedom to visit friends after dark without feeling like a burden on family—yet cockpit interfaces are almost universally calibrated for thirty-year-old engineers. Sudden visual takeover chimes, cryptic icons and unforgiving voice-command syntax create anxiety precisely when calm clarity is needed.
+                  In late 2024 I stepped outside pure software loops to start <em>Kin Domi</em> in Palo Alto—spending afternoons in living rooms, community centers, and passenger seats with older adults. Watching seniors use Tesla’s Full Self-Driving (FSD) showed me something no benchmark captures: older drivers have the most to gain from autonomous mobility, yet cockpit alerts are built for thirty-year-old engineers. Sudden takeover chimes and tiny icons create panic at the exact moment calm reassurance is needed.
                 </p>
                 <p>
-                  A second lesson came when I published <em>Reclaiming Play as a Life Skill</em>. Several older readers pushed back thoughtfully on the word “play,” noting that to their generation it sounded frivolous or childish. That disagreement was a gift: what they valued was not “play” as idle amusement, but <strong>unhurried curiosity, dignified self-reliance and the freedom to experiment without fear of embarrassment</strong>. Whether in <code className="text-sm font-mono text-[#0369a1]">Open Learning Lab</code> (which structures AI around first-principles human attempts rather than passive answer generation), <code className="text-sm font-mono text-[#0369a1]">baby-AI</code> (privacy-first household intelligence kept on local hardware), or <code className="text-sm font-mono text-[#0369a1]">iMessage AI Router</code> (meeting people inside the plain-text SMS/iMessage channel they already know), the goal is identical: technology should widen human agency, never domesticate it.
+                  When I wrote <em>Reclaiming Play as a Life Skill</em>, several older readers gently told me they disliked the word “play” because it sounded childish. That conversation reshaped how I build: what people want at every age is <strong>dignified self-reliance, low-stakes curiosity, and a partner that respects their judgment</strong>—whether in <code className="text-sm font-mono text-[#0369a1]">Open Learning Lab</code>, <code className="text-sm font-mono text-[#0369a1]">baby-AI</code>, or <code className="text-sm font-mono text-[#0369a1]">iMessage AI Router</code>.
                 </p>
               </div>
             </div>
 
-            {/* Chapter III Marginalia */}
-            <aside className="lg:col-span-4 rounded-2xl bg-white border border-slate-200 p-6 space-y-4 shadow-xs">
-              <span className="text-[11px] font-mono uppercase tracking-widest text-[#2980b9] font-semibold block">
-                Chapter III · Field Notes &amp; Prototypes
-              </span>
-              <ul className="space-y-2.5 text-xs text-slate-600 leading-relaxed">
-                <li className="flex items-start gap-2">
-                  <span className="text-[#1DAEDF] font-bold">¹</span>
-                  <span>
-                    <strong>Kin Domi (Palo Alto):</strong> Community conversations with older adults on ageing in place, autonomous driving ergonomics and scam-resilient communication.
+            {/* Right Column: Visual Branching Agency Diagram SVG */}
+            <div className="lg:col-span-5">
+              <div className="rounded-2xl bg-white border border-slate-200 p-5 shadow-xs space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-[11px] font-mono uppercase tracking-widest text-[#2980b9] font-semibold">
+                    Shortcut AI vs. Sparring Partner AI
                   </span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-[#1DAEDF] font-bold">²</span>
-                  <span>
-                    <strong>Open Learning Lab:</strong> A 5-stage learning protocol (Frame → Attempt → Critique → Revise → Reflect) built to prevent cognitive offloading.
+                  <span className="text-[11px] font-mono text-slate-500">
+                    Retention &amp; Dignity
                   </span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-[#1DAEDF] font-bold">³</span>
-                  <span>
-                    <strong>Household &amp; Low-Friction Channels:</strong> <code className="font-mono text-[#0369a1]">baby-AI</code> (edge-first architecture specification) and <code className="font-mono text-[#0369a1]">imessage-ai-router</code> (zero-install text assistant).
-                  </span>
-                </li>
-              </ul>
-            </aside>
+                </div>
+
+                <svg
+                  viewBox="0 0 400 220"
+                  className="w-full h-auto"
+                  role="img"
+                  aria-label="Comparison between passive shortcut AI that causes skill atrophy and the 5-stage sparring partner loop that builds durable human agency"
+                >
+                  {/* Top Path: Shortcut Loop */}
+                  <rect x="12" y="14" width="376" height="68" rx="12" fill="#fff1f2" stroke="#fda4af" strokeWidth="1.2" />
+                  <text x="26" y="34" fill="#be123c" fontSize="10" fontFamily="monospace" fontWeight="bold">
+                    PATH A · PASSIVE SHORTCUT (ANSWER-FIRST AUTOMATION)
+                  </text>
+                  <text x="26" y="56" fill="#881337" fontSize="11" fontWeight="bold">
+                    Prompt → Instant Answer → Copy-Paste → Skill Atrophy
+                  </text>
+                  <text x="26" y="71" fill="#9f1239" fontSize="9.5" fontFamily="monospace">
+                    Illusion of competence · Sudden cockpit takeover panic
+                  </text>
+
+                  {/* Bottom Path: Agency Loop */}
+                  <rect x="12" y="96" width="376" height="112" rx="12" fill="#0b2034" stroke="#1DAEDF" strokeWidth="1.5" />
+                  <text x="26" y="117" fill="#7dd3fc" fontSize="10" fontFamily="monospace" fontWeight="bold">
+                    PATH B · AGENCY-PRESERVING SPARRING LOOP (JUDGMENT-FIRST)
+                  </text>
+
+                  {[
+                    { x: 48, lbl: "1. Frame" },
+                    { x: 124, lbl: "2. Try" },
+                    { x: 200, lbl: "3. Spar" },
+                    { x: 276, lbl: "4. Revise" },
+                    { x: 352, lbl: "5. Own" },
+                  ].map((node, i) => (
+                    <g
+                      key={i}
+                      transform={`translate(${node.x}, 152)`}
+                      onClick={() => setFig3StageIndex(i)}
+                      className="cursor-pointer"
+                    >
+                      {i < 4 && (
+                        <line x1="26" y1="0" x2="50" y2="0" stroke="#38bdf8" strokeWidth="1.5" />
+                      )}
+                      <circle
+                        r="23"
+                        fill={fig3StageIndex === i ? "#f59e0b" : "#102a45"}
+                        stroke={fig3StageIndex === i ? "#ffffff" : "#38bdf8"}
+                        strokeWidth="1.5"
+                      />
+                      <text
+                        x="0"
+                        y="4"
+                        textAnchor="middle"
+                        fill={fig3StageIndex === i ? "#081827" : "#ffffff"}
+                        fontSize="9"
+                        fontFamily="monospace"
+                        fontWeight="bold"
+                      >
+                        {node.lbl}
+                      </text>
+                    </g>
+                  ))}
+
+                  <text x="200" y="196" textAnchor="middle" fill="#cbd5e1" fontSize="9.5" fontFamily="monospace">
+                    Click any stage (1–5) to compare below
+                  </text>
+                </svg>
+              </div>
+            </div>
           </div>
 
-          {/* Figure 3.1: Interactive 5-Stage Agency-Preserving Loop Explorer */}
+          {/* Interactive 5-Stage Agency Comparison */}
           <figure className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm space-y-6">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-4">
               <div>
                 <span className="text-[11px] font-mono uppercase tracking-widest text-[#2980b9] font-semibold block">
-                  Figure 3.1 · Interactive 5-Stage Protocol Comparison
+                  Interactive 5-Stage Walkthrough
                 </span>
                 <h3 className="text-lg sm:text-xl font-bold text-slate-900 font-serif mt-0.5">
-                  Answer-First Automation vs. Agency-Preserving Human–AI Collaboration
+                  How We Keep Humans in the Loop—In Learning and in Mobility
                 </h3>
               </div>
               <div className="flex flex-wrap gap-1.5">
@@ -1357,7 +1622,7 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .researchFindings,
                         : "bg-slate-100 text-slate-600 hover:bg-slate-200"
                     }`}
                   >
-                    Stage {idx + 1}
+                    {idx + 1} · {s.shortTitle}
                   </button>
                 ))}
               </div>
@@ -1366,7 +1631,7 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .researchFindings,
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="p-5 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
                 <span className="text-[11px] font-mono uppercase tracking-wider text-slate-500 font-semibold block">
-                  Conventional Answer-First AI
+                  Answer-First Shortcut
                 </span>
                 <h4 className="text-sm font-bold text-slate-900">
                   {fig3Stages[fig3StageIndex].step}
@@ -1378,7 +1643,7 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .researchFindings,
 
               <div className="p-5 rounded-xl bg-sky-50/70 border-2 border-[#1DAEDF]/60 space-y-2">
                 <span className="text-[11px] font-mono uppercase tracking-wider text-[#0369a1] font-semibold block">
-                  Open Learning Lab (Judgement-First)
+                  Open Learning Lab (Sparring Loop)
                 </span>
                 <h4 className="text-sm font-bold text-slate-900">
                   {fig3Stages[fig3StageIndex].step}
@@ -1390,10 +1655,10 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .researchFindings,
 
               <div className="p-5 rounded-xl bg-[#0b2034] text-sky-100 space-y-2">
                 <span className="text-[11px] font-mono uppercase tracking-wider text-[#1DAEDF] font-semibold block">
-                  Elder Independence Parallel (Kin Domi)
+                  Palo Alto Senior Parallel (Kin Domi)
                 </span>
                 <h4 className="text-sm font-bold text-white">
-                  Human-Centred Renovation
+                  Dignified Independence
                 </h4>
                 <p className="text-xs text-sky-200/90 leading-relaxed">
                   {fig3Stages[fig3StageIndex].seniorParallel}
@@ -1402,13 +1667,13 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .researchFindings,
             </div>
           </figure>
 
-          {/* Chapter III Primary Essays Shelf */}
+          {/* Act 03 Essays Shelf */}
           <div className="space-y-3">
             <h3 className="text-xs font-mono uppercase tracking-widest text-slate-500 font-semibold">
-              Chapter III · Essays, Field Notes &amp; Specifications
+              Essays, Field Notes &amp; Local AI Designs
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {BOOK_CHAPTERS[2].essayUrls.map((url) => {
+              {NARRATIVE_THEMES[2].essayUrls.map((url) => {
                 const entry = BOOK_ESSAYS_BY_URL[url];
                 const writing = WRITINGS_DATA.find((w) => w.localUrl === url);
                 if (!entry) return null;
@@ -1417,7 +1682,7 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .researchFindings,
                     key={url}
                     role="button"
                     tabIndex={0}
-                    onClick={() => openEssayInBook(url)}
+                    onClick={() => openEssayReader(url)}
                     onKeyDown={(e) => handleCardKeyDown(e, url)}
                     className="p-5 rounded-2xl bg-white border border-slate-200 hover:border-[#1DAEDF] focus:outline-none focus:ring-2 focus:ring-[#1DAEDF] transition flex flex-col justify-between space-y-4 cursor-pointer shadow-xs hover:shadow-md group"
                   >
@@ -1425,7 +1690,7 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .researchFindings,
                       <div className="flex items-center justify-between text-[11px] font-mono text-slate-500">
                         <span>{entry.date}</span>
                         <span className="text-[#2980b9] group-hover:translate-x-0.5 transition">
-                          Read in book &rarr;
+                          Read essay &rarr;
                         </span>
                       </div>
                       <h4 className="text-base font-bold text-slate-900 group-hover:text-[#2980b9] font-serif leading-snug transition">
@@ -1439,14 +1704,12 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .researchFindings,
                       className="pt-3 border-t border-slate-100 text-[11px] text-slate-400 flex items-center justify-between gap-2"
                       onClick={(e) => e.stopPropagation()}
                     >
-                      <span className="truncate">
-                        Footnote: {entry.venue}
-                      </span>
+                      <span className="truncate">{entry.venue}</span>
                       <a
                         href={entry.url}
                         className="font-mono text-[#0369a1] hover:underline shrink-0"
                       >
-                        Page ↗
+                        Full page ↗
                       </a>
                     </div>
                   </article>
@@ -1457,74 +1720,120 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .researchFindings,
         </section>
 
         {/* =====================================================================
-            CHAPTER IV: INSTITUTIONS, INCENTIVES AND POSSIBLE FUTURES
+            04 · WORKING TOGETHER (GCD × LCM, INSTITUTIONS & INTENTIONAL RHYTHM)
            ===================================================================== */}
         <section
-          id="chapter-4"
+          id="working-together"
           className="space-y-10 scroll-mt-24 pt-8 border-t border-slate-200"
         >
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            <div className="lg:col-span-8 space-y-5">
-              <div className="space-y-2">
-                <span className="text-xs font-mono uppercase tracking-widest text-[#2980b9] font-semibold block">
-                  Part II · Living and Working Together — Chapter IV
-                </span>
-                <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 font-serif tracking-tight">
-                  Institutions, Incentives and Possible Futures
-                </h2>
-                <p className="text-base sm:text-lg text-slate-600 font-serif italic">
-                  {BOOK_CHAPTERS[3].subtitle}
-                </p>
-              </div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-7 space-y-4">
+              <span className="text-xs font-mono uppercase tracking-widest text-[#2980b9] font-semibold block">
+                {NARRATIVE_THEMES[3].kicker}
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 font-serif tracking-tight">
+                {NARRATIVE_THEMES[3].title}
+              </h2>
+              <p className="text-base sm:text-lg text-slate-600 font-serif italic">
+                {NARRATIVE_THEMES[3].subtitle}
+              </p>
 
-              <div className="space-y-4 text-slate-700 font-serif text-[17px] leading-[1.82]">
+              <div className="space-y-3.5 text-slate-700 font-serif text-[17px] leading-[1.78]">
                 <p>
-                  Why do some organisations compound technical curiosity into generational breakthroughs while others with deeper capital reserves stall? In comparing <em>Boeing and SpaceX</em>, or examining the regulatory and cultural divergence of the <em>eVTOL</em> industry across the Pacific, the decisive factor is rarely individual talent; it is whether institutional incentives reward first-principles honesty or short-term financial optics. On a personal scale, the essay <em>Overachievers’ Responsibility Reflection</em> asks what obligation capable engineers carry when the systems they optimise shape public attention and social cohesion.
+                  Why do some teams compound curiosity into generational breakthroughs while others with ten times the capital stall? Whether comparing <em>Boeing and SpaceX</em>, studying <em>eVTOL</em> airworthiness across the US and China, or reflecting on our own responsibilities as builders, the bottleneck is rarely raw IQ. It is whether incentives reward first-principles honesty over short-term optics.
                 </p>
                 <p>
-                  In <em>Serendipity: Where It Sparks</em> and the long-running civic notebook <code className="text-sm font-mono text-[#0369a1]">LibertyEarth</code> (<em>Free Market in a Possibility Universe</em>), I borrowed a simple mathematical metaphor for healthy human collaboration: treat <strong>shared ethical values as the Greatest Common Divisor (GCD)</strong> that keeps trust intact, and treat <strong>diverse, complementary skills as the Least Common Multiple (LCM)</strong> that expands what a community can build together. Paired with an intentional personal rhythm—now in the eighth annual iteration of my colour-coded calendar—this balance between inner discipline and civic responsibility is represented here by the Chinese motto I adopted after marriage:{" "}
-                  <strong className="text-slate-900">“但行好事，莫问前程”</strong> (do good work wholeheartedly, without fixating on the reward ahead).
+                  In my Substack essays and the civic notebook <code className="text-sm font-mono text-[#0369a1]">LibertyEarth</code>, I use a simple mathematical picture for healthy collaboration: treat <strong>shared ethical values as the Greatest Common Divisor (GCD)</strong> that keeps baseline trust high, and treat <strong>complementary human + AI skills as the Least Common Multiple (LCM)</strong> that expands what we can build together—anchored day to day by my 8th-iteration color-coded weekly rhythm.
                 </p>
               </div>
             </div>
 
-            {/* Chapter IV Marginalia */}
-            <aside className="lg:col-span-4 rounded-2xl bg-white border border-slate-200 p-6 space-y-4 shadow-xs">
-              <span className="text-[11px] font-mono uppercase tracking-widest text-[#2980b9] font-semibold block">
-                Chapter IV · Synthesis &amp; Civic Notes
-              </span>
-              <ul className="space-y-2.5 text-xs text-slate-600 leading-relaxed">
-                <li className="flex items-start gap-2">
-                  <span className="text-[#1DAEDF] font-bold">¹</span>
-                  <span>
-                    <strong>GCD / LCM Collaboration Model:</strong> Shared core principles (GCD) lower verification friction, allowing high skill variance (LCM) to compound rather than fracture.
+            {/* Right Column: Visual 7-Day Color-Coded Rhythm Strip (v8) */}
+            <div className="lg:col-span-5">
+              <div className="rounded-2xl bg-white border border-slate-200 p-5 shadow-xs space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-[11px] font-mono uppercase tracking-widest text-[#2980b9] font-semibold">
+                    Intentional Weekly Rhythm (Iteration v8)
                   </span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-[#1DAEDF] font-bold">²</span>
-                  <span>
-                    <strong>8th-Iteration Calendar Rhythm:</strong> Designing the week around deep creative blocks, physical restoration and unhurried family time.
+                  <span className="text-[11px] font-mono text-slate-500">
+                    A Colorful Year Ahead
                   </span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-[#1DAEDF] font-bold">³</span>
-                  <span>
-                    <strong>LibertyEarth (2018–2025):</strong> Philosophical notes on knowledge graphs, post-scarcity incentives and human alignment.
-                  </span>
-                </li>
-              </ul>
-            </aside>
+                </div>
+
+                <svg
+                  viewBox="0 0 400 215"
+                  className="w-full h-auto"
+                  role="img"
+                  aria-label="8th-iteration color-coded weekly calendar rhythm balancing deep build blocks, community connection, physical play, and weekly reflection"
+                >
+                  <rect x="8" y="8" width="384" height="198" rx="12" fill="#f8fafc" stroke="#e2e8f0" />
+                  {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map((day, dIdx) => {
+                    const x = 20 + dIdx * 52;
+                    return (
+                      <g key={day} transform={`translate(${x}, 20)`}>
+                        <text x="21" y="12" textAnchor="middle" fill="#334155" fontSize="9.5" fontFamily="monospace" fontWeight="bold">
+                          {day}
+                        </text>
+                        {/* Morning block */}
+                        <rect
+                          x="2"
+                          y="20"
+                          width="38"
+                          height="42"
+                          rx="6"
+                          fill={dIdx < 5 ? "#0284c7" : "#10b981"}
+                        />
+                        {/* Midday block */}
+                        <rect
+                          x="2"
+                          y="68"
+                          width="38"
+                          height="36"
+                          rx="6"
+                          fill={dIdx === 2 || dIdx === 4 ? "#f59e0b" : dIdx < 5 ? "#38bdf8" : "#f59e0b"}
+                        />
+                        {/* Evening block */}
+                        <rect
+                          x="2"
+                          y="110"
+                          width="38"
+                          height="34"
+                          rx="6"
+                          fill={dIdx === 6 ? "#8b5cf6" : "#10b981"}
+                          fillOpacity="0.85"
+                        />
+                      </g>
+                    );
+                  })}
+
+                  {/* Legend */}
+                  <g transform="translate(22, 182)">
+                    <circle cx="6" cy="4" r="4.5" fill="#0284c7" />
+                    <text x="15" y="7" fill="#334155" fontSize="8.5" fontFamily="monospace">Deep Build</text>
+
+                    <circle cx="92" cy="4" r="4.5" fill="#f59e0b" />
+                    <text x="101" y="7" fill="#334155" fontSize="8.5" fontFamily="monospace">Community</text>
+
+                    <circle cx="180" cy="4" r="4.5" fill="#10b981" />
+                    <text x="189" y="7" fill="#334155" fontSize="8.5" fontFamily="monospace">Body &amp; Family</text>
+
+                    <circle cx="282" cy="4" r="4.5" fill="#8b5cf6" />
+                    <text x="291" y="7" fill="#334155" fontSize="8.5" fontFamily="monospace">Sunday Reflection</text>
+                  </g>
+                </svg>
+              </div>
+            </div>
           </div>
 
-          {/* Figure 4.1: Interactive GCD / LCM Collaboration Explorer */}
+          {/* Interactive GCD × LCM Geometric Collaboration Diagram */}
           <figure className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm space-y-6">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-4">
               <div>
                 <span className="text-[11px] font-mono uppercase tracking-widest text-[#2980b9] font-semibold block">
-                  Figure 4.1 · Illustrative Institutional Model
+                  Interactive Visual Model · GCD × LCM
                 </span>
                 <h3 className="text-lg sm:text-xl font-bold text-slate-900 font-serif mt-0.5">
-                  Greatest Common Divisor (Shared Values) &amp; Least Common Multiple (Complementary Skills)
+                  Shared Values (Inner Core) × Complementary Skills (Outer Frontier)
                 </h3>
               </div>
               <span className="px-3 py-1 rounded-full bg-sky-50 border border-sky-200 text-xs font-mono text-[#0369a1]">
@@ -1533,10 +1842,10 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .researchFindings,
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-              <div className="lg:col-span-6 space-y-4">
+              <div className="lg:col-span-5 space-y-5">
                 <div>
                   <div className="flex justify-between text-xs font-mono text-slate-700 mb-1">
-                    <span>GCD · Shared Ethical Values &amp; Epistemic Honesty</span>
+                    <span>GCD · Shared Values &amp; Intellectual Honesty</span>
                     <span className="text-[#2980b9] font-semibold">{fig4Gcd}%</span>
                   </div>
                   <input
@@ -1551,7 +1860,7 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .researchFindings,
                 </div>
                 <div>
                   <div className="flex justify-between text-xs font-mono text-slate-700 mb-1">
-                    <span>LCM · Diversity of Complementary Capabilities</span>
+                    <span>LCM · Complementary Human + AI Capabilities</span>
                     <span className="text-[#2980b9] font-semibold">{fig4Lcm}%</span>
                   </div>
                   <input
@@ -1564,44 +1873,124 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .researchFindings,
                     className="w-full accent-[#2980b9] cursor-pointer"
                   />
                 </div>
+
+                <div className="grid grid-cols-3 gap-2.5 pt-1">
+                  <div className="p-3 rounded-xl bg-[#f8fafc] border border-slate-200 text-center">
+                    <div className="text-base font-bold font-mono text-[#0369a1]">
+                      {fig4Synthesis.trustIndex}%
+                    </div>
+                    <div className="text-[10px] text-slate-600 mt-0.5">
+                      Baseline Trust
+                    </div>
+                  </div>
+                  <div className="p-3 rounded-xl bg-[#f8fafc] border border-slate-200 text-center">
+                    <div className="text-base font-bold font-mono text-[#2980b9]">
+                      {fig4Synthesis.creativeReach}%
+                    </div>
+                    <div className="text-[10px] text-slate-600 mt-0.5">
+                      Frontier Reach
+                    </div>
+                  </div>
+                  <div className="p-3 rounded-xl bg-[#f8fafc] border border-slate-200 text-center">
+                    <div className="text-base font-bold font-mono text-amber-700">
+                      {fig4Synthesis.frictionRisk}%
+                    </div>
+                    <div className="text-[10px] text-slate-600 mt-0.5">
+                      Drift Risk
+                    </div>
+                  </div>
+                </div>
               </div>
 
-              <div className="lg:col-span-6 grid grid-cols-3 gap-3">
-                <div className="p-4 rounded-xl bg-[#f8fafc] border border-slate-200 text-center">
-                  <div className="text-xl font-bold font-mono text-[#0369a1]">
-                    {fig4Synthesis.trustIndex}%
-                  </div>
-                  <div className="text-[11px] text-slate-600 mt-1">
-                    Baseline Trust &amp; Low Verification Tax
-                  </div>
-                </div>
-                <div className="p-4 rounded-xl bg-[#f8fafc] border border-slate-200 text-center">
-                  <div className="text-xl font-bold font-mono text-[#2980b9]">
-                    {fig4Synthesis.creativeReach}%
-                  </div>
-                  <div className="text-[11px] text-slate-600 mt-1">
-                    Serendipity &amp; Problem-Solving Reach
-                  </div>
-                </div>
-                <div className="p-4 rounded-xl bg-[#f8fafc] border border-slate-200 text-center">
-                  <div className="text-xl font-bold font-mono text-amber-700">
-                    {fig4Synthesis.frictionRisk}%
-                  </div>
-                  <div className="text-[11px] text-slate-600 mt-1">
-                    Coordination &amp; Governance Drift Risk
-                  </div>
-                </div>
+              {/* Live Geometric SVG of GCD Inner Overlap & LCM Outer Envelope */}
+              <div className="lg:col-span-7">
+                <svg
+                  viewBox="0 0 460 190"
+                  className="w-full h-auto rounded-xl bg-[#0b2034] border border-sky-900/70 p-3"
+                  role="img"
+                  aria-label="Live geometric diagram showing the inner GCD shared-values overlap and outer LCM capability envelope"
+                >
+                  <g transform="translate(150, 95)">
+                    {/* Outer LCM capability polygon */}
+                    {(() => {
+                      const rOuter = 38 + (fig4Lcm / 100) * 44;
+                      const pts = [0, 1, 2, 3, 4, 5]
+                        .map((k) => {
+                          const ang = (k * Math.PI) / 3 - Math.PI / 6;
+                          return `${(rOuter * Math.cos(ang)).toFixed(1)},${(
+                            rOuter * Math.sin(ang)
+                          ).toFixed(1)}`;
+                        })
+                        .join(" ");
+                      return (
+                        <polygon
+                          points={pts}
+                          fill="#1DAEDF"
+                          fillOpacity="0.14"
+                          stroke="#38bdf8"
+                          strokeWidth="1.6"
+                          strokeDasharray="4,3"
+                        />
+                      );
+                    })()}
+
+                    {/* Overlapping member circles whose intersection grows with GCD */}
+                    {(() => {
+                      const spread = Math.max(6, 34 - (fig4Gcd / 100) * 26);
+                      return (
+                        <>
+                          <circle cx={-spread} cy="-6" r="28" fill="#0284c7" fillOpacity="0.35" stroke="#7dd3fc" strokeWidth="1.2" />
+                          <circle cx={spread} cy="-6" r="28" fill="#0ea5e9" fillOpacity="0.35" stroke="#7dd3fc" strokeWidth="1.2" />
+                          <circle cx="0" cy={spread * 0.85} r="28" fill="#f59e0b" fillOpacity="0.3" stroke="#fbbf24" strokeWidth="1.2" />
+                        </>
+                      );
+                    })()}
+
+                    {/* Central GCD Core */}
+                    <circle
+                      r={10 + (fig4Gcd / 100) * 14}
+                      fill="#f59e0b"
+                      stroke="#ffffff"
+                      strokeWidth="1.5"
+                    />
+                    <text x="0" y="3" textAnchor="middle" fill="#081827" fontSize="8.5" fontFamily="monospace" fontWeight="bold">
+                      GCD
+                    </text>
+                  </g>
+
+                  <g transform="translate(275, 42)">
+                    <text x="0" y="0" fill="#fbbf24" fontSize="10" fontFamily="monospace" fontWeight="bold">
+                      INNER CORE (GCD = {fig4Gcd}%)
+                    </text>
+                    <text x="0" y="16" fill="#e2e8f0" fontSize="10">
+                      Shared ethics, mutual respect,
+                    </text>
+                    <text x="0" y="30" fill="#e2e8f0" fontSize="10">
+                      and honest feedback lower friction.
+                    </text>
+
+                    <text x="0" y="68" fill="#7dd3fc" fontSize="10" fontFamily="monospace" fontWeight="bold">
+                      OUTER FRONTIER (LCM = {fig4Lcm}%)
+                    </text>
+                    <text x="0" y="84" fill="#e2e8f0" fontSize="10">
+                      Complementary human + AI skills
+                    </text>
+                    <text x="0" y="98" fill="#e2e8f0" fontSize="10">
+                      expand the collective horizon.
+                    </text>
+                  </g>
+                </svg>
               </div>
             </div>
           </figure>
 
-          {/* Chapter IV Primary Essays Shelf */}
+          {/* Act 04 Essays Shelf */}
           <div className="space-y-3">
             <h3 className="text-xs font-mono uppercase tracking-widest text-slate-500 font-semibold">
-              Chapter IV · Essays, Reflections &amp; Civic Specifications
+              Essays on Leadership, Culture, and Possible Futures
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {BOOK_CHAPTERS[3].essayUrls.map((url) => {
+              {NARRATIVE_THEMES[3].essayUrls.map((url) => {
                 const entry = BOOK_ESSAYS_BY_URL[url];
                 const writing = WRITINGS_DATA.find((w) => w.localUrl === url);
                 if (!entry) return null;
@@ -1610,7 +1999,7 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .researchFindings,
                     key={url}
                     role="button"
                     tabIndex={0}
-                    onClick={() => openEssayInBook(url)}
+                    onClick={() => openEssayReader(url)}
                     onKeyDown={(e) => handleCardKeyDown(e, url)}
                     className="p-5 rounded-2xl bg-white border border-slate-200 hover:border-[#1DAEDF] focus:outline-none focus:ring-2 focus:ring-[#1DAEDF] transition flex flex-col justify-between space-y-4 cursor-pointer shadow-xs hover:shadow-md group"
                   >
@@ -1618,7 +2007,7 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .researchFindings,
                       <div className="flex items-center justify-between text-[11px] font-mono text-slate-500">
                         <span>{entry.date}</span>
                         <span className="text-[#2980b9] group-hover:translate-x-0.5 transition">
-                          Read in book &rarr;
+                          Read essay &rarr;
                         </span>
                       </div>
                       <h4 className="text-base font-bold text-slate-900 group-hover:text-[#2980b9] font-serif leading-snug transition">
@@ -1632,14 +2021,12 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .researchFindings,
                       className="pt-3 border-t border-slate-100 text-[11px] text-slate-400 flex items-center justify-between gap-2"
                       onClick={(e) => e.stopPropagation()}
                     >
-                      <span className="truncate">
-                        Footnote: {entry.venue}
-                      </span>
+                      <span className="truncate">{entry.venue}</span>
                       <a
                         href={entry.url}
                         className="font-mono text-[#0369a1] hover:underline shrink-0"
                       >
-                        Page ↗
+                        Full page ↗
                       </a>
                     </div>
                   </article>
@@ -1650,7 +2037,7 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .researchFindings,
         </section>
 
         {/* =====================================================================
-            EPILOGUE & VISUAL INDEX: SEPARATE INTERACTIVE SITE MAP
+            IDEA CONSTELLATION: INTERACTIVE MAP OF THEMES, SYSTEMS & ESSAYS
            ===================================================================== */}
         <section
           id="constellation"
@@ -1659,13 +2046,13 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .researchFindings,
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div className="space-y-2">
               <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#2980b9] font-semibold">
-                <span>Epilogue · Visual Index of the Monograph</span>
+                <span>Interactive Idea Constellation</span>
               </div>
               <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 font-serif tracking-tight">
-                Interactive Site Map of Themes, Works and Essays
+                How Seven Questions Connect Across 6 Systems and 28 Essays
               </h2>
               <p className="text-sm text-slate-600 max-w-3xl leading-relaxed">
-                Separate from the astrophysical simulation in Chapter I, this spatial index maps how seven recurring questions connect across six open systems and all twenty-eight essays in this volume. Select any node to read the essay right on this page.
+                Click any question sphere, system cube, or essay node in the constellation to see how ideas from stellar dynamics, decision intelligence, and Palo Alto fieldwork connect—and open any essay right on the page.
               </p>
             </div>
 
@@ -1679,7 +2066,7 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .researchFindings,
                       : "text-slate-600 hover:text-slate-900"
                   }`}
                 >
-                  3D Site Map
+                  3D Map
                 </button>
                 <button
                   onClick={() => setMobileMapView("list")}
@@ -1739,7 +2126,7 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .researchFindings,
                 onSelectPillar={setSelectedPillar}
                 selectedWriting={selectedWriting}
                 onSelectWriting={setSelectedWriting}
-                onOpenEssay={openEssayInBook}
+                onOpenEssay={openEssayReader}
               />
             </div>
 
@@ -1747,7 +2134,7 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .researchFindings,
               <div className="lg:hidden col-span-1 space-y-4">
                 <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-xs space-y-3">
                   <span className="text-[11px] font-mono uppercase tracking-wider text-[#2980b9] font-medium">
-                    Themes Across Chapters
+                    Seven Recurring Questions
                   </span>
                   <div className="space-y-3">
                     {INTELLECTUAL_PILLARS.map((p) => (
@@ -1784,7 +2171,7 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .researchFindings,
               <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
                 <div className="flex items-center justify-between">
                   <span className="text-[11px] font-mono uppercase tracking-wider text-slate-500 font-medium">
-                    {activePillarObj ? "Selected Theme" : "Map Guide"}
+                    {activePillarObj ? "Selected Question" : "Constellation Guide"}
                   </span>
                   {activePillarObj && (
                     <span
@@ -1809,29 +2196,23 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .researchFindings,
                 ) : (
                   <>
                     <h3 className="text-base font-semibold text-slate-900 font-serif">
-                      Explore Cross-Chapter Connections
+                      Explore Connected Ideas
                     </h3>
                     <p className="text-xs text-slate-600 leading-relaxed">
-                      Select any theme sphere, project cube or essay node in the map to inspect its reading notes and open the full text right inside this book.
+                      Select any theme sphere, project cube, or essay node in the map to inspect its key takeaway and read the full text.
                     </p>
                   </>
                 )}
-
-                <div className="pt-3 border-t border-slate-100 text-[11px] text-slate-400 italic">
-                  {PERSONA_DATA.epistemicDisclaimer}
-                </div>
               </div>
 
               {selectedWriting && (
                 <div className="p-6 rounded-2xl bg-white border-2 border-[#1DAEDF]/50 shadow-md space-y-3">
                   <div className="flex flex-wrap items-center justify-between gap-2">
                     <span className="px-2.5 py-0.5 rounded bg-sky-50 text-[11px] font-mono text-[#0369a1] font-medium border border-sky-100">
-                      {BOOK_ESSAYS_BY_URL[selectedWriting.localUrl]?.chapterTitle.split("·")[0] ||
-                        "Monograph"}{" "}
-                      · {selectedWriting.date}
+                      {getThemeLabelForUrl(selectedWriting.localUrl)} · {selectedWriting.date}
                     </span>
                     <button
-                      onClick={() => openEssayInBook(selectedWriting.localUrl)}
+                      onClick={() => openEssayReader(selectedWriting.localUrl)}
                       className="px-3 py-1 rounded-lg bg-[#2980b9] hover:bg-[#20638f] text-white text-xs font-medium transition cursor-pointer"
                     >
                       Read essay &rarr;
@@ -1848,30 +2229,25 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .researchFindings,
 
                   <div className="p-3.5 rounded-xl bg-[#f8fafc] border border-slate-200/90 space-y-1">
                     <span className="text-[10px] font-mono uppercase tracking-wider text-[#2980b9] font-semibold block">
-                      Author’s Note
+                      Key Takeaway
                     </span>
                     <p className="text-xs text-slate-700 leading-relaxed">
                       {selectedWriting.keyInsight}
                     </p>
                   </div>
 
-                  <div className="pt-2 border-t border-slate-100 text-[11px] text-slate-400 flex items-center justify-between">
-                    <span>
-                      Footnote: First published in{" "}
-                      <a
-                        href={selectedWriting.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-slate-600 hover:text-[#2980b9] underline underline-offset-2"
-                      >
-                        {selectedWriting.source}
-                      </a>
-                    </span>
+                  <div className="pt-2 flex flex-wrap items-center justify-between gap-2 text-xs">
+                    <button
+                      onClick={() => openEssayReader(selectedWriting.localUrl)}
+                      className="text-[#2980b9] font-medium hover:underline cursor-pointer"
+                    >
+                      Open in reader &rarr;
+                    </button>
                     <a
                       href={selectedWriting.localUrl}
-                      className="font-mono text-[#0369a1] hover:underline"
+                      className="text-slate-500 hover:text-[#2980b9] font-mono"
                     >
-                      Standalone URL ↗
+                      Standalone page ↗
                     </a>
                   </div>
                 </div>
@@ -1881,169 +2257,80 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .researchFindings,
         </section>
 
         {/* =====================================================================
-            OPEN SYSTEMS & ARTEFACTS IN THIS MONOGRAPH
-           ===================================================================== */}
-        <section
-          id="systems"
-          className="space-y-8 scroll-mt-24 pt-8 border-t border-slate-200"
-        >
-          <div className="space-y-2">
-            <span className="text-xs font-mono uppercase tracking-widest text-[#2980b9] font-semibold">
-              Practical Artefacts Across Chapters I–IV
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 font-serif tracking-tight">
-              Research Models and Open Specifications
-            </h2>
-            <p className="text-sm text-slate-600 max-w-3xl leading-relaxed">
-              Each system specification or research archive discussed in the chapters above can be read directly inside this book, with its source repository noted as a footnote.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {OPEN_PROJECTS.map((proj) => (
-              <div
-                key={proj.id}
-                className="p-6 rounded-2xl bg-white border border-slate-200 hover:border-[#1DAEDF] transition flex flex-col justify-between space-y-5 shadow-xs hover:shadow-md"
-              >
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between gap-2">
-                    <span className="text-[11px] font-mono text-[#0369a1] font-semibold px-2 py-0.5 rounded bg-sky-50 border border-sky-100">
-                      {proj.category}
-                    </span>
-                    {proj.localMirrorUrl && (
-                      <button
-                        onClick={() => openEssayInBook(proj.localMirrorUrl!)}
-                        className="text-xs font-medium text-[#2980b9] hover:text-[#1DAEDF] cursor-pointer"
-                      >
-                        Read specification &rarr;
-                      </button>
-                    )}
-                  </div>
-
-                  <h3 className="text-lg font-bold text-slate-900 font-serif">
-                    {proj.name}
-                  </h3>
-                  <p className="text-xs font-medium text-[#2980b9]">
-                    {proj.tagline}
-                  </p>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    {proj.description}
-                  </p>
-                </div>
-
-                <div className="space-y-3 pt-3 border-t border-slate-100">
-                  <div className="flex flex-wrap gap-1.5">
-                    {proj.metrics.map((m, i) => (
-                      <span
-                        key={i}
-                        className="px-2 py-0.5 rounded bg-[#f8fafc] border border-slate-200 text-[10px] font-mono text-slate-600"
-                      >
-                        {m}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="text-[11px] text-slate-400 flex items-center justify-between pt-1">
-                    <span>
-                      Footnote:{" "}
-                      <a
-                        href={proj.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-slate-600 hover:text-[#2980b9] underline underline-offset-2"
-                      >
-                        Source repository ↗
-                      </a>
-                    </span>
-                    {proj.localMirrorUrl && (
-                      <a
-                        href={proj.localMirrorUrl}
-                        className="font-mono text-[#0369a1] hover:underline"
-                      >
-                        Page ↗
-                      </a>
-                    )}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* =====================================================================
-            COMPLETE INDEX OF WRITINGS & NOTES (ALL 28 ESSAYS)
+            ALL WRITING: SEARCHABLE ARCHIVE OF ALL 28 SELF-HOSTED ESSAYS
            ===================================================================== */}
         <section
           id="writings"
           className="space-y-6 scroll-mt-24 pt-8 border-t border-slate-200"
         >
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-            <div className="space-y-2">
-              <span className="text-xs font-mono uppercase tracking-widest text-[#2980b9] font-semibold">
-                Complete Index &amp; Reader ({filteredWritings.length} of {WRITINGS_DATA.length} Essays)
+            <div className="space-y-1.5">
+              <span className="text-xs font-mono uppercase tracking-widest text-[#2980b9] font-semibold block">
+                Complete Self-Hosted Archive · 28 Essays
               </span>
               <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 font-serif tracking-tight">
-                Essays, Field Notes and Technical Specifications
+                All Writing &amp; System Notes
               </h2>
-              <p className="text-sm text-slate-600 max-w-2xl leading-relaxed">
-                Select any entry to read the full text immediately in the book reader, or open the{" "}
-                <a
-                  href="/articles/"
-                  className="text-[#2980b9] underline underline-offset-4"
-                >
-                  complete 28-essay Table of Contents
-                </a>
-                .
+              <p className="text-sm text-slate-600 max-w-2xl">
+                Every essay is hosted here in full with visual SVG diagrams. Click any card to read right on this page, or open its standalone URL.
               </p>
             </div>
 
-            {/* Search & Chapter Filters */}
-            <div className="flex flex-wrap items-center gap-2">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-3">
               <input
                 type="search"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search chapters, essays, concepts..."
-                aria-label="Search chapters, essays and concepts"
-                className="w-full sm:w-auto px-3.5 py-1.5 rounded-lg bg-white border border-slate-200 text-xs text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-[#1DAEDF] shadow-xs"
+                placeholder="Search 28 essays…"
+                aria-label="Search essays by title or topic"
+                className="px-3.5 py-2 rounded-xl border border-slate-200 bg-white text-xs text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-[#1DAEDF] w-full sm:w-56"
               />
-              <div className="flex items-center gap-1.5 overflow-x-auto pb-1 max-w-full no-scrollbar">
-                {chapterTabs.map((tab) => (
-                  <button
-                    key={tab}
-                    onClick={() => setChapterFilter(tab)}
-                    className={`px-3 py-1 rounded-lg text-xs font-medium transition cursor-pointer shrink-0 ${
-                      chapterFilter === tab
-                        ? "bg-[#2980b9] text-white font-semibold shadow-xs"
-                        : "bg-white border border-slate-200 text-slate-600 hover:text-slate-900"
-                    }`}
-                  >
-                    {tab}
-                  </button>
-                ))}
-              </div>
+              <a
+                href="/articles/"
+                className="px-3.5 py-2 rounded-xl bg-sky-50 border border-sky-200 text-xs font-mono text-[#0369a1] hover:bg-sky-100 transition text-center shrink-0"
+              >
+                Visual Archive (/articles/) &rarr;
+              </a>
             </div>
+          </div>
+
+          {/* Theme Filter Tabs */}
+          <div className="flex flex-wrap items-center gap-2">
+            {themeTabs.map((tab) => (
+              <button
+                key={tab}
+                onClick={() => setThemeFilter(tab)}
+                className={`px-3.5 py-1.5 rounded-xl text-xs font-mono transition cursor-pointer border ${
+                  themeFilter === tab
+                    ? "bg-slate-900 border-slate-900 text-white font-semibold"
+                    : "bg-white border-slate-200 text-slate-600 hover:border-[#1DAEDF] hover:text-[#2980b9]"
+                }`}
+              >
+                {tab}
+              </button>
+            ))}
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {filteredWritings.map((w) => {
-              const pillar = INTELLECTUAL_PILLARS.find(
-                (p) => p.id === w.pillar
-              );
+              const pillar = INTELLECTUAL_PILLARS.find((p) => p.id === w.pillar);
               const bookEntry = BOOK_ESSAYS_BY_URL[w.localUrl];
+              const themeTag = getThemeLabelForUrl(w.localUrl);
+
               return (
                 <article
                   key={w.id}
                   role="button"
                   tabIndex={0}
-                  onClick={() => openEssayInBook(w.localUrl)}
+                  onClick={() => openEssayReader(w.localUrl)}
                   onKeyDown={(e) => handleCardKeyDown(e, w.localUrl)}
-                  className="p-5 rounded-2xl bg-white hover:bg-sky-50/30 border border-slate-200 hover:border-[#1DAEDF] focus:outline-none focus:ring-2 focus:ring-[#1DAEDF] transition flex flex-col justify-between space-y-4 cursor-pointer shadow-xs hover:shadow-sm group"
+                  className="p-5 rounded-2xl bg-white border border-slate-200 hover:border-[#1DAEDF] focus:outline-none focus:ring-2 focus:ring-[#1DAEDF] transition flex flex-col justify-between space-y-4 shadow-xs hover:shadow-md cursor-pointer group"
                 >
                   <div className="space-y-2">
                     <div className="flex items-center justify-between gap-2 text-xs">
                       <div className="flex items-center gap-2">
                         <span className="px-2 py-0.5 rounded bg-sky-50 border border-sky-100 font-mono text-[#0369a1] text-[11px] font-medium">
-                          Chapter {bookEntry?.chapterRoman || "IV"}
+                          {themeTag}
                         </span>
                         <span className="font-mono text-slate-500 text-[11px]">
                           {bookEntry?.date || w.date}
@@ -2074,7 +2361,7 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .researchFindings,
                   <div className="pt-3 border-t border-slate-100 space-y-2 text-xs text-slate-600">
                     <div>
                       <span className="font-mono text-[#2980b9] font-medium mr-1.5">
-                        Author’s note:
+                        Takeaway:
                       </span>
                       {w.keyInsight}
                     </div>
@@ -2083,7 +2370,7 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .researchFindings,
                       onClick={(e) => e.stopPropagation()}
                     >
                       <span className="text-slate-400">
-                        Footnote: First published in{" "}
+                        Originally on{" "}
                         <a
                           href={bookEntry?.originalUrl || w.url}
                           target="_blank"
@@ -2091,15 +2378,14 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .researchFindings,
                           className="text-slate-600 hover:text-[#2980b9] underline underline-offset-2"
                         >
                           {bookEntry?.venue || w.source}
-                        </a>{" "}
-                        ({bookEntry?.date || w.date})
+                        </a>
                       </span>
                       <div className="flex items-center gap-3 font-mono">
                         <button
-                          onClick={() => openEssayInBook(w.localUrl)}
+                          onClick={() => openEssayReader(w.localUrl)}
                           className="text-[#2980b9] hover:text-[#1DAEDF] font-medium cursor-pointer"
                         >
-                          Read in book
+                          Read essay &rarr;
                         </button>
                         <a
                           href={w.localUrl}
@@ -2117,7 +2403,7 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .researchFindings,
         </section>
 
         {/* =====================================================================
-            COLOPHON & CORRESPONDENCE
+            SAY HELLO & CONNECT
            ===================================================================== */}
         <section
           id="inquiries"
@@ -2125,13 +2411,13 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .researchFindings,
         >
           <div className="max-w-3xl space-y-3">
             <span className="text-xs font-mono uppercase tracking-widest text-[#2980b9] font-semibold block">
-              Colophon &amp; Correspondence
+              Keep the Conversation Going
             </span>
             <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 font-serif tracking-tight">
-              Write to the Author
+              Compare Notes or Say Hello
             </h2>
             <p className="text-base sm:text-lg text-slate-700 font-serif leading-relaxed">
-              {PERSONA_DATA.correspondence.intro}
+              I love connecting with curious minds working on decision systems, human-centered AI, elder independence, or community learning.
             </p>
             <p className="text-sm text-slate-600 leading-relaxed">
               {PERSONA_DATA.correspondence.detail}
@@ -2147,10 +2433,18 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .researchFindings,
                 contact@domij.info
               </a>
               <a
-                href="/articles/"
+                href="https://domijin.substack.com/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="px-4 py-2.5 rounded-xl hover:bg-sky-50 border border-slate-200 text-[#2980b9] text-sm font-medium transition"
               >
-                Complete Table of Contents (28 Essays)
+                Domi’s Mind Waves (Substack) ↗
+              </a>
+              <a
+                href="/articles/"
+                className="px-4 py-2.5 rounded-xl hover:bg-sky-50 border border-slate-200 text-slate-700 hover:text-[#2980b9] text-sm font-medium transition"
+              >
+                All 28 Self-Hosted Essays
               </a>
               <a
                 href="https://github.com/domijin"
@@ -2159,14 +2453,6 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .researchFindings,
                 className="px-4 py-2.5 rounded-xl hover:bg-sky-50 border border-slate-200 text-slate-700 hover:text-[#2980b9] text-sm font-medium transition"
               >
                 GitHub (@domijin) ↗
-              </a>
-              <a
-                href="https://www.linkedin.com/in/domijin"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-4 py-2.5 rounded-xl hover:bg-sky-50 border border-slate-200 text-slate-700 hover:text-[#2980b9] text-sm font-medium transition"
-              >
-                LinkedIn ↗
               </a>
             </div>
 
@@ -2184,7 +2470,7 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .researchFindings,
               </a>
               <span>·</span>
               <a href="/pages/about-me.html?env=blue" className="hover:text-[#2980b9] underline underline-offset-4">
-                2018 Pelican Edition
+                2018 Classic Site
               </a>
             </div>
           </div>
@@ -2196,18 +2482,18 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .researchFindings,
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <p className="font-serif">
             &copy; {new Date().getFullYear()} Domi Jin (Dongming Jin) ·{" "}
-            <em>Notes from Research and Practice</em>.
+            <em>Domi’s Mind Waves — Essays, Visuals &amp; Systems</em>.
           </p>
           <div className="flex flex-wrap items-center gap-4">
             <a href="/articles/" className="hover:text-[#2980b9] transition">
-              Table of Contents
+              All 28 Essays
             </a>
             <span>·</span>
             <a href="/pages/about-me.html?env=blue" className="hover:text-[#2980b9] transition">
-              2018 Pelican Edition
+              2018 Classic Site
             </a>
             <span>·</span>
-            <a href="/next/" className="text-[#2980b9] font-medium">
+            <a href={SELF_HREF} className="text-[#2980b9] font-medium">
               Current Edition
             </a>
             <span>·</span>

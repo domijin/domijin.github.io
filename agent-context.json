@@ -4,17 +4,22 @@
   "deployment": {
     "strategy": "blue-green",
     "activeRoot": "green",
+    "liveUrl": "https://domij.info/",
+    "stagedUrl": "https://domij.info/next/",
     "blueEnvironment": {
       "name": "Classic Pelican Archive (Blue)",
-      "url": "https://domij.info/",
+      "url": "https://domij.info/classic/",
       "aboutUrl": "https://domij.info/pages/about-me.html",
-      "archiveUrl": "https://domij.info/archives.html"
+      "archiveUrl": "https://domij.info/archives.html",
+      "status": "backed up, rollback available"
     },
     "greenEnvironment": {
       "name": "Next.js + Three.js Globular Cluster, LISA GW & Context Map (Green)",
-      "url": "https://domij.info/next/",
+      "url": "https://domij.info/",
+      "stagedUrl": "https://domij.info/next/",
       "localArticlesArchiveUrl": "https://domij.info/articles/",
-      "framework": "Next.js 15 App Router + Three.js (@react-three/fiber)"
+      "framework": "Next.js 15 App Router + Three.js (@react-three/fiber)",
+      "status": "live at root, staged mirror at /next/"
     }
   },
   "persona": {
@@ -298,9 +303,9 @@
       "title": "Reflections from a Coach-Seeking Impulse",
       "date": "2024-12",
       "source": "Substack",
-      "url": "https://domijin.substack.com/p/relections-from-coach-seeking-impulse",
-      "localUrl": "/articles/substack/relections-from-coach-seeking-impulse.html",
-      "localMarkdownUrl": "/articles/substack/relections-from-coach-seeking-impulse.md",
+      "url": "https://domijin.substack.com/p/reflections-from-coach-seeking-impulse",
+      "localUrl": "/articles/substack/reflections-from-coach-seeking-impulse.html",
+      "localMarkdownUrl": "/articles/substack/reflections-from-coach-seeking-impulse.md",
       "pillar": "human-potential",
       "secondaryPillars": [
         "organizational-intelligence"

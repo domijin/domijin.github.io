@@ -1,14 +1,14 @@
 # Agent-Based Advertising System & Observations in Performance Advertising
 
-*Chapter II · Decisions Under Constraints — By Domi Jin (January 2025)*
+*AdTech & ML Systems · By Domi Jin (November 2024)*
 
-## Part I: Unpacking AppLovin's Hypergrowth
+## Part I: Unpacking AppLovin’s Hypergrowth
 
-This year, AppLovin's market cap has soared by over 700%. This extraordinary growth prompted me to reflect on the forces driving such success. I’ve distilled my observations into four key areas: **business**, **data**, **product**, and **culture**.
+This year, AppLovin’s market cap has soared by over 700%. This extraordinary growth prompted me to reflect on the forces driving such success. I’ve distilled my observations into four key areas: **business**, **data**, **product**, and **culture**.
 
 ### 1. Business Dynamics
 
-- **Expanding Ad Reach**: AppLovin effectively diversified its ad portfolio. Gaming users are also e-commerce consumers, and e-commerce ads often yield higher returns than gaming ads, broadening AppLovin's ad revenue streams.
+- **Expanding Ad Reach**: AppLovin effectively diversified its ad portfolio. Gaming users are also e-commerce consumers, and e-commerce ads often yield higher returns than gaming ads, broadening AppLovin’s ad revenue streams.
 - **Reusable Insights**: Behavioral data from gaming translates into predictive insights for e-commerce preferences, reducing the need for model reinvention.
 
 ### 2. Data Advantage
@@ -18,7 +18,7 @@ This year, AppLovin's market cap has soared by over 700%. This extraordinary gro
 
 ### 3. Product Positioning Excellence
 
-- **Latency Tolerance**: Unlike real-time ad platforms, TikTok, Facebook, and AppLovin's models can tolerate slightly higher latency, enabling larger models and better personalization.
+- **Latency Tolerance**: Unlike real-time ad platforms, TikTok, Facebook, and AppLovin’s models can tolerate slightly higher latency, enabling larger models and better personalization.
 - **Visionary Leadership**: Strategic decisions like in-house game development, MAX mediation, and e-commerce integration reflect foresight and adaptability.
 
 ### 4. Culture: Agile and Execution-Driven
@@ -26,7 +26,7 @@ This year, AppLovin's market cap has soared by over 700%. This extraordinary gro
 - **"Wolfer" Mentality**: AppLovin’s culture is defined by agility, accountability, and relentless execution, backed by smart leadership.
 - **Cohesive Team**: Success stems from dedicated, adaptable teams that consistently deliver high-impact results.
 
-## Part II: Observations in the Performance Advertising Industry 
+## Part II: Observations in the Performance Advertising Industry
 
 Performance advertising sits at the crossroads of **technological ingenuity** and **economic strategy**. It is where I’ve gained insights into the evolving interplay of data, technology, and human behavior.
 
@@ -34,19 +34,19 @@ Performance advertising sits at the crossroads of **technological ingenuity** an
 |-|-|-|
 | AppLovin validated that **gamers** are also **interested in e-commerce ads.** | User interests are multifaceted, rendering traditional segmentation outdated. | Ad strategies can blend genres to attract diverse user interests. <br> - **Example:** Content platforms like Amazon Prime Video could incorporate gaming ads for cross-promotion. |
 | AppLovin demonstrated that **game user data** can be effectively applied to **e-commerce ad delivery models.** | Behavioral data is **adaptable** across **verticals**. | Existing models underutilize the full potential of user data. <br> - **Example:** Super apps in China demonstrate how **cross-vertical scaling** can yield **compounding returns with minimal incremental investment.**  |
-| 1. AppLovin uses gaming data to enhance e-commerce ad models. <br> 2. Miles leverage mobility data for affiliate marketing. <br> 3. TikTok's active user engagement data fuels the best recommendation model. | The scaling law persists: **better data** (high quality, granularity, dimensionality and modality) **results better model performance.** | **Algorithm-friendly product design**, like swipe-to-refresh ad interactions, will become prevalent. <br> Integrating **offline signals**, like location-based habits, will also grow. <br> Generative AI and LLMs will unlock **affective computing** and **richer data modalities**, driving new opportunities. |
-| 1. **"Free"** services **trade privacy as a commodity**. <br> 2. **Semiconductor** sensors (e.g., gyroscope, LiDAR, touchscreens, biometric sensors, security cameras) experience exponential growth. <br> 3. Data and privacy **regulations** struggle to keep pace. | **Surveillance capitalism** thrives on **ambient data collection**. <br> **Products are more addictive** than ever, using **psychologically engineering**. <br> **Attention** drives **engagement**, and engagement fuels the **economy**. | **Sophisticated attribution systems** (akin to multi-passenger astronomy) enable advertisers to infer user traits from subtle behavioral cues, such as location history. <br> **Users underestimate** the depth and breadth of **privacy erosion** when giving **data access consent**, fueling a data "gold rush." <br> **Gamification, nudge theory, network effects, and "human"-centric designs** are Swiss Army knives for product gurus and growth hackers. |
-| 1. Walmart Connect uses kiosks to show ads at checkout. <br> 2. Unity places ad units within game environments. <br> 3. Merchants are integrating ads into storefront connected TVs. | The rise of **“spontaneous” ad placements** signal a potential **paradigm shift** toward **inception capitalism**, where users' minds are **less guarded** against non-primary content displays. | AR/VR and voice AI can create immersive, mood-aligned ad experiences that feel less intrusive <br> - **Example:** **Hollywood**'s use of storytelling to shape cultural values. <br> **In-situ advertising with CTV** has the potential to surpass traditional poster ads and TV commercials due to its dynamic and attributable nature. <br> **Voice ads** leverage emotion-rich, less attention-invasive qualities. <br> - **Example:** The success of Google’s NotebookML podcasting feature highlights voice ads' potential. <br> **Shift from correlation to causality in context modeling:** Emerging systems, like TikTok’s real-time recommendation engine, leverage exploratory models to extract behavioral patterns, enhancing upper-stage relevance modeling and attribution.|
+| 1. AppLovin uses gaming data to enhance e-commerce ad models. <br> 2. Miles leverages mobility data for affiliate marketing. <br> 3. TikTok’s active user engagement data fuels the best recommendation model. | The scaling law persists: **better data** (high quality, granularity, dimensionality and modality) **results in better model performance.** | **Algorithm-friendly product design**, like swipe-to-refresh ad interactions, will become prevalent. <br> Integrating **offline signals**, like location-based habits, will also grow. <br> Generative AI and LLMs will unlock **affective computing** and **richer data modalities**, driving new opportunities. |
+| 1. **"Free"** services **trade privacy as a commodity**. <br> 2. **Semiconductor** sensors (e.g., gyroscope, LiDAR, touchscreens, biometric sensors, security cameras) experience exponential growth. <br> 3. Data and privacy **regulations** struggle to keep pace. | **Surveillance capitalism** thrives on **ambient data collection**. <br> **Products are more addictive** than ever, using **psychological engineering**. <br> **Attention** drives **engagement**, and engagement fuels the **economy**. | **Sophisticated attribution systems** (akin to multi-passenger astronomy) enable advertisers to infer user traits from subtle behavioral cues, such as location history. <br> **Users underestimate** the depth and breadth of **privacy erosion** when giving **data access consent**, fueling a data "gold rush." <br> **Gamification, nudge theory, network effects, and "human"-centric designs** are Swiss Army knives for product gurus and growth hackers. |
+| 1. Walmart Connect uses kiosks to show ads at checkout. <br> 2. Unity places ad units within game environments. <br> 3. Merchants are integrating ads into storefront connected TVs. | The rise of **“spontaneous” ad placements** signals a potential **paradigm shift** toward **inception capitalism**, where users' minds are **less guarded** against non-primary content displays. | AR/VR and voice AI can create immersive, mood-aligned ad experiences that feel less intrusive <br> - **Example:** **Hollywood**'s use of storytelling to shape cultural values. <br> **In-situ advertising with CTV** has the potential to surpass traditional poster ads and TV commercials due to its dynamic and attributable nature. <br> **Voice ads** leverage emotion-rich, less attention-invasive qualities. <br> - **Example:** The success of Google’s NotebookML podcasting feature highlights voice ads' potential. <br> **Shift from correlation to causality in context modeling:** Emerging systems, like TikTok’s real-time recommendation engine, leverage exploratory models to extract behavioral patterns, enhancing upper-stage relevance modeling and attribution.|
 
-> Performance advertising is a vast and ever-evolving domain, far too complex to be fully captured within the confines of a single table or essay. 
+> Performance advertising is a vast and ever-evolving domain, far too complex to be fully captured within the confines of a single table or essay.
 
-> My aim here is to distill key signals and make educated guesses about future trends, but this effort is merely the starting point. I hope this piece serves as thought-provoking material for colleagues and domain experts to comment on, debate, or expand upon. 
+> My aim here is to distill key signals and make educated guesses about future trends, but this effort is merely the starting point. I hope this piece serves as thought-provoking material for colleagues and domain experts to comment on, debate, or expand upon.
 
 > To encourage collaboration, I have published this work on Medium to collect feedbacks. For those motivated to amend, extend, or develop the content, I’ve also created a [GitHub repository](https://github.com/domijin/observations_in_advertising) to make this a living collections of ideas, insights, and practices.
 
 ### Highlights of the Potential Paradigm Shift
 
-As a closing to this section, I’d like to highlight four key areas where the most impactful changes in performance advertising are taking shape:
+To close this section, I’d like to highlight four key areas where the most impactful changes in performance advertising are taking shape:
 
 1. Sensing:
     - Deep sensing enabled by extensive attribution to build long and dense contextual understanding (though still far from the complexity of real life).
@@ -62,17 +62,53 @@ As a closing to this section, I’d like to highlight four key areas where the m
     - Generative AI enabling personalized, emotion-rich ad experiences.
     - A new gig economy driven by crowdsourcing ad production, enabling greater creativity and scalability in ad creation.
 
+<figure class="diagram-figure">
+  <svg viewBox="0 0 760 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Four areas of potential change in performance advertising">
+    <defs>
+      <marker id="arrow-advertising-shifts" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M 0 1 L 9 5 L 0 9 z" fill="#2980b9" />
+      </marker>
+    </defs>
+    <rect x="4" y="4" width="752" height="272" rx="14" fill="#f8fafc" stroke="#e2e8f0" />
+    <g font-family="ui-sans-serif, system-ui, sans-serif">
+      <text x="380" y="34" text-anchor="middle" font-size="12" font-weight="700" fill="#0f172a">Four areas of potential change in performance advertising</text>
+      <rect x="28" y="60" width="164" height="180" rx="10" fill="#ffffff" stroke="#cbd5e1" />
+      <text x="40" y="86" font-size="11" font-weight="700" fill="#1d4ed8">Sensing</text>
+      <text x="40" y="116" font-size="11" fill="#475569">Deep attribution</text>
+      <text x="40" y="139" font-size="11" fill="#475569">Granular context</text>
+      <text x="40" y="162" font-size="11" fill="#475569">Ambient data</text>
+      <rect x="208" y="60" width="164" height="180" rx="10" fill="#ffffff" stroke="#cbd5e1" />
+      <text x="220" y="86" font-size="11" font-weight="700" fill="#1d4ed8">Display</text>
+      <text x="220" y="116" font-size="11" fill="#475569">Affective computing</text>
+      <text x="220" y="139" font-size="11" fill="#475569">Multi-channel</text>
+      <text x="220" y="162" font-size="11" fill="#475569">engagement</text>
+      <rect x="388" y="60" width="164" height="180" rx="10" fill="#ffffff" stroke="#cbd5e1" />
+      <text x="400" y="86" font-size="11" font-weight="700" fill="#1d4ed8">Inception capitalism</text>
+      <text x="400" y="116" font-size="11" fill="#475569">Spontaneous ads</text>
+      <text x="400" y="139" font-size="11" fill="#475569">Causal modeling</text>
+      <text x="400" y="162" font-size="11" fill="#475569">Online learning</text>
+      <rect x="568" y="60" width="164" height="180" rx="10" fill="#ffffff" stroke="#cbd5e1" />
+      <text x="580" y="86" font-size="11" font-weight="700" fill="#1d4ed8">Dynamic content</text>
+      <text x="580" y="116" font-size="11" fill="#475569">Generative AI</text>
+      <text x="580" y="139" font-size="11" fill="#475569">Personalized ads</text>
+      <text x="580" y="162" font-size="11" fill="#475569">Crowdsourced</text>
+      <text x="580" y="185" font-size="11" fill="#475569">production</text>
+    </g>
+  </svg>
+  <figcaption>Figure 1 — Richer sensing, new displays, causal context modeling, and generated content frame the essay’s potential paradigm shift.</figcaption>
+</figure>
+
 > Due to space constraints, I have not elaborated on the details of Dynamic Ad Content Generation—a trend widely regarded as straightforward to anticipate given the rise of generative AI. Similarly, I’ve omitted my executive insights, which could serve as references for teams evaluating similar opportunities. For those interested, feel free to reach out directly for further discussion.
 
 ## Part III: The Growth Trap
 
 As the performance advertising industry scales, it faces an **economic and ethical paradox**. Growth relies on scaling data collection and insights, but the **cost**—financial, ethical, and social—**escalates exponentially**.
 
-### The Scaling Law's Economic Limits
+### The Scaling Law’s Economic Limits
 
 The scaling law promises improved model performance with more data but encounters diminishing returns. Achieving "perfect" contextual understanding is costly and often impractical, especially when privacy concerns and regulations add complexity.
 
-### The Demand-Driven Economy's Flaws
+### The Demand-Driven Economy’s Flaws
 
 Modern capitalism thrives on **stimulating demand**, often prioritizing marketing over innovation. While marketing connects consumers with valuable products, it can also distort market dynamics, **promoting visibility over quality.**
 
@@ -80,7 +116,7 @@ Modern capitalism thrives on **stimulating demand**, often prioritizing marketin
 2. **Regulatory Risks**: Privacy and ethical concerns invite scrutiny, potentially disrupting business models.
 3. **Competitive Erosion**: Rapid imitation erodes first-mover advantages in a saturated market.
 
-### Challenge and Opportunities
+### Challenges and Opportunities
 
 The pitfalls of an economy dominated by material growth and competition have led to a **monolithic** form of progress, a decrease in diversity and richness of experiences, and an increasingly fragile market structure.
 
@@ -99,4 +135,4 @@ I envision a world where advertising shifts from **driving demand** to **fosteri
 This essay marks the beginning of a broader dialogue. I invite readers to share insights, debate ideas, and collaborate on solutions that address the systemic challenges in performance advertising and beyond.
 
 ---
-*Footnote: First published in [GitHub Specification (observations_in_advertising)](https://github.com/domijin/observations_in_advertising) (January 2025).*
+*Footnote: First published in [GitHub Specification (observations_in_advertising)](https://github.com/domijin/observations_in_advertising) (November 2024).*

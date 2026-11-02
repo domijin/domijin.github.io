@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Overachiever’s Responsibility: Reflection on Leadership, Alignment, and Sustainable Growth — Domi Jin</title>
-  <meta name="description" content="Overachiever’s Responsibility: Reflection on Leadership, Alignment, and Sustainable Growth — Essay and technical notes by Domi Jin." />
+  <meta name="description" content="Reflections on founder leadership, incentives before expectations, respecting the pace of nature, and building teams with a large GCD and LCM." />
   <link rel="canonical" href="https://domij.info/articles/substack/overachievers-responsibility-reflection.html" />
   <style>
     :root {
@@ -19,7 +19,7 @@
       margin: 0;
       background: var(--bg);
       color: var(--ink);
-      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "PingFang SC", "Hiragino Sans GB", "Noto Serif CJK SC", serif;
       font-size: 19px;
       line-height: 1.78;
       -webkit-font-smoothing: antialiased;
@@ -49,7 +49,7 @@
       font-weight: 500;
     }
     .topbar a:hover { text-decoration: underline; }
-    .chapter-badge {
+    .publication-badge {
       color: var(--muted);
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 11px;
@@ -66,7 +66,7 @@
       padding-bottom: 24px;
       border-bottom: 1px solid var(--border);
     }
-    .essay-eyebrow {
+    .essay-eyebrow, .article-kicker {
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 12px;
       text-transform: uppercase;
@@ -129,26 +129,25 @@
       text-decoration: underline;
       text-underline-offset: 3px;
     }
-    .table-wrap {
-      overflow-x: auto;
-      margin: 1.5em 0;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-family: ui-sans-serif, system-ui, sans-serif;
-      font-size: 14px;
-      line-height: 1.5;
-    }
-    th, td {
+    .diagram-figure {
+      margin: 36px 0;
+      padding: 24px;
+      background: rgba(255, 255, 255, 0.65);
       border: 1px solid var(--border);
-      padding: 8px 12px;
-      text-align: left;
+      border-radius: 16px;
+      box-shadow: 0 10px 28px rgba(31, 42, 58, 0.05);
     }
-    th {
-      background: #f8fafc;
-      font-weight: 600;
-      color: #0f172a;
+    .diagram-figure svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .diagram-figure figcaption {
+      margin-top: 12px;
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-align: center;
+      font-family: 'Inter', -apple-system, sans-serif;
     }
     footer.colophon {
       margin-top: 64px;
@@ -169,64 +168,114 @@
   </style>
 </head>
 <body>
-  <nav class="topbar" aria-label="Book navigation">
+  <nav class="topbar" aria-label="Site navigation">
     <div class="topbar-inner">
-      <a href="/">&larr; Domi Jin &middot; Notes from Research &amp; Practice</a>
-      <span class="chapter-badge">Chapter IV · Institutions, Incentives and Possible Futures</span>
-      <a href="/articles/">Table of Contents</a>
+      <a href="/">&larr; Domi Jin</a>
+      <span class="publication-badge">Domi’s Mind Waves &middot; Leadership &amp; Systems</span>
+      <a href="/articles/">All Writing</a>
     </div>
   </nav>
   <main>
     <header class="essay-header">
-      <span class="essay-eyebrow">Chapter IV · Institutions, Incentives and Possible Futures</span>
+      <span class="essay-eyebrow article-kicker">Substack &middot; Domi’s Mind Waves &middot; Leadership &amp; Systems &middot; February 2025</span>
       <h1>Overachiever’s Responsibility: Reflection on Leadership, Alignment, and Sustainable Growth</h1>
       <div class="essay-byline">By Domi Jin (Dongming Jin) &middot; February 2025</div>
     </header>
     <article>
-      <p>I’ve always been fascinated by how top performers seem to have more than 24 hours in a day. They either pour more energy into a single focus or juggle multiple threads that surpassing the performance of regular person. As a founder, this is a reality I’ve come to embrace—not just for myself, but in how I build and lead a team.</p>
-      <blockquote><p>It’s rather an obligation than responsibility!</p></blockquote>
-      <p>No legendary company is built by one person. Success isn’t just about individual drive but about understanding, respecting, and aligning with the priority matrix and value equation of others. Leadership, at its core, is about enabling collective greatness.</p>
-      <h3>The Leadership I Admire</h3>
-      <p>There are many styles of leadership, but the kind I admire most is leading by action—the type that doesn’t just give direction but coaches, inspires, and adapts alongside the team. Great leaders:</p>
-      <p>•	Set the pace through their own actions.</p>
-      <p>•	Foster a culture of reflection, open communication, and collaboration.</p>
-      <p>•	Recognize the limits of their own expertise and empower those around them.</p>
+      <p>I’ve always been fascinated by how top performers seem to have more than 24 hours in a day. They either pour more energy into a single focus or juggle multiple threads, surpassing the performance of a regular person. As a founder, this is a reality I’ve come to embrace—not just for myself, but in how I build and lead a team.</p>
+      <blockquote><p>It’s rather an obligation than a responsibility!</p></blockquote>
+      <p>No legendary company is built by one person. Success isn’t just about individual drive, but about understanding, respecting, and aligning with the priority matrix and value equation of others. Leadership, at its core, is about enabling collective greatness.</p>
+
+      <figure class="diagram-figure">
+        <svg viewBox="0 0 760 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Team Alignment GCD vs LCM and Concentric Leadership Ripple Diagram">
+          <rect x="4" y="4" width="752" height="272" rx="14" fill="#f8fafc" stroke="#e2e8f0" />
+          <text x="380" y="28" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="700" fill="#0f172a" letter-spacing="0.06em">THE OVERACHIEVER’S SYSTEM · CONCENTRIC RIPPLES &amp; GCD / LCM ALIGNMENT</text>
+
+          <!-- Left Panel: 3-Layer Concentric Ripple (Self -> Team -> Civic) -->
+          <rect x="24" y="44" width="332" height="214" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+          <text x="190" y="66" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5" font-weight="700" fill="#1e293b">CONCENTRIC LEADERSHIP RIPPLES</text>
+
+          <!-- Outer Ring: Civic Stewardship -->
+          <circle cx="190" cy="158" r="82" fill="#f0fdf4" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="4 3" />
+          <text x="190" y="92" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10" font-weight="700" fill="#15803d">OUTER: CIVIC STEWARDSHIP &amp; VOLUNTEERING</text>
+
+          <!-- Middle Ring: Team & Mentorship -->
+          <circle cx="190" cy="166" r="56" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.5" />
+          <text x="190" y="126" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10" font-weight="700" fill="#1d4ed8">MIDDLE: TEAM INCENTIVES &amp; COACHING</text>
+
+          <!-- Inner Core: Self & Craft -->
+          <circle cx="190" cy="176" r="30" fill="#0f172a" />
+          <text x="190" y="173" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10" font-weight="700" fill="#ffffff">INNER CORE</text>
+          <text x="190" y="186" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="9.5" fill="#93c5fd">Pace &amp; Action</text>
+
+          <!-- Right Panel: GCD vs LCM Alignment -->
+          <rect x="376" y="44" width="360" height="214" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+          <text x="556" y="66" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5" font-weight="700" fill="#1e293b">HIGH-PERFORMANCE ALIGNMENT EQUATION</text>
+
+          <!-- Outer Expanding Polygon: Large LCM -->
+          <polygon points="556,82 688,112 706,196 556,232 406,196 424,112" fill="#fef3c7" fill-opacity="0.55" stroke="#d97706" stroke-width="1.8" />
+          <text x="556" y="102" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" font-weight="700" fill="#b45309">LARGE LCM (Least Common Multiple)</text>
+          <text x="556" y="218" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10.5" fill="#92400e">Complementary Skills → Maximizes Collective Reach</text>
+
+          <!-- Inner Overlapping Venn Circles: Large GCD -->
+          <circle cx="534" cy="156" r="40" fill="#dbeafe" fill-opacity="0.85" stroke="#2563eb" stroke-width="1.5" />
+          <circle cx="578" cy="156" r="40" fill="#dbeafe" fill-opacity="0.85" stroke="#2563eb" stroke-width="1.5" />
+          <text x="556" y="148" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" font-weight="700" fill="#1e3a8a">LARGE GCD</text>
+          <text x="556" y="162" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10" font-weight="600" fill="#1e40af">Shared Values</text>
+          <text x="556" y="175" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="9.5" fill="#1d4ed8">Low Friction</text>
+        </svg>
+        <figcaption>Figure 1 — Leadership as a compounding system: radiating from personal pace-setting to team incentives and civic stewardship (left), anchored by a large GCD of shared values and a large LCM of complementary capabilities (right).</figcaption>
+      </figure>
+
+      <h2>The Leadership I Admire</h2>
+      <p>There are many styles of leadership, but the kind I admire most is leading by action—the type that doesn’t just give direction, but coaches, inspires, and adapts alongside the team. Great leaders:</p>
+      <ul>
+        <li>Set the pace through their own actions.</li>
+        <li>Foster a culture of reflection, open communication, and collaboration.</li>
+        <li>Recognize the limits of their own expertise and empower those around them.</li>
+      </ul>
       <p>To me, a great team is not just a group of high achievers, but a system that functions with both alignment and complementarity. And that brings me to three key takeaways:</p>
-      <p>#### 1. Incentives Before Expectations</p>
+
+      <h3>1. Incentives Before Expectations</h3>
       <p>As a founder, I’m wired to work beyond regular hours—because I’m deeply motivated by what I’m building. But motivation isn’t universal. Before expecting more from others, I need to invest in understanding what drives them.</p>
-      <p>•	What does success look like for them?</p>
-      <p>•	How does this role fit into their personal and professional goals?</p>
-      <p>•	What incentives (beyond money) actually motivate them to go the extra mile?</p>
+      <ul>
+        <li>What does success look like for them?</li>
+        <li>How does this role fit into their personal and professional goals?</li>
+        <li>What incentives (beyond money) actually motivate them to go the extra mile?</li>
+      </ul>
       <p>Leadership isn’t about demanding more—it’s about creating an environment where people want to give their best. And that requires upfront investment in knowing and caring about what matters to them.</p>
-      <p>#### 2. The Pace of Nature Is a Hard Limit</p>
+
+      <h3>2. The Pace of Nature Is a Hard Limit</h3>
       <p>You can push yourself beyond limits, but reality will always have a pace of its own. Burnout isn’t a badge of honor—it’s an operational failure.</p>
       <p>The best advantage isn’t just outworking others; it’s knowing when to rest and when to push. Sometimes, taking a strategic pause isn’t a sign of slowing down—it’s allowing the world to catch up with your momentum.</p>
-      <p>•	If you’re ahead, take a moment to enjoy life or prepare for the next challenge.</p>
-      <p>•	If you’re behind, don’t force unnatural speed—optimize for sustainability instead.</p>
+      <ul>
+        <li>If you’re ahead, take a moment to enjoy life or prepare for the next challenge.</li>
+        <li>If you’re behind, don’t force unnatural speed—optimize for sustainability instead.</li>
+      </ul>
       <p>Longevity in execution is a competitive edge.</p>
-      <p>#### 3. Alignment = The Right Mix of Commonality &amp; Complementarity</p>
+
+      <h3>3. Alignment = The Right Mix of Commonality &amp; Complementarity</h3>
       <p>The best teams have:</p>
-      <p>•	A large greatest common divisor (GCD): Shared values, mindsets, and principles. This minimizes friction and keeps everyone moving in the same direction.</p>
-      <p>•	A large least common multiple (LCM): Diverse skills and experiences that complement each other, enabling the team to tackle massive challenges.</p>
+      <ul>
+        <li><strong>A large greatest common divisor (GCD):</strong> Shared values, mindsets, and principles. This minimizes friction and keeps everyone moving in the same direction.</li>
+        <li><strong>A large least common multiple (LCM):</strong> Diverse skills and experiences that complement each other, enabling the team to tackle massive challenges.</li>
+      </ul>
       <p>Without aligned values, a team is dysfunctional.</p>
       <p>Without complementary skills, a team is redundant.</p>
       <p>High-performance teams minimize communication overhead while maximizing collective competence. That’s how you move fast without breaking everything.</p>
-      <p><a href="https://domijin.substack.com/subscribe?utm_source=email&amp;r=">Subscribe</a></p>
-      <h3>Final Thought</h3>
+
+      <h2>Final Thought</h2>
       <p>The role of a founder isn’t just to work harder—it’s to build a system where everyone’s best effort compounds into something greater.</p>
-      <p>•	Incentivize before asking for more.</p>
-      <p>•	Respect the natural pace of things.</p>
-      <p>•	Build teams with both alignment and diversity.</p>
+      <ul>
+        <li>Incentivize before asking for more.</li>
+        <li>Respect the natural pace of things.</li>
+        <li>Build teams with both alignment and diversity.</li>
+      </ul>
       <p>Because at the end of the day, great companies aren’t built by individuals. They’re built by teams.</p>
-      <p><a href="https://domijin.substack.com/p/overachievers-responsibility-reflection/comments">Comment</a></p>
-      <p>Volunteering is important to me so I create clause and find the time. :)</p>
+      <p><em>Volunteering is important to me, so I carve out space and find the time. :)</em></p>
     </article>
     <footer class="colophon">
-      <p>
-        <strong>Footnote:</strong> First published in
-        <a href="https://domijin.substack.com/p/overachievers-responsibility-reflection" rel="noopener noreferrer" target="_blank">Substack (Domi’s Mind Waves)</a>
-        (February 2025). Part of <em>Domi Jin — Notes from Research and Practice</em>.
-      </p>
+      <p>Originally published on <a href="https://domijin.substack.com/p/overachievers-responsibility-reflection" rel="noopener noreferrer" target="_blank">Substack (Domi’s Mind Waves)</a> &middot; February 2025.</p>
     </footer>
   </main>
 </body>

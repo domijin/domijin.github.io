@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Open Learning Lab: Evidence-Driven Personalized Learning Policies — Domi Jin</title>
-  <meta name="description" content="Open Learning Lab: Evidence-Driven Personalized Learning Policies — Essay and technical notes by Domi Jin." />
+  <title>Open Learning Lab: Beyond the Fluency Illusion with an 8-Agent Closed-Loop Pipeline — Domi Jin</title>
+  <meta name="description" content="How Open Learning Lab turns multi-domain curiosity and design-judgment-first tutoring into durable capability through an 8-agent closed-loop pipeline and verified 7-day calendar rhythm." />
   <link rel="canonical" href="https://domij.info/articles/github/open-learning-lab.html" />
   <style>
     :root {
@@ -19,7 +19,7 @@
       margin: 0;
       background: var(--bg);
       color: var(--ink);
-      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "PingFang SC", "Hiragino Sans GB", "Noto Serif CJK SC", serif;
       font-size: 19px;
       line-height: 1.78;
       -webkit-font-smoothing: antialiased;
@@ -49,7 +49,7 @@
       font-weight: 500;
     }
     .topbar a:hover { text-decoration: underline; }
-    .chapter-badge {
+    .publication-badge {
       color: var(--muted);
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 11px;
@@ -66,7 +66,7 @@
       padding-bottom: 24px;
       border-bottom: 1px solid var(--border);
     }
-    .essay-eyebrow {
+    .essay-eyebrow, .article-kicker {
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 12px;
       text-transform: uppercase;
@@ -129,21 +129,43 @@
       text-decoration: underline;
       text-underline-offset: 3px;
     }
+    figure.diagram-figure {
+      margin: 2.2em 0;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+    }
+    figure.diagram-figure svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    figure.diagram-figure figcaption {
+      margin-top: 12px;
+      font-family: ui-sans-serif, system-ui, sans-serif;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+      text-align: center;
+    }
     .table-wrap {
       overflow-x: auto;
-      margin: 1.5em 0;
+      margin: 1.8em 0;
     }
     table {
       width: 100%;
       border-collapse: collapse;
       font-family: ui-sans-serif, system-ui, sans-serif;
       font-size: 14px;
-      line-height: 1.5;
+      line-height: 1.55;
     }
     th, td {
       border: 1px solid var(--border);
-      padding: 8px 12px;
+      padding: 10px 12px;
       text-align: left;
+      vertical-align: top;
     }
     th {
       background: #f8fafc;
@@ -169,53 +191,319 @@
   </style>
 </head>
 <body>
-  <nav class="topbar" aria-label="Book navigation">
+  <nav class="topbar" aria-label="Site navigation">
     <div class="topbar-inner">
-      <a href="/">&larr; Domi Jin &middot; Notes from Research &amp; Practice</a>
-      <span class="chapter-badge">Chapter III · Human Agency, Older People’s Independence and Lifelong Play</span>
-      <a href="/articles/">Table of Contents</a>
+      <a href="/">&larr; Domi Jin</a>
+      <span class="publication-badge">GitHub Specification &middot; Lifelong Learning</span>
+      <a href="/articles/">All Writing</a>
     </div>
   </nav>
   <main>
     <header class="essay-header">
-      <span class="essay-eyebrow">Chapter III · Human Agency, Older People’s Independence and Lifelong Play</span>
-      <h1>Open Learning Lab: Evidence-Driven Personalized Learning Policies</h1>
+      <span class="essay-eyebrow article-kicker">Human Agency &amp; Lifelong Learning &middot; August 2026</span>
+      <h1>Open Learning Lab: Beyond the Fluency Illusion with an 8-Agent Closed-Loop Pipeline</h1>
       <div class="essay-byline">By Domi Jin (Dongming Jin) &middot; August 2026</div>
     </header>
     <article>
-      <p><strong>Learn something real. Measure whether it lasts. Open the process so others can challenge and improve it.</strong></p>
-      <p>Open Learning Lab is an open experiment in evidence-driven personalized learning. It starts with one real learner and one real learning objective, then asks which LLM-mediated learning policies produce durable, transferable capability per unit of learner effort.</p>
-      <p>The first study uses the active <a href="https://marin.community/">Marin</a> project as the learning domain.</p>
-      <h2>North star</h2>
-      <blockquote><p>Discover, validate, and operationalize personalized learning policies that maximize durable, transferable capability per unit of learner effort—starting with one learner, while preserving enough provenance that others can reproduce, challenge, and extend the findings.</p></blockquote>
-      <p>We optimize learning <strong>outside</strong> the tutoring session, not how fluent or satisfying the conversation feels.</p>
-      <h2>How the project works</h2>
-      <p>``<code>text current sources + expert judgment + learner state | v learning action | v learner | v recall / transfer / calibration | v evidence -&gt; policy update -&gt; repeat </code>``</p>
-      <p>The public repository is the <strong>research ledger and collaboration surface</strong>. ChatGPT, Claude, Codex, other agents, or humans may act as interfaces. No single model vendor is the platform.</p>
-      <h2>Research objects</h2>
-      <p><code>goal -&gt; hypothesis -&gt; experiment -&gt; observation/evidence -&gt; finding -&gt; decision</code></p>
-      <ul><li><strong>Issues</strong> are for proposals and discussion.</li><li><strong>Pull requests</strong> are for reviewable changes and preregistration.</li><li><strong>Ledger records</strong> are the durable canonical record.</li><li>Published records are append-only in spirit: corrections supersede; they do not silently rewrite history.</li></ul>
-      <h2>Experiment 0001: Learn Marin</h2>
-      <p>The first active hypothesis is:</p>
-      <blockquote><p>Asking a learner to make the underlying design judgment before revealing how Marin solved the problem improves later reconstruction and transfer compared with explanation-first learning.</p></blockquote>
-      <p>The current session has generated promising observations, but <strong>not a validated finding</strong>. Delayed retrieval and transfer tests are still required.</p>
-      <p>See <a href="https://github.com/domijin/open-learning-lab/blob/main/studies/marin/README.md">studies/marin</a>.</p>
-      <h2>Checkpointing a learning session</h2>
-      <p>Keep the primary learning conversation as the uninterrupted timeline. At a meaningful learning checkpoint, branch the conversation and run <a href="https://github.com/domijin/open-learning-lab/blob/main/prompts/checkpoint-capture.md"><code>checkpoint-capture/v0.1</code></a>. The side branch records the trace and evidence, opens a reviewable GitHub change, then returns control to the main learning session.</p>
-      <p>See <a href="https://github.com/domijin/open-learning-lab/blob/main/prompts/README.md">prompts/README.md</a> for the workflow.</p>
-      <h2>Contributing</h2>
-      <p>You can contribute as a learner, domain expert, educator, learning-science researcher, or agent builder. The cheapest useful contribution is often a challenge to a claim or experimental design—not a full lesson.</p>
-      <p>Read <a href="https://github.com/domijin/open-learning-lab/blob/main/CHARTER.md">CHARTER.md</a>, <a href="https://github.com/domijin/open-learning-lab/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a>, and <a href="https://github.com/domijin/open-learning-lab/blob/main/AGENTS.md">AGENTS.md</a>.</p>
-      <h2>Status</h2>
-      <p><strong>v0 / bootstrap.</strong> Research protocol first; product UI later, when real workflow pain tells us what to build.</p>
-      <p>Dual licensed: <strong>MIT for software</strong> and <strong>CC BY 4.0 for learning/research content</strong>. See <a href="https://github.com/domijin/open-learning-lab/blob/main/docs/licensing.md">docs/licensing.md</a>.</p>
+      <p>Everyone who has spent late nights talking through a hard technical topic with ChatGPT or Claude knows the <strong>fluency illusion</strong>. Inside the chat window, the explanation feels crystalline. You nod along as the model walks through distributed systems, tensor parallelism, or stochastic differential equations. You close your laptop feeling like you just mastered a new field.</p>
+
+      <p>Then the next morning arrives. You open a blank editor—or sit down to make an actual architectural trade-off—and the clarity evaporates. What felt like durable understanding was merely passive recognition of a well-written paragraph.</p>
+
+      <p>I started <strong>Open Learning Lab</strong> to confront that gap head-on. True learning is never measured by how satisfying or eloquent a tutoring conversation feels in the moment. It is measured <strong>outside</strong> the session: in delayed recall, independent reconstruction, epistemic calibration, and transfer to novel problems per unit of learner effort.</p>
+
+      <h2>Why Continuous Curiosity Needs a Closed-Loop System</h2>
+
+      <p>In my earlier essays on serendipity and overachievers’ responsibility, I wrote about climbing different peaks—astrophysics, machine learning, human-computer interaction, and entrepreneurship—to build a connected highland of understanding. When you are learning across multiple domains while building a company, willpower alone fails. If your curiosity is scattered across twenty open browser tabs and half-read papers, cognitive overload wins.</p>
+
+      <p>To turn raw multi-domain curiosity into durable capability, I designed Open Learning Lab around two coupled loops:</p>
+
+      <ol>
+        <li><strong>An Evidence-Driven Pedagogical Loop</strong> (starting with our first live study, <code>Experiment 0001: Learn Marin</code>, built on the open-source <a href="https://marin.community/" target="_blank" rel="noopener noreferrer">Marin</a> foundation-model project), where the learner is asked to commit to an architectural design judgment <em>before</em> seeing how the experts solved it.</li>
+        <li><strong>An Automated 8-Agent Research &amp; Design Loop</strong> that ingests raw signals across domains, models the learner’s current epistemic state, schedules spaced retrieval and synthesis blocks, verifies constraint satisfaction, and compiles a balanced 7-day actionable calendar (<code>calendar_v8.ics</code>) that protects deep work, physical recovery, and playful exploration.</li>
+      </ol>
+
+      <figure class="diagram-figure">
+        <svg viewBox="0 0 760 490" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Dual SVG Diagram: 8-Agent Closed-Loop Pipeline and Color-Coded 7-Day Calendar Rhythm Strip">
+          <defs>
+            <marker id="arrow-oll" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 1 L 10 5 L 0 9 z" fill="#2980b9" />
+            </marker>
+          </defs>
+          <rect x="0" y="0" width="760" height="490" rx="10" fill="#f8fafc" />
+
+          <!-- Part A Title -->
+          <text x="24" y="28" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" font-weight="700" fill="#2980b9" letter-spacing="0.08em">PART A · 8-AGENT CLOSED-LOOP RESEARCH &amp; LEARNING PIPELINE</text>
+
+          <!-- Top Row: Agents 01 -> 02 -> 03 -> 04 -->
+          <rect x="24" y="44" width="160" height="86" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+          <text x="34" y="64" font-family="ui-monospace, monospace" font-size="10.5" font-weight="700" fill="#0284c7">AGENT 01 · HARVEST</text>
+          <text x="34" y="83" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12.5" font-weight="700" fill="#0f172a">Signal Harvester</text>
+          <text x="34" y="102" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#475569">Marin code, arXiv, specs</text>
+          <text x="34" y="118" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10.5" fill="#64748b">Provenance-verified nodes</text>
+
+          <line x1="184" y1="87" x2="204" y2="87" stroke="#2980b9" stroke-width="2" marker-end="url(#arrow-oll)" />
+
+          <rect x="208" y="44" width="160" height="86" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+          <text x="218" y="64" font-family="ui-monospace, monospace" font-size="10.5" font-weight="700" fill="#0284c7">AGENT 02 · STATE</text>
+          <text x="218" y="83" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12.5" font-weight="700" fill="#0f172a">Epistemic Modeler</text>
+          <text x="218" y="102" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#475569">Concept graph &amp; gaps</text>
+          <text x="218" y="118" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10.5" fill="#64748b">Flags fluency illusions</text>
+
+          <line x1="368" y1="87" x2="388" y2="87" stroke="#2980b9" stroke-width="2" marker-end="url(#arrow-oll)" />
+
+          <rect x="392" y="44" width="160" height="86" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+          <text x="402" y="64" font-family="ui-monospace, monospace" font-size="10.5" font-weight="700" fill="#0284c7">AGENT 03 · POLICY</text>
+          <text x="402" y="83" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12.5" font-weight="700" fill="#0f172a">Policy Designer</text>
+          <text x="402" y="102" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#475569">Judgment-First prompt</text>
+          <text x="402" y="118" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10.5" fill="#64748b">Preregistered hypothesis</text>
+
+          <line x1="552" y1="87" x2="572" y2="87" stroke="#2980b9" stroke-width="2" marker-end="url(#arrow-oll)" />
+
+          <rect x="576" y="44" width="160" height="86" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+          <text x="586" y="64" font-family="ui-monospace, monospace" font-size="10.5" font-weight="700" fill="#0284c7">AGENT 04 · DIALOGUE</text>
+          <text x="586" y="83" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12.5" font-weight="700" fill="#0f172a">Socratic Tutor</text>
+          <text x="586" y="102" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#475569">Uninterrupted session</text>
+          <text x="586" y="118" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10.5" fill="#64748b">Design commitment first</text>
+
+          <!-- Down connector 04 -> 05 -->
+          <line x1="656" y1="130" x2="656" y2="156" stroke="#2980b9" stroke-width="2" marker-end="url(#arrow-oll)" />
+
+          <!-- Bottom Row: Agents 08 <- 07 <- 06 <- 05 -->
+          <rect x="576" y="160" width="160" height="86" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+          <text x="586" y="180" font-family="ui-monospace, monospace" font-size="10.5" font-weight="700" fill="#0d9488">AGENT 05 · TRACE</text>
+          <text x="586" y="199" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12.5" font-weight="700" fill="#0f172a">Side Checkpointer</text>
+          <text x="586" y="218" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#475569">Non-intrusive branch</text>
+          <text x="586" y="234" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10.5" fill="#64748b">Append-only Git ledger</text>
+
+          <line x1="576" y1="203" x2="556" y2="203" stroke="#2980b9" stroke-width="2" marker-end="url(#arrow-oll)" />
+
+          <rect x="392" y="160" width="160" height="86" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+          <text x="402" y="180" font-family="ui-monospace, monospace" font-size="10.5" font-weight="700" fill="#0d9488">AGENT 06 · EVAL</text>
+          <text x="402" y="199" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12.5" font-weight="700" fill="#0f172a">Transfer Evaluator</text>
+          <text x="402" y="218" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#475569">48h / 7d blind recall</text>
+          <text x="402" y="234" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10.5" fill="#64748b">Out-of-session verification</text>
+
+          <line x1="392" y1="203" x2="372" y2="203" stroke="#2980b9" stroke-width="2" marker-end="url(#arrow-oll)" />
+
+          <rect x="208" y="160" width="160" height="86" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+          <text x="218" y="180" font-family="ui-monospace, monospace" font-size="10.5" font-weight="700" fill="#0d9488">AGENT 07 · CADENCE</text>
+          <text x="218" y="199" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12.5" font-weight="700" fill="#0f172a">Rhythm Optimizer</text>
+          <text x="218" y="218" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#475569">Cognitive load balance</text>
+          <text x="218" y="234" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10.5" fill="#64748b">Protects sleep &amp; play</text>
+
+          <line x1="208" y1="203" x2="188" y2="203" stroke="#2980b9" stroke-width="2" marker-end="url(#arrow-oll)" />
+
+          <rect x="24" y="160" width="160" height="86" rx="8" fill="#ffffff" stroke="#0284c7" stroke-width="2" />
+          <text x="34" y="180" font-family="ui-monospace, monospace" font-size="10.5" font-weight="700" fill="#15803d">AGENT 08 · OUTPUT</text>
+          <text x="34" y="199" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12.5" font-weight="700" fill="#0f172a">Calendar Compiler</text>
+          <text x="34" y="218" font-family="ui-monospace, monospace" font-size="11" fill="#0369a1">calendar_v8.ics</text>
+          <text x="34" y="234" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10.5" fill="#64748b">Zero-conflict 7-day feed</text>
+
+          <!-- Feedback loop up from 06/08 to 02 -->
+          <path d="M 104 160 L 104 144 L 288 144 L 288 132" fill="none" stroke="#0d9488" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrow-oll)" />
+
+          <!-- Part B: Color-Coded 7-Day Calendar Rhythm Strip -->
+          <line x1="24" y1="268" x2="736" y2="268" stroke="#e2e8f0" stroke-width="1.5" />
+          <text x="24" y="294" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" font-weight="700" fill="#0f172a" letter-spacing="0.08em">PART B · VERIFIED 7-DAY CALENDAR RHYTHM STRIP (calendar_v8.ics)</text>
+
+          <!-- Legend -->
+          <rect x="420" y="283" width="10" height="10" rx="2" fill="#dbeafe" stroke="#2563eb" />
+          <text x="435" y="292" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10.5" fill="#334155">Deep Study</text>
+          <rect x="505" y="283" width="10" height="10" rx="2" fill="#dcfce7" stroke="#16a34a" />
+          <text x="520" y="292" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10.5" fill="#334155">Transfer &amp; Build</text>
+          <rect x="612" y="283" width="10" height="10" rx="2" fill="#fef3c7" stroke="#d97706" />
+          <text x="627" y="292" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10.5" fill="#334155">Recall &amp; Play</text>
+
+          <!-- 7 Day Columns -->
+          <!-- MON -->
+          <rect x="24" y="310" width="96" height="156" rx="6" fill="#ffffff" stroke="#cbd5e1" />
+          <text x="72" y="328" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" font-weight="700" fill="#0f172a">MON</text>
+          <rect x="30" y="336" width="84" height="36" rx="4" fill="#dbeafe" />
+          <text x="72" y="352" text-anchor="middle" font-family="ui-sans-serif, sans-serif" font-size="10" font-weight="600" fill="#1e40af">Marin Design</text>
+          <text x="72" y="365" text-anchor="middle" font-family="ui-sans-serif, sans-serif" font-size="9.5" fill="#1e3a8a">Judgment Prompt</text>
+          <rect x="30" y="378" width="84" height="36" rx="4" fill="#dcfce7" />
+          <text x="72" y="394" text-anchor="middle" font-family="ui-sans-serif, sans-serif" font-size="10" font-weight="600" fill="#166534">Code Trace</text>
+          <text x="72" y="407" text-anchor="middle" font-family="ui-sans-serif, sans-serif" font-size="9.5" fill="#14532d">Data Pipeline</text>
+          <rect x="30" y="420" width="84" height="36" rx="4" fill="#fef3c7" />
+          <text x="72" y="441" text-anchor="middle" font-family="ui-sans-serif, sans-serif" font-size="10" font-weight="600" fill="#92400e">Aerobic &amp; Rest</text>
+
+          <!-- TUE -->
+          <rect x="126" y="310" width="96" height="156" rx="6" fill="#ffffff" stroke="#cbd5e1" />
+          <text x="174" y="328" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" font-weight="700" fill="#0f172a">TUE</text>
+          <rect x="132" y="336" width="84" height="36" rx="4" fill="#dcfce7" />
+          <text x="174" y="352" text-anchor="middle" font-family="ui-sans-serif, sans-serif" font-size="10" font-weight="600" fill="#166534">Founder Build</text>
+          <text x="174" y="365" text-anchor="middle" font-family="ui-sans-serif, sans-serif" font-size="9.5" fill="#14532d">Kin Domi Field</text>
+          <rect x="132" y="378" width="84" height="36" rx="4" fill="#dbeafe" />
+          <text x="174" y="394" text-anchor="middle" font-family="ui-sans-serif, sans-serif" font-size="10" font-weight="600" fill="#1e40af">Side Checkpoint</text>
+          <text x="174" y="407" text-anchor="middle" font-family="ui-sans-serif, sans-serif" font-size="9.5" fill="#1e3a8a">Ledger PR #01</text>
+          <rect x="132" y="420" width="84" height="36" rx="4" fill="#fef3c7" />
+          <text x="174" y="441" text-anchor="middle" font-family="ui-sans-serif, sans-serif" font-size="10" font-weight="600" fill="#92400e">Evening Walk</text>
+
+          <!-- WED -->
+          <rect x="228" y="310" width="96" height="156" rx="6" fill="#ffffff" stroke="#cbd5e1" />
+          <text x="276" y="328" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" font-weight="700" fill="#0f172a">WED</text>
+          <rect x="234" y="336" width="84" height="36" rx="4" fill="#fef3c7" />
+          <text x="276" y="352" text-anchor="middle" font-family="ui-sans-serif, sans-serif" font-size="10" font-weight="600" fill="#92400e">48h Blind Recall</text>
+          <text x="276" y="365" text-anchor="middle" font-family="ui-sans-serif, sans-serif" font-size="9.5" fill="#78350f">No-LLM Rebuild</text>
+          <rect x="234" y="378" width="84" height="36" rx="4" fill="#dbeafe" />
+          <text x="276" y="394" text-anchor="middle" font-family="ui-sans-serif, sans-serif" font-size="10" font-weight="600" fill="#1e40af">Calibration Diff</text>
+          <text x="276" y="407" text-anchor="middle" font-family="ui-sans-serif, sans-serif" font-size="9.5" fill="#1e3a8a">Update State Vec</text>
+          <rect x="234" y="420" width="84" height="36" rx="4" fill="#dcfce7" />
+          <text x="276" y="441" text-anchor="middle" font-family="ui-sans-serif, sans-serif" font-size="10" font-weight="600" fill="#166534">Edge Prototype</text>
+
+          <!-- THU -->
+          <rect x="330" y="310" width="96" height="156" rx="6" fill="#ffffff" stroke="#cbd5e1" />
+          <text x="378" y="328" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" font-weight="700" fill="#0f172a">THU</text>
+          <rect x="336" y="336" width="84" height="36" rx="4" fill="#dbeafe" />
+          <text x="378" y="352" text-anchor="middle" font-family="ui-sans-serif, sans-serif" font-size="10" font-weight="600" fill="#1e40af">Tokenizer Spec</text>
+          <text x="378" y="365" text-anchor="middle" font-family="ui-sans-serif, sans-serif" font-size="9.5" fill="#1e3a8a">Judgment First</text>
+          <rect x="336" y="378" width="84" height="36" rx="4" fill="#dcfce7" />
+          <text x="378" y="394" text-anchor="middle" font-family="ui-sans-serif, sans-serif" font-size="10" font-weight="600" fill="#166534">Cross-Transfer</text>
+          <text x="378" y="407" text-anchor="middle" font-family="ui-sans-serif, sans-serif" font-size="9.5" fill="#14532d">baby-AI Memory</text>
+          <rect x="336" y="420" width="84" height="36" rx="4" fill="#fef3c7" />
+          <text x="378" y="441" text-anchor="middle" font-family="ui-sans-serif, sans-serif" font-size="10" font-weight="600" fill="#92400e">Tabletop Play</text>
+
+          <!-- FRI -->
+          <rect x="432" y="310" width="96" height="156" rx="6" fill="#ffffff" stroke="#cbd5e1" />
+          <text x="480" y="328" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" font-weight="700" fill="#0f172a">FRI</text>
+          <rect x="438" y="336" width="84" height="36" rx="4" fill="#dcfce7" />
+          <text x="480" y="352" text-anchor="middle" font-family="ui-sans-serif, sans-serif" font-size="10" font-weight="600" fill="#166534">Synthesis Note</text>
+          <text x="480" y="365" text-anchor="middle" font-family="ui-sans-serif, sans-serif" font-size="9.5" fill="#14532d">Public Ledger</text>
+          <rect x="438" y="378" width="84" height="36" rx="4" fill="#fef3c7" />
+          <text x="480" y="394" text-anchor="middle" font-family="ui-sans-serif, sans-serif" font-size="10" font-weight="600" fill="#92400e">Peer Challenge</text>
+          <text x="480" y="407" text-anchor="middle" font-family="ui-sans-serif, sans-serif" font-size="9.5" fill="#78350f">Issue Review</text>
+          <rect x="438" y="420" width="84" height="36" rx="4" fill="#dbeafe" />
+          <text x="480" y="441" text-anchor="middle" font-family="ui-sans-serif, sans-serif" font-size="10" font-weight="600" fill="#1e40af">Reading Stack</text>
+
+          <!-- SAT -->
+          <rect x="534" y="310" width="96" height="156" rx="6" fill="#ffffff" stroke="#cbd5e1" />
+          <text x="582" y="328" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" font-weight="700" fill="#0f172a">SAT</text>
+          <rect x="540" y="336" width="84" height="36" rx="4" fill="#fef3c7" />
+          <text x="582" y="352" text-anchor="middle" font-family="ui-sans-serif, sans-serif" font-size="10" font-weight="600" fill="#92400e">7d Transfer Test</text>
+          <text x="582" y="365" text-anchor="middle" font-family="ui-sans-serif, sans-serif" font-size="9.5" fill="#78350f">Unseen Problem</text>
+          <rect x="540" y="378" width="84" height="80" rx="4" fill="#dcfce7" />
+          <text x="582" y="412" text-anchor="middle" font-family="ui-sans-serif, sans-serif" font-size="10" font-weight="600" fill="#166534">Open Tinkering</text>
+          <text x="582" y="427" text-anchor="middle" font-family="ui-sans-serif, sans-serif" font-size="9.5" fill="#14532d">&amp; Family Time</text>
+
+          <!-- SUN -->
+          <rect x="636" y="310" width="100" height="156" rx="6" fill="#ffffff" stroke="#cbd5e1" />
+          <text x="686" y="328" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" font-weight="700" fill="#0f172a">SUN</text>
+          <rect x="642" y="336" width="88" height="56" rx="4" fill="#fef3c7" />
+          <text x="686" y="360" text-anchor="middle" font-family="ui-sans-serif, sans-serif" font-size="10" font-weight="600" fill="#92400e">Weekly Reflection</text>
+          <text x="686" y="375" text-anchor="middle" font-family="ui-sans-serif, sans-serif" font-size="9.5" fill="#78350f">&amp; Rest</text>
+          <rect x="642" y="398" width="88" height="60" rx="4" fill="#dbeafe" />
+          <text x="686" y="422" text-anchor="middle" font-family="ui-sans-serif, sans-serif" font-size="10" font-weight="600" fill="#1e40af">Compile Next</text>
+          <text x="686" y="437" text-anchor="middle" font-family="ui-monospace, monospace" font-size="9" fill="#1e3a8a">calendar_v8.ics</text>
+        </svg>
+        <figcaption>Figure 1: Dual architecture of Open Learning Lab. Top: The 8-agent closed-loop pipeline connecting multi-domain sources, judgment-first Socratic tutoring, side-branch checkpointing, and delayed transfer verification. Bottom: The compiled 7-day rhythm strip (<code>calendar_v8.ics</code>) balancing deep synthesis, active transfer, and restorative play.</figcaption>
+      </figure>
+
+      <h2>Inside the 8-Agent Closed-Loop Architecture</h2>
+
+      <p>Rather than treating an LLM as an oracle that lectures on demand, Open Learning Lab orchestrates eight specialized agents around an append-only Git research ledger. Each agent has a strict input/output contract and falsifiable verification criteria:</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Agent ID &amp; Name</th>
+              <th>Primary Role in the Loop</th>
+              <th>Input Signals</th>
+              <th>Output Artifact</th>
+              <th>Verification &amp; Quality Gate</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>01 &middot; Signal Harvester</code></td>
+              <td>Multi-domain source curation &amp; deduplication</td>
+              <td>Codebases (<code>Marin</code>), arXiv preprints, engineering postmortems</td>
+              <td>Normalized source nodes &amp; dependency graph</td>
+              <td>Rejects low-provenance summaries; links primary code/commits</td>
+            </tr>
+            <tr>
+              <td><code>02 &middot; Epistemic Modeler</code></td>
+              <td>Tracks learner’s current concept graph &amp; blind spots</td>
+              <td>Prior session traces, delayed quiz scores, confidence ratings</td>
+              <td>Learner state vector &amp; calibration gap map</td>
+              <td>Flags high-confidence / low-accuracy illusions for priority review</td>
+            </tr>
+            <tr>
+              <td><code>03 &middot; Policy Designer</code></td>
+              <td>Formulates preregistered pedagogical interventions</td>
+              <td>Learner state + domain design trade-offs</td>
+              <td>Experiment spec (e.g., <em>Judgment-First vs. Explanation-First</em>)</td>
+              <td>Requires explicit falsifiable hypothesis before session launch</td>
+            </tr>
+            <tr>
+              <td><code>04 &middot; Socratic Tutor</code></td>
+              <td>Executes uninterrupted primary learning dialogue</td>
+              <td>Active policy prompt + real-time learner responses</td>
+              <td>Interactive design-judgment dialogue stream</td>
+              <td>Never reveals canonical solution until learner commits to a design choice</td>
+            </tr>
+            <tr>
+              <td><code>05 &middot; Side-Branch Checkpointer</code></td>
+              <td>Non-intrusive trace capture (<code>checkpoint-capture/v0.1</code>)</td>
+              <td>Branch snapshot at key cognitive milestones</td>
+              <td>Structured JSON/Markdown observation record</td>
+              <td>Preserves zero-latency flow in the main learning conversation</td>
+            </tr>
+            <tr>
+              <td><code>06 &middot; Transfer Evaluator</code></td>
+              <td>Runs delayed out-of-session reconstruction tests</td>
+              <td>48h / 7d delayed synthesis prompts &amp; blind code tasks</td>
+              <td>Empirical transfer, recall &amp; calibration scores</td>
+              <td>Scores independent reconstruction without LLM hints</td>
+            </tr>
+            <tr>
+              <td><code>07 &middot; Rhythm Optimizer</code></td>
+              <td>Balances cognitive load across the 7-day week</td>
+              <td>Pending learning blocks, founder work commitments, sleep/exercise</td>
+              <td>Constraint-satisfied weekly time allocation</td>
+              <td>Enforces hard caps on daily high-intensity cognitive blocks</td>
+            </tr>
+            <tr>
+              <td><code>08 &middot; Calendar Compiler</code></td>
+              <td>Renders verified schedule into standard iCalendar format</td>
+              <td>Approved 7-day rhythm + spaced-retrieval triggers</td>
+              <td>Verified <code>calendar_v8.ics</code> feed</td>
+              <td>100% schema &amp; conflict validation; zero overlapping deep-work blocks</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Experiment 0001: Design-Judgment-First vs. Explanation-First</h2>
+
+      <p>Our first active study uses the open-source <a href="https://marin.community/" target="_blank" rel="noopener noreferrer">Marin</a> foundation-model repository as a live proving ground. When studying how a frontier training pipeline handles data mixing, tokenizer boundaries, or distributed checkpointing, the default AI workflow is <em>explanation-first</em>: you ask the model <em>“How does Marin structure X?”</em> and read a neat summary.</p>
+
+      <p>In <strong>Experiment 0001</strong>, we invert the sequence:</p>
+
+      <blockquote>
+        <p><strong>Hypothesis:</strong> Asking a learner to formulate and defend the underlying architectural design judgment <em>before</em> revealing how Marin’s engineers solved the problem significantly improves 48-hour reconstruction and cross-domain transfer compared with explanation-first tutoring.</p>
+      </blockquote>
+
+      <p>When you are forced to wrestle with the constraints first—<em>“Given 10 TB of heterogeneous web crawl and a fixed compute budget, where would you place the deduplication and quality filtering boundaries, and what breaks if you swap them?”</em>—your brain builds a structural hook. When you subsequently inspect Marin’s actual implementation, you are no longer reading passively; you are comparing two engineering decisions as a peer.</p>
+
+      <h2>Uninterrupted Flow with Side-Branch Checkpointing</h2>
+
+      <p>A recurring human-computer interaction dilemma in self-experimentation is that <strong>measuring learning often destroys the flow of learning</strong>. If you have to stop every ten minutes to fill out a rubric or tag a git commit, curiosity cools down.</p>
+
+      <p>To solve this, Open Learning Lab separates the <strong>primary learning timeline</strong> from the <strong>evidence ledger branch</strong>:</p>
+
+      <ol>
+        <li>The learner stays in a single, uninterrupted Socratic dialogue with the tutor agent.</li>
+        <li>Whenever a meaningful design judgment or conceptual breakthrough occurs, the system forks a lightweight side branch (<code>checkpoint-capture</code>).</li>
+        <li>The side branch extracts the reasoning trace, scores epistemic calibration, commits an append-only record to the public repository, and feeds the updated state into the <strong>Rhythm &amp; Calendar Compiler (<code>calendar_v8.ics</code>)</strong>—scheduling the exact 48-hour and 7-day retrieval blocks needed to lock the concept into long-term memory.</li>
+      </ol>
+
+      <h2>Learning as a Living Discipline</h2>
+
+      <p>Whether we are teaching ourselves frontier machine learning, helping older adults master new digital tools, or rethinking how institutions share knowledge, the principle is the same: <strong>agency grows when feedback is honest and rhythms are sustainable</strong>. By combining preregistered learning experiments with an automated 8-agent pipeline that respects the human calendar, Open Learning Lab turns lifelong curiosity from a vague aspiration into a measurable, reproducible craft.</p>
     </article>
     <footer class="colophon">
-      <p>
-        <strong>Footnote:</strong> First published in
-        <a href="https://github.com/domijin/open-learning-lab" rel="noopener noreferrer" target="_blank">GitHub Specification (open-learning-lab)</a>
-        (August 2026). Part of <em>Domi Jin — Notes from Research and Practice</em>.
-      </p>
+      <p>Originally published on <a href="https://github.com/domijin/open-learning-lab" rel="noopener noreferrer" target="_blank">GitHub (domijin/open-learning-lab)</a> (August 2026).</p>
     </footer>
   </main>
 </body>

@@ -1,6 +1,6 @@
 # Why TikTok is so popular
 
-*Chapter IV · Institutions, Incentives and Possible Futures — By Domi Jin (February 2020)*
+*Medium · Media & Behaviour · November 2024 — By Domi Jin*
 
 ## Why is video taking over text? A few thoughts
 
@@ -17,4 +17,4 @@
 Sure, text is still king when it comes to depth and efficiency, but video wins in reach and relatability. It’s not better or worse — just different tools for different audiences.
 
 ---
-*Footnote: First published in [Medium](https://medium.com/@domijin/why-tiktok-is-so-popular-6fcc7b678bc7) (February 2020).*
+*Footnote: First published in [Medium](https://medium.com/@domijin/why-tiktok-is-so-popular-6fcc7b678bc7) (November 2024).*

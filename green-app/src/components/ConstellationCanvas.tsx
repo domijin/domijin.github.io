@@ -87,7 +87,7 @@ function SiteMapGraph({
       });
     }
 
-    // Topic Pillars to 20 Writings
+    // Topic Pillars to 28 Writings
     WRITINGS_DATA.forEach((w) => {
       const p = pillarMap.get(w.pillar);
       if (p) {
@@ -177,7 +177,7 @@ function SiteMapGraph({
               }}
               className="px-2.5 py-1 rounded-full bg-[#0d2238]/95 border border-[#1DAEDF]/60 text-[10px] font-mono tracking-wider text-white whitespace-nowrap shadow-md backdrop-blur-md cursor-pointer hover:bg-[#2980b9] transition"
             >
-              All Topics, Works &amp; Writings
+              Domi’s Mind Waves · All 28 Posts
             </button>
           </Html>
         </mesh>
@@ -276,14 +276,14 @@ function SiteMapGraph({
                     onClick={() => onOpenEssay(proj.localMirrorUrl!)}
                     className="px-1.5 py-0.5 rounded bg-[#0c2138]/90 border border-sky-500/40 text-[8.5px] font-mono text-sky-200 whitespace-nowrap hover:border-white transition cursor-pointer"
                   >
-                    Project: {proj.name.split(" (")[0]}
+                    Build: {proj.name.split(" (")[0]}
                   </button>
                 ) : (
                   <a
                     href={proj.localMirrorUrl || proj.url}
                     className="px-1.5 py-0.5 rounded bg-[#0c2138]/90 border border-sky-500/40 text-[8.5px] font-mono text-sky-200 whitespace-nowrap hover:border-white transition"
                   >
-                    Project: {proj.name.split(" (")[0]}
+                    Build: {proj.name.split(" (")[0]}
                   </a>
                 )}
               </Html>
@@ -327,7 +327,7 @@ function SiteMapGraph({
                   onClick={() => onSelectWriting(w)}
                   className="px-2 py-0.5 rounded bg-[#102a45]/95 border border-[#1DAEDF]/50 text-[9px] text-[#e0f2fe] max-w-[165px] truncate shadow-md cursor-pointer"
                 >
-                  {w.source}: {w.title}
+                  {w.title}
                 </button>
               </Html>
             )}
@@ -361,10 +361,10 @@ export default function ConstellationCanvas(props: ConstellationProps) {
       {/* Top HUD */}
       <div className="pointer-events-none absolute top-3 left-3 right-3 flex flex-wrap items-center justify-between gap-2">
         <span className="px-2.5 py-1 rounded-full bg-[#0a1a2b]/85 border border-[#1DAEDF]/40 text-[10px] sm:text-[11px] font-mono text-[#7dd3fc] backdrop-blur-md">
-          INTERACTIVE SITE MAP // 7 TOPICS · 6 WORKS · 28 WRITINGS
+          IDEA CONSTELLATION · 7 QUESTIONS · 6 SYSTEMS · 28 ESSAYS
         </span>
         <span className="hidden sm:inline-block px-2.5 py-1 rounded-full bg-[#0a1a2b]/80 border border-slate-700 text-[11px] text-slate-300 backdrop-blur-md">
-          Drag to orbit · Scroll to zoom · Select any topic, project or essay
+          Drag to orbit · Scroll to zoom · Click any node to read
         </span>
       </div>
 
@@ -372,10 +372,10 @@ export default function ConstellationCanvas(props: ConstellationProps) {
       <div className="pointer-events-none absolute bottom-3 left-3 right-3 flex flex-wrap items-center justify-between gap-2 text-[10px] font-mono text-slate-300">
         <div className="px-2.5 py-1 rounded-lg bg-[#0a1a2b]/85 border border-sky-900/70 flex flex-wrap items-center gap-3 backdrop-blur-md">
           <span className="inline-flex items-center gap-1.5">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#1DAEDF]" /> Topic Pillars (7)
+            <span className="w-2.5 h-2.5 rounded-full bg-[#1DAEDF]" /> Core Questions (7)
           </span>
           <span className="inline-flex items-center gap-1.5">
-            <span className="w-2.5 h-2.5 bg-[#38bdf8]" /> Works &amp; Systems (6)
+            <span className="w-2.5 h-2.5 bg-[#38bdf8]" /> Open Systems (6)
           </span>
           <span className="inline-flex items-center gap-1.5">
             <span className="w-2.5 h-2.5 rotate-45 bg-white border border-[#1DAEDF]" /> Essays &amp; Notes (28)

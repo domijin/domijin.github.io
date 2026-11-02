@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Free Market in a Possibility Universe &amp; The Collaborative Manifesto — Domi Jin</title>
-  <meta name="description" content="Free Market in a Possibility Universe &amp; The Collaborative Manifesto — Essay and technical notes by Domi Jin." />
+  <meta name="description" content="Free markets and competing AI agents face resource limits; shared knowledge and collaborative reasoning offer a path toward a more enlightened society." />
   <link rel="canonical" href="https://domij.info/articles/blog/free-market-in-a-possibility-universe.html" />
   <style>
     :root {
@@ -19,7 +19,7 @@
       margin: 0;
       background: var(--bg);
       color: var(--ink);
-      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "PingFang SC", "Hiragino Sans GB", "Noto Serif CJK SC", serif;
       font-size: 19px;
       line-height: 1.78;
       -webkit-font-smoothing: antialiased;
@@ -49,7 +49,7 @@
       font-weight: 500;
     }
     .topbar a:hover { text-decoration: underline; }
-    .chapter-badge {
+    .publication-badge {
       color: var(--muted);
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 11px;
@@ -66,7 +66,7 @@
       padding-bottom: 24px;
       border-bottom: 1px solid var(--border);
     }
-    .essay-eyebrow {
+    .essay-eyebrow, .article-kicker {
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 12px;
       text-transform: uppercase;
@@ -117,6 +117,9 @@
     article li {
       margin-bottom: 0.45em;
     }
+    article ul ul {
+      margin: 0.4em 0 0.6em 0;
+    }
     article code {
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 0.86em;
@@ -129,26 +132,25 @@
       text-decoration: underline;
       text-underline-offset: 3px;
     }
-    .table-wrap {
-      overflow-x: auto;
-      margin: 1.5em 0;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-family: ui-sans-serif, system-ui, sans-serif;
-      font-size: 14px;
-      line-height: 1.5;
-    }
-    th, td {
+    .diagram-figure {
+      margin: 36px 0;
+      padding: 24px;
+      background: rgba(255, 255, 255, 0.65);
       border: 1px solid var(--border);
-      padding: 8px 12px;
-      text-align: left;
+      border-radius: 16px;
+      box-shadow: 0 10px 28px rgba(31, 42, 58, 0.05);
     }
-    th {
-      background: #f8fafc;
-      font-weight: 600;
-      color: #0f172a;
+    .diagram-figure svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .diagram-figure figcaption {
+      margin-top: 12px;
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-align: center;
+      font-family: 'Inter', -apple-system, sans-serif;
     }
     footer.colophon {
       margin-top: 64px;
@@ -169,42 +171,40 @@
   </style>
 </head>
 <body>
-  <nav class="topbar" aria-label="Book navigation">
+  <nav class="topbar" aria-label="Site navigation">
     <div class="topbar-inner">
-      <a href="/">&larr; Domi Jin &middot; Notes from Research &amp; Practice</a>
-      <span class="chapter-badge">Chapter IV · Institutions, Incentives and Possible Futures</span>
-      <a href="/articles/">Table of Contents</a>
+      <a href="/">&larr; Domi Jin</a>
+      <span class="publication-badge">Domi’s Universe &middot; Collaborative Society</span>
+      <a href="/articles/">All Writing</a>
     </div>
   </nav>
   <main>
     <header class="essay-header">
-      <span class="essay-eyebrow">Chapter IV · Institutions, Incentives and Possible Futures</span>
+      <span class="essay-eyebrow article-kicker">Collaborative Society &middot; By Domi Jin (September 2019)</span>
       <h1>Free Market in a Possibility Universe &amp; The Collaborative Manifesto</h1>
       <div class="essay-byline">By Domi Jin (Dongming Jin) &middot; September 2019</div>
     </header>
     <article>
-      <blockquote><p>Declare: While paving my way towards my neverland, I don&#x27;t mind being alone. I won&#x27;t return to advertise and persuade either. Because the trace I left is not meant to guide, it is to inspire.</p></blockquote>
-      <p>Again, this starts with a stream of morning thoughts posted on Twitter, after reading a post about the potential of LPR (loan premier rate).</p>
-      <p>Not sure if I understand it correctly. LPR makes China sounds like national capitalism. It is definitely not the reflection of the free market. But this might work out the best when the information barrier and decision skill of the state is far advanced than the people, and most of the corporations.</p>
-      <p>Of cause, it could be the consequence, and source of rent-seeking, which officially begins as let some be rich first, and let the early rich help the rest.</p>
-      <p>I don’t think any gov can do better than PRC. Such policies can only work in this rare case, where one party can hold its principles consistent most of the time.</p>
-      <p>It is inspiring for anyone to wonder how the first awake ones should treat the rest. Since we fancy harmony, I hope that we will, when the time comes that the rest are also awakened, the ego of the elites will not feel hurt not to take advantage of the so-then-called historical market power and become the blocker.</p>
-      <p>That moment could be the rise of an AI overload, which efficiently negotiating the supply/demand to maximize resource distribution.</p>
-      <p>But computationally, an agency at that capability is much more difficult to build than multiple at a lower level. When multiple AI overloads exist, will that world fancy equal right? Will they adopt the free market of power supply, network bandwidth, and computation resource? Unless there is shared memory or more that I don&#x27;t have the imagination about, it will be just another Darwinism world.</p>
-      <p>The world for that type of intelligence will be no longer limited to the earth ecosystem. Scale-out or scale-up are both not radical solutions. It is only a delay of the zero-sum/limited resource conflict.</p>
-      <p>The current issue is that, as the entropy increases regardless of any ideologies, many awaken-but-not-wise-enough are losing faith. We haven’t tried enough and there are more means than possible to be explored.</p>
-      <p>In this preference-less world that is full of possibilities, what is the loss of annihilation, when one surely know, support, and appreciate the existence of others? The odds of possibilities are never in favor of one, and it is the choice to be a different one and embrace the many that matters. We are no better compared to the wise ancestors in this kind of spiritual realism.</p>
-      <p>The arrogance built upon science/technology development is the biggest obstruct. Straits is the gate. We need another Renaissance to fairly position the logical reasoning behind, back to the spotlight of civilization advancement.</p>
-      <p>Advance inductive and deductive reasoning, while collaborating on building a shared knowledge base until more enlightened. That is what I forged into my life mission, by the means of crafting a collaborative society, MindWave, and so on.</p>
-      <p>Exhausted but sprinkling with the joy of better storytelling skills, to express, to be heard and to be enlightened. All words are mine, biased by the possibility I experienced and expected.</p>
-      <p>Now I recon the younger me set the goal as to see the world of all possibility is what sets the tone. X beyond the mountains, Y through the seas, Z to the stars.</p>
+<blockquote>
+<p>Declare: While paving my way towards my neverland, I don't mind being alone. I won't return to advertise and persuade either. Because the trace I left is not meant to guide, it is to inspire.</p>
+</blockquote>
+<p>Again, this starts with a stream of morning thoughts posted on Twitter, after reading a post about the potential of LPR (loan premier rate).</p>
+<p>Not sure if I understand it correctly. LPR makes China sound like national capitalism. It is definitely not the reflection of the free market. But this might work out the best when the information barrier and decision-making skills of the state are far more advanced than those of the people, and most of the corporations.</p>
+<p>Of course, it could be the consequence, and source of rent-seeking, which officially begins as let some be rich first, and let the early rich help the rest.</p>
+<p>I don’t think any gov can do better than PRC. Such policies can only work in this rare case, where one party can hold its principles consistent most of the time.</p>
+<p>It is inspiring for anyone to wonder how the first awake ones should treat the rest. Since we fancy harmony, I hope that we will, when the time comes that the rest are also awakened, the ego of the elites will not feel hurt not to take advantage of the so-then-called historical market power and become the blocker.</p>
+<p>That moment could be the rise of an AI overlord, which efficiently negotiates the supply/demand to maximize resource distribution.</p>
+<p>But computationally, an agency at that capability is much more difficult to build than multiple at a lower level. When multiple AI overlords exist, will that world fancy equal rights? Will they adopt the free market of power supply, network bandwidth, and computation resource? Unless there is shared memory or more that I don’t have the imagination about, it will be just another Darwinism world.</p>
+<p>The world for that type of intelligence will be no longer limited to the earth ecosystem. Scale-out or scale-up are both not radical solutions. It is only a delay of the zero-sum/limited resource conflict.</p>
+<p>The current issue is that, as the entropy increases regardless of any ideologies, many awaken-but-not-wise-enough are losing faith. We haven’t tried enough and there are more means than possible to be explored.</p>
+<p>In this preference-less world that is full of possibilities, what is the loss of annihilation, when one surely knows, supports, and appreciates the existence of others? The odds of possibilities are never in favor of one, and it is the choice to be a different one and embrace the many that matters. We are no better compared to the wise ancestors in this kind of spiritual realism.</p>
+<p>The arrogance built upon science/technology development is the biggest obstruction. Straits is the gate. We need another Renaissance to fairly position the logical reasoning behind, back to the spotlight of civilization advancement.</p>
+<p>Advance inductive and deductive reasoning, while collaborating on building a shared knowledge base until more enlightened. That is what I forged into my life mission, by the means of crafting a collaborative society, MindWave, and so on.</p>
+<p>Exhausted but sprinkling with the joy of better storytelling skills, to express, to be heard and to be enlightened. All words are mine, biased by the possibility I experienced and expected.</p>
+<p>Now I reckon the younger me set the goal as to see the world of all possibility is what sets the tone. X beyond the mountains, Y through the seas, Z to the stars.</p>
     </article>
     <footer class="colophon">
-      <p>
-        <strong>Footnote:</strong> First published in
-        <a href="https://domij.info/free-market-in-a-possibility-universe.html" rel="noopener noreferrer" target="_blank">Domi’s Universe (domij.info)</a>
-        (September 2019). Part of <em>Domi Jin — Notes from Research and Practice</em>.
-      </p>
+      <p>Originally published on <a href="https://domij.info/free-market-in-a-possibility-universe.html" rel="noopener noreferrer" target="_blank">Domi’s Universe (domij.info)</a> (September 2019).</p>
     </footer>
   </main>
 </body>
