@@ -1,0 +1,1156 @@
+"use client";
+
+import React, { useRef, useMemo, useState, useEffect } from "react";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { OrbitControls, Stars, Html } from "@react-three/drei";
+import * as THREE from "three";
+import { GC_RESEARCH_FINDINGS } from "@/data/contextMapData";
+
+interface StarCatalog {
+  count: number;
+  r0: Float32Array;
+  theta0: Float32Array;
+  phi0: Float32Array;
+  omegaTheta: Float32Array;
+  omegaPhi: Float32Array;
+  initialMass: Float32Array;
+  msLifetimeTau: Float32Array;
+  segTau: Float32Array;
+  starClass: Uint8Array; // 0 = low-mass MS, 1 = solar MS, 2 = intermediate (RG->WD), 3 = massive OB -> BH
+}
+
+interface DynamicBinaryPair {
+  id: string;
+  label: string;
+  formTau: number;
+  ejectTau: number;
+  eccentricity: number;
+  chirpMass: number;
+  freqMHz: number;
+  angleOffset: number;
+  inclination: number;
+  ejectionDir: [number, number, number];
+}
+
+const MAX_TAU_RH = 16.875; // 13.5 Gyr / 0.8 Gyr = 16.875 half-mass relaxation times
+const TAU_RH_MYR = 800; // Fiducial half-mass relaxation time = 800 Myr (0.8 Gyr)
+
+const DYNAMIC_BINARIES: DynamicBinaryPair[] = [
+  {
+    id: "gc-284-1-ref",
+    label: "Model 284-1 (e=0.631, 𝓜_c=17.0 M☉)",
+    formTau: 0.18,
+    ejectTau: 0.39, // Ejected at t_ej = 0.3134 Gyr ≈ 0.39 tau_rh (Table 6-1)
+    eccentricity: 0.6307,
+    chirpMass: 16.991,
+    freqMHz: 0.125,
+    angleOffset: 0.0,
+    inclination: 0.35,
+    ejectionDir: [0.6, 0.5, 0.62],
+  },
+  {
+    id: "pgc-1628-imbh",
+    label: "PGC 1628 #7 (e=0.478, ΔV=0.04 Mpc³)",
+    formTau: 0.32,
+    ejectTau: 19.0, // Retained in core
+    eccentricity: 0.4779,
+    chirpMass: 44.31,
+    freqMHz: 0.21,
+    angleOffset: 1.57,
+    inclination: -0.42,
+    ejectionDir: [-0.7, 0.4, 0.58],
+  },
+  {
+    id: "pgc-1628-heavy",
+    label: "PGC 1628 #9 (e=0.813, ΔV=0.09 Mpc³)",
+    formTau: 0.52,
+    ejectTau: 19.0,
+    eccentricity: 0.8133,
+    chirpMass: 23.91,
+    freqMHz: 0.34,
+    angleOffset: 3.14,
+    inclination: 0.68,
+    ejectionDir: [0.74, -0.45, 0.5],
+  },
+  {
+    id: "pgc-616-circ",
+    label: "PGC 616 #3 (e=0.0, ΔV=0.68 Mpc³)",
+    formTau: 0.85,
+    ejectTau: 5.8,
+    eccentricity: 0.0,
+    chirpMass: 4.91,
+    freqMHz: 0.32,
+    angleOffset: 4.4,
+    inclination: -0.55,
+    ejectionDir: [-0.62, -0.58, 0.52],
+  },
+];
+
+function GlobularClusterEvolution({
+  tauRef,
+  selectedBinaryId,
+  onSelectBinary,
+  statsCallback,
+}: {
+  tauRef: React.MutableRefObject<number>;
+  selectedBinaryId: string;
+  onSelectBinary: (id: string) => void;
+  statsCallback?: (stats: {
+    bhCount: number;
+    wdCount: number;
+    rgCount: number;
+    coreRadiusPc: number;
+    halfMassRadiusPc: number;
+    activeBbhCount: number;
+  }) => void;
+}) {
+  const pointsRef = useRef<THREE.Points>(null);
+  const bbhGroupRef = useRef<THREE.Group>(null);
+  const lastReportRef = useRef<number>(-1);
+
+  const catalog = useMemo<StarCatalog>(() => {
+    const count = 1650;
+    const r0 = new Float32Array(count);
+    const theta0 = new Float32Array(count);
+    const phi0 = new Float32Array(count);
+    const omegaTheta = new Float32Array(count);
+    const omegaPhi = new Float32Array(count);
+    const initialMass = new Float32Array(count);
+    const msLifetimeTau = new Float32Array(count);
+    const segTau = new Float32Array(count);
+    const starClass = new Uint8Array(count);
+
+    let seed = 20180512;
+    const rand = () => {
+      seed = (seed * 1664525 + 1013904223) % 4294967296;
+      return seed / 4294967296;
+    };
+
+    for (let i = 0; i < count; i++) {
+      const u = Math.max(0.002, rand());
+      const rawR = 0.68 * Math.pow(Math.pow(u, -2 / 3) - 1, -0.5);
+      const clampedR = Math.min(rawR, 3.6);
+      r0[i] = clampedR;
+      theta0[i] = Math.acos(2 * rand() - 1);
+      phi0[i] = 2 * Math.PI * rand();
+
+      const dynRate = 0.38 / Math.pow(clampedR * clampedR + 0.45, 0.75);
+      omegaPhi[i] = dynRate * (rand() > 0.15 ? 1 : -1);
+      omegaTheta[i] = dynRate * 0.35 * (rand() - 0.5);
+
+      const q = rand();
+      let m = 0.4;
+      let cls = 0;
+      let tMsTau = 25.0;
+
+      if (q > 0.945) {
+        m = 20 + rand() * 45;
+        cls = 3;
+        tMsTau = 0.005 + 0.014 * Math.pow(20 / m, 1.4);
+      } else if (q > 0.78) {
+        m = 1.8 + rand() * 6.2;
+        cls = 2;
+        tMsTau = 0.06 + 1.9 * Math.pow(2.0 / m, 2.3);
+      } else if (q > 0.42) {
+        m = 0.85 + rand() * 0.95;
+        cls = 1;
+        tMsTau = 2.4 + 11.5 * Math.pow(1.0 / m, 2.5);
+      } else {
+        m = 0.15 + rand() * 0.7;
+        cls = 0;
+        tMsTau = 30.0;
+      }
+
+      initialMass[i] = m;
+      starClass[i] = cls;
+      msLifetimeTau[i] = tMsTau;
+      const remnantMass =
+        cls === 3 ? Math.min(28, 0.38 * m) : cls === 2 ? 0.75 : m;
+      segTau[i] = Math.max(0.045, (0.65 / remnantMass) * 1.1);
+    }
+
+    return {
+      count,
+      r0,
+      theta0,
+      phi0,
+      omegaTheta,
+      omegaPhi,
+      initialMass,
+      msLifetimeTau,
+      segTau,
+      starClass,
+    };
+  }, []);
+
+  const { positions, colors } = useMemo(() => {
+    return {
+      positions: new Float32Array(catalog.count * 3),
+      colors: new Float32Array(catalog.count * 3),
+    };
+  }, [catalog.count]);
+
+  useFrame((state, delta) => {
+    if (!pointsRef.current) return;
+    const geom = pointsRef.current.geometry;
+    const posAttr = geom.getAttribute("position") as THREE.BufferAttribute;
+    const colAttr = geom.getAttribute("color") as THREE.BufferAttribute;
+    const posArr = posAttr.array as Float32Array;
+    const colArr = colAttr.array as Float32Array;
+
+    const tau = tauRef.current;
+    const clock = state.clock.elapsedTime;
+
+    let bhCount = 0;
+    let wdCount = 0;
+    let rgCount = 0;
+
+    for (let i = 0; i < catalog.count; i++) {
+      const cls = catalog.starClass[i];
+      const tMs = catalog.msLifetimeTau[i];
+      const rInit = catalog.r0[i];
+      let rCurrent = rInit;
+
+      let cr = 0.18;
+      let cg = 0.68;
+      let cb = 0.88;
+
+      if (cls === 3) {
+        if (tau < tMs) {
+          cr = 0.62;
+          cg = 0.85;
+          cb = 1.0;
+          rCurrent = rInit;
+        } else {
+          bhCount++;
+          const dtAfterCollapse = tau - tMs;
+          const sinkFactor = Math.exp(-dtAfterCollapse / catalog.segTau[i]);
+          const coreTarget = 0.06 + (i % 19) * 0.009;
+          rCurrent = coreTarget + (rInit - coreTarget) * sinkFactor;
+
+          const pulse = 0.78 + 0.22 * Math.sin(clock * 4.5 + i);
+          cr = 0.98 * pulse;
+          cg = 0.68 * pulse;
+          cb = 0.16 * pulse;
+        }
+      } else if (cls === 2) {
+        if (tau < tMs) {
+          cr = 0.52;
+          cg = 0.82;
+          cb = 0.98;
+          rCurrent = rInit * (1 + 0.012 * Math.log(1 + tau));
+        } else if (tau < tMs + 0.18) {
+          rgCount++;
+          cr = 0.98;
+          cg = 0.48;
+          cb = 0.22;
+          rCurrent = rInit * (1 + 0.02 * Math.log(1 + tau));
+        } else {
+          wdCount++;
+          cr = 0.88;
+          cg = 0.95;
+          cb = 1.0;
+          const settle = Math.exp(-(tau - tMs) / (catalog.segTau[i] * 2.5));
+          rCurrent = rInit * (0.68 + 0.32 * settle);
+        }
+      } else if (cls === 1) {
+        if (tau > tMs && tau < tMs + 0.45) {
+          rgCount++;
+          cr = 0.96;
+          cg = 0.56;
+          cb = 0.26;
+        } else if (tau >= tMs + 0.45) {
+          wdCount++;
+          cr = 0.85;
+          cg = 0.92;
+          cb = 0.98;
+        } else {
+          cr = 0.95;
+          cg = 0.88;
+          cb = 0.65;
+        }
+        rCurrent = rInit * Math.pow(1 + tau * 0.06, 0.28);
+      } else {
+        const mix = Math.min(rInit / 3.0, 1.0);
+        cr = 0.11 + 0.05 * mix;
+        cg = 0.68 - 0.18 * mix;
+        cb = 0.87 - 0.14 * mix;
+        rCurrent = rInit * Math.pow(1 + tau * 0.09, 0.34);
+      }
+
+      const phi = catalog.phi0[i] + clock * catalog.omegaPhi[i];
+      const theta =
+        catalog.theta0[i] + 0.18 * Math.sin(clock * catalog.omegaTheta[i] + i);
+
+      const sinT = Math.sin(theta);
+      posArr[i * 3] = rCurrent * sinT * Math.cos(phi);
+      posArr[i * 3 + 1] = rCurrent * sinT * Math.sin(phi);
+      posArr[i * 3 + 2] = rCurrent * Math.cos(theta);
+
+      colArr[i * 3] = cr;
+      colArr[i * 3 + 1] = cg;
+      colArr[i * 3 + 2] = cb;
+    }
+
+    posAttr.needsUpdate = true;
+    colAttr.needsUpdate = true;
+
+    pointsRef.current.rotation.y += delta * 0.025;
+
+    if (statsCallback && Math.abs(tau - lastReportRef.current) > 0.04) {
+      lastReportRef.current = tau;
+      const corePc =
+        tau < 0.35
+          ? 1.2 - 0.68 * (tau / 0.35)
+          : 0.52 + 0.26 * Math.min(1, (tau - 0.35) / 6.0);
+      const rhPc = 3.1 * Math.pow(1 + tau * 0.065, 0.25);
+      const activeBbhs = DYNAMIC_BINARIES.filter((b) => tau >= b.formTau).length;
+      statsCallback({
+        bhCount,
+        wdCount,
+        rgCount,
+        coreRadiusPc: Number(corePc.toFixed(2)),
+        halfMassRadiusPc: Number(rhPc.toFixed(2)),
+        activeBbhCount: activeBbhs,
+      });
+    }
+  });
+
+  return (
+    <group>
+      <points ref={pointsRef}>
+        <bufferGeometry>
+          <bufferAttribute
+            attach="attributes-position"
+            args={[positions, 3]}
+          />
+          <bufferAttribute attach="attributes-color" args={[colors, 3]} />
+        </bufferGeometry>
+        <pointsMaterial
+          size={0.044}
+          vertexColors
+          transparent
+          opacity={0.86}
+          blending={THREE.AdditiveBlending}
+          depthWrite={false}
+        />
+      </points>
+
+      {/* Core and Half-Mass Reference Shells */}
+      <mesh>
+        <sphereGeometry args={[0.24, 24, 24]} />
+        <meshBasicMaterial
+          color="#f59e0b"
+          wireframe
+          transparent
+          opacity={0.08}
+        />
+      </mesh>
+      <mesh>
+        <sphereGeometry args={[1.35, 24, 24]} />
+        <meshBasicMaterial
+          color="#1DAEDF"
+          wireframe
+          transparent
+          opacity={0.05}
+        />
+      </mesh>
+
+      {/* Dynamically Formed Compact Binary Black Holes (BBHs) */}
+      <group ref={bbhGroupRef}>
+        {DYNAMIC_BINARIES.map((bbh) => (
+          <CompactBinaryPairMesh
+            key={bbh.id}
+            bbh={bbh}
+            tauRef={tauRef}
+            isSelected={selectedBinaryId === bbh.id}
+            onSelect={() => onSelectBinary(bbh.id)}
+          />
+        ))}
+      </group>
+    </group>
+  );
+}
+
+function CompactBinaryPairMesh({
+  bbh,
+  tauRef,
+  isSelected,
+  onSelect,
+}: {
+  bbh: DynamicBinaryPair;
+  tauRef: React.MutableRefObject<number>;
+  isSelected: boolean;
+  onSelect: () => void;
+}) {
+  const pairGroupRef = useRef<THREE.Group>(null);
+  const bh1Ref = useRef<THREE.Mesh>(null);
+  const bh2Ref = useRef<THREE.Mesh>(null);
+  const waveRingRef = useRef<THREE.Mesh>(null);
+
+  useFrame((state) => {
+    const tau = tauRef.current;
+    if (!pairGroupRef.current) return;
+
+    if (tau < bbh.formTau) {
+      pairGroupRef.current.visible = false;
+      return;
+    }
+    pairGroupRef.current.visible = true;
+
+    const tClock = state.clock.elapsedTime;
+    let cx = 0;
+    let cy = 0;
+    let cz = 0;
+    if (tau > bbh.ejectTau) {
+      const dist = Math.min(2.6, (tau - bbh.ejectTau) * 0.32);
+      cx = bbh.ejectionDir[0] * dist;
+      cy = bbh.ejectionDir[1] * dist;
+      cz = bbh.ejectionDir[2] * dist;
+    } else {
+      const coreOrbitR = 0.16;
+      cx = coreOrbitR * Math.cos(tClock * 0.4 + bbh.angleOffset);
+      cy = coreOrbitR * Math.sin(tClock * 0.4 + bbh.angleOffset) * 0.6;
+      cz = coreOrbitR * Math.sin(tClock * 0.3 + bbh.angleOffset);
+    }
+
+    pairGroupRef.current.position.set(cx, cy, cz);
+
+    const hardening = Math.max(0.45, 1 - 0.03 * (tau - bbh.formTau));
+    const aSemi = 0.095 * hardening;
+    const ecc = bbh.eccentricity;
+    const meanAnomaly = tClock * (3.2 + bbh.freqMHz * 2.5) + bbh.angleOffset;
+    const eccAnomaly = meanAnomaly + ecc * Math.sin(meanAnomaly);
+    const xOrb = aSemi * (Math.cos(eccAnomaly) - ecc);
+    const yOrb = aSemi * Math.sqrt(1 - ecc * ecc) * Math.sin(eccAnomaly);
+
+    if (bh1Ref.current && bh2Ref.current) {
+      bh1Ref.current.position.set(xOrb, yOrb, 0);
+      bh2Ref.current.position.set(-xOrb, -yOrb, 0);
+    }
+
+    if (waveRingRef.current) {
+      const wavePhase = (tClock * 1.4 + bbh.angleOffset) % 1;
+      const scale = 0.6 + wavePhase * (isSelected ? 3.2 : 2.2);
+      waveRingRef.current.scale.set(scale, scale, 1);
+      const mat = waveRingRef.current.material as THREE.MeshBasicMaterial;
+      mat.opacity = (1 - wavePhase) * (isSelected ? 0.75 : 0.45);
+    }
+  });
+
+  return (
+    <group
+      ref={pairGroupRef}
+      rotation={[bbh.inclination, bbh.angleOffset, 0]}
+      onClick={(e) => {
+        e.stopPropagation();
+        onSelect();
+      }}
+    >
+      <mesh ref={bh1Ref}>
+        <sphereGeometry args={[isSelected ? 0.042 : 0.032, 16, 16]} />
+        <meshStandardMaterial
+          color="#f59e0b"
+          emissive="#f59e0b"
+          emissiveIntensity={isSelected ? 3.2 : 2.2}
+        />
+      </mesh>
+      <mesh ref={bh2Ref}>
+        <sphereGeometry args={[isSelected ? 0.038 : 0.028, 16, 16]} />
+        <meshStandardMaterial
+          color="#38bdf8"
+          emissive="#1DAEDF"
+          emissiveIntensity={isSelected ? 3.2 : 2.2}
+        />
+      </mesh>
+      <mesh ref={waveRingRef}>
+        <ringGeometry args={[0.07, 0.086, 32]} />
+        <meshBasicMaterial
+          color={isSelected ? "#fbbf24" : "#38bdf8"}
+          transparent
+          opacity={0.45}
+          side={THREE.DoubleSide}
+        />
+      </mesh>
+      {isSelected && (
+        <Html distanceFactor={10} position={[0, 0.24, 0]} center>
+          <button
+            onClick={onSelect}
+            className="px-2 py-0.5 rounded bg-[#0c2138]/95 border border-amber-400/70 text-[9px] font-mono text-amber-200 whitespace-nowrap shadow-md cursor-pointer"
+          >
+            {bbh.label}
+          </button>
+        </Html>
+      )}
+    </group>
+  );
+}
+
+export default function GlobularClusterSimulation() {
+  const [tauRh, setTauRh] = useState<number>(1.25);
+  const [isPlaying, setIsPlaying] = useState<boolean>(true);
+  const [speedMultiplier, setSpeedMultiplier] = useState<number>(1);
+  const [selectedSystemIdx, setSelectedSystemIdx] = useState<number>(0);
+  const [wavePhaseOffset, setWavePhaseOffset] = useState<number>(0);
+
+  const [clusterStats, setClusterStats] = useState({
+    bhCount: 88,
+    wdCount: 210,
+    rgCount: 30,
+    coreRadiusPc: 0.58,
+    halfMassRadiusPc: 3.32,
+    activeBbhCount: 4,
+  });
+
+  const tauRef = useRef<number>(tauRh);
+  tauRef.current = tauRh;
+
+  useEffect(() => {
+    if (!isPlaying) return;
+    const interval = setInterval(() => {
+      setTauRh((prev) => {
+        const baseStep = prev < 0.25 ? 0.004 : prev < 2.0 ? 0.022 : 0.085;
+        const next = prev + baseStep * speedMultiplier;
+        return next > MAX_TAU_RH ? 0.0 : Number(next.toFixed(3));
+      });
+      setWavePhaseOffset((p) => (p + 0.14) % (2 * Math.PI));
+    }, 60);
+    return () => clearInterval(interval);
+  }, [isPlaying, speedMultiplier]);
+
+  const timeGyr = useMemo(
+    () => ((tauRh * TAU_RH_MYR) / 1000).toFixed(2),
+    [tauRh]
+  );
+
+  const currentRegimeLabel = useMemo(() => {
+    if (tauRh < 0.025) {
+      return "Epoch I (t < 0.02 τ_rh · ~5–15 Myr): Massive OB stars (M > 20 M☉) undergo core-collapse supernovae into stellar-mass BHs.";
+    }
+    if (tauRh < 0.25) {
+      return "Epoch II (t ~ t_seg ≈ 0.05–0.20 τ_rh · ~40–160 Myr): Dynamical friction drives BH remnants into the dense core (mass segregation).";
+    }
+    if (tauRh < 2.5) {
+      return "Epoch III (t ~ 0.25–2.5 τ_rh · ~0.2–2 Gyr): Core 3-body & 4-body (Fewbody) interactions dynamically pair & harden compact BBHs.";
+    }
+    return "Epoch IV (t ~ 2.5–16.9 τ_rh · up to 13.5 Gyr): Relativistic GW inspiral (ḟ = k₀ f¹¹/³) & LISA multi-harmonic detection.";
+  }, [tauRh]);
+
+  const activeSystem =
+    GC_RESEARCH_FINDINGS.sampleSystems[selectedSystemIdx] ||
+    GC_RESEARCH_FINDINGS.sampleSystems[0];
+
+  const lisaPlotData = useMemo(() => {
+    const width = 380;
+    const height = 148;
+    const padL = 36;
+    const padR = 12;
+    const padT = 14;
+    const padB = 24;
+    const plotW = width - padL - padR;
+    const plotH = height - padT - padB;
+
+    const xFromLogF = (logF: number) =>
+      padL + ((logF - -4.0) / (-1.0 - -4.0)) * plotW;
+    const yFromLogH = (logH: number) =>
+      padT + plotH - ((logH - -22.0) / (-17.0 - -22.0)) * plotH;
+
+    const curvePoints: string[] = [];
+    for (let i = 0; i <= 60; i++) {
+      const logF = -4.0 + (i / 60) * 3.0;
+      const f = Math.pow(10, logF);
+      const lowFreqAccel = 2.4e-19 * Math.pow(1e-3 / f, 1.85);
+      const midFloor =
+        3.2e-21 *
+        (1 + 0.45 * Math.exp(-Math.pow((logF + 2.75) / 0.28, 2)));
+      const highFreqShot = 1.1e-20 * Math.pow(f / 1e-2, 1.15);
+      const hn = Math.sqrt(
+        lowFreqAccel * lowFreqAccel +
+          midFloor * midFloor +
+          highFreqShot * highFreqShot
+      );
+      const logH = Math.max(-22.0, Math.min(-17.0, Math.log10(hn)));
+      curvePoints.push(
+        `${xFromLogF(logF).toFixed(1)},${yFromLogH(logH).toFixed(1)}`
+      );
+    }
+
+    const systemPoints = GC_RESEARCH_FINDINGS.sampleSystems.map((sys, idx) => {
+      const logF0 = Math.log10(sys.fGwMhz * 1e-3);
+      const baseLogH =
+        -20.35 +
+        (5 / 6) * Math.log10(sys.chirpMassSolar / 15) -
+        Math.log10(sys.distanceMpc / 20) +
+        0.22 * Math.log10(sys.fGwMhz / 0.2);
+
+      const harmonics: { x: number; y: number; n: number }[] = [];
+      const maxHarmonic = sys.eccentricity > 0.3 ? 5 : 1;
+      for (let h = 1; h <= maxHarmonic; h++) {
+        const lf = Math.min(
+          -1.05,
+          Math.max(-3.95, logF0 + Math.log10(h * 0.85))
+        );
+        const lh = Math.min(
+          -17.2,
+          Math.max(
+            -21.8,
+            baseLogH +
+              (sys.eccentricity > 0.3 ? 0.18 * (3 - Math.abs(h - 3)) : 0)
+          )
+        );
+        harmonics.push({
+          x: xFromLogF(lf),
+          y: yFromLogH(lh),
+          n: h + 1,
+        });
+      }
+
+      return {
+        sys,
+        idx,
+        x: xFromLogF(Math.min(-1.05, Math.max(-3.95, logF0))),
+        y: yFromLogH(Math.min(-17.2, Math.max(-21.8, baseLogH))),
+        harmonics,
+      };
+    });
+
+    return {
+      width,
+      height,
+      padL,
+      padR,
+      padT,
+      padB,
+      curvePath: curvePoints.join(" "),
+      systemPoints,
+      xFromLogF,
+      yFromLogH,
+    };
+  }, []);
+
+  const timeWaveform = useMemo(() => {
+    const width = 380;
+    const height = 104;
+    const padL = 36;
+    const padR = 12;
+    const padT = 12;
+    const padB = 20;
+    const plotW = width - padL - padR;
+    const plotH = height - padT - padB;
+    const midY = padT + plotH / 2;
+
+    const ptsStrain: string[] = [];
+    const ptsEnvUpper: string[] = [];
+    const ptsEnvLower: string[] = [];
+
+    const eccFactor = 1 + 0.65 * activeSystem.eccentricity;
+    const carrierCycles = 18 + Math.round(activeSystem.fGwMhz * 22);
+
+    for (let i = 0; i <= 140; i++) {
+      const u = i / 140;
+      const tYr = u * 2.0;
+      const x = padL + u * plotW;
+
+      const annualAngle = 2 * Math.PI * tYr + selectedSystemIdx * 0.9;
+      const beamEnv =
+        0.58 +
+        0.34 * Math.cos(annualAngle) +
+        0.08 * Math.sin(2 * annualAngle);
+
+      const dopplerPhase =
+        1.85 * Math.sin(annualAngle - 0.4) * (0.6 + 1.2 * activeSystem.fGwMhz);
+
+      const carrierPhase =
+        2 * Math.PI * carrierCycles * u + dopplerPhase + wavePhaseOffset;
+      const rawWave =
+        (Math.cos(carrierPhase) +
+          0.42 * activeSystem.eccentricity * Math.cos(2 * carrierPhase)) /
+        eccFactor;
+
+      const strainY = midY - rawWave * beamEnv * (plotH * 0.44);
+      const envUpY = midY - beamEnv * (plotH * 0.44);
+      const envLowY = midY + beamEnv * (plotH * 0.44);
+
+      ptsStrain.push(`${x.toFixed(1)},${strainY.toFixed(1)}`);
+      ptsEnvUpper.push(`${x.toFixed(1)},${envUpY.toFixed(1)}`);
+      ptsEnvLower.push(`${x.toFixed(1)},${envLowY.toFixed(1)}`);
+    }
+
+    return {
+      width,
+      height,
+      padL,
+      padR,
+      padT,
+      padB,
+      midY,
+      strainPath: ptsStrain.join(" "),
+      envUpperPath: ptsEnvUpper.join(" "),
+      envLowerPath: ptsEnvLower.join(" "),
+    };
+  }, [activeSystem, selectedSystemIdx, wavePhaseOffset]);
+
+  return (
+    <div className="rounded-2xl overflow-hidden border border-[#b9d9eb] bg-gradient-to-b from-[#0b2034] via-[#0e263f] to-[#081827] shadow-xl">
+      {/* Top Simulation Control & Timescale Bar */}
+      <div className="px-4 py-3 border-b border-sky-900/70 bg-[#081827]/90 flex flex-wrap items-center justify-between gap-3">
+        <div className="flex flex-wrap items-center gap-2.5">
+          <span className="px-2.5 py-1 rounded-full bg-[#0d2642] border border-[#1DAEDF]/50 text-[10px] sm:text-[11px] font-mono text-[#7dd3fc] font-semibold">
+            MOCCA GLOBULAR CLUSTER &amp; LISA GW SIMULATION
+          </span>
+          <span className="text-[11px] font-mono text-slate-300">
+            t = <strong className="text-white">{tauRh.toFixed(2)} τ_rh</strong>{" "}
+            <span className="text-sky-300/80">({timeGyr} Gyr)</span>
+          </span>
+          <span className="hidden md:inline text-[11px] font-mono text-slate-400">
+            · τ_rh ≈ 800 Myr · t_seg ≈ 0.08 τ_rh
+          </span>
+        </div>
+
+        {/* Playback Controls */}
+        <div className="flex flex-wrap items-center gap-2">
+          <button
+            onClick={() => setIsPlaying(!isPlaying)}
+            className="px-2.5 py-1 rounded-lg bg-[#2980b9] hover:bg-[#1DAEDF] text-white text-[11px] font-mono font-medium transition cursor-pointer"
+          >
+            {isPlaying ? "Pause ❚❚" : "Evolve ▶"}
+          </button>
+
+          {[0.25, 1, 4].map((spd) => (
+            <button
+              key={spd}
+              onClick={() => setSpeedMultiplier(spd)}
+              className={`px-2 py-1 rounded text-[10px] font-mono transition cursor-pointer border ${
+                speedMultiplier === spd
+                  ? "bg-sky-500/30 border-[#1DAEDF] text-white font-semibold"
+                  : "bg-[#0d2238] border-sky-900 text-slate-300 hover:text-white"
+              }`}
+            >
+              {spd}×
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Interactive Relaxation-Time Scrubber & Preset Epochs */}
+      <div className="px-4 py-2.5 border-b border-sky-900/60 bg-[#0a1d31]/90 space-y-2">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-3">
+          <label
+            htmlFor="gc-tau-slider"
+            className="text-[11px] font-mono text-sky-200 shrink-0"
+          >
+            Cluster Age (t / τ_rh):
+          </label>
+          <input
+            id="gc-tau-slider"
+            type="range"
+            min={0}
+            max={MAX_TAU_RH}
+            step={0.01}
+            value={tauRh}
+            onChange={(e) => {
+              setIsPlaying(false);
+              setTauRh(parseFloat(e.target.value));
+            }}
+            className="w-full accent-[#1DAEDF] cursor-pointer h-1.5 bg-slate-800 rounded-lg"
+          />
+          <div className="flex items-center gap-1.5 shrink-0 overflow-x-auto max-w-full">
+            {[
+              { label: "0.01 τ_rh (OB→BH)", val: 0.01 },
+              { label: "0.12 τ_rh (Segregation)", val: 0.12 },
+              { label: "1.0 τ_rh (Core BBHs)", val: 1.0 },
+              { label: "16.9 τ_rh (13.5 Gyr)", val: 16.875 },
+            ].map((preset) => (
+              <button
+                key={preset.label}
+                onClick={() => {
+                  setIsPlaying(false);
+                  setTauRh(preset.val);
+                }}
+                className="px-2 py-0.5 rounded bg-[#0e2944] hover:bg-[#194169] border border-sky-800/80 text-[10px] font-mono text-sky-200 whitespace-nowrap cursor-pointer transition"
+              >
+                {preset.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className="flex flex-wrap items-center justify-between gap-2 text-[11px] text-slate-300">
+          <p className="font-mono text-[10px] sm:text-[11px] text-sky-200/95">
+            {currentRegimeLabel}
+          </p>
+          <div className="flex flex-wrap items-center gap-3 text-[10px] font-mono text-slate-300">
+            <span className="inline-flex items-center gap-1">
+              <span className="w-2 h-2 rounded-full bg-[#93c5fd]" /> OB Stars
+            </span>
+            <span className="inline-flex items-center gap-1">
+              <span className="w-2 h-2 rounded-full bg-[#fb923c]" /> Red Giants
+            </span>
+            <span className="inline-flex items-center gap-1">
+              <span className="w-2 h-2 rounded-full bg-[#e2e8f0]" /> White Dwarfs ({clusterStats.wdCount})
+            </span>
+            <span className="inline-flex items-center gap-1">
+              <span className="w-2 h-2 rounded-full bg-[#f59e0b]" /> Segregated BHs ({clusterStats.bhCount})
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {/* Pure Astrophysical Split Window: Left = 3D Globular Cluster | Right = LISA GW Side Window */}
+      <div className="grid grid-cols-1 xl:grid-cols-12">
+        {/* Left 7 Columns: Pure 3D Globular Cluster N-Body & Stellar Evolution */}
+        <div className="xl:col-span-7 relative h-[360px] sm:h-[460px] xl:h-[540px] border-b xl:border-b-0 xl:border-r border-sky-900/60 touch-manipulation">
+          <Canvas
+            camera={{ position: [0, 0.5, 4.8], fov: 48 }}
+            gl={{ antialias: true, alpha: true }}
+          >
+            <ambientLight intensity={0.75} />
+            <pointLight position={[6, 6, 6]} intensity={1.6} color="#1DAEDF" />
+            <pointLight
+              position={[-6, -4, -4]}
+              intensity={1.2}
+              color="#2980b9"
+            />
+            <Stars
+              radius={60}
+              depth={40}
+              count={1600}
+              factor={3}
+              saturation={0.3}
+              fade
+              speed={0.6}
+            />
+            <GlobularClusterEvolution
+              tauRef={tauRef}
+              selectedBinaryId={activeSystem.id}
+              onSelectBinary={(id) => {
+                const idx = GC_RESEARCH_FINDINGS.sampleSystems.findIndex(
+                  (s) => s.id === id
+                );
+                if (idx >= 0) setSelectedSystemIdx(idx);
+              }}
+              statsCallback={setClusterStats}
+            />
+            <OrbitControls
+              enablePan={false}
+              minDistance={2.0}
+              maxDistance={8.5}
+              autoRotate
+              autoRotateSpeed={0.35}
+            />
+          </Canvas>
+
+          {/* Bottom-left live dynamical diagnostics overlay */}
+          <div className="pointer-events-none absolute bottom-3 left-3 right-3 flex flex-wrap items-center justify-between gap-2">
+            <div className="px-2.5 py-1.5 rounded-lg bg-[#071524]/85 border border-sky-800/70 text-[10px] font-mono text-slate-200 backdrop-blur-md flex flex-wrap items-center gap-3">
+              <span>
+                r_c: <strong className="text-[#7dd3fc]">{clusterStats.coreRadiusPc} pc</strong>
+              </span>
+              <span>
+                r_h: <strong className="text-[#7dd3fc]">{clusterStats.halfMassRadiusPc} pc</strong>
+              </span>
+              <span>
+                Core BHs: <strong className="text-amber-300">{clusterStats.bhCount}</strong>
+              </span>
+              <span>
+                Dynamic BBHs: <strong className="text-sky-300">{clusterStats.activeBbhCount}</strong>
+              </span>
+            </div>
+            <span className="hidden sm:inline-block px-2.5 py-1 rounded-full bg-[#071524]/80 border border-slate-700 text-[10px] font-mono text-slate-300 backdrop-blur-md">
+              Spitzer τ_rh scaling · Fewbody core exchange
+            </span>
+          </div>
+        </div>
+
+        {/* Right 5 Columns: LISA Gravitational-Wave Detector Side Window */}
+        <div className="xl:col-span-5 bg-[#071524]/95 p-4 sm:p-5 flex flex-col justify-between space-y-4 text-slate-100">
+          {/* Header & Event Rate Badge from Doctoral Dissertation */}
+          <div className="space-y-2">
+            <div className="flex items-center justify-between gap-2">
+              <span className="text-[10px] font-mono uppercase tracking-widest text-[#1DAEDF] font-semibold">
+                LISA Space Interferometer Side Window
+              </span>
+              <a
+                href="/articles/research/astrophysics-bbh-dissertation.html"
+                className="text-[10px] font-mono text-sky-300 hover:text-white underline underline-offset-4"
+              >
+                Dissertation (2018) ↗
+              </a>
+            </div>
+
+            <div className="p-3 rounded-xl bg-[#0c2138] border border-sky-800/80 space-y-1.5">
+              <div className="flex flex-wrap items-baseline justify-between gap-2">
+                <span className="text-[11px] font-mono text-slate-300">
+                  Local Universe Lower-Bound BBH Merger Rate:
+                </span>
+                <span className="text-sm sm:text-base font-mono font-bold text-amber-300">
+                  η ≃ 587 Gpc⁻³ yr⁻¹
+                </span>
+              </div>
+              <p className="text-[11px] text-slate-300 leading-relaxed">
+                Derived from{" "}
+                <strong className="text-white">662,772 globular clusters</strong>{" "}
+                across <strong className="text-white">8,946 galaxies</strong>{" "}
+                within D ≤ 30 Mpc (3,240 MOCCA models; 17,883,760 inspiralling
+                BBHs; 86,939 mergers vs. ~100 Gpc⁻³ yr⁻¹ pre-LIGO &amp; 9–240
+                Gpc⁻³ yr⁻¹ early LIGO O1).
+              </p>
+            </div>
+          </div>
+
+          {/* Plot 1: LISA Frequency-Domain Characteristic Strain & Harmonics */}
+          <div className="space-y-1.5">
+            <div className="flex items-center justify-between text-[10px] font-mono text-slate-300">
+              <span>
+                LISA Sensitivity √(f·S_n(f)) &amp; Peters Inspiral (ḟ = k₀ f¹¹/³)
+              </span>
+              <span className="text-sky-300">0.1 mHz – 0.1 Hz</span>
+            </div>
+
+            <div className="rounded-xl bg-[#040d17] border border-sky-900/80 p-2">
+              <svg
+                viewBox={`0 0 ${lisaPlotData.width} ${lisaPlotData.height}`}
+                className="w-full h-auto overflow-visible"
+                role="img"
+                aria-label="LISA sensitivity curve and globular cluster compact binary strain spectrum"
+              >
+                {[-4, -3, -2, -1].map((lf) => {
+                  const x = lisaPlotData.xFromLogF(lf);
+                  return (
+                    <g key={lf}>
+                      <line
+                        x1={x}
+                        y1={lisaPlotData.padT}
+                        x2={x}
+                        y2={lisaPlotData.height - lisaPlotData.padB}
+                        stroke="#1e293b"
+                        strokeDasharray="2,2"
+                      />
+                      <text
+                        x={x}
+                        y={lisaPlotData.height - 6}
+                        textAnchor="middle"
+                        fill="#94a3b8"
+                        fontSize="8.5"
+                        fontFamily="monospace"
+                      >
+                        10^{lf} Hz
+                      </text>
+                    </g>
+                  );
+                })}
+                {[-21, -19, -17].map((lh) => {
+                  const y = lisaPlotData.yFromLogH(lh);
+                  return (
+                    <g key={lh}>
+                      <line
+                        x1={lisaPlotData.padL}
+                        y1={y}
+                        x2={lisaPlotData.width - lisaPlotData.padR}
+                        y2={y}
+                        stroke="#1e293b"
+                        strokeDasharray="2,2"
+                      />
+                      <text
+                        x={lisaPlotData.padL - 4}
+                        y={y + 3}
+                        textAnchor="end"
+                        fill="#94a3b8"
+                        fontSize="8"
+                        fontFamily="monospace"
+                      >
+                        10^{lh}
+                      </text>
+                    </g>
+                  );
+                })}
+
+                <polyline
+                  fill="none"
+                  stroke="#38bdf8"
+                  strokeWidth="1.8"
+                  points={lisaPlotData.curvePath}
+                />
+
+                {[
+                  [-3.55, -20.6],
+                  [-3.35, -20.4],
+                  [-3.18, -20.1],
+                  [-2.95, -19.85],
+                  [-2.82, -20.05],
+                  [-2.68, -19.65],
+                  [-2.52, -19.45],
+                  [-2.38, -19.72],
+                  [-2.22, -19.35],
+                  [-2.05, -19.2],
+                  [-1.88, -19.4],
+                  [-1.72, -19.15],
+                ].map(([lf, lh], idx) => (
+                  <circle
+                    key={idx}
+                    cx={lisaPlotData.xFromLogF(lf)}
+                    cy={lisaPlotData.yFromLogH(lh)}
+                    r={2.1}
+                    fill="#64748b"
+                    opacity={0.55}
+                  />
+                ))}
+
+                {lisaPlotData.systemPoints.map((pt) => {
+                  const isSelected = pt.idx === selectedSystemIdx;
+                  return (
+                    <g
+                      key={pt.sys.id}
+                      onClick={() => setSelectedSystemIdx(pt.idx)}
+                      className="cursor-pointer"
+                    >
+                      {isSelected &&
+                        pt.harmonics.length > 1 &&
+                        pt.harmonics.map((h, hi) => (
+                          <g key={hi}>
+                            <line
+                              x1={h.x}
+                              y1={lisaPlotData.height - lisaPlotData.padB}
+                              x2={h.x}
+                              y2={h.y}
+                              stroke="#f59e0b"
+                              strokeWidth="1"
+                              strokeDasharray="2,2"
+                              opacity={0.7}
+                            />
+                            <circle cx={h.x} cy={h.y} r={3} fill="#fbbf24" />
+                          </g>
+                        ))}
+                      <circle
+                        cx={pt.x}
+                        cy={pt.y}
+                        r={isSelected ? 5.2 : 3.6}
+                        fill={isSelected ? "#f59e0b" : "#1DAEDF"}
+                        stroke="#ffffff"
+                        strokeWidth={isSelected ? 1.5 : 0.6}
+                      />
+                    </g>
+                  );
+                })}
+              </svg>
+            </div>
+          </div>
+
+          {/* Plot 2: 2-Year LISA Time-Domain Strain h_alpha(t) */}
+          <div className="space-y-1.5">
+            <div className="flex items-center justify-between text-[10px] font-mono text-slate-300">
+              <span>
+                Detector Strain h_α(t) = (√3/2) A_α(t) cos[2πf₀t + ψ_p + ψ_D(t)]
+              </span>
+              <span className="text-amber-300">T_obs = 2.0 yr</span>
+            </div>
+
+            <div className="rounded-xl bg-[#040d17] border border-sky-900/80 p-2">
+              <svg
+                viewBox={`0 0 ${timeWaveform.width} ${timeWaveform.height}`}
+                className="w-full h-auto"
+                role="img"
+                aria-label="LISA 2-year modulated gravitational-wave time series"
+              >
+                <line
+                  x1={timeWaveform.padL}
+                  y1={timeWaveform.midY}
+                  x2={timeWaveform.width - timeWaveform.padR}
+                  y2={timeWaveform.midY}
+                  stroke="#1e293b"
+                />
+                <polyline
+                  fill="none"
+                  stroke="#f59e0b"
+                  strokeWidth="1"
+                  strokeDasharray="3,2"
+                  opacity={0.75}
+                  points={timeWaveform.envUpperPath}
+                />
+                <polyline
+                  fill="none"
+                  stroke="#f59e0b"
+                  strokeWidth="1"
+                  strokeDasharray="3,2"
+                  opacity={0.75}
+                  points={timeWaveform.envLowerPath}
+                />
+                <polyline
+                  fill="none"
+                  stroke="#38bdf8"
+                  strokeWidth="1.35"
+                  points={timeWaveform.strainPath}
+                />
+                <text
+                  x={timeWaveform.padL}
+                  y={timeWaveform.height - 4}
+                  fill="#94a3b8"
+                  fontSize="8"
+                  fontFamily="monospace"
+                >
+                  0.0 yr (1 AU Orbit, 20° behind Earth)
+                </text>
+                <text
+                  x={timeWaveform.width - timeWaveform.padR}
+                  y={timeWaveform.height - 4}
+                  textAnchor="end"
+                  fill="#94a3b8"
+                  fontSize="8"
+                  fontFamily="monospace"
+                >
+                  2.0 yr (ΔV ≤ 1 Mpc³ Siren)
+                </text>
+              </svg>
+            </div>
+          </div>
+
+          {/* Selectable Compact Binary Catalog (Table 6-1 & Table 6-2 Standard Sirens) */}
+          <div className="space-y-2">
+            <div className="flex items-center justify-between text-[10px] font-mono text-slate-300">
+              <span>Select Dissertation Compact Binary System:</span>
+              <span className="text-sky-300">
+                17 Systems Localized to ΔV ≤ 1 Mpc³
+              </span>
+            </div>
+
+            <div className="flex flex-wrap gap-1.5">
+              {GC_RESEARCH_FINDINGS.sampleSystems.map((sys, idx) => (
+                <button
+                  key={sys.id}
+                  onClick={() => setSelectedSystemIdx(idx)}
+                  className={`px-2 py-1 rounded text-[10px] font-mono transition cursor-pointer border ${
+                    selectedSystemIdx === idx
+                      ? "bg-[#2980b9] border-white text-white font-semibold"
+                      : "bg-[#0c2138] border-sky-900 text-slate-300 hover:border-[#1DAEDF]"
+                  }`}
+                >
+                  {sys.pgc.split(" (")[0]}
+                </button>
+              ))}
+            </div>
+
+            <div className="p-2.5 rounded-lg bg-[#0c2138]/90 border border-sky-800/70 text-[11px] font-mono space-y-1">
+              <div className="flex flex-wrap items-center justify-between gap-1 text-sky-200">
+                <strong className="text-white">{activeSystem.pgc}</strong>
+                <span>D = {activeSystem.distanceMpc} Mpc</span>
+              </div>
+              <div className="text-[10px] text-slate-300 flex flex-wrap gap-x-3 gap-y-0.5">
+                <span>
+                  M₁={activeSystem.m1Solar} M☉, M₂={activeSystem.m2Solar} M☉
+                </span>
+                <span>𝓜_c={activeSystem.chirpMassSolar} M☉</span>
+                <span>e={activeSystem.eccentricity}</span>
+                <span className="text-amber-300">
+                  ΔV={activeSystem.errorVolumeMpc3} Mpc³
+                </span>
+              </div>
+              <p className="text-[10px] text-slate-300 font-sans pt-0.5">
+                {activeSystem.note}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
