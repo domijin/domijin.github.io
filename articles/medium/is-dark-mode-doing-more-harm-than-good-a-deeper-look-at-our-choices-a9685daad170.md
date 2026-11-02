@@ -1,17 +1,6 @@
----
-title: "Is Dark Mode Doing More Harm Than Good? A Deeper Look at Our Choices"
-author: "Domi Jin (Dongming Jin)"
-date: "Tue, 26 Nov 2024 01:36:49 GMT"
-source: "Medium (@domijin)"
-original_url: "https://domijin.medium.com/is-dark-mode-doing-more-harm-than-good-a-deeper-look-at-our-choices-a9685daad170"
-local_html: "/articles/medium/is-dark-mode-doing-more-harm-than-good-a-deeper-look-at-our-choices-a9685daad170.html"
----
-
-> **Repository Mirror & Reference Copy**
-> This article is archived directly in [`domijin.github.io`](https://github.com/domijin/domijin.github.io) for preservation and offline inspection.
-> - **Original Publication**: [Is Dark Mode Doing More Harm Than Good? A Deeper Look at Our Choices](https://domijin.medium.com/is-dark-mode-doing-more-harm-than-good-a-deeper-look-at-our-choices-a9685daad170) (Medium (@domijin), Tue, 26 Nov 2024 01:36:49 GMT)
-
 # Is Dark Mode Doing More Harm Than Good? A Deeper Look at Our Choices
+
+*Chapter II · Decisions Under Constraints — By Domi Jin (November 2024)*
 
 I recently saw a post from a friend saying that dark mode was causing significant eye strain. He had to lean in closer to see clearly, which eventually led to neck issues. This got me thinking about the growing debate: is dark mode, originally designed to reduce blue light exposure and improve our digital habits, actually harmful to our eyes? After a quick search, I found mixed opinions (e.g., [ophthalmology24](https://www.ophthalmology24.com/using-dark-mode)). I also explored studies on PubMed using keywords like Dark Mode, Eye Strain, and Visual Fatigue, and realized that **there isn’t much robust, statistically significant research** to fully understand its health impacts, especially when it comes to guiding our work-style decisions.
 
@@ -90,3 +79,6 @@ I know this topic touches on something much larger and more complex, so I’ll s
 - How can we uphold fundamental principles in a fast-paced, evolving environment?
 
 What do you think about this? Are we too focused on short-term patches, or is there still room for us to be guided by deeper values?
+
+---
+*Footnote: First published in [Medium](https://medium.com/@domijin/is-dark-mode-doing-more-harm-than-good-a-deeper-look-at-our-choices-a9685daad170) (November 2024).*

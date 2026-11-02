@@ -1,181 +1,209 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en-GB">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Why is some professional handwriting illegible? | Domi Jin — Local Archive</title>
-  <link rel="canonical" href="https://domijin.medium.com/why-is-some-professional-handwriting-illegible-d07bd8acb818" />
+  <title>Why is some professional handwriting illegible? — Domi Jin</title>
+  <meta name="description" content="Why is some professional handwriting illegible? — Essay and technical notes by Domi Jin." />
+  <link rel="canonical" href="https://domij.info/articles/medium/why-is-some-professional-handwriting-illegible-d07bd8acb818.html" />
   <style>
     :root {
-      color-scheme: light;
+      --bg: #fcfcfd;
+      --ink: #1e293b;
+      --muted: #64748b;
+      --accent: #2980b9;
+      --border: #e2e8f0;
     }
+    * { box-sizing: border-box; }
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Open Sans", sans-serif;
-      background: #f8fafc;
-      color: #1e293b;
-      line-height: 1.75;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      font-size: 19px;
+      line-height: 1.78;
+      -webkit-font-smoothing: antialiased;
     }
     .topbar {
-      background: #ffffff;
-      border-bottom: 1px solid #e2e8f0;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 13px;
+    }
+    .topbar-inner {
+      max-width: 760px;
+      margin: 0 auto;
       padding: 12px 24px;
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
       gap: 12px;
-      font-size: 13px;
     }
     .topbar a {
-      color: #2980b9;
+      color: var(--accent);
       text-decoration: none;
-      font-weight: 600;
+      font-weight: 500;
     }
-    .topbar a:hover {
-      color: #1DAEDF;
-      text-decoration: underline;
+    .topbar a:hover { text-decoration: underline; }
+    .chapter-badge {
+      color: var(--muted);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
-    .container {
-      max-width: 760px;
-      margin: 36px auto 64px;
-      padding: 0 20px;
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 56px 24px 96px;
     }
-    .provenance-card {
-      background: #f0f9ff;
-      border: 1px solid #bae6fd;
-      border-left: 4px solid #2980b9;
-      border-radius: 12px;
-      padding: 16px 20px;
-      margin-bottom: 28px;
-      font-size: 13px;
-      color: #0c4a6e;
+    header.essay-header {
+      margin-bottom: 40px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
     }
-    .provenance-card a {
-      color: #0284c7;
-      font-weight: 600;
-      word-break: break-all;
-    }
-    article {
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
-      border-radius: 16px;
-      padding: 32px 36px;
-      box-shadow: 0 2px 12px rgba(41, 128, 185, 0.05);
-    }
-    h1 {
-      font-size: 28px;
-      line-height: 1.25;
-      color: #0f172a;
-      margin-top: 0;
-      margin-bottom: 12px;
-    }
-    .meta {
+    .essay-eyebrow {
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 12px;
-      color: #64748b;
-      margin-bottom: 28px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid #f1f5f9;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 12px;
+      display: block;
     }
-    h2, h3, h4 {
+    h1 {
+      font-size: clamp(28px, 4.5vw, 40px);
+      line-height: 1.2;
       color: #0f172a;
-      margin-top: 28px;
-      margin-bottom: 10px;
+      margin: 0 0 14px 0;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+    }
+    .essay-byline {
+      font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    article h2 {
+      font-size: 25px;
+      line-height: 1.3;
+      color: #0f172a;
+      margin: 2.2em 0 0.7em;
+    }
+    article h3 {
+      font-size: 20px;
       line-height: 1.35;
+      color: #1e293b;
+      margin: 1.8em 0 0.6em;
     }
-    p, li {
-      font-size: 16px;
+    article p {
+      margin: 0 0 1.35em 0;
+    }
+    article blockquote {
+      margin: 1.6em 0;
+      padding: 4px 0 4px 20px;
+      border-left: 3px solid var(--accent);
       color: #334155;
-    }
-    p {
-      margin: 16px 0;
-    }
-    ul {
-      padding-left: 22px;
-      margin: 16px 0;
-    }
-    li {
-      margin: 6px 0;
-    }
-    blockquote {
-      margin: 20px 0;
-      padding: 12px 18px;
-      border-left: 3px solid #1DAEDF;
-      background: #f8fafc;
-      color: #475569;
       font-style: italic;
     }
-    pre {
-      background: #0f172a;
-      color: #f8fafc;
-      padding: 16px;
-      border-radius: 10px;
-      overflow-x: auto;
-      font-size: 13px;
-      line-height: 1.5;
+    article ul, article ol {
+      margin: 0 0 1.4em 0;
+      padding-left: 1.5em;
     }
-    code {
+    article li {
+      margin-bottom: 0.45em;
+    }
+    article code {
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      font-size: 0.9em;
+      font-size: 0.86em;
       background: #f1f5f9;
-      padding: 2px 5px;
+      padding: 2px 6px;
       border-radius: 4px;
     }
-    pre code {
-      background: transparent;
-      padding: 0;
+    article a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
     }
-    a {
-      color: #2980b9;
+    .table-wrap {
+      overflow-x: auto;
+      margin: 1.5em 0;
     }
-    hr {
-      border: 0;
-      border-top: 1px solid #e2e8f0;
-      margin: 28px 0;
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: ui-sans-serif, system-ui, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
     }
-    @media (max-width: 640px) {
-      article {
-        padding: 22px 18px;
-      }
-      h1 {
-        font-size: 22px;
-      }
+    th, td {
+      border: 1px solid var(--border);
+      padding: 8px 12px;
+      text-align: left;
+    }
+    th {
+      background: #f8fafc;
+      font-weight: 600;
+      color: #0f172a;
+    }
+    footer.colophon {
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    footer.colophon a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    footer.colophon a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <div class="topbar">
-    <div>
-      <a href="/next/#writings">&larr; Back to Domi Jin (Current Edition)</a>
-      <span style="color:#cbd5e1; margin:0 8px;">|</span>
-      <a href="/articles/">Repository Article Mirror</a>
+  <nav class="topbar" aria-label="Book navigation">
+    <div class="topbar-inner">
+      <a href="/">&larr; Domi Jin &middot; Notes from Research &amp; Practice</a>
+      <span class="chapter-badge">Chapter II · Decisions Under Constraints</span>
+      <a href="/articles/">Table of Contents</a>
     </div>
-    <div>
-      <a href="https://domijin.medium.com/why-is-some-professional-handwriting-illegible-d07bd8acb818" target="_blank" rel="noopener noreferrer">Original Publication (Medium (@domijin)) &#8599;</a>
-    </div>
-  </div>
-  <div class="container">
-    <div class="provenance-card">
-      <strong>Repository Mirror &amp; Reference Copy</strong><br/>
-      Originally published on <strong>Medium (@domijin)</strong> (Tue, 10 Oct 2023 06:57:38 GMT).<br/>
-      Original URL: <a href="https://domijin.medium.com/why-is-some-professional-handwriting-illegible-d07bd8acb818" target="_blank" rel="noopener noreferrer">https://domijin.medium.com/why-is-some-professional-handwriting-illegible-d07bd8acb818</a>
-      &middot; <a href="why-is-some-professional-handwriting-illegible-d07bd8acb818.md">Raw Markdown (.md)</a>
-    </div>
-    <article>
+  </nav>
+  <main>
+    <header class="essay-header">
+      <span class="essay-eyebrow">Chapter II · Decisions Under Constraints</span>
       <h1>Why is some professional handwriting illegible?</h1>
-      <div class="meta">By Domi Jin (Dongming Jin) &middot; Medium (@domijin) &middot; Tue, 10 Oct 2023 06:57:38 GMT</div>
+      <div class="essay-byline">By Domi Jin (Dongming Jin) &middot; October 2023</div>
+    </header>
+    <article>
       <p>I saw an interesting picture about using GPT to interpret doctor’s note.</p>
-<p>Credit: Ralph Aboujaoude Diaz, <a href="https://www.linkedin.com/posts/ai4diversity_there-is-one-thing-that-even-the-most-advanced-activity-7115881555654283264-yMuE?utm_source=share&amp;utm_medium=member_desktop" target="_blank" rel="noopener noreferrer">source</a></p>
-<p>It looks brillant, and my brain got stimulated enough to drfit.</p>
-<p>Interpreting a doctor’s often elusive handwriting through AI is intriguing. However, the stakes are high. Misinterpretation, especially in medical contexts, can have dire consequences. Insurance for such uses becomes a tricky question.</p>
-<p>But let’s ponder — why is the age-old cliché of the illegible doctor’s handwriting still prevalent? A few speculative thoughts:</p>
-<ul><li><strong>Efficiency over Legibility</strong>: The traditional viewpoint is that doctors, overwhelmed by their patient loads and endless prescriptions, resort to shortcuts in writing. The radical solution is to increase the <strong>output bandwith</strong>. Acronyms come into play. With computers, digital notes/perscriptions are more common today. While typing might seem to be THE solution, its efficiency depends on various factors like the doctor’s typing speed, how distracted the environment is (in places with less medical facilities per capital, hospitals could seem chaotic). Voice inputs, given their speed, might be a good alternative (Human speech may have a universal transmission rate: 39 bits per second, which is way faster than writing). Human-computer interaction would be another game changer. This might be a better direction to seek after a PMF than Gen AI+ medical solution.</li><li><strong>Cultural Norms &amp; Placebo Healing:</strong> Historically, the medical world was shrouded in uncertainty. Modern medicine has come a long way, but its beginnings were more tentative. Could it be that cryptic handwriting was a subtle tool to maintain a sense of mystery? A ritual, even, which could have indirectly contributed to the healing process, playing on the placebo effect? The age-old saying, “primum non nocere” or “first do no harm,” hints at a time when medicine’s main objective was not to worsen a condition, and any healing that occurred was often seen as fortuitous. I wish I have the expertise in social science and complex system to dive deeper.</li><li><strong>Protectionism</strong>: On a more cynical note, could this obscure handwriting be a deliberate tactic, much like Wall Street’s jargon, designed to create barriers and maintain exclusivity? Here is another offending joke: <em>Maybe Wall Street would love to invent a new type of insurance to hedge the risks of ill-interpretion. The lawyers would compose 100 pages+ T&amp;Cs to cover the legal ground. Then we may have 3 unicorn companies in MedTech, FinTech, and LegalTech while doctors protest for job secruity…</em></li></ul>
-<p>These are mere speculations, of course. It would be enlightening to hear insights from those within the medical profession, potentially shedding light on this and perhaps mitigating some prevalent biases.</p>
-<p>— — — — — — — — —</p>
-<p>Acknowledge, without ChatGPT, I may never feel comfortable enough to write and share my thoughts. Despite the limitation in conveying all the points, I hope the reading experience is better than what I would originally prompted:</p>
-<blockquote>Someone shared a picture where Gen AI seems to interpret doctor’s illegible hand-writing well. Help me write a comment: The consequence of hallusinating is too high in such cases, unless someone finds out how to underwrite for such use cases. But fundamentally, why would doctors have such abstract hand-writing in the first place? Here is just my 2 cents<br/>1. The conventional view is that they are too busy and tired after writing perspections over the day. So they need an efficient way to reference perscriptions. Using acronyms can help. Keyboard typing is also efficient but it can vary by settings. Voice input can definitely help (Human speech may have a universal transmission rate: 39 bits per second, which is way faster than writing). HCI would be another story.<br/>2. Maybe it’s proven to be the best interest to have an internal communication method so that patients don’t get nervous as modern medicine wasn’t always so effective at the beginning. It’s a ritual to keep it mystery (which sometimes will become sacre) to have placebo effect in healing. (as there is a view that we know so little in medical that most of time, good doctors only refer them as “first do no harm”, it’s luck to heal, it’s normal that things don’t work). Could it be that obscure handwriting is a product of such cultural and social norms.<br/>3. The evil speculating is that this is a way to create communication barrier to protect their interests against outsiders, just like the wallstreet. Hope my shallow spectulation could serve as reference for insiders to share and probably reduce the information bias.</blockquote>
+      <p>Credit: Ralph Aboujaoude Diaz, <a href="https://www.linkedin.com/posts/ai4diversity_there-is-one-thing-that-even-the-most-advanced-activity-7115881555654283264-yMuE?utm_source=share&amp;utm_medium=member_desktop">source</a></p>
+      <p>It looks brillant, and my brain got stimulated enough to drfit.</p>
+      <p>Interpreting a doctor’s often elusive handwriting through AI is intriguing. However, the stakes are high. Misinterpretation, especially in medical contexts, can have dire consequences. Insurance for such uses becomes a tricky question.</p>
+      <p>But let’s ponder — why is the age-old cliché of the illegible doctor’s handwriting still prevalent? A few speculative thoughts:</p>
+      <ul><li><strong>Efficiency over Legibility</strong>: The traditional viewpoint is that doctors, overwhelmed by their patient loads and endless prescriptions, resort to shortcuts in writing. The radical solution is to increase the <strong>output bandwith</strong>. Acronyms come into play. With computers, digital notes/perscriptions are more common today. While typing might seem to be THE solution, its efficiency depends on various factors like the doctor’s typing speed, how distracted the environment is (in places with less medical facilities per capital, hospitals could seem chaotic). Voice inputs, given their speed, might be a good alternative (Human speech may have a universal transmission rate: 39 bits per second, which is way faster than writing). Human-computer interaction would be another game changer. This might be a better direction to seek after a PMF than Gen AI+ medical solution.</li><li><strong>Cultural Norms &amp; Placebo Healing:</strong> Historically, the medical world was shrouded in uncertainty. Modern medicine has come a long way, but its beginnings were more tentative. Could it be that cryptic handwriting was a subtle tool to maintain a sense of mystery? A ritual, even, which could have indirectly contributed to the healing process, playing on the placebo effect? The age-old saying, “primum non nocere” or “first do no harm,” hints at a time when medicine’s main objective was not to worsen a condition, and any healing that occurred was often seen as fortuitous. I wish I have the expertise in social science and complex system to dive deeper.</li><li><strong>Protectionism</strong>: On a more cynical note, could this obscure handwriting be a deliberate tactic, much like Wall Street’s jargon, designed to create barriers and maintain exclusivity? Here is another offending joke: <em>Maybe Wall Street would love to invent a new type of insurance to hedge the risks of ill-interpretion. The lawyers would compose 100 pages+ T&amp;Cs to cover the legal ground. Then we may have 3 unicorn companies in MedTech, FinTech, and LegalTech while doctors protest for job secruity…</em></li></ul>
+      <p>These are mere speculations, of course. It would be enlightening to hear insights from those within the medical profession, potentially shedding light on this and perhaps mitigating some prevalent biases.</p>
+      <p>— — — — — — — — —</p>
+      <p>Acknowledge, without ChatGPT, I may never feel comfortable enough to write and share my thoughts. Despite the limitation in conveying all the points, I hope the reading experience is better than what I would originally prompted:</p>
+      <blockquote><p>Someone shared a picture where Gen AI seems to interpret doctor’s illegible hand-writing well. Help me write a comment: The consequence of hallusinating is too high in such cases, unless someone finds out how to underwrite for such use cases. But fundamentally, why would doctors have such abstract hand-writing in the first place? Here is just my 2 cents   
+1. The conventional view is that they are too busy and tired after writing perspections over the day. So they need an efficient way to reference perscriptions. Using acronyms can help. Keyboard typing is also efficient but it can vary by settings. Voice input can definitely help (Human speech may have a universal transmission rate: 39 bits per second, which is way faster than writing). HCI would be another story.   
+2. Maybe it’s proven to be the best interest to have an internal communication method so that patients don’t get nervous as modern medicine wasn’t always so effective at the beginning. It’s a ritual to keep it mystery (which sometimes will become sacre) to have placebo effect in healing. (as there is a view that we know so little in medical that most of time, good doctors only refer them as “first do no harm”, it’s luck to heal, it’s normal that things don’t work). Could it be that obscure handwriting is a product of such cultural and social norms.   
+3. The evil speculating is that this is a way to create communication barrier to protect their interests against outsiders, just like the wallstreet. Hope my shallow spectulation could serve as reference for insiders to share and probably reduce the information bias.</p></blockquote>
     </article>
-  </div>
+    <footer class="colophon">
+      <p>
+        <strong>Footnote:</strong> First published in
+        <a href="https://medium.com/@domijin/why-is-some-professional-handwriting-illegible-d07bd8acb818" rel="noopener noreferrer" target="_blank">Medium</a>
+        (October 2023). Part of <em>Domi Jin — Notes from Research and Practice</em>.
+      </p>
+    </footer>
+  </main>
 </body>
 </html>

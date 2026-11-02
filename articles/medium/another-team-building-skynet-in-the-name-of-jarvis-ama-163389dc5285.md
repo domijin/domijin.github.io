@@ -1,17 +1,6 @@
----
-title: "Another team building Skynet, in the name of Jarvis — AMA"
-author: "Domi Jin (Dongming Jin)"
-date: "Tue, 26 Nov 2024 22:28:25 GMT"
-source: "Medium (@domijin)"
-original_url: "https://domijin.medium.com/another-team-building-skynet-in-the-name-of-jarvis-ama-163389dc5285"
-local_html: "/articles/medium/another-team-building-skynet-in-the-name-of-jarvis-ama-163389dc5285.html"
----
-
-> **Repository Mirror & Reference Copy**
-> This article is archived directly in [`domijin.github.io`](https://github.com/domijin/domijin.github.io) for preservation and offline inspection.
-> - **Original Publication**: [Another team building Skynet, in the name of Jarvis — AMA](https://domijin.medium.com/another-team-building-skynet-in-the-name-of-jarvis-ama-163389dc5285) (Medium (@domijin), Tue, 26 Nov 2024 22:28:25 GMT)
-
 # Another team building Skynet, in the name of Jarvis — AMA
+
+*Chapter III · Human Agency, Older People’s Independence and Lifelong Play — By Domi Jin (November 2024)*
 
 ### Building Jarvis — AMA
 
@@ -64,3 +53,6 @@ Our iOS app provides the always-on, voice-based context building, while the Chro
 Yes, you can use the Chrome extension independently, but keep in mind that it won’t feel as personalized at first. Over time, as you use it more, the AI will start to understand you better, building a personalized memory. It’s like training your own AI — the more you use it, the better it gets at serving *you*.
 
 ### **Join us at Discord and support us at Product Hunt!**
+
+---
+*Footnote: First published in [Medium](https://medium.com/@domijin/another-team-building-skynet-in-the-name-of-jarvis-ama-163389dc5285) (November 2024).*

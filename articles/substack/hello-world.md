@@ -1,17 +1,6 @@
----
-title: "Hello World!"
-author: "Domi Jin (Dongming Jin)"
-date: "Wed, 27 Nov 2024 17:23:56 GMT"
-source: "Substack (Domi's Mind Waves)"
-original_url: "https://domijin.substack.com/p/hello-world"
-local_html: "/articles/substack/hello-world.html"
----
-
-> **Repository Mirror & Reference Copy**
-> This article is archived directly in [`domijin.github.io`](https://github.com/domijin/domijin.github.io) for preservation and offline inspection.
-> - **Original Publication**: [Hello World!](https://domijin.substack.com/p/hello-world) (Substack (Domi's Mind Waves), Wed, 27 Nov 2024 17:23:56 GMT)
-
 # Hello World!
+
+*Chapter IV · Institutions, Incentives and Possible Futures — By Domi Jin (November 2024)*
 
 ## I’m starting my substack channel! 
 
@@ -45,37 +34,6 @@ There are multiple pathways to reach that: creative writing (picture a better wo
 
 More self-reflection and sharing will be coming. Stay tuned! 
 
----
-
-### Why I’m Writing on Both Medium and Substack
-
-Writing has always been a medium for self-expression and discovery, and I’m excited to take the leap of sharing my journey on both **Medium** and **Substack**. Each platform offers something unique, and I’ll be leveraging their strengths while carving out a space for authentic storytelling and thought-sharing.
-
-#### Medium vs. Substack: Why Both?
-
-Medium operates behind a paywall—a powerful tool for connecting with a vast audience that values curated, quality content. On the other hand, Substack offers flexibility and direct connection, allowing creators to build relationships with their subscribers. I’ve chosen to make all my Substack posts free to subscribe because I believe accessibility is key to fostering engagement and conversation. Writing, at its core, is a dialogue, and I want to keep those doors wide open.
-
-#### Ideas Are Cheap. Execution Isn’t.
-
-One principle that drives me is this: **ideas are cheap.** They’re plentiful, fleeting, and often uninformed. What truly matters is execution—the hard-won lessons that come from acting on an idea, facing challenges, and learning along the way. The insights gained from these experiences are far more valuable than the ideas themselves. My goal is to share not only raw ideas but also the deeper, more insightful reflections born from executing those ideas.
-
-#### Why Now?
-
-I’ve reached a stage in life where I’m learning to be comfortable with discomfort. After years of struggling with anxiety about my own struggles, I’ve come to a place of acceptance. Writing feels like the next step—a way to explore, process, and connect. By sharing my thoughts, I hope to outgrow old fears and embrace new challenges.
-
-#### My Approach: Raw Notes + Polished Posts
-
-You’ll find two types of content from me:
-
-- 
-
-**Raw Notes**: These will be quick, unfiltered snapshots of my thoughts and processes. Think of them as glimpses into my working mind.
-- 
-
-**Edited and Refined Posts**: These will be thoughtful, revisioned pieces created with the help of Large Language Models (LLMs). While I’m using LLMs to refine and clarify my ideas, the ultimate goal is to improve my own writing skills. Over time, I aim to depend less on LLMs and deliver concise, effective content in a style that resonates with English readers.
-
----
-
 Hope my writing has prompted you to spark some thinking. PS. If I could write, you can write! 
 
 Start writing today. Use the button below to create a Substack of your own
@@ -83,5 +41,4 @@ Start writing today. Use the button below to create a Substack of your own
 [Start a Substack](https://substack.com/refer/domijin?utm_source=substack&utm_context=post&utm_content=152244994&utm_campaign=writer_referral_button)
 
 ---
-
-There is so much more I wanna share, beyond the purpose of this “annoucement” or “manifesto”. Please feel free to subscribe and provide feedback/suggestions to prompt me back!
+*Footnote: First published in [Substack (Domi’s Mind Waves)](https://domijin.substack.com/p/hello-world) (November 2024).*

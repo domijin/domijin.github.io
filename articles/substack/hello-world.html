@@ -1,208 +1,213 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en-GB">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hello World! | Domi Jin — Local Archive</title>
-  <link rel="canonical" href="https://domijin.substack.com/p/hello-world" />
+  <title>Hello World! — Domi Jin</title>
+  <meta name="description" content="Hello World! — Essay and technical notes by Domi Jin." />
+  <link rel="canonical" href="https://domij.info/articles/substack/hello-world.html" />
   <style>
     :root {
-      color-scheme: light;
+      --bg: #fcfcfd;
+      --ink: #1e293b;
+      --muted: #64748b;
+      --accent: #2980b9;
+      --border: #e2e8f0;
     }
+    * { box-sizing: border-box; }
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Open Sans", sans-serif;
-      background: #f8fafc;
-      color: #1e293b;
-      line-height: 1.75;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      font-size: 19px;
+      line-height: 1.78;
+      -webkit-font-smoothing: antialiased;
     }
     .topbar {
-      background: #ffffff;
-      border-bottom: 1px solid #e2e8f0;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 13px;
+    }
+    .topbar-inner {
+      max-width: 760px;
+      margin: 0 auto;
       padding: 12px 24px;
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
       gap: 12px;
-      font-size: 13px;
     }
     .topbar a {
-      color: #2980b9;
+      color: var(--accent);
       text-decoration: none;
-      font-weight: 600;
+      font-weight: 500;
     }
-    .topbar a:hover {
-      color: #1DAEDF;
-      text-decoration: underline;
+    .topbar a:hover { text-decoration: underline; }
+    .chapter-badge {
+      color: var(--muted);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
-    .container {
-      max-width: 760px;
-      margin: 36px auto 64px;
-      padding: 0 20px;
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 56px 24px 96px;
     }
-    .provenance-card {
-      background: #f0f9ff;
-      border: 1px solid #bae6fd;
-      border-left: 4px solid #2980b9;
-      border-radius: 12px;
-      padding: 16px 20px;
-      margin-bottom: 28px;
-      font-size: 13px;
-      color: #0c4a6e;
+    header.essay-header {
+      margin-bottom: 40px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
     }
-    .provenance-card a {
-      color: #0284c7;
-      font-weight: 600;
-      word-break: break-all;
-    }
-    article {
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
-      border-radius: 16px;
-      padding: 32px 36px;
-      box-shadow: 0 2px 12px rgba(41, 128, 185, 0.05);
-    }
-    h1 {
-      font-size: 28px;
-      line-height: 1.25;
-      color: #0f172a;
-      margin-top: 0;
-      margin-bottom: 12px;
-    }
-    .meta {
+    .essay-eyebrow {
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 12px;
-      color: #64748b;
-      margin-bottom: 28px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid #f1f5f9;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 12px;
+      display: block;
     }
-    h2, h3, h4 {
+    h1 {
+      font-size: clamp(28px, 4.5vw, 40px);
+      line-height: 1.2;
       color: #0f172a;
-      margin-top: 28px;
-      margin-bottom: 10px;
+      margin: 0 0 14px 0;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+    }
+    .essay-byline {
+      font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    article h2 {
+      font-size: 25px;
+      line-height: 1.3;
+      color: #0f172a;
+      margin: 2.2em 0 0.7em;
+    }
+    article h3 {
+      font-size: 20px;
       line-height: 1.35;
+      color: #1e293b;
+      margin: 1.8em 0 0.6em;
     }
-    p, li {
-      font-size: 16px;
+    article p {
+      margin: 0 0 1.35em 0;
+    }
+    article blockquote {
+      margin: 1.6em 0;
+      padding: 4px 0 4px 20px;
+      border-left: 3px solid var(--accent);
       color: #334155;
-    }
-    p {
-      margin: 16px 0;
-    }
-    ul {
-      padding-left: 22px;
-      margin: 16px 0;
-    }
-    li {
-      margin: 6px 0;
-    }
-    blockquote {
-      margin: 20px 0;
-      padding: 12px 18px;
-      border-left: 3px solid #1DAEDF;
-      background: #f8fafc;
-      color: #475569;
       font-style: italic;
     }
-    pre {
-      background: #0f172a;
-      color: #f8fafc;
-      padding: 16px;
-      border-radius: 10px;
-      overflow-x: auto;
-      font-size: 13px;
-      line-height: 1.5;
+    article ul, article ol {
+      margin: 0 0 1.4em 0;
+      padding-left: 1.5em;
     }
-    code {
+    article li {
+      margin-bottom: 0.45em;
+    }
+    article code {
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      font-size: 0.9em;
+      font-size: 0.86em;
       background: #f1f5f9;
-      padding: 2px 5px;
+      padding: 2px 6px;
       border-radius: 4px;
     }
-    pre code {
-      background: transparent;
-      padding: 0;
+    article a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
     }
-    a {
-      color: #2980b9;
+    .table-wrap {
+      overflow-x: auto;
+      margin: 1.5em 0;
     }
-    hr {
-      border: 0;
-      border-top: 1px solid #e2e8f0;
-      margin: 28px 0;
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: ui-sans-serif, system-ui, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
     }
-    @media (max-width: 640px) {
-      article {
-        padding: 22px 18px;
-      }
-      h1 {
-        font-size: 22px;
-      }
+    th, td {
+      border: 1px solid var(--border);
+      padding: 8px 12px;
+      text-align: left;
+    }
+    th {
+      background: #f8fafc;
+      font-weight: 600;
+      color: #0f172a;
+    }
+    footer.colophon {
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    footer.colophon a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    footer.colophon a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <div class="topbar">
-    <div>
-      <a href="/next/#writings">&larr; Back to Domi Jin (Current Edition)</a>
-      <span style="color:#cbd5e1; margin:0 8px;">|</span>
-      <a href="/articles/">Repository Article Mirror</a>
+  <nav class="topbar" aria-label="Book navigation">
+    <div class="topbar-inner">
+      <a href="/">&larr; Domi Jin &middot; Notes from Research &amp; Practice</a>
+      <span class="chapter-badge">Chapter IV · Institutions, Incentives and Possible Futures</span>
+      <a href="/articles/">Table of Contents</a>
     </div>
-    <div>
-      <a href="https://domijin.substack.com/p/hello-world" target="_blank" rel="noopener noreferrer">Original Publication (Substack (Domi&#x27;s Mind Waves)) &#8599;</a>
-    </div>
-  </div>
-  <div class="container">
-    <div class="provenance-card">
-      <strong>Repository Mirror &amp; Reference Copy</strong><br/>
-      Originally published on <strong>Substack (Domi&#x27;s Mind Waves)</strong> (Wed, 27 Nov 2024 17:23:56 GMT).<br/>
-      Original URL: <a href="https://domijin.substack.com/p/hello-world" target="_blank" rel="noopener noreferrer">https://domijin.substack.com/p/hello-world</a>
-      &middot; <a href="hello-world.md">Raw Markdown (.md)</a>
-    </div>
-    <article>
+  </nav>
+  <main>
+    <header class="essay-header">
+      <span class="essay-eyebrow">Chapter IV · Institutions, Incentives and Possible Futures</span>
       <h1>Hello World!</h1>
-      <div class="meta">By Domi Jin (Dongming Jin) &middot; Substack (Domi&#x27;s Mind Waves) &middot; Wed, 27 Nov 2024 17:23:56 GMT</div>
+      <div class="essay-byline">By Domi Jin (Dongming Jin) &middot; November 2024</div>
+    </header>
+    <article>
       <h2>I’m starting my substack channel!</h2>
-<p>I’ve occasionally posted my thoughts in different places: <a href="http://domij.info" target="_blank" rel="noopener noreferrer">personal website</a>, <a href="https://github.com/domijin/LibertyEarth" target="_blank" rel="noopener noreferrer">github</a>, <a href="https://medium.com/@domijin" target="_blank" rel="noopener noreferrer">medium</a>, X, WeChat etc. But I wanna be more <strong>consistent and transparent to share my self-awareness, reflections and path to self-realization &amp; actualization</strong>.</p>
-<p>Here are some reasons that I would be transiting to substack:</p>
-<p>1. medium has a paywall, where substack is more flexible: I&#x27;m making all my posts free to subscribe.</p>
-<p>2. ideas are cheap, execution and the learnings from executions are more valuable, ideas from those learnings are more insightful.</p>
-<p>3. why this, why now: I&#x27;m feeling more comfortable to be not comfortable, as I&#x27;ve made enough struggle to be anxious about my struggle that I hope that I&#x27;ve outgrown the anxiety.</p>
-<p>I appreciate your attention, so I would like you to know that: my writings will be combined with raw notes as well as edited and revisioned detail post with help of LLMs. (I am doing this only to improve my writing skills, so I can use less of LLMs but deliver the same effective and more concise points in a English-reader-friendly way).</p>
-<p>Here is a quote I really like in Chinese (it is credited to Steve Jobs but I never find the orignal):</p>
-<p>-</p>
-<p>“<strong>我们都在穷尽自己仅有的一点天赋，来表达内心深处的感受！</strong>”
--</p>
-<p>Translated back in English: “We exhausted our gifts for the whole life, to express the feelings deep in soul. &quot;</p>
-<p>I see myself as someone “<strong>Driven by intellectual honesty, empathy, and a passion for making a lasting impact for the greater good.</strong>” I’ve noted in <a href="http://domij.info/" target="_blank" rel="noopener noreferrer">my personal website</a> back in 2018 that my vision centers on <strong>empowering individuals and organizations to tackle society’s most pressing challenges collaboratively, as I believe humanity’s greatest achievements arise from collective efforts</strong>.</p>
-<p>I’m now pursuing the second phase of life: help make the world a little bit different through social change and, hopefully, make a difference.</p>
-<p>There are multiple pathways to reach that: creative writing (picture a better world), investment (working/donating/investing to make a better world), entreprenuership (dedicate to realize a better world), education (empower people to make a better world), etc. There is no bias or limit in doing all these together, but I do think creative writing is the least distraction to the other three options.</p>
-<p>More self-reflection and sharing will be coming. Stay tuned!</p>
-<hr />
-<h3>Why I’m Writing on Both Medium and Substack</h3>
-<p>Writing has always been a medium for self-expression and discovery, and I’m excited to take the leap of sharing my journey on both <strong>Medium</strong> and <strong>Substack</strong>. Each platform offers something unique, and I’ll be leveraging their strengths while carving out a space for authentic storytelling and thought-sharing.</p>
-<h4>Medium vs. Substack: Why Both?</h4>
-<p>Medium operates behind a paywall—a powerful tool for connecting with a vast audience that values curated, quality content. On the other hand, Substack offers flexibility and direct connection, allowing creators to build relationships with their subscribers. I’ve chosen to make all my Substack posts free to subscribe because I believe accessibility is key to fostering engagement and conversation. Writing, at its core, is a dialogue, and I want to keep those doors wide open.</p>
-<h4>Ideas Are Cheap. Execution Isn’t.</h4>
-<p>One principle that drives me is this: <strong>ideas are cheap.</strong> They’re plentiful, fleeting, and often uninformed. What truly matters is execution—the hard-won lessons that come from acting on an idea, facing challenges, and learning along the way. The insights gained from these experiences are far more valuable than the ideas themselves. My goal is to share not only raw ideas but also the deeper, more insightful reflections born from executing those ideas.</p>
-<h4>Why Now?</h4>
-<p>I’ve reached a stage in life where I’m learning to be comfortable with discomfort. After years of struggling with anxiety about my own struggles, I’ve come to a place of acceptance. Writing feels like the next step—a way to explore, process, and connect. By sharing my thoughts, I hope to outgrow old fears and embrace new challenges.</p>
-<h4>My Approach: Raw Notes + Polished Posts</h4>
-<p>You’ll find two types of content from me:</p>
-<p>-</p>
-<p><strong>Raw Notes</strong>: These will be quick, unfiltered snapshots of my thoughts and processes. Think of them as glimpses into my working mind.
--</p>
-<p><strong>Edited and Refined Posts</strong>: These will be thoughtful, revisioned pieces created with the help of Large Language Models (LLMs). While I’m using LLMs to refine and clarify my ideas, the ultimate goal is to improve my own writing skills. Over time, I aim to depend less on LLMs and deliver concise, effective content in a style that resonates with English readers.</p>
-<hr />
-<p>Hope my writing has prompted you to spark some thinking. PS. If I could write, you can write!</p>
-<p>Start writing today. Use the button below to create a Substack of your own</p>
-<p><a href="https://substack.com/refer/domijin?utm_source=substack&amp;utm_context=post&amp;utm_content=152244994&amp;utm_campaign=writer_referral_button" target="_blank" rel="noopener noreferrer">Start a Substack</a></p>
-<hr />
-<p>There is so much more I wanna share, beyond the purpose of this “annoucement” or “manifesto”. Please feel free to subscribe and provide feedback/suggestions to prompt me back!</p>
+      <p>I’ve occasionally posted my thoughts in different places: <a href="http://domij.info">personal website</a>, <a href="https://github.com/domijin/LibertyEarth">github</a>, <a href="https://medium.com/@domijin">medium</a>, X, WeChat etc. But I wanna be more <strong>consistent and transparent to share my self-awareness, reflections and path to self-realization &amp; actualization</strong>.</p>
+      <p>Here are some reasons that I would be transiting to substack:</p>
+      <ol><li>medium has a paywall, where substack is more flexible: I&#x27;m making all my posts free to subscribe.</li></ol>
+      <ol><li>ideas are cheap, execution and the learnings from executions are more valuable, ideas from those learnings are more insightful.</li></ol>
+      <ol><li>why this, why now: I&#x27;m feeling more comfortable to be not comfortable, as I&#x27;ve made enough struggle to be anxious about my struggle that I hope that I&#x27;ve outgrown the anxiety.</li></ol>
+      <p>I appreciate your attention, so I would like you to know that: my writings will be combined with raw notes as well as edited and revisioned detail post with help of LLMs. (I am doing this only to improve my writing skills, so I can use less of LLMs but deliver the same effective and more concise points in a English-reader-friendly way).</p>
+      <p>Here is a quote I really like in Chinese (it is credited to Steve Jobs but I never find the orignal):</p>
+      <p>“<strong>我们都在穷尽自己仅有的一点天赋，来表达内心深处的感受！</strong>” -</p>
+      <p>Translated back in English: “We exhausted our gifts for the whole life, to express the feelings deep in soul. &quot;</p>
+      <p>I see myself as someone “<strong>Driven by intellectual honesty, empathy, and a passion for making a lasting impact for the greater good.</strong>” I’ve noted in <a href="http://domij.info/">my personal website</a> back in 2018 that my vision centers on <strong>empowering individuals and organizations to tackle society’s most pressing challenges collaboratively, as I believe humanity’s greatest achievements arise from collective efforts</strong>.</p>
+      <p>I’m now pursuing the second phase of life: help make the world a little bit different through social change and, hopefully, make a difference.</p>
+      <p>There are multiple pathways to reach that: creative writing (picture a better world), investment (working/donating/investing to make a better world), entreprenuership (dedicate to realize a better world), education (empower people to make a better world), etc. There is no bias or limit in doing all these together, but I do think creative writing is the least distraction to the other three options.</p>
+      <p>More self-reflection and sharing will be coming. Stay tuned!</p>
+      <p>Hope my writing has prompted you to spark some thinking. PS. If I could write, you can write!</p>
+      <p>Start writing today. Use the button below to create a Substack of your own</p>
+      <p><a href="https://substack.com/refer/domijin?utm_source=substack&amp;utm_context=post&amp;utm_content=152244994&amp;utm_campaign=writer_referral_button">Start a Substack</a></p>
     </article>
-  </div>
+    <footer class="colophon">
+      <p>
+        <strong>Footnote:</strong> First published in
+        <a href="https://domijin.substack.com/p/hello-world" rel="noopener noreferrer" target="_blank">Substack (Domi’s Mind Waves)</a>
+        (November 2024). Part of <em>Domi Jin — Notes from Research and Practice</em>.
+      </p>
+    </footer>
+  </main>
 </body>
 </html>

@@ -1,17 +1,6 @@
----
-title: "A Colorful Year Ahead"
-author: "Domi Jin (Dongming Jin)"
-date: "Mon, 13 Jan 2025 23:10:01 GMT"
-source: "Substack (Domi's Mind Waves)"
-original_url: "https://domijin.substack.com/p/a-colorful-year-ahead"
-local_html: "/articles/substack/a-colorful-year-ahead.html"
----
-
-> **Repository Mirror & Reference Copy**
-> This article is archived directly in [`domijin.github.io`](https://github.com/domijin/domijin.github.io) for preservation and offline inspection.
-> - **Original Publication**: [A Colorful Year Ahead](https://domijin.substack.com/p/a-colorful-year-ahead) (Substack (Domi's Mind Waves), Mon, 13 Jan 2025 23:10:01 GMT)
-
 # A Colorful Year Ahead
+
+*Chapter IV · Institutions, Incentives and Possible Futures — By Domi Jin (January 2025)*
 
 ## Milestones since [Hello World](https://substack.com/@domijin/note/c-79120023)
 
@@ -123,3 +112,6 @@ This might not seem to be efficient, but this often happens when we are actually
 ## Line of Work
 
 Blurred intentionally :)
+
+---
+*Footnote: First published in [Substack (Domi’s Mind Waves)](https://domijin.substack.com/p/a-colorful-year-ahead) (January 2025).*

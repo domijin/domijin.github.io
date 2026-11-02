@@ -1,19 +1,6 @@
----
-title: "Agent-Based Advertising System & Observations in Performance Advertising"
-author: "Domi Jin (Dongming Jin)"
-date: "January 2025"
-source: "GitHub (domijin/observations_in_advertising)"
-original_url: "https://github.com/domijin/observations_in_advertising"
-local_html: "/articles/github/observations-in-advertising.html"
----
-
-> **Repository Mirror & Reference Copy**
-> This article is archived directly in [`domijin.github.io`](https://github.com/domijin/domijin.github.io) for preservation and offline inspection.
-> - **Original Publication**: [Agent-Based Advertising System & Observations in Performance Advertising](https://github.com/domijin/observations_in_advertising) (GitHub (domijin/observations_in_advertising), January 2025)
-
 # Agent-Based Advertising System & Observations in Performance Advertising
 
-# Trace of AppLovin's 7x Annual Hypergrowth
+*Chapter II · Decisions Under Constraints — By Domi Jin (January 2025)*
 
 ## Part I: Unpacking AppLovin's Hypergrowth
 
@@ -39,11 +26,9 @@ This year, AppLovin's market cap has soared by over 700%. This extraordinary gro
 - **"Wolfer" Mentality**: AppLovin’s culture is defined by agility, accountability, and relentless execution, backed by smart leadership.
 - **Cohesive Team**: Success stems from dedicated, adaptable teams that consistently deliver high-impact results.
 
-
 ## Part II: Observations in the Performance Advertising Industry 
 
 Performance advertising sits at the crossroads of **technological ingenuity** and **economic strategy**. It is where I’ve gained insights into the evolving interplay of data, technology, and human behavior.
-
 
 | **Observation** | **Hypothesis** | **Implications**|
 |-|-|-|
@@ -52,7 +37,6 @@ Performance advertising sits at the crossroads of **technological ingenuity** an
 | 1. AppLovin uses gaming data to enhance e-commerce ad models. <br> 2. Miles leverage mobility data for affiliate marketing. <br> 3. TikTok's active user engagement data fuels the best recommendation model. | The scaling law persists: **better data** (high quality, granularity, dimensionality and modality) **results better model performance.** | **Algorithm-friendly product design**, like swipe-to-refresh ad interactions, will become prevalent. <br> Integrating **offline signals**, like location-based habits, will also grow. <br> Generative AI and LLMs will unlock **affective computing** and **richer data modalities**, driving new opportunities. |
 | 1. **"Free"** services **trade privacy as a commodity**. <br> 2. **Semiconductor** sensors (e.g., gyroscope, LiDAR, touchscreens, biometric sensors, security cameras) experience exponential growth. <br> 3. Data and privacy **regulations** struggle to keep pace. | **Surveillance capitalism** thrives on **ambient data collection**. <br> **Products are more addictive** than ever, using **psychologically engineering**. <br> **Attention** drives **engagement**, and engagement fuels the **economy**. | **Sophisticated attribution systems** (akin to multi-passenger astronomy) enable advertisers to infer user traits from subtle behavioral cues, such as location history. <br> **Users underestimate** the depth and breadth of **privacy erosion** when giving **data access consent**, fueling a data "gold rush." <br> **Gamification, nudge theory, network effects, and "human"-centric designs** are Swiss Army knives for product gurus and growth hackers. |
 | 1. Walmart Connect uses kiosks to show ads at checkout. <br> 2. Unity places ad units within game environments. <br> 3. Merchants are integrating ads into storefront connected TVs. | The rise of **“spontaneous” ad placements** signal a potential **paradigm shift** toward **inception capitalism**, where users' minds are **less guarded** against non-primary content displays. | AR/VR and voice AI can create immersive, mood-aligned ad experiences that feel less intrusive <br> - **Example:** **Hollywood**'s use of storytelling to shape cultural values. <br> **In-situ advertising with CTV** has the potential to surpass traditional poster ads and TV commercials due to its dynamic and attributable nature. <br> **Voice ads** leverage emotion-rich, less attention-invasive qualities. <br> - **Example:** The success of Google’s NotebookML podcasting feature highlights voice ads' potential. <br> **Shift from correlation to causality in context modeling:** Emerging systems, like TikTok’s real-time recommendation engine, leverage exploratory models to extract behavioral patterns, enhancing upper-stage relevance modeling and attribution.|
-
 
 > Performance advertising is a vast and ever-evolving domain, far too complex to be fully captured within the confines of a single table or essay. 
 
@@ -115,34 +99,4 @@ I envision a world where advertising shifts from **driving demand** to **fosteri
 This essay marks the beginning of a broader dialogue. I invite readers to share insights, debate ideas, and collaborate on solutions that address the systemic challenges in performance advertising and beyond.
 
 ---
-
-
-### Who Am I
-
-I’ve found what feels like the highest mountain: **liberating** humanity from the demand-driven market powered by surveillance capitalism and **recalibrating** societal priorities by breaking the **power imbalances** created by **information asymmetry**. But I know this peak is only the beginning.
-
-Beyond this summit lie greater challenges and higher mountains, waiting for humanity to ascend. The view from each peak will inspire new visions for the future, illuminating paths we never imagined. To strive for these heights, and to inspire others to do the same, is a mission worth dedicating a lifetime to—and perhaps even dying for.
-
-### Where Am I From - My Relevant Background
-
-By way of introduction:
-
-- At **Miles**, I helped build a recommendation engine that extracted and monetized context from mobility data, such as travel patterns and GPS-based location histories. We used offline insights to power affiliate marketing for local businesses.
-- At **Thumbtack**, I worked on pricing strategies for a local home services marketplace. My work included exploring generative AI for request flows and organic content creation, advocating for an educational and inspirational content platform to bridge the information gap between users and professionals, improve market efficiency, and generate organic traffic.
-- At **AppLovin**, I served as the first data scientist in the research scientist team, focusing on product analytics, model performance evaluation, and partnership insights.
-
-This diverse experience across recommendation systems, generative AI, and advertising analytics shapes my perspective on the trends and shifts outlined in this essay.
-
-
-### What Do I Long For
-
-I envision a world where **enlightenment through education** plays a pivotal role in fostering a sustainable society. By **promoting self-awareness**, **empowering** people to explore externally, and reflecting internally, individuals would achieve **self-realization and self-actualization**. Such a society would transcend material desires and embrace a philosophical journey—one where **mutual enlightenment and collaborative practices** allow individuals to pursue their **intrinsic value and self-actualization** through **peer learning and social interaction.**
-
-
-I see a future where technology is used to [**empower people to collaborate better**](https://domijin.github.io/pages/about-me.html): [manifesto](https://domijin.github.io/manifesto.html) and [initiative](https://github.com/domijin/LibertyEarth).
-
-- From **Enlightenment to Illumination**: Moving society from basic enlightenment to a state where individual potential is fully ignited.
-- A future where production matches personalized needs and **communal creativity** thrives.
-
-This essay merely scratches the surface of my reflections on the modern economy, marketing-driven capitalism, and its hidden implications. These challenges—rooted in demand-driven logic—have shaped my journey in learning and seeking solutions. 
-
+*Footnote: First published in [GitHub Specification (observations_in_advertising)](https://github.com/domijin/observations_in_advertising) (January 2025).*

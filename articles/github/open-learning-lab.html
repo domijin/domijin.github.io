@@ -1,239 +1,222 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en-GB">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Open Learning Lab: Evidence-Driven Personalized Learning Policies | Domi Jin — Local Archive</title>
-  <link rel="canonical" href="https://github.com/domijin/open-learning-lab" />
+  <title>Open Learning Lab: Evidence-Driven Personalized Learning Policies — Domi Jin</title>
+  <meta name="description" content="Open Learning Lab: Evidence-Driven Personalized Learning Policies — Essay and technical notes by Domi Jin." />
+  <link rel="canonical" href="https://domij.info/articles/github/open-learning-lab.html" />
   <style>
     :root {
-      color-scheme: light;
+      --bg: #fcfcfd;
+      --ink: #1e293b;
+      --muted: #64748b;
+      --accent: #2980b9;
+      --border: #e2e8f0;
     }
+    * { box-sizing: border-box; }
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Open Sans", sans-serif;
-      background: #f8fafc;
-      color: #1e293b;
-      line-height: 1.75;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      font-size: 19px;
+      line-height: 1.78;
+      -webkit-font-smoothing: antialiased;
     }
     .topbar {
-      background: #ffffff;
-      border-bottom: 1px solid #e2e8f0;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 13px;
+    }
+    .topbar-inner {
+      max-width: 760px;
+      margin: 0 auto;
       padding: 12px 24px;
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
       gap: 12px;
-      font-size: 13px;
     }
     .topbar a {
-      color: #2980b9;
+      color: var(--accent);
       text-decoration: none;
-      font-weight: 600;
+      font-weight: 500;
     }
-    .topbar a:hover {
-      color: #1DAEDF;
-      text-decoration: underline;
+    .topbar a:hover { text-decoration: underline; }
+    .chapter-badge {
+      color: var(--muted);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
-    .container {
-      max-width: 760px;
-      margin: 36px auto 64px;
-      padding: 0 20px;
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 56px 24px 96px;
     }
-    .provenance-card {
-      background: #f0f9ff;
-      border: 1px solid #bae6fd;
-      border-left: 4px solid #2980b9;
-      border-radius: 12px;
-      padding: 16px 20px;
-      margin-bottom: 28px;
-      font-size: 13px;
-      color: #0c4a6e;
+    header.essay-header {
+      margin-bottom: 40px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
     }
-    .provenance-card a {
-      color: #0284c7;
-      font-weight: 600;
-      word-break: break-all;
-    }
-    article {
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
-      border-radius: 16px;
-      padding: 32px 36px;
-      box-shadow: 0 2px 12px rgba(41, 128, 185, 0.05);
-    }
-    h1 {
-      font-size: 28px;
-      line-height: 1.25;
-      color: #0f172a;
-      margin-top: 0;
-      margin-bottom: 12px;
-    }
-    .meta {
+    .essay-eyebrow {
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 12px;
-      color: #64748b;
-      margin-bottom: 28px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid #f1f5f9;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 12px;
+      display: block;
     }
-    h2, h3, h4 {
+    h1 {
+      font-size: clamp(28px, 4.5vw, 40px);
+      line-height: 1.2;
       color: #0f172a;
-      margin-top: 28px;
-      margin-bottom: 10px;
+      margin: 0 0 14px 0;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+    }
+    .essay-byline {
+      font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    article h2 {
+      font-size: 25px;
+      line-height: 1.3;
+      color: #0f172a;
+      margin: 2.2em 0 0.7em;
+    }
+    article h3 {
+      font-size: 20px;
       line-height: 1.35;
+      color: #1e293b;
+      margin: 1.8em 0 0.6em;
     }
-    p, li {
-      font-size: 16px;
+    article p {
+      margin: 0 0 1.35em 0;
+    }
+    article blockquote {
+      margin: 1.6em 0;
+      padding: 4px 0 4px 20px;
+      border-left: 3px solid var(--accent);
       color: #334155;
-    }
-    p {
-      margin: 16px 0;
-    }
-    ul {
-      padding-left: 22px;
-      margin: 16px 0;
-    }
-    li {
-      margin: 6px 0;
-    }
-    blockquote {
-      margin: 20px 0;
-      padding: 12px 18px;
-      border-left: 3px solid #1DAEDF;
-      background: #f8fafc;
-      color: #475569;
       font-style: italic;
     }
-    pre {
-      background: #0f172a;
-      color: #f8fafc;
-      padding: 16px;
-      border-radius: 10px;
-      overflow-x: auto;
-      font-size: 13px;
-      line-height: 1.5;
+    article ul, article ol {
+      margin: 0 0 1.4em 0;
+      padding-left: 1.5em;
     }
-    code {
+    article li {
+      margin-bottom: 0.45em;
+    }
+    article code {
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      font-size: 0.9em;
+      font-size: 0.86em;
       background: #f1f5f9;
-      padding: 2px 5px;
+      padding: 2px 6px;
       border-radius: 4px;
     }
-    pre code {
-      background: transparent;
-      padding: 0;
+    article a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
     }
-    a {
-      color: #2980b9;
+    .table-wrap {
+      overflow-x: auto;
+      margin: 1.5em 0;
     }
-    hr {
-      border: 0;
-      border-top: 1px solid #e2e8f0;
-      margin: 28px 0;
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: ui-sans-serif, system-ui, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
     }
-    @media (max-width: 640px) {
-      article {
-        padding: 22px 18px;
-      }
-      h1 {
-        font-size: 22px;
-      }
+    th, td {
+      border: 1px solid var(--border);
+      padding: 8px 12px;
+      text-align: left;
+    }
+    th {
+      background: #f8fafc;
+      font-weight: 600;
+      color: #0f172a;
+    }
+    footer.colophon {
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    footer.colophon a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    footer.colophon a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <div class="topbar">
-    <div>
-      <a href="/next/#writings">&larr; Back to Domi Jin (Current Edition)</a>
-      <span style="color:#cbd5e1; margin:0 8px;">|</span>
-      <a href="/articles/">Repository Article Mirror</a>
+  <nav class="topbar" aria-label="Book navigation">
+    <div class="topbar-inner">
+      <a href="/">&larr; Domi Jin &middot; Notes from Research &amp; Practice</a>
+      <span class="chapter-badge">Chapter III · Human Agency, Older People’s Independence and Lifelong Play</span>
+      <a href="/articles/">Table of Contents</a>
     </div>
-    <div>
-      <a href="https://github.com/domijin/open-learning-lab" target="_blank" rel="noopener noreferrer">Original Publication (GitHub (domijin/open-learning-lab)) &#8599;</a>
-    </div>
-  </div>
-  <div class="container">
-    <div class="provenance-card">
-      <strong>Repository Mirror &amp; Reference Copy</strong><br/>
-      Originally published on <strong>GitHub (domijin/open-learning-lab)</strong> (August 2026).<br/>
-      Original URL: <a href="https://github.com/domijin/open-learning-lab" target="_blank" rel="noopener noreferrer">https://github.com/domijin/open-learning-lab</a>
-      &middot; <a href="open-learning-lab.md">Raw Markdown (.md)</a>
-    </div>
-    <article>
+  </nav>
+  <main>
+    <header class="essay-header">
+      <span class="essay-eyebrow">Chapter III · Human Agency, Older People’s Independence and Lifelong Play</span>
       <h1>Open Learning Lab: Evidence-Driven Personalized Learning Policies</h1>
-      <div class="meta">By Domi Jin (Dongming Jin) &middot; GitHub (domijin/open-learning-lab) &middot; August 2026</div>
-      <h2>Open Learning Lab</h2>
-<p><strong>Learn something real. Measure whether it lasts. Open the process so others can challenge and improve it.</strong></p>
-<p>Open Learning Lab is an open experiment in evidence-driven personalized learning. It starts with one real learner and one real learning objective, then asks which LLM-mediated learning policies produce durable, transferable capability per unit of learner effort.</p>
-<p>The first study uses the active <a href="https://marin.community/" target="_blank" rel="noopener noreferrer">Marin</a> project as the learning domain.</p>
-<h2>North star</h2>
-<blockquote>Discover, validate, and operationalize personalized learning policies that maximize durable, transferable capability per unit of learner effort—starting with one learner, while preserving enough provenance that others can reproduce, challenge, and extend the findings.</blockquote>
-<p>We optimize learning <strong>outside</strong> the tutoring session, not how fluent or satisfying the conversation feels.</p>
-<h2>How the project works</h2>
-<pre><code>text
-current sources + expert judgment + learner state
-                     |
-                     v
-               learning action
-                     |
-                     v
-                  learner
-                     |
-                     v
-       recall / transfer / calibration
-                     |
-                     v
-        evidence -&gt; policy update -&gt; repeat</code></pre>
-<p>The public repository is the <strong>research ledger and collaboration surface</strong>. ChatGPT, Claude, Codex, other agents, or humans may act as interfaces. No single model vendor is the platform.</p>
-<h2>Research objects</h2>
-<p><code>goal -&gt; hypothesis -&gt; experiment -&gt; observation/evidence -&gt; finding -&gt; decision</code></p>
-<ul><li><strong>Issues</strong> are for proposals and discussion.</li><li><strong>Pull requests</strong> are for reviewable changes and preregistration.</li><li><strong>Ledger records</strong> are the durable canonical record.</li><li>Published records are append-only in spirit: corrections supersede; they do not silently rewrite history.</li></ul>
-<h2>Experiment 0001: Learn Marin</h2>
-<p>The first active hypothesis is:</p>
-<blockquote>Asking a learner to make the underlying design judgment before revealing how Marin solved the problem improves later reconstruction and transfer compared with explanation-first learning.</blockquote>
-<p>The current session has generated promising observations, but <strong>not a validated finding</strong>. Delayed retrieval and transfer tests are still required.</p>
-<p>See [studies/marin](studies/marin/README.md).</p>
-<h2>Checkpointing a learning session</h2>
-<p>Keep the primary learning conversation as the uninterrupted timeline. At a meaningful learning checkpoint, branch the conversation and run [<code>checkpoint-capture/v0.1</code>](prompts/checkpoint-capture.md). The side branch records the trace and evidence, opens a reviewable GitHub change, then returns control to the main learning session.</p>
-<p>See [prompts/README.md](prompts/README.md) for the workflow.</p>
-<h2>Contributing</h2>
-<p>You can contribute as a learner, domain expert, educator, learning-science researcher, or agent builder. The cheapest useful contribution is often a challenge to a claim or experimental design—not a full lesson.</p>
-<p>Read [CHARTER.md](CHARTER.md), [CONTRIBUTING.md](CONTRIBUTING.md), and [AGENTS.md](AGENTS.md).</p>
-<h2>Status</h2>
-<p><strong>v0 / bootstrap.</strong> Research protocol first; product UI later, when real workflow pain tells us what to build.</p>
-<p>Dual licensed: <strong>MIT for software</strong> and <strong>CC BY 4.0 for learning/research content</strong>. See [docs/licensing.md](docs/licensing.md).</p>
-<hr />
-<h2>Charter</h2>
-<h2>Mission</h2>
-<p>Build an open experimental system that learns how an individual learns best, then tests which discoveries generalize.</p>
-<h2>North-star outcome</h2>
-<p><strong>Durable, transferable capability gained per unit of learner effort.</strong></p>
-<p>Immediate performance, engagement, chat length, and subjective clarity are diagnostics—not the goal.</p>
-<h2>A -&gt; B strategy</h2>
-<h3>A. Optimize one real learner</h3>
-<p>Start with longitudinal N-of-1 experiments tied to genuine learning goals. The learner receives immediate value while the project accumulates evidence.</p>
-<h3>B. Test generalization</h3>
-<p>Only after an intervention works for the initial learner do we replicate it across other learners, domains, models, and contexts.</p>
-<p>Success for learner A is an existence proof, not proof of universality.</p>
-<h2>Non-negotiable principles</h2>
-<p>1. <strong>Behavior over vibes.</strong> Prefer unassisted delayed recall, reconstruction, transfer, and real-world capability over session satisfaction.
-2. <strong>Falsifiable claims.</strong> Important interventions attach to hypotheses that can fail.
-3. <strong>Exploration != confirmation.</strong> Interesting observations generate hypotheses; fresh evidence confirms them.
-4. <strong>Preserve uncertainty.</strong> Record effect size, boundary conditions, contradictions, and confidence where possible.
-5. <strong>Failures are evidence.</strong> Negative results remain visible.
-6. <strong>Humans contribute judgment.</strong> Expert authority is contextual evidence, never truth by reputation.
-7. <strong>Agent-neutral.</strong> The protocol must survive changes in LLM vendor or interface.
-8. <strong>Private by default.</strong> Public research artifacts must not require publishing raw private learner conversations.
-9. <strong>Append, don&#x27;t rewrite.</strong> Published findings are superseded by later records rather than silently edited to fit hindsight.
-10. <strong>Earn complexity.</strong> New infrastructure must solve observed workflow pain or enable a falsifiable experiment.</p>
-<h2>What this project is not</h2>
-<ul><li>a chatbot wrapper;</li><li>a generic course generator;</li><li>a flashcard app with an LLM;</li><li>a leaderboard for experts;</li><li>a claim that one learner represents everyone.</li></ul>
-<h2>Long-term question</h2>
-<p>Can the process of discovering effective personalized learning policies become reproducible, evidence-driven, open, and practical enough to be a community commodity?</p>
+      <div class="essay-byline">By Domi Jin (Dongming Jin) &middot; August 2026</div>
+    </header>
+    <article>
+      <p><strong>Learn something real. Measure whether it lasts. Open the process so others can challenge and improve it.</strong></p>
+      <p>Open Learning Lab is an open experiment in evidence-driven personalized learning. It starts with one real learner and one real learning objective, then asks which LLM-mediated learning policies produce durable, transferable capability per unit of learner effort.</p>
+      <p>The first study uses the active <a href="https://marin.community/">Marin</a> project as the learning domain.</p>
+      <h2>North star</h2>
+      <blockquote><p>Discover, validate, and operationalize personalized learning policies that maximize durable, transferable capability per unit of learner effort—starting with one learner, while preserving enough provenance that others can reproduce, challenge, and extend the findings.</p></blockquote>
+      <p>We optimize learning <strong>outside</strong> the tutoring session, not how fluent or satisfying the conversation feels.</p>
+      <h2>How the project works</h2>
+      <p>``<code>text current sources + expert judgment + learner state | v learning action | v learner | v recall / transfer / calibration | v evidence -&gt; policy update -&gt; repeat </code>``</p>
+      <p>The public repository is the <strong>research ledger and collaboration surface</strong>. ChatGPT, Claude, Codex, other agents, or humans may act as interfaces. No single model vendor is the platform.</p>
+      <h2>Research objects</h2>
+      <p><code>goal -&gt; hypothesis -&gt; experiment -&gt; observation/evidence -&gt; finding -&gt; decision</code></p>
+      <ul><li><strong>Issues</strong> are for proposals and discussion.</li><li><strong>Pull requests</strong> are for reviewable changes and preregistration.</li><li><strong>Ledger records</strong> are the durable canonical record.</li><li>Published records are append-only in spirit: corrections supersede; they do not silently rewrite history.</li></ul>
+      <h2>Experiment 0001: Learn Marin</h2>
+      <p>The first active hypothesis is:</p>
+      <blockquote><p>Asking a learner to make the underlying design judgment before revealing how Marin solved the problem improves later reconstruction and transfer compared with explanation-first learning.</p></blockquote>
+      <p>The current session has generated promising observations, but <strong>not a validated finding</strong>. Delayed retrieval and transfer tests are still required.</p>
+      <p>See <a href="https://github.com/domijin/open-learning-lab/blob/main/studies/marin/README.md">studies/marin</a>.</p>
+      <h2>Checkpointing a learning session</h2>
+      <p>Keep the primary learning conversation as the uninterrupted timeline. At a meaningful learning checkpoint, branch the conversation and run <a href="https://github.com/domijin/open-learning-lab/blob/main/prompts/checkpoint-capture.md"><code>checkpoint-capture/v0.1</code></a>. The side branch records the trace and evidence, opens a reviewable GitHub change, then returns control to the main learning session.</p>
+      <p>See <a href="https://github.com/domijin/open-learning-lab/blob/main/prompts/README.md">prompts/README.md</a> for the workflow.</p>
+      <h2>Contributing</h2>
+      <p>You can contribute as a learner, domain expert, educator, learning-science researcher, or agent builder. The cheapest useful contribution is often a challenge to a claim or experimental design—not a full lesson.</p>
+      <p>Read <a href="https://github.com/domijin/open-learning-lab/blob/main/CHARTER.md">CHARTER.md</a>, <a href="https://github.com/domijin/open-learning-lab/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a>, and <a href="https://github.com/domijin/open-learning-lab/blob/main/AGENTS.md">AGENTS.md</a>.</p>
+      <h2>Status</h2>
+      <p><strong>v0 / bootstrap.</strong> Research protocol first; product UI later, when real workflow pain tells us what to build.</p>
+      <p>Dual licensed: <strong>MIT for software</strong> and <strong>CC BY 4.0 for learning/research content</strong>. See <a href="https://github.com/domijin/open-learning-lab/blob/main/docs/licensing.md">docs/licensing.md</a>.</p>
     </article>
-  </div>
+    <footer class="colophon">
+      <p>
+        <strong>Footnote:</strong> First published in
+        <a href="https://github.com/domijin/open-learning-lab" rel="noopener noreferrer" target="_blank">GitHub Specification (open-learning-lab)</a>
+        (August 2026). Part of <em>Domi Jin — Notes from Research and Practice</em>.
+      </p>
+    </footer>
+  </main>
 </body>
 </html>

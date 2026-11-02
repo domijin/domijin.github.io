@@ -1,17 +1,6 @@
----
-title: "Observation: the dilemma and cultural difference behind the eVTOL field"
-author: "Domi Jin (Dongming Jin)"
-date: "Tue, 10 Oct 2023 07:26:44 GMT"
-source: "Medium (@domijin)"
-original_url: "https://domijin.medium.com/observation-the-dilemma-and-cultural-difference-behind-the-evtol-field-df42e91af109"
-local_html: "/articles/medium/observation-the-dilemma-and-cultural-difference-behind-the-evtol-field-df42e91af109.html"
----
-
-> **Repository Mirror & Reference Copy**
-> This article is archived directly in [`domijin.github.io`](https://github.com/domijin/domijin.github.io) for preservation and offline inspection.
-> - **Original Publication**: [Observation: the dilemma and cultural difference behind the eVTOL field](https://domijin.medium.com/observation-the-dilemma-and-cultural-difference-behind-the-evtol-field-df42e91af109) (Medium (@domijin), Tue, 10 Oct 2023 07:26:44 GMT)
-
 # Observation: the dilemma and cultural difference behind the eVTOL field
+
+*Chapter IV · Institutions, Incentives and Possible Futures — By Domi Jin (June 2024)*
 
 This is a reply to Mark Moore’s post [here](https://www.linkedin.com/posts/mark-moore-99582787_ehang-certification-my-sources-in-china-activity-7117321587804045312-NIZF?utm_source=share&utm_medium=member_desktop).
 
@@ -43,3 +32,6 @@ I couldn’t finish this piece without the help of chatGPT. You may tell the dif
 > 5. Don’t worry too much about being first. There is still chance in being the first CAAS certificated foreign eVTOL company, or being the first US certificated eVTOL company (I assume the difficulty for eHang to get US certificated will be much higher than the other way around). Not to mention that the Chinese market has a tendency to value foreign products/brands more due to historical market dynamic. (It takes so much effort for local smartphone companies to build a high-end brand and being recognized.) Use this as your advantage, but don’t take it as granted forever. The execution efficiency in a country with high educated population density and full-stack industrial supply chain.
 
 > 6. I’ve been a follower since 2018 when you are working for Uber. Building a working eVTOL product with market validation & pass regulation is hard. Wish you the best of luck!
+
+---
+*Footnote: First published in [Medium](https://medium.com/@domijin/observation-the-dilemma-and-cultural-difference-behind-the-evtol-field-df42e91af109) (June 2024).*

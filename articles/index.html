@@ -1,182 +1,467 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en-GB">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Collected Articles &amp; Technical Notes — Local Repository Mirror | Domi Jin — Local Archive</title>
+  <title>Table of Contents — Domi Jin: Notes from Research and Practice</title>
+  <meta name="description" content="Complete Table of Contents for Domi Jin — Notes from Research and Practice (28 self-sufficient essays, field notes and technical specifications)." />
   <link rel="canonical" href="https://domij.info/articles/" />
   <style>
     :root {
-      color-scheme: light;
+      --bg: #fcfcfd;
+      --ink: #1e293b;
+      --muted: #64748b;
+      --accent: #2980b9;
+      --border: #e2e8f0;
     }
+    * { box-sizing: border-box; }
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Open Sans", sans-serif;
-      background: #f8fafc;
-      color: #1e293b;
-      line-height: 1.75;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      font-size: 18px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
     }
     .topbar {
-      background: #ffffff;
-      border-bottom: 1px solid #e2e8f0;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.94);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      font-family: ui-sans-serif, system-ui, sans-serif;
+      font-size: 13px;
+    }
+    .topbar-inner {
+      max-width: 820px;
+      margin: 0 auto;
       padding: 12px 24px;
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
-      font-size: 13px;
     }
     .topbar a {
-      color: #2980b9;
+      color: var(--accent);
       text-decoration: none;
-      font-weight: 600;
+      font-weight: 500;
     }
-    .topbar a:hover {
-      color: #1DAEDF;
-      text-decoration: underline;
+    .topbar a:hover { text-decoration: underline; }
+    main {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 56px 24px 96px;
     }
-    .container {
-      max-width: 760px;
-      margin: 36px auto 64px;
-      padding: 0 20px;
+    header.book-header {
+      margin-bottom: 48px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--border);
     }
-    .provenance-card {
-      background: #f0f9ff;
-      border: 1px solid #bae6fd;
-      border-left: 4px solid #2980b9;
-      border-radius: 12px;
-      padding: 16px 20px;
-      margin-bottom: 28px;
-      font-size: 13px;
-      color: #0c4a6e;
-    }
-    .provenance-card a {
-      color: #0284c7;
-      font-weight: 600;
-      word-break: break-all;
-    }
-    article {
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
-      border-radius: 16px;
-      padding: 32px 36px;
-      box-shadow: 0 2px 12px rgba(41, 128, 185, 0.05);
-    }
-    h1 {
-      font-size: 28px;
-      line-height: 1.25;
-      color: #0f172a;
-      margin-top: 0;
-      margin-bottom: 12px;
-    }
-    .meta {
+    .eyebrow {
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 12px;
-      color: #64748b;
-      margin-bottom: 28px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid #f1f5f9;
-    }
-    h2, h3, h4 {
-      color: #0f172a;
-      margin-top: 28px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      display: block;
       margin-bottom: 10px;
-      line-height: 1.35;
     }
-    p, li {
-      font-size: 16px;
-      color: #334155;
+    h1 {
+      font-size: clamp(30px, 4.5vw, 42px);
+      line-height: 1.18;
+      margin: 0 0 12px 0;
+      color: #0f172a;
     }
-    p {
-      margin: 16px 0;
+    .subtitle {
+      font-size: 18px;
+      color: var(--muted);
+      margin: 0;
     }
-    ul {
-      padding-left: 22px;
-      margin: 16px 0;
+    .chapter-section {
+      margin-bottom: 48px;
     }
-    li {
-      margin: 6px 0;
+    .chapter-section h2 {
+      font-size: 23px;
+      color: #0f172a;
+      margin: 0 0 6px 0;
     }
-    blockquote {
-      margin: 20px 0;
-      padding: 12px 18px;
-      border-left: 3px solid #1DAEDF;
-      background: #f8fafc;
-      color: #475569;
-      font-style: italic;
+    .chapter-lead {
+      font-size: 15px;
+      color: var(--muted);
+      margin: 0 0 20px 0;
+      font-family: ui-sans-serif, system-ui, sans-serif;
     }
-    pre {
-      background: #0f172a;
-      color: #f8fafc;
-      padding: 16px;
-      border-radius: 10px;
-      overflow-x: auto;
-      font-size: 13px;
-      line-height: 1.5;
-    }
-    code {
-      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      font-size: 0.9em;
-      background: #f1f5f9;
-      padding: 2px 5px;
-      border-radius: 4px;
-    }
-    pre code {
-      background: transparent;
+    .toc-list {
+      list-style: none;
       padding: 0;
+      margin: 0;
+      border-top: 1px solid var(--border);
     }
-    a {
-      color: #2980b9;
+    .toc-item {
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border);
     }
-    hr {
-      border: 0;
-      border-top: 1px solid #e2e8f0;
-      margin: 28px 0;
+    .toc-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
     }
-    @media (max-width: 640px) {
-      article {
-        padding: 22px 18px;
-      }
-      h1 {
-        font-size: 22px;
-      }
+    .toc-title {
+      font-weight: 700;
+      color: #0f172a;
+      text-decoration: none;
+      font-size: 18px;
     }
+    .toc-title:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+    .toc-date {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    .toc-summary {
+      font-size: 15px;
+      color: #475569;
+      margin: 6px 0 8px 0;
+      font-family: ui-sans-serif, system-ui, sans-serif;
+    }
+    .toc-footnote {
+      font-family: ui-sans-serif, system-ui, sans-serif;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .toc-footnote a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .toc-footnote a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
-  <div class="topbar">
-    <div>
-      <a href="/next/#writings">&larr; Back to Domi Jin (Current Edition)</a>
-      <span style="color:#cbd5e1; margin:0 8px;">|</span>
-      <a href="/articles/">Repository Article Mirror</a>
+  <nav class="topbar" aria-label="Book navigation">
+    <div class="topbar-inner">
+      <a href="/">&larr; Return to Interactive Monograph</a>
+      <span>Domi Jin &middot; Table of Contents (28 Essays)</span>
     </div>
-    <div>
-      <a href="https://domij.info/articles/" target="_blank" rel="noopener noreferrer">Original Publication (domij.info / domijin.github.io) &#8599;</a>
-    </div>
-  </div>
-  <div class="container">
-    <div class="provenance-card">
-      <strong>Repository Mirror &amp; Reference Copy</strong><br/>
-      Originally published on <strong>domij.info / domijin.github.io</strong> (2018–2026).<br/>
-      Original URL: <a href="https://domij.info/articles/" target="_blank" rel="noopener noreferrer">https://domij.info/articles/</a>
-      &middot; <a href="README.md">Raw Markdown (.md)</a>
-    </div>
-    <article>
-      <h1>Collected Articles &amp; Technical Notes — Local Repository Mirror</h1>
-      <div class="meta">By Domi Jin (Dongming Jin) &middot; domij.info / domijin.github.io &middot; 2018–2026</div>
-      <h2>Collected Articles &amp; Technical Notes — Local Repository Mirror</h2>
-<p>This directory contains full local copies (<code>.md</code> and <code>.html</code>) of essays, technical notes, and project charters by <strong>Domi Jin (Dongming Jin)</strong> originally published on Substack (<em>Domi&#x27;s Mind Waves</em>), Medium (<code>@domijin</code>), and GitHub, alongside references to articles hosted natively in this repository.</p>
-<p>Each local copy includes an explicit reference and canonical link to the original publication.</p>
-<h2>1. Substack — *Domi&#x27;s Mind Waves*</h2>
-<ul><li><strong>🌱 Reclaiming Play as a Life Skill</strong> (Thu, 27 Mar 2025 15:05:38 GMT)</li><li>Local: <a href="/articles/substack/reclaiming-play-as-a-life-skill.html" target="_blank" rel="noopener noreferrer"><code>/articles/substack/reclaiming-play-as-a-life-skill.html</code></a> · <a href="/articles/substack/reclaiming-play-as-a-life-skill.md" target="_blank" rel="noopener noreferrer"><code>Markdown</code></a> · Original: <a href="https://domijin.substack.com/p/reclaiming-play-as-a-life-skill" target="_blank" rel="noopener noreferrer">https://domijin.substack.com/p/reclaiming-play-as-a-life-skill</a></li><li><strong>Tesla, Seniors Love Your Self-Driving—Now Let’s Make It Safer for Them</strong> (Sat, 15 Mar 2025 18:15:07 GMT)</li><li>Local: <a href="/articles/substack/tesla-seniors-love-your-self-drivingnow.html" target="_blank" rel="noopener noreferrer"><code>/articles/substack/tesla-seniors-love-your-self-drivingnow.html</code></a> · <a href="/articles/substack/tesla-seniors-love-your-self-drivingnow.md" target="_blank" rel="noopener noreferrer"><code>Markdown</code></a> · Original: <a href="https://domijin.substack.com/p/tesla-seniors-love-your-self-drivingnow" target="_blank" rel="noopener noreferrer">https://domijin.substack.com/p/tesla-seniors-love-your-self-drivingnow</a></li><li><strong>Overachiever’s Responsibility: Reflection on Leadership, Alignment, and Sustainable Growth</strong> (Fri, 07 Feb 2025 16:21:21 GMT)</li><li>Local: <a href="/articles/substack/overachievers-responsibility-reflection.html" target="_blank" rel="noopener noreferrer"><code>/articles/substack/overachievers-responsibility-reflection.html</code></a> · <a href="/articles/substack/overachievers-responsibility-reflection.md" target="_blank" rel="noopener noreferrer"><code>Markdown</code></a> · Original: <a href="https://domijin.substack.com/p/overachievers-responsibility-reflection" target="_blank" rel="noopener noreferrer">https://domijin.substack.com/p/overachievers-responsibility-reflection</a></li><li><strong>A Colorful Year Ahead</strong> (Mon, 13 Jan 2025 23:10:01 GMT)</li><li>Local: <a href="/articles/substack/a-colorful-year-ahead.html" target="_blank" rel="noopener noreferrer"><code>/articles/substack/a-colorful-year-ahead.html</code></a> · <a href="/articles/substack/a-colorful-year-ahead.md" target="_blank" rel="noopener noreferrer"><code>Markdown</code></a> · Original: <a href="https://domijin.substack.com/p/a-colorful-year-ahead" target="_blank" rel="noopener noreferrer">https://domijin.substack.com/p/a-colorful-year-ahead</a></li><li><strong>Serendipity: where it sparks</strong> (Fri, 27 Dec 2024 14:48:15 GMT)</li><li>Local: <a href="/articles/substack/serendipity-where-it-sparks.html" target="_blank" rel="noopener noreferrer"><code>/articles/substack/serendipity-where-it-sparks.html</code></a> · <a href="/articles/substack/serendipity-where-it-sparks.md" target="_blank" rel="noopener noreferrer"><code>Markdown</code></a> · Original: <a href="https://domijin.substack.com/p/serendipity-where-it-sparks" target="_blank" rel="noopener noreferrer">https://domijin.substack.com/p/serendipity-where-it-sparks</a></li><li><strong>Momentum, Momentum, Momentum!</strong> (Mon, 16 Dec 2024 19:46:24 GMT)</li><li>Local: <a href="/articles/substack/momentum-momentum-momentum.html" target="_blank" rel="noopener noreferrer"><code>/articles/substack/momentum-momentum-momentum.html</code></a> · <a href="/articles/substack/momentum-momentum-momentum.md" target="_blank" rel="noopener noreferrer"><code>Markdown</code></a> · Original: <a href="https://domijin.substack.com/p/momentum-momentum-momentum" target="_blank" rel="noopener noreferrer">https://domijin.substack.com/p/momentum-momentum-momentum</a></li><li><strong>Starting a New Venture</strong> (Sun, 08 Dec 2024 15:38:34 GMT)</li><li>Local: <a href="/articles/substack/starting-a-new-venture.html" target="_blank" rel="noopener noreferrer"><code>/articles/substack/starting-a-new-venture.html</code></a> · <a href="/articles/substack/starting-a-new-venture.md" target="_blank" rel="noopener noreferrer"><code>Markdown</code></a> · Original: <a href="https://domijin.substack.com/p/starting-a-new-venture" target="_blank" rel="noopener noreferrer">https://domijin.substack.com/p/starting-a-new-venture</a></li><li><strong>Reflections from coach-seeking impulse</strong> (Sun, 01 Dec 2024 19:01:27 GMT)</li><li>Local: <a href="/articles/substack/relections-from-coach-seeking-impulse.html" target="_blank" rel="noopener noreferrer"><code>/articles/substack/relections-from-coach-seeking-impulse.html</code></a> · <a href="/articles/substack/relections-from-coach-seeking-impulse.md" target="_blank" rel="noopener noreferrer"><code>Markdown</code></a> · Original: <a href="https://domijin.substack.com/p/relections-from-coach-seeking-impulse" target="_blank" rel="noopener noreferrer">https://domijin.substack.com/p/relections-from-coach-seeking-impulse</a></li><li><strong>Building the context for reading expectations</strong> (Wed, 27 Nov 2024 19:48:00 GMT)</li><li>Local: <a href="/articles/substack/building-the-context-for-reading.html" target="_blank" rel="noopener noreferrer"><code>/articles/substack/building-the-context-for-reading.html</code></a> · <a href="/articles/substack/building-the-context-for-reading.md" target="_blank" rel="noopener noreferrer"><code>Markdown</code></a> · Original: <a href="https://domijin.substack.com/p/building-the-context-for-reading" target="_blank" rel="noopener noreferrer">https://domijin.substack.com/p/building-the-context-for-reading</a></li><li><strong>Hello World!</strong> (Wed, 27 Nov 2024 17:23:56 GMT)</li><li>Local: <a href="/articles/substack/hello-world.html" target="_blank" rel="noopener noreferrer"><code>/articles/substack/hello-world.html</code></a> · <a href="/articles/substack/hello-world.md" target="_blank" rel="noopener noreferrer"><code>Markdown</code></a> · Original: <a href="https://domijin.substack.com/p/hello-world" target="_blank" rel="noopener noreferrer">https://domijin.substack.com/p/hello-world</a></li></ul>
-<h2>2. Medium — `@domijin`</h2>
-<ul><li><strong>Another team building Skynet, in the name of Jarvis — AMA</strong> (Tue, 26 Nov 2024 22:28:25 GMT)</li><li>Local: <a href="/articles/medium/another-team-building-skynet-in-the-name-of-jarvis-ama-163389dc5285.html" target="_blank" rel="noopener noreferrer"><code>/articles/medium/another-team-building-skynet-in-the-name-of-jarvis-ama-163389dc5285.html</code></a> · <a href="/articles/medium/another-team-building-skynet-in-the-name-of-jarvis-ama-163389dc5285.md" target="_blank" rel="noopener noreferrer"><code>Markdown</code></a> · Original: <a href="https://domijin.medium.com/another-team-building-skynet-in-the-name-of-jarvis-ama-163389dc5285" target="_blank" rel="noopener noreferrer">https://domijin.medium.com/another-team-building-skynet-in-the-name-of-jarvis-ama-163389dc5285</a></li><li><strong>Why TikTok is so popular</strong> (Tue, 26 Nov 2024 16:04:37 GMT)</li><li>Local: <a href="/articles/medium/why-tiktok-is-so-popular-6fcc7b678bc7.html" target="_blank" rel="noopener noreferrer"><code>/articles/medium/why-tiktok-is-so-popular-6fcc7b678bc7.html</code></a> · <a href="/articles/medium/why-tiktok-is-so-popular-6fcc7b678bc7.md" target="_blank" rel="noopener noreferrer"><code>Markdown</code></a> · Original: <a href="https://domijin.medium.com/why-tiktok-is-so-popular-6fcc7b678bc7" target="_blank" rel="noopener noreferrer">https://domijin.medium.com/why-tiktok-is-so-popular-6fcc7b678bc7</a></li><li><strong>Is Dark Mode Doing More Harm Than Good? A Deeper Look at Our Choices</strong> (Tue, 26 Nov 2024 01:36:49 GMT)</li><li>Local: <a href="/articles/medium/is-dark-mode-doing-more-harm-than-good-a-deeper-look-at-our-choices-a9685daad170.html" target="_blank" rel="noopener noreferrer"><code>/articles/medium/is-dark-mode-doing-more-harm-than-good-a-deeper-look-at-our-choices-a9685daad170.html</code></a> · <a href="/articles/medium/is-dark-mode-doing-more-harm-than-good-a-deeper-look-at-our-choices-a9685daad170.md" target="_blank" rel="noopener noreferrer"><code>Markdown</code></a> · Original: <a href="https://domijin.medium.com/is-dark-mode-doing-more-harm-than-good-a-deeper-look-at-our-choices-a9685daad170" target="_blank" rel="noopener noreferrer">https://domijin.medium.com/is-dark-mode-doing-more-harm-than-good-a-deeper-look-at-our-choices-a9685daad170</a></li><li><strong>Trace of AppLovin’s 7x Annual Hypergrowth</strong> (Thu, 21 Nov 2024 10:44:01 GMT)</li><li>Local: <a href="/articles/medium/trace-of-applovins-7x-annual-hypergrowth-39dcb154f5d0.html" target="_blank" rel="noopener noreferrer"><code>/articles/medium/trace-of-applovins-7x-annual-hypergrowth-39dcb154f5d0.html</code></a> · <a href="/articles/medium/trace-of-applovins-7x-annual-hypergrowth-39dcb154f5d0.md" target="_blank" rel="noopener noreferrer"><code>Markdown</code></a> · Original: <a href="https://domijin.medium.com/trace-of-applovins-7x-annual-hypergrowth-39dcb154f5d0" target="_blank" rel="noopener noreferrer">https://domijin.medium.com/trace-of-applovins-7x-annual-hypergrowth-39dcb154f5d0</a></li><li><strong>Rethinking Digital Advertising: From Guesswork to User Engagement</strong> (Thu, 10 Oct 2024 04:44:08 GMT)</li><li>Local: <a href="/articles/medium/rethinking-digital-advertising-from-guesswork-to-user-engagement-6e1916a2aced.html" target="_blank" rel="noopener noreferrer"><code>/articles/medium/rethinking-digital-advertising-from-guesswork-to-user-engagement-6e1916a2aced.html</code></a> · <a href="/articles/medium/rethinking-digital-advertising-from-guesswork-to-user-engagement-6e1916a2aced.md" target="_blank" rel="noopener noreferrer"><code>Markdown</code></a> · Original: <a href="https://domijin.medium.com/rethinking-digital-advertising-from-guesswork-to-user-engagement-6e1916a2aced" target="_blank" rel="noopener noreferrer">https://domijin.medium.com/rethinking-digital-advertising-from-guesswork-to-user-engagement-6e1916a2aced</a></li><li><strong>The Future of Advertising — Moving Beyond Relevance to Demand Profiling and Dynamic Personalization</strong> (Thu, 10 Oct 2024 04:29:25 GMT)</li><li>Local: <a href="/articles/medium/the-future-of-advertising-moving-beyond-relevance-to-demand-profiling-and-dynamic-personalization-5f4ccc03697c.html" target="_blank" rel="noopener noreferrer"><code>/articles/medium/the-future-of-advertising-moving-beyond-relevance-to-demand-profiling-and-dynamic-personalization-5f4ccc03697c.html</code></a> · <a href="/articles/medium/the-future-of-advertising-moving-beyond-relevance-to-demand-profiling-and-dynamic-personalization-5f4ccc03697c.md" target="_blank" rel="noopener noreferrer"><code>Markdown</code></a> · Original: <a href="https://domijin.medium.com/the-future-of-advertising-moving-beyond-relevance-to-demand-profiling-and-dynamic-personalization-5f4ccc03697c" target="_blank" rel="noopener noreferrer">https://domijin.medium.com/the-future-of-advertising-moving-beyond-relevance-to-demand-profiling-and-dynamic-personalization-5f4ccc03697c</a></li><li><strong>From Traffic Lights to Life’s Direction</strong> (Tue, 10 Oct 2023 15:45:32 GMT)</li><li>Local: <a href="/articles/medium/from-traffic-lights-to-lifes-direction-57176d5d7a06.html" target="_blank" rel="noopener noreferrer"><code>/articles/medium/from-traffic-lights-to-lifes-direction-57176d5d7a06.html</code></a> · <a href="/articles/medium/from-traffic-lights-to-lifes-direction-57176d5d7a06.md" target="_blank" rel="noopener noreferrer"><code>Markdown</code></a> · Original: <a href="https://domijin.medium.com/from-traffic-lights-to-lifes-direction-57176d5d7a06" target="_blank" rel="noopener noreferrer">https://domijin.medium.com/from-traffic-lights-to-lifes-direction-57176d5d7a06</a></li><li><strong>Observation: the dilemma and cultural difference behind the eVTOL field</strong> (Tue, 10 Oct 2023 07:26:44 GMT)</li><li>Local: <a href="/articles/medium/observation-the-dilemma-and-cultural-difference-behind-the-evtol-field-df42e91af109.html" target="_blank" rel="noopener noreferrer"><code>/articles/medium/observation-the-dilemma-and-cultural-difference-behind-the-evtol-field-df42e91af109.html</code></a> · <a href="/articles/medium/observation-the-dilemma-and-cultural-difference-behind-the-evtol-field-df42e91af109.md" target="_blank" rel="noopener noreferrer"><code>Markdown</code></a> · Original: <a href="https://domijin.medium.com/observation-the-dilemma-and-cultural-difference-behind-the-evtol-field-df42e91af109" target="_blank" rel="noopener noreferrer">https://domijin.medium.com/observation-the-dilemma-and-cultural-difference-behind-the-evtol-field-df42e91af109</a></li><li><strong>Why is some professional handwriting illegible?</strong> (Tue, 10 Oct 2023 06:57:38 GMT)</li><li>Local: <a href="/articles/medium/why-is-some-professional-handwriting-illegible-d07bd8acb818.html" target="_blank" rel="noopener noreferrer"><code>/articles/medium/why-is-some-professional-handwriting-illegible-d07bd8acb818.html</code></a> · <a href="/articles/medium/why-is-some-professional-handwriting-illegible-d07bd8acb818.md" target="_blank" rel="noopener noreferrer"><code>Markdown</code></a> · Original: <a href="https://domijin.medium.com/why-is-some-professional-handwriting-illegible-d07bd8acb818" target="_blank" rel="noopener noreferrer">https://domijin.medium.com/why-is-some-professional-handwriting-illegible-d07bd8acb818</a></li><li><strong>Boeing’s Future at Stake: The Growing Challenge from SpaceX</strong> (Fri, 31 Mar 2023 12:44:21 GMT)</li><li>Local: <a href="/articles/medium/boeings-future-at-stake-the-growing-challenge-from-spacex-177b63b10882.html" target="_blank" rel="noopener noreferrer"><code>/articles/medium/boeings-future-at-stake-the-growing-challenge-from-spacex-177b63b10882.html</code></a> · <a href="/articles/medium/boeings-future-at-stake-the-growing-challenge-from-spacex-177b63b10882.md" target="_blank" rel="noopener noreferrer"><code>Markdown</code></a> · Original: <a href="https://domijin.medium.com/boeings-future-at-stake-the-growing-challenge-from-spacex-177b63b10882" target="_blank" rel="noopener noreferrer">https://domijin.medium.com/boeings-future-at-stake-the-growing-challenge-from-spacex-177b63b10882</a></li></ul>
-<h2>3. GitHub — Open Specifications &amp; Research Ledgers</h2>
-<ul><li><strong>Open Learning Lab: Evidence-Driven Personalized Learning Policies</strong> (August 2026)</li><li>Local: <a href="/articles/github/open-learning-lab.html" target="_blank" rel="noopener noreferrer"><code>/articles/github/open-learning-lab.html</code></a> · <a href="/articles/github/open-learning-lab.md" target="_blank" rel="noopener noreferrer"><code>Markdown</code></a> · Original: <a href="https://github.com/domijin/open-learning-lab" target="_blank" rel="noopener noreferrer">https://github.com/domijin/open-learning-lab</a></li><li><strong>baby-AI: Receipt-Verified Edge Household Agent Architecture</strong> (May 2026)</li><li>Local: <a href="/articles/github/baby-ai.html" target="_blank" rel="noopener noreferrer"><code>/articles/github/baby-ai.html</code></a> · <a href="/articles/github/baby-ai.md" target="_blank" rel="noopener noreferrer"><code>Markdown</code></a> · Original: <a href="https://github.com/domijin/baby-AI" target="_blank" rel="noopener noreferrer">https://github.com/domijin/baby-AI</a></li><li><strong>Agent-Based Advertising System &amp; Observations in Performance Advertising</strong> (January 2025)</li><li>Local: <a href="/articles/github/observations-in-advertising.html" target="_blank" rel="noopener noreferrer"><code>/articles/github/observations-in-advertising.html</code></a> · <a href="/articles/github/observations-in-advertising.md" target="_blank" rel="noopener noreferrer"><code>Markdown</code></a> · Original: <a href="https://github.com/domijin/observations_in_advertising" target="_blank" rel="noopener noreferrer">https://github.com/domijin/observations_in_advertising</a></li><li><strong>LibertyEarth &amp; The Future Project: Collaborative Society &amp; Living Archive</strong> (2019–2024)</li><li>Local: <a href="/articles/github/libertyearth-and-future.html" target="_blank" rel="noopener noreferrer"><code>/articles/github/libertyearth-and-future.html</code></a> · <a href="/articles/github/libertyearth-and-future.md" target="_blank" rel="noopener noreferrer"><code>Markdown</code></a> · Original: <a href="https://github.com/domijin/LibertyEarth" target="_blank" rel="noopener noreferrer">https://github.com/domijin/LibertyEarth</a></li></ul>
-<h2>4. Native Repository Articles &amp; Doctoral Research</h2>
-<ul><li><strong>Life Hack: iMessage as a Low-Bandwidth Router to the Internet</strong> (Apr 2026) — <a href="/beta/" target="_blank" rel="noopener noreferrer"><code>/beta/index.html</code></a></li><li><strong>All About ChatGPT: Flat Correlation, Unit Economics &amp; Alignment</strong> (Feb 2023) — <a href="/all-about-chatgpt.html" target="_blank" rel="noopener noreferrer"><code>/all-about-chatgpt.html</code></a></li><li><strong>Free Market in a Possibility Universe &amp; The Collaborative Manifesto</strong> (Sep 2019) — <a href="/free-market-in-a-possibility-universe.html" target="_blank" rel="noopener noreferrer"><code>/free-market-in-a-possibility-universe.html</code></a></li><li><strong>Prospective Detection of Binary Black Holes in the Local Universe with Gravitational Waves</strong> (Ph.D. Dissertation, 2018) — <a href="/pages/research.html" target="_blank" rel="noopener noreferrer"><code>/pages/research.html</code></a> · <a href="/pdfs/main.pdf" target="_blank" rel="noopener noreferrer"><code>/pdfs/main.pdf</code></a> · <a href="/opening-notes-for-defense.html" target="_blank" rel="noopener noreferrer"><code>/opening-notes-for-defense.html</code></a></li></ul>
-    </article>
-  </div>
+  </nav>
+  <main>
+    <header class="book-header">
+      <span class="eyebrow">Domi Jin &middot; Notes from Research and Practice</span>
+      <h1>Table of Contents</h1>
+      <p class="subtitle">
+        All twenty-eight essays, field notes and system specifications are published in full on this site, organised across four thematic chapters. Original publication venues are recorded as footnotes.
+      </p>
+    </header>
+    <section class="chapter-section" id="chapter-i">
+      <h2>Chapter I · Stellar Dynamics and the Practice of Modelling</h2>
+      <p class="chapter-lead">Computational astrophysics, globular cluster relaxation (t / τ_rh), binary black hole populations and LISA gravitational-wave standard sirens.</p>
+      <ol class="toc-list">
+        <li class="toc-item">
+          <div class="toc-row">
+            <a class="toc-title" href="/articles/research/astrophysics-bbh-dissertation.html">Prospective Detection of Binary Black Holes in the Local Universe with Gravitational Waves</a>
+            <span class="toc-date">July 2018</span>
+          </div>
+          <p class="toc-summary">## Abstract</p>
+          <div class="toc-footnote">
+            Footnote: First published in <a href="https://domij.info/pdfs/main.pdf" target="_blank" rel="noopener noreferrer">University of Texas at Arlington Doctoral Dissertation</a> (July 2018).
+          </div>
+        </li>
+      </ol>
+    </section>
+    <section class="chapter-section" id="chapter-ii">
+      <h2>Chapter II · Decisions Under Constraints</h2>
+      <p class="chapter-lead">Crowdsourced traffic inference, marketplace pricing, multi-agent advertising control planes (&lt;50 ms p99) and interface ergonomics.</p>
+      <ol class="toc-list">
+        <li class="toc-item">
+          <div class="toc-row">
+            <a class="toc-title" href="/articles/github/observations-in-advertising.html">Agent-Based Advertising System &amp; Observations in Performance Advertising</a>
+            <span class="toc-date">January 2025</span>
+          </div>
+          <p class="toc-summary">## Part I: Unpacking AppLovin&#x27;s Hypergrowth</p>
+          <div class="toc-footnote">
+            Footnote: First published in <a href="https://github.com/domijin/observations_in_advertising" target="_blank" rel="noopener noreferrer">GitHub Specification (observations_in_advertising)</a> (January 2025).
+          </div>
+        </li>
+        <li class="toc-item">
+          <div class="toc-row">
+            <a class="toc-title" href="/articles/medium/from-traffic-lights-to-lifes-direction-57176d5d7a06.html">From Traffic Lights to Life’s Direction</a>
+            <span class="toc-date">October 2023</span>
+          </div>
+          <p class="toc-summary">From the bustling streets cross China, I gazed at my smartphone, navigating the intricate lanes using the Chinese navigation app: Amap. What caught my attention wasn’t the famil...</p>
+          <div class="toc-footnote">
+            Footnote: First published in <a href="https://medium.com/@domijin/from-traffic-lights-to-lifes-direction-57176d5d7a06" target="_blank" rel="noopener noreferrer">Medium</a> (October 2023).
+          </div>
+        </li>
+        <li class="toc-item">
+          <div class="toc-row">
+            <a class="toc-title" href="/articles/medium/is-dark-mode-doing-more-harm-than-good-a-deeper-look-at-our-choices-a9685daad170.html">Is Dark Mode Doing More Harm Than Good? A Deeper Look at Our Choices</a>
+            <span class="toc-date">November 2024</span>
+          </div>
+          <p class="toc-summary">I recently saw a post from a friend saying that dark mode was causing significant eye strain. He had to lean in closer to see clearly, which eventually led to neck issues. This ...</p>
+          <div class="toc-footnote">
+            Footnote: First published in <a href="https://medium.com/@domijin/is-dark-mode-doing-more-harm-than-good-a-deeper-look-at-our-choices-a9685daad170" target="_blank" rel="noopener noreferrer">Medium</a> (November 2024).
+          </div>
+        </li>
+        <li class="toc-item">
+          <div class="toc-row">
+            <a class="toc-title" href="/articles/medium/rethinking-digital-advertising-from-guesswork-to-user-engagement-6e1916a2aced.html">Rethinking Digital Advertising: From Guesswork to User Engagement</a>
+            <span class="toc-date">October 2024</span>
+          </div>
+          <p class="toc-summary">Traditional digital advertising often relies on guessing user needs based on incomplete data. Instead, we should focus on understanding users through interactive engagement, cre...</p>
+          <div class="toc-footnote">
+            Footnote: First published in <a href="https://medium.com/@domijin/rethinking-digital-advertising-from-guesswork-to-user-engagement-6e1916a2aced" target="_blank" rel="noopener noreferrer">Medium</a> (October 2024).
+          </div>
+        </li>
+        <li class="toc-item">
+          <div class="toc-row">
+            <a class="toc-title" href="/articles/medium/the-future-of-advertising-moving-beyond-relevance-to-demand-profiling-and-dynamic-personalization-5f4ccc03697c.html">The Future of Advertising — Moving Beyond Relevance to Demand Profiling and Dynamic Personalization</a>
+            <span class="toc-date">October 2024</span>
+          </div>
+          <p class="toc-summary">### **The Future of Advertising — Moving Beyond Relevance to Demand Profiling and Dynamic Personalization**</p>
+          <div class="toc-footnote">
+            Footnote: First published in <a href="https://medium.com/@domijin/the-future-of-advertising-moving-beyond-relevance-to-demand-profiling-and-dynamic-personalization-5f4ccc03697c" target="_blank" rel="noopener noreferrer">Medium</a> (October 2024).
+          </div>
+        </li>
+        <li class="toc-item">
+          <div class="toc-row">
+            <a class="toc-title" href="/articles/medium/trace-of-applovins-7x-annual-hypergrowth-39dcb154f5d0.html">Trace of AppLovin’s 7x Annual Hypergrowth</a>
+            <span class="toc-date">November 2024</span>
+          </div>
+          <p class="toc-summary">### Part I: Unpacking AppLovin’s Hypergrowth</p>
+          <div class="toc-footnote">
+            Footnote: First published in <a href="https://medium.com/@domijin/trace-of-applovins-7x-annual-hypergrowth-39dcb154f5d0" target="_blank" rel="noopener noreferrer">Medium</a> (November 2024).
+          </div>
+        </li>
+        <li class="toc-item">
+          <div class="toc-row">
+            <a class="toc-title" href="/articles/medium/why-is-some-professional-handwriting-illegible-d07bd8acb818.html">Why is some professional handwriting illegible?</a>
+            <span class="toc-date">October 2023</span>
+          </div>
+          <p class="toc-summary">I saw an interesting picture about using GPT to interpret doctor’s note.</p>
+          <div class="toc-footnote">
+            Footnote: First published in <a href="https://medium.com/@domijin/why-is-some-professional-handwriting-illegible-d07bd8acb818" target="_blank" rel="noopener noreferrer">Medium</a> (October 2023).
+          </div>
+        </li>
+      </ol>
+    </section>
+    <section class="chapter-section" id="chapter-iii">
+      <h2>Chapter III · Human Agency, Older People’s Independence and Lifelong Play</h2>
+      <p class="chapter-lead">Field interviews with older adults in Palo Alto (Kin Domi), autonomous driving ergonomics, Reclaiming Play, Open Learning Lab and household edge AI.</p>
+      <ol class="toc-list">
+        <li class="toc-item">
+          <div class="toc-row">
+            <a class="toc-title" href="/articles/blog/imessage-ai-router.html">Life Hack: iMessage as a Low-Bandwidth Router to the Internet</a>
+            <span class="toc-date">April 2026</span>
+          </div>
+          <p class="toc-summary">## Overview</p>
+          <div class="toc-footnote">
+            Footnote: First published in <a href="https://domij.info/beta/" target="_blank" rel="noopener noreferrer">Domi’s Universe (domij.info/beta)</a> (April 2026).
+          </div>
+        </li>
+        <li class="toc-item">
+          <div class="toc-row">
+            <a class="toc-title" href="/articles/github/baby-ai.html">baby-AI: Receipt-Verified Edge Household Agent Architecture</a>
+            <span class="toc-date">May 2026</span>
+          </div>
+          <p class="toc-summary">&gt; An open-specs, bounty-style project for an edge-deployed, verbally-trainable
+household agent. Five subsystems, one charter, every claim backed by a
+signed receipt.</p>
+          <div class="toc-footnote">
+            Footnote: First published in <a href="https://github.com/domijin/baby-AI" target="_blank" rel="noopener noreferrer">GitHub Specification (baby-AI)</a> (May 2026).
+          </div>
+        </li>
+        <li class="toc-item">
+          <div class="toc-row">
+            <a class="toc-title" href="/articles/github/open-learning-lab.html">Open Learning Lab: Evidence-Driven Personalized Learning Policies</a>
+            <span class="toc-date">August 2026</span>
+          </div>
+          <p class="toc-summary">**Learn something real. Measure whether it lasts. Open the process so others can challenge and improve it.**</p>
+          <div class="toc-footnote">
+            Footnote: First published in <a href="https://github.com/domijin/open-learning-lab" target="_blank" rel="noopener noreferrer">GitHub Specification (open-learning-lab)</a> (August 2026).
+          </div>
+        </li>
+        <li class="toc-item">
+          <div class="toc-row">
+            <a class="toc-title" href="/articles/medium/another-team-building-skynet-in-the-name-of-jarvis-ama-163389dc5285.html">Another team building Skynet, in the name of Jarvis — AMA</a>
+            <span class="toc-date">November 2024</span>
+          </div>
+          <p class="toc-summary">### Building Jarvis — AMA</p>
+          <div class="toc-footnote">
+            Footnote: First published in <a href="https://medium.com/@domijin/another-team-building-skynet-in-the-name-of-jarvis-ama-163389dc5285" target="_blank" rel="noopener noreferrer">Medium</a> (November 2024).
+          </div>
+        </li>
+        <li class="toc-item">
+          <div class="toc-row">
+            <a class="toc-title" href="/articles/substack/building-the-context-for-reading.html">Building the context for reading expectations</a>
+            <span class="toc-date">November 2024</span>
+          </div>
+          <p class="toc-summary">**March 31, 2023:** [A short story from Mu Yao](https://domijin.medium.com/a-short-story-from-mu-yao-4c564fa51d21) — this is a medium post about a short story by the author Mu Y...</p>
+          <div class="toc-footnote">
+            Footnote: First published in <a href="https://domijin.substack.com/p/building-the-context-for-reading" target="_blank" rel="noopener noreferrer">Substack (Domi’s Mind Waves)</a> (November 2024).
+          </div>
+        </li>
+        <li class="toc-item">
+          <div class="toc-row">
+            <a class="toc-title" href="/articles/substack/reclaiming-play-as-a-life-skill.html">🌱 Reclaiming Play as a Life Skill</a>
+            <span class="toc-date">March 2025</span>
+          </div>
+          <p class="toc-summary">### 🎮 What Games Really Teach Us — Especially As We Age</p>
+          <div class="toc-footnote">
+            Footnote: First published in <a href="https://domijin.substack.com/p/reclaiming-play-as-a-life-skill" target="_blank" rel="noopener noreferrer">Substack (Domi’s Mind Waves)</a> (March 2025).
+          </div>
+        </li>
+        <li class="toc-item">
+          <div class="toc-row">
+            <a class="toc-title" href="/articles/substack/relections-from-coach-seeking-impulse.html">Reflections from coach-seeking impulse</a>
+            <span class="toc-date">December 2024</span>
+          </div>
+          <p class="toc-summary">Here are the lessons I learned.</p>
+          <div class="toc-footnote">
+            Footnote: First published in <a href="https://domijin.substack.com/p/relections-from-coach-seeking-impulse" target="_blank" rel="noopener noreferrer">Substack (Domi’s Mind Waves)</a> (December 2024).
+          </div>
+        </li>
+        <li class="toc-item">
+          <div class="toc-row">
+            <a class="toc-title" href="/articles/substack/starting-a-new-venture.html">Starting a New Venture</a>
+            <span class="toc-date">December 2024</span>
+          </div>
+          <p class="toc-summary">Reflecting on this journey into entrepreneurship, I am reminded of how small sparks of inspiration can ignite significant transformations. Earlier this year, a shared curiosity ...</p>
+          <div class="toc-footnote">
+            Footnote: First published in <a href="https://domijin.substack.com/p/starting-a-new-venture" target="_blank" rel="noopener noreferrer">Substack (Domi’s Mind Waves)</a> (December 2024).
+          </div>
+        </li>
+        <li class="toc-item">
+          <div class="toc-row">
+            <a class="toc-title" href="/articles/substack/tesla-seniors-love-your-self-drivingnow.html">Tesla, Seniors Love Your Self-Driving—Now Let’s Make It Safer for Them</a>
+            <span class="toc-date">February 2025</span>
+          </div>
+          <p class="toc-summary">Many seniors I serve through **Kin Domi** are raving about how Tesla’s self-driving has given them newfound independence. They’re now confident driving on highways, taking long ...</p>
+          <div class="toc-footnote">
+            Footnote: First published in <a href="https://domijin.substack.com/p/tesla-seniors-love-your-self-drivingnow" target="_blank" rel="noopener noreferrer">Substack (Domi’s Mind Waves)</a> (February 2025).
+          </div>
+        </li>
+      </ol>
+    </section>
+    <section class="chapter-section" id="chapter-iv">
+      <h2>Chapter IV · Institutions, Incentives and Possible Futures</h2>
+      <p class="chapter-lead">Shared values as Greatest Common Divisor (GCD), complementary skills as Least Common Multiple (LCM), intentional calendar rhythms and civic renovation.</p>
+      <ol class="toc-list">
+        <li class="toc-item">
+          <div class="toc-row">
+            <a class="toc-title" href="/articles/blog/all-about-chatgpt.html">All About ChatGPT: Flat Correlation, Unit Economics &amp; Alignment</a>
+            <span class="toc-date">February 2023</span>
+          </div>
+          <p class="toc-summary">&gt; The future is here, but it’s not evenly distributed.</p>
+          <div class="toc-footnote">
+            Footnote: First published in <a href="https://domij.info/all-about-chatgpt.html" target="_blank" rel="noopener noreferrer">Domi’s Universe (domij.info)</a> (February 2023).
+          </div>
+        </li>
+        <li class="toc-item">
+          <div class="toc-row">
+            <a class="toc-title" href="/articles/blog/free-market-in-a-possibility-universe.html">Free Market in a Possibility Universe &amp; The Collaborative Manifesto</a>
+            <span class="toc-date">September 2019</span>
+          </div>
+          <p class="toc-summary">&gt; Declare: While paving my way towards my neverland, I don&#x27;t mind being alone. I won&#x27;t return to advertise and persuade either. Because the trace I left is not meant to guide, i...</p>
+          <div class="toc-footnote">
+            Footnote: First published in <a href="https://domij.info/free-market-in-a-possibility-universe.html" target="_blank" rel="noopener noreferrer">Domi’s Universe (domij.info)</a> (September 2019).
+          </div>
+        </li>
+        <li class="toc-item">
+          <div class="toc-row">
+            <a class="toc-title" href="/articles/github/libertyearth-and-future.html">LibertyEarth &amp; The Future Project: Collaborative Society &amp; Living Archive</a>
+            <span class="toc-date">2020–2025</span>
+          </div>
+          <p class="toc-summary">### __The Vision: Technically Empower People to Collaborate Better__</p>
+          <div class="toc-footnote">
+            Footnote: First published in <a href="https://github.com/domijin/LibertyEarth" target="_blank" rel="noopener noreferrer">GitHub Repository (LibertyEarth)</a> (2020–2025).
+          </div>
+        </li>
+        <li class="toc-item">
+          <div class="toc-row">
+            <a class="toc-title" href="/articles/medium/boeings-future-at-stake-the-growing-challenge-from-spacex-177b63b10882.html">Boeing’s Future at Stake: The Growing Challenge from SpaceX</a>
+            <span class="toc-date">May 2024</span>
+          </div>
+          <p class="toc-summary">The aviation industry has long been dominated by giants like Boeing, but recent developments signal a potential shift in power. With SpaceX aggressively pushing the boundaries o...</p>
+          <div class="toc-footnote">
+            Footnote: First published in <a href="https://medium.com/@domijin/boeings-future-at-stake-the-growing-challenge-from-spacex-177b63b10882" target="_blank" rel="noopener noreferrer">Medium</a> (May 2024).
+          </div>
+        </li>
+        <li class="toc-item">
+          <div class="toc-row">
+            <a class="toc-title" href="/articles/medium/observation-the-dilemma-and-cultural-difference-behind-the-evtol-field-df42e91af109.html">Observation: the dilemma and cultural difference behind the eVTOL field</a>
+            <span class="toc-date">June 2024</span>
+          </div>
+          <p class="toc-summary">This is a reply to Mark Moore’s post [here](https://www.linkedin.com/posts/mark-moore-99582787_ehang-certification-my-sources-in-china-activity-7117321587804045312-NIZF?utm_sour...</p>
+          <div class="toc-footnote">
+            Footnote: First published in <a href="https://medium.com/@domijin/observation-the-dilemma-and-cultural-difference-behind-the-evtol-field-df42e91af109" target="_blank" rel="noopener noreferrer">Medium</a> (June 2024).
+          </div>
+        </li>
+        <li class="toc-item">
+          <div class="toc-row">
+            <a class="toc-title" href="/articles/medium/why-tiktok-is-so-popular-6fcc7b678bc7.html">Why TikTok is so popular</a>
+            <span class="toc-date">February 2020</span>
+          </div>
+          <p class="toc-summary">## Why is video taking over text? A few thoughts</p>
+          <div class="toc-footnote">
+            Footnote: First published in <a href="https://medium.com/@domijin/why-tiktok-is-so-popular-6fcc7b678bc7" target="_blank" rel="noopener noreferrer">Medium</a> (February 2020).
+          </div>
+        </li>
+        <li class="toc-item">
+          <div class="toc-row">
+            <a class="toc-title" href="/articles/substack/a-colorful-year-ahead.html">A Colorful Year Ahead</a>
+            <span class="toc-date">January 2025</span>
+          </div>
+          <p class="toc-summary">## Milestones since [Hello World](https://substack.com/@domijin/note/c-79120023)</p>
+          <div class="toc-footnote">
+            Footnote: First published in <a href="https://domijin.substack.com/p/a-colorful-year-ahead" target="_blank" rel="noopener noreferrer">Substack (Domi’s Mind Waves)</a> (January 2025).
+          </div>
+        </li>
+        <li class="toc-item">
+          <div class="toc-row">
+            <a class="toc-title" href="/articles/substack/hello-world.html">Hello World!</a>
+            <span class="toc-date">November 2024</span>
+          </div>
+          <p class="toc-summary">## I’m starting my substack channel!</p>
+          <div class="toc-footnote">
+            Footnote: First published in <a href="https://domijin.substack.com/p/hello-world" target="_blank" rel="noopener noreferrer">Substack (Domi’s Mind Waves)</a> (November 2024).
+          </div>
+        </li>
+        <li class="toc-item">
+          <div class="toc-row">
+            <a class="toc-title" href="/articles/substack/momentum-momentum-momentum.html">Momentum, Momentum, Momentum!</a>
+            <span class="toc-date">December 2024</span>
+          </div>
+          <p class="toc-summary">**Overview** This week marked a significant milestone in both personal and professional growth. From incorporating [Kin Domi, Inc](https://kindomi.net/). to deepening user resea...</p>
+          <div class="toc-footnote">
+            Footnote: First published in <a href="https://domijin.substack.com/p/momentum-momentum-momentum" target="_blank" rel="noopener noreferrer">Substack (Domi’s Mind Waves)</a> (December 2024).
+          </div>
+        </li>
+        <li class="toc-item">
+          <div class="toc-row">
+            <a class="toc-title" href="/articles/substack/overachievers-responsibility-reflection.html">Overachiever’s Responsibility: Reflection on Leadership, Alignment, and Sustainable Growth</a>
+            <span class="toc-date">February 2025</span>
+          </div>
+          <p class="toc-summary">I’ve always been fascinated by how top performers seem to have more than 24 hours in a day. They either pour more energy into a single focus or juggle multiple threads that surp...</p>
+          <div class="toc-footnote">
+            Footnote: First published in <a href="https://domijin.substack.com/p/overachievers-responsibility-reflection" target="_blank" rel="noopener noreferrer">Substack (Domi’s Mind Waves)</a> (February 2025).
+          </div>
+        </li>
+        <li class="toc-item">
+          <div class="toc-row">
+            <a class="toc-title" href="/articles/substack/serendipity-where-it-sparks.html">Serendipity: where it sparks</a>
+            <span class="toc-date">December 2024</span>
+          </div>
+          <p class="toc-summary">## **A Childhood Rooted in Stories and Tradition**</p>
+          <div class="toc-footnote">
+            Footnote: First published in <a href="https://domijin.substack.com/p/serendipity-where-it-sparks" target="_blank" rel="noopener noreferrer">Substack (Domi’s Mind Waves)</a> (December 2024).
+          </div>
+        </li>
+      </ol>
+    </section>
+  </main>
 </body>
 </html>

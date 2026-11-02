@@ -1,17 +1,6 @@
----
-title: "Serendipity: where it sparks"
-author: "Domi Jin (Dongming Jin)"
-date: "Fri, 27 Dec 2024 14:48:15 GMT"
-source: "Substack (Domi's Mind Waves)"
-original_url: "https://domijin.substack.com/p/serendipity-where-it-sparks"
-local_html: "/articles/substack/serendipity-where-it-sparks.html"
----
-
-> **Repository Mirror & Reference Copy**
-> This article is archived directly in [`domijin.github.io`](https://github.com/domijin/domijin.github.io) for preservation and offline inspection.
-> - **Original Publication**: [Serendipity: where it sparks](https://domijin.substack.com/p/serendipity-where-it-sparks) (Substack (Domi's Mind Waves), Fri, 27 Dec 2024 14:48:15 GMT)
-
 # Serendipity: where it sparks
+
+*Chapter IV · Institutions, Incentives and Possible Futures — By Domi Jin (December 2024)*
 
 ## **A Childhood Rooted in Stories and Tradition**
 
@@ -45,60 +34,6 @@ As I look forward, I’m filled with conviction. This team is ready to learn, ac
 
 Serendipity has been the invisible thread weaving my life together. From childhood conversations with seniors to the timely & relevant connections that contributes to the journey. These moments have inspired me to "Carpe diem. Seize the day, boys. Make your lives extraordinary."--Dead Poets Society.
 
----
-
-## My Work Model
-
-#### **1. Self-Awareness**
-
-- 
-
-**Strengths:** Identify what I excel at and how it aligns with my goals.
-- 
-
-**Passions:** Clarify what I genuinely enjoy doing.
-- 
-
-**Purpose:** Define what is needed in the world and what I can uniquely offer to align with who I aspire to become.
-- 
-
-**Circle of Competence:** Recognize skills and expertise that are both useful and relevant.
-- 
-
-**Gaps:** Acknowledge must-have skills or traits I lack and determine what I’m willing to trade or invest in to acquire them.
-- 
-
-**Support Network:** Identify who can help, their roles, and how to engage them.
-
-#### **2. Planning**
-
-- 
-
-**Prioritization:** Establish what truly matters and set clear priorities.
-- 
-
-**Focus:** Distinguish between what I should focus on versus what I am currently working on.
-- 
-
-**Action:** Use the Eisenhower Matrix to categorize and manage tasks (urgent/important matrix).
-
-#### **3. Execution and Reflection**
-
-- 
-
-**Improvements (CBB-could be better):** Reflect on what could have been done better.
-- 
-
-**Enhancements (GTH-good to have):** Brainstorm what would be beneficial to add or improve.
-- 
-
-**Gratitude:** Celebrate achievements and appreciate milestones.
-- 
-
-**Feedback:** Actively collect and integrate input from peers and mentors to refine efforts.
-
----
-
 ## Good To Have - Jan/2025
 
 - 
@@ -128,3 +63,6 @@ Paid content will be available to free subscribers after 30 days of posting.
 爱妻谏言：但行好事，莫问前程；匹夫自白：也许闻名天下，愿付十年寒窗。
 
 Advice from my beloved wife: "Just do good, without asking about the future;" Reflection from myself: "Regardless (the mission) to be valued across the world or not, I would devote a decade of hard work."
+
+---
+*Footnote: First published in [Substack (Domi’s Mind Waves)](https://domijin.substack.com/p/serendipity-where-it-sparks) (December 2024).*

@@ -1,17 +1,6 @@
----
-title: "Rethinking Digital Advertising: From Guesswork to User Engagement"
-author: "Domi Jin (Dongming Jin)"
-date: "Thu, 10 Oct 2024 04:44:08 GMT"
-source: "Medium (@domijin)"
-original_url: "https://domijin.medium.com/rethinking-digital-advertising-from-guesswork-to-user-engagement-6e1916a2aced"
-local_html: "/articles/medium/rethinking-digital-advertising-from-guesswork-to-user-engagement-6e1916a2aced.html"
----
-
-> **Repository Mirror & Reference Copy**
-> This article is archived directly in [`domijin.github.io`](https://github.com/domijin/domijin.github.io) for preservation and offline inspection.
-> - **Original Publication**: [Rethinking Digital Advertising: From Guesswork to User Engagement](https://domijin.medium.com/rethinking-digital-advertising-from-guesswork-to-user-engagement-6e1916a2aced) (Medium (@domijin), Thu, 10 Oct 2024 04:44:08 GMT)
-
 # Rethinking Digital Advertising: From Guesswork to User Engagement
+
+*Chapter II · Decisions Under Constraints — By Domi Jin (October 2024)*
 
 Traditional digital advertising often relies on guessing user needs based on incomplete data. Instead, we should focus on understanding users through interactive engagement, creating a more refined and dynamic ad delivery system.
 
@@ -88,3 +77,6 @@ Here are some thoughts on how to achieve that:
 • Deploy **multi-stage candidate generation models** with fine-tuning capabilities to minimize system footprint.
 
 By shifting from a reactive to a proactive system, we can transform digital advertising from guesswork into a structured process of user education, engagement, and demand realization. This approach builds deeper user relationships and creates a sustainable competitive advantage for the platform.
+
+---
+*Footnote: First published in [Medium](https://medium.com/@domijin/rethinking-digital-advertising-from-guesswork-to-user-engagement-6e1916a2aced) (October 2024).*

@@ -1,17 +1,6 @@
----
-title: "Why is some professional handwriting illegible?"
-author: "Domi Jin (Dongming Jin)"
-date: "Tue, 10 Oct 2023 06:57:38 GMT"
-source: "Medium (@domijin)"
-original_url: "https://domijin.medium.com/why-is-some-professional-handwriting-illegible-d07bd8acb818"
-local_html: "/articles/medium/why-is-some-professional-handwriting-illegible-d07bd8acb818.html"
----
-
-> **Repository Mirror & Reference Copy**
-> This article is archived directly in [`domijin.github.io`](https://github.com/domijin/domijin.github.io) for preservation and offline inspection.
-> - **Original Publication**: [Why is some professional handwriting illegible?](https://domijin.medium.com/why-is-some-professional-handwriting-illegible-d07bd8acb818) (Medium (@domijin), Tue, 10 Oct 2023 06:57:38 GMT)
-
 # Why is some professional handwriting illegible?
+
+*Chapter II · Decisions Under Constraints — By Domi Jin (October 2023)*
 
 I saw an interesting picture about using GPT to interpret doctor’s note.
 
@@ -37,3 +26,6 @@ Acknowledge, without ChatGPT, I may never feel comfortable enough to write and s
 1. The conventional view is that they are too busy and tired after writing perspections over the day. So they need an efficient way to reference perscriptions. Using acronyms can help. Keyboard typing is also efficient but it can vary by settings. Voice input can definitely help (Human speech may have a universal transmission rate: 39 bits per second, which is way faster than writing). HCI would be another story.   
 2. Maybe it’s proven to be the best interest to have an internal communication method so that patients don’t get nervous as modern medicine wasn’t always so effective at the beginning. It’s a ritual to keep it mystery (which sometimes will become sacre) to have placebo effect in healing. (as there is a view that we know so little in medical that most of time, good doctors only refer them as “first do no harm”, it’s luck to heal, it’s normal that things don’t work). Could it be that obscure handwriting is a product of such cultural and social norms.   
 3. The evil speculating is that this is a way to create communication barrier to protect their interests against outsiders, just like the wallstreet. Hope my shallow spectulation could serve as reference for insiders to share and probably reduce the information bias.
+
+---
+*Footnote: First published in [Medium](https://medium.com/@domijin/why-is-some-professional-handwriting-illegible-d07bd8acb818) (October 2023).*

@@ -1,17 +1,6 @@
----
-title: "Trace of AppLovin’s 7x Annual Hypergrowth"
-author: "Domi Jin (Dongming Jin)"
-date: "Thu, 21 Nov 2024 10:44:01 GMT"
-source: "Medium (@domijin)"
-original_url: "https://domijin.medium.com/trace-of-applovins-7x-annual-hypergrowth-39dcb154f5d0"
-local_html: "/articles/medium/trace-of-applovins-7x-annual-hypergrowth-39dcb154f5d0.html"
----
-
-> **Repository Mirror & Reference Copy**
-> This article is archived directly in [`domijin.github.io`](https://github.com/domijin/domijin.github.io) for preservation and offline inspection.
-> - **Original Publication**: [Trace of AppLovin’s 7x Annual Hypergrowth](https://domijin.medium.com/trace-of-applovins-7x-annual-hypergrowth-39dcb154f5d0) (Medium (@domijin), Thu, 21 Nov 2024 10:44:01 GMT)
-
 # Trace of AppLovin’s 7x Annual Hypergrowth
+
+*Chapter II · Decisions Under Constraints — By Domi Jin (November 2024)*
 
 ### Part I: Unpacking AppLovin’s Hypergrowth
 
@@ -105,3 +94,6 @@ The pitfalls of an economy dominated by material growth and competition have led
 I envision a world where advertising shifts from **driving demand** to **fostering enlightenment**. By aligning with users’ **intrinsic motivations and aspirations**, we can create technologies that **empower** individuals to achieve their full potential.
 
 This essay marks the beginning of a broader dialogue. I invite readers to share insights, debate ideas, and collaborate on solutions that address the systemic challenges in performance advertising and beyond.
+
+---
+*Footnote: First published in [Medium](https://medium.com/@domijin/trace-of-applovins-7x-annual-hypergrowth-39dcb154f5d0) (November 2024).*

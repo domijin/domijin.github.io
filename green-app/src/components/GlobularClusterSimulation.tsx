@@ -52,7 +52,7 @@ const DYNAMIC_BINARIES: DynamicBinaryPair[] = [
     id: "pgc-1628-imbh",
     label: "PGC 1628 #7 (e=0.478, ΔV=0.04 Mpc³)",
     formTau: 0.32,
-    ejectTau: 19.0, // Retained in core
+    ejectTau: 19.0,
     eccentricity: 0.4779,
     chirpMass: 44.31,
     freqMHz: 0.21,
@@ -73,6 +73,18 @@ const DYNAMIC_BINARIES: DynamicBinaryPair[] = [
     ejectionDir: [0.74, -0.45, 0.5],
   },
   {
+    id: "pgc-1628-ecc",
+    label: "PGC 1628 #8 (e=0.712, ΔV=0.18 Mpc³)",
+    formTau: 0.68,
+    ejectTau: 19.0,
+    eccentricity: 0.712,
+    chirpMass: 18.6,
+    freqMHz: 0.27,
+    angleOffset: 2.35,
+    inclination: 0.51,
+    ejectionDir: [-0.55, 0.62, -0.56],
+  },
+  {
     id: "pgc-616-circ",
     label: "PGC 616 #3 (e=0.0, ΔV=0.68 Mpc³)",
     formTau: 0.85,
@@ -88,11 +100,13 @@ const DYNAMIC_BINARIES: DynamicBinaryPair[] = [
 
 function GlobularClusterEvolution({
   tauRef,
+  isPlaying,
   selectedBinaryId,
   onSelectBinary,
   statsCallback,
 }: {
   tauRef: React.MutableRefObject<number>;
+  isPlaying: boolean;
   selectedBinaryId: string;
   onSelectBinary: (id: string) => void;
   statsCallback?: (stats: {
@@ -106,6 +120,7 @@ function GlobularClusterEvolution({
 }) {
   const pointsRef = useRef<THREE.Points>(null);
   const bbhGroupRef = useRef<THREE.Group>(null);
+  const simClockRef = useRef<number>(0);
   const lastReportRef = useRef<number>(-1);
 
   const catalog = useMemo<StarCatalog>(() => {
@@ -190,8 +205,13 @@ function GlobularClusterEvolution({
     };
   }, [catalog.count]);
 
-  useFrame((state, delta) => {
+  useFrame((_, delta) => {
     if (!pointsRef.current) return;
+    if (isPlaying) {
+      simClockRef.current += delta;
+      pointsRef.current.rotation.y += delta * 0.025;
+    }
+
     const geom = pointsRef.current.geometry;
     const posAttr = geom.getAttribute("position") as THREE.BufferAttribute;
     const colAttr = geom.getAttribute("color") as THREE.BufferAttribute;
@@ -199,7 +219,7 @@ function GlobularClusterEvolution({
     const colArr = colAttr.array as Float32Array;
 
     const tau = tauRef.current;
-    const clock = state.clock.elapsedTime;
+    const clock = simClockRef.current;
 
     let bhCount = 0;
     let wdCount = 0;
@@ -295,8 +315,6 @@ function GlobularClusterEvolution({
     posAttr.needsUpdate = true;
     colAttr.needsUpdate = true;
 
-    pointsRef.current.rotation.y += delta * 0.025;
-
     if (statsCallback && Math.abs(tau - lastReportRef.current) > 0.04) {
       lastReportRef.current = tau;
       const corePc =
@@ -363,6 +381,7 @@ function GlobularClusterEvolution({
             key={bbh.id}
             bbh={bbh}
             tauRef={tauRef}
+            simClockRef={simClockRef}
             isSelected={selectedBinaryId === bbh.id}
             onSelect={() => onSelectBinary(bbh.id)}
           />
@@ -375,11 +394,13 @@ function GlobularClusterEvolution({
 function CompactBinaryPairMesh({
   bbh,
   tauRef,
+  simClockRef,
   isSelected,
   onSelect,
 }: {
   bbh: DynamicBinaryPair;
   tauRef: React.MutableRefObject<number>;
+  simClockRef: React.MutableRefObject<number>;
   isSelected: boolean;
   onSelect: () => void;
 }) {
@@ -388,7 +409,7 @@ function CompactBinaryPairMesh({
   const bh2Ref = useRef<THREE.Mesh>(null);
   const waveRingRef = useRef<THREE.Mesh>(null);
 
-  useFrame((state) => {
+  useFrame(() => {
     const tau = tauRef.current;
     if (!pairGroupRef.current) return;
 
@@ -398,7 +419,7 @@ function CompactBinaryPairMesh({
     }
     pairGroupRef.current.visible = true;
 
-    const tClock = state.clock.elapsedTime;
+    const tClock = simClockRef.current;
     let cx = 0;
     let cy = 0;
     let cz = 0;
@@ -486,7 +507,11 @@ function CompactBinaryPairMesh({
   );
 }
 
-export default function GlobularClusterSimulation() {
+export default function GlobularClusterSimulation({
+  onOpenEssay,
+}: {
+  onOpenEssay?: (url: string) => void;
+} = {}) {
   const [tauRh, setTauRh] = useState<number>(1.25);
   const [isPlaying, setIsPlaying] = useState<boolean>(true);
   const [speedMultiplier, setSpeedMultiplier] = useState<number>(1);
@@ -499,11 +524,21 @@ export default function GlobularClusterSimulation() {
     rgCount: 30,
     coreRadiusPc: 0.58,
     halfMassRadiusPc: 3.32,
-    activeBbhCount: 4,
+    activeBbhCount: 5,
   });
 
   const tauRef = useRef<number>(tauRh);
   tauRef.current = tauRh;
+
+  // Respect prefers-reduced-motion on initial load
+  useEffect(() => {
+    if (
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      setIsPlaying(false);
+    }
+  }, []);
 
   useEffect(() => {
     if (!isPlaying) return;
@@ -691,12 +726,12 @@ export default function GlobularClusterSimulation() {
   }, [activeSystem, selectedSystemIdx, wavePhaseOffset]);
 
   return (
-    <div className="rounded-2xl overflow-hidden border border-[#b9d9eb] bg-gradient-to-b from-[#0b2034] via-[#0e263f] to-[#081827] shadow-xl">
-      {/* Top Simulation Control & Timescale Bar */}
+    <figure className="rounded-2xl overflow-hidden border border-[#b9d9eb] bg-gradient-to-b from-[#0b2034] via-[#0e263f] to-[#081827] shadow-xl">
+      {/* Top Figure Header & Playback Bar */}
       <div className="px-4 py-3 border-b border-sky-900/70 bg-[#081827]/90 flex flex-wrap items-center justify-between gap-3">
         <div className="flex flex-wrap items-center gap-2.5">
           <span className="px-2.5 py-1 rounded-full bg-[#0d2642] border border-[#1DAEDF]/50 text-[10px] sm:text-[11px] font-mono text-[#7dd3fc] font-semibold">
-            MOCCA GLOBULAR CLUSTER &amp; LISA GW SIMULATION
+            INTERACTIVE FIGURE 1.1 · GLOBULAR CLUSTER RELAXATION &amp; LISA STRAIN
           </span>
           <span className="text-[11px] font-mono text-slate-300">
             t = <strong className="text-white">{tauRh.toFixed(2)} τ_rh</strong>{" "}
@@ -713,7 +748,7 @@ export default function GlobularClusterSimulation() {
             onClick={() => setIsPlaying(!isPlaying)}
             className="px-2.5 py-1 rounded-lg bg-[#2980b9] hover:bg-[#1DAEDF] text-white text-[11px] font-mono font-medium transition cursor-pointer"
           >
-            {isPlaying ? "Pause ❚❚" : "Evolve ▶"}
+            {isPlaying ? "Pause animation ❚❚" : "Evolve cluster ▶"}
           </button>
 
           {[0.25, 1, 4].map((spd) => (
@@ -818,10 +853,11 @@ export default function GlobularClusterSimulation() {
               factor={3}
               saturation={0.3}
               fade
-              speed={0.6}
+              speed={isPlaying ? 0.6 : 0}
             />
             <GlobularClusterEvolution
               tauRef={tauRef}
+              isPlaying={isPlaying}
               selectedBinaryId={activeSystem.id}
               onSelectBinary={(id) => {
                 const idx = GC_RESEARCH_FINDINGS.sampleSystems.findIndex(
@@ -835,7 +871,7 @@ export default function GlobularClusterSimulation() {
               enablePan={false}
               minDistance={2.0}
               maxDistance={8.5}
-              autoRotate
+              autoRotate={isPlaying}
               autoRotateSpeed={0.35}
             />
           </Canvas>
@@ -857,7 +893,7 @@ export default function GlobularClusterSimulation() {
               </span>
             </div>
             <span className="hidden sm:inline-block px-2.5 py-1 rounded-full bg-[#071524]/80 border border-slate-700 text-[10px] font-mono text-slate-300 backdrop-blur-md">
-              Spitzer τ_rh scaling · Fewbody core exchange
+              Illustrative 1,650-star Plummer/Spitzer model
             </span>
           </div>
         </div>
@@ -870,12 +906,25 @@ export default function GlobularClusterSimulation() {
               <span className="text-[10px] font-mono uppercase tracking-widest text-[#1DAEDF] font-semibold">
                 LISA Space Interferometer Side Window
               </span>
-              <a
-                href="/articles/research/astrophysics-bbh-dissertation.html"
-                className="text-[10px] font-mono text-sky-300 hover:text-white underline underline-offset-4"
-              >
-                Dissertation (2018) ↗
-              </a>
+              {onOpenEssay ? (
+                <button
+                  onClick={() =>
+                    onOpenEssay(
+                      "/articles/research/astrophysics-bbh-dissertation.html"
+                    )
+                  }
+                  className="text-[10px] font-mono text-sky-300 hover:text-white underline underline-offset-4 cursor-pointer"
+                >
+                  Read chapter essay &rarr;
+                </button>
+              ) : (
+                <a
+                  href="/articles/research/astrophysics-bbh-dissertation.html"
+                  className="text-[10px] font-mono text-sky-300 hover:text-white underline underline-offset-4"
+                >
+                  Read chapter essay &rarr;
+                </a>
+              )}
             </div>
 
             <div className="p-3 rounded-xl bg-[#0c2138] border border-sky-800/80 space-y-1.5">
@@ -891,9 +940,9 @@ export default function GlobularClusterSimulation() {
                 Derived from{" "}
                 <strong className="text-white">662,772 globular clusters</strong>{" "}
                 across <strong className="text-white">8,946 galaxies</strong>{" "}
-                within D ≤ 30 Mpc (3,240 MOCCA models; 17,883,760 inspiralling
-                BBHs; 86,939 mergers vs. ~100 Gpc⁻³ yr⁻¹ pre-LIGO &amp; 9–240
-                Gpc⁻³ yr⁻¹ early LIGO O1).
+                within D ≤ 30 Mpc (3,240 MOCCA simulations; 17,883,760
+                inspiralling BBHs; 86,939 mergers vs. ~100 Gpc⁻³ yr⁻¹ pre-LIGO
+                &amp; 9–240 Gpc⁻³ yr⁻¹ early LIGO O1).
               </p>
             </div>
           </div>
@@ -1151,6 +1200,22 @@ export default function GlobularClusterSimulation() {
           </div>
         </div>
       </div>
-    </div>
+
+      {/* Explicit Figure Caption & Epistemic Note (Distill / Ciechanowski discipline) */}
+      <figcaption className="px-4 py-2.5 bg-[#061220] border-t border-sky-900/60 text-[11px] text-slate-300 flex flex-wrap items-center justify-between gap-2">
+        <span>
+          <strong className="text-sky-200 font-mono">Figure 1.1 Note:</strong>{" "}
+          Left panel renders an illustrative 1,650-star Plummer cluster following Spitzer relaxation (τ_rh) and mass-segregation (t_seg) scaling; right panel plots quantitative LISA strain and standard-siren parameters from the 3,240-model MOCCA doctoral catalog.
+        </span>
+        <a
+          href="/pdfs/main.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-mono text-sky-300 hover:text-white underline underline-offset-4 shrink-0"
+        >
+          Dissertation PDF (/pdfs/main.pdf) ↗
+        </a>
+      </figcaption>
+    </figure>
   );
 }

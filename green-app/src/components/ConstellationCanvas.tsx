@@ -17,6 +17,7 @@ interface ConstellationProps {
   onSelectPillar: (id: string | null) => void;
   selectedWriting: WritingNode | null;
   onSelectWriting: (node: WritingNode | null) => void;
+  onOpenEssay?: (url: string) => void;
 }
 
 const PROJECT_POSITIONS: [number, number, number][] = [
@@ -31,9 +32,9 @@ const PROJECT_POSITIONS: [number, number, number][] = [
 const PROJECT_PILLAR_MAP: Record<string, string> = {
   "open-learning-lab": "human-potential",
   "baby-ai": "human-ai-collaboration",
-  "imessage-ai-router": "human-ai-collaboration",
+  "imessage-router": "human-ai-collaboration",
   "kin-domi": "ai-and-society",
-  "agent-ad-system": "decision-intelligence",
+  "agent-ad-systems": "decision-intelligence",
   "libertyearth-future": "collective-intelligence",
 };
 
@@ -42,6 +43,7 @@ function SiteMapGraph({
   onSelectPillar,
   selectedWriting,
   onSelectWriting,
+  onOpenEssay,
 }: ConstellationProps) {
   const groupRef = useRef<THREE.Group>(null);
 
@@ -269,19 +271,28 @@ function SiteMapGraph({
             </mesh>
             {isPillarMatch && (
               <Html distanceFactor={10} position={[0, -0.22, 0]} center>
-                <a
-                  href={proj.localMirrorUrl || proj.url}
-                  className="px-1.5 py-0.5 rounded bg-[#0c2138]/90 border border-sky-500/40 text-[8.5px] font-mono text-sky-200 whitespace-nowrap hover:border-white transition"
-                >
-                  Project: {proj.name.split(" (")[0]}
-                </a>
+                {proj.localMirrorUrl && onOpenEssay ? (
+                  <button
+                    onClick={() => onOpenEssay(proj.localMirrorUrl!)}
+                    className="px-1.5 py-0.5 rounded bg-[#0c2138]/90 border border-sky-500/40 text-[8.5px] font-mono text-sky-200 whitespace-nowrap hover:border-white transition cursor-pointer"
+                  >
+                    Project: {proj.name.split(" (")[0]}
+                  </button>
+                ) : (
+                  <a
+                    href={proj.localMirrorUrl || proj.url}
+                    className="px-1.5 py-0.5 rounded bg-[#0c2138]/90 border border-sky-500/40 text-[8.5px] font-mono text-sky-200 whitespace-nowrap hover:border-white transition"
+                  >
+                    Project: {proj.name.split(" (")[0]}
+                  </a>
+                )}
               </Html>
             )}
           </group>
         );
       })}
 
-      {/* 20 Writing Nodes (Octahedrons) */}
+      {/* 28 Writing Nodes (Octahedrons) */}
       {WRITINGS_DATA.map((w) => {
         const pillar = pillarMap.get(w.pillar);
         const color = pillar?.color || "#1DAEDF";
@@ -350,7 +361,7 @@ export default function ConstellationCanvas(props: ConstellationProps) {
       {/* Top HUD */}
       <div className="pointer-events-none absolute top-3 left-3 right-3 flex flex-wrap items-center justify-between gap-2">
         <span className="px-2.5 py-1 rounded-full bg-[#0a1a2b]/85 border border-[#1DAEDF]/40 text-[10px] sm:text-[11px] font-mono text-[#7dd3fc] backdrop-blur-md">
-          INTERACTIVE SITE MAP // 7 TOPICS · 6 WORKS · 20 WRITINGS
+          INTERACTIVE SITE MAP // 7 TOPICS · 6 WORKS · 28 WRITINGS
         </span>
         <span className="hidden sm:inline-block px-2.5 py-1 rounded-full bg-[#0a1a2b]/80 border border-slate-700 text-[11px] text-slate-300 backdrop-blur-md">
           Drag to orbit · Scroll to zoom · Select any topic, project or essay
@@ -367,7 +378,7 @@ export default function ConstellationCanvas(props: ConstellationProps) {
             <span className="w-2.5 h-2.5 bg-[#38bdf8]" /> Works &amp; Systems (6)
           </span>
           <span className="inline-flex items-center gap-1.5">
-            <span className="w-2.5 h-2.5 rotate-45 bg-white border border-[#1DAEDF]" /> Essays &amp; Notes (20)
+            <span className="w-2.5 h-2.5 rotate-45 bg-white border border-[#1DAEDF]" /> Essays &amp; Notes (28)
           </span>
         </div>
       </div>

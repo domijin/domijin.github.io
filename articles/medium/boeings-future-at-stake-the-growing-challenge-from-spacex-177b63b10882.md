@@ -1,17 +1,6 @@
----
-title: "Boeing’s Future at Stake: The Growing Challenge from SpaceX"
-author: "Domi Jin (Dongming Jin)"
-date: "Fri, 31 Mar 2023 12:44:21 GMT"
-source: "Medium (@domijin)"
-original_url: "https://domijin.medium.com/boeings-future-at-stake-the-growing-challenge-from-spacex-177b63b10882"
-local_html: "/articles/medium/boeings-future-at-stake-the-growing-challenge-from-spacex-177b63b10882.html"
----
-
-> **Repository Mirror & Reference Copy**
-> This article is archived directly in [`domijin.github.io`](https://github.com/domijin/domijin.github.io) for preservation and offline inspection.
-> - **Original Publication**: [Boeing’s Future at Stake: The Growing Challenge from SpaceX](https://domijin.medium.com/boeings-future-at-stake-the-growing-challenge-from-spacex-177b63b10882) (Medium (@domijin), Fri, 31 Mar 2023 12:44:21 GMT)
-
 # Boeing’s Future at Stake: The Growing Challenge from SpaceX
+
+*Chapter IV · Institutions, Incentives and Possible Futures — By Domi Jin (May 2024)*
 
 The aviation industry has long been dominated by giants like Boeing, but recent developments signal a potential shift in power. With SpaceX aggressively pushing the boundaries of aerospace technology, Boeing’s leadership in the commercial aviation space could be in jeopardy.
 
@@ -40,3 +29,6 @@ In conclusion, Boeing’s future success and position in the market will depend 
 In aerospace industry, the market doesn’t always know what users want. It’s definitely not flying cars or just larger in size.
 
 Stay tuned!
+
+---
+*Footnote: First published in [Medium](https://medium.com/@domijin/boeings-future-at-stake-the-growing-challenge-from-spacex-177b63b10882) (May 2024).*

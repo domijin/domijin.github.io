@@ -1,17 +1,6 @@
----
-title: "Overachiever’s Responsibility: Reflection on Leadership, Alignment, and Sustainable Growth"
-author: "Domi Jin (Dongming Jin)"
-date: "Fri, 07 Feb 2025 16:21:21 GMT"
-source: "Substack (Domi's Mind Waves)"
-original_url: "https://domijin.substack.com/p/overachievers-responsibility-reflection"
-local_html: "/articles/substack/overachievers-responsibility-reflection.html"
----
-
-> **Repository Mirror & Reference Copy**
-> This article is archived directly in [`domijin.github.io`](https://github.com/domijin/domijin.github.io) for preservation and offline inspection.
-> - **Original Publication**: [Overachiever’s Responsibility: Reflection on Leadership, Alignment, and Sustainable Growth](https://domijin.substack.com/p/overachievers-responsibility-reflection) (Substack (Domi's Mind Waves), Fri, 07 Feb 2025 16:21:21 GMT)
-
 # Overachiever’s Responsibility: Reflection on Leadership, Alignment, and Sustainable Growth
+
+*Chapter IV · Institutions, Incentives and Possible Futures — By Domi Jin (February 2025)*
 
 I’ve always been fascinated by how top performers seem to have more than 24 hours in a day. They either pour more energy into a single focus or juggle multiple threads that surpassing the performance of regular person. As a founder, this is a reality I’ve come to embrace—not just for myself, but in how I build and lead a team.
 
@@ -87,3 +76,6 @@ Because at the end of the day, great companies aren’t built by individuals. Th
 [Comment](https://domijin.substack.com/p/overachievers-responsibility-reflection/comments)
 
 Volunteering is important to me so I create clause and find the time. :)
+
+---
+*Footnote: First published in [Substack (Domi’s Mind Waves)](https://domijin.substack.com/p/overachievers-responsibility-reflection) (February 2025).*

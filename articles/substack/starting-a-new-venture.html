@@ -1,219 +1,209 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en-GB">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Starting a New Venture | Domi Jin — Local Archive</title>
-  <link rel="canonical" href="https://domijin.substack.com/p/starting-a-new-venture" />
+  <title>Starting a New Venture — Domi Jin</title>
+  <meta name="description" content="Starting a New Venture — Essay and technical notes by Domi Jin." />
+  <link rel="canonical" href="https://domij.info/articles/substack/starting-a-new-venture.html" />
   <style>
     :root {
-      color-scheme: light;
+      --bg: #fcfcfd;
+      --ink: #1e293b;
+      --muted: #64748b;
+      --accent: #2980b9;
+      --border: #e2e8f0;
     }
+    * { box-sizing: border-box; }
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Open Sans", sans-serif;
-      background: #f8fafc;
-      color: #1e293b;
-      line-height: 1.75;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      font-size: 19px;
+      line-height: 1.78;
+      -webkit-font-smoothing: antialiased;
     }
     .topbar {
-      background: #ffffff;
-      border-bottom: 1px solid #e2e8f0;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 13px;
+    }
+    .topbar-inner {
+      max-width: 760px;
+      margin: 0 auto;
       padding: 12px 24px;
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
       gap: 12px;
-      font-size: 13px;
     }
     .topbar a {
-      color: #2980b9;
+      color: var(--accent);
       text-decoration: none;
-      font-weight: 600;
+      font-weight: 500;
     }
-    .topbar a:hover {
-      color: #1DAEDF;
-      text-decoration: underline;
+    .topbar a:hover { text-decoration: underline; }
+    .chapter-badge {
+      color: var(--muted);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
-    .container {
-      max-width: 760px;
-      margin: 36px auto 64px;
-      padding: 0 20px;
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 56px 24px 96px;
     }
-    .provenance-card {
-      background: #f0f9ff;
-      border: 1px solid #bae6fd;
-      border-left: 4px solid #2980b9;
-      border-radius: 12px;
-      padding: 16px 20px;
-      margin-bottom: 28px;
-      font-size: 13px;
-      color: #0c4a6e;
+    header.essay-header {
+      margin-bottom: 40px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
     }
-    .provenance-card a {
-      color: #0284c7;
-      font-weight: 600;
-      word-break: break-all;
-    }
-    article {
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
-      border-radius: 16px;
-      padding: 32px 36px;
-      box-shadow: 0 2px 12px rgba(41, 128, 185, 0.05);
-    }
-    h1 {
-      font-size: 28px;
-      line-height: 1.25;
-      color: #0f172a;
-      margin-top: 0;
-      margin-bottom: 12px;
-    }
-    .meta {
+    .essay-eyebrow {
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 12px;
-      color: #64748b;
-      margin-bottom: 28px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid #f1f5f9;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 12px;
+      display: block;
     }
-    h2, h3, h4 {
+    h1 {
+      font-size: clamp(28px, 4.5vw, 40px);
+      line-height: 1.2;
       color: #0f172a;
-      margin-top: 28px;
-      margin-bottom: 10px;
+      margin: 0 0 14px 0;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+    }
+    .essay-byline {
+      font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    article h2 {
+      font-size: 25px;
+      line-height: 1.3;
+      color: #0f172a;
+      margin: 2.2em 0 0.7em;
+    }
+    article h3 {
+      font-size: 20px;
       line-height: 1.35;
+      color: #1e293b;
+      margin: 1.8em 0 0.6em;
     }
-    p, li {
-      font-size: 16px;
+    article p {
+      margin: 0 0 1.35em 0;
+    }
+    article blockquote {
+      margin: 1.6em 0;
+      padding: 4px 0 4px 20px;
+      border-left: 3px solid var(--accent);
       color: #334155;
-    }
-    p {
-      margin: 16px 0;
-    }
-    ul {
-      padding-left: 22px;
-      margin: 16px 0;
-    }
-    li {
-      margin: 6px 0;
-    }
-    blockquote {
-      margin: 20px 0;
-      padding: 12px 18px;
-      border-left: 3px solid #1DAEDF;
-      background: #f8fafc;
-      color: #475569;
       font-style: italic;
     }
-    pre {
-      background: #0f172a;
-      color: #f8fafc;
-      padding: 16px;
-      border-radius: 10px;
-      overflow-x: auto;
-      font-size: 13px;
-      line-height: 1.5;
+    article ul, article ol {
+      margin: 0 0 1.4em 0;
+      padding-left: 1.5em;
     }
-    code {
+    article li {
+      margin-bottom: 0.45em;
+    }
+    article code {
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      font-size: 0.9em;
+      font-size: 0.86em;
       background: #f1f5f9;
-      padding: 2px 5px;
+      padding: 2px 6px;
       border-radius: 4px;
     }
-    pre code {
-      background: transparent;
-      padding: 0;
+    article a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
     }
-    a {
-      color: #2980b9;
+    .table-wrap {
+      overflow-x: auto;
+      margin: 1.5em 0;
     }
-    hr {
-      border: 0;
-      border-top: 1px solid #e2e8f0;
-      margin: 28px 0;
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: ui-sans-serif, system-ui, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
     }
-    @media (max-width: 640px) {
-      article {
-        padding: 22px 18px;
-      }
-      h1 {
-        font-size: 22px;
-      }
+    th, td {
+      border: 1px solid var(--border);
+      padding: 8px 12px;
+      text-align: left;
+    }
+    th {
+      background: #f8fafc;
+      font-weight: 600;
+      color: #0f172a;
+    }
+    footer.colophon {
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    footer.colophon a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    footer.colophon a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <div class="topbar">
-    <div>
-      <a href="/next/#writings">&larr; Back to Domi Jin (Current Edition)</a>
-      <span style="color:#cbd5e1; margin:0 8px;">|</span>
-      <a href="/articles/">Repository Article Mirror</a>
+  <nav class="topbar" aria-label="Book navigation">
+    <div class="topbar-inner">
+      <a href="/">&larr; Domi Jin &middot; Notes from Research &amp; Practice</a>
+      <span class="chapter-badge">Chapter III · Human Agency, Older People’s Independence and Lifelong Play</span>
+      <a href="/articles/">Table of Contents</a>
     </div>
-    <div>
-      <a href="https://domijin.substack.com/p/starting-a-new-venture" target="_blank" rel="noopener noreferrer">Original Publication (Substack (Domi&#x27;s Mind Waves)) &#8599;</a>
-    </div>
-  </div>
-  <div class="container">
-    <div class="provenance-card">
-      <strong>Repository Mirror &amp; Reference Copy</strong><br/>
-      Originally published on <strong>Substack (Domi&#x27;s Mind Waves)</strong> (Sun, 08 Dec 2024 15:38:34 GMT).<br/>
-      Original URL: <a href="https://domijin.substack.com/p/starting-a-new-venture" target="_blank" rel="noopener noreferrer">https://domijin.substack.com/p/starting-a-new-venture</a>
-      &middot; <a href="starting-a-new-venture.md">Raw Markdown (.md)</a>
-    </div>
-    <article>
+  </nav>
+  <main>
+    <header class="essay-header">
+      <span class="essay-eyebrow">Chapter III · Human Agency, Older People’s Independence and Lifelong Play</span>
       <h1>Starting a New Venture</h1>
-      <div class="meta">By Domi Jin (Dongming Jin) &middot; Substack (Domi&#x27;s Mind Waves) &middot; Sun, 08 Dec 2024 15:38:34 GMT</div>
+      <div class="essay-byline">By Domi Jin (Dongming Jin) &middot; December 2024</div>
+    </header>
+    <article>
       <p>Reflecting on this journey into entrepreneurship, I am reminded of how small sparks of inspiration can ignite significant transformations. Earlier this year, a shared curiosity with a trusted neighbor—a medical professional at Stanford—led to the realization of an unmet need: using AI to improve the lives of older adults. What started as a simple idea is now evolving into a mission-driven venture with the potential to bring meaningful change.</p>
-<p>The challenges we aim to address are both technical and deeply human. Many older adults struggle with modern technology—not just with the physical dexterity required to use smartphones but also with navigating complex systems of accounts and apps. Beneath these challenges, however, lie issues of loneliness, misinformation, and a lack of purpose in later life. Our work is about addressing these needs while celebrating the wisdom and rich experiences that seniors bring to our communities.</p>
-<p>Domi’s Mind Waves is a reader-supported publication. To receive new posts and support my work, consider becoming a free or paid subscriber.</p>
-<p>Two weeks ago, I made the decision to dedicate myself fully to this venture. Since then, the momentum has been incredible. Our progress has been guided by a balance of vision, strategy, and action, underpinned by our unwavering commitment to serving this cause. Below, I’ve outlined the milestones achieved over the past week.</p>
-<hr />
-<h3>**Commitment and Legal Foundations**</h3>
-<p>-</p>
-<p>Fully committed to pursuing this venture full-time, taking the leap into full-time entrepreneurship.
--</p>
-<p>Consulted with legal counsel regarding company registration and structured a plan for future funding opportunities.
--</p>
-<p>Reached out to a law firm recommended by a senior colleague, formalized the project introduction, and received guidance on structuring and funding.</p>
-<hr />
-<h3>**Strategic Planning and Team Building**</h3>
-<p>-</p>
-<p>Refined multiple versions of project descriptions, mission statements, and problem-solving approaches tailored to different audiences.
--</p>
-<p>Confirmed my co-founder—a medical psychiatrist with deep insights into elder care—solidifying the partnership.
--</p>
-<p>Secured commitments from a diverse group, including a long-time partner, family members, a prior investor, and collaborators from my volunteer community, all aligned with our mission and vision.
--</p>
-<p>Prioritized execution planning for the month, leveraging tools like Monday.com for tracking and managing progress.</p>
-<hr />
-<h3>**Collaboration and Networking**</h3>
-<p>-</p>
-<p>Reached out to former colleagues to explore collaboration opportunities and brainstormed on potential product integrations.
--</p>
-<p>Connected with an alumnus network, gaining access to resources and potential promotional opportunities for the project.</p>
-<hr />
-<h3>**Advisory and Mentorship**</h3>
-<p>-</p>
-<p>Attended onboarding and office hours at Moon Creative Lab under Mitsui Group to refine our pitch and clarify project strategy.
--</p>
-<p>Engaged in conversations with mentors to gain insights into entrepreneurial best practices, organizational structures, and investment strategies.</p>
-<hr />
-<h3>**Community Engagement and Market Research**</h3>
-<p>-</p>
-<p>Participated in volunteer work, which provided direct access to potential customer lists and a deeper understanding of their needs.
--</p>
-<p>Prepared updates to share the project’s vision with former colleagues, further expanding awareness.</p>
-<hr />
-<h3>**Professional Development**</h3>
-<p>-</p>
-<p>Visited an early stage AI infra company, broadening my professional network and refining my perspective on scalable, tech-driven solutions.</p>
-<hr />
-<h3>**Moving Forward**</h3>
-<p>This week has been a powerful reminder of the importance of momentum in the early stages of a startup. From legal foundations and team-building to mentorship and market engagement, each step has reinforced the mission and vision we are pursuing.</p>
-<p>As we press on, I am energized by the growing interest and alignment of like-minded collaborators who share the belief that elder care is not just a necessity but an opportunity to create intergenerational bonds, address human needs, and unlock wisdom for the greater good. This is just the beginning of a journey I’m proud to share, and I look forward to bringing you more updates as our vision continues to take shape.</p>
+      <p>The challenges we aim to address are both technical and deeply human. Many older adults struggle with modern technology—not just with the physical dexterity required to use smartphones but also with navigating complex systems of accounts and apps. Beneath these challenges, however, lie issues of loneliness, misinformation, and a lack of purpose in later life. Our work is about addressing these needs while celebrating the wisdom and rich experiences that seniors bring to our communities.</p>
+      <p>Two weeks ago, I made the decision to dedicate myself fully to this venture. Since then, the momentum has been incredible. Our progress has been guided by a balance of vision, strategy, and action, underpinned by our unwavering commitment to serving this cause. Below, I’ve outlined the milestones achieved over the past week.</p>
+      <h3><strong>Strategic Planning and Team Building</strong></h3>
+      <p>Refined multiple versions of project descriptions, mission statements, and problem-solving approaches tailored to different audiences. -</p>
+      <p>Confirmed my co-founder—a medical psychiatrist with deep insights into elder care—solidifying the partnership. -</p>
+      <p>Secured commitments from a diverse group, including a long-time partner, family members, a prior investor, and collaborators from my volunteer community, all aligned with our mission and vision. -</p>
+      <p>Prioritized execution planning for the month, leveraging tools like Monday.com for tracking and managing progress.</p>
+      <h3><strong>Advisory and Mentorship</strong></h3>
+      <p>Attended onboarding and office hours at Moon Creative Lab under Mitsui Group to refine our pitch and clarify project strategy. -</p>
+      <p>Engaged in conversations with mentors to gain insights into entrepreneurial best practices, organizational structures, and investment strategies.</p>
+      <h3><strong>Professional Development</strong></h3>
+      <p>Visited an early stage AI infra company, broadening my professional network and refining my perspective on scalable, tech-driven solutions.</p>
     </article>
-  </div>
+    <footer class="colophon">
+      <p>
+        <strong>Footnote:</strong> First published in
+        <a href="https://domijin.substack.com/p/starting-a-new-venture" rel="noopener noreferrer" target="_blank">Substack (Domi’s Mind Waves)</a>
+        (December 2024). Part of <em>Domi Jin — Notes from Research and Practice</em>.
+      </p>
+    </footer>
+  </main>
 </body>
 </html>

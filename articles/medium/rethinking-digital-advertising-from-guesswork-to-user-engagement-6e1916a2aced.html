@@ -1,209 +1,234 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en-GB">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Rethinking Digital Advertising: From Guesswork to User Engagement | Domi Jin — Local Archive</title>
-  <link rel="canonical" href="https://domijin.medium.com/rethinking-digital-advertising-from-guesswork-to-user-engagement-6e1916a2aced" />
+  <title>Rethinking Digital Advertising: From Guesswork to User Engagement — Domi Jin</title>
+  <meta name="description" content="Rethinking Digital Advertising: From Guesswork to User Engagement — Essay and technical notes by Domi Jin." />
+  <link rel="canonical" href="https://domij.info/articles/medium/rethinking-digital-advertising-from-guesswork-to-user-engagement-6e1916a2aced.html" />
   <style>
     :root {
-      color-scheme: light;
+      --bg: #fcfcfd;
+      --ink: #1e293b;
+      --muted: #64748b;
+      --accent: #2980b9;
+      --border: #e2e8f0;
     }
+    * { box-sizing: border-box; }
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Open Sans", sans-serif;
-      background: #f8fafc;
-      color: #1e293b;
-      line-height: 1.75;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      font-size: 19px;
+      line-height: 1.78;
+      -webkit-font-smoothing: antialiased;
     }
     .topbar {
-      background: #ffffff;
-      border-bottom: 1px solid #e2e8f0;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 13px;
+    }
+    .topbar-inner {
+      max-width: 760px;
+      margin: 0 auto;
       padding: 12px 24px;
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
       gap: 12px;
-      font-size: 13px;
     }
     .topbar a {
-      color: #2980b9;
+      color: var(--accent);
       text-decoration: none;
-      font-weight: 600;
+      font-weight: 500;
     }
-    .topbar a:hover {
-      color: #1DAEDF;
-      text-decoration: underline;
+    .topbar a:hover { text-decoration: underline; }
+    .chapter-badge {
+      color: var(--muted);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
-    .container {
-      max-width: 760px;
-      margin: 36px auto 64px;
-      padding: 0 20px;
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 56px 24px 96px;
     }
-    .provenance-card {
-      background: #f0f9ff;
-      border: 1px solid #bae6fd;
-      border-left: 4px solid #2980b9;
-      border-radius: 12px;
-      padding: 16px 20px;
-      margin-bottom: 28px;
-      font-size: 13px;
-      color: #0c4a6e;
+    header.essay-header {
+      margin-bottom: 40px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
     }
-    .provenance-card a {
-      color: #0284c7;
-      font-weight: 600;
-      word-break: break-all;
-    }
-    article {
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
-      border-radius: 16px;
-      padding: 32px 36px;
-      box-shadow: 0 2px 12px rgba(41, 128, 185, 0.05);
-    }
-    h1 {
-      font-size: 28px;
-      line-height: 1.25;
-      color: #0f172a;
-      margin-top: 0;
-      margin-bottom: 12px;
-    }
-    .meta {
+    .essay-eyebrow {
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 12px;
-      color: #64748b;
-      margin-bottom: 28px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid #f1f5f9;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 12px;
+      display: block;
     }
-    h2, h3, h4 {
+    h1 {
+      font-size: clamp(28px, 4.5vw, 40px);
+      line-height: 1.2;
       color: #0f172a;
-      margin-top: 28px;
-      margin-bottom: 10px;
+      margin: 0 0 14px 0;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+    }
+    .essay-byline {
+      font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    article h2 {
+      font-size: 25px;
+      line-height: 1.3;
+      color: #0f172a;
+      margin: 2.2em 0 0.7em;
+    }
+    article h3 {
+      font-size: 20px;
       line-height: 1.35;
+      color: #1e293b;
+      margin: 1.8em 0 0.6em;
     }
-    p, li {
-      font-size: 16px;
+    article p {
+      margin: 0 0 1.35em 0;
+    }
+    article blockquote {
+      margin: 1.6em 0;
+      padding: 4px 0 4px 20px;
+      border-left: 3px solid var(--accent);
       color: #334155;
-    }
-    p {
-      margin: 16px 0;
-    }
-    ul {
-      padding-left: 22px;
-      margin: 16px 0;
-    }
-    li {
-      margin: 6px 0;
-    }
-    blockquote {
-      margin: 20px 0;
-      padding: 12px 18px;
-      border-left: 3px solid #1DAEDF;
-      background: #f8fafc;
-      color: #475569;
       font-style: italic;
     }
-    pre {
-      background: #0f172a;
-      color: #f8fafc;
-      padding: 16px;
-      border-radius: 10px;
-      overflow-x: auto;
-      font-size: 13px;
-      line-height: 1.5;
+    article ul, article ol {
+      margin: 0 0 1.4em 0;
+      padding-left: 1.5em;
     }
-    code {
+    article li {
+      margin-bottom: 0.45em;
+    }
+    article code {
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      font-size: 0.9em;
+      font-size: 0.86em;
       background: #f1f5f9;
-      padding: 2px 5px;
+      padding: 2px 6px;
       border-radius: 4px;
     }
-    pre code {
-      background: transparent;
-      padding: 0;
+    article a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
     }
-    a {
-      color: #2980b9;
+    .table-wrap {
+      overflow-x: auto;
+      margin: 1.5em 0;
     }
-    hr {
-      border: 0;
-      border-top: 1px solid #e2e8f0;
-      margin: 28px 0;
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: ui-sans-serif, system-ui, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
     }
-    @media (max-width: 640px) {
-      article {
-        padding: 22px 18px;
-      }
-      h1 {
-        font-size: 22px;
-      }
+    th, td {
+      border: 1px solid var(--border);
+      padding: 8px 12px;
+      text-align: left;
+    }
+    th {
+      background: #f8fafc;
+      font-weight: 600;
+      color: #0f172a;
+    }
+    footer.colophon {
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    footer.colophon a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    footer.colophon a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <div class="topbar">
-    <div>
-      <a href="/next/#writings">&larr; Back to Domi Jin (Current Edition)</a>
-      <span style="color:#cbd5e1; margin:0 8px;">|</span>
-      <a href="/articles/">Repository Article Mirror</a>
+  <nav class="topbar" aria-label="Book navigation">
+    <div class="topbar-inner">
+      <a href="/">&larr; Domi Jin &middot; Notes from Research &amp; Practice</a>
+      <span class="chapter-badge">Chapter II · Decisions Under Constraints</span>
+      <a href="/articles/">Table of Contents</a>
     </div>
-    <div>
-      <a href="https://domijin.medium.com/rethinking-digital-advertising-from-guesswork-to-user-engagement-6e1916a2aced" target="_blank" rel="noopener noreferrer">Original Publication (Medium (@domijin)) &#8599;</a>
-    </div>
-  </div>
-  <div class="container">
-    <div class="provenance-card">
-      <strong>Repository Mirror &amp; Reference Copy</strong><br/>
-      Originally published on <strong>Medium (@domijin)</strong> (Thu, 10 Oct 2024 04:44:08 GMT).<br/>
-      Original URL: <a href="https://domijin.medium.com/rethinking-digital-advertising-from-guesswork-to-user-engagement-6e1916a2aced" target="_blank" rel="noopener noreferrer">https://domijin.medium.com/rethinking-digital-advertising-from-guesswork-to-user-engagement-6e1916a2aced</a>
-      &middot; <a href="rethinking-digital-advertising-from-guesswork-to-user-engagement-6e1916a2aced.md">Raw Markdown (.md)</a>
-    </div>
-    <article>
+  </nav>
+  <main>
+    <header class="essay-header">
+      <span class="essay-eyebrow">Chapter II · Decisions Under Constraints</span>
       <h1>Rethinking Digital Advertising: From Guesswork to User Engagement</h1>
-      <div class="meta">By Domi Jin (Dongming Jin) &middot; Medium (@domijin) &middot; Thu, 10 Oct 2024 04:44:08 GMT</div>
+      <div class="essay-byline">By Domi Jin (Dongming Jin) &middot; October 2024</div>
+    </header>
+    <article>
       <p>Traditional digital advertising often relies on guessing user needs based on incomplete data. Instead, we should focus on understanding users through interactive engagement, creating a more refined and dynamic ad delivery system.</p>
-<p>Here are some thoughts on how to achieve that:</p>
-<p><strong>1. Increase User Interactions &amp; Positive Sample Rate</strong></p>
-<p>• <strong>Objective</strong>: Design interactions that actively encourage users to engage with ads beyond clicks, increasing the volume of data collected per session.</p>
-<p>• <strong>Tactics</strong>:</p>
-<p>• <strong>Dynamic Ad Switching</strong>: Implement a “shuffle” feature within a single ad slot to allow users to change the ad if it doesn’t resonate. Track these interactions as a proxy for content preference.</p>
-<ul><li><strong>Interactive Ad Units</strong>: Create rich media formats like swipeable image carousels, quick polls, or “choose your adventure” stories to capture richer behavioral data.</li></ul>
-<p><strong>2. Refine Intent Labels Using Marketing Funnel</strong></p>
-<p>• <strong>Objective</strong>: Move beyond simple “click or not” labels. Use refined intent labels to create a granular understanding of where users are in their journey.</p>
-<p>• <strong>Tactics</strong>:</p>
-<p>• <strong>User State Tracking</strong>: Implement a multi-stage label system to track the user’s stage across <strong>awareness, interest, consideration, and conversion</strong>.</p>
-<p><strong>3. Expand Ad Types Using GenAI &amp; UGC</strong></p>
-<p>• <strong>Objective</strong>: Use generative AI and creator-generated content to diversify ad styles, ensuring there’s always a relevant format for every type of user.</p>
-<p>• <strong>Tactics</strong>:</p>
-<p>• <strong>Ad Content Generator</strong>: Implement a GenAI system that can auto-generate multiple ad creatives based on high-performing templates (e.g., explainer videos, parameter-based comparisons, and visual storytelling).</p>
-<p>• <strong>Creator Ecosystem</strong>: Build an API to allow third-party creators to submit branded content and automatically match it with user segments based on their style preference (e.g., educational, humorous, inspirational).</p>
-<p><strong>4. Build Detailed &amp; Reusable User Profiles</strong></p>
-<p>• <strong>Objective</strong>: Develop detailed user profiles that can serve as a long-term competitive advantage (moat) by enhancing both targeting precision and model efficiency.</p>
-<p>• <strong>Tactics</strong>:</p>
-<p>• <strong>Interest Graphs</strong>: Create a multi-layered interest graph that captures not just primary interests but also contextual and session-level nuances (e.g., “workday interest” vs. “weekend leisure interest”).</p>
-<p>• <strong>Profile Distillation</strong>: Use fine-tuning techniques to distill session-level behavior and historical data into compact embeddings, reducing the need for large-scale models.</p>
-<p>• <strong>Adaptive Profiles</strong>: Allow profiles to dynamically update based on real-time interactions and adapt targeting strategies (e.g., shifting from product-focused to lifestyle-based ads as interests evolve).</p>
-<p><strong>5. Deploy Efficient Candidate Generation Models</strong></p>
-<p>• <strong>Objective</strong>: Use distilled user profiles and session-level data to build smaller, cost-efficient models that can handle candidate generation without compromising performance.</p>
-<p><strong>System Architecture &amp; Implementation Roadmap</strong></p>
-<p>1. <strong>Data Pipeline</strong>:</p>
-<p>• Set up a <strong>real-time data ingestion pipeline</strong> to handle user feedback, engagement data, and contextual signals.</p>
-<p>• Use <strong>feature stores</strong> to maintain session-level and long-term user features.</p>
-<p>2. <strong>Labeling &amp; Profile Service</strong>:</p>
-<p>• Build a centralized <strong>user state service</strong> that maps interactions to funnel stages.</p>
-<p>• Implement a <strong>profile aggregation service</strong> that combines session data with historical data, outputting refined user embeddings.</p>
-<p>3. <strong>Dynamic Ad Serving</strong>:</p>
-<p>• Design a <strong>dynamic ad delivery system</strong> that supports in-session creative switching, real-time updates, and multi-variant testing.</p>
-<p>• Introduce a <strong>creative generation engine</strong> powered by GenAI to scale up content production.</p>
-<p>4. <strong>Profile Distillation &amp; Efficient Candidate Models</strong>:</p>
-<p>• Use compact transformer models to distill user behavior into high-quality embeddings.</p>
-<p>• Deploy <strong>multi-stage candidate generation models</strong> with fine-tuning capabilities to minimize system footprint.</p>
-<p>By shifting from a reactive to a proactive system, we can transform digital advertising from guesswork into a structured process of user education, engagement, and demand realization. This approach builds deeper user relationships and creates a sustainable competitive advantage for the platform.</p>
+      <p>Here are some thoughts on how to achieve that:</p>
+      <p><strong>1. Increase User Interactions &amp; Positive Sample Rate</strong></p>
+      <p>• <strong>Objective</strong>: Design interactions that actively encourage users to engage with ads beyond clicks, increasing the volume of data collected per session.</p>
+      <p>• <strong>Tactics</strong>:</p>
+      <p>• <strong>Dynamic Ad Switching</strong>: Implement a “shuffle” feature within a single ad slot to allow users to change the ad if it doesn’t resonate. Track these interactions as a proxy for content preference.</p>
+      <ul><li><strong>Interactive Ad Units</strong>: Create rich media formats like swipeable image carousels, quick polls, or “choose your adventure” stories to capture richer behavioral data.</li></ul>
+      <p><strong>2. Refine Intent Labels Using Marketing Funnel</strong></p>
+      <p>• <strong>Objective</strong>: Move beyond simple “click or not” labels. Use refined intent labels to create a granular understanding of where users are in their journey.</p>
+      <p>• <strong>Tactics</strong>:</p>
+      <p>• <strong>User State Tracking</strong>: Implement a multi-stage label system to track the user’s stage across <strong>awareness, interest, consideration, and conversion</strong>.</p>
+      <p><strong>3. Expand Ad Types Using GenAI &amp; UGC</strong></p>
+      <p>• <strong>Objective</strong>: Use generative AI and creator-generated content to diversify ad styles, ensuring there’s always a relevant format for every type of user.</p>
+      <p>• <strong>Tactics</strong>:</p>
+      <p>• <strong>Ad Content Generator</strong>: Implement a GenAI system that can auto-generate multiple ad creatives based on high-performing templates (e.g., explainer videos, parameter-based comparisons, and visual storytelling).</p>
+      <p>• <strong>Creator Ecosystem</strong>: Build an API to allow third-party creators to submit branded content and automatically match it with user segments based on their style preference (e.g., educational, humorous, inspirational).</p>
+      <p><strong>4. Build Detailed &amp; Reusable User Profiles</strong></p>
+      <p>• <strong>Objective</strong>: Develop detailed user profiles that can serve as a long-term competitive advantage (moat) by enhancing both targeting precision and model efficiency.</p>
+      <p>• <strong>Tactics</strong>:</p>
+      <p>• <strong>Interest Graphs</strong>: Create a multi-layered interest graph that captures not just primary interests but also contextual and session-level nuances (e.g., “workday interest” vs. “weekend leisure interest”).</p>
+      <p>• <strong>Profile Distillation</strong>: Use fine-tuning techniques to distill session-level behavior and historical data into compact embeddings, reducing the need for large-scale models.</p>
+      <p>• <strong>Adaptive Profiles</strong>: Allow profiles to dynamically update based on real-time interactions and adapt targeting strategies (e.g., shifting from product-focused to lifestyle-based ads as interests evolve).</p>
+      <p><strong>5. Deploy Efficient Candidate Generation Models</strong></p>
+      <p>• <strong>Objective</strong>: Use distilled user profiles and session-level data to build smaller, cost-efficient models that can handle candidate generation without compromising performance.</p>
+      <p><strong>System Architecture &amp; Implementation Roadmap</strong></p>
+      <ol><li><strong>Data Pipeline</strong>:</li></ol>
+      <p>• Set up a <strong>real-time data ingestion pipeline</strong> to handle user feedback, engagement data, and contextual signals.</p>
+      <p>• Use <strong>feature stores</strong> to maintain session-level and long-term user features.</p>
+      <ol><li><strong>Labeling &amp; Profile Service</strong>:</li></ol>
+      <p>• Build a centralized <strong>user state service</strong> that maps interactions to funnel stages.</p>
+      <p>• Implement a <strong>profile aggregation service</strong> that combines session data with historical data, outputting refined user embeddings.</p>
+      <ol><li><strong>Dynamic Ad Serving</strong>:</li></ol>
+      <p>• Design a <strong>dynamic ad delivery system</strong> that supports in-session creative switching, real-time updates, and multi-variant testing.</p>
+      <p>• Introduce a <strong>creative generation engine</strong> powered by GenAI to scale up content production.</p>
+      <ol><li><strong>Profile Distillation &amp; Efficient Candidate Models</strong>:</li></ol>
+      <p>• Use compact transformer models to distill user behavior into high-quality embeddings.</p>
+      <p>• Deploy <strong>multi-stage candidate generation models</strong> with fine-tuning capabilities to minimize system footprint.</p>
+      <p>By shifting from a reactive to a proactive system, we can transform digital advertising from guesswork into a structured process of user education, engagement, and demand realization. This approach builds deeper user relationships and creates a sustainable competitive advantage for the platform.</p>
     </article>
-  </div>
+    <footer class="colophon">
+      <p>
+        <strong>Footnote:</strong> First published in
+        <a href="https://medium.com/@domijin/rethinking-digital-advertising-from-guesswork-to-user-engagement-6e1916a2aced" rel="noopener noreferrer" target="_blank">Medium</a>
+        (October 2024). Part of <em>Domi Jin — Notes from Research and Practice</em>.
+      </p>
+    </footer>
+  </main>
 </body>
 </html>

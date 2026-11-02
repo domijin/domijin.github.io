@@ -1,17 +1,6 @@
----
-title: "From Traffic Lights to Life’s Direction"
-author: "Domi Jin (Dongming Jin)"
-date: "Tue, 10 Oct 2023 15:45:32 GMT"
-source: "Medium (@domijin)"
-original_url: "https://domijin.medium.com/from-traffic-lights-to-lifes-direction-57176d5d7a06"
-local_html: "/articles/medium/from-traffic-lights-to-lifes-direction-57176d5d7a06.html"
----
-
-> **Repository Mirror & Reference Copy**
-> This article is archived directly in [`domijin.github.io`](https://github.com/domijin/domijin.github.io) for preservation and offline inspection.
-> - **Original Publication**: [From Traffic Lights to Life’s Direction](https://domijin.medium.com/from-traffic-lights-to-lifes-direction-57176d5d7a06) (Medium (@domijin), Tue, 10 Oct 2023 15:45:32 GMT)
-
 # From Traffic Lights to Life’s Direction
+
+*Chapter II · Decisions Under Constraints — By Domi Jin (October 2023)*
 
 From the bustling streets cross China, I gazed at my smartphone, navigating the intricate lanes using the Chinese navigation app: Amap. What caught my attention wasn’t the familiar voice guiding me through turns, but the traffic light countdown function. I watched in amazement as the seconds ticked down, preparing me for each stop and start with remarkable accuracy.
 
@@ -72,3 +61,6 @@ Zooming out, the world is experiencing a social economic shift, and we are on a 
 With a renewed sense of purpose, I’m poised and eager to embrace the next five years. The recent time at Wolfram Summer School satisfied my curiosity bud around Stephen Wolfram, as well as their ChatGPT integration with symbolic computation (one of my speculation around AGI involves LLM as memory, symbolic computation as chain of thoughts, robotics as AI-world interface, see [https://domijin.github.io/all-about-chatgpt.html](https://domijin.github.io/all-about-chatgpt.html)). This interlude also offered a chance for introspection, aligning my ambitions with the principles of effective altruism, aiming to generate a positive societal impact. Moreover, it was a much-needed period to reconnect with my roots and family in China since pandemic.
 
 I look forward to journaling more insights and discoveries from this recalibrative phase.
+
+---
+*Footnote: First published in [Medium](https://medium.com/@domijin/from-traffic-lights-to-lifes-direction-57176d5d7a06) (October 2023).*

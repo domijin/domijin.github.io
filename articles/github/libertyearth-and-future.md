@@ -1,24 +1,10 @@
----
-title: "LibertyEarth & The Future Project: Collaborative Society & Living Archive"
-author: "Domi Jin (Dongming Jin)"
-date: "2019–2024"
-source: "GitHub (domijin/LibertyEarth & domijin/future)"
-original_url: "https://github.com/domijin/LibertyEarth"
-local_html: "/articles/github/libertyearth-and-future.html"
----
-
-> **Repository Mirror & Reference Copy**
-> This article is archived directly in [`domijin.github.io`](https://github.com/domijin/domijin.github.io) for preservation and offline inspection.
-> - **Original Publication**: [LibertyEarth & The Future Project: Collaborative Society & Living Archive](https://github.com/domijin/LibertyEarth) (GitHub (domijin/LibertyEarth & domijin/future), 2019–2024)
-
 # LibertyEarth & The Future Project: Collaborative Society & Living Archive
 
-# Initiative towards Collaborative Society 
+*Chapter IV · Institutions, Incentives and Possible Futures — By Domi Jin (2020–2025)*
 
 ### __The Vision: Technically Empower People to Collaborate Better__
 
 > preliminary
-
 
 TOC
 
@@ -30,13 +16,13 @@ TOC
     - [Solution: What Do We Do](#what-do-we-do)
 - Approaches
     - [Market (progressive goals)](#first-step)
-    - Product (technology road map), [tech R&D](images/R&D.png)
+    - Product (technology road map), [tech R&D](https://github.com/domijin/LibertyEarth/blob/main/images/R&D.png)
     - Execution Plan: sustainability and feasibility
         - [education approach](#education-approach) 
         - [business approach](#business-approach)
-- [Manifesto](manifesto.md): Brief message of the vision.
-- [Principles Guideline](Principles.md)
-- [Toy Model of Organization](Execution.md)
+- [Manifesto](https://github.com/domijin/LibertyEarth/blob/main/manifesto.md): Brief message of the vision.
+- [Principles Guideline](https://github.com/domijin/LibertyEarth/blob/main/Principles.md)
+- [Toy Model of Organization](https://github.com/domijin/LibertyEarth/blob/main/Execution.md)
 - [Alliance](#Alliance): different paths towards the similar direction
 
 ## Motivation
@@ -44,8 +30,6 @@ TOC
 ### Challenges We Face
 
 `one liner`: Humans are approaching the cognitive limitation in resolving conflicts of interest to land larger-scale mutual-beneficial collaboration. 
-
-![](images/challenges.png)
 
 __What's The Challenge Keeps You Up In The Night?__
 
@@ -61,9 +45,7 @@ It is how everyone is valued and matched, to take ownership to develop, under al
 
 More about Why: [Initiatives on Sociological Practice](http://dongming.uta.cloud/initiatives-on-sociological-practice.html)
 
-
 __What's Your Story To Keep You Up In The Morning?__
-
 
 ## Hypothesis
 
@@ -77,24 +59,18 @@ The coordination challenge in governance: Larger educated population is more fre
 - faster generation: better connectivity with devices having more efficient human-computer interface;
 - higher density: more intense competition drive deeper domain specified skills and experience through higher education. 
 
-
 The Dilemma: Our adaptability (learning ability) are biologically limited, as
 
 - limited attention (information I/O);
 - limited computing（information processing).
 
-
 Alternative explanation: Cognitive Bandwidth issue, nailed by César Hidalgo with [Augmented Democracy](https://www.peopledemocracy.com/).
-
-[<iframe width="560" height="315" src="https://www.youtube.com/embed/CyGWML6cI_k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>](https://youtu.be/CyGWML6cI_k)
-
 
 Direct Consequences: Information Overload that results in divergent cognitive abilities:
 
 - bias from selection effect over the process of learning; 
 - redundant information rephrased from different sources that occupied limited attention;
 - conflicting information that causes recursive cognitive processing cost.
-
 
 In together with the `institutional barriers` detailed below, causes 
 
@@ -105,12 +81,9 @@ In together with the `institutional barriers` detailed below, causes
     - democracy failure that discouraged voters with abusive attention occupation of marketing campaign and cognitive cost to identify fake news (bad faith);
     - collaboration difficulty to resolve global challenges without __effective communication__ with __comprehensive information__ and __constructive organization__ practical in larger scale. 
 
-
 I believe `diversity` is `liberal` and `collaborative`, not discriminative or alienating. 
 
-
 __Cause of `Institutional Barriers`__
-
 
 The [free market](https://en.wikipedia.org/wiki/Free_market) is supposed to optimize the supply and demand without intervention. But information asymmetry naturally exists, which inspired capitalism to take advantage to build `institutional barriers`. Such institutional barriers include, but not limited to military (politics, policies, ideologies), economics (capitals, market power, information), technology (patents, IPs, manufacturing techniques). 
 
@@ -122,21 +95,15 @@ To fill the gap of cognitive ability and information asymmetry caused by such `i
 
 ## What Do We Do
 
-
 __One Plan__
 
 > This part is still under reconstruction: 1. bottom-up way to demonstrate how it can be done; 2. top-down way to demonstrate why I think so. Both are illuminated in the mind note map. 
 
 > Why? My motivation is covered [earlier](#why-this-vision). I also realize that a collaborative society is worth living in that no matter who and how it's been built. And one of the key principle is be [open enough to embrace changes](https://github.com/domijin/LibertyEarth/issues/3). AMA there because at one point, histories are being made regardless. 
 
-
 To break the `institutional barrier` mentioned above, the radical solution will be improve the biological limit of adaptability. But biological changes don't and won't catch up with the timescale of societal evolution any more, due to the fundamental difference of information propagation speed. 
 
-Thus the only possibility I see is giving everyone the access to `Augmented Decision AI` to augment one's decision making ability in a process of `Adaptive Learning`, which involves retrieving information from the collective knowledge base of human civilization and providing decision suggestions with reasonings, through wearable `Human-computer Interface` based on the personal knowledge base, [draft of the R&D plan](images/R&D.png). At the same time, the society needs to be organized with trust and __principles__ to balance `liberty` between individuals and communities. 
-
-
-![](images/roadmap.png)
-
+Thus the only possibility I see is giving everyone the access to `Augmented Decision AI` to augment one's decision making ability in a process of `Adaptive Learning`, which involves retrieving information from the collective knowledge base of human civilization and providing decision suggestions with reasonings, through wearable `Human-computer Interface` based on the personal knowledge base, [draft of the R&D plan](https://github.com/domijin/LibertyEarth/blob/main/images/R&D.png). At the same time, the society needs to be organized with trust and __principles__ to balance `liberty` between individuals and communities. 
 
 Before diving into the detail, let's step back and think about the _cosmology_ of human history. 
 
@@ -153,35 +120,28 @@ My abstraction of `Industrial Revolution` & `Renaissance`:
 9. Smart social contract, social identity & credit system: Collaborative society, less opportunity barrier due to sociological status.
 10. [To be imagined...](#what-to-expect)
 
-
 With that in mind, building an enterprise is one of the best ways to accumulate resources to empower people to be visionaries. It is also the only way to demonstrate the power of collaborative society when the current form of corporations and governments are reaching the ceiling of efficiency. As a community member with ownership (universal basic income + equity), individuals will be best motivated. With principles to let everyone keeps up and gets involved in decision based on the proved ability. We can focus on what's important, to build a corporation as a government (society), to best liberate everyone's productivity, to eventually create abundance for better tomorrow.
 
 - Who: everyone who wants to be part.
 - How: collaborate as a community, a corporation, a society.
 - What for: liberate productivity to create abundance. 
 
-
 Revisit the [Vision](#why-this-vision) and be a part in finding the path towards future with us.
-
 
 ### First Step
 
 It sounds like a hopeless optimistic ideal. But it's possible and I'm making it feasible. Smarter minds like you can join force with [my road map](#how-do-we-do), or propose a better path.
 
-
 We will collaborate on building tools and methodologies for ourselves, other companies, corporations, governments to communicate efficiently and effectively. 
-
 
 ### How To Participate?
 
 Anyone should be a part of the collaborative society, which aims to provide help to liberate everyone, with equal access to the information and basic resources, until catching up by adaptive learning, to become capable, to extend the edge of the collective knowledge base. 
 
-
 TODO
 - [ ] explain about how to improve cognitive ability to take more responsibility.
 - [ ] write about similarity of marketing and education, the abuse of attention
 - [ ] effective autonomy: principle alignment, proposal oriented instead of group oriented, decentralized management with no opportunistic barrier, normalize peer review power. 
-
 
 All supports are recognized!
 
@@ -192,7 +152,7 @@ All supports are recognized!
     1. talk to any community members for detail
     2. ask challenging questions
     3. help congregate into WiKi to iterate the plan
-5. initiate the community principles in slack following the [execution plan](Execution.md) 
+5. initiate the community principles in slack following the [execution plan](https://github.com/domijin/LibertyEarth/blob/main/Execution.md) 
 6. brainstorm the future of society (how people collaborate), future of education (how people adapt), future of manufacturing (how people prosper), future of future (where are we going), as well as who we are.
 7. sign up as future development support
     1. knowledge graph
@@ -210,14 +170,13 @@ All supports are recognized!
     7. decentralized system developers
     8. business developments
 
-
 ## How Do We Do
 
-### [A Toy Plan to Collaborate](Execution.md)
+### [A Toy Plan to Collaborate](https://github.com/domijin/LibertyEarth/blob/main/Execution.md)
 
 Remember, remember, the principles to be a member. 
 
-A brief view of [__Principles in Construction__](Principles.md)
+A brief view of [__Principles in Construction__](https://github.com/domijin/LibertyEarth/blob/main/Principles.md)
 
 - Autonomy
     - Social Contracts
@@ -238,16 +197,14 @@ A brief view of [__Principles in Construction__](Principles.md)
 
 `One can make the shape, but it is all together that can fill the gap.`
 
-
 ### Education Approach
 
 > Preliminary
 
 Adaptive Education
 
-- Ideology with Popular Science: [The plot](sci-fi.md) to build Sci-Fi stories
-- Cognitive ability: [42](42.us.org), case study about gamification on effective learning.
-
+- Ideology with Popular Science: [The plot](https://github.com/domijin/LibertyEarth/blob/main/sci-fi.md) to build Sci-Fi stories
+- Cognitive ability: [42](https://github.com/domijin/LibertyEarth/blob/main/42.us.org), case study about gamification on effective learning.
 
 ### Business Approach
 
@@ -263,7 +220,6 @@ At the same time, the proportional contribution could be the distribution incent
 
 By solving the communication scaling challenge and organization scaling challenge, we may surpass humans biological limit of adaptability for a collaborative society based on effective altruism. 
 
-
 ## What To Expect
 
 In the big picture, guided by the Principle:
@@ -273,13 +229,12 @@ In the big picture, guided by the Principle:
 - A community with trusted like-minds.
 - A stage to liberate your talents.
 
-In the short term, detailed in [Execution Plan](Execution.md#A-spice-about-the-economic-scene):
+In the short term, detailed in [Execution Plan](https://github.com/domijin/LibertyEarth/blob/main/Execution.md#A-spice-about-the-economic-scene):
 
 - Peace of mind with universal basic income.
 - A share of equity matched to your added value.
 
 Nothing is perfect but in Principles we unite. [QA thread](https://github.com/domijin/LibertyEarth/issues/3#issue-427262167).
-
 
 ### What's the future I expect?
 
@@ -314,7 +269,6 @@ Nothing is perfect but in Principles we unite. [QA thread](https://github.com/do
 
 My peek to one of the [loosely-pictured future](http://future.domij.info).
 
-
 ## One More Thing
 
 `I know that I know nothing` -- Socrates
@@ -325,14 +279,13 @@ My peek to one of the [loosely-pictured future](http://future.domij.info).
         - Trust challenge
 	- A better walk-through of the vision, wording, language, etc.
 	- ~~Disclose the road-map towards collective society.~~
-	- Test and iterate the [execution plan](Execution.md).
+	- Test and iterate the [execution plan](https://github.com/domijin/LibertyEarth/blob/main/Execution.md).
 	- Better Name of the Project and a Website.
     - Structure the GitHub to be more operational on collaboration.
         - Directory for Stories
         - Index Resources and ongoing Projects
         - Build WiKi
         - A Website
-
 
 ## Alliance
 
@@ -343,23 +296,5 @@ My peek to one of the [loosely-pictured future](http://future.domij.info).
 - [Canonical Debate Lab](https://canonicaldebatelab.com/), affiliation of Great American Debate and [Democracy Earth](https://democracy.earth/).
 - [Effective Altruism](http://effective-altruism.com), currently an elite group with huge cognitive barrier to scale.
 
-
-
 ---
-
-# Future Project
-
-The Future Project is an open-source living archive that transforms random product ideas into actionable strategies, serving as a source of inspiration and guiding readers towards optimistic futures.
-
-## What?
-
-The Future Project is designed to be a living archive of ideas, beginning with an assortment of random thoughts aimed at crafting product solutions for future benefits. It serves as a dynamic repository that continuously evolves with contributions and refinements.
-
-## Why?
-
-This project aims to act as a lighthouse, guiding readers towards desirable outcomes and serving as a source of inspiration. By fostering a sense of optimism, it encourages individuals and teams to visualize and pursue futures that align with their aspirations and societal needs.
-
-## How?
-
-The Future Project includes a systematic approach to transform ideas into actionable strategies. Each idea is refined into a "minimum valuable product" concept, essentially forming the seed of a hypothetical business case study. This is an open-source initiative that encourages community engagement. Everyone is welcome to comment, commit, implement, or fork the project, provided they acknowledge the source. This collaborative effort is intended to bring the envisioned desirable future closer to reality.
-
+*Footnote: First published in [GitHub Repository (LibertyEarth)](https://github.com/domijin/LibertyEarth) (2020–2025).*

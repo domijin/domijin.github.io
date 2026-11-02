@@ -1,17 +1,6 @@
----
-title: "Building the context for reading expectations"
-author: "Domi Jin (Dongming Jin)"
-date: "Wed, 27 Nov 2024 19:48:00 GMT"
-source: "Substack (Domi's Mind Waves)"
-original_url: "https://domijin.substack.com/p/building-the-context-for-reading"
-local_html: "/articles/substack/building-the-context-for-reading.html"
----
-
-> **Repository Mirror & Reference Copy**
-> This article is archived directly in [`domijin.github.io`](https://github.com/domijin/domijin.github.io) for preservation and offline inspection.
-> - **Original Publication**: [Building the context for reading expectations](https://domijin.substack.com/p/building-the-context-for-reading) (Substack (Domi's Mind Waves), Wed, 27 Nov 2024 19:48:00 GMT)
-
 # Building the context for reading expectations
+
+*Chapter III · Human Agency, Older People’s Independence and Lifelong Play — By Domi Jin (November 2024)*
 
 - 
 
@@ -44,16 +33,7 @@ local_html: "/articles/substack/building-the-context-for-reading.html"
 
 **November 26, 2024:** [Another team building Skynet, in the name of Jarvis — AMA](https://medium.com/@domijin/another-team-building-skynet-in-the-name-of-jarvis-ama-163389dc5285) — this is my medium post sharing my involvement and understanding of the project “ThirdEar/TwinMind” that I’ve cofounded, but stepped down as advisor to avoid conflict of interests & and for the rescue of our friendship.
 
----
-
-If this looks like something authentic and interesting to you, I appreciate your attention. If you feel your attention is well-respected by my prompting, feel free to subscribe.
-
-[Subscribe now](https://domijin.substack.com/subscribe?)
-
----
-
 Your correction to my mistake, will help reduce my bias; your feedback will enlighten my growth; I would love your support in my open-source practices on personal growth.
 
-[Leave a comment](https://domijin.substack.com/p/building-the-context-for-reading/comments)
-
 ---
+*Footnote: First published in [Substack (Domi’s Mind Waves)](https://domijin.substack.com/p/building-the-context-for-reading) (November 2024).*

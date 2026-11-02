@@ -1,211 +1,211 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en-GB">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Tesla, Seniors Love Your Self-Driving—Now Let’s Make It Safer for Them | Domi Jin — Local Archive</title>
-  <link rel="canonical" href="https://domijin.substack.com/p/tesla-seniors-love-your-self-drivingnow" />
+  <title>Tesla, Seniors Love Your Self-Driving—Now Let’s Make It Safer for Them — Domi Jin</title>
+  <meta name="description" content="Tesla, Seniors Love Your Self-Driving—Now Let’s Make It Safer for Them — Essay and technical notes by Domi Jin." />
+  <link rel="canonical" href="https://domij.info/articles/substack/tesla-seniors-love-your-self-drivingnow.html" />
   <style>
     :root {
-      color-scheme: light;
+      --bg: #fcfcfd;
+      --ink: #1e293b;
+      --muted: #64748b;
+      --accent: #2980b9;
+      --border: #e2e8f0;
     }
+    * { box-sizing: border-box; }
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Open Sans", sans-serif;
-      background: #f8fafc;
-      color: #1e293b;
-      line-height: 1.75;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      font-size: 19px;
+      line-height: 1.78;
+      -webkit-font-smoothing: antialiased;
     }
     .topbar {
-      background: #ffffff;
-      border-bottom: 1px solid #e2e8f0;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 13px;
+    }
+    .topbar-inner {
+      max-width: 760px;
+      margin: 0 auto;
       padding: 12px 24px;
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
       gap: 12px;
-      font-size: 13px;
     }
     .topbar a {
-      color: #2980b9;
+      color: var(--accent);
       text-decoration: none;
-      font-weight: 600;
+      font-weight: 500;
     }
-    .topbar a:hover {
-      color: #1DAEDF;
-      text-decoration: underline;
+    .topbar a:hover { text-decoration: underline; }
+    .chapter-badge {
+      color: var(--muted);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
-    .container {
-      max-width: 760px;
-      margin: 36px auto 64px;
-      padding: 0 20px;
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 56px 24px 96px;
     }
-    .provenance-card {
-      background: #f0f9ff;
-      border: 1px solid #bae6fd;
-      border-left: 4px solid #2980b9;
-      border-radius: 12px;
-      padding: 16px 20px;
-      margin-bottom: 28px;
-      font-size: 13px;
-      color: #0c4a6e;
+    header.essay-header {
+      margin-bottom: 40px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
     }
-    .provenance-card a {
-      color: #0284c7;
-      font-weight: 600;
-      word-break: break-all;
-    }
-    article {
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
-      border-radius: 16px;
-      padding: 32px 36px;
-      box-shadow: 0 2px 12px rgba(41, 128, 185, 0.05);
-    }
-    h1 {
-      font-size: 28px;
-      line-height: 1.25;
-      color: #0f172a;
-      margin-top: 0;
-      margin-bottom: 12px;
-    }
-    .meta {
+    .essay-eyebrow {
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 12px;
-      color: #64748b;
-      margin-bottom: 28px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid #f1f5f9;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 12px;
+      display: block;
     }
-    h2, h3, h4 {
+    h1 {
+      font-size: clamp(28px, 4.5vw, 40px);
+      line-height: 1.2;
       color: #0f172a;
-      margin-top: 28px;
-      margin-bottom: 10px;
+      margin: 0 0 14px 0;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+    }
+    .essay-byline {
+      font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    article h2 {
+      font-size: 25px;
+      line-height: 1.3;
+      color: #0f172a;
+      margin: 2.2em 0 0.7em;
+    }
+    article h3 {
+      font-size: 20px;
       line-height: 1.35;
+      color: #1e293b;
+      margin: 1.8em 0 0.6em;
     }
-    p, li {
-      font-size: 16px;
+    article p {
+      margin: 0 0 1.35em 0;
+    }
+    article blockquote {
+      margin: 1.6em 0;
+      padding: 4px 0 4px 20px;
+      border-left: 3px solid var(--accent);
       color: #334155;
-    }
-    p {
-      margin: 16px 0;
-    }
-    ul {
-      padding-left: 22px;
-      margin: 16px 0;
-    }
-    li {
-      margin: 6px 0;
-    }
-    blockquote {
-      margin: 20px 0;
-      padding: 12px 18px;
-      border-left: 3px solid #1DAEDF;
-      background: #f8fafc;
-      color: #475569;
       font-style: italic;
     }
-    pre {
-      background: #0f172a;
-      color: #f8fafc;
-      padding: 16px;
-      border-radius: 10px;
-      overflow-x: auto;
-      font-size: 13px;
-      line-height: 1.5;
+    article ul, article ol {
+      margin: 0 0 1.4em 0;
+      padding-left: 1.5em;
     }
-    code {
+    article li {
+      margin-bottom: 0.45em;
+    }
+    article code {
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      font-size: 0.9em;
+      font-size: 0.86em;
       background: #f1f5f9;
-      padding: 2px 5px;
+      padding: 2px 6px;
       border-radius: 4px;
     }
-    pre code {
-      background: transparent;
-      padding: 0;
+    article a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
     }
-    a {
-      color: #2980b9;
+    .table-wrap {
+      overflow-x: auto;
+      margin: 1.5em 0;
     }
-    hr {
-      border: 0;
-      border-top: 1px solid #e2e8f0;
-      margin: 28px 0;
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: ui-sans-serif, system-ui, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
     }
-    @media (max-width: 640px) {
-      article {
-        padding: 22px 18px;
-      }
-      h1 {
-        font-size: 22px;
-      }
+    th, td {
+      border: 1px solid var(--border);
+      padding: 8px 12px;
+      text-align: left;
+    }
+    th {
+      background: #f8fafc;
+      font-weight: 600;
+      color: #0f172a;
+    }
+    footer.colophon {
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    footer.colophon a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    footer.colophon a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <div class="topbar">
-    <div>
-      <a href="/next/#writings">&larr; Back to Domi Jin (Current Edition)</a>
-      <span style="color:#cbd5e1; margin:0 8px;">|</span>
-      <a href="/articles/">Repository Article Mirror</a>
+  <nav class="topbar" aria-label="Book navigation">
+    <div class="topbar-inner">
+      <a href="/">&larr; Domi Jin &middot; Notes from Research &amp; Practice</a>
+      <span class="chapter-badge">Chapter III · Human Agency, Older People’s Independence and Lifelong Play</span>
+      <a href="/articles/">Table of Contents</a>
     </div>
-    <div>
-      <a href="https://domijin.substack.com/p/tesla-seniors-love-your-self-drivingnow" target="_blank" rel="noopener noreferrer">Original Publication (Substack (Domi&#x27;s Mind Waves)) &#8599;</a>
-    </div>
-  </div>
-  <div class="container">
-    <div class="provenance-card">
-      <strong>Repository Mirror &amp; Reference Copy</strong><br/>
-      Originally published on <strong>Substack (Domi&#x27;s Mind Waves)</strong> (Sat, 15 Mar 2025 18:15:07 GMT).<br/>
-      Original URL: <a href="https://domijin.substack.com/p/tesla-seniors-love-your-self-drivingnow" target="_blank" rel="noopener noreferrer">https://domijin.substack.com/p/tesla-seniors-love-your-self-drivingnow</a>
-      &middot; <a href="tesla-seniors-love-your-self-drivingnow.md">Raw Markdown (.md)</a>
-    </div>
-    <article>
+  </nav>
+  <main>
+    <header class="essay-header">
+      <span class="essay-eyebrow">Chapter III · Human Agency, Older People’s Independence and Lifelong Play</span>
       <h1>Tesla, Seniors Love Your Self-Driving—Now Let’s Make It Safer for Them</h1>
-      <div class="meta">By Domi Jin (Dongming Jin) &middot; Substack (Domi&#x27;s Mind Waves) &middot; Sat, 15 Mar 2025 18:15:07 GMT</div>
+      <div class="essay-byline">By Domi Jin (Dongming Jin) &middot; February 2025</div>
+    </header>
+    <article>
       <p>Many seniors I serve through <strong>Kin Domi</strong> are raving about how Tesla’s self-driving has given them newfound independence. They’re now confident driving on highways, taking long trips, and handling emergency night drives—something they wouldn’t have dared before. Seeing their joy and mobility improve is heartwarming.</p>
-<p>But I can’t shake my concerns. Tesla’s self-driving is impressive, but it’s not foolproof. <strong>Engineers, take a well-deserved pat on the back—but also a deep breath.</strong> You wouldn’t want your grandparents or parents on the road with a potential safety risk.</p>
-<p>I struggle to discourage them from using it because it genuinely enhances their lives. Instead, here’s some feedback I’m hearing from senior users that could make the experience safer and more user-friendly:</p>
-<p>1️⃣ <strong>Reduce panic-inducing alerts.</strong> Sudden warnings make them anxious, sometimes leading to worse reactions. Can non-urgent alerts be delayed until they’re in a safer situation? Also, keeping messages visible longer would help.</p>
-<p>2️⃣ <strong>Pre-drive self-check system.</strong> Some have had minor accidents and worry that sensors might be compromised. A clear checklist or self-diagnostic before engaging self-driving would be invaluable.</p>
-<p>3️⃣ <strong>Better voice control.</strong> The touchscreen is hard to navigate for them—voice commands are their most intuitive interface. Making it more powerful would improve accessibility.</p>
-<p>4️⃣ <strong>Senior-friendly training.</strong> Educational demos or tailored classes could help them understand self-driving better and use it more safely.</p>
-<p>5️⃣ <strong>Vent feature is a hit!</strong> One senior specifically praised the Vent feature for reducing the odor of a new car. She worries that the strong odor could be a health hazard—this highlights the importance of air quality considerations for older users.</p>
-<p>6️⃣ <strong>Senior-focused insurance and service options.</strong> One senior had minor incidents and had to keep driving with concerns because:</p>
-<p>-</p>
-<p>The wait time for service was too long.
--</p>
-<p>She wasn’t sure if third-party services were qualified to assess safety.
--</p>
-<p>She just needed <strong>assurance</strong>.</p>
-<p>Could Tesla offer <strong>a special tier of insurance for seniors</strong>? If service centers are at capacity, could inspections be done remotely or automatically? Could there be clearer guidance on the best next steps for minor incidents?</p>
-<p>Tesla engineers, your work is changing lives. Let’s make sure it’s doing so safely.</p>
-<p>How can we ensure tech empowers without compromising safety? 🚀💡 #Tesla #SelfDriving #SeniorMobility #Accessibility #TechForGood</p>
-<p><a href="https://domijin.substack.com/p/tesla-seniors-love-your-self-drivingnow/comments" target="_blank" rel="noopener noreferrer">Leave a comment</a></p>
-<p>Domi’s Mind Waves is a reader-supported publication. To receive new posts and support my work, consider becoming a free or paid subscriber.</p>
-<hr />
-<p>Adding Chinese translation for my Chinese readers.</p>
-<p>很多通过Kin Domi接受我服务的老人家都对特斯拉的自动驾驶赞不绝口，说这让他们重新找回了独立感。现在他们敢上高速、跑长途，甚至晚上遇到紧急情况也能自己开车——这些以前他们想都不敢想。看到他们这么开心，行动也方便了，真的让人心里暖暖的。</p>
-<p>不过，我还是有点担心。特斯拉的自动驾驶虽然厉害，但也不是百分百靠谱。工程师们，你们确实该为自己鼓掌——但也得冷静一下。你们总不想让自己的爷爷奶奶或者爸妈在路上冒风险吧？</p>
-<p>我也很难劝他们别用，因为这技术确实让他们的生活更方便了。所以，我整理了一些老年用户的反馈，希望能让这功能用起来更安全、更顺手：</p>
-<p>1️⃣ <strong>减少吓人的警报</strong>。突然跳出来的警告会让他们紧张，有时候反而让他们手忙脚乱。能不能把不太紧急的提示延迟到他们安全了再显示？另外，提示信息显示久一点也会更好。</p>
-<p>2️⃣ <strong>开车前自检系统</strong>。有些老人家出过小事故，担心传感器可能坏了。如果在开启自动驾驶前，能有个清楚的自检清单或者自动诊断功能，那就太棒了。</p>
-<p>3️⃣ <strong>语音控制再强点</strong>。触摸屏对他们来说有点难操作——语音命令反而是最顺手的。如果把语音功能做得更强大，用起来会更方便。</p>
-<p>4️⃣ <strong>给老年人专门培训</strong>。搞点教学视频或者专门课程，帮他们更好地理解自动驾驶，用起来也更安全。</p>
-<p>5️⃣ <strong>通风功能好评！</strong>有位老人家特别夸了通风功能，说新车味道小多了。她还担心新车味道太重对身体不好——这也提醒我们，老年用户对车内空气质量很在意。</p>
-<p>6️⃣ <strong>给老年人定制保险和服务</strong>。有位老人家出了小事故，但因为以下原因不得不继续开车：</p>
-<p>-</p>
-<p>等维修的时间太长。
--</p>
-<p>她不确定外面的修车店靠不靠谱。
--</p>
-<p>她只是想要个明确的保证。</p>
-<p>特斯拉能不能给老年人搞个专门的保险？如果服务中心太忙，能不能远程检测或者自动检测？出了小事故，能不能给个更清楚的下一步指导？</p>
-<p>特斯拉的工程师们，你们的技术真的改变了很多人的生活。咱们得确保它是安全的。</p>
-<p>怎么才能让科技既帮到人，又不牺牲安全呢？🚀💡 #特斯拉 #自动驾驶 #老年人出行 #无障碍 #科技向善</p>
+      <p>But I can’t shake my concerns. Tesla’s self-driving is impressive, but it’s not foolproof. <strong>Engineers, take a well-deserved pat on the back—but also a deep breath.</strong> You wouldn’t want your grandparents or parents on the road with a potential safety risk.</p>
+      <p>I struggle to discourage them from using it because it genuinely enhances their lives. Instead, here’s some feedback I’m hearing from senior users that could make the experience safer and more user-friendly:</p>
+      <p>1️⃣ <strong>Reduce panic-inducing alerts.</strong> Sudden warnings make them anxious, sometimes leading to worse reactions. Can non-urgent alerts be delayed until they’re in a safer situation? Also, keeping messages visible longer would help.</p>
+      <p>2️⃣ <strong>Pre-drive self-check system.</strong> Some have had minor accidents and worry that sensors might be compromised. A clear checklist or self-diagnostic before engaging self-driving would be invaluable.</p>
+      <p>3️⃣ <strong>Better voice control.</strong> The touchscreen is hard to navigate for them—voice commands are their most intuitive interface. Making it more powerful would improve accessibility.</p>
+      <p>4️⃣ <strong>Senior-friendly training.</strong> Educational demos or tailored classes could help them understand self-driving better and use it more safely.</p>
+      <p>5️⃣ <strong>Vent feature is a hit!</strong> One senior specifically praised the Vent feature for reducing the odor of a new car. She worries that the strong odor could be a health hazard—this highlights the importance of air quality considerations for older users.</p>
+      <p>6️⃣ <strong>Senior-focused insurance and service options.</strong> One senior had minor incidents and had to keep driving with concerns because:</p>
+      <p>The wait time for service was too long. -</p>
+      <p>She wasn’t sure if third-party services were qualified to assess safety. -</p>
+      <p>She just needed <strong>assurance</strong>.</p>
+      <p>Could Tesla offer <strong>a special tier of insurance for seniors</strong>? If service centers are at capacity, could inspections be done remotely or automatically? Could there be clearer guidance on the best next steps for minor incidents?</p>
+      <p>Tesla engineers, your work is changing lives. Let’s make sure it’s doing so safely.</p>
+      <p>How can we ensure tech empowers without compromising safety? 🚀💡 #Tesla #SelfDriving #SeniorMobility #Accessibility #TechForGood</p>
     </article>
-  </div>
+    <footer class="colophon">
+      <p>
+        <strong>Footnote:</strong> First published in
+        <a href="https://domijin.substack.com/p/tesla-seniors-love-your-self-drivingnow" rel="noopener noreferrer" target="_blank">Substack (Domi’s Mind Waves)</a>
+        (February 2025). Part of <em>Domi Jin — Notes from Research and Practice</em>.
+      </p>
+    </footer>
+  </main>
 </body>
 </html>

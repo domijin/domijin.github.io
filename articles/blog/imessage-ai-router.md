@@ -1,17 +1,6 @@
----
-title: "Life Hack: iMessage as a Low-Bandwidth Router to the Internet"
-author: "Domi Jin (Dongming Jin)"
-date: "April 2026"
-source: "domij.info Beta Specification"
-original_url: "https://domij.info/beta/"
-local_html: "/articles/blog/imessage-ai-router.html"
----
-
-> **Repository Mirror & Reference Copy**
-> This article is archived directly in [`domijin.github.io`](https://github.com/domijin/domijin.github.io) for preservation and offline inspection.
-> - **Original Publication**: [Life Hack: iMessage as a Low-Bandwidth Router to the Internet](https://domij.info/beta/) (domij.info Beta Specification, April 2026)
-
 # Life Hack: iMessage as a Low-Bandwidth Router to the Internet
+
+*Chapter III · Human Agency, Older People’s Independence and Lifelong Play — By Domi Jin (April 2026)*
 
 ## Overview
 
@@ -28,3 +17,5 @@ A tiny HCI harness for agent interfaces: use the ordinary iMessage channel to qu
 
 - [Interactive Beta Page (`/beta/`)](/beta/)
 
+---
+*Footnote: First published in [Domi’s Universe (domij.info/beta)](https://domij.info/beta/) (April 2026).*

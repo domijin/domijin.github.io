@@ -1,17 +1,6 @@
----
-title: "Why TikTok is so popular"
-author: "Domi Jin (Dongming Jin)"
-date: "Tue, 26 Nov 2024 16:04:37 GMT"
-source: "Medium (@domijin)"
-original_url: "https://domijin.medium.com/why-tiktok-is-so-popular-6fcc7b678bc7"
-local_html: "/articles/medium/why-tiktok-is-so-popular-6fcc7b678bc7.html"
----
-
-> **Repository Mirror & Reference Copy**
-> This article is archived directly in [`domijin.github.io`](https://github.com/domijin/domijin.github.io) for preservation and offline inspection.
-> - **Original Publication**: [Why TikTok is so popular](https://domijin.medium.com/why-tiktok-is-so-popular-6fcc7b678bc7) (Medium (@domijin), Tue, 26 Nov 2024 16:04:37 GMT)
-
 # Why TikTok is so popular
+
+*Chapter IV · Institutions, Incentives and Possible Futures — By Domi Jin (February 2020)*
 
 ## Why is video taking over text? A few thoughts
 
@@ -26,3 +15,6 @@ local_html: "/articles/medium/why-tiktok-is-so-popular-6fcc7b678bc7.html"
 5.	Continuous flow = influence: Videos don’t let you pause and think the way text does. That’s why they’re perfect for subtle nudges, storytelling, or even low-key persuasion.
 
 Sure, text is still king when it comes to depth and efficiency, but video wins in reach and relatability. It’s not better or worse — just different tools for different audiences.
+
+---
+*Footnote: First published in [Medium](https://medium.com/@domijin/why-tiktok-is-so-popular-6fcc7b678bc7) (February 2020).*

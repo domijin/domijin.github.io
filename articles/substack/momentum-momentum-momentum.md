@@ -1,17 +1,6 @@
----
-title: "Momentum, Momentum, Momentum!"
-author: "Domi Jin (Dongming Jin)"
-date: "Mon, 16 Dec 2024 19:46:24 GMT"
-source: "Substack (Domi's Mind Waves)"
-original_url: "https://domijin.substack.com/p/momentum-momentum-momentum"
-local_html: "/articles/substack/momentum-momentum-momentum.html"
----
-
-> **Repository Mirror & Reference Copy**
-> This article is archived directly in [`domijin.github.io`](https://github.com/domijin/domijin.github.io) for preservation and offline inspection.
-> - **Original Publication**: [Momentum, Momentum, Momentum!](https://domijin.substack.com/p/momentum-momentum-momentum) (Substack (Domi's Mind Waves), Mon, 16 Dec 2024 19:46:24 GMT)
-
 # Momentum, Momentum, Momentum!
+
+*Chapter IV · Institutions, Incentives and Possible Futures — By Domi Jin (December 2024)*
 
 **Overview**  
 This week marked a significant milestone in both personal and professional growth. From incorporating [Kin Domi, Inc](https://kindomi.net/). to deepening user research and securing a path forward for visa challenges, the momentum has been incredible. The team is aligned, user feedback is promising, and meaningful connections are being formed at every step.
@@ -52,18 +41,6 @@ Ethical concerns regarding outreach to senior communities. Developed a strategy 
 
 Visa sponsorship. A clear path has now been defined after consulting with lawyers.
 
----
-
-**Highlights of the Week**
-
-**1. A Root of Community Growth**  
-While volunteering at Gamble Garden, I tackled an actual root—one planted back in June. The effort not only earned me a feature in the garden's newsletter but also led to a meaningful user interview with the garden manager. She was so inspired by our mission that she referred me to the executive director for future collaboration. This experience was symbolic: digging up roots of the past while planting seeds for a future deeply rooted in community connections.
-
-**2. The Unexpected Investor**  
-A visit to my previous landlord turned into an enlightening user interview. As we caught up, he expressed interest in investing in the venture. This moment felt special—not only because he could become a willing to pay customer, but also because it demonstrated how personal connections can lead to tangible opportunities. We’re now considering making him a customer advocate advisor and organizing a tenant-landlord gathering in January to further engage his community.
-
----
-
 **Celebrations & Appreciations**
 
 - 
@@ -92,3 +69,6 @@ Resume pitch deck design with the team.
 Deepen connections with local communities while maintaining ethical practices.
 
 This week showcased the power of perseverance, relationships, and community-driven growth. Every step forward feels like planting another root for Kin Domi, Inc. to grow.
+
+---
+*Footnote: First published in [Substack (Domi’s Mind Waves)](https://domijin.substack.com/p/momentum-momentum-momentum) (December 2024).*

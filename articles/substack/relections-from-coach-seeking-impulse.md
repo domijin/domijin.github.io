@@ -1,17 +1,6 @@
----
-title: "Reflections from coach-seeking impulse"
-author: "Domi Jin (Dongming Jin)"
-date: "Sun, 01 Dec 2024 19:01:27 GMT"
-source: "Substack (Domi's Mind Waves)"
-original_url: "https://domijin.substack.com/p/relections-from-coach-seeking-impulse"
-local_html: "/articles/substack/relections-from-coach-seeking-impulse.html"
----
-
-> **Repository Mirror & Reference Copy**
-> This article is archived directly in [`domijin.github.io`](https://github.com/domijin/domijin.github.io) for preservation and offline inspection.
-> - **Original Publication**: [Reflections from coach-seeking impulse](https://domijin.substack.com/p/relections-from-coach-seeking-impulse) (Substack (Domi's Mind Waves), Sun, 01 Dec 2024 19:01:27 GMT)
-
 # Reflections from coach-seeking impulse
+
+*Chapter III · Human Agency, Older People’s Independence and Lifelong Play — By Domi Jin (December 2024)*
 
 Here are the lessons I learned.
 
@@ -39,4 +28,5 @@ Coaching and mentoring can happen from anywhere with any person, it only depends
 
 Words (lessons) are cheap, actions (practices) matter.
 
-Domi’s Mind Waves is a reader-supported publication. To receive new posts and support my work, consider becoming a free or paid subscriber.
+---
+*Footnote: First published in [Substack (Domi’s Mind Waves)](https://domijin.substack.com/p/relections-from-coach-seeking-impulse) (December 2024).*

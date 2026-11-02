@@ -1,241 +1,232 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en-GB">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Agent-Based Advertising System &amp; Observations in Performance Advertising | Domi Jin — Local Archive</title>
-  <link rel="canonical" href="https://github.com/domijin/observations_in_advertising" />
+  <title>Agent-Based Advertising System &amp; Observations in Performance Advertising — Domi Jin</title>
+  <meta name="description" content="Agent-Based Advertising System &amp; Observations in Performance Advertising — Essay and technical notes by Domi Jin." />
+  <link rel="canonical" href="https://domij.info/articles/github/observations-in-advertising.html" />
   <style>
     :root {
-      color-scheme: light;
+      --bg: #fcfcfd;
+      --ink: #1e293b;
+      --muted: #64748b;
+      --accent: #2980b9;
+      --border: #e2e8f0;
     }
+    * { box-sizing: border-box; }
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Open Sans", sans-serif;
-      background: #f8fafc;
-      color: #1e293b;
-      line-height: 1.75;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      font-size: 19px;
+      line-height: 1.78;
+      -webkit-font-smoothing: antialiased;
     }
     .topbar {
-      background: #ffffff;
-      border-bottom: 1px solid #e2e8f0;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 13px;
+    }
+    .topbar-inner {
+      max-width: 760px;
+      margin: 0 auto;
       padding: 12px 24px;
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
       gap: 12px;
-      font-size: 13px;
     }
     .topbar a {
-      color: #2980b9;
+      color: var(--accent);
       text-decoration: none;
-      font-weight: 600;
+      font-weight: 500;
     }
-    .topbar a:hover {
-      color: #1DAEDF;
-      text-decoration: underline;
+    .topbar a:hover { text-decoration: underline; }
+    .chapter-badge {
+      color: var(--muted);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
-    .container {
-      max-width: 760px;
-      margin: 36px auto 64px;
-      padding: 0 20px;
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 56px 24px 96px;
     }
-    .provenance-card {
-      background: #f0f9ff;
-      border: 1px solid #bae6fd;
-      border-left: 4px solid #2980b9;
-      border-radius: 12px;
-      padding: 16px 20px;
-      margin-bottom: 28px;
-      font-size: 13px;
-      color: #0c4a6e;
+    header.essay-header {
+      margin-bottom: 40px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
     }
-    .provenance-card a {
-      color: #0284c7;
-      font-weight: 600;
-      word-break: break-all;
-    }
-    article {
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
-      border-radius: 16px;
-      padding: 32px 36px;
-      box-shadow: 0 2px 12px rgba(41, 128, 185, 0.05);
-    }
-    h1 {
-      font-size: 28px;
-      line-height: 1.25;
-      color: #0f172a;
-      margin-top: 0;
-      margin-bottom: 12px;
-    }
-    .meta {
+    .essay-eyebrow {
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 12px;
-      color: #64748b;
-      margin-bottom: 28px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid #f1f5f9;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 12px;
+      display: block;
     }
-    h2, h3, h4 {
+    h1 {
+      font-size: clamp(28px, 4.5vw, 40px);
+      line-height: 1.2;
       color: #0f172a;
-      margin-top: 28px;
-      margin-bottom: 10px;
+      margin: 0 0 14px 0;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+    }
+    .essay-byline {
+      font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    article h2 {
+      font-size: 25px;
+      line-height: 1.3;
+      color: #0f172a;
+      margin: 2.2em 0 0.7em;
+    }
+    article h3 {
+      font-size: 20px;
       line-height: 1.35;
+      color: #1e293b;
+      margin: 1.8em 0 0.6em;
     }
-    p, li {
-      font-size: 16px;
+    article p {
+      margin: 0 0 1.35em 0;
+    }
+    article blockquote {
+      margin: 1.6em 0;
+      padding: 4px 0 4px 20px;
+      border-left: 3px solid var(--accent);
       color: #334155;
-    }
-    p {
-      margin: 16px 0;
-    }
-    ul {
-      padding-left: 22px;
-      margin: 16px 0;
-    }
-    li {
-      margin: 6px 0;
-    }
-    blockquote {
-      margin: 20px 0;
-      padding: 12px 18px;
-      border-left: 3px solid #1DAEDF;
-      background: #f8fafc;
-      color: #475569;
       font-style: italic;
     }
-    pre {
-      background: #0f172a;
-      color: #f8fafc;
-      padding: 16px;
-      border-radius: 10px;
-      overflow-x: auto;
-      font-size: 13px;
-      line-height: 1.5;
+    article ul, article ol {
+      margin: 0 0 1.4em 0;
+      padding-left: 1.5em;
     }
-    code {
+    article li {
+      margin-bottom: 0.45em;
+    }
+    article code {
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      font-size: 0.9em;
+      font-size: 0.86em;
       background: #f1f5f9;
-      padding: 2px 5px;
+      padding: 2px 6px;
       border-radius: 4px;
     }
-    pre code {
-      background: transparent;
-      padding: 0;
+    article a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
     }
-    a {
-      color: #2980b9;
+    .table-wrap {
+      overflow-x: auto;
+      margin: 1.5em 0;
     }
-    hr {
-      border: 0;
-      border-top: 1px solid #e2e8f0;
-      margin: 28px 0;
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: ui-sans-serif, system-ui, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
     }
-    @media (max-width: 640px) {
-      article {
-        padding: 22px 18px;
-      }
-      h1 {
-        font-size: 22px;
-      }
+    th, td {
+      border: 1px solid var(--border);
+      padding: 8px 12px;
+      text-align: left;
+    }
+    th {
+      background: #f8fafc;
+      font-weight: 600;
+      color: #0f172a;
+    }
+    footer.colophon {
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    footer.colophon a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    footer.colophon a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <div class="topbar">
-    <div>
-      <a href="/next/#writings">&larr; Back to Domi Jin (Current Edition)</a>
-      <span style="color:#cbd5e1; margin:0 8px;">|</span>
-      <a href="/articles/">Repository Article Mirror</a>
+  <nav class="topbar" aria-label="Book navigation">
+    <div class="topbar-inner">
+      <a href="/">&larr; Domi Jin &middot; Notes from Research &amp; Practice</a>
+      <span class="chapter-badge">Chapter II · Decisions Under Constraints</span>
+      <a href="/articles/">Table of Contents</a>
     </div>
-    <div>
-      <a href="https://github.com/domijin/observations_in_advertising" target="_blank" rel="noopener noreferrer">Original Publication (GitHub (domijin/observations_in_advertising)) &#8599;</a>
-    </div>
-  </div>
-  <div class="container">
-    <div class="provenance-card">
-      <strong>Repository Mirror &amp; Reference Copy</strong><br/>
-      Originally published on <strong>GitHub (domijin/observations_in_advertising)</strong> (January 2025).<br/>
-      Original URL: <a href="https://github.com/domijin/observations_in_advertising" target="_blank" rel="noopener noreferrer">https://github.com/domijin/observations_in_advertising</a>
-      &middot; <a href="observations-in-advertising.md">Raw Markdown (.md)</a>
-    </div>
-    <article>
+  </nav>
+  <main>
+    <header class="essay-header">
+      <span class="essay-eyebrow">Chapter II · Decisions Under Constraints</span>
       <h1>Agent-Based Advertising System &amp; Observations in Performance Advertising</h1>
-      <div class="meta">By Domi Jin (Dongming Jin) &middot; GitHub (domijin/observations_in_advertising) &middot; January 2025</div>
-      <h2>Trace of AppLovin&#x27;s 7x Annual Hypergrowth</h2>
-<h2>Part I: Unpacking AppLovin&#x27;s Hypergrowth</h2>
-<p>This year, AppLovin&#x27;s market cap has soared by over 700%. This extraordinary growth prompted me to reflect on the forces driving such success. I’ve distilled my observations into four key areas: <strong>business</strong>, <strong>data</strong>, <strong>product</strong>, and <strong>culture</strong>.</p>
-<h3>1. Business Dynamics</h3>
-<ul><li><strong>Expanding Ad Reach</strong>: AppLovin effectively diversified its ad portfolio. Gaming users are also e-commerce consumers, and e-commerce ads often yield higher returns than gaming ads, broadening AppLovin&#x27;s ad revenue streams.</li><li><strong>Reusable Insights</strong>: Behavioral data from gaming translates into predictive insights for e-commerce preferences, reducing the need for model reinvention.</li></ul>
-<h3>2. Data Advantage</h3>
-<ul><li><strong>Rich Contextual Data</strong>: Gaming users’ long engagement sessions and high retention yield abundant, high-quality user data—fuel for superior ad targeting.</li><li><strong>Scaling Law in Action</strong>: The deep learning revolution continues to affirm that model performance improves with better data—richer, more granular, and multimodal.</li></ul>
-<h3>3. Product Positioning Excellence</h3>
-<ul><li><strong>Latency Tolerance</strong>: Unlike real-time ad platforms, TikTok, Facebook, and AppLovin&#x27;s models can tolerate slightly higher latency, enabling larger models and better personalization.</li><li><strong>Visionary Leadership</strong>: Strategic decisions like in-house game development, MAX mediation, and e-commerce integration reflect foresight and adaptability.</li></ul>
-<h3>4. Culture: Agile and Execution-Driven</h3>
-<ul><li><strong>&quot;Wolfer&quot; Mentality</strong>: AppLovin’s culture is defined by agility, accountability, and relentless execution, backed by smart leadership.</li><li><strong>Cohesive Team</strong>: Success stems from dedicated, adaptable teams that consistently deliver high-impact results.</li></ul>
-<h2>Part II: Observations in the Performance Advertising Industry</h2>
-<p>Performance advertising sits at the crossroads of <strong>technological ingenuity</strong> and <strong>economic strategy</strong>. It is where I’ve gained insights into the evolving interplay of data, technology, and human behavior.</p>
-<p>| <strong>Observation</strong> | <strong>Hypothesis</strong> | <strong>Implications</strong>|
-|-|-|-|
-| AppLovin validated that <strong>gamers</strong> are also <strong>interested in e-commerce ads.</strong> | User interests are multifaceted, rendering traditional segmentation outdated. | Ad strategies can blend genres to attract diverse user interests. &lt;br&gt; - <strong>Example:</strong> Content platforms like Amazon Prime Video could incorporate gaming ads for cross-promotion. |
-| AppLovin demonstrated that <strong>game user data</strong> can be effectively applied to <strong>e-commerce ad delivery models.</strong> | Behavioral data is <strong>adaptable</strong> across <strong>verticals</strong>. | Existing models underutilize the full potential of user data. &lt;br&gt; - <strong>Example:</strong> Super apps in China demonstrate how <strong>cross-vertical scaling</strong> can yield <strong>compounding returns with minimal incremental investment.</strong>  |
-| 1. AppLovin uses gaming data to enhance e-commerce ad models. &lt;br&gt; 2. Miles leverage mobility data for affiliate marketing. &lt;br&gt; 3. TikTok&#x27;s active user engagement data fuels the best recommendation model. | The scaling law persists: <strong>better data</strong> (high quality, granularity, dimensionality and modality) <strong>results better model performance.</strong> | <strong>Algorithm-friendly product design</strong>, like swipe-to-refresh ad interactions, will become prevalent. &lt;br&gt; Integrating <strong>offline signals</strong>, like location-based habits, will also grow. &lt;br&gt; Generative AI and LLMs will unlock <strong>affective computing</strong> and <strong>richer data modalities</strong>, driving new opportunities. |
-| 1. <strong>&quot;Free&quot;</strong> services <strong>trade privacy as a commodity</strong>. &lt;br&gt; 2. <strong>Semiconductor</strong> sensors (e.g., gyroscope, LiDAR, touchscreens, biometric sensors, security cameras) experience exponential growth. &lt;br&gt; 3. Data and privacy <strong>regulations</strong> struggle to keep pace. | <strong>Surveillance capitalism</strong> thrives on <strong>ambient data collection</strong>. &lt;br&gt; <strong>Products are more addictive</strong> than ever, using <strong>psychologically engineering</strong>. &lt;br&gt; <strong>Attention</strong> drives <strong>engagement</strong>, and engagement fuels the <strong>economy</strong>. | <strong>Sophisticated attribution systems</strong> (akin to multi-passenger astronomy) enable advertisers to infer user traits from subtle behavioral cues, such as location history. &lt;br&gt; <strong>Users underestimate</strong> the depth and breadth of <strong>privacy erosion</strong> when giving <strong>data access consent</strong>, fueling a data &quot;gold rush.&quot; &lt;br&gt; <strong>Gamification, nudge theory, network effects, and &quot;human&quot;-centric designs</strong> are Swiss Army knives for product gurus and growth hackers. |
-| 1. Walmart Connect uses kiosks to show ads at checkout. &lt;br&gt; 2. Unity places ad units within game environments. &lt;br&gt; 3. Merchants are integrating ads into storefront connected TVs. | The rise of <strong>“spontaneous” ad placements</strong> signal a potential <strong>paradigm shift</strong> toward <strong>inception capitalism</strong>, where users&#x27; minds are <strong>less guarded</strong> against non-primary content displays. | AR/VR and voice AI can create immersive, mood-aligned ad experiences that feel less intrusive &lt;br&gt; - <strong>Example:</strong> <strong>Hollywood</strong>&#x27;s use of storytelling to shape cultural values. &lt;br&gt; <strong>In-situ advertising with CTV</strong> has the potential to surpass traditional poster ads and TV commercials due to its dynamic and attributable nature. &lt;br&gt; <strong>Voice ads</strong> leverage emotion-rich, less attention-invasive qualities. &lt;br&gt; - <strong>Example:</strong> The success of Google’s NotebookML podcasting feature highlights voice ads&#x27; potential. &lt;br&gt; <strong>Shift from correlation to causality in context modeling:</strong> Emerging systems, like TikTok’s real-time recommendation engine, leverage exploratory models to extract behavioral patterns, enhancing upper-stage relevance modeling and attribution.|</p>
-<blockquote>Performance advertising is a vast and ever-evolving domain, far too complex to be fully captured within the confines of a single table or essay.</blockquote>
-<blockquote>My aim here is to distill key signals and make educated guesses about future trends, but this effort is merely the starting point. I hope this piece serves as thought-provoking material for colleagues and domain experts to comment on, debate, or expand upon.</blockquote>
-<blockquote>To encourage collaboration, I have published this work on Medium to collect feedbacks. For those motivated to amend, extend, or develop the content, I’ve also created a [GitHub repository](https://github.com/domijin/observations_in_advertising) to make this a living collections of ideas, insights, and practices.</blockquote>
-<h3>Highlights of the Potential Paradigm Shift</h3>
-<p>As a closing to this section, I’d like to highlight four key areas where the most impactful changes in performance advertising are taking shape:</p>
-<p>1. Sensing:
-    - Deep sensing enabled by extensive attribution to build long and dense contextual understanding (though still far from the complexity of real life).
-    - Algorithm-friendly product designs that facilitate the collection of more granular and actionable data.
-    - Ambient data collection techniques that gather subtle and contextual insights.
-2. Display:
-    - Advances in affective computing, enabling emotionally resonant and impactful ad interactions.
-    - Multi-channel content delivery that ensures seamless engagement across diverse platforms.
-3. From Surveillance to Inception Capitalism:
-    - Spontaneous content display that seamlessly integrates ads into everyday user experiences.
-    - Emerging causal modeling moves beyond simple correlation, leveraging online learning for deeper contextual intent understanding.
-4. Dynamic Ad Content Generation:
-    - Generative AI enabling personalized, emotion-rich ad experiences.
-    - A new gig economy driven by crowdsourcing ad production, enabling greater creativity and scalability in ad creation.</p>
-<blockquote>Due to space constraints, I have not elaborated on the details of Dynamic Ad Content Generation—a trend widely regarded as straightforward to anticipate given the rise of generative AI. Similarly, I’ve omitted my executive insights, which could serve as references for teams evaluating similar opportunities. For those interested, feel free to reach out directly for further discussion.</blockquote>
-<h2>Part III: The Growth Trap</h2>
-<p>As the performance advertising industry scales, it faces an <strong>economic and ethical paradox</strong>. Growth relies on scaling data collection and insights, but the <strong>cost</strong>—financial, ethical, and social—<strong>escalates exponentially</strong>.</p>
-<h3>The Scaling Law&#x27;s Economic Limits</h3>
-<p>The scaling law promises improved model performance with more data but encounters diminishing returns. Achieving &quot;perfect&quot; contextual understanding is costly and often impractical, especially when privacy concerns and regulations add complexity.</p>
-<h3>The Demand-Driven Economy&#x27;s Flaws</h3>
-<p>Modern capitalism thrives on <strong>stimulating demand</strong>, often prioritizing marketing over innovation. While marketing connects consumers with valuable products, it can also distort market dynamics, <strong>promoting visibility over quality.</strong></p>
-<p>1. <strong>Consumer Fatigue</strong>: Excessive advertising leads to disengagement.
-2. <strong>Regulatory Risks</strong>: Privacy and ethical concerns invite scrutiny, potentially disrupting business models.
-3. <strong>Competitive Erosion</strong>: Rapid imitation erodes first-mover advantages in a saturated market.</p>
-<h3>Challenge and Opportunities</h3>
-<p>The pitfalls of an economy dominated by material growth and competition have led to a <strong>monolithic</strong> form of progress, a decrease in diversity and richness of experiences, and an increasingly fragile market structure.</p>
-<ul><li><strong>Erosion of Mental Well-being</strong>: The pursuit of instant gratification in entertainment, consumption, and emotional engagement leaves no room for deep, meaningful development.</li></ul>
-<ul><li><strong>Hierarchy of Needs</strong>: People are seeking more than just fulfillment of basic needs; they want emotional satisfaction and personalized experiences. This personalization requires building sufficient personal context to meet users&#x27; true interests and aspirations.</li></ul>
-<ul><li><strong>Future of Education</strong>: Education must be adaptive and exploratory, promoting lifelong learning. Products that reinforce this kind of adaptive learning will grow with their users.</li></ul>
-<h2>Potential Path Forward</h2>
-<h3>A Glimpse into the Future</h3>
-<p>I envision a world where advertising shifts from <strong>driving demand</strong> to <strong>fostering enlightenment</strong>. By aligning with users’ <strong>intrinsic motivations and aspirations</strong>, we can create technologies that <strong>empower</strong> individuals to achieve their full potential.</p>
-<p>This essay marks the beginning of a broader dialogue. I invite readers to share insights, debate ideas, and collaborate on solutions that address the systemic challenges in performance advertising and beyond.</p>
-<hr />
-<h3>Who Am I</h3>
-<p>I’ve found what feels like the highest mountain: <strong>liberating</strong> humanity from the demand-driven market powered by surveillance capitalism and <strong>recalibrating</strong> societal priorities by breaking the <strong>power imbalances</strong> created by <strong>information asymmetry</strong>. But I know this peak is only the beginning.</p>
-<p>Beyond this summit lie greater challenges and higher mountains, waiting for humanity to ascend. The view from each peak will inspire new visions for the future, illuminating paths we never imagined. To strive for these heights, and to inspire others to do the same, is a mission worth dedicating a lifetime to—and perhaps even dying for.</p>
-<h3>Where Am I From - My Relevant Background</h3>
-<p>By way of introduction:</p>
-<ul><li>At <strong>Miles</strong>, I helped build a recommendation engine that extracted and monetized context from mobility data, such as travel patterns and GPS-based location histories. We used offline insights to power affiliate marketing for local businesses.</li><li>At <strong>Thumbtack</strong>, I worked on pricing strategies for a local home services marketplace. My work included exploring generative AI for request flows and organic content creation, advocating for an educational and inspirational content platform to bridge the information gap between users and professionals, improve market efficiency, and generate organic traffic.</li><li>At <strong>AppLovin</strong>, I served as the first data scientist in the research scientist team, focusing on product analytics, model performance evaluation, and partnership insights.</li></ul>
-<p>This diverse experience across recommendation systems, generative AI, and advertising analytics shapes my perspective on the trends and shifts outlined in this essay.</p>
-<h3>What Do I Long For</h3>
-<p>I envision a world where <strong>enlightenment through education</strong> plays a pivotal role in fostering a sustainable society. By <strong>promoting self-awareness</strong>, <strong>empowering</strong> people to explore externally, and reflecting internally, individuals would achieve <strong>self-realization and self-actualization</strong>. Such a society would transcend material desires and embrace a philosophical journey—one where <strong>mutual enlightenment and collaborative practices</strong> allow individuals to pursue their <strong>intrinsic value and self-actualization</strong> through <strong>peer learning and social interaction.</strong></p>
-<p>I see a future where technology is used to <a href="https://domijin.github.io/pages/about-me.html" target="_blank" rel="noopener noreferrer"><strong>empower people to collaborate better</strong></a>: <a href="https://domijin.github.io/manifesto.html" target="_blank" rel="noopener noreferrer">manifesto</a> and <a href="https://github.com/domijin/LibertyEarth" target="_blank" rel="noopener noreferrer">initiative</a>.</p>
-<ul><li>From <strong>Enlightenment to Illumination</strong>: Moving society from basic enlightenment to a state where individual potential is fully ignited.</li><li>A future where production matches personalized needs and <strong>communal creativity</strong> thrives.</li></ul>
-<p>This essay merely scratches the surface of my reflections on the modern economy, marketing-driven capitalism, and its hidden implications. These challenges—rooted in demand-driven logic—have shaped my journey in learning and seeking solutions.</p>
+      <div class="essay-byline">By Domi Jin (Dongming Jin) &middot; January 2025</div>
+    </header>
+    <article>
+      <h2>Part I: Unpacking AppLovin&#x27;s Hypergrowth</h2>
+      <p>This year, AppLovin&#x27;s market cap has soared by over 700%. This extraordinary growth prompted me to reflect on the forces driving such success. I’ve distilled my observations into four key areas: <strong>business</strong>, <strong>data</strong>, <strong>product</strong>, and <strong>culture</strong>.</p>
+      <h3>1. Business Dynamics</h3>
+      <ul><li><strong>Expanding Ad Reach</strong>: AppLovin effectively diversified its ad portfolio. Gaming users are also e-commerce consumers, and e-commerce ads often yield higher returns than gaming ads, broadening AppLovin&#x27;s ad revenue streams.</li><li><strong>Reusable Insights</strong>: Behavioral data from gaming translates into predictive insights for e-commerce preferences, reducing the need for model reinvention.</li></ul>
+      <h3>2. Data Advantage</h3>
+      <ul><li><strong>Rich Contextual Data</strong>: Gaming users’ long engagement sessions and high retention yield abundant, high-quality user data—fuel for superior ad targeting.</li><li><strong>Scaling Law in Action</strong>: The deep learning revolution continues to affirm that model performance improves with better data—richer, more granular, and multimodal.</li></ul>
+      <h3>3. Product Positioning Excellence</h3>
+      <ul><li><strong>Latency Tolerance</strong>: Unlike real-time ad platforms, TikTok, Facebook, and AppLovin&#x27;s models can tolerate slightly higher latency, enabling larger models and better personalization.</li><li><strong>Visionary Leadership</strong>: Strategic decisions like in-house game development, MAX mediation, and e-commerce integration reflect foresight and adaptability.</li></ul>
+      <h3>4. Culture: Agile and Execution-Driven</h3>
+      <ul><li><strong>&quot;Wolfer&quot; Mentality</strong>: AppLovin’s culture is defined by agility, accountability, and relentless execution, backed by smart leadership.</li><li><strong>Cohesive Team</strong>: Success stems from dedicated, adaptable teams that consistently deliver high-impact results.</li></ul>
+      <h2>Part II: Observations in the Performance Advertising Industry</h2>
+      <p>Performance advertising sits at the crossroads of <strong>technological ingenuity</strong> and <strong>economic strategy</strong>. It is where I’ve gained insights into the evolving interplay of data, technology, and human behavior.</p>
+      <p>| <strong>Observation</strong> | <strong>Hypothesis</strong> | <strong>Implications</strong>| |-|-|-| | AppLovin validated that <strong>gamers</strong> are also <strong>interested in e-commerce ads.</strong> | User interests are multifaceted, rendering traditional segmentation outdated. | Ad strategies can blend genres to attract diverse user interests. &lt;br&gt; - <strong>Example:</strong> Content platforms like Amazon Prime Video could incorporate gaming ads for cross-promotion. | | AppLovin demonstrated that <strong>game user data</strong> can be effectively applied to <strong>e-commerce ad delivery models.</strong> | Behavioral data is <strong>adaptable</strong> across <strong>verticals</strong>. | Existing models underutilize the full potential of user data. &lt;br&gt; - <strong>Example:</strong> Super apps in China demonstrate how <strong>cross-vertical scaling</strong> can yield <strong>compounding returns with minimal incremental investment.</strong>  | | 1. AppLovin uses gaming data to enhance e-commerce ad models. &lt;br&gt; 2. Miles leverage mobility data for affiliate marketing. &lt;br&gt; 3. TikTok&#x27;s active user engagement data fuels the best recommendation model. | The scaling law persists: <strong>better data</strong> (high quality, granularity, dimensionality and modality) <strong>results better model performance.</strong> | <strong>Algorithm-friendly product design</strong>, like swipe-to-refresh ad interactions, will become prevalent. &lt;br&gt; Integrating <strong>offline signals</strong>, like location-based habits, will also grow. &lt;br&gt; Generative AI and LLMs will unlock <strong>affective computing</strong> and <strong>richer data modalities</strong>, driving new opportunities. | | 1. <strong>&quot;Free&quot;</strong> services <strong>trade privacy as a commodity</strong>. &lt;br&gt; 2. <strong>Semiconductor</strong> sensors (e.g., gyroscope, LiDAR, touchscreens, biometric sensors, security cameras) experience exponential growth. &lt;br&gt; 3. Data and privacy <strong>regulations</strong> struggle to keep pace. | <strong>Surveillance capitalism</strong> thrives on <strong>ambient data collection</strong>. &lt;br&gt; <strong>Products are more addictive</strong> than ever, using <strong>psychologically engineering</strong>. &lt;br&gt; <strong>Attention</strong> drives <strong>engagement</strong>, and engagement fuels the <strong>economy</strong>. | <strong>Sophisticated attribution systems</strong> (akin to multi-passenger astronomy) enable advertisers to infer user traits from subtle behavioral cues, such as location history. &lt;br&gt; <strong>Users underestimate</strong> the depth and breadth of <strong>privacy erosion</strong> when giving <strong>data access consent</strong>, fueling a data &quot;gold rush.&quot; &lt;br&gt; <strong>Gamification, nudge theory, network effects, and &quot;human&quot;-centric designs</strong> are Swiss Army knives for product gurus and growth hackers. | | 1. Walmart Connect uses kiosks to show ads at checkout. &lt;br&gt; 2. Unity places ad units within game environments. &lt;br&gt; 3. Merchants are integrating ads into storefront connected TVs. | The rise of <strong>“spontaneous” ad placements</strong> signal a potential <strong>paradigm shift</strong> toward <strong>inception capitalism</strong>, where users&#x27; minds are <strong>less guarded</strong> against non-primary content displays. | AR/VR and voice AI can create immersive, mood-aligned ad experiences that feel less intrusive &lt;br&gt; - <strong>Example:</strong> <strong>Hollywood</strong>&#x27;s use of storytelling to shape cultural values. &lt;br&gt; <strong>In-situ advertising with CTV</strong> has the potential to surpass traditional poster ads and TV commercials due to its dynamic and attributable nature. &lt;br&gt; <strong>Voice ads</strong> leverage emotion-rich, less attention-invasive qualities. &lt;br&gt; - <strong>Example:</strong> The success of Google’s NotebookML podcasting feature highlights voice ads&#x27; potential. &lt;br&gt; <strong>Shift from correlation to causality in context modeling:</strong> Emerging systems, like TikTok’s real-time recommendation engine, leverage exploratory models to extract behavioral patterns, enhancing upper-stage relevance modeling and attribution.|</p>
+      <blockquote><p>Performance advertising is a vast and ever-evolving domain, far too complex to be fully captured within the confines of a single table or essay.</p></blockquote>
+      <blockquote><p>My aim here is to distill key signals and make educated guesses about future trends, but this effort is merely the starting point. I hope this piece serves as thought-provoking material for colleagues and domain experts to comment on, debate, or expand upon.</p></blockquote>
+      <blockquote><p>To encourage collaboration, I have published this work on Medium to collect feedbacks. For those motivated to amend, extend, or develop the content, I’ve also created a <a href="https://github.com/domijin/observations_in_advertising">GitHub repository</a> to make this a living collections of ideas, insights, and practices.</p></blockquote>
+      <h3>Highlights of the Potential Paradigm Shift</h3>
+      <p>As a closing to this section, I’d like to highlight four key areas where the most impactful changes in performance advertising are taking shape:</p>
+      <ol><li>Sensing:</li><li>Deep sensing enabled by extensive attribution to build long and dense contextual understanding (though still far from the complexity of real life).</li><li>Algorithm-friendly product designs that facilitate the collection of more granular and actionable data.</li><li>Ambient data collection techniques that gather subtle and contextual insights.</li><li>Display:</li><li>Advances in affective computing, enabling emotionally resonant and impactful ad interactions.</li><li>Multi-channel content delivery that ensures seamless engagement across diverse platforms.</li><li>From Surveillance to Inception Capitalism:</li><li>Spontaneous content display that seamlessly integrates ads into everyday user experiences.</li><li>Emerging causal modeling moves beyond simple correlation, leveraging online learning for deeper contextual intent understanding.</li><li>Dynamic Ad Content Generation:</li><li>Generative AI enabling personalized, emotion-rich ad experiences.</li><li>A new gig economy driven by crowdsourcing ad production, enabling greater creativity and scalability in ad creation.</li></ol>
+      <blockquote><p>Due to space constraints, I have not elaborated on the details of Dynamic Ad Content Generation—a trend widely regarded as straightforward to anticipate given the rise of generative AI. Similarly, I’ve omitted my executive insights, which could serve as references for teams evaluating similar opportunities. For those interested, feel free to reach out directly for further discussion.</p></blockquote>
+      <h2>Part III: The Growth Trap</h2>
+      <p>As the performance advertising industry scales, it faces an <strong>economic and ethical paradox</strong>. Growth relies on scaling data collection and insights, but the <strong>cost</strong>—financial, ethical, and social—<strong>escalates exponentially</strong>.</p>
+      <h3>The Scaling Law&#x27;s Economic Limits</h3>
+      <p>The scaling law promises improved model performance with more data but encounters diminishing returns. Achieving &quot;perfect&quot; contextual understanding is costly and often impractical, especially when privacy concerns and regulations add complexity.</p>
+      <h3>The Demand-Driven Economy&#x27;s Flaws</h3>
+      <p>Modern capitalism thrives on <strong>stimulating demand</strong>, often prioritizing marketing over innovation. While marketing connects consumers with valuable products, it can also distort market dynamics, <strong>promoting visibility over quality.</strong></p>
+      <ol><li><strong>Consumer Fatigue</strong>: Excessive advertising leads to disengagement.</li><li><strong>Regulatory Risks</strong>: Privacy and ethical concerns invite scrutiny, potentially disrupting business models.</li><li><strong>Competitive Erosion</strong>: Rapid imitation erodes first-mover advantages in a saturated market.</li></ol>
+      <h3>Challenge and Opportunities</h3>
+      <p>The pitfalls of an economy dominated by material growth and competition have led to a <strong>monolithic</strong> form of progress, a decrease in diversity and richness of experiences, and an increasingly fragile market structure.</p>
+      <ul><li><strong>Erosion of Mental Well-being</strong>: The pursuit of instant gratification in entertainment, consumption, and emotional engagement leaves no room for deep, meaningful development.</li></ul>
+      <ul><li><strong>Hierarchy of Needs</strong>: People are seeking more than just fulfillment of basic needs; they want emotional satisfaction and personalized experiences. This personalization requires building sufficient personal context to meet users&#x27; true interests and aspirations.</li></ul>
+      <ul><li><strong>Future of Education</strong>: Education must be adaptive and exploratory, promoting lifelong learning. Products that reinforce this kind of adaptive learning will grow with their users.</li></ul>
+      <h2>Potential Path Forward</h2>
+      <h3>A Glimpse into the Future</h3>
+      <p>I envision a world where advertising shifts from <strong>driving demand</strong> to <strong>fostering enlightenment</strong>. By aligning with users’ <strong>intrinsic motivations and aspirations</strong>, we can create technologies that <strong>empower</strong> individuals to achieve their full potential.</p>
+      <p>This essay marks the beginning of a broader dialogue. I invite readers to share insights, debate ideas, and collaborate on solutions that address the systemic challenges in performance advertising and beyond.</p>
     </article>
-  </div>
+    <footer class="colophon">
+      <p>
+        <strong>Footnote:</strong> First published in
+        <a href="https://github.com/domijin/observations_in_advertising" rel="noopener noreferrer" target="_blank">GitHub Specification (observations_in_advertising)</a>
+        (January 2025). Part of <em>Domi Jin — Notes from Research and Practice</em>.
+      </p>
+    </footer>
+  </main>
 </body>
 </html>
