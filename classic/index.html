@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en-GB" itemscope itemtype="http://schema.org/Person">
+<head>
+            <meta charset="utf-8">
+        <!-- Site Meta Data -->
+        <title>Domi Jin | Writing archive</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Domi Jin works on machine learning and decision systems, with a background in computational astrophysics. Research, projects and notes on learning and human–AI collaboration.">
+        <meta name="author" content="Domi Jin (Dongming Jin)">
+
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link rel="llms-txt" href="https://domij.info/llms.txt">
+        <link rel="alternate" type="application/json" href="https://domij.info/agent-context.json" title="Agent Context Map">
+
+        <!-- schema.org -->
+        <meta itemprop="name" content="Domi Jin | Research, projects and notes">
+        <meta itemprop="image" content="https://domij.info/images/Photo.JPG">
+        <meta itemprop="description" content="Domi Jin works on machine learning and decision systems, with a background in computational astrophysics. Research, projects and notes on learning and human–AI collaboration.">
+
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+        <!-- Style Meta Data -->
+        <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+        <link rel="stylesheet" href="/theme/css/pygments.css" type="text/css"/>
+
+        <!-- Feed Meta Data -->
+            <link href="https://domij.info/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+                  title="Domi's Universe ATOM Feed"/>
+
+        <!-- Twitter Feed -->
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="domij_info">
+
+    <script>
+      (function () {
+        var params = new URLSearchParams(window.location.search);
+        if (params.get("env") === "green") {
+          window.location.replace("/next/");
+          return;
+        }
+        if (params.get("env") === "blue") {
+          return;
+        }
+        // Redirect root visits to About Me (Blue) unless explicitly viewing Blogs
+        if (
+          window.location.pathname === "/" &&
+          !document.referrer.includes(window.location.hostname)
+        ) {
+          document.title = "Redirecting to About Me...";
+          window.location.href = "/pages/about-me.html";
+        }
+      })();
+    </script>
+    <meta name="twitter:creator" content="domij_info">
+    <meta name="twitter:url" content="https://domij.info">
+    <meta name="twitter:title" content="Domi Jin | Research, projects and notes">
+    <meta name="twitter:description" content="Domi Jin works on machine learning and decision systems, with a background in computational astrophysics. Research, projects and notes on learning and human–AI collaboration.">
+    <meta name="twitter:image" content="https://domij.info/images/Photo.JPG"/>
+
+    <!-- Facebook Meta Data -->
+    <meta property="og:title" content="Domi Jin | Research, projects and notes"/>
+    <meta property="og:description" content="Domi Jin works on machine learning and decision systems, with a background in computational astrophysics. Research, projects and notes on learning and human–AI collaboration."/>
+    <meta property="og:image" content="https://domij.info/images/Photo.JPG"/>
+
+</head>
+
+<body>
+<!-- Blue-Green Environment Switcher Bar -->
+<div style="background: #071318; color: #e2e8f0; padding: 10px 18px; font-family: 'Open Sans', sans-serif; font-size: 13px; border-bottom: 1px solid #0ea5e9; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; position: relative; z-index: 9999;">
+    <div>
+        <span style="display: inline-block; background: #0284c7; color: #fff; font-weight: 700; padding: 2px 8px; border-radius: 999px; font-size: 11px; margin-right: 8px; letter-spacing: 0.04em;">ARCHIVE</span>
+        <span>Current projects and writing are collected in the new edition.</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 12px;">
+        <a href="/llms.txt" style="color: #7dd3fc; text-decoration: underline; font-size: 12px;">/llms.txt</a>
+        <a href="/agent-context.json" style="color: #7dd3fc; text-decoration: underline; font-size: 12px;">/agent-context.json</a>
+        <a href="/next/" style="background: #10b981; color: #04130d; font-weight: 700; padding: 5px 12px; border-radius: 6px; text-decoration: none; font-size: 12px;">Current edition →</a>
+    </div>
+</div>
+
+<!-- Sidebar -->
+<aside>
+    <center>
+        <a href="/pages/about-me.html">
+            <img alt="Domi Jin" style="width:120px; height:120px; border-radius:60px; border:0;" src="/images/Photo.JPG">
+        </a>
+    </center>
+    
+    <br>
+
+    <p>
+            <strong>Domi Jin</strong><br>
+            Scientist. Builder. Founder.<br>
+            <span style="font-size: 0.9em; opacity: 0.85;">A sci-fi mind. An engineer’s hands.</span>
+
+        <br>
+        <br>
+
+            <a class="twitter-follow-button"
+               href="https://twitter.com/domij_info"
+               data-show-count="false"
+               data-lang="en">
+                Follow @domij_info
+            </a>
+            <script type="text/javascript">
+                window.twttr = (function (d, s, id) {
+                    var t, js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = "https://platform.twitter.com/widgets.js";
+                    fjs.parentNode.insertBefore(js, fjs);
+                    return window.twttr || (t = {
+                            _e: [], ready: function (f) {
+                                t._e.push(f)
+                            }
+                        });
+                }(document, "script", "twitter-wjs"));
+            </script>
+    </p>
+
+    <nav class="nav">
+        <ul class="list-bare">
+                <li><a class="nav__link" href="/next/" style="color: #34d399; font-weight: 700;">Current edition</a></li>
+                <li><a class="nav__link" href="/?env=blue">Blogs</a></li>
+                <li><a class="nav__link" href="/pages/about-me.html">About Me</a></li>
+                <li><a class="nav__link" href="/pages/footprint.html">Footprint</a></li>
+                <li><a class="nav__link" href="/pages/research.html">Research</a></li>
+                <li><a class="nav__link" href="/beta/">iMessage AI Beta</a></li>
+        </ul>
+    </nav>
+
+    <p class="social">
+                <a href="https://www.linkedin.com/in/domijin" target="_blank"><img
+                        src="https://domij.info/theme/images/icons/linkedin.png"></a>
+                <a href="https://github.com/domijin" target="_blank"><img
+                        src="https://domij.info/theme/images/icons/github.png"></a>
+            <a href="https://domij.info/feeds/all.atom.xml" rel="alternate">
+                <img src="https://domij.info/theme/images/icons/rss.png"></a>
+    </p>
+
+        <h2>Categories</h2>
+        <ul class="navbar">
+                <li><a
+                        href="https://domij.info/category/articles.html">articles</a></li>
+                <li><a
+                        href="https://domij.info/category/cheatsheets.html">cheatsheets</a></li>
+                <li><a
+                        href="https://domij.info/category/maker-notes.html">maker-notes</a></li>
+                <li><a
+                        href="https://domij.info/category/study-notes.html">study-notes</a></li>
+        </ul>
+
+
+</aside>
+
+<!-- Content -->
+<article>
+    <h1 class="title"> Hi, I'm <a href="https://domij.info/pages/about-me.html" >Dongming Jin.</a> </h1> 
+        <ol class="posts">
+<h2 class="latest">This is what I'd like to share:</h2>                <li class="post_list"><p class="post_entry">
+                    <h2 class="post_title"><a href="https://domij.info/all-about-chatgpt.html" rel="bookmark"
+                                              title="Permalink to All about chatGPT">All about chatGPT</a>
+                    </h2>
+
+                    <span class="post_date">Tue 21 February 2023</span>
+                    <!-- <a href="https://domij.info/author/dongming-jin.html">@Dongming Jin</a> -->
+                    <span> in </span>
+                    <span class="post_category"><a href="https://domij.info/category/articles.html" rel="bookmark"
+                                                   title="Permalink to articles">[ articles ]</a></span>
+                </li>
+                <li class="post_list"><p class="post_entry">
+                    <h2 class="post_title"><a href="https://domij.info/workflow-and-methodology.html" rel="bookmark"
+                                              title="Permalink to WorkFlow and Methodology">WorkFlow and Methodology</a>
+                    </h2>
+
+                    <span class="post_date">Sat 14 July 2018</span>
+                    <!-- <a href="https://domij.info/author/dongming-jin.html">@Dongming Jin</a> -->
+                    <span> in </span>
+                    <span class="post_category"><a href="https://domij.info/category/articles.html" rel="bookmark"
+                                                   title="Permalink to articles">[ articles ]</a></span>
+                </li>
+                <li class="post_list"><p class="post_entry">
+                    <h2 class="post_title"><a href="https://domij.info/hello-world-again.html" rel="bookmark"
+                                              title="Permalink to Hello World Again">Hello World Again</a>
+                    </h2>
+
+                    <span class="post_date">Tue 21 February 2023</span>
+                    <!-- <a href="https://domij.info/author/dongming-jin.html">@Dongming Jin</a> -->
+                    <span> in </span>
+                    <span class="post_category"><a href="https://domij.info/category/articles.html" rel="bookmark"
+                                                   title="Permalink to articles">[ articles ]</a></span>
+                </li>
+                <li class="post_list"><p class="post_entry">
+                    <h2 class="post_title"><a href="https://domij.info/free-market-in-a-possibility-universe.html" rel="bookmark"
+                                              title="Permalink to Free Market in a Possibility Universe">Free Market in a Possibility Universe</a>
+                    </h2>
+
+                    <span class="post_date">Fri 27 September 2019</span>
+                    <!-- <a href="https://domij.info/author/dongming-jin.html">@Dongming Jin</a> -->
+                    <span> in </span>
+                    <span class="post_category"><a href="https://domij.info/category/articles.html" rel="bookmark"
+                                                   title="Permalink to articles">[ articles ]</a></span>
+                </li>
+                <li class="post_list"><p class="post_entry">
+                    <h2 class="post_title"><a href="https://domij.info/thoughts-on-autonumous-driving-and-humanity.html" rel="bookmark"
+                                              title="Permalink to Thoughts on Autonumous driving and Humanity">Thoughts on Autonumous driving and Humanity</a>
+                    </h2>
+
+                    <span class="post_date">Wed 25 September 2019</span>
+                    <!-- <a href="https://domij.info/author/dongming-jin.html">@Dongming Jin</a> -->
+                    <span> in </span>
+                    <span class="post_category"><a href="https://domij.info/category/articles.html" rel="bookmark"
+                                                   title="Permalink to articles">[ articles ]</a></span>
+                </li>
+                <li class="post_list"><p class="post_entry">
+                    <h2 class="post_title"><a href="https://domij.info/manifesto.html" rel="bookmark"
+                                              title="Permalink to Manifesto">Manifesto</a>
+                    </h2>
+
+                    <span class="post_date">Fri 29 March 2019</span>
+                    <!-- <a href="https://domij.info/author/dongming-jin.html">@Dongming Jin</a> -->
+                    <span> in </span>
+                    <span class="post_category"><a href="https://domij.info/category/articles.html" rel="bookmark"
+                                                   title="Permalink to articles">[ articles ]</a></span>
+                </li>
+                <li class="post_list"><p class="post_entry">
+                    <h2 class="post_title"><a href="https://domij.info/competitive-advantage-vs-absolute-advantage.html" rel="bookmark"
+                                              title="Permalink to Competitive Advantage vs Absolute Advantage">Competitive Advantage vs Absolute Advantage</a>
+                    </h2>
+
+                    <span class="post_date">Thu 10 January 2019</span>
+                    <!-- <a href="https://domij.info/author/dongming-jin.html">@Dongming Jin</a> -->
+                    <span> in </span>
+                    <span class="post_category"><a href="https://domij.info/category/articles.html" rel="bookmark"
+                                                   title="Permalink to articles">[ articles ]</a></span>
+                </li>
+                <li class="post_list"><p class="post_entry">
+                    <h2 class="post_title"><a href="https://domij.info/white-paper-a-future-imaged.html" rel="bookmark"
+                                              title="Permalink to White paper - A future imaged">White paper - A future imaged</a>
+                    </h2>
+
+                    <span class="post_date">Tue 27 November 2018</span>
+                    <!-- <a href="https://domij.info/author/dongming-jin.html">@Dongming Jin</a> -->
+                    <span> in </span>
+                    <span class="post_category"><a href="https://domij.info/category/articles.html" rel="bookmark"
+                                                   title="Permalink to articles">[ articles ]</a></span>
+                </li>
+                <li class="post_list"><p class="post_entry">
+                    <h2 class="post_title"><a href="https://domij.info/initiatives-on-sociological-practice.html" rel="bookmark"
+                                              title="Permalink to Initiatives on Sociological Practice">Initiatives on Sociological Practice</a>
+                    </h2>
+
+                    <span class="post_date">Mon 19 November 2018</span>
+                    <!-- <a href="https://domij.info/author/dongming-jin.html">@Dongming Jin</a> -->
+                    <span> in </span>
+                    <span class="post_category"><a href="https://domij.info/category/articles.html" rel="bookmark"
+                                                   title="Permalink to articles">[ articles ]</a></span>
+                </li>
+                <li class="post_list"><p class="post_entry">
+                    <h2 class="post_title"><a href="https://domij.info/decentralize-social-credit-identification-system.html" rel="bookmark"
+                                              title="Permalink to Decentralize social credit + identification system">Decentralize social credit + identification system</a>
+                    </h2>
+
+                    <span class="post_date">Sun 28 October 2018</span>
+                    <!-- <a href="https://domij.info/author/dongming-jin.html">@Dongming Jin</a> -->
+                    <span> in </span>
+                    <span class="post_category"><a href="https://domij.info/category/articles.html" rel="bookmark"
+                                                   title="Permalink to articles">[ articles ]</a></span>
+                </li>
+        </ol>
+
+    <p class="paginator">
+        1 ~ 4
+            <a href="https://domij.info/index2.html">(:~</a>
+    </p>
+
+</article>
+
+<!-- Footer -->
+    <footer>
+        <p>
+            © Copyright 2018 <a href="mailto:admin@domij.info"> Dongming Jin</a> | <a href="https://www.freeprivacypolicy.com/privacy/view/bc11c24cc8faf2a9a506ffd5aa40278d">Privacy Policy</a> | Powered by <a href="http://getpelican.com/">Pelican</a> and <a href="https://github.com/parbhat/pelican-blue">Pelican-Blue</a>.
+        </p>
+    </footer>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MWRTXBB8DD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-MWRTXBB8DD');
+    </script>
+
+
+</body>
+</html>

@@ -3,7 +3,7 @@
   "version": "2026.11.02",
   "deployment": {
     "strategy": "blue-green",
-    "activeRoot": "blue",
+    "activeRoot": "green",
     "blueEnvironment": {
       "name": "Classic Pelican Archive (Blue)",
       "url": "https://domij.info/",
@@ -11,8 +11,9 @@
       "archiveUrl": "https://domij.info/archives.html"
     },
     "greenEnvironment": {
-      "name": "Next.js + Three.js Interactive Constellation (Green)",
+      "name": "Next.js + Three.js Globular Cluster, LISA GW & Context Map (Green)",
       "url": "https://domij.info/next/",
+      "localArticlesArchiveUrl": "https://domij.info/articles/",
       "framework": "Next.js 15 App Router + Three.js (@react-three/fiber)"
     }
   },
@@ -25,6 +26,9 @@
       "degree": "Ph.D. in Applied Physics & Astrophysics",
       "institution": "University of Texas at Arlington",
       "year": 2018,
+      "dissertationTitle": "Prospective Detection of Binary Black Holes in the Local Universe with Gravitational Waves",
+      "dissertationPdf": "https://domij.info/pdfs/main.pdf",
+      "dissertationLocalNotes": "https://domij.info/articles/research/astrophysics-bbh-dissertation.html",
       "fellowship": "LSST Data Science Fellowship Program (2016–2018)"
     },
     "mission": "I work on machine learning and decision systems. My background is in computational astrophysics; my current interests are learning, human judgement and how people work together.",
@@ -34,7 +38,7 @@
         "era": "Computational astrophysics",
         "period": "2013–2018",
         "summary": "I began in computational astrophysics, studying stellar dynamics and binary black holes through numerical simulation and statistical modelling.",
-        "evidence": "Numerical simulations of globular clusters using N-body and Monte Carlo methods. Analysis of binary black hole evolution and gravitational-wave detection prospects for LISA. LSST Data Science Fellowship: statistical modelling, image processing and reproducible research workflows."
+        "evidence": "Numerical simulations of globular clusters using N-body and Monte Carlo methods (3,240 MOCCA simulations across 662,772 globular clusters in 8,946 galaxies within 30 Mpc). Analysis of binary black hole evolution (17,883,760 inspiralling BBHs and 86,939 mergers) and gravitational-wave detection prospects for LISA, deriving a lower-bound merger event rate of η ≃ 587 Gpc^-3 yr^-1 and identifying 17 standard sirens localized within ΔV ≤ 1 Mpc^3. LSST Data Science Fellowship: statistical modelling, image processing and reproducible research workflows."
       },
       {
         "era": "Decision systems",
@@ -66,6 +70,20 @@
         "medium": "https://medium.com/@domijin"
       }
     }
+  },
+  "researchFindings": {
+    "dissertationTitle": "Prospective Detection of Binary Black Holes in the Local Universe with Gravitational Waves",
+    "horizonRadiusMpc": 30,
+    "hostGalaxiesCount": 8946,
+    "globularClustersCount": 662772,
+    "moccaSimulationsCount": 3240,
+    "inspirallingBbhCount": 17883760,
+    "mergingBbhCount": 86939,
+    "eventRateLowerBoundGpc3Yr": 587,
+    "priorTheoreticalRateGpc3Yr": 100,
+    "earlyLigoO1RateRangeGpc3Yr": [9, 240],
+    "lisaLocalizedStandardSirensSub1Mpc3": 17,
+    "halfMassRelaxationTimeFormula": "τ_rh = v^3 / [8π G^2 m^2 n ln(γ N)] ≃ 0.8 Gyr"
   },
   "intellectualInterests": [
     {
@@ -125,6 +143,8 @@
       "date": "2026-08",
       "source": "GitHub",
       "url": "https://github.com/domijin/open-learning-lab",
+      "localUrl": "/articles/github/open-learning-lab.html",
+      "localMarkdownUrl": "/articles/github/open-learning-lab.md",
       "pillar": "human-potential",
       "secondaryPillars": [
         "human-ai-collaboration",
@@ -139,6 +159,8 @@
       "date": "2026-05",
       "source": "GitHub",
       "url": "https://github.com/domijin/baby-AI",
+      "localUrl": "/articles/github/baby-ai.html",
+      "localMarkdownUrl": "/articles/github/baby-ai.md",
       "pillar": "human-ai-collaboration",
       "secondaryPillars": [
         "decision-intelligence",
@@ -153,6 +175,8 @@
       "date": "2026-04",
       "source": "Blog",
       "url": "https://domij.info/beta/",
+      "localUrl": "/articles/blog/imessage-ai-router.html",
+      "localMarkdownUrl": "/articles/blog/imessage-ai-router.md",
       "pillar": "human-ai-collaboration",
       "secondaryPillars": [
         "human-potential"
@@ -166,6 +190,8 @@
       "date": "2025-03",
       "source": "Substack",
       "url": "https://domijin.substack.com/p/reclaiming-play-as-a-life-skill",
+      "localUrl": "/articles/substack/reclaiming-play-as-a-life-skill.html",
+      "localMarkdownUrl": "/articles/substack/reclaiming-play-as-a-life-skill.md",
       "pillar": "human-potential",
       "secondaryPillars": [
         "complex-adaptive-systems",
@@ -180,6 +206,8 @@
       "date": "2025-02",
       "source": "Substack",
       "url": "https://domijin.substack.com/p/tesla-seniors-love-your-self-drivingnow",
+      "localUrl": "/articles/substack/tesla-seniors-love-your-self-drivingnow.html",
+      "localMarkdownUrl": "/articles/substack/tesla-seniors-love-your-self-drivingnow.md",
       "pillar": "ai-and-society",
       "secondaryPillars": [
         "human-ai-collaboration",
@@ -194,6 +222,8 @@
       "date": "2025-02",
       "source": "Substack",
       "url": "https://domijin.substack.com/p/overachievers-responsibility-reflection",
+      "localUrl": "/articles/substack/overachievers-responsibility-reflection.html",
+      "localMarkdownUrl": "/articles/substack/overachievers-responsibility-reflection.md",
       "pillar": "organizational-intelligence",
       "secondaryPillars": [
         "collective-intelligence"
@@ -207,6 +237,8 @@
       "date": "2025-01",
       "source": "Substack",
       "url": "https://domijin.substack.com/p/a-colorful-year-ahead",
+      "localUrl": "/articles/substack/a-colorful-year-ahead.html",
+      "localMarkdownUrl": "/articles/substack/a-colorful-year-ahead.md",
       "pillar": "organizational-intelligence",
       "secondaryPillars": [
         "decision-intelligence"
@@ -220,6 +252,8 @@
       "date": "2025-01",
       "source": "GitHub",
       "url": "https://github.com/domijin/observations_in_advertising",
+      "localUrl": "/articles/github/observations-in-advertising.html",
+      "localMarkdownUrl": "/articles/github/observations-in-advertising.md",
       "pillar": "decision-intelligence",
       "secondaryPillars": [
         "complex-adaptive-systems",
@@ -234,6 +268,8 @@
       "date": "2024-12",
       "source": "Substack",
       "url": "https://domijin.substack.com/p/serendipity-where-it-sparks",
+      "localUrl": "/articles/substack/serendipity-where-it-sparks.html",
+      "localMarkdownUrl": "/articles/substack/serendipity-where-it-sparks.md",
       "pillar": "collective-intelligence",
       "secondaryPillars": [
         "human-potential"
@@ -247,6 +283,8 @@
       "date": "2024-12",
       "source": "Substack",
       "url": "https://domijin.substack.com/p/starting-a-new-venture",
+      "localUrl": "/articles/substack/starting-a-new-venture.html",
+      "localMarkdownUrl": "/articles/substack/starting-a-new-venture.md",
       "pillar": "human-potential",
       "secondaryPillars": [
         "ai-and-society",
@@ -261,6 +299,8 @@
       "date": "2024-12",
       "source": "Substack",
       "url": "https://domijin.substack.com/p/relections-from-coach-seeking-impulse",
+      "localUrl": "/articles/substack/relections-from-coach-seeking-impulse.html",
+      "localMarkdownUrl": "/articles/substack/relections-from-coach-seeking-impulse.md",
       "pillar": "human-potential",
       "secondaryPillars": [
         "organizational-intelligence"
@@ -274,6 +314,8 @@
       "date": "2024-11",
       "source": "Medium",
       "url": "https://medium.com/@domijin/another-team-building-skynet-in-the-name-of-jarvis-ama-163389dc5285",
+      "localUrl": "/articles/medium/another-team-building-skynet-in-the-name-of-jarvis-ama-163389dc5285.html",
+      "localMarkdownUrl": "/articles/medium/another-team-building-skynet-in-the-name-of-jarvis-ama-163389dc5285.md",
       "pillar": "human-ai-collaboration",
       "secondaryPillars": [
         "human-potential"
@@ -287,6 +329,8 @@
       "date": "2024-11",
       "source": "Medium",
       "url": "https://medium.com/@domijin/is-dark-mode-doing-more-harm-than-good-a-deeper-look-at-our-choices-a9685daad170",
+      "localUrl": "/articles/medium/is-dark-mode-doing-more-harm-than-good-a-deeper-look-at-our-choices-a9685daad170.html",
+      "localMarkdownUrl": "/articles/medium/is-dark-mode-doing-more-harm-than-good-a-deeper-look-at-our-choices-a9685daad170.md",
       "pillar": "decision-intelligence",
       "secondaryPillars": [
         "ai-and-society",
@@ -301,6 +345,8 @@
       "date": "2024-11",
       "source": "Medium",
       "url": "https://medium.com/@domijin/trace-of-applovins-7x-annual-hypergrowth-39dcb154f5d0",
+      "localUrl": "/articles/medium/trace-of-applovins-7x-annual-hypergrowth-39dcb154f5d0.html",
+      "localMarkdownUrl": "/articles/medium/trace-of-applovins-7x-annual-hypergrowth-39dcb154f5d0.md",
       "pillar": "complex-adaptive-systems",
       "secondaryPillars": [
         "decision-intelligence",
@@ -315,6 +361,8 @@
       "date": "2024-10",
       "source": "Medium",
       "url": "https://domijin.medium.com/rethinking-digital-advertising-from-guesswork-to-user-engagement-6e1916a2aced",
+      "localUrl": "/articles/medium/rethinking-digital-advertising-from-guesswork-to-user-engagement-6e1916a2aced.html",
+      "localMarkdownUrl": "/articles/medium/rethinking-digital-advertising-from-guesswork-to-user-engagement-6e1916a2aced.md",
       "pillar": "decision-intelligence",
       "secondaryPillars": [
         "human-ai-collaboration"
@@ -328,6 +376,8 @@
       "date": "2023-10",
       "source": "Medium",
       "url": "https://domijin.medium.com/from-traffic-lights-to-lifes-direction-57176d5d7a06",
+      "localUrl": "/articles/medium/from-traffic-lights-to-lifes-direction-57176d5d7a06.html",
+      "localMarkdownUrl": "/articles/medium/from-traffic-lights-to-lifes-direction-57176d5d7a06.md",
       "pillar": "complex-adaptive-systems",
       "secondaryPillars": [
         "human-ai-collaboration",
@@ -342,6 +392,8 @@
       "date": "2023-10",
       "source": "Medium",
       "url": "https://medium.com/@domijin/why-is-some-professional-handwriting-illegible-d07bd8acb818",
+      "localUrl": "/articles/medium/why-is-some-professional-handwriting-illegible-d07bd8acb818.html",
+      "localMarkdownUrl": "/articles/medium/why-is-some-professional-handwriting-illegible-d07bd8acb818.md",
       "pillar": "human-ai-collaboration",
       "secondaryPillars": [
         "organizational-intelligence"
@@ -355,6 +407,8 @@
       "date": "2023-02",
       "source": "Blog",
       "url": "https://domij.info/all-about-chatgpt.html",
+      "localUrl": "/articles/blog/all-about-chatgpt.html",
+      "localMarkdownUrl": "/articles/blog/all-about-chatgpt.md",
       "pillar": "ai-and-society",
       "secondaryPillars": [
         "collective-intelligence",
@@ -369,6 +423,8 @@
       "date": "2019-09",
       "source": "Blog",
       "url": "https://domij.info/free-market-in-a-possibility-universe.html",
+      "localUrl": "/articles/blog/free-market-in-a-possibility-universe.html",
+      "localMarkdownUrl": "/articles/blog/free-market-in-a-possibility-universe.md",
       "pillar": "collective-intelligence",
       "secondaryPillars": [
         "complex-adaptive-systems",
@@ -383,6 +439,8 @@
       "date": "2018-07",
       "source": "Research",
       "url": "https://domij.info/pages/research.html",
+      "localUrl": "/articles/research/astrophysics-bbh-dissertation.html",
+      "localMarkdownUrl": "/articles/research/astrophysics-bbh-dissertation.md",
       "pillar": "complex-adaptive-systems",
       "secondaryPillars": [
         "decision-intelligence",

@@ -7,6 +7,7 @@ import {
   INTELLECTUAL_PILLARS,
   OPEN_PROJECTS,
   WRITINGS_DATA,
+  GC_RESEARCH_FINDINGS,
   WritingNode,
 } from "@/data/contextMapData";
 
@@ -15,10 +16,12 @@ const ConstellationCanvas = dynamic(
   {
     ssr: false,
     loading: () => (
-      <div className="w-full h-[360px] sm:h-[480px] lg:h-[580px] rounded-2xl border border-slate-200 bg-[#0b2034] flex flex-col items-center justify-center text-sky-200 font-mono text-xs sm:text-sm shadow-inner p-6 text-center">
+      <div className="w-full h-[420px] sm:h-[520px] rounded-2xl border border-slate-200 bg-[#0b2034] flex flex-col items-center justify-center text-sky-200 font-mono text-xs sm:text-sm shadow-inner p-6 text-center">
         <div className="w-8 h-8 rounded-full border-2 border-[#1DAEDF] border-t-transparent animate-spin mb-3" />
-        <span>Loading the map…</span>
-        <span className="text-[11px] text-sky-300/70 mt-1">Connections between ideas, projects and writing</span>
+        <span>Initialising globular cluster &amp; LISA gravitational-wave model…</span>
+        <span className="text-[11px] text-sky-300/70 mt-1">
+          Stellar evolution in relaxation-time units (t / τ_rh) and compact binary strain
+        </span>
       </div>
     ),
   }
@@ -68,7 +71,7 @@ export default function GreenExperience() {
           <div className="flex items-center gap-2.5">
             <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-sky-50 border border-[#1DAEDF]/30 text-[#0369a1] font-mono font-medium text-[11px]">
               <span className="w-1.5 h-1.5 rounded-full bg-[#1DAEDF]" />
-              NOTES & PROJECTS
+              NOTES &amp; PROJECTS
             </span>
             <span className="text-slate-500 hidden md:inline text-[11px]">
               Research, experiments and occasional writing
@@ -76,6 +79,13 @@ export default function GreenExperience() {
           </div>
 
           <div className="flex items-center gap-3 text-xs">
+            <a
+              href="/articles/"
+              className="text-slate-600 hover:text-[#2980b9] font-mono transition"
+            >
+              Local article archive
+            </a>
+            <span className="text-slate-300">|</span>
             <button
               onClick={() => setAgentModalOpen(!agentModalOpen)}
               className="text-[#2980b9] hover:text-[#1DAEDF] font-mono cursor-pointer transition flex items-center gap-1"
@@ -95,7 +105,7 @@ export default function GreenExperience() {
         </div>
       </div>
 
-      {/* Machine-Readable Protocol Drawer (AEO / GEO / Autonomous Agents) */}
+      {/* Machine-Readable Protocol Drawer */}
       {agentModalOpen && (
         <div className="border-b border-sky-100 bg-white/95 backdrop-blur-xl shadow-md transition-all">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
@@ -105,10 +115,16 @@ export default function GreenExperience() {
                   Text and structured data
                 </p>
                 <h3 className="text-base sm:text-lg font-semibold text-slate-900 mt-0.5">
-                  A plain-text profile and source index
+                  A plain-text profile, local article mirror and source index
                 </h3>
               </div>
               <div className="flex flex-wrap gap-2">
+                <a
+                  href="/articles/"
+                  className="px-3 py-1.5 rounded-lg bg-sky-50 border border-sky-200 text-[#0369a1] text-xs font-mono hover:bg-sky-100 transition"
+                >
+                  GET /articles/
+                </a>
                 <a
                   href="/llms.txt"
                   target="_blank"
@@ -136,10 +152,10 @@ export default function GreenExperience() {
               </div>
             </div>
             <pre className="p-4 rounded-xl bg-slate-900 text-slate-100 text-xs font-mono overflow-x-auto leading-relaxed shadow-sm">
-{`# Profile and source files
+{`# Profile, local article archive and source files
 curl -s https://domij.info/llms.txt          # Profile and interests
-curl -s https://domij.info/llms-full.txt     # Background, topics and sources
-curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInterests'`}
+curl -s https://domij.info/llms-full.txt     # Background, topics and local/original article URLs
+curl -s https://domij.info/agent-context.json | jq '.persona, .researchFindings, .writings[0]'`}
             </pre>
           </div>
         </div>
@@ -171,7 +187,7 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
               About
             </a>
             <a href="#constellation" className="hover:text-[#2980b9] transition">
-              Ideas
+              Simulation &amp; Ideas
             </a>
             <a href="#systems" className="hover:text-[#2980b9] transition">
               Projects
@@ -186,6 +202,12 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
 
           {/* Desktop Direct Links & Mobile Toggle */}
           <div className="flex items-center gap-3">
+            <a
+              href="/articles/"
+              className="hidden sm:inline-flex px-3 py-1.5 rounded-lg border border-slate-200 hover:border-[#1DAEDF] text-xs font-medium text-slate-700 hover:text-[#2980b9] transition bg-white"
+            >
+              Articles archive
+            </a>
             <a
               href="https://domijin.substack.com/"
               target="_blank"
@@ -236,7 +258,7 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
                 onClick={() => setMobileMenuOpen(false)}
                 className="px-3 py-2 rounded-lg hover:bg-sky-50 hover:text-[#2980b9] transition"
               >
-                Ideas
+                Globular cluster &amp; ideas
               </a>
               <a
                 href="#systems"
@@ -251,6 +273,13 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
                 className="px-3 py-2 rounded-lg hover:bg-sky-50 hover:text-[#2980b9] transition"
               >
                 Writing and notes
+              </a>
+              <a
+                href="/articles/"
+                onClick={() => setMobileMenuOpen(false)}
+                className="px-3 py-2 rounded-lg hover:bg-sky-50 hover:text-[#2980b9] transition"
+              >
+                Local article copies
               </a>
               <a
                 href="#inquiries"
@@ -330,13 +359,13 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
                 href="#constellation"
                 className="px-5 py-2.5 rounded-xl bg-[#2980b9] hover:bg-[#20638f] text-white font-medium text-sm transition shadow-sm"
               >
-                Explore the ideas
+                Explore the simulation &amp; ideas
               </a>
               <a
-                href="#trajectory"
+                href="/articles/"
                 className="px-5 py-2.5 rounded-xl bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 font-medium text-sm transition shadow-xs"
               >
-                About my work
+                Local article archive
               </a>
               <a
                 href="https://domijin.substack.com/"
@@ -367,44 +396,48 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
               </div>
 
               <div className="space-y-4 text-sm text-slate-600 leading-relaxed font-sans">
-                <p>
-                  {PERSONA_DATA.background[0].narrative}
-                </p>
-                <p>
-                  {PERSONA_DATA.background[1].narrative}
-                </p>
-                <p>
-                  {PERSONA_DATA.background[2].narrative}
-                </p>
+                <p>{PERSONA_DATA.background[0].narrative}</p>
+                <p>{PERSONA_DATA.background[1].narrative}</p>
+                <p>{PERSONA_DATA.background[2].narrative}</p>
               </div>
 
               <div className="flex flex-wrap gap-x-5 gap-y-2 pt-4 border-t border-slate-100 text-sm text-[#2980b9]">
-                <a href="/pages/research.html" className="hover:underline underline-offset-4">Research archive ↗</a>
-                <a href="#systems" className="hover:underline underline-offset-4">Current projects</a>
-                <a href="#writings" className="hover:underline underline-offset-4">Writing</a>
+                <a href="/pages/research.html" className="hover:underline underline-offset-4">
+                  Research archive ↗
+                </a>
+                <a href="/articles/" className="hover:underline underline-offset-4">
+                  Local copies
+                </a>
+                <a href="#writings" className="hover:underline underline-offset-4">
+                  Writing
+                </a>
               </div>
             </div>
           </div>
         </section>
 
-        {/* 3D KNOWLEDGE CONSTELLATION SECTION */}
+        {/* GLOBULAR CLUSTER SIMULATION, LISA DETECTOR SIDE WINDOW & CONTEXT MAP */}
         <section id="constellation" className="space-y-6 scroll-mt-24">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div className="space-y-2">
               <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#2980b9] font-semibold">
-                <span>Connections</span>
+                <span>Stellar Dynamics · LISA Gravitational Waves · Connections</span>
               </div>
               <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
-                A map of interests
+                Globular cluster evolution, LISA signals and map of interests
               </h2>
-              <p className="text-sm text-slate-600 max-w-3xl leading-relaxed">
-                A way to browse the questions behind my work. The larger nodes represent areas of interest; the smaller ones link to essays, research and project notes.
+              <p className="text-sm text-slate-600 max-w-4xl leading-relaxed">
+                An interactive model of a globular cluster evolving in units of its half-mass relaxation time (
+                <code className="text-xs font-mono text-[#0369a1]">t / τ_rh</code>, where{" "}
+                <code className="text-xs font-mono text-[#0369a1]">τ_rh ≈ 800 Myr</code>), paired with the LISA space
+                interferometer response to dynamically formed binary black holes (
+                <code className="text-xs font-mono text-[#0369a1]">η ≃ 587 Gpc⁻³ yr⁻¹</code>) and the seven topics that
+                connect my writing.
               </p>
             </div>
 
             {/* Mobile View Toggle & Filter Reset */}
             <div className="flex items-center gap-2 self-start md:self-auto">
-              {/* Mobile View Switcher */}
               <div className="flex lg:hidden rounded-lg bg-slate-200/70 p-1 text-xs font-medium">
                 <button
                   onClick={() => setMobileMapView("3d")}
@@ -414,7 +447,7 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
                       : "text-slate-600 hover:text-slate-900"
                   }`}
                 >
-                  3D View
+                  Simulation &amp; LISA
                 </button>
                 <button
                   onClick={() => setMobileMapView("list")}
@@ -424,7 +457,7 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
                       : "text-slate-600 hover:text-slate-900"
                   }`}
                 >
-                  List View
+                  Topic List
                 </button>
               </div>
 
@@ -465,62 +498,71 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
             })}
           </div>
 
-          {/* Dual View Display: 3D Canvas vs Structured List on Mobile */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-            <div className={`lg:col-span-8 ${mobileMapView === "list" ? "hidden lg:block" : "block"}`}>
-              <ConstellationCanvas
-                selectedPillar={selectedPillar}
-                onSelectPillar={setSelectedPillar}
-                selectedWriting={selectedWriting}
-                onSelectWriting={setSelectedWriting}
-              />
-              <div className="mt-2 flex items-center justify-between text-[11px] text-slate-500 font-mono px-1">
-                <span>✦ Orbit: Drag · Zoom: Pinch / Scroll · Inspect: Tap node</span>
-                <span className="hidden sm:inline">A visual reference to stellar clusters</span>
-              </div>
+          {/* Full-width Split Simulation (3D Globular Cluster + LISA Detector Side Window) */}
+          <div className={mobileMapView === "list" ? "hidden lg:block" : "block"}>
+            <ConstellationCanvas
+              selectedPillar={selectedPillar}
+              onSelectPillar={setSelectedPillar}
+              selectedWriting={selectedWriting}
+              onSelectWriting={setSelectedWriting}
+            />
+            <div className="mt-2 flex flex-wrap items-center justify-between gap-2 text-[11px] text-slate-500 font-mono px-1">
+              <span>
+                ✦ Orbit: Drag · Zoom: Pinch / Scroll · Scrub cluster age in t / τ_rh · Select compact binary systems in the LISA window
+              </span>
+              <a
+                href={GC_RESEARCH_FINDINGS.dissertationPdfUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#2980b9] hover:underline"
+              >
+                Full dissertation PDF (/pdfs/main.pdf) ↗
+              </a>
             </div>
+          </div>
 
-            {/* Mobile-Only Structured List View for Quick Reading */}
-            {mobileMapView === "list" && (
-              <div className="lg:hidden col-span-1 space-y-4">
-                <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-xs space-y-3">
-                  <span className="text-[11px] font-mono uppercase tracking-wider text-[#2980b9] font-medium">
-                    Topics
-                  </span>
-                  <div className="space-y-3">
-                    {INTELLECTUAL_PILLARS.map((p) => (
-                      <div
-                        key={p.id}
-                        onClick={() => setSelectedPillar(p.id)}
-                        className={`p-3 rounded-lg border transition cursor-pointer ${
-                          selectedPillar === p.id
-                            ? "bg-sky-50 border-[#1DAEDF]"
-                            : "bg-[#f8fafc] border-slate-200 hover:border-slate-300"
-                        }`}
-                      >
-                        <div className="flex items-center justify-between">
-                          <h4 className="text-sm font-semibold text-slate-900">
-                            {p.title}
-                          </h4>
-                          <span
-                            className="w-2.5 h-2.5 rounded-full"
-                            style={{ backgroundColor: p.color }}
-                          />
-                        </div>
-                        <p className="text-xs text-slate-600 italic mt-1">
-                          &ldquo;{p.question}&rdquo;
-                        </p>
+          {/* Mobile-Only Structured List View for Quick Reading */}
+          {mobileMapView === "list" && (
+            <div className="lg:hidden space-y-4">
+              <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-xs space-y-3">
+                <span className="text-[11px] font-mono uppercase tracking-wider text-[#2980b9] font-medium">
+                  Topics
+                </span>
+                <div className="space-y-3">
+                  {INTELLECTUAL_PILLARS.map((p) => (
+                    <div
+                      key={p.id}
+                      onClick={() => setSelectedPillar(p.id)}
+                      className={`p-3 rounded-lg border transition cursor-pointer ${
+                        selectedPillar === p.id
+                          ? "bg-sky-50 border-[#1DAEDF]"
+                          : "bg-[#f8fafc] border-slate-200 hover:border-slate-300"
+                      }`}
+                    >
+                      <div className="flex items-center justify-between">
+                        <h4 className="text-sm font-semibold text-slate-900">
+                          {p.title}
+                        </h4>
+                        <span
+                          className="w-2.5 h-2.5 rounded-full"
+                          style={{ backgroundColor: p.color }}
+                        />
                       </div>
-                    ))}
-                  </div>
+                      <p className="text-xs text-slate-600 italic mt-1">
+                        &ldquo;{p.question}&rdquo;
+                      </p>
+                    </div>
+                  ))}
                 </div>
               </div>
-            )}
+            </div>
+          )}
 
-            {/* Context Inspector Panel */}
-            <div className="lg:col-span-4 space-y-4">
-              {/* Active Pillar Card */}
-              <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
+          {/* Context Inspector Cards (Selected Topic + Selected Writing with Local & Original Links) */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch pt-2">
+            {/* Active Pillar Card */}
+            <div className="lg:col-span-5 p-6 rounded-2xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between space-y-3">
+              <div className="space-y-3">
                 <div className="flex items-center justify-between">
                   <span className="text-[11px] font-mono uppercase tracking-wider text-slate-500 font-medium">
                     {activePillarObj ? "Selected topic" : "Related ideas"}
@@ -551,31 +593,47 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
                       Explore a connection
                     </h3>
                     <p className="text-xs text-slate-600 leading-relaxed">
-                      Select a topic or a piece of writing to see how it relates to the other work collected here.
+                      Select a topic pill above or a node inside the cluster to see how it relates to the essays and technical notes collected here.
                     </p>
                   </>
                 )}
-
-                <div className="pt-3 border-t border-slate-100 text-[11px] text-slate-400 italic">
-                  {PERSONA_DATA.epistemicDisclaimer}
-                </div>
               </div>
 
-              {/* Selected writing */}
-              {selectedWriting && (
-                <div className="p-6 rounded-2xl bg-white border-2 border-[#1DAEDF]/50 shadow-md space-y-3">
-                  <div className="flex items-center justify-between gap-2">
+              <div className="pt-3 border-t border-slate-100 text-[11px] text-slate-400 italic">
+                {PERSONA_DATA.epistemicDisclaimer}
+              </div>
+            </div>
+
+            {/* Selected Writing Card */}
+            {selectedWriting && (
+              <div className="lg:col-span-7 p-6 rounded-2xl bg-white border-2 border-[#1DAEDF]/50 shadow-md flex flex-col justify-between space-y-3">
+                <div className="space-y-3">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
                     <span className="px-2.5 py-0.5 rounded bg-sky-50 text-[11px] font-mono text-[#0369a1] font-medium border border-sky-100">
                       {selectedWriting.source} · {selectedWriting.date}
                     </span>
-                    <a
-                      href={selectedWriting.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-xs font-medium text-[#2980b9] hover:text-[#1DAEDF] underline underline-offset-4"
-                    >
-                      Read Source ↗
-                    </a>
+                    <div className="flex flex-wrap items-center gap-3 text-xs">
+                      <a
+                        href={selectedWriting.localUrl}
+                        className="font-medium text-[#0369a1] hover:text-[#1DAEDF] underline underline-offset-4"
+                      >
+                        Local copy (HTML)
+                      </a>
+                      <a
+                        href={selectedWriting.localMarkdownUrl}
+                        className="font-mono text-slate-500 hover:text-[#2980b9] underline underline-offset-4"
+                      >
+                        .md
+                      </a>
+                      <a
+                        href={selectedWriting.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-medium text-[#2980b9] hover:text-[#1DAEDF] underline underline-offset-4"
+                      >
+                        Original source ↗
+                      </a>
+                    </div>
                   </div>
 
                   <h4 className="text-base font-bold text-slate-900 leading-snug">
@@ -585,18 +643,18 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
                   <p className="text-xs text-slate-600 leading-relaxed">
                     {selectedWriting.summary}
                   </p>
-
-                  <div className="p-3.5 rounded-xl bg-[#f8fafc] border border-slate-200/90 space-y-1">
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-[#2980b9] font-semibold block">
-                      Reading note
-                    </span>
-                    <p className="text-xs text-slate-700 leading-relaxed">
-                      {selectedWriting.keyInsight}
-                    </p>
-                  </div>
                 </div>
-              )}
-            </div>
+
+                <div className="p-3.5 rounded-xl bg-[#f8fafc] border border-slate-200/90 space-y-1">
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-[#2980b9] font-semibold block">
+                    Reading note
+                  </span>
+                  <p className="text-xs text-slate-700 leading-relaxed">
+                    {selectedWriting.keyInsight}
+                  </p>
+                </div>
+              </div>
+            )}
           </div>
         </section>
 
@@ -724,7 +782,7 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
               Selected projects
             </h2>
             <p className="text-sm text-slate-600 max-w-3xl leading-relaxed">
-              Research notes, software and design specifications at different stages of development. The linked repositories describe the work and how it is evaluated.
+              Research notes, software and design specifications at different stages of development. Each project includes a local copy of its specification in this repository alongside the original source.
             </p>
           </div>
 
@@ -739,14 +797,24 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
                     <span className="text-[11px] font-mono text-[#0369a1] font-semibold px-2 py-0.5 rounded bg-sky-50 border border-sky-100">
                       {proj.category}
                     </span>
-                    <a
-                      href={proj.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-xs font-medium text-[#2980b9] hover:text-[#1DAEDF] underline underline-offset-4"
-                    >
-                      View project ↗
-                    </a>
+                    <div className="flex items-center gap-2.5 text-xs">
+                      {proj.localMirrorUrl && (
+                        <a
+                          href={proj.localMirrorUrl}
+                          className="font-medium text-slate-600 hover:text-[#2980b9] underline underline-offset-4"
+                        >
+                          Local copy
+                        </a>
+                      )}
+                      <a
+                        href={proj.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-medium text-[#2980b9] hover:text-[#1DAEDF] underline underline-offset-4"
+                      >
+                        Source ↗
+                      </a>
+                    </div>
                   </div>
 
                   <h3 className="text-lg font-bold text-slate-900">{proj.name}</h3>
@@ -792,7 +860,11 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
                 Essays and technical notes
               </h2>
               <p className="text-sm text-slate-600 max-w-2xl leading-relaxed">
-                Collected from Domi&rsquo;s Mind Waves, Medium, GitHub and the research archive. Each entry links to its source.
+                Collected from Domi&rsquo;s Mind Waves, Medium, GitHub and the research archive. Every article is preserved as a{" "}
+                <a href="/articles/" className="text-[#2980b9] underline underline-offset-4">
+                  local copy in this repository
+                </a>{" "}
+                with a direct reference to its original publication.
               </p>
             </div>
 
@@ -865,13 +937,11 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
 
                     <h3 className="text-base font-bold text-slate-900 leading-snug">
                       <a
-                        href={w.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        href={w.localUrl}
                         onClick={(e) => e.stopPropagation()}
                         className="hover:text-[#2980b9] transition"
                       >
-                        {w.title} ↗
+                        {w.title}
                       </a>
                     </h3>
 
@@ -880,11 +950,38 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
                     </p>
                   </div>
 
-                  <div className="pt-3 border-t border-slate-100 text-xs text-slate-600">
-                    <span className="font-mono text-[#2980b9] font-medium mr-1.5">
-                      Reading note:
-                    </span>
-                    {w.keyInsight}
+                  <div className="pt-3 border-t border-slate-100 space-y-2 text-xs text-slate-600">
+                    <div>
+                      <span className="font-mono text-[#2980b9] font-medium mr-1.5">
+                        Reading note:
+                      </span>
+                      {w.keyInsight}
+                    </div>
+                    <div
+                      className="flex flex-wrap items-center gap-3 pt-1 text-[11px] font-mono"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <a
+                        href={w.localUrl}
+                        className="text-[#0369a1] hover:text-[#1DAEDF] underline underline-offset-4"
+                      >
+                        Local copy (HTML)
+                      </a>
+                      <a
+                        href={w.localMarkdownUrl}
+                        className="text-slate-500 hover:text-[#2980b9] underline underline-offset-4"
+                      >
+                        Markdown (.md)
+                      </a>
+                      <a
+                        href={w.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#2980b9] hover:text-[#1DAEDF] underline underline-offset-4"
+                      >
+                        Original ({w.source}) ↗
+                      </a>
+                    </div>
                   </div>
                 </article>
               );
@@ -944,6 +1041,10 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
             </div>
 
             <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-slate-500">
+              <a href="/articles/" className="hover:text-[#2980b9] underline underline-offset-4">
+                /articles/
+              </a>
+              <span>·</span>
               <a href="/llms.txt" className="hover:text-[#2980b9] underline underline-offset-4">
                 /llms.txt
               </a>
@@ -967,6 +1068,10 @@ curl -s https://domij.info/agent-context.json | jq '.persona, .intellectualInter
             &copy; {new Date().getFullYear()} Domi Jin (Dongming Jin) · Scientist. Builder. Founder.
           </p>
           <div className="flex flex-wrap items-center gap-4">
+            <a href="/articles/" className="hover:text-[#2980b9] transition">
+              Local Article Archive
+            </a>
+            <span>·</span>
             <a href="/pages/about-me.html?env=blue" className="hover:text-[#2980b9] transition">
               Archive
             </a>

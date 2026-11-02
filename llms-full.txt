@@ -5,6 +5,7 @@
 
 - **Website**: https://domij.info/
 - **Current edition**: https://domij.info/next/
+- **Local article mirror**: https://domij.info/articles/
 - **Archive profile**: https://domij.info/pages/about-me.html
 - **Substack (Domi’s Mind Waves)**: https://domijin.substack.com/
 - **Medium**: https://medium.com/@domijin
@@ -23,8 +24,8 @@ Ph.D. Physics (2013–2018) · LSST Data Science Fellow
 
 I began in computational astrophysics, studying stellar dynamics and binary black holes through numerical simulation and statistical modelling.
 
-- Numerical simulations of globular clusters using N-body and Monte Carlo methods.
-- Analysis of binary black hole evolution and gravitational-wave detection prospects for LISA.
+- Numerical simulations of globular clusters using N-body and Monte Carlo methods (3,240 MOCCA simulations across 662,772 globular clusters in 8,946 galaxies within D ≤ 30 Mpc).
+- Analysis of binary black hole evolution (17,883,760 inspiralling BBHs and 86,939 mergers) and gravitational-wave detection prospects for LISA, deriving a lower-bound local merger rate of η ≃ 587 Gpc⁻³ yr⁻¹ and identifying 17 extragalactic standard sirens localized to ΔV ≤ 1 Mpc³.
 - LSST Data Science Fellowship: statistical modelling, image processing and reproducible research workflows.
 
 ### Decision systems
@@ -63,15 +64,17 @@ These are ongoing questions. The linked work distinguishes observations, proposa
 
 ## Questions and related writing
 
+All articles published on external platforms (Substack, Medium, GitHub) are mirrored locally under `https://domij.info/articles/` in both HTML and Markdown formats, with explicit references to the original source.
+
 ### Collective Intelligence
 
 How do individual capabilities combine to produce collective outcomes?
 
 I am interested in how shared knowledge, communication and trust help groups make use of what their members know.
 
-- [Serendipity: Where It Sparks & Dedication: Where It Is Channeled](https://domijin.substack.com/p/serendipity-where-it-sparks) (Substack, 2024-12): A personal reflection on connections between astrophysics, Confucian ethics and work across disciplines.
+- [Serendipity: Where It Sparks & Dedication: Where It Is Channeled](https://domijin.substack.com/p/serendipity-where-it-sparks) ([Local HTML](https://domij.info/articles/substack/serendipity-where-it-sparks.html) · [Markdown](https://domij.info/articles/substack/serendipity-where-it-sparks.md)) (Substack, 2024-12): A personal reflection on connections between astrophysics, Confucian ethics and work across disciplines.
   Reading note: The essay considers how ideas from physics, machine learning and human–computer interaction can inform one another.
-- [Free Market in a Possibility Universe & The Collaborative Manifesto](https://domij.info/free-market-in-a-possibility-universe.html) (Blog, 2019-09): Explores information asymmetry, resource coordination and proposals for liquid democracy.
+- [Free Market in a Possibility Universe & The Collaborative Manifesto](https://domij.info/free-market-in-a-possibility-universe.html) ([Local HTML](https://domij.info/articles/blog/free-market-in-a-possibility-universe.html) · [Markdown](https://domij.info/articles/blog/free-market-in-a-possibility-universe.md)) (Blog, 2019-09): Explores information asymmetry, resource coordination and proposals for liquid democracy.
   Reading note: The proposal considers how individual ownership and collective decision-making might be reconciled.
 
 ### Human–AI Collaboration
@@ -80,13 +83,13 @@ How can intelligent systems support human judgement and agency?
 
 Current projects explore personal memory, voice and messaging interfaces, and local processing, with attention to privacy and human judgement.
 
-- [baby-AI: Receipt-Verified Edge Household Agent Architecture](https://github.com/domijin/baby-AI) (GitHub, 2026-05): Five subsystem specifications for perception, speech, memory, adaptation and evaluation, with a hardware cost target below $200.
+- [baby-AI: Receipt-Verified Edge Household Agent Architecture](https://github.com/domijin/baby-AI) ([Local HTML](https://domij.info/articles/github/baby-ai.html) · [Markdown](https://domij.info/articles/github/baby-ai.md)) (GitHub, 2026-05): Five subsystem specifications for perception, speech, memory, adaptation and evaluation, with a hardware cost target below $200.
   Reading note: The design uses signed evaluation records to make claims about on-device learning and privacy inspectable.
-- [Life Hack: iMessage as a Low-Bandwidth Router to the Internet](https://domij.info/beta/) (Blog, 2026-04): An experiment in using messaging to reach internet-connected agents over limited connections, including in-flight Wi-Fi and satellite text.
+- [Life Hack: iMessage as a Low-Bandwidth Router to the Internet](https://domij.info/beta/) ([Local HTML](https://domij.info/articles/blog/imessage-ai-router.html) · [Markdown](https://domij.info/articles/blog/imessage-ai-router.md)) (Blog, 2026-04): An experiment in using messaging to reach internet-connected agents over limited connections, including in-flight Wi-Fi and satellite text.
   Reading note: Messaging offers a familiar, asynchronous interface for asking an agent to do something without keeping a browser session open.
-- [Building Proactive Personal AI Memory (Third Ear / TwinMind AMA)](https://medium.com/@domijin/another-team-building-skynet-in-the-name-of-jarvis-ama-163389dc5285) (Medium, 2024-11): An architectural discussion of personal AI memory, local voice processing, privacy in query rewriting and browser context.
+- [Building Proactive Personal AI Memory (Third Ear / TwinMind AMA)](https://medium.com/@domijin/another-team-building-skynet-in-the-name-of-jarvis-ama-163389dc5285) ([Local HTML](https://domij.info/articles/medium/another-team-building-skynet-in-the-name-of-jarvis-ama-163389dc5285.html) · [Markdown](https://domij.info/articles/medium/another-team-building-skynet-in-the-name-of-jarvis-ama-163389dc5285.md)) (Medium, 2024-11): An architectural discussion of personal AI memory, local voice processing, privacy in query rewriting and browser context.
   Reading note: The discussion explores how local processing and selective use of cloud services might balance personal context, privacy and cost.
-- [Why Is Some Professional Handwriting Illegible? Information Bandwidth & HCI](https://medium.com/@domijin/why-is-some-professional-handwriting-illegible-d07bd8acb818) (Medium, 2023-10): An exploration of documentation bottlenecks, the bandwidth of speech and writing, and institutional information barriers.
+- [Why Is Some Professional Handwriting Illegible? Information Bandwidth & HCI](https://medium.com/@domijin/why-is-some-professional-handwriting-illegible-d07bd8acb818) ([Local HTML](https://domij.info/articles/medium/why-is-some-professional-handwriting-illegible-d07bd8acb818.html) · [Markdown](https://domij.info/articles/medium/why-is-some-professional-handwriting-illegible-d07bd8acb818.md)) (Medium, 2023-10): An exploration of documentation bottlenecks, the bandwidth of speech and writing, and institutional information barriers.
   Reading note: The essay asks whether voice interfaces could reduce the effort of recording information at its source.
 
 ### Organisational Intelligence
@@ -95,9 +98,9 @@ How do communication, coordination, trust, and incentives shape collaboration?
 
 My writing considers shared values, complementary skills, incentives and the practical costs of coordination.
 
-- [Overachiever’s Responsibility: Leadership, Alignment, and Sustainable Growth](https://domijin.substack.com/p/overachievers-responsibility-reflection) (Substack, 2025-02): A reflection on team alignment, complementary skills and sustainable working habits.
+- [Overachiever’s Responsibility: Leadership, Alignment, and Sustainable Growth](https://domijin.substack.com/p/overachievers-responsibility-reflection) ([Local HTML](https://domij.info/articles/substack/overachievers-responsibility-reflection.html) · [Markdown](https://domij.info/articles/substack/overachievers-responsibility-reflection.md)) (Substack, 2025-02): A reflection on team alignment, complementary skills and sustainable working habits.
   Reading note: The essay uses greatest common divisors and least common multiples as metaphors for shared values and complementary skills, and considers the role of incentives.
-- [A Colorful Year Ahead: Milestones & Momentum from Intentional Rhythm](https://domijin.substack.com/p/a-colorful-year-ahead) (Substack, 2025-01): Notes on the eighth revision of a working model built around shared calendars, asynchronous collaboration and weekly reflection.
+- [A Colorful Year Ahead: Milestones & Momentum from Intentional Rhythm](https://domijin.substack.com/p/a-colorful-year-ahead) ([Local HTML](https://domij.info/articles/substack/a-colorful-year-ahead.html) · [Markdown](https://domij.info/articles/substack/a-colorful-year-ahead.md)) (Substack, 2025-01): Notes on the eighth revision of a working model built around shared calendars, asynchronous collaboration and weekly reflection.
   Reading note: The working model explores whether shared calendars and asynchronous contributions can make coordination easier.
 
 ### Complex Adaptive Systems
@@ -106,11 +109,11 @@ How do interactions among individuals give rise to emergent social and organisat
 
 Stellar dynamics, traffic and marketplaces raise related questions about interactions and feedback. I use these comparisons as starting points, with care about where the analogy stops.
 
-- [Trace of AppLovin’s 7x Annual Hypergrowth & The Growth Trap](https://medium.com/@domijin/trace-of-applovins-7x-annual-hypergrowth-39dcb154f5d0) (Medium, 2024-11): An analysis of behavioural data, scaling and latency constraints in advertising, with questions about the costs of continued growth.
+- [Trace of AppLovin’s 7x Annual Hypergrowth & The Growth Trap](https://medium.com/@domijin/trace-of-applovins-7x-annual-hypergrowth-39dcb154f5d0) ([Local HTML](https://domij.info/articles/medium/trace-of-applovins-7x-annual-hypergrowth-39dcb154f5d0.html) · [Markdown](https://domij.info/articles/medium/trace-of-applovins-7x-annual-hypergrowth-39dcb154f5d0.md)) (Medium, 2024-11): An analysis of behavioural data, scaling and latency constraints in advertising, with questions about the costs of continued growth.
   Reading note: The analysis asks where additional behavioural data stops adding useful value, and who bears the costs of the resulting systems.
-- [From Traffic Lights to Life’s Direction: Crowdsourced Inference & Symbolic AI](https://domijin.medium.com/from-traffic-lights-to-lifes-direction-57176d5d7a06) (Medium, 2023-10): Explores how traffic-light timing might be inferred from crowdsourced trajectories, alongside reflections from Wolfram Summer School.
+- [From Traffic Lights to Life’s Direction: Crowdsourced Inference & Symbolic AI](https://domijin.medium.com/from-traffic-lights-to-lifes-direction-57176d5d7a06) ([Local HTML](https://domij.info/articles/medium/from-traffic-lights-to-lifes-direction-57176d5d7a06.html) · [Markdown](https://domij.info/articles/medium/from-traffic-lights-to-lifes-direction-57176d5d7a06.md)) (Medium, 2023-10): Explores how traffic-light timing might be inferred from crowdsourced trajectories, alongside reflections from Wolfram Summer School.
   Reading note: The piece considers what can be inferred from movement data, and where symbolic computation might complement language models.
-- [Gravitational Waves from Binary Black Holes in Globular Clusters & Open Research](https://domij.info/pages/research.html) (Research, 2018-07): Doctoral work on globular clusters and binary black holes, alongside notes on reproducible computational research.
+- [Gravitational Waves from Binary Black Holes in Globular Clusters & Open Research](https://domij.info/pages/research.html) ([Local HTML](https://domij.info/articles/research/astrophysics-bbh-dissertation.html) · [Markdown](https://domij.info/articles/research/astrophysics-bbh-dissertation.md) · [PDF](https://domij.info/pdfs/main.pdf)) (Research, 2018-07): Doctoral work on globular clusters and binary black holes, alongside notes on reproducible computational research.
   Reading note: Numerical simulation, statistical analysis and reproducible workflows provided the methodological basis for my later work.
 
 ### Decision Intelligence
@@ -119,11 +122,11 @@ How can information, feedback, and experimentation improve decisions?
 
 Work on causal inference, experimentation and decision systems has made me interested in what we measure, and whether it reflects the outcome we care about.
 
-- [Agent-Based Advertising System & Observations in Performance Advertising](https://github.com/domijin/observations_in_advertising) (GitHub, 2025-01): An architecture proposal for an eight-agent control plane and an ad-serving path targeting latency below 50ms at p99, with notes on performance advertising economics.
+- [Agent-Based Advertising System & Observations in Performance Advertising](https://github.com/domijin/observations_in_advertising) ([Local HTML](https://domij.info/articles/github/observations-in-advertising.html) · [Markdown](https://domij.info/articles/github/observations-in-advertising.md)) (GitHub, 2025-01): An architecture proposal for an eight-agent control plane and an ad-serving path targeting latency below 50ms at p99, with notes on performance advertising economics.
   Reading note: The proposal separates latency-sensitive inference from slower optimisation and experimentation in an asynchronous control plane.
-- [Is Dark Mode Doing More Harm Than Good? A Deeper Look at Our Choices](https://medium.com/@domijin/is-dark-mode-doing-more-harm-than-good-a-deeper-look-at-our-choices-a9685daad170) (Medium, 2024-11): Uses the visual ergonomics of dark mode as a case study to critique short-term agile feature shipping versus long-term user welfare.
+- [Is Dark Mode Doing More Harm Than Good? A Deeper Look at Our Choices](https://medium.com/@domijin/is-dark-mode-doing-more-harm-than-good-a-deeper-look-at-our-choices-a9685daad170) ([Local HTML](https://domij.info/articles/medium/is-dark-mode-doing-more-harm-than-good-a-deeper-look-at-our-choices-a9685daad170.html) · [Markdown](https://domij.info/articles/medium/is-dark-mode-doing-more-harm-than-good-a-deeper-look-at-our-choices-a9685daad170.md)) (Medium, 2024-11): Uses the visual ergonomics of dark mode as a case study to critique short-term agile feature shipping versus long-term user welfare.
   Reading note: The essay asks how product teams can account for longer-term effects alongside the immediate feedback from feature releases.
-- [Rethinking Digital Advertising: Demand Mining & Dynamic Personalization](https://domijin.medium.com/rethinking-digital-advertising-from-guesswork-to-user-engagement-6e1916a2aced) (Medium, 2024-10): Proposes richer intent models, compact user profiles and interfaces that let users request different advertisements.
+- [Rethinking Digital Advertising: Demand Mining & Dynamic Personalization](https://domijin.medium.com/rethinking-digital-advertising-from-guesswork-to-user-engagement-6e1916a2aced) ([Local HTML](https://domij.info/articles/medium/rethinking-digital-advertising-from-guesswork-to-user-engagement-6e1916a2aced.html) · [Markdown](https://domij.info/articles/medium/rethinking-digital-advertising-from-guesswork-to-user-engagement-6e1916a2aced.md)) (Medium, 2024-10): Proposes richer intent models, compact user profiles and interfaces that let users request different advertisements.
   Reading note: Letting users request different advertisements is proposed as a way to collect more deliberate preference feedback.
 
 ### Human Potential
@@ -132,13 +135,13 @@ How can technology make learning, opportunity, and meaningful participation more
 
 Open Learning Lab asks whether learning with AI leads to understanding that lasts and can be used independently. Other writing considers play and learning throughout life.
 
-- [Open Learning Lab: Evidence-Driven Personalized Learning Policies](https://github.com/domijin/open-learning-lab) (GitHub, 2026-08): An open research ledger testing which LLM-mediated learning policies produce durable, transferable capability per unit of learner effort outside the tutoring session.
+- [Open Learning Lab: Evidence-Driven Personalized Learning Policies](https://github.com/domijin/open-learning-lab) ([Local HTML](https://domij.info/articles/github/open-learning-lab.html) · [Markdown](https://domij.info/articles/github/open-learning-lab.md)) (GitHub, 2026-08): An open research ledger testing which LLM-mediated learning policies produce durable, transferable capability per unit of learner effort outside the tutoring session.
   Reading note: The study asks whether making a design judgement before seeing an expert solution improves later recall and transfer compared with explanation-first tutoring.
-- [Reclaiming Play as a Life Skill](https://domijin.substack.com/p/reclaiming-play-as-a-life-skill) (Substack, 2025-03): Examines Jane McGonigal's game mechanics (goals, rules, feedback systems, voluntary participation) through conversations with senior learners and retirees.
+- [Reclaiming Play as a Life Skill](https://domijin.substack.com/p/reclaiming-play-as-a-life-skill) ([Local HTML](https://domij.info/articles/substack/reclaiming-play-as-a-life-skill.html) · [Markdown](https://domij.info/articles/substack/reclaiming-play-as-a-life-skill.md)) (Substack, 2025-03): Examines Jane McGonigal's game mechanics (goals, rules, feedback systems, voluntary participation) through conversations with senior learners and retirees.
   Reading note: The essay considers what clear goals, feedback and voluntary participation can contribute to learning throughout life.
-- [Starting a New Venture & Momentum in Human-Centered Elder AI](https://domijin.substack.com/p/starting-a-new-venture) (Substack, 2024-12): Notes on customer research, community outreach and forming the team behind Kin Domi, Inc.
+- [Starting a New Venture & Momentum in Human-Centered Elder AI](https://domijin.substack.com/p/starting-a-new-venture) ([Local HTML](https://domij.info/articles/substack/starting-a-new-venture.html) · [Markdown](https://domij.info/articles/substack/starting-a-new-venture.md)) (Substack, 2024-12): Notes on customer research, community outreach and forming the team behind Kin Domi, Inc.
   Reading note: Conversations about difficulties with technology often led to broader questions about independence, dignity and relationships.
-- [Reflections from a Coach-Seeking Impulse](https://domijin.substack.com/p/relections-from-coach-seeking-impulse) (Substack, 2024-12): Examines the mechanics of coaching, intellectual honesty, and why shared context determines the effectiveness of feedback.
+- [Reflections from a Coach-Seeking Impulse](https://domijin.substack.com/p/relections-from-coach-seeking-impulse) ([Local HTML](https://domij.info/articles/substack/relections-from-coach-seeking-impulse.html) · [Markdown](https://domij.info/articles/substack/relections-from-coach-seeking-impulse.md)) (Substack, 2024-12): Examines the mechanics of coaching, intellectual honesty, and why shared context determines the effectiveness of feedback.
   Reading note: The reflection considers how honesty and shared context affect the usefulness of coaching.
 
 ### AI and Society
@@ -147,19 +150,19 @@ How might increasingly capable intelligence change the ways we work, cooperate, 
 
 Essays consider accessibility, autonomy and the incentives behind AI systems, including observations from work with older adults.
 
-- [Tesla, Seniors Love Your Self-Driving—Now Let’s Make It Safer for Them](https://domijin.substack.com/p/tesla-seniors-love-your-self-drivingnow) (Substack, 2025-02): Observations from work with older adults at Kin Domi, alongside six proposals for more accessible driving-assistance interfaces.
+- [Tesla, Seniors Love Your Self-Driving—Now Let’s Make It Safer for Them](https://domijin.substack.com/p/tesla-seniors-love-your-self-drivingnow) ([Local HTML](https://domij.info/articles/substack/tesla-seniors-love-your-self-drivingnow.html) · [Markdown](https://domij.info/articles/substack/tesla-seniors-love-your-self-drivingnow.md)) (Substack, 2025-02): Observations from work with older adults at Kin Domi, alongside six proposals for more accessible driving-assistance interfaces.
   Reading note: The article proposes changes to alert timing, pre-drive checks and voice controls, based on difficulties observed with older users.
-- [All About ChatGPT: Flat Correlation, Unit Economics & Alignment](https://domij.info/all-about-chatgpt.html) (Blog, 2023-02): A 2023 essay on language models, search economics, symbolic computation and the limitations of feedback used for alignment.
+- [All About ChatGPT: Flat Correlation, Unit Economics & Alignment](https://domij.info/all-about-chatgpt.html) ([Local HTML](https://domij.info/articles/blog/all-about-chatgpt.html) · [Markdown](https://domij.info/articles/blog/all-about-chatgpt.md)) (Blog, 2023-02): A 2023 essay on language models, search economics, symbolic computation and the limitations of feedback used for alignment.
   Reading note: The essay asks how statistical prediction relates to reasoning, and who should participate in decisions about model behaviour.
 
 ## Projects
 
-- **[Open Learning Lab](https://github.com/domijin/open-learning-lab)**: An open research ledger comparing approaches to learning with language models. The focus is on what learners retain and can apply independently, relative to the effort involved.
-- **[baby-AI](https://github.com/domijin/baby-AI)**: Five subsystem specifications covering perception, speech recognition, memory, adaptation and evaluation. The design targets local hardware costing under $200, with signed evaluation records.
+- **[Open Learning Lab](https://github.com/domijin/open-learning-lab)** ([Local copy](https://domij.info/articles/github/open-learning-lab.html)): An open research ledger comparing approaches to learning with language models. The focus is on what learners retain and can apply independently, relative to the effort involved.
+- **[baby-AI](https://github.com/domijin/baby-AI)** ([Local copy](https://domij.info/articles/github/baby-ai.html)): Five subsystem specifications covering perception, speech recognition, memory, adaptation and evaluation. The design targets local hardware costing under $200, with signed evaluation records.
 - **[Life Hack: iMessage AI Router](https://domij.info/beta/)**: An experiment in using iMessage to reach internet-connected agents when normal browsing is limited. It explores how a familiar, asynchronous interface can work with constrained connections.
 - **[Kin Domi, Inc.](https://kindomi.net/)**: Work on AI companions, accessible interfaces and community activities in Palo Alto, informed by older adults’ experiences of technology, mobility and learning.
-- **[Advertising decision systems](https://github.com/domijin/observations_in_advertising)**: An architecture proposal for an eight-agent control plane alongside a latency-sensitive serving path. Accompanying notes consider advertising economics, experimentation and causal measurement.
-- **[LibertyEarth & The Future Project](https://github.com/domijin/LibertyEarth)**: An evolving collection of proposals about social contracts, liquid democracy, local manufacturing and ways of turning ideas into practical experiments.
+- **[Advertising decision systems](https://github.com/domijin/observations_in_advertising)** ([Local copy](https://domij.info/articles/github/observations-in-advertising.html)): An architecture proposal for an eight-agent control plane alongside a latency-sensitive serving path. Accompanying notes consider advertising economics, experimentation and causal measurement.
+- **[LibertyEarth & The Future Project](https://github.com/domijin/LibertyEarth)** ([Local copy](https://domij.info/articles/github/libertyearth-and-future.html)): An evolving collection of proposals about social contracts, liquid democracy, local manufacturing and ways of turning ideas into practical experiments.
 
 ## Correspondence
 
