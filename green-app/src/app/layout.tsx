@@ -37,8 +37,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "https://domij.info/images/Photo.JPG",
-        width: 800,
-        height: 800,
+        width: 1777,
+        height: 1777,
         alt: "Domi Jin"
       }
     ],
