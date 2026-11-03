@@ -199,8 +199,8 @@ export default function KnowledgeSandboxPage() {
             How a model&apos;s knowledge boundary grows
           </h1>
           <p className="mt-1 text-[11px] sm:text-xs text-sky-200/70 leading-relaxed">
-            The same sketch as the front page, as geometry. Drag to orbit, scrub the
-            timeline, and ask it something.
+            The same sketch as the front page, as a ball rather than a circle.
+            Drag to orbit, scrub the timeline, and ask it something.
           </p>
         </div>
         <div className="pointer-events-auto flex flex-col items-end gap-2">
@@ -331,9 +331,9 @@ export default function KnowledgeSandboxPage() {
 
         <div className="mt-5 text-[11px] text-sky-400/60 leading-relaxed">
           <p>
-            Space plays and pauses. ← → step a frame. The dashed outline is
-            collective human knowledge; the solid one is what the model can
-            recall.
+            Space plays and pauses. ← → step a frame. The spiky ball is
+            collective human knowledge; the smooth one inside it is what the
+            model can recall.
           </p>
         </div>
       </aside>

@@ -37,7 +37,7 @@
       "stagedUrl": "https://domij.info/next/knowledge/",
       "title": "Knowledge Boundary",
       "type": "full-screen interactive 3D scene (three.js / WebGL)",
-      "description": "The knowledge-boundary sketch from the front page, as geometry: collective human knowledge as a spiky closed outline, one spike per field at very different depths; a language model growing as a smoother, lagging copy inside it; expert breakthroughs marked on the spikes; and the fields where the model's boundary has passed the human graph (AlphaGo, AlphaFold). Above the outline floats a concept map that a prompt lights up.",
+      "description": "The knowledge-boundary sketch from the front page, as geometry: collective human knowledge as a spiky ball, one spike per field at very different depths; a language model growing as a smoother, lagging copy inside it; expert breakthroughs marked on the spikes; and the fields where the model's boundary has passed the human graph (AlphaGo, AlphaFold). Beside the ball floats a concept map that a prompt lights up.",
       "researchPremise": "A model does not learn from a corpus of finished text; it learns from results that experts produced at the frontier, so its boundary lags the human one and is densest where the human graph is thin enough for a single result to matter. The sketch is an argument, not a measurement: it says where to look for the disagreement, not what the answer is.",
       "mechanism": "Timeline of 40 frames, scrubbable, with annotations. Concept nodes are scored by a hybrid of cosine similarity and lexical overlap against a local sentence-embedding model (Xenova/all-MiniLM-L6-v2, ~22 MB) that runs in the visitor's browser via transformers.js; a WebLLM decoder (SmolLM2-360M / Qwen2.5-0.5B) can additionally propose concepts not yet in the diagram, on WebGPU.",
       "sourceEssay": "https://domij.info/articles/blog/all-about-chatgpt.html"
@@ -139,7 +139,10 @@
     "mergingBbhCount": 86939,
     "eventRateLowerBoundGpc3Yr": 587,
     "priorTheoreticalRateGpc3Yr": 100,
-    "earlyLigoO1RateRangeGpc3Yr": [9, 240],
+    "earlyLigoO1RateRangeGpc3Yr": [
+      9,
+      240
+    ],
     "lisaLocalizedStandardSirensSub1Mpc3": 17,
     "halfMassRelaxationTimeFormula": "τ_rh = v^3 / [8π G^2 m^2 n ln(γ N)] ≃ 0.8 Gyr"
   },

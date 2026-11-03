@@ -168,15 +168,27 @@ The three.js version is live at `/knowledge/`.
 
 - `green-app/src/lib/knowledgeGrowth.ts` is a direct TypeScript port of the
   model in `scripts/make-knowledge-growth-gif.py`: the same domain table, the
-  same amplitudes and reaches, the same 40 frames, the same annotations. The
-  GIF and the scene are one picture in two renderers, so a change to one has
-  to be made in the other — which is the point.
-- `green-app/src/components/KnowledgeGrowth3D.tsx` draws it: the human
-  outline as a closed line, the model's boundary as a closed line plus a
-  translucent fill, one cone per domain spike, an amber sphere where an expert
-  broke through, and a short pink segment where the model has passed the human
-  graph. The outline turns; the concept map above it does not, so a node can
-  be found again after the geometry has rotated.
+  same amplitudes and reaches, the same 40 frames, the same annotations, and
+  the same answer at the end — AlphaGo 1.045 and AlphaFold 1.035 outside the
+  human graph, mathematics 0.965 just inside it.
+- `green-app/src/components/KnowledgeGrowth3D.tsx` draws it as a **ball**
+  rather than a circle, and that is the one place the two renderers differ.
+  A circle has a ring of fields around it and a clear "inside"; a ball has
+  fields all over its surface and no privileged side. Human knowledge does
+  not have a flat side, so the sphere is the honest shape — the GIF stays a
+  circle because a GIF is flat anyway.
+- Each field keeps its own bearing, so the ball is the old circle lifted
+  onto a sphere: a field still points the same way it used to. The latitude
+  is an equal-area spread assigned in a golden stride, because without that
+  two fields whose bearings are close land on top of each other and their
+  spikes merge into one lump — the stride lifts the closest pair from 17
+  degrees apart to 32.
+- The human boundary is a globe grid that deforms over the deep fields, and
+  the model's boundary is a solid core inside it. The core is opaque on
+  purpose: it hides the far side of the human ball, so the two read as one
+  inside the other instead of as two grids drawn over each other. An amber
+  sphere marks where an expert broke through, and a pink needle and bead
+  mark where the model has passed the human graph.
 - The growth model is shared with the front page's GIF only in appearance. The
   *numbers* differ from the 2023 essay's illustration: they are the current
   table, and the table is the argument.

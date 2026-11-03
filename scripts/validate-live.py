@@ -14,6 +14,7 @@ import html
 import json
 import re
 import sys
+import time
 import urllib.error
 import urllib.request
 from urllib.parse import urljoin, urlparse
@@ -31,10 +32,33 @@ warnings = []
 checks = collections.Counter()
 
 
-def get(url):
+def get(url, attempts=4):
+    """Fetch a URL, retrying the transient failures.
+
+    GitHub Pages answers 503 when its CDN is cold for a path or when a burst
+    of requests trips its rate limit. Both are the CDN's state, not the
+    site's, and a validator that reports them as failures is worse than
+    useless — it teaches you to ignore it.
+    """
     req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
-    with urllib.request.urlopen(req, timeout=TIMEOUT) as resp:
-        return resp.status, resp.read(), dict(resp.headers)
+    last = None
+    for attempt in range(attempts):
+        try:
+            with urllib.request.urlopen(req, timeout=TIMEOUT) as resp:
+                return resp.status, resp.read(), dict(resp.headers)
+        except urllib.error.HTTPError as e:
+            if e.code in (502, 503, 504) and attempt < attempts - 1:
+                last = e
+                time.sleep(2 * (attempt + 1))
+                continue
+            raise
+        except urllib.error.URLError as e:
+            if attempt < attempts - 1:
+                last = e
+                time.sleep(2 * (attempt + 1))
+                continue
+            raise
+    raise last
 
 
 def rel_url(url):

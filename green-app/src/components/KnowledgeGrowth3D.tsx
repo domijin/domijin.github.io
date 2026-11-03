@@ -5,41 +5,55 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { Billboard, Line, OrbitControls, Text } from "@react-three/drei";
 import * as THREE from "three";
 import {
+  DOMAIN_DIRECTIONS,
   GROWTH_DOMAINS,
   GROWTH_R_BASE,
   ampNow,
   annotationAt,
-  angleOf,
-  crossingDomains,
-  curve,
+  crossingFields,
+  gridLines,
   humanRadius,
   modelRadius,
+  surface,
 } from "@/lib/knowledgeGrowth";
 import { NODES } from "@/lib/knowledgeScoring";
 
 /**
  * The interactive version of the growth story.
  *
- * The same picture as the GIF, as geometry: the spiky outline of collective
- * human knowledge on the ground, the model's boundary growing inside it, the
- * expert's breakthroughs sitting on the spikes, and the crossings marked where
- * the model has passed the human graph. Above it floats the cloud of concept
- * nodes, sized and lit by how much weight a prompt gave them.
+ * Collective human knowledge is a spiky ball; a language model grows as a
+ * smoother, lagging copy inside it. The experts' breakthroughs sit on the
+ * spikes, and where the model has passed the human graph the overshoot is
+ * marked. Beside the ball floats the cloud of concept nodes, sized and lit
+ * by how much weight a prompt gave them.
+ *
+ * The numbers come from @/lib/knowledgeGrowth, which is the same model the
+ * front page's animation draws in two dimensions.
  */
+
+/** Scene units per model unit. The ball has to share the frame with the
+ *  concept cloud beside it. */
+const SCALE = 0.6;
+
+/** How far a field's label sits outside the spike it names, and how far it
+ *  is lifted so it clears the marker even when the spike points at the
+ *  camera and the radial offset has no room on screen. */
+const LABEL_OFFSET = 10;
+const LABEL_LIFT = 6;
 
 /** Where each concept node floats in the scene. */
 const NODE_POS: Record<string, [number, number, number]> = {
-  embedding: [-24, 92, -16],
-  meme: [-9, 112, -28],
-  mocca: [6, 86, -18],
-  bbh: [23, 120, -5],
-  siren: [31, 144, -22],
-  auction: [-21, 76, 3],
-  demand: [-4, 68, 15],
-  signal: [-29, 98, 17],
-  reglag: [9, 104, 5],
-  calib: [-25, 62, 27],
-  retrieval: [11, 80, 31],
+  embedding: [88, 56, -16],
+  meme: [110, 76, -27],
+  mocca: [136, 30, -18],
+  bbh: [164, 62, -5],
+  siren: [186, 92, -23],
+  auction: [80, 4, 4],
+  demand: [106, -22, 16],
+  signal: [70, 38, 18],
+  reglag: [142, 84, 5],
+  calib: [94, -32, 29],
+  retrieval: [134, 36, 32],
 };
 
 const NODE_EDGES: [string, string][] = [
@@ -73,14 +87,34 @@ export interface GeneratedNode {
   parent: string;
 }
 
-function shapeFrom(pts: [number, number, number][]) {
-  const shape = new THREE.Shape();
-  pts.forEach(([x, , z], i) => {
-    if (i === 0) shape.moveTo(x, z);
-    else shape.lineTo(x, z);
-  });
-  shape.closePath();
-  return shape;
+/** The globe grid for one of the two boundaries. */
+function useGrid(
+  frame: number,
+  fn: (dir: [number, number, number], frame: number) => number
+) {
+  return useMemo(() => {
+    const positions = gridLines(frame, fn);
+    const g = new THREE.BufferGeometry();
+    g.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+    g.scale(SCALE, SCALE, SCALE);
+    return g;
+  }, [frame, fn]);
+}
+
+/** The filled shell for one of the two boundaries. */
+function useShell(
+  frame: number,
+  fn: (dir: [number, number, number], frame: number) => number
+) {
+  return useMemo(() => {
+    const s = surface(frame, fn, 144, 72);
+    const g = new THREE.BufferGeometry();
+    g.setAttribute("position", new THREE.BufferAttribute(s.positions, 3));
+    g.setIndex(new THREE.BufferAttribute(s.indices, 1));
+    g.scale(SCALE, SCALE, SCALE);
+    g.computeVertexNormals();
+    return g;
+  }, [frame, fn]);
 }
 
 function Scene({
@@ -99,107 +133,181 @@ function Scene({
   spinning: boolean;
 }) {
   const group = useRef<THREE.Group>(null);
+  const markers = useRef<(THREE.Group | null)[]>([]);
 
-  useFrame((_, delta) => {
+  const humanGrid = useGrid(frame, humanRadius);
+  const modelGrid = useGrid(frame, modelRadius);
+  const humanShell = useShell(frame, humanRadius);
+  const modelShell = useShell(frame, modelRadius);
+
+  useFrame((state, delta) => {
     if (group.current && spinning) group.current.rotation.y += delta * 0.06;
+
+    // Hide what is on the far side of the ball. The shells are translucent,
+    // so without this the back of the ball shows through the front and the
+    // picture stops making sense.
+    const cam = state.camera.position;
+    const len = Math.hypot(cam.x, cam.y, cam.z) || 1;
+    for (let i = 0; i < DOMAIN_DIRECTIONS.length; i++) {
+      const m = markers.current[i];
+      if (!m) continue;
+      const d = DOMAIN_DIRECTIONS[i];
+      m.visible = (d[0] * cam.x + d[1] * cam.y + d[2] * cam.z) / len > 0.05;
+    }
   });
 
-  const human = useMemo(() => curve(frame, humanRadius), [frame]);
-  const model = useMemo(() => curve(frame, modelRadius), [frame]);
-  const modelShape = useMemo(() => shapeFrom(model), [model]);
-
+  /** The fields the model has already passed the human graph in. */
   const crossings = useMemo(() => {
-    const out: [number, number, number][][] = [];
-    for (const d of crossingDomains(frame)) {
-      const a = angleOf(d);
-      const r = modelRadius(a, frame);
-      out.push([
-        [r * Math.cos(a), 0.4, r * Math.sin(a)],
-        [(r + 9) * Math.cos(a), 0.4, (r + 9) * Math.sin(a)],
-      ]);
-    }
+    const out = new Map<
+      number,
+      {
+        dir: [number, number, number];
+        /** the human boundary and the model's, in model units */
+        from: number;
+        to: number;
+        /** the radius of the human spike tip, in model units */
+        tip: number;
+        quat: THREE.Quaternion;
+        /** the needle's midpoint radius, in model units */
+        mid: number;
+        /** the needle's length, in scene units */
+        length: number;
+      }
+    >();
+    crossingFields(frame).forEach(({ index: i, domain: d }) => {
+      const dir = DOMAIN_DIRECTIONS[i];
+      const from = humanRadius(dir, frame);
+      const to = modelRadius(dir, frame);
+      if (to <= from) return;
+      const length = (to + 9 - from) * SCALE;
+      const mid = (from + to + 9) / 2;
+      const quat = new THREE.Quaternion().setFromUnitVectors(
+        new THREE.Vector3(0, 1, 0),
+        new THREE.Vector3(dir[0], dir[1], dir[2])
+      );
+      out.set(i, {
+        dir,
+        from,
+        to,
+        tip: GROWTH_R_BASE * (1 + ampNow(d, frame)),
+        quat,
+        mid,
+        length,
+      });
+    });
     return out;
   }, [frame]);
-
-  const breakthroughs = useMemo(
-    () =>
-      GROWTH_DOMAINS.filter((d) => d.t !== null && frame >= d.t).map((d) => {
-        const a = angleOf(d);
-        const r = humanRadius(a, frame);
-        return { a, r, label: d.label };
-      }),
-    [frame]
-  );
 
   return (
     <>
       <group ref={group}>
-      {/* the human outline */}
-      <Line points={human} color={HUMAN} lineWidth={2} />
+        {/* collective human knowledge: a faint shell and a globe grid that
+            deforms over the deep fields */}
+        <mesh geometry={humanShell}>
+          <meshBasicMaterial
+            color={HUMAN}
+            side={THREE.DoubleSide}
+            transparent
+            opacity={0.07}
+            depthWrite={false}
+          />
+        </mesh>
+        <lineSegments geometry={humanGrid}>
+          <lineBasicMaterial color={HUMAN} transparent opacity={0.45} depthWrite={false} />
+        </lineSegments>
 
-      {/* the model's boundary, filled */}
-      <mesh position={[0, -0.4, 0]}>
-        <shapeGeometry args={[modelShape]} />
-        <meshBasicMaterial
-          color="#0d2642"
-          side={THREE.DoubleSide}
-          transparent
-          opacity={0.4}
-          depthWrite={false}
-        />
-      </mesh>
-      <Line points={model} color={MODEL} lineWidth={2.2} />
+        {/* What the model can recall: a solid core inside the human shell.
+            Opaque on purpose — it hides the far side of the human ball, so
+            the two read as one inside the other instead of as two grids
+            drawn over each other. */}
+        <mesh geometry={modelShell}>
+          <meshBasicMaterial color="#0d2f52" side={THREE.FrontSide} />
+        </mesh>
+        <lineSegments geometry={modelGrid}>
+          <lineBasicMaterial color={MODEL} transparent opacity={0.6} depthWrite={false} />
+        </lineSegments>
 
-      {/* the spikes: one per domain, and the expert's result on top */}
-      {GROWTH_DOMAINS.map((d, i) => {
-        const a = angleOf(d);
-        const len = GROWTH_R_BASE * ampNow(d, frame);
-        const tip = GROWTH_R_BASE + len;
-        const mid = GROWTH_R_BASE + len / 2;
-        const isBreak = d.t !== null && frame >= d.t;
-        return (
-          <group key={i}>
-            <mesh
-              position={[mid * Math.cos(a), 0, mid * Math.sin(a)]}
-              rotation={[0, -a + Math.PI / 2, 0]}
+        {/* the experts' breakthroughs, on the tips of the spikes */}
+        {GROWTH_DOMAINS.map((d, i) => {
+          const dir = DOMAIN_DIRECTIONS[i];
+          const tip = GROWTH_R_BASE * (1 + ampNow(d, frame)) * SCALE;
+          const isBreak = d.t !== null && frame >= d.t;
+          const cross = crossings.get(i);
+          return (
+            <group
+              key={i}
+              position={[dir[0] * tip, dir[1] * tip, dir[2] * tip]}
+              ref={(el) => {
+                markers.current[i] = el;
+              }}
             >
-              <coneGeometry args={[2.4, Math.max(2, len), 6]} />
-              <meshBasicMaterial color={HUMAN} />
-            </mesh>
-            {d.label && (
-              <Billboard>
-                <Text
-                  position={[(tip + 12) * Math.cos(a), 9, (tip + 12) * Math.sin(a)]}
-                  fontSize={5.5}
-                  color="#94a3b8"
-                  anchorX="center"
-                  anchorY="middle"
-                >
-                  {d.label}
-                </Text>
-              </Billboard>
-            )}
-            {isBreak && (
-              <mesh position={[tip * Math.cos(a), 2.5, tip * Math.sin(a)]}>
-                <sphereGeometry args={[3.2, 16, 16]} />
-                <meshBasicMaterial color={EXPERT} />
-              </mesh>
-            )}
-          </group>
-        );
-      })}
+              {isBreak && (
+                <mesh>
+                  <sphereGeometry args={[3.1, 16, 16]} />
+                  {/* No depth test: by the end the model's boundary has
+                      grown past this spike, so the marker saying an expert
+                      broke the frontier here would be buried inside the
+                      model. */}
+                  <meshBasicMaterial color={EXPERT} depthTest={false} />
+                </mesh>
+              )}
 
-      {/* where the model has passed the human graph */}
-      {crossings.map((seg, i) => (
-        <Line key={i} points={seg} color={CROSS} lineWidth={4} />
-      ))}
+              {/* Where the model has passed the human graph. The overshoot is
+                  only a few per cent of the radius, so it is marked rather
+                  than left to be found. */}
+              {cross && (() => {
+                // This group already sits at the tip, so the marker offsets
+                // are measured from the tip, not from the centre.
+                const dir = cross.dir;
+                const at = (r: number): [number, number, number] => {
+                  const d = (r - cross.tip) * SCALE;
+                  return [dir[0] * d, dir[1] * d, dir[2] * d];
+                };
+                return (
+                  <group>
+                    <mesh position={at(cross.mid)} quaternion={cross.quat}>
+                      <cylinderGeometry args={[1.3, 1.3, cross.length, 8]} />
+                      <meshBasicMaterial color={CROSS} depthTest={false} />
+                    </mesh>
+                    <mesh position={at(cross.to)}>
+                      <sphereGeometry args={[3.6, 16, 16]} />
+                      <meshBasicMaterial color={CROSS} depthTest={false} />
+                    </mesh>
+                  </group>
+                );
+              })()}
+
+              {d.label && (
+                <group
+                  position={[
+                    dir[0] * LABEL_OFFSET,
+                    dir[1] * LABEL_OFFSET + LABEL_LIFT,
+                    dir[2] * LABEL_OFFSET,
+                  ]}
+                >
+                  <Billboard>
+                    <Text
+                      position={[0, 0, 0]}
+                      fontSize={4.6}
+                      color="#cbd5e1"
+                      anchorX="center"
+                      anchorY="middle"
+                    >
+                      {d.label}
+                    </Text>
+                  </Billboard>
+                </group>
+              )}
+            </group>
+          );
+        })}
       </group>
 
-      {/* the concept nodes, floating above the ground — these hold still, so
-          the reader can find a node again after the outline has rotated */}
+      {/* the concept nodes, floating beside the ball — these hold still, so
+          the reader can find a node again after the ball has turned */}
       {NODES.map((n) => {
         const w = weights[n.id] ?? 0;
-        const pos = NODE_POS[n.id] ?? [0, 40, 0];
+        const pos = NODE_POS[n.id] ?? [120, 40, 0];
         const isSel = selected === n.id;
         const r = 3 + w * 6.5;
         return (
@@ -261,7 +369,7 @@ function Scene({
 
       {/* nodes the local model proposed */}
       {generated.map((g) => {
-        const parent = NODE_POS[g.parent] ?? [0, 40, 0];
+        const parent = NODE_POS[g.parent] ?? [120, 40, 0];
         const a = (g.parent.length * 1.7) % (Math.PI * 2);
         const rad = 14 + (g.similarity % 1) * 8;
         const pos: [number, number, number] = [
@@ -303,7 +411,7 @@ export default function KnowledgeGrowth3D(props: {
 }) {
   return (
     <Canvas
-      camera={{ position: [0, 285, 470], fov: 46 }}
+      camera={{ position: [0, 110, 430], fov: 46 }}
       dpr={[1, 2]}
       gl={{ antialias: true }}
       onCreated={({ gl }) => gl.setClearColor("#081827")}
@@ -311,10 +419,10 @@ export default function KnowledgeGrowth3D(props: {
       <Scene {...props} />
       <OrbitControls
         enablePan={false}
-        minDistance={120}
+        minDistance={150}
         maxDistance={700}
-        maxPolarAngle={Math.PI / 2.1}
-        target={[0, 30, 0]}
+        maxPolarAngle={Math.PI / 1.9}
+        target={[0, 0, 0]}
       />
     </Canvas>
   );

@@ -1,22 +1,32 @@
 /**
- * The growth model from scripts/make-knowledge-growth-gif.py, in TypeScript,
- * so the interactive scene and the GIF are the same picture.
+ * The growth model, in three dimensions.
  *
- * Collective human knowledge is a spiky closed outline; the model grows as a
- * smoother, lagging copy of the same silhouette. A breakthrough grows the
- * human spike and, separately, grows the model's reach toward that field. At
- * the end the model is inside the human outline almost everywhere, close to
- * the edge in mathematics, and past it in the two sharpest fields.
+ * Collective human knowledge is a spiky ball; the model grows as a smoother,
+ * lagging copy of the same shape. A breakthrough grows the human spike and,
+ * separately, grows the model's reach toward that field. At the end the model
+ * is inside the human ball almost everywhere, close to the edge in
+ * mathematics, and past it in the two sharpest fields.
+ *
+ * This started as the two-dimensional model in
+ * scripts/make-knowledge-growth-gif.py, which is still what the front page's
+ * animation shows. What changed is the shape of the knowledge: a circle has
+ * a ring of fields around it and a clear "inside", while a ball has fields
+ * all over its surface and no privileged side. The story the model tells is
+ * the same either way, but the second one is the honest one — human
+ * knowledge does not have a flat side.
+ *
+ * The numbers are unchanged: the same domain table, the same amplitudes and
+ * reaches, the same 40 frames, the same annotations.
  */
 
 export interface GrowthDomain {
-  /** degrees, clockwise from straight up */
+  /** the field's bearing in degrees, clockwise from straight up */
   angle: number;
-  /** how far this field pushes the human outline out */
+  /** how far this field pushes the human boundary out */
   amp: number;
   /** how much further the frontier moves at a breakthrough */
   gain: number;
-  /** how close the model gets to the human outline here, at the end */
+  /** how close the model gets to the human boundary here, at the end */
   reach: number;
   label: string | null;
   /** the frame at which this field has its breakthrough */
@@ -45,9 +55,19 @@ export const GROWTH_DOMAINS: GrowthDomain[] = [
 
 export const GROWTH_FRAMES = 40;
 export const GROWTH_R_BASE = 112;
-const SIG_HUMAN = 0.085;
-const SIG_MODEL = 0.17;
-const SIG_MODEL_BASE = 0.16;
+
+/**
+ * Angular width of a field's bump on the ball, in radians. The fields are
+ * about 31 degrees apart at their closest, so a bump well under half that
+ * stays a separate spike instead of merging into its neighbour — and a thin
+ * field, whose amplitude is a fifth of a deep one's, shows almost no bump
+ * at all. That contrast is the anisotropy.
+ */
+const SIG_HUMAN = 0.135;
+/** The model's reach toward a frontier is broader than the human spike. */
+const SIG_MODEL = 0.3;
+/** The model's body is smoother than the human one — that is the whole point. */
+const SIG_MODEL_BASE = 0.34;
 
 export const GROWTH_ANNOTATIONS: { at: number; text: string }[] = [
   { at: 0, text: "A sketch: how a model's knowledge boundary grows" },
@@ -66,15 +86,30 @@ function ease(t: number) {
   return t * t * (3 - 2 * t);
 }
 
-export function angleOf(d: GrowthDomain) {
-  return ((d.angle - 90) * Math.PI) / 180;
-}
-
-function gauss(theta: number, centre: number, sigma: number) {
-  let delta = (theta - centre + Math.PI) % (2 * Math.PI) - Math.PI;
-  if (delta < -Math.PI) delta += 2 * Math.PI;
-  return Math.exp(-(delta * delta) / (2 * sigma * sigma));
-}
+/**
+ * Where each field sits on the ball.
+ *
+ * The bearing is the field's own azimuth, so the sphere is the old circle
+ * lifted onto a ball: a field still points the same way it used to. The
+ * latitude comes from an equal-area spread, assigned in a golden stride so
+ * that fields whose bearings are close end up far apart in latitude —
+ * without that, two fields land on top of each other and their spikes merge
+ * into one lump.
+ */
+export const DOMAIN_DIRECTIONS: [number, number, number][] = (() => {
+  const n = GROWTH_DOMAINS.length;
+  const stride = 7; // coprime with 17, so this is a permutation
+  const z = new Array<number>(n);
+  for (let rank = 0; rank < n; rank++) {
+    z[(rank * stride) % n] = 1 - (2 * (rank + 0.5)) / n;
+  }
+  return GROWTH_DOMAINS.map((d, i) => {
+    const lat = Math.asin(z[i]);
+    const lon = (d.angle * Math.PI) / 180;
+    const cl = Math.cos(lat);
+    return [cl * Math.cos(lon), Math.sin(lat), cl * Math.sin(lon)];
+  });
+})();
 
 export function ampNow(d: GrowthDomain, frame: number) {
   if (d.t === null || frame < d.t) return d.amp;
@@ -93,28 +128,46 @@ export function fillLevel(frame: number) {
   return 0.84 * ease(t);
 }
 
-export function humanRadius(theta: number, frame: number) {
+/** A bump of angular width `sigma` between two unit vectors. */
+function bump(dot: number, sigma: number) {
+  const angle = Math.acos(Math.max(-1, Math.min(1, dot)));
+  return Math.exp(-(angle * angle) / (2 * sigma * sigma));
+}
+
+function dot(a: [number, number, number], b: [number, number, number]) {
+  return a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
+}
+
+/** The radius of the human knowledge boundary along a direction. */
+export function humanRadius(dir: [number, number, number], frame: number) {
   let r = GROWTH_R_BASE;
-  for (const d of GROWTH_DOMAINS) {
-    r += GROWTH_R_BASE * ampNow(d, frame) * gauss(theta, angleOf(d), SIG_HUMAN);
+  for (let i = 0; i < GROWTH_DOMAINS.length; i++) {
+    const w = bump(dot(dir, DOMAIN_DIRECTIONS[i]), SIG_HUMAN);
+    if (w < 0.004) continue;
+    r += GROWTH_R_BASE * ampNow(GROWTH_DOMAINS[i], frame) * w;
   }
   return r;
 }
 
-export function modelRadius(theta: number, frame: number) {
+/** The radius of the model's boundary along a direction. */
+export function modelRadius(dir: [number, number, number], frame: number) {
   let body = GROWTH_R_BASE;
-  for (const d of GROWTH_DOMAINS) {
-    body += GROWTH_R_BASE * ampNow(d, frame) * 0.72 * gauss(theta, angleOf(d), SIG_MODEL_BASE);
+  for (let i = 0; i < GROWTH_DOMAINS.length; i++) {
+    const w = bump(dot(dir, DOMAIN_DIRECTIONS[i]), SIG_MODEL_BASE);
+    if (w < 0.004) continue;
+    body += GROWTH_R_BASE * ampNow(GROWTH_DOMAINS[i], frame) * 0.72 * w;
   }
   let r = fillLevel(frame) * body;
 
-  for (const d of GROWTH_DOMAINS) {
+  const human = humanRadius(dir, frame);
+  for (let i = 0; i < GROWTH_DOMAINS.length; i++) {
+    const d = GROWTH_DOMAINS[i];
     if (d.t === null) continue;
     const reach = reachNow(d, frame);
     if (reach <= 0) continue;
-    const w = gauss(theta, angleOf(d), SIG_MODEL);
+    const w = bump(dot(dir, DOMAIN_DIRECTIONS[i]), SIG_MODEL);
     if (w < 0.02) continue;
-    const target = reach * humanRadius(theta, frame);
+    const target = reach * human;
     r += w * Math.max(0, target - r);
   }
   return r;
@@ -132,26 +185,133 @@ export function breakthroughAt(frame: number) {
   return GROWTH_DOMAINS.filter((d) => d.t !== null && frame === d.t);
 }
 
-/** The domains the model has already passed the human graph in. */
+/** The fields the model has already passed the human graph in. */
 export function crossingDomains(frame: number) {
-  return GROWTH_DOMAINS.filter((d) => {
+  return GROWTH_DOMAINS.filter((d, i) => {
     if (d.t === null) return false;
-    const a = angleOf(d);
-    return modelRadius(a, frame) > humanRadius(a, frame) + 0.6;
+    const dir = DOMAIN_DIRECTIONS[i];
+    return modelRadius(dir, frame) > humanRadius(dir, frame) + 0.6;
   });
 }
 
-/** The closed curve, as a list of points in the XZ plane. */
-export function curve(
-  frame: number,
-  fn: (theta: number, frame: number) => number,
-  points = 200
-): [number, number, number][] {
-  const out: [number, number, number][] = [];
-  for (let i = 0; i < points; i++) {
-    const theta = (2 * Math.PI * i) / points;
-    const r = fn(theta, frame);
-    out.push([r * Math.cos(theta), 0, r * Math.sin(theta)]);
-  }
+/**
+ * The same, but each crossing carries the field's own index.
+ *
+ * The index matters: a filtered array renumbers its elements, so indexing
+ * back into DOMAIN_DIRECTIONS with a filter's index points at the wrong
+ * field — and a crossing drawn on the wrong spike is a lie about where the
+ * model went past.
+ */
+export function crossingFields(frame: number) {
+  const out: { index: number; domain: GrowthDomain }[] = [];
+  GROWTH_DOMAINS.forEach((d, i) => {
+    if (d.t === null) return;
+    const dir = DOMAIN_DIRECTIONS[i];
+    if (modelRadius(dir, frame) > humanRadius(dir, frame) + 0.6) {
+      out.push({ index: i, domain: d });
+    }
+  });
   return out;
+}
+
+/**
+ * A globe grid: meridians and parallels drawn on the same radial surface.
+ * The grid deforms where the fields are deep, which is a clearer way to see
+ * the anisotropy than a solid shell — you can read how far each spike
+ * pushes the surface out.
+ */
+export function gridLines(
+  frame: number,
+  fn: (dir: [number, number, number], frame: number) => number,
+  meridians = 24,
+  parallels = 13,
+  steps = 64
+): Float32Array {
+  const out: number[] = [];
+  const push = (a: [number, number, number], b: [number, number, number]) => {
+    const ra = fn(a, frame);
+    const rb = fn(b, frame);
+    out.push(a[0] * ra, a[1] * ra, a[2] * ra, b[0] * rb, b[1] * rb, b[2] * rb);
+  };
+
+  for (let m = 0; m < meridians; m++) {
+    const lon = (m / meridians) * Math.PI * 2;
+    let prev: [number, number, number] | null = null;
+    for (let j = 0; j <= steps; j++) {
+      const phi = (j / steps) * Math.PI;
+      const sp = Math.sin(phi);
+      const dir: [number, number, number] = [
+        sp * Math.cos(lon),
+        Math.cos(phi),
+        sp * Math.sin(lon),
+      ];
+      if (prev) push(prev, dir);
+      prev = dir;
+    }
+  }
+
+  for (let p = 1; p < parallels; p++) {
+    const phi = (p / parallels) * Math.PI;
+    const sp = Math.sin(phi);
+    const cp = Math.cos(phi);
+    let prev: [number, number, number] | null = null;
+    for (let i = 0; i <= steps; i++) {
+      const lon = (i / steps) * Math.PI * 2;
+      const dir: [number, number, number] = [sp * Math.cos(lon), cp, sp * Math.sin(lon)];
+      if (prev) push(prev, dir);
+      prev = dir;
+    }
+  }
+
+  return new Float32Array(out);
+}
+
+export interface Surface {
+  positions: Float32Array;
+  indices: Uint32Array;
+}
+
+/**
+ * A radial surface: a lat/long grid whose every vertex sits at the radius
+ * the model gives in that direction.
+ */
+export function surface(
+  frame: number,
+  fn: (dir: [number, number, number], frame: number) => number,
+  segments = 96,
+  rings = 48
+): Surface {
+  const positions = new Float32Array((segments + 1) * (rings + 1) * 3);
+  const indices = new Uint32Array(segments * rings * 6);
+  let p = 0;
+
+  for (let j = 0; j <= rings; j++) {
+    const phi = (j / rings) * Math.PI;
+    const sp = Math.sin(phi);
+    const cp = Math.cos(phi);
+    for (let i = 0; i <= segments; i++) {
+      const theta = (i / segments) * Math.PI * 2;
+      const dir: [number, number, number] = [sp * Math.cos(theta), cp, sp * Math.sin(theta)];
+      const r = fn(dir, frame);
+      positions[p++] = dir[0] * r;
+      positions[p++] = dir[1] * r;
+      positions[p++] = dir[2] * r;
+    }
+  }
+
+  let k = 0;
+  for (let j = 0; j < rings; j++) {
+    for (let i = 0; i < segments; i++) {
+      const a = j * (segments + 1) + i;
+      const b = a + 1;
+      const c = a + segments + 1;
+      const d = c + 1;
+      // Counter-clockwise seen from outside the ball, so a front-facing
+      // material shows the near surface and not the far one.
+      indices[k++] = a; indices[k++] = b; indices[k++] = c;
+      indices[k++] = b; indices[k++] = d; indices[k++] = c;
+    }
+  }
+
+  return { positions, indices };
 }
