@@ -31,6 +31,16 @@
       "description": "1,650 stars in a globular cluster evolving under gravitational relaxation and mass segregation, with colour, luminosity, radius and lifetime from MESA-based stellar-evolution relations (Eker et al. 2018), beside the LISA strain and standard-siren localization for dynamically formed binary black holes.",
       "researchPremise": "Binary black holes formed dynamically inside a globular cluster are ejected into the halo, far from the local Galactic potential that perturbs every other timing clock. They therefore survive as unperturbed standard sirens for LISA; paired with an electromagnetic counterpart, each becomes a multi-messenger probe of dark matter.",
       "sourceDissertation": "https://domij.info/articles/research/astrophysics-bbh-dissertation.html"
+    },
+    "knowledgeBoundary": {
+      "url": "https://domij.info/knowledge/",
+      "stagedUrl": "https://domij.info/next/knowledge/",
+      "title": "Knowledge Boundary",
+      "type": "full-screen interactive 3D scene (three.js / WebGL)",
+      "description": "The knowledge-boundary sketch from the front page, as geometry: collective human knowledge as a spiky closed outline, one spike per field at very different depths; a language model growing as a smoother, lagging copy inside it; expert breakthroughs marked on the spikes; and the fields where the model's boundary has passed the human graph (AlphaGo, AlphaFold). Above the outline floats a concept map that a prompt lights up.",
+      "researchPremise": "A model does not learn from a corpus of finished text; it learns from results that experts produced at the frontier, so its boundary lags the human one and is densest where the human graph is thin enough for a single result to matter. The sketch is an argument, not a measurement: it says where to look for the disagreement, not what the answer is.",
+      "mechanism": "Timeline of 40 frames, scrubbable, with annotations. Concept nodes are scored by a hybrid of cosine similarity and lexical overlap against a local sentence-embedding model (Xenova/all-MiniLM-L6-v2, ~22 MB) that runs in the visitor's browser via transformers.js; a WebLLM decoder (SmolLM2-360M / Qwen2.5-0.5B) can additionally propose concepts not yet in the diagram, on WebGPU.",
+      "sourceEssay": "https://domij.info/articles/blog/all-about-chatgpt.html"
     }
   },
   "narrativeArc": {

@@ -199,6 +199,35 @@ directly — node radius and emissive intensity from `weight`, edge opacity
 from the product of the two endpoints — so the prompt box would light up the
 cloud in 3D as well.
 
+### What shipped
+
+The three.js scene is live at `/knowledge/`, and it does exactly this: the
+same `scoreNodes()` output drives node radius (`3 + weight × 6.5`), sphere
+opacity, label visibility and edge width in the 3D cloud.
+
+The generative layer went further than the encoder. An encoder can only rank
+concepts that are already in the diagram, so a second layer was added: a
+WebLLM decoder (`@mlc-ai/web-llm`, 0.2.87) that runs on WebGPU in the same
+page and *names* concepts the diagram does not contain. The decoder proposes,
+the encoder places: each new concept is embedded with the same MiniLM model
+and dropped next to the node it is closest to.
+
+The cost of that layer is the reason it is opt-in rather than automatic:
+
+| model | download | needs |
+| --- | --- | --- |
+| `Xenova/all-MiniLM-L6-v2` (q8) | ~22 MB | WebGPU *or* WASM |
+| `SmolLM2-360M-Instruct-q4f16_1-MLC` | ~194 MB | WebGPU |
+| `Qwen2.5-0.5B-Instruct-q4f16_1-MLC` | ~265 MB | WebGPU |
+
+Both MLC model ids were checked against the prebuilt registry in the
+installed package, so neither can fail on a typo.
+
+WebLLM needs a GPU adapter. On a browser without one the button reports
+exactly that and the encoder path continues to work — the two layers fail
+independently, which is the only way a 194 MB opt-in can sit on the same page
+as a 22 MB default.
+
 ---
 
 ## Sources

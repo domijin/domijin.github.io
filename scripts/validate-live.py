@@ -46,7 +46,8 @@ def main():
     print(f"validating {BASE}\n")
 
     # --- 1. the routes the site publishes -------------------------------
-    routes = ["/", "/next/", "/cluster/", "/next/cluster/", "/articles/",
+    routes = ["/", "/next/", "/cluster/", "/next/cluster/",
+              "/knowledge/", "/next/knowledge/", "/articles/",
               "/articles/index.html", "/llms.txt", "/llms-full.txt",
               "/agent-context.json", "/sitemap.xml", "/404.html",
               "/classic/"]

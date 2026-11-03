@@ -116,6 +116,18 @@ export function scoreNodes(prompt: string, embedding?: ArrayLike<number> | null)
   return combined.sort((a, b) => b.weight - a.weight);
 }
 
+/** The existing node a new concept is closest to. */
+export function nearestNode(vector: ArrayLike<number>): { id: string; similarity: number } {
+  let best = { id: "", similarity: -1 };
+  for (const n of NODES) {
+    const vec = NODE_EMBEDDINGS[n.id];
+    if (!vec) continue;
+    const s = cosine(vector, vec);
+    if (s > best.similarity) best = { id: n.id, similarity: s };
+  }
+  return best;
+}
+
 /**
  * The node a prompt conditions on: the strongest score, if there is a real
  * signal. A cosine below the floor and no keyword hit means the model would

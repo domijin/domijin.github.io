@@ -161,3 +161,29 @@ geometry, with a scrubber over the 40 frames and the annotation changing under
 the reader's hand — would not. The site already runs `react-three-fiber` v9
 and `drei` v10, so the machinery is there. The GIF stays as the shareable
 artefact; the three.js scene would be the interactive one.
+
+### What shipped
+
+The three.js version is live at `/knowledge/`.
+
+- `green-app/src/lib/knowledgeGrowth.ts` is a direct TypeScript port of the
+  model in `scripts/make-knowledge-growth-gif.py`: the same domain table, the
+  same amplitudes and reaches, the same 40 frames, the same annotations. The
+  GIF and the scene are one picture in two renderers, so a change to one has
+  to be made in the other — which is the point.
+- `green-app/src/components/KnowledgeGrowth3D.tsx` draws it: the human
+  outline as a closed line, the model's boundary as a closed line plus a
+  translucent fill, one cone per domain spike, an amber sphere where an expert
+  broke through, and a short pink segment where the model has passed the human
+  graph. The outline turns; the concept map above it does not, so a node can
+  be found again after the geometry has rotated.
+- The growth model is shared with the front page's GIF only in appearance. The
+  *numbers* differ from the 2023 essay's illustration: they are the current
+  table, and the table is the argument.
+- `/knowledge/` also carries the prompt box: the same MiniLM encoder that
+  scores the front-page SVG lights up nodes in 3D, and a WebLLM decoder can
+  propose concepts that are not in the diagram at all.
+
+The GIF stays on the front page because it is the version a reader can
+screenshot and send to somebody. The scene is the version a reader can argue
+with.

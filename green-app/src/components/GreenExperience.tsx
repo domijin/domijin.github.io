@@ -1679,6 +1679,18 @@ export default function GreenExperience() {
             </p>
           </div>
 
+          <div className="flex items-center justify-between gap-4 text-xs">
+            <span className="font-mono uppercase tracking-widest text-[#2980b9] font-semibold">
+              Interactive · Knowledge Boundary
+            </span>
+            <a
+              href={`${BASE_PATH === "" ? "" : BASE_PATH}/knowledge/`}
+              className="font-mono text-[#0369a1] hover:text-[#2980b9] underline underline-offset-4 whitespace-nowrap"
+            >
+              Open full screen &rarr;
+            </a>
+          </div>
+
           <figure className="rounded-2xl border border-slate-200 bg-[#0b2034] p-3 sm:p-5 shadow-sm space-y-4">
             <img
               src="/images/knowledge-growth.gif"
@@ -2639,6 +2651,10 @@ export default function GreenExperience() {
             <span>·</span>
             <a href={SELF_HREF} className="text-[#2980b9] font-medium">
               Current Edition
+            </a>
+            <span>·</span>
+            <a href={`${BASE_PATH === "" ? "" : BASE_PATH}/knowledge/`} className="hover:text-[#2980b9] transition">
+              Knowledge Boundary
             </a>
             <span>·</span>
             <a href="/beta/" className="hover:text-[#2980b9] transition">

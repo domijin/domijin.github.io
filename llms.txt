@@ -6,6 +6,7 @@
 - **Website**: https://domij.info/
 - **Current edition (staged mirror)**: https://domij.info/next/
 - **Globular cluster sandbox (full-screen interactive)**: https://domij.info/cluster/
+- **Knowledge boundary (full-screen interactive)**: https://domij.info/knowledge/ — the same sketch as the front page, as geometry: collective human knowledge as a spiky outline, a language model growing as a smoother, lagging copy inside it, and the concepts a prompt lights up.
 - **All writing (28 essays)**: https://domij.info/articles/
 - **Archive profile**: https://domij.info/pages/about-me.html
 - **Substack (Domi’s Mind Waves)**: https://domijin.substack.com/
