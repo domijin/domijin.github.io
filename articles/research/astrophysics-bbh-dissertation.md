@@ -88,9 +88,7 @@ Looking back, the years I spent modeling globular clusters and gravitational wav
 
 ## Original Dissertation Artifacts
 
-- [Full Doctoral Dissertation PDF (`/pdfs/main.pdf`)](/pdfs/main.pdf)
-- [Full Dissertation with the Jupyter code embedded (`/pdfs/main.pdf`)](/pdfs/main.pdf)
-- [Opening Notes for Defense (`/opening-notes-for-defense.html`)](/opening-notes-for-defense.html)
+- [Full Doctoral Dissertation PDF (`/pdfs/main.pdf`)](/pdfs/main.pdf) — the complete document, with the Jupyter notebooks embedded
 - [Opening Notes for Defense (`/opening-notes-for-defense.html`)](/opening-notes-for-defense.html)
 - [Research Overview Archive (`/pages/research.html`)](/pages/research.html)
 

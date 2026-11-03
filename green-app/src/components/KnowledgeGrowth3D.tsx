@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useMemo, useRef } from "react";
+import React, { useEffect, useMemo, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Billboard, Line, OrbitControls, Text } from "@react-three/drei";
 import * as THREE from "three";
@@ -24,36 +24,38 @@ import { NODES } from "@/lib/knowledgeScoring";
  * Collective human knowledge is a spiky ball; a language model grows as a
  * smoother, lagging copy inside it. The experts' breakthroughs sit on the
  * spikes, and where the model has passed the human graph the overshoot is
- * marked. Beside the ball floats the cloud of concept nodes, sized and lit
+ * marked. Inside the ball sits the cloud of concept nodes, sized and lit
  * by how much weight a prompt gave them.
  *
  * The numbers come from @/lib/knowledgeGrowth, which is the same model the
  * front page's animation draws in two dimensions.
  */
 
-/** Scene units per model unit. The ball has to share the frame with the
- *  concept cloud beside it. */
-const SCALE = 0.6;
+/** Scene units per model unit. */
+const SCALE = 0.85;
 
 /** How far a field's label sits outside the spike it names, and how far it
  *  is lifted so it clears the marker even when the spike points at the
- *  camera and the radial offset has no room on screen. */
-const LABEL_OFFSET = 10;
-const LABEL_LIFT = 6;
+ *  camera and the radial offset has no room on screen. The lift is in world
+ *  units, and the ball is about 190 across, so this is worth a good few
+ *  pixels on screen — a label sitting on the timeline panel is a label the
+ *  reader cannot read. */
+const LABEL_OFFSET = 12;
+const LABEL_LIFT = 16;
 
 /** Where each concept node floats in the scene. */
 const NODE_POS: Record<string, [number, number, number]> = {
-  embedding: [88, 56, -16],
-  meme: [110, 76, -27],
-  mocca: [136, 30, -18],
-  bbh: [164, 62, -5],
-  siren: [186, 92, -23],
-  auction: [80, 4, 4],
-  demand: [106, -22, 16],
-  signal: [70, 38, 18],
-  reglag: [142, 84, 5],
-  calib: [94, -32, 29],
-  retrieval: [134, 36, 32],
+  embedding: [-30, 18, 20],
+  meme: [-8, 34, -18],
+  mocca: [10, 30, -30],
+  bbh: [30, 22, -8],
+  siren: [42, -2, -26],
+  auction: [-44, -14, 6],
+  demand: [-16, -34, 20],
+  signal: [-34, 6, 32],
+  reglag: [18, -16, 34],
+  calib: [-18, -30, -26],
+  retrieval: [24, -30, 22],
 };
 
 const NODE_EDGES: [string, string][] = [
@@ -74,7 +76,7 @@ const NODE_EDGES: [string, string][] = [
 ];
 
 const HUMAN = "#1DAEDF";
-const MODEL = "#7dd3fc";
+const MODEL = "#bae6fd";
 const EXPERT = "#fbbf24";
 const CROSS = "#f472b6";
 
@@ -93,7 +95,10 @@ function useGrid(
   fn: (dir: [number, number, number], frame: number) => number
 ) {
   return useMemo(() => {
-    const positions = gridLines(frame, fn);
+    // 128 steps per line, because the spikes are narrow: a meridian that
+    // only sampled the surface coarsely would draw the spike as a kink
+    // instead of a point.
+    const positions = gridLines(frame, fn, 24, 13, 128);
     const g = new THREE.BufferGeometry();
     g.setAttribute("position", new THREE.BufferAttribute(positions, 3));
     g.scale(SCALE, SCALE, SCALE);
@@ -107,7 +112,7 @@ function useShell(
   fn: (dir: [number, number, number], frame: number) => number
 ) {
   return useMemo(() => {
-    const s = surface(frame, fn, 144, 72);
+    const s = surface(frame, fn, 192, 96);
     const g = new THREE.BufferGeometry();
     g.setAttribute("position", new THREE.BufferAttribute(s.positions, 3));
     g.setIndex(new THREE.BufferAttribute(s.indices, 1));
@@ -124,6 +129,8 @@ function Scene({
   onSelect,
   generated,
   spinning,
+  modality,
+  symbolic,
 }: {
   frame: number;
   weights: Record<string, number>;
@@ -131,14 +138,28 @@ function Scene({
   onSelect: (id: string) => void;
   generated: GeneratedNode[];
   spinning: boolean;
+  modality: boolean;
+  symbolic: boolean;
 }) {
   const group = useRef<THREE.Group>(null);
   const markers = useRef<(THREE.Group | null)[]>([]);
+  const markerPosition = useMemo(() => new THREE.Vector3(), []);
 
   const humanGrid = useGrid(frame, humanRadius);
   const modelGrid = useGrid(frame, modelRadius);
   const humanShell = useShell(frame, humanRadius);
   const modelShell = useShell(frame, modelRadius);
+
+  useEffect(() => () => {
+    humanGrid.dispose();
+    modelGrid.dispose();
+    humanShell.dispose();
+    modelShell.dispose();
+  }, [humanGrid, modelGrid, humanShell, modelShell]);
+
+  const labelledNodes = useMemo(() => new Set(
+    Object.entries(weights).filter(([, w]) => w > 0.04).sort((a, b) => b[1] - a[1]).slice(0, 4).map(([id]) => id)
+  ), [weights]);
 
   useFrame((state, delta) => {
     if (group.current && spinning) group.current.rotation.y += delta * 0.06;
@@ -151,8 +172,9 @@ function Scene({
     for (let i = 0; i < DOMAIN_DIRECTIONS.length; i++) {
       const m = markers.current[i];
       if (!m) continue;
-      const d = DOMAIN_DIRECTIONS[i];
-      m.visible = (d[0] * cam.x + d[1] * cam.y + d[2] * cam.z) / len > 0.05;
+      // Use the rotated position so the label follows the visible hemisphere.
+      m.getWorldPosition(markerPosition).normalize();
+      m.visible = markerPosition.dot(cam) / len > 0.05;
     }
   });
 
@@ -213,18 +235,23 @@ function Scene({
           />
         </mesh>
         <lineSegments geometry={humanGrid}>
-          <lineBasicMaterial color={HUMAN} transparent opacity={0.45} depthWrite={false} />
+          <lineBasicMaterial color={HUMAN} transparent opacity={0.4} depthWrite={false} />
         </lineSegments>
 
-        {/* What the model can recall: a solid core inside the human shell.
-            Opaque on purpose — it hides the far side of the human ball, so
-            the two read as one inside the other instead of as two grids
-            drawn over each other. */}
+        {/* What the model can recall: a smoother, translucent core inside
+            the human shell. Translucent because the concept graph lives
+            inside it and has to be visible through it. */}
         <mesh geometry={modelShell}>
-          <meshBasicMaterial color="#0d2f52" side={THREE.FrontSide} />
+          <meshBasicMaterial
+            color="#0d2f52"
+            side={THREE.DoubleSide}
+            transparent
+            opacity={0.16}
+            depthWrite={false}
+          />
         </mesh>
         <lineSegments geometry={modelGrid}>
-          <lineBasicMaterial color={MODEL} transparent opacity={0.6} depthWrite={false} />
+          <lineBasicMaterial color={MODEL} transparent opacity={0.7} depthWrite={false} />
         </lineSegments>
 
         {/* the experts' breakthroughs, on the tips of the spikes */}
@@ -289,9 +316,15 @@ function Scene({
                     <Text
                       position={[0, 0, 0]}
                       fontSize={4.6}
-                      color="#cbd5e1"
+                      color="#e2e8f0"
                       anchorX="center"
                       anchorY="middle"
+                      /* A spike pointing at the camera puts its label on top
+                         of the ball, where the grid would eat it. The halo
+                         keeps the name readable wherever it lands. */
+                      outlineWidth={0.12}
+                      outlineColor="#050d18"
+                      outlineOpacity={1}
                     >
                       {d.label}
                     </Text>
@@ -301,15 +334,12 @@ function Scene({
             </group>
           );
         })}
-      </group>
-
-      {/* the concept nodes, floating beside the ball — these hold still, so
-          the reader can find a node again after the ball has turned */}
+      {/* The concept graph shares the sphere's transform and stays enclosed. */}
       {NODES.map((n) => {
         const w = weights[n.id] ?? 0;
-        const pos = NODE_POS[n.id] ?? [120, 40, 0];
+        const pos = NODE_POS[n.id] ?? [0, 0, 0];
         const isSel = selected === n.id;
-        const r = 3 + w * 6.5;
+        const r = 3.6 + w * 7;
         return (
           <group key={n.id} position={pos}>
             <mesh
@@ -324,16 +354,22 @@ function Scene({
               <meshBasicMaterial
                 color={isSel ? "#38bdf8" : "#4ade80"}
                 transparent
-                opacity={0.25 + w * 0.75}
+                opacity={isSel ? 1 : w > 0.04 ? 0.5 + w * 0.5 : 0.18}
+                depthTest={false}
               />
             </mesh>
             {w > 0.04 && (
               <mesh>
                 <sphereGeometry args={[r + 2.5, 20, 20]} />
-                <meshBasicMaterial color="#4ade80" transparent opacity={0.06 + w * 0.12} />
+                <meshBasicMaterial
+                  color="#4ade80"
+                  transparent
+                  opacity={0.06 + w * 0.12}
+                  depthTest={false}
+                />
               </mesh>
             )}
-            {(isSel || w > 0.35) && (
+            {(isSel || labelledNodes.has(n.id)) && (
               <Billboard>
                 <Text
                   position={[0, r + 5, 0]}
@@ -341,8 +377,12 @@ function Scene({
                   color={isSel ? "#7dd3fc" : "#86efac"}
                   anchorX="center"
                   anchorY="middle"
+                  maxWidth={60}
+                  textAlign="center"
+                  outlineWidth={0.15}
+                  outlineColor="#081827"
                 >
-                  {n.label}
+                  {`${n.label}\n${w.toFixed(2)}`}
                 </Text>
               </Billboard>
             )}
@@ -368,17 +408,22 @@ function Scene({
       })}
 
       {/* nodes the local model proposed */}
-      {generated.map((g) => {
-        const parent = NODE_POS[g.parent] ?? [120, 40, 0];
-        const a = (g.parent.length * 1.7) % (Math.PI * 2);
+      {generated.map((g, i) => {
+        const parent = NODE_POS[g.parent] ?? [0, 0, 0];
+        const a = i * 2.39996;
         const rad = 14 + (g.similarity % 1) * 8;
         const pos: [number, number, number] = [
           parent[0] + Math.cos(a) * rad,
           parent[1] + 10 + (g.similarity % 1) * 12,
           parent[2] + Math.sin(a) * rad,
         ];
+        const distance = Math.hypot(...pos);
+        if (distance > 80) {
+          for (let axis = 0; axis < 3; axis++) pos[axis] *= 80 / distance;
+        }
         return (
           <group key={g.id} position={pos}>
+            <Line points={[[0, 0, 0], [parent[0] - pos[0], parent[1] - pos[1], parent[2] - pos[2]]]} color="#fb7185" transparent opacity={0.45} lineWidth={1} />
             <mesh>
               <sphereGeometry args={[3.4, 20, 20]} />
               <meshBasicMaterial color="#fb7185" transparent opacity={0.85} />
@@ -390,6 +435,8 @@ function Scene({
                 color="#fda4af"
                 anchorX="center"
                 anchorY="middle"
+                maxWidth={50}
+                textAlign="center"
               >
                 {g.name}
               </Text>
@@ -397,6 +444,20 @@ function Scene({
           </group>
         );
       })}
+      {/* The two extensions from the sketch attach to the selected concept. */}
+      {[
+        { enabled: modality, label: "Observe", position: [-56, -48, 10] as [number, number, number] },
+        { enabled: symbolic, label: "Compute", position: [52, -48, 10] as [number, number, number] },
+      ].filter((extension) => extension.enabled).map((extension) => (
+        <group key={extension.label}>
+          <Line points={[NODE_POS[selected ?? "meme"] ?? [0, 0, 0], extension.position]} color="#fb7185" lineWidth={2} dashed dashSize={3} gapSize={2} />
+          <group position={extension.position}>
+            <mesh><boxGeometry args={[7, 7, 7]} /><meshBasicMaterial color="#fb7185" /></mesh>
+            <Billboard><Text position={[0, -8, 0]} fontSize={4.4} color="#fda4af" anchorX="center" outlineWidth={0.15} outlineColor="#081827">{extension.label}</Text></Billboard>
+          </group>
+        </group>
+      ))}
+      </group>
     </>
   );
 }
@@ -408,6 +469,8 @@ export default function KnowledgeGrowth3D(props: {
   onSelect: (id: string) => void;
   generated: GeneratedNode[];
   spinning: boolean;
+  modality: boolean;
+  symbolic: boolean;
 }) {
   return (
     <Canvas

@@ -95,12 +95,6 @@ export default function ClusterSandboxPage() {
     return () => window.removeEventListener("keydown", onKey);
   }, [toggleFullscreen]);
 
-  // The panel's "Read full essay" control is a plain link inside the
-  // simulation, so it needs the deployment prefix to resolve correctly.
-  const openEssay = useCallback((url: string) => {
-    window.location.assign(`${BASE_PATH}${url}`);
-  }, []);
-
   return (
     <main className="flex min-h-[100dvh] flex-col bg-[#081827] text-slate-100 xl:h-[100dvh] xl:overflow-hidden">
       <header className="flex shrink-0 items-center justify-between gap-3 border-b border-sky-900/60 bg-[#061220] px-4 py-2.5 sm:px-6">
@@ -165,8 +159,45 @@ export default function ClusterSandboxPage() {
         </div>
       )}
 
+      {/* The readout, above the sandbox. It does not change as the
+          simulation runs, and the merger rate is one of the numbers the
+          page is about — so it belongs under the title, not buried in a
+          column beside the picture. */}
+      <section className="shrink-0 border-b border-sky-900/60 bg-[#0a1d31] px-4 py-3 sm:px-6">
+        <div className="flex flex-wrap items-end justify-between gap-x-8 gap-y-3">
+          <div className="min-w-0">
+            <div className="font-mono text-[10px] uppercase tracking-widest text-slate-400">
+              Local Universe BBH Merger Rate
+            </div>
+            <div className="font-mono text-xl font-bold text-amber-300 sm:text-2xl">
+              &eta; &asymp; 587 Gpc&#8315;&sup3; yr&#8315;&sup1;
+            </div>
+          </div>
+
+          <p className="max-w-2xl text-[11px] leading-relaxed text-slate-300 sm:text-xs">
+            Synthesized across{" "}
+            <strong className="text-white">662,772 globular clusters</strong> in{" "}
+            <strong className="text-white">8,946 galaxies</strong> within 30 Mpc
+            (3,240 MOCCA supercomputer runs; 17.88M inspiralling BBHs; 17 LISA
+            standard sirens).
+          </p>
+
+          <div className="flex shrink-0 items-center gap-3">
+            <span className="font-mono text-[10px] uppercase tracking-widest text-[#1DAEDF]">
+              LISA Space Interferometer Readout
+            </span>
+            <a
+              href="/articles/research/astrophysics-bbh-dissertation.html"
+              className="text-[10px] font-mono text-sky-300 underline underline-offset-4 transition hover:text-white"
+            >
+              Read full essay &rarr;
+            </a>
+          </div>
+        </div>
+      </section>
+
       <div className="min-h-0 flex-1 p-2 sm:p-3 xl:overflow-hidden">
-        <GlobularClusterSimulation fill onOpenEssay={openEssay} />
+        <GlobularClusterSimulation fill showReadout={false} />
       </div>
 
       <footer className="shrink-0 border-t border-sky-900/60 bg-[#061220] px-4 py-2.5 text-[11px] leading-relaxed text-slate-300 sm:px-6 sm:text-xs">

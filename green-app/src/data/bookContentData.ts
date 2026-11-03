@@ -671,7 +671,7 @@ export const BOOK_ESSAYS_BY_URL: Record<string, BookEssayEntry> = {
       "• **Scale Bridging (\\(\\mathcal{O}(N^3) \\to \\mathcal{O}(N \\log N)\\))**: Knowing when exact pairwise computation breaks down—and how to design statistical approximations that preserve the underlying physics—is the exact same skill required to build sub-50ms machine learning inference systems.\n• **Multi-Messenger Inference**: Inferring an unseen black hole binary from faint spacetime strain amidst instrument noise is the purest form of signal extraction under uncertainty.\n• **Open Science & Reproducibility**: Every plot and table in my dissertation was built inside version-controlled Jupyter notebooks so future researchers could inspect, challenge, and extend the pipeline.",
       "---",
       "## Original Dissertation Artifacts",
-      "• [Full Doctoral Dissertation PDF (`/pdfs/main.pdf`)](/pdfs/main.pdf)\n• [Full Dissertation with the Jupyter code embedded (`/pdfs/main.pdf`)](/pdfs/main.pdf)\n• [Opening Notes for Defense (`/opening-notes-for-defense.html`)](/opening-notes-for-defense.html)\n• [Opening Notes for Defense (`/opening-notes-for-defense.html`)](/opening-notes-for-defense.html)\n• [Research Overview Archive (`/pages/research.html`)](/pages/research.html)",
+      "• [Full Doctoral Dissertation PDF (`/pdfs/main.pdf`)](/pdfs/main.pdf) — the complete document, with the Jupyter notebooks embedded\n• [Opening Notes for Defense (`/opening-notes-for-defense.html`)](/opening-notes-for-defense.html)\n• [Research Overview Archive (`/pages/research.html`)](/pages/research.html)",
       "---",
     ],
   },

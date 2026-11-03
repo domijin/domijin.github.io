@@ -88,6 +88,32 @@
       font-size: 14px;
       color: var(--muted);
     }
+    .essay-pdf-cta {
+      margin: 22px 0 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 10px 14px;
+      font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+      font-size: 14px;
+    }
+    .essay-pdf-cta a {
+      display: inline-flex;
+      align-items: center;
+      padding: 9px 16px;
+      border-radius: 12px;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.15s ease;
+    }
+    .essay-pdf-cta a:hover { background: #20638f; }
+    .essay-pdf-cta span {
+      color: var(--muted);
+      font-size: 13px;
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    }
     article h2 {
       font-size: 25px;
       line-height: 1.3;
@@ -217,6 +243,12 @@
       <span class="essay-eyebrow article-kicker">Stars, Gravity &amp; Systems Modelling · July 2018</span>
       <h1>Prospective Detection of Binary Black Holes in the Local Universe with Gravitational Waves</h1>
       <div class="essay-byline">By Domi Jin (Dongming Jin) &middot; July 2018</div>
+      <p class="essay-pdf-cta">
+        <a href="/pdfs/main.pdf" target="_blank" rel="noopener">
+          Read the full 2018 dissertation PDF &rarr;
+        </a>
+        <span>The complete document, with every figure and table this essay draws from.</span>
+      </p>
     </header>
     <article>
 <p>What is <em>re-search</em>?</p>
@@ -311,9 +343,7 @@
 <hr />
 <h2>Original Dissertation Artifacts</h2>
 <ul>
-<li><a href="/pdfs/main.pdf">Full Doctoral Dissertation PDF (<code>/pdfs/main.pdf</code>)</a></li>
-<li><a href="/pdfs/main.pdf">Full Dissertation with the Jupyter code embedded (<code>/pdfs/main.pdf</code>)</a></li>
-<li><a href="/opening-notes-for-defense.html">Opening Notes for Defense (<code>/opening-notes-for-defense.html</code>)</a></li>
+<li><a href="/pdfs/main.pdf">Full Doctoral Dissertation PDF (<code>/pdfs/main.pdf</code>)</a> &mdash; the complete document, with the Jupyter notebooks embedded</li>
 <li><a href="/opening-notes-for-defense.html">Opening Notes for Defense (<code>/opening-notes-for-defense.html</code>)</a></li>
 <li><a href="/pages/research.html">Research Overview Archive (<code>/pages/research.html</code>)</a></li>
 </ul>

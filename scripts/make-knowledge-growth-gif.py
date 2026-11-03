@@ -24,7 +24,7 @@ from PIL import Image, ImageDraw, ImageFont
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = sys.argv[1] if len(sys.argv) > 1 else os.path.join(ROOT, "images", "knowledge-growth.gif")
 
-W, H = 760, 500          # final size
+W, H = 1000, 760         # final size — the page shows it up to 1088px wide
 SS = 2                   # supersampling factor
 FRAME_COUNT = 40
 
@@ -38,13 +38,20 @@ CROSS = (244, 114, 182)
 TEXT = (226, 232, 240)
 TEXT_DIM = (148, 163, 184)
 
-CX, CY = W / 2, 248.0
+CX, CY = W / 2, 400.0
 R_BASE = 112.0            # the base radius of the human shape
-SIG_HUMAN = 0.085         # sharp spikes
+SIG_HUMAN = 0.075         # sharp spikes
 SIG_MODEL = 0.17          # the model's lobes are broader — it is a smoothed copy
 SIG_MODEL_BASE = 0.16
 
 FONT_PATH = "/System/Library/Fonts/Menlo.ttc"
+
+# Everything measured in the old 760px canvas scales with the canvas.
+K = W / 760.0
+
+# The model's radius is R_BASE; this scales how large it is *drawn*, so the
+# shape fills the frame without changing a single number of the model.
+DRAW = 1.6
 
 # --------------------------------------------------------------------------
 # The domains. Each is one spike in the human shape: the depth of that
@@ -61,20 +68,20 @@ FONT_PATH = "/System/Library/Fonts/Menlo.ttc"
 DOMAINS = [
     dict(angle=-90, amp=0.06, gain=0.00, reach=0.84, label=None, t=None),
     dict(angle=-64, amp=0.05, gain=0.00, reach=0.84, label=None, t=None),
-    dict(angle=-38, amp=0.30, gain=0.15, reach=1.045, label="AlphaGo", t=17),
+    dict(angle=-38, amp=0.42, gain=0.18, reach=1.045, label="AlphaGo", t=17),
     dict(angle=-15, amp=0.07, gain=0.00, reach=0.84, label=None, t=None),
-    dict(angle=8, amp=0.28, gain=0.13, reach=1.035, label="AlphaFold", t=22),
+    dict(angle=8, amp=0.40, gain=0.17, reach=1.035, label="AlphaFold", t=22),
     dict(angle=31, amp=0.05, gain=0.00, reach=0.84, label=None, t=None),
-    dict(angle=53, amp=0.26, gain=0.12, reach=0.965, label="mathematics", t=27),
+    dict(angle=53, amp=0.36, gain=0.15, reach=0.965, label="mathematics", t=27),
     dict(angle=75, amp=0.06, gain=0.00, reach=0.84, label=None, t=None),
-    dict(angle=96, amp=0.10, gain=0.07, reach=0.88, label="LLM alignment", t=31),
-    dict(angle=118, amp=0.05, gain=0.05, reach=0.88, label="wet-lab protocols", t=None),
-    dict(angle=140, amp=0.11, gain=0.06, reach=0.88, label="ad auctions", t=None),
-    dict(angle=162, amp=0.04, gain=0.05, reach=0.88, label="municipal traffic control", t=20),
+    dict(angle=96, amp=0.16, gain=0.09, reach=0.88, label="LLM alignment", t=31),
+    dict(angle=118, amp=0.05, gain=0.05, reach=0.88, label="wet-lab protocol", t=None),
+    dict(angle=140, amp=0.16, gain=0.08, reach=0.88, label="ad auctions", t=None),
+    dict(angle=162, amp=0.04, gain=0.05, reach=0.88, label="traffic control", t=20),
     dict(angle=184, amp=0.06, gain=0.00, reach=0.84, label=None, t=None),
-    dict(angle=206, amp=0.04, gain=0.04, reach=0.88, label="eVTOL airworthiness", t=25),
+    dict(angle=206, amp=0.04, gain=0.04, reach=0.88, label="airworthiness", t=25),
     dict(angle=228, amp=0.05, gain=0.00, reach=0.84, label=None, t=None),
-    dict(angle=250, amp=0.05, gain=0.05, reach=0.88, label="globular-cluster dynamics", t=29),
+    dict(angle=250, amp=0.05, gain=0.05, reach=0.88, label="cluster dynamics", t=29),
     dict(angle=272, amp=0.06, gain=0.00, reach=0.84, label=None, t=None),
 ]
 
@@ -182,7 +189,7 @@ def boundary_points(frame, points=300, fn=model_radius):
     pts = []
     for i in range(points):
         a = 2 * math.pi * i / points
-        r = fn(a, frame)
+        r = fn(a, frame) * DRAW
         pts.append((CX + r * math.cos(a), CY + r * math.sin(a)))
     return pts
 
@@ -202,6 +209,33 @@ def crossings(frame, points=300):
     if start is not None:
         spans.append((start, 2 * math.pi))
     return spans
+
+
+def dashed_span(draw, a0, a1, frame, colour, width, steps=None):
+    """The human boundary between two angles, dashed.
+
+    This is where the model's edge has gone past the human one, so it has
+    to be drawn on the human boundary itself — an arc on the base circle
+    says nothing about where anything happened.
+    """
+    span = a1 - a0
+    n = steps or max(6, int(span / 0.05))
+    on = True
+    for i in range(n):
+        if on:
+            t0 = a0 + span * i / n
+            t1 = a0 + span * (i + 1) / n
+            r0 = human_radius(t0, frame) * DRAW
+            r1 = human_radius(t1, frame) * DRAW
+            draw.line(
+                [
+                    ((CX + r0 * math.cos(t0)) * SS, (CY + r0 * math.sin(t0)) * SS),
+                    ((CX + r1 * math.cos(t1)) * SS, (CY + r1 * math.sin(t1)) * SS),
+                ],
+                fill=colour,
+                width=width,
+            )
+        on = not on
 
 
 def dashed_arc(draw, cx, cy, r, a0, a1, colour, width, dash=7, gap=5):
@@ -240,15 +274,15 @@ def render(frame):
     human_pts = [(x * s, y * s) for x, y in boundary_points(frame, fn=human_radius)]
     if frame >= 4:
         d.polygon(human_pts, fill=(10, 30, 49))
-        d.line(human_pts + [human_pts[0]], fill=HUMAN, width=2 * s, joint="curve")
+        d.line(human_pts + [human_pts[0]], fill=HUMAN, width=3 * s, joint="curve")
     else:
-        d.line(human_pts + [human_pts[0]], fill=HUMAN_DIM, width=2 * s, joint="curve")
+        d.line(human_pts + [human_pts[0]], fill=HUMAN_DIM, width=3 * s, joint="curve")
 
     # --- the model's boundary, filled inside it ----------------------------
     if frame >= 10:
         model_pts = [(x * s, y * s) for x, y in boundary_points(frame)]
         d.polygon(model_pts, fill=(13, 38, 66))
-        d.line(model_pts + [model_pts[0]], fill=MODEL_EDGE, width=2 * s, joint="curve")
+        d.line(model_pts + [model_pts[0]], fill=MODEL_EDGE, width=3 * s, joint="curve")
 
     # --- the labels, at the tip of each spike ------------------------------
     for idx, dom in enumerate(DOMAINS):
@@ -257,50 +291,50 @@ def render(frame):
         if frame < 6 + idx // 2:
             continue
         a = angle_of(dom)
-        r = human_radius(a, frame)
-        lx = (CX + (r + 14) * math.cos(a)) * s
-        ly = (CY + (r + 14) * math.sin(a)) * s
+        r = human_radius(a, frame) * DRAW
+        lx = (CX + (r + 18) * math.cos(a)) * s
+        ly = (CY + (r + 18) * math.sin(a)) * s
         anchor = "mm"
         if abs(math.cos(a)) > 0.72:
             anchor = "lm" if math.cos(a) > 0 else "rm"
-        d.text((lx, ly), dom["label"], font=font(9), fill=TEXT_DIM, anchor=anchor)
+        d.text((lx, ly), dom["label"], font=font(13), fill=TEXT_DIM, anchor=anchor)
 
     # --- the expert's result, on the spike it was made on ------------------
     for dom in DOMAINS:
         if dom["t"] is None or frame < dom["t"] - 2:
             continue
         a = angle_of(dom)
-        r = human_radius(a, frame)
+        r = human_radius(a, frame) * DRAW
         tx = (CX + r * math.cos(a)) * s
         ty = (CY + r * math.sin(a)) * s
-        rad = 4 * s
+        rad = 5 * s
         d.ellipse([tx - rad, ty - rad, tx + rad, ty + rad], fill=EXPERT)
 
     # --- the crossings -----------------------------------------------------
     if frame >= 30:
         for a0, a1 in crossings(frame):
-            dashed_arc(d, CX * s, CY * s, R_BASE * s, a0, a1, CROSS, 3 * s, dash=6 * s, gap=4 * s)
+            dashed_span(d, a0, a1, frame, CROSS, 4 * s)
 
     # --- distillation: the breakthrough flows into the model ----------------
     for dom in DOMAINS:
         if dom["t"] is None or frame < dom["t"] + 1:
             continue
         a = angle_of(dom)
-        r = human_radius(a, frame)
+        r = human_radius(a, frame) * DRAW
         tip_x = CX + r * math.cos(a)
         tip_y = CY + r * math.sin(a)
-        mr = model_radius(a, frame)
+        mr = model_radius(a, frame) * DRAW
         edge_x = CX + mr * math.cos(a)
         edge_y = CY + mr * math.sin(a)
-        dashed_line(d, (tip_x * s, tip_y * s), (edge_x * s, edge_y * s), STREAM, 2 * s, dash=7 * s, gap=6 * s)
+        dashed_line(d, (tip_x * s, tip_y * s), (edge_x * s, edge_y * s), STREAM, 3 * s, dash=9 * s, gap=8 * s)
 
     # --- the annotation -----------------------------------------------------
     text = annotation_for(frame)
-    f = font(12 if frame >= 4 else 15)
-    d.text((24 * s, 22 * s), text, font=f, fill=TEXT if frame >= 4 else TEXT_DIM)
+    f = font(17 if frame >= 4 else 21)
+    d.text((32 * s, 30 * s), text, font=f, fill=TEXT if frame >= 4 else TEXT_DIM)
 
     legend = "spiky outline: collective human knowledge  ·  solid boundary: what the model can recall"
-    d.text((24 * s, (H - 16) * s), legend, font=font(9), fill=TEXT_DIM)
+    d.text((32 * s, (H - 22) * s), legend, font=font(13), fill=TEXT_DIM)
 
     return img.resize((W, H), Image.LANCZOS)
 

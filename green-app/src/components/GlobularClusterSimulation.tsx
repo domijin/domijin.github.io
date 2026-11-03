@@ -2,7 +2,7 @@
 
 import React, { useRef, useMemo, useState, useEffect } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { OrbitControls, Stars, Html } from "@react-three/drei";
+import { Billboard, OrbitControls, Stars } from "@react-three/drei";
 import * as THREE from "three";
 import { GC_RESEARCH_FINDINGS } from "@/data/contextMapData";
 import {
@@ -119,6 +119,172 @@ const STAR_FRAGMENT_SHADER = /* glsl */ `
   }
 `;
 
+/**
+ * Where a binary's gravitational-wave signal is, and how loud it is.
+ *
+ * The amplitude is anchored to the standard relation
+ *
+ *     h_c  ∝  M_c^(5/6) · f_gw^(2/3) / D
+ *
+ * for a one-year observation, so the level on the sensitivity plot is the
+ * level a detector would actually see. The harmonics are where the
+ * eccentricity shows up: an eccentric binary radiates strongly well above
+ * its fundamental, and the enhancement peaks near the third harmonic.
+ *
+ * The *evolution* of the frequency is schematic rather than a full
+ * relativistic calculation, and it is drawn to show the argument rather
+ * than to be measured from it: in the core the binary is being hardened by
+ * encounters, so its frequency climbs fast and the chirp sweeps across the
+ * band; once it is ejected into the halo the same binary keeps rising, but
+ * slowly, under general relativity alone.
+ */
+/**
+ * The characteristic strain of a 1 M☉ binary seen from 1 Mpc at 1 Hz.
+ *
+ *   h_c = (4/√5) · (G ℳ_c / c²)^(5/3) · (π f)^(2/3) / D
+ *
+ * which is 2.38 × 10⁻¹⁷. Every strain on this page is that number times
+ * ℳ_c^(5/6) f^(2/3) / D, so the whole axis can be checked against the
+ * formula — and the sources' own quoted signal-to-noise ratios come out in
+ * the right range, which is the test that the constant is right. An order
+ * of magnitude here is an order of magnitude on the plot.
+ */
+const G = 6.6743e-11; // m³ kg⁻¹ s⁻²
+const C_LIGHT = 2.99792458e8; // m s⁻¹
+const M_SUN = 1.9885e30; // kg
+const M_PC = 3.0856775814913673e22; // m
+
+const H_C_REF =
+  (4 / Math.sqrt(5)) *
+  Math.pow((G * M_SUN) / (C_LIGHT * C_LIGHT), 5 / 3) *
+  Math.pow(Math.PI, 2 / 3) /
+  M_PC;
+
+/**
+ * The n-th harmonic of an eccentric binary.
+ *
+ * An eccentric binary radiates in harmonics of its orbital frequency, and
+ * the leading term in e for harmonic n is proportional to e^(n-1)
+ * (Peters & Mathews 1963; Wen 2003). So the fundamental is the strongest
+ * single component and the harmonics are weaker — but they sit at higher
+ * frequency, where LISA is more sensitive, which is exactly why the
+ * eccentricity is worth having. A circular binary has no harmonics.
+ */
+function harmonicEnhancement(eccentricity: number, harmonic: number) {
+  if (harmonic === 1) return 1;
+  if (eccentricity <= 0.02) return 0;
+  return Math.pow(eccentricity, harmonic - 1) / harmonic;
+}
+
+function characteristicStrain(
+  chirpMassSolar: number,
+  fHz: number,
+  distanceMpc: number,
+  eccentricity: number,
+  harmonic: number
+) {
+  const circular =
+    H_C_REF *
+    Math.pow(chirpMassSolar, 5 / 6) *
+    Math.pow(fHz, 2 / 3) /
+    distanceMpc;
+  return circular * harmonicEnhancement(eccentricity, harmonic);
+}
+
+/** The frequency a binary radiates at, given where it is in its life. */
+function signalFrequency(
+  bin: DynamicBinaryPair,
+  observedMHz: number,
+  tau: number
+): number {
+  if (tau < bin.formTau) return 0;
+  if (tau <= bin.ejectTau) {
+    // Hardening in the core: the frequency climbs geometrically from a
+    // soft dynamical binary to the frequency the catalogue records. The
+    // starting frequency is an order of magnitude below the recorded one
+    // — a binary that is still being hardened is a much wider pair.
+    const u = (tau - bin.formTau) / Math.max(1e-6, bin.ejectTau - bin.formTau);
+    const fForm = observedMHz / 12;
+    return fForm * Math.pow(observedMHz / fForm, u);
+  }
+  // Ejected: general relativity keeps raising the frequency, slowly.
+  const tMerge = bin.ejectTau + 12.5;
+  const span = Math.max(0.2, tMerge - tau);
+  const ratio = span / Math.max(0.2, tMerge - bin.ejectTau);
+  return observedMHz * Math.pow(ratio, -3 / 8);
+}
+
+/**
+ * LISA's characteristic-strain floor at a given frequency.
+ *
+ * The numbers are the LISA Definition Study sensitivity curve (Robinet et
+ * al. 2019, arXiv:1803.01944): 9.1 × 10⁻²¹ at 1 mHz, a minimum of
+ * 2.1 × 10⁻²² near 10 mHz, 3.5 × 10⁻²² at 30 mHz, and 1.9 × 10⁻²¹ at
+ * 100 mHz. The three terms below are the ones that make that curve, and
+ * they reproduce those four points to the digit.
+ *
+ * The low-frequency term is the unresolved galactic-binary confusion
+ * floor: in characteristic strain it rolls off as f^(-2/3) and it is cut
+ * off sharply above about 1.5 mHz, which is why the total falls steeply
+ * between 1 and 4 mHz. The middle term is the instrument's own floor,
+ * flat across the middle of the band. The high-frequency term is the
+ * photon shot noise, which takes over above 30 mHz.
+ */
+function lisaNoiseLogH(logF: number) {
+  const f = Math.pow(10, logF);
+  const confusion =
+    (9.85e-21 *
+      Math.pow(1e-3 / f, 2 / 3) *
+      (1 + Math.tanh((1.5e-3 - f) / 4e-4))) /
+    2;
+  const instrument = 2.05e-22;
+  const shot = 2.75e-22 * Math.pow(f / 3e-2, 1.52);
+  return Math.log10(
+    Math.sqrt(
+      confusion * confusion + instrument * instrument + shot * shot
+    )
+  );
+}
+
+/** The characteristic strain of one harmonic of a catalogue system. */
+function logHBase(
+  sys: { chirpMassSolar: number; distanceMpc: number; eccentricity: number },
+  logF: number,
+  harmonic: number
+) {
+  return Math.log10(
+    characteristicStrain(
+      sys.chirpMassSolar,
+      Math.pow(10, logF),
+      sys.distanceMpc,
+      sys.eccentricity,
+      harmonic
+    )
+  );
+}
+
+/** A superscript for the axis labels. */
+const SUPERSCRIPT: Record<string, string> = {
+  "-": "\u207B",
+  "0": "\u2070",
+  "1": "\u00B9",
+  "2": "\u00B2",
+  "3": "\u00B3",
+  "4": "\u2074",
+  "5": "\u2075",
+  "6": "\u2076",
+  "7": "\u2077",
+  "8": "\u2078",
+  "9": "\u2079",
+};
+
+function superscript(n: number) {
+  return String(n)
+    .split("")
+    .map((c) => SUPERSCRIPT[c] ?? c)
+    .join("");
+}
+
 const DYNAMIC_BINARIES: DynamicBinaryPair[] = [
   {
     id: "gc-284-1-ref",
@@ -188,15 +354,11 @@ function GlobularClusterEvolution({
   selectedBinaryId,
   onSelectBinary,
   statsCallback,
-  portalRef,
-  labelsReady,
 }: {
   tauRef: React.MutableRefObject<number>;
   isPlaying: boolean;
   selectedBinaryId: string;
   onSelectBinary: (id: string) => void;
-  portalRef: React.RefObject<HTMLDivElement | null>;
-  labelsReady: boolean;
   statsCallback?: (stats: {
     bhCount: number;
     wdCount: number;
@@ -589,8 +751,6 @@ function GlobularClusterEvolution({
             simClockRef={simClockRef}
             isSelected={selectedBinaryId === bbh.id}
             onSelect={() => onSelectBinary(bbh.id)}
-            portalRef={portalRef}
-            labelsReady={labelsReady}
           />
         ))}
       </group>
@@ -604,22 +764,17 @@ function CompactBinaryPairMesh({
   simClockRef,
   isSelected,
   onSelect,
-  portalRef,
-  labelsReady,
 }: {
   bbh: DynamicBinaryPair;
   tauRef: React.MutableRefObject<number>;
   simClockRef: React.MutableRefObject<number>;
   isSelected: boolean;
   onSelect: () => void;
-  portalRef: React.RefObject<HTMLDivElement | null>;
-  labelsReady: boolean;
 }) {
   const pairGroupRef = useRef<THREE.Group>(null);
   const bh1Ref = useRef<THREE.Mesh>(null);
   const bh2Ref = useRef<THREE.Mesh>(null);
   const waveRingRef = useRef<THREE.Mesh>(null);
-  const statusRef = useRef<HTMLSpanElement>(null);
 
   useFrame(() => {
     const tau = tauRef.current;
@@ -660,19 +815,6 @@ function CompactBinaryPairMesh({
     if (bh1Ref.current && bh2Ref.current) {
       bh1Ref.current.position.set(xOrb, yOrb, 0);
       bh2Ref.current.position.set(-xOrb, -yOrb, 0);
-    }
-
-    if (statusRef.current) {
-      // The binary's residence — core or halo — is the premise of the whole
-      // argument, so it is stated on the object rather than in a caption.
-      const ejected = tau > bbh.ejectTau;
-      const text = ejected ? "EJECTED \u2192 HALO" : "IN CORE";
-      if (statusRef.current.textContent !== text) {
-        statusRef.current.textContent = text;
-        statusRef.current.className = ejected
-          ? "px-1 rounded bg-[#0c2138]/95 border border-sky-500/70 text-[9px] font-mono text-sky-200"
-          : "px-1 rounded bg-[#0c2138]/95 border border-amber-500/70 text-[9px] font-mono text-amber-200";
-      }
     }
 
     if (waveRingRef.current) {
@@ -718,27 +860,13 @@ function CompactBinaryPairMesh({
           side={THREE.DoubleSide}
         />
       </mesh>
-      {isSelected && labelsReady && (
-        <Html
-          portal={portalRef as React.RefObject<HTMLElement>}
-          position={[0, 0.24, 0]}
-          center
-        >
-          <div className="flex items-center gap-1">
-            <button
-              onClick={onSelect}
-              className="px-2 py-0.5 rounded bg-[#0c2138]/95 border border-amber-400/70 text-[9px] font-mono text-amber-200 whitespace-nowrap shadow-md cursor-pointer"
-            >
-              {bbh.label}
-            </button>
-            <span
-              ref={statusRef}
-              className="px-1 rounded bg-[#0c2138]/95 border border-amber-500/70 text-[9px] font-mono text-amber-200 whitespace-nowrap"
-            >
-              IN CORE
-            </span>
-          </div>
-        </Html>
+      {isSelected && (
+        <Billboard>
+          <mesh renderOrder={10}>
+            <ringGeometry args={[0.17, 0.185, 48]} />
+            <meshBasicMaterial color="#fbbf24" transparent opacity={0.9} depthTest={false} depthWrite={false} side={THREE.DoubleSide} />
+          </mesh>
+        </Billboard>
       )}
     </group>
   );
@@ -747,16 +875,23 @@ function CompactBinaryPairMesh({
 export default function GlobularClusterSimulation({
   onOpenEssay,
   fill = false,
+  showReadout = true,
 }: {
   onOpenEssay?: (url: string) => void;
   /** Fill the available height instead of using fixed panel heights. */
   fill?: boolean;
+  /** Draw the merger-rate readout in the side column. The full-screen
+   *  page turns it off and puts it under the title instead. */
+  showReadout?: boolean;
 } = {}) {
   const [tauRh, setTauRh] = useState<number>(1.25);
   const [isPlaying, setIsPlaying] = useState<boolean>(true);
   const [speedMultiplier, setSpeedMultiplier] = useState<number>(1);
   const [selectedSystemIdx, setSelectedSystemIdx] = useState<number>(0);
   const [wavePhaseOffset, setWavePhaseOffset] = useState<number>(0);
+  // The research objective is the argument, but it is three paragraphs, and
+  // the sandbox is a sandbox. It opens on request.
+  const [objectiveOpen, setObjectiveOpen] = useState<boolean>(false);
 
   const [clusterStats, setClusterStats] = useState({
     bhCount: 88,
@@ -770,15 +905,6 @@ export default function GlobularClusterSimulation({
 
   const tauRef = useRef<number>(tauRh);
   tauRef.current = tauRh;
-
-  // drei's <Html> resolves its portal target during the first render, when the
-  // canvas is not yet attached to the document, so the label never gets
-  // appended. An explicit overlay div plus a post-mount render fixes that.
-  const portalRef = useRef<HTMLDivElement>(null);
-  const [labelsReady, setLabelsReady] = useState(false);
-  useEffect(() => {
-    setLabelsReady(true);
-  }, []);
 
   // Respect prefers-reduced-motion on initial load
   useEffect(() => {
@@ -825,36 +951,44 @@ export default function GlobularClusterSimulation({
     GC_RESEARCH_FINDINGS.sampleSystems[selectedSystemIdx] ||
     GC_RESEARCH_FINDINGS.sampleSystems[0];
 
+  const activeBinary = DYNAMIC_BINARIES.find((binary) => binary.id === activeSystem.id);
+  const binaryStatus = !activeBinary || tauRh < activeBinary.formTau
+    ? "Not yet formed"
+    : tauRh > activeBinary.ejectTau
+      ? "Ejected → halo"
+      : "In core";
+
   const lisaPlotData = useMemo(() => {
     const width = 380;
     const height = 148;
-    const padL = 36;
-    const padR = 12;
-    const padT = 14;
-    const padB = 24;
+    const padL = 44;
+    const padR = 14;
+    const padT = 12;
+    const padB = 34;
     const plotW = width - padL - padR;
     const plotH = height - padT - padB;
+
+    // The range that holds every catalogue system and LISA's floor
+    // without clamping either: the loudest source sits near 10⁻¹⁷·⁶ and
+    // the quietest harmonic of the faintest one near 10⁻²⁰·⁷.
+    const LOG_H_MIN = -21.0;
+    const LOG_H_MAX = -17.0;
 
     const xFromLogF = (logF: number) =>
       padL + ((logF - -4.0) / (-1.0 - -4.0)) * plotW;
     const yFromLogH = (logH: number) =>
-      padT + plotH - ((logH - -22.0) / (-17.0 - -22.0)) * plotH;
+      padT + plotH - ((logH - LOG_H_MIN) / (LOG_H_MAX - LOG_H_MIN)) * plotH;
 
+    // LISA's characteristic-strain floor: a confusion-limited wall at low
+    // frequency, the instrument's own best around 10 mHz, and the rising
+    // shot noise at the top of the band.
     const curvePoints: string[] = [];
     for (let i = 0; i <= 60; i++) {
       const logF = -4.0 + (i / 60) * 3.0;
-      const f = Math.pow(10, logF);
-      const lowFreqAccel = 2.4e-19 * Math.pow(1e-3 / f, 1.85);
-      const midFloor =
-        3.2e-21 *
-        (1 + 0.45 * Math.exp(-Math.pow((logF + 2.75) / 0.28, 2)));
-      const highFreqShot = 1.1e-20 * Math.pow(f / 1e-2, 1.15);
-      const hn = Math.sqrt(
-        lowFreqAccel * lowFreqAccel +
-          midFloor * midFloor +
-          highFreqShot * highFreqShot
+      const logH = Math.max(
+        LOG_H_MIN,
+        Math.min(LOG_H_MAX, lisaNoiseLogH(logF))
       );
-      const logH = Math.max(-22.0, Math.min(-17.0, Math.log10(hn)));
       curvePoints.push(
         `${xFromLogF(logF).toFixed(1)},${yFromLogH(logH).toFixed(1)}`
       );
@@ -862,31 +996,31 @@ export default function GlobularClusterSimulation({
 
     const systemPoints = GC_RESEARCH_FINDINGS.sampleSystems.map((sys, idx) => {
       const logF0 = Math.log10(sys.fGwMhz * 1e-3);
-      const baseLogH =
-        -20.35 +
-        (5 / 6) * Math.log10(sys.chirpMassSolar / 15) -
-        Math.log10(sys.distanceMpc / 20) +
-        0.22 * Math.log10(sys.fGwMhz / 0.2);
+      const baseLogH = Math.log10(
+        characteristicStrain(
+          sys.chirpMassSolar,
+          sys.fGwMhz * 1e-3,
+          sys.distanceMpc,
+          sys.eccentricity,
+          1
+        )
+      );
 
       const harmonics: { x: number; y: number; n: number }[] = [];
       const maxHarmonic = sys.eccentricity > 0.3 ? 5 : 1;
       for (let h = 1; h <= maxHarmonic; h++) {
-        const lf = Math.min(
-          -1.05,
-          Math.max(-3.95, logF0 + Math.log10(h * 0.85))
-        );
+        const lf = Math.min(-1.05, Math.max(-3.95, logF0 + Math.log10(h * 0.85)));
         const lh = Math.min(
-          -17.2,
+          LOG_H_MAX,
           Math.max(
-            -21.8,
-            baseLogH +
-              (sys.eccentricity > 0.3 ? 0.18 * (3 - Math.abs(h - 3)) : 0)
+            LOG_H_MIN,
+            logHBase(sys, lf, h)
           )
         );
         harmonics.push({
           x: xFromLogF(lf),
           y: yFromLogH(lh),
-          n: h + 1,
+          n: h,
         });
       }
 
@@ -894,7 +1028,7 @@ export default function GlobularClusterSimulation({
         sys,
         idx,
         x: xFromLogF(Math.min(-1.05, Math.max(-3.95, logF0))),
-        y: yFromLogH(Math.min(-17.2, Math.max(-21.8, baseLogH))),
+        y: yFromLogH(Math.min(LOG_H_MAX, Math.max(LOG_H_MIN, baseLogH))),
         harmonics,
       };
     });
@@ -906,12 +1040,55 @@ export default function GlobularClusterSimulation({
       padR,
       padT,
       padB,
+      logHMin: LOG_H_MIN,
+      logHMax: LOG_H_MAX,
       curvePath: curvePoints.join(" "),
       systemPoints,
       xFromLogF,
       yFromLogH,
     };
   }, []);
+
+  /**
+   * Where the selected binary's signal is at the current instant.
+   *
+   * This is what makes the sensitivity plot a moving thing: the chirp
+   * sweeps up through the band while the binary is being hardened in the
+   * core, and then creeps along it in the halo, and the reader can see
+   * whether it clears LISA's floor at the moment they are looking.
+   */
+  const liveSignal = useMemo(() => {
+    const sys = activeSystem;
+    const bin = DYNAMIC_BINARIES.find((b) => b.id === sys.id);
+    if (!bin) return null;
+    const fMhz = signalFrequency(bin, sys.fGwMhz, tauRh);
+    if (fMhz <= 0) {
+      return { exists: false, fMhz: 0, harmonics: [], above: false, logH: 0 };
+    }
+    const logF0 = Math.log10(fMhz * 1e-3);
+    const maxHarmonic = sys.eccentricity > 0.3 ? 5 : 1;
+    const harmonics: { x: number; y: number; n: number }[] = [];
+    for (let h = 1; h <= maxHarmonic; h++) {
+      const lf = Math.min(-1.05, Math.max(-3.95, logF0 + Math.log10(h * 0.85)));
+      const lh = Math.min(
+        lisaPlotData.logHMax,
+        Math.max(lisaPlotData.logHMin, logHBase(sys, lf, h))
+      );
+      harmonics.push({
+        x: lisaPlotData.xFromLogF(lf),
+        y: lisaPlotData.yFromLogH(lh),
+        n: h,
+      });
+    }
+    const fundamentalLogH = logHBase(sys, logF0, 1);
+    return {
+      exists: true,
+      fMhz,
+      harmonics,
+      above: fundamentalLogH > lisaNoiseLogH(logF0),
+      logH: fundamentalLogH,
+    };
+  }, [tauRh, activeSystem, lisaPlotData]);
 
   const timeWaveform = useMemo(() => {
     const width = 380;
@@ -1093,14 +1270,9 @@ export default function GlobularClusterSimulation({
           className={`xl:col-span-7 relative overflow-hidden border-b xl:border-b-0 xl:border-r border-sky-900/60 touch-manipulation ${
             fill
               ? "h-[46vh] min-h-[280px] xl:h-full xl:min-h-0"
-              : "h-[360px] sm:h-[460px] xl:h-[540px]"
+              : "h-[360px] sm:h-[460px] xl:h-[600px]"
           }`}
         >
-          <div
-            ref={portalRef}
-            className="absolute inset-0 pointer-events-none"
-            aria-hidden="true"
-          />
           <Canvas
             camera={{ position: [0, 0.5, 4.8], fov: 48 }}
             gl={{ antialias: true, alpha: true }}
@@ -1125,8 +1297,6 @@ export default function GlobularClusterSimulation({
               tauRef={tauRef}
               isPlaying={isPlaying}
               selectedBinaryId={activeSystem.id}
-              portalRef={portalRef}
-              labelsReady={labelsReady}
               onSelectBinary={(id) => {
                 const idx = GC_RESEARCH_FINDINGS.sampleSystems.findIndex(
                   (s) => s.id === id
@@ -1168,57 +1338,86 @@ export default function GlobularClusterSimulation({
 
         {/* Right 5 Columns: LISA Gravitational-Wave Detector Side Window */}
         <div
-          className={`xl:col-span-5 bg-[#071524]/95 p-4 sm:p-5 flex flex-col space-y-4 text-slate-100 ${
-            fill
-              ? "justify-start xl:overflow-y-auto xl:min-h-0 xl:scroll-slim"
-              : "justify-between"
+          className={`xl:col-span-5 bg-[#071524]/95 p-4 sm:p-5 flex flex-col space-y-4 text-slate-100 justify-start xl:overflow-y-auto xl:min-h-0 xl:scroll-slim ${
+            fill ? "xl:h-full" : "xl:max-h-[600px]"
           }`}
         >
-          {/* Header & Event Rate Badge from Doctoral Dissertation */}
-          <div className="space-y-2">
+          <div className="rounded-lg border border-amber-400/50 bg-amber-950/15 p-3 space-y-1.5">
+            <h3 className="text-[10px] font-mono uppercase tracking-widest text-amber-300 font-semibold">
+              Selected BBH · gold halo
+            </h3>
+            <p className="text-xs text-amber-100">{activeBinary?.label ?? activeSystem.id}</p>
+            <p className="text-[11px] font-mono text-sky-200">{binaryStatus}</p>
+            <p className="text-[11px] text-slate-400">
+              {binaryStatus === "Not yet formed"
+                ? "The highlight appears when this pair forms."
+                : "The gold ring marks this pair in the cluster. Select another pair in the scene or catalogue."}
+            </p>
+          </div>
+
+          {/* The readout itself — the merger rate and the link to the
+              dissertation — is a separate block. On the full-screen page
+              it sits above the sandbox, under the title, because it does
+              not change as the simulation runs and it is one of the
+              numbers the page is about; there it is switched off here
+              and rendered by the page instead. What is left in this
+              column is the part that has to be next to the picture: the
+              strain the binary is making right now, and where it lands. */}
+          {showReadout ? (
+            <div className="space-y-2">
+              <div className="flex items-center justify-between gap-2">
+                <span className="text-[10px] font-mono uppercase tracking-widest text-[#1DAEDF] font-semibold">
+                  LISA Space Interferometer Readout
+                </span>
+                {onOpenEssay ? (
+                  <button
+                    onClick={() =>
+                      onOpenEssay(
+                        "/articles/research/astrophysics-bbh-dissertation.html"
+                      )
+                    }
+                    className="text-[10px] font-mono text-sky-300 hover:text-white underline underline-offset-4 cursor-pointer"
+                  >
+                    Read full essay &rarr;
+                  </button>
+                ) : (
+                  <a
+                    href="/articles/research/astrophysics-bbh-dissertation.html"
+                    className="text-[10px] font-mono text-sky-300 hover:text-white underline underline-offset-4"
+                  >
+                    Read full essay &rarr;
+                  </a>
+                )}
+              </div>
+
+              <div className="p-3 rounded-xl bg-[#0c2138] border border-sky-800/80 space-y-1.5">
+                <div className="flex flex-wrap items-baseline justify-between gap-2">
+                  <span className="text-[11px] font-mono text-slate-300">
+                    Local Universe BBH Merger Rate:
+                  </span>
+                  <span className="text-sm sm:text-base font-mono font-bold text-amber-300">
+                    &eta; &asymp; 587 Gpc&#8315;&sup3; yr&#8315;&sup1;
+                  </span>
+                </div>
+                <p className="text-[11px] text-slate-300 leading-relaxed">
+                  Synthesized across{" "}
+                  <strong className="text-white">662,772 globular clusters</strong>{" "}
+                  in <strong className="text-white">8,946 galaxies</strong>{" "}
+                  within 30 Mpc (3,240 MOCCA supercomputer runs; 17.88M
+                  inspiralling BBHs; 17 LISA standard sirens).
+                </p>
+              </div>
+            </div>
+          ) : (
             <div className="flex items-center justify-between gap-2">
               <span className="text-[10px] font-mono uppercase tracking-widest text-[#1DAEDF] font-semibold">
-                LISA Space Interferometer Readout
+                Sensitivity &amp; Localization
               </span>
-              {onOpenEssay ? (
-                <button
-                  onClick={() =>
-                    onOpenEssay(
-                      "/articles/research/astrophysics-bbh-dissertation.html"
-                    )
-                  }
-                  className="text-[10px] font-mono text-sky-300 hover:text-white underline underline-offset-4 cursor-pointer"
-                >
-                  Read full essay &rarr;
-                </button>
-              ) : (
-                <a
-                  href="/articles/research/astrophysics-bbh-dissertation.html"
-                  className="text-[10px] font-mono text-sky-300 hover:text-white underline underline-offset-4"
-                >
-                  Read full essay &rarr;
-                </a>
-              )}
+              <span className="text-[10px] font-mono text-slate-400">
+                as LISA would see it
+              </span>
             </div>
-
-            <div className="p-3 rounded-xl bg-[#0c2138] border border-sky-800/80 space-y-1.5">
-              <div className="flex flex-wrap items-baseline justify-between gap-2">
-                <span className="text-[11px] font-mono text-slate-300">
-                  Local Universe BBH Merger Rate:
-                </span>
-                <span className="text-sm sm:text-base font-mono font-bold text-amber-300">
-                  η ≃ 587 Gpc⁻³ yr⁻¹
-                </span>
-              </div>
-              <p className="text-[11px] text-slate-300 leading-relaxed">
-                Synthesized across{" "}
-                <strong className="text-white">662,772 globular clusters</strong>{" "}
-                in <strong className="text-white">8,946 galaxies</strong>{" "}
-                within 30 Mpc (3,240 MOCCA supercomputer runs; 17.88M
-                inspiralling BBHs; 17 LISA standard sirens).
-              </p>
-            </div>
-          </div>
+          )}
 
           {/* Plot 1: LISA Frequency-Domain Characteristic Strain & Harmonics */}
           <div className="space-y-1.5">
@@ -1228,6 +1427,39 @@ export default function GlobularClusterSimulation({
               </span>
               <span className="text-sky-300">0.1 mHz – 0.1 Hz</span>
             </div>
+
+            {/* What the moving signal is doing right now, said in words as
+                well as drawn: a reader should not have to measure the plot
+                to know whether the chirp clears LISA's floor. */}
+            <p className="text-[10px] font-mono leading-relaxed text-slate-300">
+              {!liveSignal?.exists ? (
+                <span className="text-slate-400">
+                  This binary has not formed yet at this point in cosmic time.
+                </span>
+              ) : (
+                <>
+                  <span className="text-amber-300">
+                    f_gw = {(liveSignal.fMhz * 1e3).toFixed(1)} mHz
+                  </span>
+                  {liveSignal.harmonics.length > 1 ? (
+                    <span className="text-slate-400">
+                      {" "}
+                      · {liveSignal.harmonics.length} harmonics
+                    </span>
+                  ) : null}
+                  {" · "}
+                  {liveSignal.above ? (
+                    <span className="text-emerald-300">
+                      above LISA&apos;s noise floor
+                    </span>
+                  ) : (
+                    <span className="text-rose-300">
+                      still below LISA&apos;s noise floor
+                    </span>
+                  )}
+                </>
+              )}
+            </p>
 
             <div className="rounded-xl bg-[#040d17] border border-sky-900/80 p-2">
               <svg
@@ -1250,18 +1482,18 @@ export default function GlobularClusterSimulation({
                       />
                       <text
                         x={x}
-                        y={lisaPlotData.height - 6}
+                        y={lisaPlotData.height - 18}
                         textAnchor="middle"
                         fill="#94a3b8"
                         fontSize="8.5"
                         fontFamily="monospace"
                       >
-                        10^{lf} Hz
+                        10{superscript(lf)} Hz
                       </text>
                     </g>
                   );
                 })}
-                {[-21, -19, -17].map((lh) => {
+                {[-21, -20, -19, -18, -17].map((lh) => {
                   const y = lisaPlotData.yFromLogH(lh);
                   return (
                     <g key={lh}>
@@ -1281,7 +1513,7 @@ export default function GlobularClusterSimulation({
                         fontSize="8"
                         fontFamily="monospace"
                       >
-                        10^{lh}
+                        10{superscript(lh)}
                       </text>
                     </g>
                   );
@@ -1293,30 +1525,50 @@ export default function GlobularClusterSimulation({
                   strokeWidth="1.8"
                   points={lisaPlotData.curvePath}
                 />
+                <text
+                  x={lisaPlotData.width - lisaPlotData.padR - 2}
+                  y={lisaPlotData.yFromLogH(lisaNoiseLogH(-1.4)) - 6}
+                  textAnchor="end"
+                  fill="#38bdf8"
+                  fillOpacity="0.75"
+                  fontSize="8"
+                  fontFamily="monospace"
+                >
+                  LISA noise floor
+                </text>
 
-                {[
-                  [-3.55, -20.6],
-                  [-3.35, -20.4],
-                  [-3.18, -20.1],
-                  [-2.95, -19.85],
-                  [-2.82, -20.05],
-                  [-2.68, -19.65],
-                  [-2.52, -19.45],
-                  [-2.38, -19.72],
-                  [-2.22, -19.35],
-                  [-2.05, -19.2],
-                  [-1.88, -19.4],
-                  [-1.72, -19.15],
-                ].map(([lf, lh], idx) => (
-                  <circle
-                    key={idx}
-                    cx={lisaPlotData.xFromLogF(lf)}
-                    cy={lisaPlotData.yFromLogH(lh)}
-                    r={2.1}
-                    fill="#64748b"
-                    opacity={0.55}
+                {/* the axis titles, which the plot was missing */}
+                <text
+                  x={lisaPlotData.padL + (lisaPlotData.width - lisaPlotData.padL - lisaPlotData.padR) / 2}
+                  y={lisaPlotData.height - 4}
+                  dy="0"
+                  textAnchor="middle"
+                  fill="#94a3b8"
+                  fontSize="8.5"
+                  fontFamily="monospace"
+                >
+                  Frequency (Hz)
+                </text>
+                <text
+                  transform={`translate(11 ${lisaPlotData.padT + (lisaPlotData.height - lisaPlotData.padT - lisaPlotData.padB) / 2}) rotate(-90)`}
+                  textAnchor="middle"
+                  fill="#94a3b8"
+                  fontSize="8.5"
+                  fontFamily="monospace"
+                >
+                  Characteristic strain h_c
+                </text>
+
+                {liveSignal?.exists && liveSignal.harmonics.length > 1 && (
+                  <polyline
+                    fill="none"
+                    stroke="#fbbf24"
+                    strokeWidth="1.2"
+                    strokeDasharray="3,2"
+                    opacity="0.65"
+                    points={liveSignal.harmonics.map((h) => `${h.x},${h.y}`).join(" ")}
                   />
-                ))}
+                )}
 
                 {lisaPlotData.systemPoints.map((pt) => {
                   const isSelected = pt.idx === selectedSystemIdx;
@@ -1325,6 +1577,7 @@ export default function GlobularClusterSimulation({
                       key={pt.sys.id}
                       onClick={() => setSelectedSystemIdx(pt.idx)}
                       className="cursor-pointer"
+                      opacity={isSelected ? 0.35 : 0.85}
                     >
                       {isSelected &&
                         pt.harmonics.length > 1 &&
@@ -1346,14 +1599,42 @@ export default function GlobularClusterSimulation({
                       <circle
                         cx={pt.x}
                         cy={pt.y}
-                        r={isSelected ? 5.2 : 3.6}
-                        fill={isSelected ? "#f59e0b" : "#1DAEDF"}
+                        r={3.6}
+                        fill="#1DAEDF"
                         stroke="#ffffff"
-                        strokeWidth={isSelected ? 1.5 : 0.6}
+                        strokeWidth="0.6"
                       />
                     </g>
                   );
                 })}
+
+                {/* Where the selected binary's signal is right now: it moves
+                    as the simulation runs, and whether it clears the floor
+                    is the thing the page is about. */}
+                {liveSignal?.exists && (
+                  <g>
+                    {liveSignal.harmonics.map((h) => (
+                      <circle
+                        key={h.n}
+                        cx={h.x}
+                        cy={h.y}
+                        r={h.n === 1 ? 4 : 2.8}
+                        fill="#fbbf24"
+                        stroke="#fff7ed"
+                        strokeWidth={h.n === 1 ? 1.4 : 0.7}
+                      />
+                    ))}
+                    <text
+                      x={liveSignal.harmonics[0].x + 7}
+                      y={liveSignal.harmonics[0].y - 6}
+                      fill="#fbbf24"
+                      fontSize="8"
+                      fontFamily="monospace"
+                    >
+                      now
+                    </text>
+                  </g>
+                )}
               </svg>
             </div>
           </div>
@@ -1474,15 +1755,30 @@ export default function GlobularClusterSimulation({
 
           {/* Research objective: what the simulation is for, bound to the
               system currently selected above. */}
-          <div className="rounded-lg border border-[#1DAEDF]/35 bg-[#0b2034]/70 p-3 space-y-2.5">
-            <div className="flex items-center justify-between gap-2">
+          <div className="rounded-lg border border-[#1DAEDF]/35 bg-[#0b2034]/70">
+            <button
+              onClick={() => setObjectiveOpen((o) => !o)}
+              aria-expanded={objectiveOpen}
+              className="w-full flex items-center justify-between gap-2 p-3 text-left cursor-pointer hover:bg-[#0d2642]/50 transition"
+            >
               <span className="text-[10px] font-mono uppercase tracking-widest text-[#1DAEDF] font-semibold">
                 Research Objective
               </span>
-              <span className="text-[10px] font-mono text-slate-400">
-                Use dynamically formed BBHs as unperturbed standard sirens
+              <span className="flex items-center gap-2 min-w-0">
+                <span className="text-[10px] font-mono text-slate-400 truncate hidden sm:inline">
+                  Use dynamically formed BBHs as unperturbed standard sirens
+                </span>
+                <span
+                  aria-hidden="true"
+                  className="text-[11px] font-mono text-sky-300 shrink-0"
+                >
+                  {objectiveOpen ? "\u25be" : "\u25b8"}
+                </span>
               </span>
-            </div>
+            </button>
+
+            {objectiveOpen && (
+            <div className="px-3 pb-3 space-y-2.5">
 
             <ol className="space-y-2">
               <li className="flex gap-2.5">
@@ -1548,6 +1844,8 @@ export default function GlobularClusterSimulation({
               <span>ΔV={activeSystem.errorVolumeMpc3} Mpc³</span>
               <span>SNR(2 yr)={activeSystem.snr2Yr}</span>
             </div>
+            </div>
+            )}
           </div>
         </div>
       </div>

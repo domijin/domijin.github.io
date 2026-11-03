@@ -65,7 +65,7 @@ async function getEngine(modelId: string, onStatus: (s: WebLLMStatus) => void): 
   onStatus({ phase: "checking", text: "asking the browser for a GPU adapter" });
   if (!(await hasWebGPU())) {
     throw new Error(
-      "this browser has no WebGPU adapter, and WebLLM needs one. The embedding model still works — it is the encoder, not the decoder, that needs a GPU."
+      "This browser has no WebGPU adapter, which the local generator needs. You can still use prompt matching and explore the graph."
     );
   }
 

@@ -36,15 +36,15 @@ export interface GrowthDomain {
 export const GROWTH_DOMAINS: GrowthDomain[] = [
   { angle: -90, amp: 0.06, gain: 0.0, reach: 0.84, label: null, t: null },
   { angle: -64, amp: 0.05, gain: 0.0, reach: 0.84, label: null, t: null },
-  { angle: -38, amp: 0.3, gain: 0.15, reach: 1.045, label: "AlphaGo", t: 17 },
+  { angle: -38, amp: 0.42, gain: 0.18, reach: 1.045, label: "AlphaGo", t: 17 },
   { angle: -15, amp: 0.07, gain: 0.0, reach: 0.84, label: null, t: null },
-  { angle: 8, amp: 0.28, gain: 0.13, reach: 1.035, label: "AlphaFold", t: 22 },
+  { angle: 8, amp: 0.4, gain: 0.17, reach: 1.035, label: "AlphaFold", t: 22 },
   { angle: 31, amp: 0.05, gain: 0.0, reach: 0.84, label: null, t: null },
-  { angle: 53, amp: 0.26, gain: 0.12, reach: 0.965, label: "mathematics", t: 27 },
+  { angle: 53, amp: 0.36, gain: 0.15, reach: 0.965, label: "mathematics", t: 27 },
   { angle: 75, amp: 0.06, gain: 0.0, reach: 0.84, label: null, t: null },
-  { angle: 96, amp: 0.1, gain: 0.07, reach: 0.88, label: "LLM alignment", t: 31 },
+  { angle: 96, amp: 0.16, gain: 0.09, reach: 0.88, label: "LLM alignment", t: 31 },
   { angle: 118, amp: 0.05, gain: 0.05, reach: 0.88, label: "wet-lab protocol", t: null },
-  { angle: 140, amp: 0.11, gain: 0.06, reach: 0.88, label: "ad auctions", t: null },
+  { angle: 140, amp: 0.16, gain: 0.08, reach: 0.88, label: "ad auctions", t: null },
   { angle: 162, amp: 0.04, gain: 0.05, reach: 0.88, label: "traffic control", t: 20 },
   { angle: 184, amp: 0.06, gain: 0.0, reach: 0.84, label: null, t: null },
   { angle: 206, amp: 0.04, gain: 0.04, reach: 0.88, label: "airworthiness", t: 25 },
@@ -57,13 +57,17 @@ export const GROWTH_FRAMES = 40;
 export const GROWTH_R_BASE = 112;
 
 /**
- * Angular width of a field's bump on the ball, in radians. The fields are
- * about 31 degrees apart at their closest, so a bump well under half that
- * stays a separate spike instead of merging into its neighbour — and a thin
- * field, whose amplitude is a fifth of a deep one's, shows almost no bump
- * at all. That contrast is the anisotropy.
+ * Angular width of a field's bump on the ball, in radians.
+ *
+ * This is the same width the two-dimensional animation uses, so the sphere
+ * reads like the GIF on the front page and not like a rounder version of
+ * it: narrow enough that each field is a spike with a point, not a lobe.
+ * The fields end up about 33 degrees apart at their closest, so a bump well
+ * under half that stays a separate spike instead of merging into its
+ * neighbour — and a thin field, whose amplitude is a fifth of a deep one's,
+ * shows almost no bump at all. That contrast is the anisotropy.
  */
-const SIG_HUMAN = 0.135;
+const SIG_HUMAN = 0.075;
 /** The model's reach toward a frontier is broader than the human spike. */
 const SIG_MODEL = 0.3;
 /** The model's body is smoother than the human one — that is the whole point. */

@@ -153,6 +153,25 @@ Writes `images/knowledge-growth.gif`. The frame schedule, the domain table and
 the annotations live in the script, so a changed wording or a changed field
 list is a one-line edit.
 
+### Output
+
+1000 × 760. The GIF sits in a 7-of-12 column and renders at roughly 580 px
+wide on desktop, leaving extra resolution for high-density screens.
+The frame is drawn at twice the output size — 2000 ×
+1520 — and downsampled with a Lanczos filter, because the spikes are one-pixel
+narrow lines and drawing them at 1× makes them ragged.
+
+The shape is measured in the model's own units and then multiplied by a
+drawing factor of 1.6, which scales how large the shape is *drawn* without
+changing a single number of the model. The factor lives in one constant,
+`DRAW`, and everything drawn — the outlines, the labels, the expert dots, the
+distillation dashes, the crossing arc — is multiplied by it, so the picture
+can be resized without the annotation drifting off the thing it names.
+
+On the front page the GIF now sits beside the original 2023 hand-drawn page,
+with a short list of what the animation shows under it, so a reader can see
+where the picture came from before they watch it.
+
 ## The three.js version
 
 The GIF has to guess how long to hold each caption. A three.js version of the
@@ -184,17 +203,41 @@ The three.js version is live at `/knowledge/`.
   spikes merge into one lump — the stride lifts the closest pair from 17
   degrees apart to 32.
 - The human boundary is a globe grid that deforms over the deep fields, and
-  the model's boundary is a solid core inside it. The core is opaque on
-  purpose: it hides the far side of the human ball, so the two read as one
-  inside the other instead of as two grids drawn over each other. An amber
-  sphere marks where an expert broke through, and a pink needle and bead
-  mark where the model has passed the human graph.
+  the model's boundary is a smooth core inside it. The core is translucent
+  on purpose: the concept graph lives inside it and has to stay visible
+  through it. An amber sphere marks where an expert broke through, and a
+  pink needle and bead mark where the model has passed the human graph.
+- The bump width is the same as the GIF's — 0.075 rad — so the ball reads
+  like the animation and not like a rounder version of it: each field is a
+  spike with a point, not a lobe. The shell and the grid are sampled finely
+  enough (192 × 96 vertices, 128 steps per grid line) that a narrow spike
+  comes out sharp instead of faceted.
 - The growth model is shared with the front page's GIF only in appearance. The
   *numbers* differ from the 2023 essay's illustration: they are the current
   table, and the table is the argument.
-- `/knowledge/` also carries the prompt box: the same MiniLM encoder that
-  scores the front-page SVG lights up nodes in 3D, and a WebLLM decoder can
-  propose concepts that are not in the diagram at all.
+- The homepage now shows the GIF and original sketch, with a link to the
+  interactive page. The former interactive SVG is no longer mounted there.
+- `/knowledge/` has three parts: **Ask or try**, the two proposed extensions
+  from the 2023 essay, and **Nodes & prompt weights**. Example questions and
+  typed prompts use keyword matching immediately; the optional MiniLM
+  download refines the ranking with embedding similarity. Stale responses
+  cannot replace the scores for a newer prompt.
+- Node size, brightness and numeric labels reflect relevance to the submitted
+  prompt. Edge brightness follows the weaker endpoint. The side panel lists
+  every score and allows keyboard selection. These are illustrative relevance
+  scores, not internal neural-network weights or confidence in an answer.
+- The data-modality and symbolic-tool switches add labelled connections in
+  the sphere and formulate a proposed workflow. A fresh count needs both
+  evidence and computation. The switches do not perform retrieval or execute
+  a calculation, and the page says so.
+- WebLLM remains an optional extension. Its proposed concepts are shown in
+  pink, attached to nearby existing nodes, and kept inside the human sphere.
+  They are suggestions requiring verification. Unsupported browsers can
+  still use keyword matching and the rest of the sketch.
+- The timeline advances every 900 ms; pause, scrub and keyboard stepping
+  remain available. Reduced-motion preferences pause autoplay and rotation.
+  On small screens the prompt, scene and explanatory panels stack without
+  covering the canvas.
 
 The GIF stays on the front page because it is the version a reader can
 screenshot and send to somebody. The scene is the version a reader can argue

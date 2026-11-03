@@ -6,11 +6,9 @@ import {
   PERSONA_DATA,
   INTELLECTUAL_PILLARS,
   WRITINGS_DATA,
-  GC_RESEARCH_FINDINGS,
   WritingNode,
 } from "@/data/contextMapData";
 import { BOOK_ESSAYS_BY_URL, BookEssayEntry } from "@/data/bookContentData";
-import CollectiveKnowledgeFigure from "@/components/CollectiveKnowledgeFigure";
 
 const GlobularClusterSimulation = dynamic(
   () => import("@/components/GlobularClusterSimulation"),
@@ -703,14 +701,6 @@ export default function GreenExperience() {
               <span className="text-[10px]">✦</span>
               <span>{dataDrawerOpen ? "Close open feeds" : "Open feeds & JSON"}</span>
             </button>
-            <span className="text-slate-300">|</span>
-            <a
-              href="/pages/about-me.html?env=blue"
-              className="inline-flex items-center gap-1 text-slate-600 hover:text-[#2980b9] transition font-medium"
-            >
-              <span>2018 Classic Site</span>
-              <span aria-hidden="true" className="text-[10px]">↗</span>
-            </a>
           </div>
         </div>
       </div>
@@ -816,12 +806,6 @@ export default function GreenExperience() {
           </nav>
 
           <div className="flex items-center gap-2.5">
-            <a
-              href="/articles/"
-              className="hidden sm:inline-flex px-3 py-1.5 rounded-lg border border-slate-200 hover:border-[#1DAEDF] text-xs font-medium text-slate-700 hover:text-[#2980b9] transition bg-white"
-            >
-              Archive (28)
-            </a>
             <a
               href="#inquiries"
               className="hidden sm:inline-flex px-3.5 py-1.5 rounded-lg bg-[#2980b9] hover:bg-[#20638f] text-white font-medium text-xs transition shadow-sm"
@@ -953,6 +937,16 @@ export default function GreenExperience() {
                 >
                   {activeReaderEssay.title}
                 </h2>
+                {activeReaderEssay.url === "/articles/research/astrophysics-bbh-dissertation.html" && (
+                  <a
+                    href="/pdfs/main.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 inline-flex rounded-xl bg-[#2980b9] px-4 py-2 text-sm font-medium text-white hover:bg-[#20638f] transition"
+                  >
+                    Read the full 2018 dissertation PDF ↗
+                  </a>
+                )}
               </header>
 
               <article className="max-w-none">
@@ -1221,14 +1215,6 @@ export default function GreenExperience() {
                 >
                   Read the Illustrated Astrophysics Essay &rarr;
                 </button>
-                <a
-                  href={GC_RESEARCH_FINDINGS.dissertationPdfUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-4 py-2 rounded-xl border border-slate-200 hover:border-[#1DAEDF] text-slate-700 hover:text-[#2980b9] font-medium transition bg-white"
-                >
-                  2018 Dissertation PDF ↗
-                </a>
               </div>
             </div>
 
@@ -1681,42 +1667,87 @@ export default function GreenExperience() {
 
           <div className="flex items-center justify-between gap-4 text-xs">
             <span className="font-mono uppercase tracking-widest text-[#2980b9] font-semibold">
-              Interactive · Knowledge Boundary
+              The Sketch &amp; Its Redrawing
             </span>
             <a
               href={`${BASE_PATH === "" ? "" : BASE_PATH}/knowledge/`}
               className="font-mono text-[#0369a1] hover:text-[#2980b9] underline underline-offset-4 whitespace-nowrap"
             >
-              Open full screen &rarr;
+              Try the 3D model &rarr;
             </a>
           </div>
 
-          <figure className="rounded-2xl border border-slate-200 bg-[#0b2034] p-3 sm:p-5 shadow-sm space-y-4">
-            <img
-              src="/images/knowledge-growth.gif"
-              alt="An animation: the dashed spiky outline is collective human knowledge, one spike per domain at very different depths. A model starts with a small boundary in the middle. Experts work frontiers; breakthroughs extend the spikes; each result becomes training data and the model's boundary grows toward it. By the end the boundary reaches close to the spike tips in AlphaGo, AlphaFold and mathematics, and passes outside the human outline in a few thin fields."
-              className="w-full h-auto rounded-xl block"
-              loading="lazy"
-            />
-            <figcaption className="text-xs text-slate-400 leading-relaxed px-1">
-              <span className="text-slate-300 font-semibold">How a model&apos;s knowledge boundary grows.</span>{" "}
-              The dashed outline is collective human knowledge, each spike one domain&apos;s depth — deep in
-              some fields, thin in others. An expert works a frontier, a breakthrough moves it out, and
-              the result becomes training data, so the boundary moves. In the deep fields it ends up close
-              to the frontier; in the thin ones it crosses the human graph. That last case is the one
-              worth being careful about, because the graph underneath is thinnest there. It is my
-              sketch, not a measurement —{" "}
-              <button
-                onClick={() => openEssayReader("/articles/blog/all-about-chatgpt.html")}
-                className="text-[#7dd3fc] hover:underline font-mono"
-              >
-                All About ChatGPT
-              </button>{" "}
-              (2023) is where the argument came from.
-            </figcaption>
-          </figure>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-6 items-start">
+            <figure className="lg:col-span-7 rounded-2xl border border-slate-200 bg-[#0b2034] p-3 sm:p-5 shadow-sm space-y-4">
+              <img
+                src="/images/knowledge-growth.gif"
+                alt="An animation: the dashed spiky outline is collective human knowledge, one spike per domain at very different depths. A model starts with a small boundary in the middle. Experts work frontiers; breakthroughs extend the spikes; each result becomes training data and the model's boundary grows toward it. By the end the boundary reaches close to the spike tips in AlphaGo, AlphaFold and mathematics, and passes outside the human outline in a few thin fields."
+                className="w-full h-auto rounded-xl block"
+                loading="lazy"
+                width={1000}
+                height={760}
+              />
+              <figcaption className="text-xs text-slate-400 leading-relaxed px-1">
+                <span className="text-slate-300 font-semibold">How a model&apos;s knowledge boundary grows.</span>{" "}
+                The dashed outline is collective human knowledge, each spike one domain&apos;s depth — deep in
+                some fields, thin in others. An expert works a frontier, a breakthrough moves it out, and
+                the result becomes training data, so the boundary moves. In the deep fields it ends up close
+                to the frontier; in the thin ones it crosses the human graph. That last case is the one
+                worth being careful about, because the graph underneath is thinnest there. It is my
+                sketch, not a measurement.
+              </figcaption>
+            </figure>
 
-          <CollectiveKnowledgeFigure onOpenEssay={openEssayReader} />
+            <figure className="lg:col-span-5 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm space-y-3">
+              <img
+                src="/images/all-about-chatgpt-sketch.png"
+                alt="The original hand-drawn sketch: an irregular black outline labelled collective human knowledge, ringed by a blue dashed circle labelled the potential new frontier of collective knowledge, with green memory nodes inside connected by dotted lines, an advanced field with deep domain knowledge overlapping the edge, and two routes beyond it written in red — a new data modality that guesses to query the real world, and symbolic learning."
+                className="w-full h-auto rounded-lg border border-slate-100 block bg-white"
+                loading="lazy"
+              />
+              <figcaption className="text-xs text-slate-500 leading-relaxed">
+                <span className="text-slate-700 font-semibold">The original.</span>{" "}
+                A page I drew by hand for{" "}
+                <button
+                  onClick={() => openEssayReader("/articles/blog/all-about-chatgpt.html")}
+                  className="text-[#0369a1] hover:underline font-mono"
+                >
+                  All About ChatGPT
+                </button>{" "}
+                (2023) — the black outline is collective human knowledge, the green{" "}
+                <span className="font-mono text-[#0369a1]">mem</span> nodes are what a model can recall,
+                and the blue dashed circle is the frontier I thought was still open. The animation on the
+                left is the same picture, redrawn and set in motion.
+              </figcaption>
+
+              <div className="border-t border-slate-100 pt-3">
+                <div className="font-mono uppercase tracking-widest text-[10px] text-slate-400 font-semibold mb-2">
+                  What the animation shows
+                </div>
+                <ol className="space-y-1.5 text-xs text-slate-600 leading-relaxed">
+                  <li>
+                    <span className="font-mono text-[#0369a1] mr-1.5">01</span>
+                    The human shape. One spike per field, and they are not the same length.
+                  </li>
+                  <li>
+                    <span className="font-mono text-[#0369a1] mr-1.5">02</span>
+                    The model starts small. Its edge is the edge of what it can recall.
+                  </li>
+                  <li>
+                    <span className="font-mono text-[#0369a1] mr-1.5">03</span>
+                    An expert works a frontier. A breakthrough moves it out, and the result
+                    becomes training data, so the edge moves too.
+                  </li>
+                  <li>
+                    <span className="font-mono text-[#0369a1] mr-1.5">04</span>
+                    It reaches the deep fields — and in the thin ones it goes past the human
+                    graph, which is the part worth being careful about.
+                  </li>
+                </ol>
+              </div>
+            </figure>
+          </div>
+
         </section>
 
         {/* =====================================================================
