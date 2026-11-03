@@ -33,7 +33,18 @@ case "$cmd" in
   build-green)
     echo "Building Green environment to /next/ ..."
     cd "${GREEN_APP_DIR}"
+    # Hold on to the outgoing generation's assets. A visitor who loaded the
+    # staged mirror before this build and reloads it afterwards is still
+    # holding the old HTML, which points at the old chunk hashes. Without
+    # them the reload becomes "Application error: a client-side exception has
+    # occurred" instead of the site. See scripts/keep-previous-assets.py.
+    KEEP_DIR="$(mktemp -d)"
+    trap 'rm -rf "${KEEP_DIR}"' EXIT
+    python3 "${ROOT_DIR}/scripts/keep-previous-assets.py" collect \
+      "${ROOT_DIR}/next" "${ROOT_DIR}" "${KEEP_DIR}" "next/" || true
     npm run export:green
+    python3 "${ROOT_DIR}/scripts/keep-previous-assets.py" restore \
+      "${KEEP_DIR}" "${ROOT_DIR}"
     echo "Done. Green environment exported to ${ROOT_DIR}/next/ and .nojekyll ensured."
     ;;
 
@@ -43,11 +54,24 @@ case "$cmd" in
     if [ ! -f "${BLUE_BACKUP_DIR}/index.html" ]; then
       cp "${ROOT_DIR}/index.html" "${BLUE_BACKUP_DIR}/index.html"
     fi
+    # Hold on to the outgoing generation's assets, for the same reason as in
+    # build-green: a browser still holding the previous HTML must be able to
+    # fetch the chunks that HTML names, or its reload throws instead of
+    # rendering the site.
+    KEEP_DIR="$(mktemp -d)"
+    trap 'rm -rf "${KEEP_DIR}"' EXIT
+    python3 "${ROOT_DIR}/scripts/keep-previous-assets.py" collect \
+      "${ROOT_DIR}" "${ROOT_DIR}" "${KEEP_DIR}" "" || true
+
     cd "${GREEN_APP_DIR}"
     npm run export:root
-    # Remove the previous root export so stale hashed chunks do not accumulate.
+    # Replace the previous root export so stale hashed chunks do not
+    # accumulate. The outgoing generation's files are put back below, so one
+    # generation of them is always kept.
     rm -rf "${ROOT_DIR}/_next" "${ROOT_DIR}/404" "${ROOT_DIR}/index.txt" "${ROOT_DIR}/404.html"
     cp -R "${GREEN_APP_DIR}/out/"* "${ROOT_DIR}/"
+    python3 "${ROOT_DIR}/scripts/keep-previous-assets.py" restore \
+      "${KEEP_DIR}" "${ROOT_DIR}"
     touch "${ROOT_DIR}/.nojekyll"
     echo "Green promoted to root (/). Classic home page backed up to /classic/index.html."
     ;;
