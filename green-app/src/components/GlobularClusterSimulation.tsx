@@ -1,10 +1,28 @@
 "use client";
 
 import React, { useRef, useMemo, useState, useEffect } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { OrbitControls, Stars, Html } from "@react-three/drei";
 import * as THREE from "three";
 import { GC_RESEARCH_FINDINGS } from "@/data/contextMapData";
+import {
+  TAU_RH_GYR,
+  asymptoticGiantDurationGyr,
+  asymptoticGiantState,
+  endsAsBlackHole,
+  mainSequenceLifetimeGyr,
+  mainSequenceState,
+  redGiantDurationGyr,
+  redGiantState,
+  remnantMass,
+  whiteDwarfState,
+} from "@/data/stellarPhysics";
+
+/**
+ * Pre-computed stellar state: effective temperature (K), radius (R☉),
+ * luminosity (L☉) and normalised sRGB colour.
+ */
+const STATE_STRIDE = 6;
 
 interface StarCatalog {
   count: number;
@@ -15,7 +33,15 @@ interface StarCatalog {
   omegaPhi: Float32Array;
   initialMass: Float32Array;
   msLifetimeTau: Float32Array;
+  rgbDurationTau: Float32Array;
+  agbDurationTau: Float32Array;
+  finalMass: Float32Array;
+  isBlackHole: Uint8Array;
   segTau: Float32Array;
+  /** [teff, radius, luminosity, r, g, b] per star for each evolutionary stage. */
+  msState: Float32Array;
+  giantState: Float32Array;
+  agbState: Float32Array;
   starClass: Uint8Array; // 0 = low-mass MS, 1 = solar MS, 2 = intermediate (RG->WD), 3 = massive OB -> BH
 }
 
@@ -34,6 +60,64 @@ interface DynamicBinaryPair {
 
 const MAX_TAU_RH = 16.875; // 13.5 Gyr / 0.8 Gyr = 16.875 half-mass relaxation times
 const TAU_RH_MYR = 800; // Fiducial half-mass relaxation time = 800 Myr (0.8 Gyr)
+
+/**
+ * Stars are drawn as round sprites rather than the square points that
+ * THREE.PointsMaterial produces by default. A radial gradient painted on a
+ * canvas gives a soft disc with a bright core, which reads as a star under
+ * additive blending.
+ */
+function createStarSprite(resolution = 64): THREE.CanvasTexture | null {
+  if (typeof document === "undefined") return null;
+  const canvas = document.createElement("canvas");
+  canvas.width = resolution;
+  canvas.height = resolution;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return null;
+
+  const r = resolution / 2;
+  const grad = ctx.createRadialGradient(r, r, 0, r, r, r);
+  grad.addColorStop(0.0, "rgba(255,255,255,1)");
+  grad.addColorStop(0.18, "rgba(255,255,255,0.98)");
+  grad.addColorStop(0.38, "rgba(255,255,255,0.55)");
+  grad.addColorStop(0.68, "rgba(255,255,255,0.14)");
+  grad.addColorStop(1.0, "rgba(255,255,255,0)");
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, resolution, resolution);
+
+  const texture = new THREE.CanvasTexture(canvas);
+  texture.colorSpace = THREE.SRGBColorSpace;
+  texture.needsUpdate = true;
+  return texture;
+}
+
+const STAR_VERTEX_SHADER = /* glsl */ `
+  attribute float aSize;
+  attribute vec3 aColor;
+  uniform float uScale;
+  varying vec3 vColor;
+
+  void main() {
+    vColor = aColor;
+    vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
+    // Perspective attenuation, matching THREE.PointsMaterial's sizeAttenuation.
+    gl_PointSize = aSize * (uScale / max(0.001, -mvPosition.z));
+    gl_Position = projectionMatrix * mvPosition;
+  }
+`;
+
+const STAR_FRAGMENT_SHADER = /* glsl */ `
+  uniform sampler2D uSprite;
+  varying vec3 vColor;
+
+  void main() {
+    // Sample the round sprite; the square corners of the point sprite fall
+    // outside the disc and are discarded.
+    vec4 sprite = texture2D(uSprite, gl_PointCoord);
+    if (sprite.a < 0.01) discard;
+    gl_FragColor = vec4(vColor, 1.0) * sprite;
+  }
+`;
 
 const DYNAMIC_BINARIES: DynamicBinaryPair[] = [
   {
@@ -113,6 +197,7 @@ function GlobularClusterEvolution({
     bhCount: number;
     wdCount: number;
     rgCount: number;
+    msCount: number;
     coreRadiusPc: number;
     halfMassRadiusPc: number;
     activeBbhCount: number;
@@ -132,13 +217,50 @@ function GlobularClusterEvolution({
     const omegaPhi = new Float32Array(count);
     const initialMass = new Float32Array(count);
     const msLifetimeTau = new Float32Array(count);
+    const rgbDurationTau = new Float32Array(count);
+    const agbDurationTau = new Float32Array(count);
+    const finalMass = new Float32Array(count);
+    const isBlackHole = new Uint8Array(count);
     const segTau = new Float32Array(count);
+    const msState = new Float32Array(count * STATE_STRIDE);
+    const giantState = new Float32Array(count * STATE_STRIDE);
+    const agbState = new Float32Array(count * STATE_STRIDE);
     const starClass = new Uint8Array(count);
 
     let seed = 20180512;
     const rand = () => {
       seed = (seed * 1664525 + 1013904223) % 4294967296;
       return seed / 4294967296;
+    };
+
+    /**
+     * Inverse-CDF sample of a power-law mass function dN/dm ∝ m^-alpha over
+     * [lo, hi]. The Salpeter index of 2.35 is the standard initial mass
+     * function for a stellar population, so each class contains far more low
+     * mass stars than high mass ones rather than a uniform spread.
+     */
+    const samplePowerLaw = (lo: number, hi: number, alpha = 2.35) => {
+      const p = 1 - alpha;
+      const loP = Math.pow(lo, p);
+      const hiP = Math.pow(hi, p);
+      return Math.pow(loP + rand() * (hiP - loP), 1 / p);
+    };
+
+    const pack = (
+      arr: Float32Array,
+      i: number,
+      teff: number,
+      radius: number,
+      luminosity: number,
+      color: [number, number, number]
+    ) => {
+      const o = i * STATE_STRIDE;
+      arr[o] = teff;
+      arr[o + 1] = radius;
+      arr[o + 2] = luminosity;
+      arr[o + 3] = color[0];
+      arr[o + 4] = color[1];
+      arr[o + 5] = color[2];
     };
 
     for (let i = 0; i < count; i++) {
@@ -154,34 +276,44 @@ function GlobularClusterEvolution({
       omegaTheta[i] = dynRate * 0.35 * (rand() - 0.5);
 
       const q = rand();
-      let m = 0.4;
-      let cls = 0;
-      let tMsTau = 25.0;
+      let m: number;
+      let cls: number;
 
       if (q > 0.945) {
-        m = 20 + rand() * 45;
+        m = samplePowerLaw(20, 65);
         cls = 3;
-        tMsTau = 0.005 + 0.014 * Math.pow(20 / m, 1.4);
       } else if (q > 0.78) {
-        m = 1.8 + rand() * 6.2;
+        m = samplePowerLaw(1.8, 8);
         cls = 2;
-        tMsTau = 0.06 + 1.9 * Math.pow(2.0 / m, 2.3);
       } else if (q > 0.42) {
-        m = 0.85 + rand() * 0.95;
+        m = samplePowerLaw(0.85, 1.8);
         cls = 1;
-        tMsTau = 2.4 + 11.5 * Math.pow(1.0 / m, 2.5);
       } else {
-        m = 0.15 + rand() * 0.7;
+        m = samplePowerLaw(0.15, 0.85);
         cls = 0;
-        tMsTau = 30.0;
       }
 
       initialMass[i] = m;
       starClass[i] = cls;
-      msLifetimeTau[i] = tMsTau;
-      const remnantMass =
-        cls === 3 ? Math.min(28, 0.38 * m) : cls === 2 ? 0.75 : m;
-      segTau[i] = Math.max(0.045, (0.65 / remnantMass) * 1.1);
+
+      // Evolutionary clock, all in units of the half-mass relaxation time.
+      msLifetimeTau[i] = mainSequenceLifetimeGyr(m) / TAU_RH_GYR;
+      rgbDurationTau[i] = redGiantDurationGyr(m) / TAU_RH_GYR;
+      agbDurationTau[i] = asymptoticGiantDurationGyr(m) / TAU_RH_GYR;
+
+      const remnant = remnantMass(m);
+      finalMass[i] = remnant;
+      isBlackHole[i] = endsAsBlackHole(m) ? 1 : 0;
+      // Dynamical-friction sinking time: more massive remnants sink faster.
+      segTau[i] = Math.max(0.045, (0.65 / remnant) * 1.1);
+
+      // Pre-compute the stages that do not change with time.
+      const ms = mainSequenceState(m);
+      pack(msState, i, ms.teff, ms.radius, ms.luminosity, ms.color);
+      const giant = redGiantState(m);
+      pack(giantState, i, giant.teff, giant.radius, giant.luminosity, giant.color);
+      const agb = asymptoticGiantState(m);
+      pack(agbState, i, agb.teff, agb.radius, agb.luminosity, agb.color);
     }
 
     return {
@@ -194,16 +326,51 @@ function GlobularClusterEvolution({
       initialMass,
       msLifetimeTau,
       segTau,
+      rgbDurationTau,
+      agbDurationTau,
+      finalMass,
+      isBlackHole,
+      msState,
+      giantState,
+      agbState,
       starClass,
     };
   }, []);
 
-  const { positions, colors } = useMemo(() => {
+  const { positions, colors, sizes } = useMemo(() => {
     return {
       positions: new Float32Array(catalog.count * 3),
       colors: new Float32Array(catalog.count * 3),
+      sizes: new Float32Array(catalog.count),
     };
   }, [catalog.count]);
+
+  // Round star sprite + a shader that supports a per-star size, so the visual
+  // size of each star tracks its physical radius instead of a fixed square.
+  const sprite = useMemo(() => createStarSprite(), []);
+  const material = useMemo(() => {
+    return new THREE.ShaderMaterial({
+      uniforms: {
+        uSprite: { value: sprite },
+        uScale: { value: 400 },
+      },
+      vertexShader: STAR_VERTEX_SHADER,
+      fragmentShader: STAR_FRAGMENT_SHADER,
+      transparent: true,
+      depthWrite: false,
+      blending: THREE.AdditiveBlending,
+    });
+  }, [sprite]);
+
+  useEffect(() => {
+    return () => {
+      sprite?.dispose();
+      material.dispose();
+    };
+  }, [sprite, material]);
+
+  const canvasHeight = useThree((state) => state.size.height);
+  const pixelRatio = useThree((state) => state.viewport.dpr);
 
   useFrame((_, delta) => {
     if (!pointsRef.current) return;
@@ -214,9 +381,15 @@ function GlobularClusterEvolution({
 
     const geom = pointsRef.current.geometry;
     const posAttr = geom.getAttribute("position") as THREE.BufferAttribute;
-    const colAttr = geom.getAttribute("color") as THREE.BufferAttribute;
+    const colAttr = geom.getAttribute("aColor") as THREE.BufferAttribute;
+    const sizeAttr = geom.getAttribute("aSize") as THREE.BufferAttribute;
     const posArr = posAttr.array as Float32Array;
     const colArr = colAttr.array as Float32Array;
+    const sizeArr = sizeAttr.array as Float32Array;
+
+    // Perspective attenuation scale: canvas height in device pixels / 2.
+    (pointsRef.current.material as THREE.ShaderMaterial).uniforms.uScale.value =
+      canvasHeight * pixelRatio * 0.5;
 
     const tau = tauRef.current;
     const clock = simClockRef.current;
@@ -224,23 +397,30 @@ function GlobularClusterEvolution({
     let bhCount = 0;
     let wdCount = 0;
     let rgCount = 0;
+    let msCount = 0;
 
     for (let i = 0; i < catalog.count; i++) {
-      const cls = catalog.starClass[i];
       const tMs = catalog.msLifetimeTau[i];
       const rInit = catalog.r0[i];
       let rCurrent = rInit;
 
-      let cr = 0.18;
-      let cg = 0.68;
-      let cb = 0.88;
+      // Evolutionary stage, colour, radius and luminosity for this star.
+      let radiusRel: number;
+      let luminosity: number;
+      let cr: number;
+      let cg: number;
+      let cb: number;
 
-      if (cls === 3) {
+      const msOffset = i * STATE_STRIDE;
+
+      if (catalog.isBlackHole[i]) {
         if (tau < tMs) {
-          cr = 0.62;
-          cg = 0.85;
-          cb = 1.0;
-          rCurrent = rInit;
+          msCount++;
+          radiusRel = catalog.msState[msOffset + 1];
+          luminosity = catalog.msState[msOffset + 2];
+          cr = catalog.msState[msOffset + 3];
+          cg = catalog.msState[msOffset + 4];
+          cb = catalog.msState[msOffset + 5];
         } else {
           bhCount++;
           const dtAfterCollapse = tau - tMs;
@@ -248,54 +428,60 @@ function GlobularClusterEvolution({
           const coreTarget = 0.06 + (i % 19) * 0.009;
           rCurrent = coreTarget + (rInit - coreTarget) * sinkFactor;
 
+          // A black hole has no photosphere, so it is drawn as a marker rather
+          // than given a blackbody colour.
           const pulse = 0.78 + 0.22 * Math.sin(clock * 4.5 + i);
           cr = 0.98 * pulse;
           cg = 0.68 * pulse;
           cb = 0.16 * pulse;
+          radiusRel = 0.05;
+          luminosity = 0;
         }
-      } else if (cls === 2) {
+      } else {
+        const tRgb = tMs + catalog.rgbDurationTau[i];
+        const tAgb = tRgb + catalog.agbDurationTau[i];
+
         if (tau < tMs) {
-          cr = 0.52;
-          cg = 0.82;
-          cb = 0.98;
-          rCurrent = rInit * (1 + 0.012 * Math.log(1 + tau));
-        } else if (tau < tMs + 0.18) {
+          // Main sequence.
+          msCount++;
+          radiusRel = catalog.msState[msOffset + 1];
+          luminosity = catalog.msState[msOffset + 2];
+          cr = catalog.msState[msOffset + 3];
+          cg = catalog.msState[msOffset + 4];
+          cb = catalog.msState[msOffset + 5];
+          rCurrent = rInit * Math.pow(1 + tau * 0.06, 0.28);
+        } else if (tau < tRgb) {
+          // Red giant branch.
           rgCount++;
-          cr = 0.98;
-          cg = 0.48;
-          cb = 0.22;
+          radiusRel = catalog.giantState[msOffset + 1];
+          luminosity = catalog.giantState[msOffset + 2];
+          cr = catalog.giantState[msOffset + 3];
+          cg = catalog.giantState[msOffset + 4];
+          cb = catalog.giantState[msOffset + 5];
           rCurrent = rInit * (1 + 0.02 * Math.log(1 + tau));
+        } else if (tau < tAgb) {
+          // Asymptotic giant branch.
+          rgCount++;
+          radiusRel = catalog.agbState[msOffset + 1];
+          luminosity = catalog.agbState[msOffset + 2];
+          cr = catalog.agbState[msOffset + 3];
+          cg = catalog.agbState[msOffset + 4];
+          cb = catalog.agbState[msOffset + 5];
+          rCurrent = rInit * (1 + 0.025 * Math.log(1 + tau));
         } else {
+          // White dwarf, cooling from a hot newborn towards a few thousand
+          // kelvin over the age of the cluster.
           wdCount++;
-          cr = 0.88;
-          cg = 0.95;
-          cb = 1.0;
+          const coolingAgeGyr = (tau - tAgb) * TAU_RH_GYR;
+          const wd = whiteDwarfState(coolingAgeGyr, catalog.finalMass[i]);
+          radiusRel = wd.radius;
+          luminosity = wd.luminosity;
+          cr = wd.color[0];
+          cg = wd.color[1];
+          cb = wd.color[2];
           const settle = Math.exp(-(tau - tMs) / (catalog.segTau[i] * 2.5));
           rCurrent = rInit * (0.68 + 0.32 * settle);
         }
-      } else if (cls === 1) {
-        if (tau > tMs && tau < tMs + 0.45) {
-          rgCount++;
-          cr = 0.96;
-          cg = 0.56;
-          cb = 0.26;
-        } else if (tau >= tMs + 0.45) {
-          wdCount++;
-          cr = 0.85;
-          cg = 0.92;
-          cb = 0.98;
-        } else {
-          cr = 0.95;
-          cg = 0.88;
-          cb = 0.65;
-        }
-        rCurrent = rInit * Math.pow(1 + tau * 0.06, 0.28);
-      } else {
-        const mix = Math.min(rInit / 3.0, 1.0);
-        cr = 0.11 + 0.05 * mix;
-        cg = 0.68 - 0.18 * mix;
-        cb = 0.87 - 0.14 * mix;
-        rCurrent = rInit * Math.pow(1 + tau * 0.09, 0.34);
       }
 
       const phi = catalog.phi0[i] + clock * catalog.omegaPhi[i];
@@ -307,13 +493,33 @@ function GlobularClusterEvolution({
       posArr[i * 3 + 1] = rCurrent * sinT * Math.sin(phi);
       posArr[i * 3 + 2] = rCurrent * Math.cos(theta);
 
-      colArr[i * 3] = cr;
-      colArr[i * 3 + 1] = cg;
-      colArr[i * 3 + 2] = cb;
+      // Rendered brightness follows the star's luminosity on a compressed
+      // scale: the brightest stars are ten million times the luminosity of the
+      // faintest, which no linear mapping could show. The floor keeps the
+      // faint red dwarfs visible as the diffuse halo they form.
+      const brightness =
+        luminosity > 0
+          ? Math.min(
+              1,
+              Math.max(
+                0.28,
+                0.3 + 0.16 * (Math.log10(luminosity) + 2.6)
+              )
+            )
+          : 0.9;
+
+      colArr[i * 3] = cr * brightness;
+      colArr[i * 3 + 1] = cg * brightness;
+      colArr[i * 3 + 2] = cb * brightness;
+      // Compressed size mapping so a 20 M☉ star reads as visibly larger than a
+      // 0.3 M☉ dwarf without dwarfing the rest of the cluster.
+      sizeArr[i] =
+        0.052 * Math.min(3.4, Math.max(0.62, Math.pow(radiusRel, 0.34)));
     }
 
     posAttr.needsUpdate = true;
     colAttr.needsUpdate = true;
+    sizeAttr.needsUpdate = true;
 
     if (statsCallback && Math.abs(tau - lastReportRef.current) > 0.04) {
       lastReportRef.current = tau;
@@ -327,6 +533,7 @@ function GlobularClusterEvolution({
         bhCount,
         wdCount,
         rgCount,
+        msCount,
         coreRadiusPc: Number(corePc.toFixed(2)),
         halfMassRadiusPc: Number(rhPc.toFixed(2)),
         activeBbhCount: activeBbhs,
@@ -342,16 +549,10 @@ function GlobularClusterEvolution({
             attach="attributes-position"
             args={[positions, 3]}
           />
-          <bufferAttribute attach="attributes-color" args={[colors, 3]} />
+          <bufferAttribute attach="attributes-aColor" args={[colors, 3]} />
+          <bufferAttribute attach="attributes-aSize" args={[sizes, 1]} />
         </bufferGeometry>
-        <pointsMaterial
-          size={0.044}
-          vertexColors
-          transparent
-          opacity={0.86}
-          blending={THREE.AdditiveBlending}
-          depthWrite={false}
-        />
+        <primitive object={material} attach="material" />
       </points>
 
       {/* Core and Half-Mass Reference Shells */}
@@ -522,6 +723,7 @@ export default function GlobularClusterSimulation({
     bhCount: 88,
     wdCount: 210,
     rgCount: 30,
+    msCount: 1320,
     coreRadiusPc: 0.58,
     halfMassRadiusPc: 3.32,
     activeBbhCount: 5,
@@ -813,10 +1015,10 @@ export default function GlobularClusterSimulation({
           </p>
           <div className="flex flex-wrap items-center gap-3 text-[10px] font-mono text-slate-300">
             <span className="inline-flex items-center gap-1">
-              <span className="w-2 h-2 rounded-full bg-[#93c5fd]" /> Young Blue Stars
+              <span className="w-2 h-2 rounded-full bg-gradient-to-r from-[#ffc98a] to-[#93c5fd]" /> Main Sequence ({clusterStats.msCount})
             </span>
             <span className="inline-flex items-center gap-1">
-              <span className="w-2 h-2 rounded-full bg-[#fb923c]" /> Red Giants
+              <span className="w-2 h-2 rounded-full bg-[#fb923c]" /> Red Giants ({clusterStats.rgCount})
             </span>
             <span className="inline-flex items-center gap-1">
               <span className="w-2 h-2 rounded-full bg-[#e2e8f0]" /> White Dwarfs ({clusterStats.wdCount})
@@ -1200,7 +1402,7 @@ export default function GlobularClusterSimulation({
       {/* Caption */}
       <figcaption className="px-4 py-2.5 bg-[#061220] border-t border-sky-900/60 text-[11px] text-slate-300 flex flex-wrap items-center justify-between gap-2">
         <span>
-          Left: 1,650-star cluster evolving under gravitational relaxation and mass segregation. Right: LISA space-interferometer strain and standard-siren localization from my 2018 doctoral catalog.
+          Left: 1,650-star cluster whose colour, luminosity, radius and lifetime follow MESA-based stellar-evolution relations (Eker et al. 2018), evolving under gravitational relaxation and mass segregation. Right: LISA space-interferometer strain and standard-siren localization from my 2018 doctoral catalog.
         </span>
         <a
           href="/pdfs/main.pdf"
