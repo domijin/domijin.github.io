@@ -17,6 +17,26 @@ html {
   }
 }
 
+/* Slim, always-visible scrollbar for the dark readout panels, so a panel
+   that scrolls is visibly scrollable rather than silently clipped. */
+@utility scroll-slim {
+  scrollbar-width: thin;
+  scrollbar-color: #1d3a5c transparent;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #1d3a5c;
+    border-radius: 9999px;
+  }
+}
+
 /* In-page essay reader: code blocks and inline code */
 pre {
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;

@@ -1174,6 +1174,17 @@ export default function GreenExperience() {
 
           {/* 3D Globular Cluster & LISA Simulation */}
           <div id="gc-simulation" className="space-y-3 scroll-mt-24">
+            <div className="flex items-center justify-between gap-4 text-xs">
+              <span className="font-mono uppercase tracking-widest text-[#2980b9] font-semibold">
+                Interactive · Globular Cluster &amp; LISA
+              </span>
+              <a
+                href={`${BASE_PATH === "" ? "" : BASE_PATH}/cluster/`}
+                className="font-mono text-[#0369a1] hover:text-[#2980b9] underline underline-offset-4 whitespace-nowrap"
+              >
+                Open full screen &rarr;
+              </a>
+            </div>
             <GlobularClusterSimulation onOpenEssay={openEssayReader} />
           </div>
         </section>

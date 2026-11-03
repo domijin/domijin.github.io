@@ -12,10 +12,11 @@ outside the half-maximum radius.
 
 Usage:
   python3 scripts/measure-star-profile.py <screenshot.png> [--full]
+                                [--region x0 y0 x1 y1]
 
 Without --full the analysis is restricted to the globular-cluster panel of the
 site; with --full it scans the whole frame, which is what the synthetic
-control image needs.
+control image needs. --region restricts it further to a pixel box.
 """
 import struct, sys, zlib
 
@@ -88,6 +89,9 @@ def main():
     full = "--full" in sys.argv
     x0, x1 = (4, w - 4) if full else (120, 700)
     y0, y1 = (4, h - 4) if full else (240, 700)
+    if "--region" in sys.argv:
+        i = sys.argv.index("--region")
+        x0, y0, x1, y1 = (int(v) for v in sys.argv[i + 1:i + 5])
 
     peaks = []
     for y in range(y0, y1):

@@ -22,6 +22,17 @@
       "status": "live at root, staged mirror at /next/"
     }
   },
+  "interactiveArtifacts": {
+    "globularClusterSandbox": {
+      "url": "https://domij.info/cluster/",
+      "stagedUrl": "https://domij.info/next/cluster/",
+      "title": "Globular Cluster Sandbox",
+      "type": "full-screen interactive simulation (WebGL)",
+      "description": "1,650 stars in a globular cluster evolving under gravitational relaxation and mass segregation, with colour, luminosity, radius and lifetime from MESA-based stellar-evolution relations (Eker et al. 2018), beside the LISA strain and standard-siren localization for dynamically formed binary black holes.",
+      "researchPremise": "Binary black holes formed dynamically inside a globular cluster are ejected into the halo, far from the local Galactic potential that perturbs every other timing clock. They therefore survive as unperturbed standard sirens for LISA; paired with an electromagnetic counterpart, each becomes a multi-messenger probe of dark matter.",
+      "sourceDissertation": "https://domij.info/articles/research/astrophysics-bbh-dissertation.html"
+    }
+  },
   "persona": {
     "name": "Domi Jin",
     "alternateName": "Dongming Jin",

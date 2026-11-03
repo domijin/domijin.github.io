@@ -710,8 +710,11 @@ function CompactBinaryPairMesh({
 
 export default function GlobularClusterSimulation({
   onOpenEssay,
+  fill = false,
 }: {
   onOpenEssay?: (url: string) => void;
+  /** Fill the available height instead of using fixed panel heights. */
+  fill?: boolean;
 } = {}) {
   const [tauRh, setTauRh] = useState<number>(1.25);
   const [isPlaying, setIsPlaying] = useState<boolean>(true);
@@ -928,7 +931,11 @@ export default function GlobularClusterSimulation({
   }, [activeSystem, selectedSystemIdx, wavePhaseOffset]);
 
   return (
-    <figure className="rounded-2xl overflow-hidden border border-[#b9d9eb] bg-gradient-to-b from-[#0b2034] via-[#0e263f] to-[#081827] shadow-xl">
+    <figure
+      className={`rounded-2xl overflow-hidden border border-[#b9d9eb] bg-gradient-to-b from-[#0b2034] via-[#0e263f] to-[#081827] shadow-xl ${
+        fill ? "flex flex-col min-h-0 xl:h-full" : ""
+      }`}
+    >
       {/* Top Playback Bar */}
       <div className="px-4 py-3 border-b border-sky-900/70 bg-[#081827]/90 flex flex-wrap items-center justify-between gap-3">
         <div className="flex flex-wrap items-center gap-2.5">
@@ -1031,9 +1038,19 @@ export default function GlobularClusterSimulation({
       </div>
 
       {/* Split Window: Left = 3D Globular Cluster | Right = LISA GW Side Window */}
-      <div className="grid grid-cols-1 xl:grid-cols-12">
+      <div
+        className={`grid grid-cols-1 xl:grid-cols-12 ${
+          fill ? "xl:flex-1 xl:min-h-0 xl:grid-rows-1" : ""
+        }`}
+      >
         {/* Left 7 Columns: Pure 3D Globular Cluster N-Body & Stellar Evolution */}
-        <div className="xl:col-span-7 relative h-[360px] sm:h-[460px] xl:h-[540px] border-b xl:border-b-0 xl:border-r border-sky-900/60 touch-manipulation">
+        <div
+          className={`xl:col-span-7 relative border-b xl:border-b-0 xl:border-r border-sky-900/60 touch-manipulation ${
+            fill
+              ? "h-[46vh] min-h-[280px] xl:h-full xl:min-h-0"
+              : "h-[360px] sm:h-[460px] xl:h-[540px]"
+          }`}
+        >
           <Canvas
             camera={{ position: [0, 0.5, 4.8], fov: 48 }}
             gl={{ antialias: true, alpha: true }}
@@ -1098,7 +1115,13 @@ export default function GlobularClusterSimulation({
         </div>
 
         {/* Right 5 Columns: LISA Gravitational-Wave Detector Side Window */}
-        <div className="xl:col-span-5 bg-[#071524]/95 p-4 sm:p-5 flex flex-col justify-between space-y-4 text-slate-100">
+        <div
+          className={`xl:col-span-5 bg-[#071524]/95 p-4 sm:p-5 flex flex-col space-y-4 text-slate-100 ${
+            fill
+              ? "justify-start xl:overflow-y-auto xl:min-h-0 xl:scroll-slim"
+              : "justify-between"
+          }`}
+        >
           {/* Header & Event Rate Badge from Doctoral Dissertation */}
           <div className="space-y-2">
             <div className="flex items-center justify-between gap-2">

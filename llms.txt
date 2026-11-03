@@ -5,6 +5,7 @@
 
 - **Website**: https://domij.info/
 - **Current edition (staged mirror)**: https://domij.info/next/
+- **Globular cluster sandbox (full-screen interactive)**: https://domij.info/cluster/
 - **All writing (28 essays)**: https://domij.info/articles/
 - **Archive profile**: https://domij.info/pages/about-me.html
 - **Substack (Domi’s Mind Waves)**: https://domijin.substack.com/
@@ -27,6 +28,7 @@ Ph.D. Physics (2013–2018) · LSST Data Science Fellow
 I began in computational astrophysics, studying stellar dynamics and binary black holes through numerical simulation and statistical modelling.
 
 - Numerical simulations of globular clusters using N-body and Monte Carlo methods (3,240 MOCCA simulations across 662,772 globular clusters in 8,946 galaxies within 30 Mpc).
+- [Globular cluster sandbox](https://domij.info/cluster/): a full-screen interactive model of the same physics — 1,650 stars evolving under gravitational relaxation and mass segregation, with colour, luminosity, radius and lifetime from MESA-based stellar-evolution relations, alongside the LISA strain and standard-siren localization for the dynamically formed binary black holes. The premise it was built to test: black holes formed dynamically inside a cluster are ejected into the halo, far from the local Galactic potential that perturbs every other timing clock, and so survive as unperturbed standard sirens — which, paired with an electromagnetic counterpart, make each one a multi-messenger probe of dark matter.
 - Analysis of binary black hole evolution (17,883,760 inspiralling BBHs and 86,939 mergers), deriving a lower-bound local merger event rate of η ≃ 587 Gpc⁻³ yr⁻¹ and identifying 17 extragalactic standard sirens localized by LISA within ΔV ≤ 1 Mpc³ ([Dissertation essay chapter](https://domij.info/articles/research/astrophysics-bbh-dissertation.html) · [Full PDF](https://domij.info/pdfs/main.pdf)).
 - LSST Data Science Fellowship: statistical modelling, image processing and reproducible research workflows.
 
