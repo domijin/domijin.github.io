@@ -113,9 +113,9 @@ const NARRATIVE_THEMES: NarrativeThemeSpec[] = [
     num: "04",
     shortLabel: "04 · Working Together",
     kicker: "04 · Civic Scale · 2018 – Present",
-    title: "Shared Values (GCD), Complementary Skills (LCM), and Rhythm",
+    title: "Collective Competence: One Mission, Every Person Whole",
     subtitle:
-      "Why engineering cultures soar or stall, how a revised work rhythm keeps a founder's week whole, and how shared ethics let diverse minds build a larger future.",
+      "From human capital in an ‘organized farm’ to organizing intelligence with empowered individuals — and a proposed measure of a resilient, capable team: collective competence with mission alignment, holding diversity and individuality at once.",
     period: "2018 – Present · Domi’s Mind Waves & Civic Notes",
     essayUrls: [
       "/articles/substack/hello-world.html",
@@ -884,7 +884,7 @@ export default function GreenExperience() {
                 onClick={() => setMobileMenuOpen(false)}
                 className="px-3 py-2 rounded-lg hover:bg-sky-50 hover:text-[#2980b9] transition"
               >
-                04 · Working Together (GCD × LCM &amp; Rhythm)
+                04 · Working Together (Collective Competence)
               </a>
               <a
                 href="#constellation"
@@ -1911,7 +1911,7 @@ export default function GreenExperience() {
         </section>
 
         {/* =====================================================================
-            04 · WORKING TOGETHER (GCD × LCM, INSTITUTIONS & RHYTHM)
+            04 · WORKING TOGETHER (COLLECTIVE COMPETENCE, GCD × LCM & RHYTHM)
            ===================================================================== */}
         <section
           id="working-together"
@@ -1935,6 +1935,9 @@ export default function GreenExperience() {
                 </p>
                 <p>
                   In my Substack essays and the civic notebook <code className="text-sm font-mono text-[#0369a1]">LibertyEarth</code>, I use a simple mathematical picture for healthy collaboration: treat <strong>shared ethical values as the Greatest Common Divisor (GCD)</strong> that keeps baseline trust high, and treat <strong>complementary human + AI skills as the Least Common Multiple (LCM)</strong> that expands what we can build together—anchored day to day by the eighth revision of the work model I keep in my founder's log.
+                </p>
+                <p>
+                  Shared values and complementary skills are the mechanism; what they are <em>for</em> is collective competence. The institutions I have worked in still organize people the way an <strong>organized farm</strong> organizes capital: interchangeable units, measured by output, replaceable when the season turns. That shape does not survive the move to <strong>organizing intelligence with empowered individuals</strong>. So I am trying to measure a resilient, capable team instead: <strong>collective competence</strong> — what the group can do that none of its members could do alone, held together by <strong>one mission</strong>, and sustained by leaving <strong>every person's difference intact</strong>. All three have to hold at once. Take the mission away and the team is a queue; take the individuality away and it is a crowd. The Avengers are the reference case — nobody interchangeable, everybody committed to the same thing.
                 </p>
               </div>
             </div>
