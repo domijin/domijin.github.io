@@ -65,3 +65,5 @@ I couldn’t finish this piece without the help of ChatGPT. You may tell the dif
 
 ---
 *Originally published on [Medium](https://medium.com/@domijin/observation-the-dilemma-and-cultural-difference-behind-the-evtol-field-df42e91af109) · October 2023.*
+
+*Editorial note: the closing comment in the unedited draft above is a reader’s, reproduced verbatim from the original publication — the employer named there is the commenter’s recollection, not the author’s account.*

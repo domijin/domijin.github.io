@@ -1,4 +1,4 @@
-# Agent-Based Advertising System & Observations in Performance Advertising
+# Trace of AppLovin’s 7x Annual Hypergrowth
 
 *AdTech & ML Systems · By Domi Jin (November 2024)*
 
@@ -116,7 +116,7 @@ Modern capitalism thrives on **stimulating demand**, often prioritizing marketin
 2. **Regulatory Risks**: Privacy and ethical concerns invite scrutiny, potentially disrupting business models.
 3. **Competitive Erosion**: Rapid imitation erodes first-mover advantages in a saturated market.
 
-### Challenges and Opportunities
+### Challenge and Opportunities
 
 The pitfalls of an economy dominated by material growth and competition have led to a **monolithic** form of progress, a decrease in diversity and richness of experiences, and an increasingly fragile market structure.
 
@@ -135,4 +135,35 @@ I envision a world where advertising shifts from **driving demand** to **fosteri
 This essay marks the beginning of a broader dialogue. I invite readers to share insights, debate ideas, and collaborate on solutions that address the systemic challenges in performance advertising and beyond.
 
 ---
-*Footnote: First published in [GitHub Specification (observations_in_advertising)](https://github.com/domijin/observations_in_advertising) (November 2024).*
+
+### Who Am I
+
+I’ve found what feels like the highest mountain: **liberating** humanity from the demand-driven market powered by surveillance capitalism and **recalibrating** societal priorities by breaking the **power imbalances** created by **information asymmetry**. But I know this peak is only the beginning.
+
+Beyond this summit lie greater challenges and higher mountains, waiting for humanity to ascend. The view from each peak will inspire new visions for the future, illuminating paths we never imagined. To strive for these heights, and to inspire others to do the same, is a mission worth dedicating a lifetime to—and perhaps even dying for.
+
+### Where Am I From - My Relevant Background
+
+By way of introduction:
+
+- At **Miles**, I helped build a recommendation engine that extracted and monetized context from mobility data, such as travel patterns and GPS-based location histories. We used offline insights to power affiliate marketing for local businesses.
+- At **Thumbtack**, I worked on pricing strategies for a local home services marketplace. My work included exploring generative AI for request flows and organic content creation, advocating for an educational and inspirational content platform to bridge the information gap between users and professionals, improve market efficiency, and generate organic traffic.
+- At **AppLovin**, I served as the first data scientist in the research scientist team, focusing on product analytics, model performance evaluation, and partnership insights.
+
+This diverse experience across recommendation systems, generative AI, and advertising analytics shapes my perspective on the trends and shifts outlined in this essay.
+
+
+### What Do I Long For
+
+I envision a world where **enlightenment through education** plays a pivotal role in fostering a sustainable society. By **promoting self-awareness**, **empowering** people to explore externally, and reflecting internally, individuals would achieve **self-realization and self-actualization**. Such a society would transcend material desires and embrace a philosophical journey—one where **mutual enlightenment and collaborative practices** allow individuals to pursue their **intrinsic value and self-actualization** through **peer learning and social interaction.**
+
+
+I see a future where technology is used to [**empower people to collaborate better**](https://domijin.github.io/pages/about-me.html): [manifesto](https://domijin.github.io/manifesto.html) and [initiative](https://github.com/domijin/LibertyEarth).
+
+- From **Enlightenment to Illumination**: Moving society from basic enlightenment to a state where individual potential is fully ignited.
+- A future where production matches personalized needs and **communal creativity** thrives.
+
+This essay merely scratches the surface of my reflections on the modern economy, marketing-driven capitalism, and its hidden implications. These challenges—rooted in demand-driven logic—have shaped my journey in learning and seeking solutions. 
+
+---
+*Originally published in [GitHub (domijin/observations_in_advertising)](https://github.com/domijin/observations_in_advertising) (November 2024).*

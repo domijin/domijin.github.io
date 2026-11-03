@@ -387,16 +387,17 @@ export const OPEN_PROJECTS: OpenProject[] = [
   {
     id: "agent-ad-systems",
     name: "Advertising decision systems",
-    tagline: "Separating real-time inference from asynchronous optimisation.",
+    tagline: "A serving path that keeps its latency down without shrinking the model.",
     category: "Systems architecture · Design notes",
     url: "https://github.com/domijin/observations_in_advertising",
     localMirrorUrl: "/articles/github/observations-in-advertising.html",
     repoUrl: "https://github.com/domijin/observations_in_advertising",
     pillar: "decision-intelligence",
     description:
-      "An architecture proposal for an eight-agent control plane alongside a latency-sensitive serving path. Accompanying notes consider advertising economics, experimentation and causal measurement.",
-    verificationArtifact: "System architecture specification and GrowthBook experimentation prototype",
-    metrics: ["Design target: <50ms p99", "Eight control agents", "Causal measurement"],
+      "A four-stage ad-serving architecture — real-time ingestion and feature store, labelling and profile service, dynamic ad serving with in-session creative switching, and profile distillation for efficient candidate generation. Written up alongside notes on advertising economics and the growth trap.",
+    verificationArtifact:
+      "Published essays: “Trace of AppLovin’s 7x Annual Hypergrowth” and “Rethinking Digital Advertising”",
+    metrics: ["Four serving stages", "In-session creative switching", "Distilled user profiles"],
   },
   {
     id: "libertyearth-future",
@@ -534,9 +535,9 @@ export const WRITINGS_DATA: WritingNode[] = [
     position: [2.1, -2.1, -0.2],
   },
   {
-    id: "agent-based-ad-tech-spec",
-    title: "Agent-Based Advertising System & Observations in Performance Advertising",
-    date: "2025-01",
+    id: "applovin-hypergrowth-repository",
+    title: "Trace of AppLovin’s 7x Annual Hypergrowth (repository edition)",
+    date: "2024-11",
     source: "GitHub",
     url: "https://github.com/domijin/observations_in_advertising",
     localUrl: "/articles/github/observations-in-advertising.html",
@@ -544,9 +545,9 @@ export const WRITINGS_DATA: WritingNode[] = [
     pillar: "decision-intelligence",
     secondaryPillars: ["complex-adaptive-systems", "ai-and-society"],
     summary:
-      "An architecture proposal for an eight-agent control plane and an ad-serving path targeting latency below 50ms at p99, with notes on performance advertising economics.",
+      "The living repository edition of the AppLovin essay: the four growth drivers, the four areas where the paradigm is shifting, the growth trap, and the author’s own account of where the work came from.",
     keyInsight:
-      "The proposal separates latency-sensitive inference from slower optimisation and experimentation in an asynchronous control plane.",
+      "Growth that depends on scaling data collection carries an economic, ethical and social cost that the scaling law alone does not price in.",
     position: [-2.6, -1.8, -1.0],
     featured: true,
   },
@@ -743,7 +744,7 @@ export const WRITINGS_DATA: WritingNode[] = [
     summary:
       "Examines how advertising systems can move from static demographic targeting to dynamic demand profiling and explicit user preference loops.",
     keyInsight:
-      "Separating genuine user intent from short-term click bait reduces creative fatigue while improving marketplace efficiency.",
+      "Treating every interaction as a data point in an ongoing narrative lets the ad experience move from branding toward use-case specificity as a user’s demand clarifies.",
     position: [-2.4, -1.4, 0.9],
   },
   {

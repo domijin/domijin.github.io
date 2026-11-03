@@ -72,8 +72,8 @@ const NARRATIVE_THEMES: NarrativeThemeSpec[] = [
     kicker: "02 · System Scale · 2018 – 2026",
     title: "Making Sense in 50 Milliseconds—From Red Lights to Ad Auctions",
     subtitle:
-      "Waiting at an empty morning intersection, pricing rides and rooms at Uber and Airbnb, and decoupling fast reflex serving (<50 ms) from slow, thoughtful coordination.",
-    period: "2018 – 2026 · Uber, Airbnb, SmartNews & Systems Architecture",
+      "Reverse-engineering a traffic-light countdown, writing down an ad-serving path that keeps its tail latency down without shrinking the model, and asking what the Growth Trap does to the people on the other side of the screen.",
+    period: "2018 – 2026 · Recommendation Systems, Marketplace Pricing & Ad Infrastructure",
     essayUrls: [
       "/articles/medium/from-traffic-lights-to-lifes-direction-57176d5d7a06.html",
       "/articles/github/observations-in-advertising.html",
@@ -335,10 +335,12 @@ export default function GreenExperience() {
   const [activeReaderUrl, setActiveReaderUrl] = useState<string | null>(null);
   const readerScrollRef = useRef<HTMLDivElement | null>(null);
 
-  // Act 02 Interactive State (Latency vs Coordination & Traffic Signal Experiment)
-  const [fig2Mode, setFig2Mode] = useState<"ad-plane" | "traffic">("ad-plane");
-  const [fig2Participation, setFig2Participation] = useState<number>(65);
-  const [fig2LatencyBudget, setFig2LatencyBudget] = useState<number>(45);
+  // Act 02 Interactive State — the traffic-light cycle estimator described in
+  // "From Traffic Lights to Life's Direction" (Medium, October 2023).
+  const [tlReporters, setTlReporters] = useState<number>(36);
+  const [tlSignal, setTlSignal] = useState<number>(92);
+  const [tlCrowd, setTlCrowd] = useState<number>(6);
+  const [tlHistory, setTlHistory] = useState<number>(95);
 
   // Act 03 Interactive State (5-Stage Sparring Partner vs Answer-First AI)
   const [fig3StageIndex, setFig3StageIndex] = useState<number>(0);
@@ -492,36 +494,152 @@ export default function GreenExperience() {
     },
   ];
 
-  const fig2Stats = useMemo(() => {
-    if (fig2Mode === "ad-plane") {
-      const syncServedPct = Math.min(99.8, Math.max(85, 92 + (fig2LatencyBudget - 25) * 0.18));
-      const fatigueReduction = Math.round(18 + fig2Participation * 0.28);
-      const loopMin = Math.max(2, Math.round(12 - fig2Participation * 0.08));
-      return {
-        headline: `Fast Lane: ${fig2LatencyBudget} ms p99 budget (${syncServedPct.toFixed(1)}% within SLA) · Slow Lane: ${loopMin} min agent cycle`,
-        subline: `Decoupling the <50ms serving reflex from an 8-agent background loop cuts repetitive ad fatigue by ~${fatigueReduction}% while keeping tail latency predictable.`,
-        metricA: `${fig2LatencyBudget} ms`,
-        labelA: "Fast reflex budget",
-        metricB: `${loopMin} min`,
-        labelB: "8-agent reflection",
-        metricC: `-${fatigueReduction}%`,
-        labelC: "Ad fatigue drop",
-      };
-    } else {
-      const waitReduction = Math.round(12 + fig2Participation * 0.42);
-      const inferConfidence = Math.min(98, Math.round(54 + fig2Participation * 0.44));
-      return {
-        headline: `Connected Vehicles: ${fig2Participation}% sharing trajectory · Phase Confidence: ${inferConfidence}%`,
-        subline: `Even when only ${fig2Participation}% of approaching cars share speed and position, symbolic flow conservation laws reconstruct the full queue and cut idle red-light waiting by ~${waitReduction}%.`,
-        metricA: `${fig2Participation}%`,
-        labelA: "Connected cars",
-        metricB: `${inferConfidence}%`,
-        labelB: "Signal confidence",
-        metricC: `-${waitReduction}%`,
-        labelC: "Idle red-light wait",
-      };
+  /**
+   * The traffic-light cycle estimator, built the way "From Traffic Lights to
+   * Life's Direction" describes it: devices report whether they stopped or
+   * passed at the light, a crowd reports the state directly, and the estimator
+   * fits a (period, phase) square wave to those observations. Confidence follows
+   * the essay's own definition — the share of data points aligned with the
+   * estimated state, discounted by the historical accuracy of past estimates.
+   *
+   * The intersection is synthetic and the ground truth is fixed, so the reader
+   * can see how much of it the estimator actually recovers.
+   */
+  const tlEstimate = useMemo(() => {
+    // Ground truth: a 108 s cycle (45 green / 3 yellow / 60 red), read 30 s in.
+    const CYCLE = 108;
+    const GREEN = 45;
+    const YELLOW = 3;
+    const NOW = 30;
+    // The window is historical data, not one cycle: the essay estimates the
+    // static pattern "by just looking at how frequently users stop or pass".
+    const WINDOW = 360;
+    const FRAC_GREEN = GREEN / CYCLE;
+    const FRAC_YELLOW = YELLOW / CYCLE;
+
+    const stateAtU = (u: number) =>
+      u < FRAC_GREEN ? "green" : u < FRAC_GREEN + FRAC_YELLOW ? "yellow" : "red";
+
+    // A device stops at a red and hesitates in the yellow dilemma zone; a
+    // mis-read flips the observation.
+    const stopProbability = (u: number) =>
+      u < FRAC_GREEN ? 0.05 : u < FRAC_GREEN + FRAC_YELLOW ? 0.5 : 0.95;
+
+    // Deterministic PRNG: the same settings must always give the same readout,
+    // or a number on the page cannot be checked.
+    let seed = 0x9e3779b9;
+    const rnd = () => {
+      seed = (seed + 0x6d2b79f5) | 0;
+      let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+
+    const quality = tlSignal / 100;
+    const observations: { t: number; u: number; stopped: boolean }[] = [];
+    for (let i = 0; i < tlReporters; i++) {
+      const jitter = (i + rnd()) / tlReporters;
+      const t = NOW - WINDOW * jitter;
+      const u = (((t % CYCLE) + CYCLE) % CYCLE) / CYCLE;
+      const stopped = rnd() < stopProbability(u);
+      const flipped = rnd() > quality;
+      observations.push({ t, u, stopped: flipped ? !stopped : stopped });
     }
-  }, [fig2Mode, fig2Participation, fig2LatencyBudget]);
+
+    // Crowd reports: direct observations of the state *now*.
+    const crowdVotes: string[] = [];
+    for (let i = 0; i < tlCrowd; i++) {
+      const trueState = stateAtU((((NOW % CYCLE) + CYCLE) % CYCLE) / CYCLE);
+      const wrong = rnd() > quality;
+      const others = ["green", "yellow", "red"].filter((s) => s !== trueState);
+      crowdVotes.push(wrong ? others[Math.floor(rnd() * others.length)] : trueState);
+    }
+    const crowdCounts = crowdVotes.reduce<Record<string, number>>(
+      (acc, v) => ({ ...acc, [v]: (acc[v] ?? 0) + 1 }),
+      {}
+    );
+    const crowdState =
+      tlCrowd > 0
+        ? (["green", "yellow", "red"] as const).reduce((a, b) =>
+            (crowdCounts[b] ?? 0) > (crowdCounts[a] ?? 0) ? b : a
+          )
+        : null;
+
+    // Fit (period, phase): maximise the log-likelihood of the observed
+    // stop/pass pattern under a square wave of that period and phase.
+    let best = { ll: -Infinity, period: CYCLE, phaseNow: (NOW % CYCLE) };
+    for (let period = 60; period <= 180; period += 2) {
+      const phaseSteps = 48;
+      for (let s = 0; s < phaseSteps; s++) {
+        const phaseNow = (s * period) / phaseSteps;
+        let ll = 0;
+        for (const ob of observations) {
+          const phase = (((phaseNow + (ob.t - NOW)) % period) + period) % period;
+          const p = stopProbability(phase / period);
+          ll += ob.stopped ? Math.log(Math.max(p, 1e-6)) : Math.log(Math.max(1 - p, 1e-6));
+        }
+        if (ll > best.ll) best = { ll, period, phaseNow };
+      }
+    }
+
+    const fittedU = (best.phaseNow % best.period) / best.period;
+    const fittedState = stateAtU(fittedU);
+    const trueState = stateAtU((((NOW % CYCLE) + CYCLE) % CYCLE) / CYCLE);
+
+    // Time to the next change, from the fitted cycle.
+    const b1 = FRAC_GREEN * best.period;
+    const b2 = (FRAC_GREEN + FRAC_YELLOW) * best.period;
+    const p = best.phaseNow % best.period;
+    const nextChange =
+      p < b1 ? b1 - p : p < b2 ? b2 - p : best.period - p;
+
+    // How many observations agree with the fitted model — the essay's first
+    // ingredient for a confidence score.
+    const aligned = observations.filter((ob) => {
+      const phase = (((best.phaseNow + (ob.t - NOW)) % best.period) + best.period) % best.period;
+      const pStop = stopProbability(phase / best.period);
+      return ob.stopped ? pStop >= 0.5 : pStop < 0.5;
+    }).length;
+
+    // The essay's two ingredients for a confidence score: how many data points
+    // align with the estimate, and how accurate past estimates have been.
+    // A third term keeps the score honest about thin evidence — with two
+    // devices almost any cycle fits, so almost nothing is aligned in a way
+    // that means anything.
+    const alignment = (aligned + 1) / (observations.length + 2);
+    const sorted = [...observations].sort((a, b) => a.t - b.t);
+    let transitions = 0;
+    for (let i = 1; i < sorted.length; i++) {
+      if (sorted[i].stopped !== sorted[i - 1].stopped) transitions += 1;
+    }
+    const evidence = Math.min(1, transitions / 3);
+
+    const crowdAgrees = crowdState === null || crowdState === fittedState;
+    const confidence = Math.round(
+      100 * alignment * evidence * (tlHistory / 100) * (crowdAgrees ? 1 : 0.8)
+    );
+
+    return {
+      observations,
+      ticks: observations.map((ob) => ({
+        frac: ((((best.phaseNow + (ob.t - NOW)) % best.period) + best.period) % best.period) / best.period,
+        stopped: ob.stopped,
+      })),
+      period: best.period,
+      fittedState,
+      trueState,
+      fittedNow: best.phaseNow % best.period,
+      trueNow: NOW,
+      nextChange: Math.round(nextChange),
+      confidence: Math.max(0, Math.min(99, confidence)),
+      aligned,
+      total: observations.length,
+      crowdState,
+      crowdAgrees,
+      trueNextChange:
+        NOW < GREEN ? GREEN - NOW : NOW < GREEN + YELLOW ? GREEN + YELLOW - NOW : CYCLE - NOW,
+    };
+  }, [tlReporters, tlSignal, tlCrowd, tlHistory]);
 
   const fig4Synthesis = useMemo(() => {
     const trustIndex = Math.round(fig4Gcd * 0.9 + 8);
@@ -920,7 +1038,7 @@ export default function GreenExperience() {
 
               <div className="space-y-4 text-slate-700 font-serif text-[17px] sm:text-[18px] leading-[1.78]">
                 <p>
-                  Ten years ago at the University of Texas at Arlington, I spent my days watching a million virtual stars tug on one another inside supercomputer simulations, waiting billions of years of model time for two black holes to spiral together. Since then, my work has moved closer and closer to everyday human life—from pricing and recommendation engines at Uber, Airbnb, and SmartNews, to sitting in passenger seats with older drivers in Palo Alto testing self-driving cars.
+                  Ten years ago at the University of Texas at Arlington, I spent my days watching a million virtual stars tug on one another inside supercomputer simulations, waiting billions of years of model time for two black holes to spiral together. Since then, my work has moved closer and closer to everyday human life—from recommendation engines that read mobility data, and marketplace pricing that had to survive contact with real demand, to sitting in passenger seats with older drivers in Palo Alto testing self-driving cars.
                 </p>
                 <p>
                   Across every change of scale, the habit that works best has stayed the same: <strong>sketch a clear picture of how the system works, test it in the real world, and listen honestly when human experience pushes back</strong>.
@@ -998,7 +1116,7 @@ export default function GreenExperience() {
                       &lt; 50 ms
                     </text>
                     <text x="0" y="63" textAnchor="middle" fill="#94a3b8" fontSize="8.5" fontFamily="monospace">
-                      Fast vs. Slow
+                      Real-time systems
                     </text>
                   </g>
 
@@ -1190,7 +1308,7 @@ export default function GreenExperience() {
         </section>
 
         {/* =====================================================================
-            02 · 50ms DECISIONS (TRAFFIC LIGHTS, MARKETPLACES & AD CONTROL PLANES)
+            02 · 50ms DECISIONS (TRAFFIC LIGHTS, MARKETPLACES & AD SYSTEMS)
            ===================================================================== */}
         <section
           id="realtime-decisions"
@@ -1210,244 +1328,280 @@ export default function GreenExperience() {
 
               <div className="space-y-3.5 text-slate-700 font-serif text-[17px] leading-[1.78]">
                 <p>
-                  Sitting at a red light at an empty intersection one morning, I found myself doing the math: why do cities still run intersections on blind, fixed timers when approaching cars already carry GPS sensors? Even if only a fraction of vehicles share telemetry, pairing that sparse data with physical conservation laws (like Stephen Wolfram’s symbolic-neural hybrids) lets a system infer queue lengths and clear traffic dynamically.
+                  Sitting at a red light at an empty intersection one morning, I found myself doing the math: why do cities still run intersections on blind, fixed timers when approaching cars already carry GPS sensors? Even if only a fraction of vehicles share telemetry, pairing that sparse data with physical conservation laws (like Stephen Wolfram&rsquo;s symbolic-neural hybrids) lets a system infer queue lengths and clear traffic dynamically.
                 </p>
                 <p>
-                  I ran into the exact same structural puzzle working on marketplace pricing and advertising systems at Uber, Airbnb, and SmartNews. When you have <strong>less than 50 milliseconds</strong> to serve a decision, you cannot run deep reasoning on the hot path—and if you only optimize for immediate clicks, you burn out user trust. The solution is a <strong>two-speed architecture</strong>: a lightweight, safety-bounded reflex lane (<code className="text-sm font-mono text-[#0369a1]">&lt;50 ms p99</code>) steered by an asynchronous 8-agent reflection loop that recalibrates real user demand and creative fatigue every few minutes.
+                  The same structural puzzle came back in advertising. A serving path has to answer inside the latency budget the platform allows, and the trade-off is stated bluntly in <em>Rethinking Digital Advertising</em>: real-time ad platforms cannot tolerate the latency that AppLovin&rsquo;s models can, and that headroom is exactly what buys larger models and better personalisation. So I wrote the system down instead of the slogan &mdash; a real-time ingestion pipeline and feature store feeding a labelling and profile service, which feeds a dynamic ad-serving path with in-session creative switching, backed by distilled user profiles so candidate generation stays cheap.
+                </p>
+                <p>
+                  The rest of the argument matters more than the plumbing. If you optimise only for immediate clicks, you exhaust the audience: that is the Growth Trap, where <strong>consumer fatigue, regulatory risk and competitive erosion</strong> meet. A system that serves a decision in milliseconds still has to answer the slower question underneath it &mdash; whether the decision is worth making at all.
                 </p>
               </div>
             </div>
 
-            {/* Right Column: Visual Two-Speed Architecture SVG */}
+            {/* Right Column: the ad-serving architecture written up in
+                "Rethinking Digital Advertising" (Medium, October 2024). */}
             <div className="lg:col-span-5">
               <div className="rounded-2xl bg-white border border-slate-200 p-5 shadow-xs space-y-3">
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between gap-3">
                   <span className="text-[11px] font-mono uppercase tracking-widest text-[#2980b9] font-semibold">
-                    The Two-Speed Decision Pattern
+                    Ad Serving Architecture
                   </span>
                   <span className="text-[11px] font-mono text-slate-500">
-                    Reflex vs. Reflection
+                    Four stages
                   </span>
                 </div>
 
                 <svg
-                  viewBox="0 0 400 220"
+                  viewBox="0 0 400 250"
                   className="w-full h-auto"
                   role="img"
-                  aria-label="Two-speed decision architecture comparing the sub-50ms synchronous reflex path with the multi-minute 8-agent asynchronous control loop"
+                  aria-label="Four-stage ad serving architecture: data pipeline, labelling and profile service, dynamic ad serving, and profile distillation with efficient candidate models"
                 >
-                  {/* Top Lane: Fast Reflex (<50ms) */}
-                  <rect x="12" y="14" width="376" height="74" rx="12" fill="#f0f9ff" stroke="#38bdf8" strokeWidth="1.5" />
-                  <text x="26" y="34" fill="#0369a1" fontSize="10" fontFamily="monospace" fontWeight="bold">
-                    FAST REFLEX LANE · SYNCHRONOUS (&lt; 50 ms p99)
-                  </text>
-                  <g transform="translate(26, 44)">
-                    <rect x="0" y="0" width="96" height="30" rx="6" fill="#ffffff" stroke="#7dd3fc" />
-                    <text x="48" y="19" textAnchor="middle" fill="#0f172a" fontSize="10" fontWeight="bold">Request / Car</text>
-                    <path d="M 98 15 L 122 15" stroke="#0284c7" strokeWidth="1.6" />
-                    <rect x="124" y="0" width="104" height="30" rx="6" fill="#0284c7" />
-                    <text x="176" y="19" textAnchor="middle" fill="#ffffff" fontSize="10" fontWeight="bold">Safety + Rank</text>
-                    <path d="M 230 15 L 254 15" stroke="#0284c7" strokeWidth="1.6" />
-                    <rect x="256" y="0" width="92" height="30" rx="6" fill="#10b981" />
-                    <text x="302" y="19" textAnchor="middle" fill="#ffffff" fontSize="10" fontWeight="bold">Serve Decision</text>
-                  </g>
+                  <defs>
+                    <marker id="arrow-ad-arch" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                      <path d="M 0 1 L 9 5 L 0 9 z" fill="#0284c7" />
+                    </marker>
+                  </defs>
+                  <g fontFamily="ui-monospace, SFMono-Regular, Menlo, monospace">
+                    <rect x="6" y="6" width="356" height="46" rx="8" fill="#ffffff" stroke="#cbd5e1" />
+                    <text x="20" y="24" fill="#0369a1" fontSize="9.5" fontWeight="bold">01 · DATA PIPELINE</text>
+                    <text x="20" y="41" fill="#475569" fontSize="8.5">Real-time ingestion · session + long-term feature store</text>
+                    <path d="M 184 54 L 184 64" stroke="#0284c7" strokeWidth="1.5" markerEnd="url(#arrow-ad-arch)" />
 
-                  {/* Feedback arrows between lanes */}
-                  <path d="M 310 88 L 310 118" stroke="#f59e0b" strokeWidth="1.6" strokeDasharray="3,2" />
-                  <text x="348" y="107" textAnchor="middle" fill="#b45309" fontSize="8.5" fontFamily="monospace">Telemetry</text>
-                  <path d="M 95 118 L 95 88" stroke="#0284c7" strokeWidth="1.6" strokeDasharray="3,2" />
-                  <text x="54" y="107" textAnchor="middle" fill="#0369a1" fontSize="8.5" fontFamily="monospace">Updated Priors</text>
+                    <rect x="6" y="66" width="356" height="46" rx="8" fill="#ffffff" stroke="#cbd5e1" />
+                    <text x="20" y="84" fill="#0369a1" fontSize="9.5" fontWeight="bold">02 · LABELLING &amp; PROFILE SERVICE</text>
+                    <text x="20" y="101" fill="#475569" fontSize="8.5">Funnel-stage state mapping · profile aggregation</text>
+                    <path d="M 184 114 L 184 124" stroke="#0284c7" strokeWidth="1.5" markerEnd="url(#arrow-ad-arch)" />
 
-                  {/* Bottom Lane: Slow Reflection (Minutes) */}
-                  <rect x="12" y="118" width="376" height="88" rx="12" fill="#0b2034" stroke="#1DAEDF" strokeWidth="1.5" />
-                  <text x="26" y="139" fill="#fbbf24" fontSize="10" fontFamily="monospace" fontWeight="bold">
-                    SLOW REFLECTION LANE · ASYNCHRONOUS (MINUTES / HOURS)
-                  </text>
-                  <g transform="translate(26, 148)">
-                    <rect x="0" y="0" width="108" height="42" rx="6" fill="#102a45" stroke="#38bdf8" strokeWidth="0.8" />
-                    <text x="54" y="17" textAnchor="middle" fill="#ffffff" fontSize="9.5" fontWeight="bold">Demand &amp; Flow</text>
-                    <text x="54" y="31" textAnchor="middle" fill="#7dd3fc" fontSize="8.5" fontFamily="monospace">Symbolic Solver</text>
+                    <rect x="6" y="126" width="356" height="46" rx="8" fill="#f0f9ff" stroke="#38bdf8" />
+                    <text x="20" y="144" fill="#0369a1" fontSize="9.5" fontWeight="bold">03 · DYNAMIC AD SERVING</text>
+                    <text x="20" y="161" fill="#475569" fontSize="8.5">In-session creative switching · GenAI creative engine</text>
+                    <path d="M 184 174 L 184 184" stroke="#0284c7" strokeWidth="1.5" markerEnd="url(#arrow-ad-arch)" />
 
-                    <rect x="120" y="0" width="108" height="42" rx="6" fill="#102a45" stroke="#38bdf8" strokeWidth="0.8" />
-                    <text x="174" y="17" textAnchor="middle" fill="#ffffff" fontSize="9.5" fontWeight="bold">Fatigue &amp; Pacing</text>
-                    <text x="174" y="31" textAnchor="middle" fill="#7dd3fc" fontSize="8.5" fontFamily="monospace">Ergonomic Guard</text>
+                    <rect x="6" y="186" width="356" height="46" rx="8" fill="#ffffff" stroke="#cbd5e1" />
+                    <text x="20" y="204" fill="#0369a1" fontSize="9.5" fontWeight="bold">04 · PROFILE DISTILLATION</text>
+                    <text x="20" y="221" fill="#475569" fontSize="8.5">Compact embeddings · multi-stage candidate models</text>
 
-                    <rect x="240" y="0" width="108" height="42" rx="6" fill="#102a45" stroke="#f59e0b" strokeWidth="0.8" />
-                    <text x="294" y="17" textAnchor="middle" fill="#fbbf24" fontSize="9.5" fontWeight="bold">Causal Audit</text>
-                    <text x="294" y="31" textAnchor="middle" fill="#cbd5e1" fontSize="8.5" fontFamily="monospace">8-Agent Loop</text>
+                    {/* distilled profiles feed candidate generation in the serving path */}
+                    <path d="M 366 209 L 376 209 L 376 149 L 368 149" fill="none" stroke="#f59e0b" strokeWidth="1.2" strokeDasharray="3,2" />
+                    <circle cx="376" cy="149" r="2.5" fill="#f59e0b" />
                   </g>
                 </svg>
+
+                <p className="text-[11px] text-slate-500 leading-relaxed">
+                  The pipeline as specified in <em>Rethinking Digital Advertising: From Guesswork to User
+                  Engagement</em> &mdash; the two middle stages are the ones that decide whether a
+                  fast decision is also a good one. The dashed line is the loop the essay keeps
+                  closing: distilled profiles feed candidate generation back into the serving path.
+                </p>
               </div>
             </div>
           </div>
 
-          {/* Interactive Two-Speed System Sandbox */}
+          {/* Interactive: the traffic-light cycle estimator described in
+              "From Traffic Lights to Life's Direction" (Medium, October 2023). */}
           <figure className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm space-y-6">
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-4">
+            <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 border-b border-slate-100 pb-4">
               <div>
                 <span className="text-[11px] font-mono uppercase tracking-widest text-[#2980b9] font-semibold block">
                   Interactive System Sandbox
                 </span>
                 <h3 className="text-lg sm:text-xl font-bold text-slate-900 font-serif mt-0.5">
-                  Explore the Trade-Off: Fast Serving vs. Slow Coordination
+                  Traffic-Light Cycle Estimator
                 </h3>
-              </div>
-              <div className="inline-flex rounded-xl bg-slate-100 p-1 text-xs font-medium self-start">
-                <button
-                  onClick={() => setFig2Mode("ad-plane")}
-                  className={`px-3 py-1.5 rounded-lg transition cursor-pointer ${
-                    fig2Mode === "ad-plane"
-                      ? "bg-white text-[#2980b9] shadow-xs font-semibold"
-                      : "text-slate-600 hover:text-slate-900"
-                  }`}
-                >
-                  8-Agent Advertising Loop
-                </button>
-                <button
-                  onClick={() => setFig2Mode("traffic")}
-                  className={`px-3 py-1.5 rounded-lg transition cursor-pointer ${
-                    fig2Mode === "traffic"
-                      ? "bg-white text-[#2980b9] shadow-xs font-semibold"
-                      : "text-slate-600 hover:text-slate-900"
-                  }`}
-                >
-                  Smart Traffic Intersection
-                </button>
+                <p className="text-xs text-slate-500 mt-1.5 max-w-2xl leading-relaxed">
+                  The estimator designed in <em>From Traffic Lights to Life&rsquo;s Direction</em> (Medium,
+                  2023): devices report whether they stopped or passed, a crowd reports the state
+                  directly, and a square wave is fitted to those observations. This is a re-implementation
+                  of that design against a synthetic intersection with a known ground truth &mdash; not a
+                  measurement of a deployed system.
+                </p>
               </div>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
               <div className="lg:col-span-5 space-y-5">
-                {fig2Mode === "ad-plane" ? (
-                  <div className="space-y-4">
-                    <div>
-                      <div className="flex justify-between text-xs font-mono text-slate-700 mb-1">
-                        <span>Fast-Lane Latency Budget (p99)</span>
-                        <span className="text-[#2980b9] font-semibold">{fig2LatencyBudget} ms</span>
-                      </div>
-                      <input
-                        type="range"
-                        min={20}
-                        max={80}
-                        value={fig2LatencyBudget}
-                        onChange={(e) => setFig2LatencyBudget(Number(e.target.value))}
-                        aria-label="Fast-lane p99 latency budget in milliseconds"
-                        className="w-full accent-[#2980b9] cursor-pointer"
-                      />
-                    </div>
-                    <div>
-                      <div className="flex justify-between text-xs font-mono text-slate-700 mb-1">
-                        <span>Explicit User Preference Signal</span>
-                        <span className="text-[#2980b9] font-semibold">{fig2Participation}%</span>
-                      </div>
-                      <input
-                        type="range"
-                        min={15}
-                        max={95}
-                        value={fig2Participation}
-                        onChange={(e) => setFig2Participation(Number(e.target.value))}
-                        aria-label="Explicit user preference signal percentage"
-                        className="w-full accent-[#2980b9] cursor-pointer"
-                      />
-                    </div>
+                <div>
+                  <div className="flex justify-between text-xs font-mono text-slate-700 mb-1">
+                    <span>Devices Reporting</span>
+                    <span className="text-[#2980b9] font-semibold">{tlReporters}</span>
                   </div>
-                ) : (
-                  <div className="space-y-4">
-                    <div>
-                      <div className="flex justify-between text-xs font-mono text-slate-700 mb-1">
-                        <span>Approaching Cars Sharing Telemetry</span>
-                        <span className="text-[#2980b9] font-semibold">{fig2Participation}%</span>
-                      </div>
-                      <input
-                        type="range"
-                        min={10}
-                        max={95}
-                        value={fig2Participation}
-                        onChange={(e) => setFig2Participation(Number(e.target.value))}
-                        aria-label="Percentage of approaching vehicles sharing telemetry"
-                        className="w-full accent-[#2980b9] cursor-pointer"
-                      />
-                    </div>
+                  <input
+                    type="range"
+                    min={2}
+                    max={48}
+                    value={tlReporters}
+                    onChange={(e) => setTlReporters(Number(e.target.value))}
+                    aria-label="Number of devices reporting approach observations"
+                    className="w-full accent-[#2980b9] cursor-pointer"
+                  />
+                </div>
+                <div>
+                  <div className="flex justify-between text-xs font-mono text-slate-700 mb-1">
+                    <span>Observation Quality</span>
+                    <span className="text-[#2980b9] font-semibold">{tlSignal}%</span>
                   </div>
-                )}
+                  <input
+                    type="range"
+                    min={40}
+                    max={100}
+                    value={tlSignal}
+                    onChange={(e) => setTlSignal(Number(e.target.value))}
+                    aria-label="Share of observations that are read cleanly"
+                    className="w-full accent-[#2980b9] cursor-pointer"
+                  />
+                </div>
+                <div>
+                  <div className="flex justify-between text-xs font-mono text-slate-700 mb-1">
+                    <span>Crowd State Reports</span>
+                    <span className="text-[#2980b9] font-semibold">{tlCrowd}</span>
+                  </div>
+                  <input
+                    type="range"
+                    min={0}
+                    max={20}
+                    value={tlCrowd}
+                    onChange={(e) => setTlCrowd(Number(e.target.value))}
+                    aria-label="Number of crowd-sourced state reports"
+                    className="w-full accent-[#2980b9] cursor-pointer"
+                  />
+                </div>
+                <div>
+                  <div className="flex justify-between text-xs font-mono text-slate-700 mb-1">
+                    <span>Historical Accuracy of Past Estimates</span>
+                    <span className="text-[#2980b9] font-semibold">{tlHistory}%</span>
+                  </div>
+                  <input
+                    type="range"
+                    min={50}
+                    max={99}
+                    value={tlHistory}
+                    onChange={(e) => setTlHistory(Number(e.target.value))}
+                    aria-label="Historical accuracy of previous cycle estimates"
+                    className="w-full accent-[#2980b9] cursor-pointer"
+                  />
+                </div>
 
-                <div className="grid grid-cols-3 gap-2.5 pt-1">
+                <div className="grid grid-cols-2 gap-2.5 pt-1">
                   <div className="p-3 rounded-xl bg-[#f8fafc] border border-slate-200 text-center">
-                    <div className="text-base font-bold font-mono text-[#0369a1]">
-                      {fig2Stats.metricA}
+                    <div className="text-base font-bold font-mono text-[#0369a1] uppercase">
+                      {tlEstimate.fittedState}
                     </div>
-                    <div className="text-[10px] text-slate-500 mt-0.5">
-                      {fig2Stats.labelA}
-                    </div>
+                    <div className="text-[10px] text-slate-500 mt-0.5">Estimated state now</div>
                   </div>
                   <div className="p-3 rounded-xl bg-[#f8fafc] border border-slate-200 text-center">
                     <div className="text-base font-bold font-mono text-[#2980b9]">
-                      {fig2Stats.metricB}
+                      {tlEstimate.nextChange}s
                     </div>
-                    <div className="text-[10px] text-slate-500 mt-0.5">
-                      {fig2Stats.labelB}
-                    </div>
+                    <div className="text-[10px] text-slate-500 mt-0.5">Until next change</div>
                   </div>
                   <div className="p-3 rounded-xl bg-[#f8fafc] border border-slate-200 text-center">
                     <div className="text-base font-bold font-mono text-emerald-700">
-                      {fig2Stats.metricC}
+                      {tlEstimate.period}s
                     </div>
-                    <div className="text-[10px] text-slate-500 mt-0.5">
-                      {fig2Stats.labelC}
+                    <div className="text-[10px] text-slate-500 mt-0.5">Recovered cycle</div>
+                  </div>
+                  <div className="p-3 rounded-xl bg-[#f8fafc] border border-slate-200 text-center">
+                    <div className="text-base font-bold font-mono text-[#0369a1]">
+                      {tlEstimate.confidence}%
                     </div>
+                    <div className="text-[10px] text-slate-500 mt-0.5">Confidence</div>
                   </div>
                 </div>
               </div>
 
-              {/* Dynamic Visual SVG Readout */}
+              {/* Cycle readout */}
               <div className="lg:col-span-7 p-5 rounded-xl bg-[#0b2034] text-sky-100 space-y-3">
                 <svg
-                  viewBox="0 0 460 120"
+                  viewBox="0 0 460 136"
                   className="w-full h-auto"
                   role="img"
-                  aria-label="Live visual meter of fast lane latency and slow lane signal quality"
+                  aria-label="Estimated traffic light cycle compared with the ground truth cycle, with device observations marked along the estimated cycle"
                 >
-                  {/* Fast lane bar */}
-                  <text x="10" y="24" fill="#7dd3fc" fontSize="10" fontFamily="monospace">
-                    {fig2Mode === "ad-plane" ? `HOT PATH SLA (${fig2LatencyBudget}ms / 80ms)` : `CONNECTED TELEMETRY (${fig2Participation}%)`}
-                  </text>
-                  <rect x="10" y="32" width="440" height="14" rx="7" fill="#071524" stroke="#1e293b" />
-                  <rect
-                    x="10"
-                    y="32"
-                    width={Math.round(
-                      440 *
-                        (fig2Mode === "ad-plane"
-                          ? fig2LatencyBudget / 80
-                          : fig2Participation / 100)
-                    )}
-                    height="14"
-                    rx="7"
-                    fill="#38bdf8"
-                  />
+                  <g fontFamily="ui-monospace, SFMono-Regular, Menlo, monospace">
+                    <text x="10" y="13" fill="#7dd3fc" fontSize="9.5" fontWeight="bold">
+                      ESTIMATED CYCLE · {tlEstimate.period}s PERIOD
+                    </text>
+                    <rect x="10" y="21" width="440" height="22" rx="4" fill="#16a34a" />
+                    <rect x="10" y="21" width={440 * 0.4167} height="22" fill="#22c55e" />
+                    <rect x={10 + 440 * 0.4167} y="21" width={440 * 0.0278} height="22" fill="#eab308" />
+                    <rect x={10 + 440 * 0.4445} y="21" width={440 * 0.5555} height="22" fill="#b91c1c" />
+                    <text x={10 + 440 * 0.21} y="36" textAnchor="middle" fill="#052e16" fontSize="8.5" fontWeight="bold">GREEN</text>
+                    <text x={10 + 440 * 0.72} y="36" textAnchor="middle" fill="#7f1d1d" fontSize="8.5" fontWeight="bold">RED</text>
 
-                  {/* Slow lane / Outcome bar */}
-                  <text x="10" y="74" fill="#fbbf24" fontSize="10" fontFamily="monospace">
-                    {fig2Mode === "ad-plane"
-                      ? `USER FATIGUE REDUCTION & RELEVANCE LIFT`
-                      : `INTERSECTION QUEUE CLEARANCE EFFICIENCY`}
-                  </text>
-                  <rect x="10" y="82" width="440" height="14" rx="7" fill="#071524" stroke="#1e293b" />
-                  <rect
-                    x="10"
-                    y="82"
-                    width={Math.round(440 * (0.25 + (fig2Participation / 100) * 0.7))}
-                    height="14"
-                    rx="7"
-                    fill="#10b981"
-                  />
+                    {/* where the estimator places "now" inside its own cycle */}
+                    <line
+                      x1={10 + 440 * (tlEstimate.fittedNow / tlEstimate.period)}
+                      y1="19"
+                      x2={10 + 440 * (tlEstimate.fittedNow / tlEstimate.period)}
+                      y2="43"
+                      stroke="#ffffff"
+                      strokeWidth="1.6"
+                    />
+                    <text
+                      x={10 + 440 * (tlEstimate.fittedNow / tlEstimate.period)}
+                      y="66"
+                      fill="#ffffff"
+                      fontSize="8"
+                      textAnchor="middle"
+                    >
+                      NOW
+                    </text>
+
+                    {tlEstimate.ticks.map((tick, i) => (
+                      <rect
+                        key={i}
+                        x={10 + 440 * tick.frac}
+                        y="44"
+                        width="2"
+                        height="10"
+                        fill={tick.stopped ? "#fbbf24" : "#38bdf8"}
+                        opacity="0.9"
+                      />
+                    ))}
+
+                    <text x="10" y="80" fill="#94a3b8" fontSize="9.5" fontWeight="bold">
+                      GROUND TRUTH · 108s CYCLE
+                    </text>
+                    <rect x="10" y="86" width="440" height="16" rx="4" fill="#b91c1c" />
+                    <rect x="10" y="86" width={440 * 0.4167} height="16" fill="#22c55e" />
+                    <rect x={10 + 440 * 0.4167} y="86" width={440 * 0.0278} height="16" fill="#eab308" />
+
+                    <line
+                      x1={10 + 440 * (30 / 108)}
+                      y1="84"
+                      x2={10 + 440 * (30 / 108)}
+                      y2="106"
+                      stroke="#fbbf24"
+                      strokeWidth="1.5"
+                    />
+                    <text x={10 + 440 * (30 / 108)} y="118" fill="#fbbf24" fontSize="8" textAnchor="middle">NOW</text>
+
+                    <text x="10" y="131" fill="#64748b" fontSize="8">
+                      <tspan fill="#38bdf8">|</tspan> device passed
+                      <tspan dx="10" fill="#fbbf24">|</tspan> device stopped
+                    </text>
+                  </g>
                 </svg>
 
                 <p className="text-sm font-semibold text-white">
-                  {fig2Stats.headline}
+                  Estimated {tlEstimate.fittedState.toUpperCase()} · changes in {tlEstimate.nextChange}s
+                  {" · "}
+                  {tlEstimate.confidence}% confidence
                 </p>
                 <p className="text-xs text-sky-200/90 leading-relaxed">
-                  {fig2Stats.subline}
+                  The truth is {tlEstimate.trueState.toUpperCase()} changing in {tlEstimate.trueNextChange}s
+                  {" · "}
+                  {tlEstimate.aligned} of {tlEstimate.total} observations align with the fitted cycle
+                  {tlEstimate.crowdState
+                    ? ` · crowd reports ${tlEstimate.crowdState.toUpperCase()}`
+                    : " · no crowd reports"}
+                  {tlEstimate.crowdState && !tlEstimate.crowdAgrees
+                    ? " — the crowd disagrees with the fit, so confidence is discounted"
+                    : ""}
+                  . Confidence follows the essay&rsquo;s definition: the share of aligned data points,
+                  discounted by the historical accuracy of previous estimates.
                 </p>
               </div>
             </div>

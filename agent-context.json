@@ -295,9 +295,9 @@
       "keyInsight": "The working model explores whether shared calendars and asynchronous contributions can make coordination easier."
     },
     {
-      "id": "agent-based-ad-tech-spec",
-      "title": "Agent-Based Advertising System & Observations in Performance Advertising",
-      "date": "2025-01",
+      "id": "applovin-hypergrowth-repository",
+      "title": "Trace of AppLovin’s 7x Annual Hypergrowth (repository edition)",
+      "date": "2024-11",
       "source": "GitHub",
       "url": "https://github.com/domijin/observations_in_advertising",
       "localUrl": "/articles/github/observations-in-advertising.html",
@@ -307,8 +307,8 @@
         "complex-adaptive-systems",
         "ai-and-society"
       ],
-      "summary": "An architecture proposal for an eight-agent control plane and an ad-serving path targeting latency below 50ms at p99, with notes on performance advertising economics.",
-      "keyInsight": "The proposal separates latency-sensitive inference from slower optimisation and experimentation in an asynchronous control plane."
+      "summary": "The living repository edition of the AppLovin essay: the four growth drivers, the four areas where the paradigm is shifting, the growth trap, and the author’s own account of where the work came from.",
+      "keyInsight": "Growth that depends on scaling data collection carries an economic, ethical and social cost that the scaling law alone does not price in."
     },
     {
       "id": "serendipity-and-highlands",

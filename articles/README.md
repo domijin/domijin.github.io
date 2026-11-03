@@ -56,7 +56,7 @@ Each local copy includes an explicit reference and canonical link to the origina
   Local: [`/articles/github/open-learning-lab.html`](/articles/github/open-learning-lab.html) · [`Markdown`](/articles/github/open-learning-lab.md) · Original: [https://github.com/domijin/open-learning-lab](https://github.com/domijin/open-learning-lab)
 - **baby-AI: Receipt-Verified Edge Household Agent Architecture** (April 2026)  
   Local: [`/articles/github/baby-ai.html`](/articles/github/baby-ai.html) · [`Markdown`](/articles/github/baby-ai.md) · Original: [https://github.com/domijin/baby-AI](https://github.com/domijin/baby-AI)
-- **Agent-Based Advertising System & Observations in Performance Advertising** (November 2024)  
+- **Trace of AppLovin’s 7x Annual Hypergrowth** (repository edition) (November 2024)  
   Local: [`/articles/github/observations-in-advertising.html`](/articles/github/observations-in-advertising.html) · [`Markdown`](/articles/github/observations-in-advertising.md) · Original: [https://github.com/domijin/observations_in_advertising](https://github.com/domijin/observations_in_advertising)
 - **LibertyEarth & The Future Project: Collaborative Society & Living Archive** (2019–2025)  
   Local: [`/articles/github/libertyearth-and-future.html`](/articles/github/libertyearth-and-future.html) · [`Markdown`](/articles/github/libertyearth-and-future.md) · Original: [https://github.com/domijin/LibertyEarth](https://github.com/domijin/LibertyEarth)
