@@ -44,7 +44,7 @@ case "$cmd" in
       cp "${ROOT_DIR}/index.html" "${BLUE_BACKUP_DIR}/index.html"
     fi
     cd "${GREEN_APP_DIR}"
-    NEXT_BASE_PATH="" npx next build
+    npm run export:root
     # Remove the previous root export so stale hashed chunks do not accumulate.
     rm -rf "${ROOT_DIR}/_next" "${ROOT_DIR}/404" "${ROOT_DIR}/index.txt" "${ROOT_DIR}/404.html"
     cp -R "${GREEN_APP_DIR}/out/"* "${ROOT_DIR}/"

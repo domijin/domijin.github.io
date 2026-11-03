@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "export:green": "NEXT_BASE_PATH=/next next build && rm -rf ../next && cp -R out ../next && touch ../.nojekyll",
-    "export:root": "NEXT_BASE_PATH='' next build"
+    "export:green": "NEXT_BASE_PATH=/next next build && rm -rf ../next && cp -R out ../next && python3 ../scripts/scrub-build-secrets.py ../next && touch ../.nojekyll",
+    "export:root": "NEXT_BASE_PATH='' next build && python3 ../scripts/scrub-build-secrets.py out"
   },
   "dependencies": {
     "@huggingface/transformers": "^4.3.2",
