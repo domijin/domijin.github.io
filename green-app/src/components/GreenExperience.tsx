@@ -1183,31 +1183,6 @@ export default function GreenExperience() {
         </section>
 
         {/* =====================================================================
-            HOW THE MODEL WORKS — FROM "ALL ABOUT CHATGPT"
-           ===================================================================== */}
-        <section
-          id="how-the-model-works"
-          className="space-y-6 scroll-mt-24 pt-8 border-t border-slate-200"
-        >
-          <div className="max-w-3xl space-y-3">
-            <span className="text-xs font-mono uppercase tracking-widest text-[#2980b9] font-semibold block">
-              Model Scale · 2023 – Present
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 font-serif tracking-tight">
-              How the Model Works, Why It Works, and Where It Runs Out
-            </h2>
-            <p className="text-base sm:text-lg text-slate-600 font-serif italic">
-              A language model is a cloud of correlated memories. A prompt conditions one
-              of them and the answer is assembled from its neighbourhood. That is a real
-              foundation — and the argument of the essay that grew out of it is that
-              flat correlation is <em>only</em> a foundation.
-            </p>
-          </div>
-
-          <CollectiveKnowledgeFigure onOpenEssay={openEssayReader} />
-        </section>
-
-        {/* =====================================================================
             01 · STARS & GRAVITY (COMPUTATIONAL ASTROPHYSICS & LISA)
            ===================================================================== */}
         <section
@@ -1680,6 +1655,56 @@ export default function GreenExperience() {
               })}
             </div>
           </div>
+        </section>
+
+        {/* =====================================================================
+            HOW THE MODEL WORKS — FROM "ALL ABOUT CHATGPT"
+           ===================================================================== */}
+        <section
+          id="how-the-model-works"
+          className="space-y-6 scroll-mt-24 pt-8 border-t border-slate-200"
+        >
+          <div className="max-w-3xl space-y-3">
+            <span className="text-xs font-mono uppercase tracking-widest text-[#2980b9] font-semibold block">
+              Model Scale · 2023 – Present
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 font-serif tracking-tight">
+              How I Think a Language Model Works
+            </h2>
+            <p className="text-base sm:text-lg text-slate-600 font-serif italic">
+              Still a sketch, and probably wrong in places. This is the model I keep
+              redrawing — a language model as correlated memories, one of them conditioned
+              at a time — with the two ways out I keep thinking about. I would rather hear
+              where it breaks than defend it.
+            </p>
+          </div>
+
+          <figure className="rounded-2xl border border-slate-200 bg-[#0b2034] p-3 sm:p-5 shadow-sm space-y-4">
+            <img
+              src="/images/knowledge-growth.gif"
+              alt="An animation: the dashed circle is collective human knowledge, with one spike per domain at very different depths. A model starts with a small boundary in the middle. Experts work frontiers; breakthroughs extend the spikes; each result becomes training data and the model's boundary grows toward it. By the end the boundary reaches close to the spike tips in AlphaGo, AlphaFold and mathematics, and passes outside the human circle in a few thin fields."
+              className="w-full h-auto rounded-xl block"
+              loading="lazy"
+            />
+            <figcaption className="text-xs text-slate-400 leading-relaxed px-1">
+              <span className="text-slate-300 font-semibold">How a model&apos;s knowledge boundary grows.</span>{" "}
+              The dashed circle is collective human knowledge, each spike one domain&apos;s depth — deep in
+              some fields, thin in others. An expert works a frontier, a breakthrough moves it out, and
+              the result becomes training data, so the boundary moves. In the deep fields it ends up close
+              to the frontier; in the thin ones it crosses the human graph. That last case is the one
+              worth being careful about, because the graph underneath is thinnest there. It is my
+              sketch, not a measurement —{" "}
+              <button
+                onClick={() => openEssayReader("/articles/blog/all-about-chatgpt.html")}
+                className="text-[#7dd3fc] hover:underline font-mono"
+              >
+                All About ChatGPT
+              </button>{" "}
+              (2023) is where the argument came from.
+            </figcaption>
+          </figure>
+
+          <CollectiveKnowledgeFigure onOpenEssay={openEssayReader} />
         </section>
 
         {/* =====================================================================

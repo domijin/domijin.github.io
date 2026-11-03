@@ -1,6 +1,13 @@
 "use client";
 
-import React, { useMemo, useState } from "react";
+import React, { useCallback, useMemo, useState } from "react";
+import { NODES, scoreNodes, topNode, NodeScore } from "@/lib/knowledgeScoring";
+import {
+  loadEmbedder,
+  deviceName,
+  EMBEDDING_DOWNLOAD_MB,
+  EMBEDDING_MODEL,
+} from "@/components/semanticMatcher";
 
 /**
  * The digital form of the hand-drawn sketch from "All About ChatGPT"
@@ -29,56 +36,35 @@ import React, { useMemo, useState } from "react";
  *     for now is Wolfram");
  *   • and the open question the sketch poses in green: knowledge, or a
  *     knowledge graph?
+ *
+ * The prompt box is open on purpose. Type anything: it is matched against
+ * the nodes by a small sentence-embedding model running in this browser
+ * (MiniLM-L6, 22 MB, fetched once and cached), so the concepts that light
+ * up are the ones the model itself would reach for — not just the words
+ * that happen to appear.
  */
 
-interface MemNode {
-  id: string;
-  label: string;
-  x: number;
-  y: number;
-  /** Sits inside the advanced field — the deep domain the model only partly reaches. */
-  deep?: boolean;
+interface Edge {
+  a: string;
+  b: string;
+  weak?: boolean;
 }
 
-interface Prompt {
-  id: string;
-  question: string;
-  condition: string;
-  /** What flat correlation alone cannot do for this prompt. */
-  needs: "symbolic" | "modality" | null;
-  note: string;
-}
-
-const NODES: MemNode[] = [
-  { id: "embedding", label: "Correlation between terms (embeddings)", x: 168, y: 168 },
-  { id: "meme", label: "Meme / concept node", x: 208, y: 138 },
-  { id: "mocca", label: "MOCCA cluster survey", x: 245, y: 168 },
-  { id: "bbh", label: "Binary black hole inspiral", x: 312, y: 178, deep: true },
-  { id: "siren", label: "LISA standard siren", x: 322, y: 143, deep: true },
-  { id: "auction", label: "Ad auction pricing", x: 176, y: 222 },
-  { id: "demand", label: "Demand profiling", x: 218, y: 258 },
-  { id: "signal", label: "Signal cycle estimation", x: 152, y: 262 },
-  { id: "reglag", label: "Regulation lag", x: 256, y: 215 },
-  { id: "calib", label: "Calibration check", x: 188, y: 286 },
-  { id: "retrieval", label: "Spaced retrieval", x: 258, y: 280 },
-];
-
-/** [from, to, weak?] — weak edges are the ones the sketch drew dotted. */
-const EDGES: [string, string, boolean?][] = [
-  ["embedding", "meme"],
-  ["embedding", "calib"],
-  ["meme", "mocca"],
-  ["meme", "reglag"],
-  ["meme", "calib", true],
-  ["mocca", "bbh"],
-  ["bbh", "siren"],
-  ["siren", "reglag", true],
-  ["auction", "demand"],
-  ["auction", "signal"],
-  ["demand", "reglag"],
-  ["signal", "calib"],
-  ["calib", "retrieval"],
-  ["retrieval", "reglag", true],
+const EDGES: Edge[] = [
+  { a: "embedding", b: "meme" },
+  { a: "embedding", b: "calib" },
+  { a: "meme", b: "mocca" },
+  { a: "meme", b: "reglag" },
+  { a: "meme", b: "calib", weak: true },
+  { a: "mocca", b: "bbh" },
+  { a: "bbh", b: "siren" },
+  { a: "siren", b: "reglag", weak: true },
+  { a: "auction", b: "demand" },
+  { a: "auction", b: "signal" },
+  { a: "demand", b: "reglag" },
+  { a: "signal", b: "calib" },
+  { a: "calib", b: "retrieval" },
+  { a: "retrieval", b: "reglag", weak: true },
 ];
 
 /** The ring's spikes — the domain knowledge in each different area. */
@@ -102,8 +88,6 @@ const SPIKES: { angle: number; len: number }[] = [
   { angle: 266, len: 13 },
 ];
 
-/** One domain per spike — the essay's "the spikes on such a ring could
- *  represent the domain knowledge in each different area". */
 const DOMAINS = [
   "Astrophysics",
   "Advertising",
@@ -113,29 +97,14 @@ const DOMAINS = [
   "Traffic systems",
 ];
 
-const PROMPTS: Prompt[] = [
-  {
-    id: "siren",
-    question: "What does a gravitational-wave standard siren let us measure?",
-    condition: "siren",
-    needs: null,
-    note: "The relation is well represented in the corpus. The model recombines what it has seen.",
-  },
-  {
-    id: "count",
-    question: "Count the binary black holes with 8 < m₁ < 12 M☉ in this cluster.",
-    condition: "bbh",
-    needs: "symbolic",
-    note: "Counting between two bounds needs a loop. Flat correlation has no iteration to run.",
-  },
-  {
-    id: "latest",
-    question: "How many binary black holes did the most recent LISA run detect?",
-    condition: "bbh",
-    needs: "modality",
-    note: "The corpus ends where the training data ends. The alternative to guessing is to look.",
-  },
+const PRESETS: string[] = [
+  "What does a gravitational-wave standard siren let us measure?",
+  "Count the binary black holes with 8 < m₁ < 12 M☉ in this cluster.",
+  "How many binary black holes did the most recent LISA run detect?",
 ];
+
+const RECENCY = /\b(current|currently|latest|now|today|recent|recently|as of|this week|this month|right now)\b/;
+const COUNT = /\b(count|how many|number of|sum|total|list all|list every|between)\b/;
 
 const BLOB_PATH =
   "M 150 165 C 138 138, 178 112, 214 122 C 244 100, 285 106, 300 130 " +
@@ -150,6 +119,8 @@ function nodeById(id: string) {
   return NODES.find((n) => n.id === id)!;
 }
 
+type ModelState = "idle" | "loading" | "ready" | "error";
+
 export default function CollectiveKnowledgeFigure({
   onOpenEssay,
 }: {
@@ -158,40 +129,100 @@ export default function CollectiveKnowledgeFigure({
   const [reading, setReading] = useState<"flat" | "graph">("flat");
   const [modality, setModality] = useState(false);
   const [symbolic, setSymbolic] = useState(false);
-  const [promptId, setPromptId] = useState("siren");
+  const [draft, setDraft] = useState("");
+  const [prompt, setPrompt] = useState(PRESETS[0]);
   const [override, setOverride] = useState<string | null>(null);
 
-  const prompt = PROMPTS.find((p) => p.id === promptId)!;
-  const conditionId = override ?? prompt.condition;
-  const condition = nodeById(conditionId);
+  const [modelState, setModelState] = useState<ModelState>("idle");
+  const [modelNote, setModelNote] = useState("");
+  const [embedding, setEmbedding] = useState<Float32Array | null>(null);
+
+  const runModel = useCallback(async (text: string) => {
+    setModelState("loading");
+    setModelNote(`loading a ${EMBEDDING_DOWNLOAD_MB} MB model — it runs here, and the browser caches it`);
+    try {
+      const embed = await loadEmbedder((p) => {
+        if (p.status === "download" && typeof p.progress === "number") {
+          setModelNote(`downloading ${EMBEDDING_DOWNLOAD_MB} MB model — ${Math.round(p.progress)}%`);
+        }
+      });
+      const vec = await embed(text);
+      setEmbedding(vec instanceof Float32Array ? vec : Float32Array.from(vec));
+      setModelState("ready");
+      setModelNote(`matched by ${EMBEDDING_MODEL} running locally on ${deviceName()}`);
+    } catch (err) {
+      setModelState("error");
+      setModelNote(
+        "the local model would not load — falling back to keyword matching, which still works"
+      );
+    }
+  }, []);
+
+  const submit = useCallback(
+    (text: string) => {
+      setDraft(text);
+      setPrompt(text.trim() || PRESETS[0]);
+      setOverride(null);
+      setEmbedding(null);
+      runModel(text.trim() || PRESETS[0]);
+    },
+    [runModel]
+  );
+
+  /** Every node scored against the prompt, strongest first. */
+  const scores = useMemo(() => scoreNodes(prompt, embedding), [prompt, embedding]);
+  const scoreOf = useCallback(
+    (id: string) => scores.find((s) => s.id === id) ?? { id, label: "", weight: 0, semantic: 0, lexical: 0 },
+    [scores]
+  );
+
+  const best = topNode(scores);
+  const conditionId = override ?? best?.id ?? null;
+  const condition = conditionId ? nodeById(conditionId) : null;
+  const deep = condition?.deep === true;
 
   /** Nodes one hop from the conditioned node — what the model can reach. */
   const neighbourhood = useMemo(() => {
+    if (!conditionId) return new Set<string>();
     const near = new Set<string>([conditionId]);
-    for (const [a, b] of EDGES) {
-      if (a === conditionId) near.add(b);
-      if (b === conditionId) near.add(a);
+    for (const e of EDGES) {
+      if (e.a === conditionId) near.add(e.b);
+      if (e.b === conditionId) near.add(e.a);
     }
     return near;
   }, [conditionId]);
 
-  const deep = condition.deep === true;
+  const cue = useMemo(() => {
+    const lower = prompt.toLowerCase();
+    if (RECENCY.test(lower)) return "recency";
+    if (COUNT.test(lower)) return "count";
+    return "none";
+  }, [prompt]);
 
   const outcome = useMemo(() => {
-    if (prompt.needs === null) {
-      return {
-        state: "answers",
-        headline: "Answers from correlation",
-        detail: prompt.note,
-      };
+    const nothingMatches = !best;
+    if (nothingMatches) {
+      return modality
+        ? {
+            state: "grounded",
+            headline: "Ground truth, queried",
+            detail:
+              "Nothing in the model correlates with this, so a new modality has to do the work: look it up in the world rather than recall it.",
+          }
+        : {
+            state: "guesses",
+            headline: "Nothing correlates — it would guess",
+            detail:
+              "There is no memory here to recombine. The answer would still arrive, fluent and confident, and it would be made up.",
+          };
     }
-    if (prompt.needs === "symbolic") {
+    if (cue === "count") {
       return symbolic
         ? {
             state: "computed",
             headline: "Computed, not recalled",
             detail:
-              "With a symbolic layer the counting runs as a loop over the catalogue rather than as a guess at a pattern.",
+              "With a symbolic layer the counting runs as a loop over the catalogue, rather than as a guess at a pattern.",
           }
         : {
             state: "stuck",
@@ -200,20 +231,27 @@ export default function CollectiveKnowledgeFigure({
               "Any higher-order computation like counting the numbers between a and b needs some sort of recurrent operation — a for-loop the architecture does not have.",
           };
     }
-    return modality
-      ? {
-          state: "grounded",
-          headline: "Ground truth, queried",
-          detail:
-            "A new modality lets the system look the answer up in the world instead of recalling it from a snapshot of the corpus.",
-        }
-      : {
-          state: "guesses",
-          headline: "Guesses, plausibly",
-          detail:
-            "The corpus ends where the training data ends. The answer will still arrive — it just will not be a measurement.",
-        };
-  }, [prompt, symbolic, modality]);
+    if (cue === "recency") {
+      return modality
+        ? {
+            state: "grounded",
+            headline: "Ground truth, queried",
+            detail:
+              "A new modality lets the system look the answer up in the world instead of recalling it from a snapshot of the corpus.",
+          }
+        : {
+            state: "guesses",
+            headline: "Guesses, plausibly",
+            detail:
+              "The corpus ends where the training data ends. The answer will still arrive — it just will not be a measurement.",
+          };
+    }
+    return {
+      state: "answers",
+      headline: "Answers from correlation",
+      detail: "The relation is well represented in the corpus. The model recombines what it has seen.",
+    };
+  }, [best, cue, symbolic, modality]);
 
   const TONE: Record<string, { text: string; bg: string; border: string }> = {
     answers: { text: "text-emerald-700", bg: "bg-emerald-50", border: "border-emerald-200" },
@@ -224,22 +262,24 @@ export default function CollectiveKnowledgeFigure({
   };
   const tone = TONE[outcome.state];
 
+  const topThree = scores.filter((s) => s.weight > 0.02).slice(0, 3);
+
   return (
     <figure className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm space-y-6">
       <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 border-b border-slate-100 pb-4">
         <div>
           <span className="text-[11px] font-mono uppercase tracking-widest text-[#2980b9] font-semibold block">
-            Interactive Model · How the Model Works
+            Interactive Model · My Working Sketch
           </span>
           <h3 className="text-lg sm:text-xl font-bold text-slate-900 font-serif mt-0.5">
-            Flat correlation is the foundation of knowledge — and only that
+            A working model — type a prompt, or click any node
           </h3>
           <p className="text-xs text-slate-500 mt-1.5 max-w-2xl leading-relaxed">
-            The digital form of a hand-drawn sketch from{" "}
-            <em>All About ChatGPT</em> (February 2023). A language model is a cloud
-            of correlated <span className="font-mono text-[#0369a1]">mem</span> nodes; a
-            prompt conditions one of them and the answer is assembled from its
-            neighbourhood. Click any node to re-condition it.
+            The digital form of a hand-drawn sketch I made for{" "}
+            <em>All About ChatGPT</em> (February 2023) and have been redrawing since. A model
+            as correlated <span className="font-mono text-[#0369a1]">mem</span> nodes; a prompt
+            conditions one of them, and the answer is assembled from its neighbourhood. I am
+            fairly sure about the shape and less sure about the details — please push back.
           </p>
         </div>
       </div>
@@ -330,12 +370,15 @@ export default function CollectiveKnowledgeFigure({
                 THE MODEL
               </text>
 
-              {/* edges: solid when read as a graph, faint when read as flat correlation */}
-              {EDGES.map(([a, b, weak], i) => {
-                const na = nodeById(a);
-                const nb = nodeById(b);
-                const lit = neighbourhood.has(a) && neighbourhood.has(b);
-                const opacity = lit ? (reading === "graph" ? 0.9 : 0.55) : 0.15;
+              {/* edges: brighter where the prompt gave both ends weight */}
+              {EDGES.map((e, i) => {
+                const na = nodeById(e.a);
+                const nb = nodeById(e.b);
+                const lit = neighbourhood.has(e.a) && neighbourhood.has(e.b);
+                const w = scoreOf(e.a).weight * scoreOf(e.b).weight;
+                const opacity = lit
+                  ? 0.35 + 0.5 * w + (reading === "graph" ? 0.15 : 0)
+                  : 0.08 + 0.25 * w;
                 return (
                   <line
                     key={i}
@@ -344,44 +387,55 @@ export default function CollectiveKnowledgeFigure({
                     x2={nb.x}
                     y2={nb.y}
                     stroke="#22c55e"
-                    strokeWidth={weak ? 1 : 1.7}
-                    strokeDasharray={reading === "graph" ? (weak ? "4 3" : undefined) : "2 4"}
-                    opacity={opacity}
+                    strokeWidth={e.weak ? 1 : 1.7}
+                    strokeDasharray={reading === "graph" ? (e.weak ? "4 3" : undefined) : "2 4"}
+                    opacity={Math.min(1, opacity)}
                   />
                 );
               })}
 
-              {/* the nodes */}
+              {/* the nodes: size and glow follow the weight */}
               {NODES.map((n) => {
+                const s = scoreOf(n.id);
                 const lit = neighbourhood.has(n.id);
                 const isCond = n.id === conditionId;
+                const r = 7 + s.weight * 13;
                 return (
                   <g
                     key={n.id}
                     className="cursor-pointer"
-                    onClick={() => setOverride(n.id)}
+                    onClick={() => setOverride(n.id === conditionId ? null : n.id)}
                     role="button"
                     tabIndex={0}
                     onKeyDown={(e) => {
                       if (e.key === "Enter" || e.key === " ") {
                         e.preventDefault();
-                        setOverride(n.id);
+                        setOverride(n.id === conditionId ? null : n.id);
                       }
                     }}
                   >
                     <circle cx={n.x} cy={n.y} r="15" fill="transparent" />
+                    {s.weight > 0.05 && (
+                      <circle
+                        cx={n.x}
+                        cy={n.y}
+                        r={r + 7}
+                        fill="#4ade80"
+                        fillOpacity={0.10 + s.weight * 0.16}
+                      />
+                    )}
                     <circle
                       cx={n.x}
                       cy={n.y}
-                      r="8"
+                      r={r}
                       fill={lit ? "#14532d" : "#0f2a1c"}
                       stroke={lit ? "#4ade80" : "#22c55e"}
-                      strokeWidth="1.3"
-                      opacity={lit ? 1 : 0.45}
+                      strokeWidth={1.3 + s.weight * 1.6}
+                      opacity={lit ? 1 : 0.4 + s.weight * 0.6}
                     />
                     <text
                       x={n.x}
-                      y={n.y + 2.6}
+                      y={n.y + 3}
                       textAnchor="middle"
                       fill={lit ? "#86efac" : "#4ade80"}
                       fontSize="6.8"
@@ -391,8 +445,8 @@ export default function CollectiveKnowledgeFigure({
                     </text>
                     {isCond && (
                       <>
-                        <circle cx={n.x} cy={n.y} r="12.5" fill="none" stroke="#38bdf8" strokeWidth="1.8" />
-                        <text x={n.x} y={n.y - 20} fill="#7dd3fc" fontSize="8" textAnchor="middle">
+                        <circle cx={n.x} cy={n.y} r={r + 6} fill="none" stroke="#38bdf8" strokeWidth="1.8" />
+                        <text x={n.x} y={n.y - r - 8} fill="#7dd3fc" fontSize="8" textAnchor="middle">
                           condit
                         </text>
                       </>
@@ -401,7 +455,7 @@ export default function CollectiveKnowledgeFigure({
                       <circle
                         cx={n.x}
                         cy={n.y}
-                        r="14"
+                        r={r + 4}
                         fill="none"
                         stroke="#94a3b8"
                         strokeWidth="1"
@@ -482,11 +536,7 @@ export default function CollectiveKnowledgeFigure({
                 markerEnd="url(#ck-arrow-green)"
               />
               <path
-                d={
-                  reading === "graph"
-                    ? "M 90 214 L 218 158"
-                    : "M 90 214 L 158 236"
-                }
+                d={reading === "graph" ? "M 90 214 L 218 158" : "M 90 214 L 158 236"}
                 fill="none"
                 stroke="#4ade80"
                 strokeWidth="1.3"
@@ -499,31 +549,112 @@ export default function CollectiveKnowledgeFigure({
         {/* ---------------- controls ---------------- */}
         <div className="lg:col-span-5 space-y-5">
           <div>
-            <span className="text-[10px] font-mono uppercase tracking-widest text-slate-500 font-semibold block mb-2">
-              The prompt
-            </span>
-            <div className="space-y-1.5">
-              {PROMPTS.map((p) => (
-                <button
-                  key={p.id}
-                  onClick={() => {
-                    setPromptId(p.id);
-                    setOverride(null);
-                  }}
-                  className={`w-full text-left px-3 py-2 rounded-lg text-[13px] leading-snug transition cursor-pointer border ${
-                    promptId === p.id
-                      ? "bg-sky-50 border-[#1DAEDF] text-slate-900 font-medium"
-                      : "bg-[#f8fafc] border-slate-200 text-slate-600 hover:border-slate-300"
-                  }`}
-                >
-                  {p.question}
-                </button>
-              ))}
+            <label
+              htmlFor="ck-prompt"
+              className="text-[10px] font-mono uppercase tracking-widest text-slate-500 font-semibold block mb-2"
+            >
+              Ask the model something
+            </label>
+            <div className="flex gap-2">
+              <input
+                id="ck-prompt"
+                type="text"
+                value={draft}
+                onChange={(e) => setDraft(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") submit(draft);
+                }}
+                placeholder="Type a prompt…"
+                className="flex-1 min-w-0 px-3 py-2 rounded-lg border border-slate-200 bg-[#f8fafc] text-[13px] text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-[#1DAEDF] focus:ring-1 focus:ring-[#1DAEDF]"
+              />
+              <button
+                onClick={() => submit(draft)}
+                className="px-3 py-2 rounded-lg bg-[#2980b9] text-white text-xs font-semibold hover:bg-[#0369a1] transition cursor-pointer shrink-0"
+              >
+                Ask
+              </button>
             </div>
-            <p className="text-[11px] text-slate-500 mt-2 leading-relaxed">
-              Conditioning on{" "}
-              <span className="font-mono text-[#0369a1]">{condition.label}</span>
-              {deep && " — inside the advanced field, where the corpus runs thin."}
+
+            <div className="mt-3 space-y-1">
+              <span className="text-[10px] font-mono uppercase tracking-widest text-slate-400 font-semibold">
+                or try one of mine
+              </span>
+              <ul className="space-y-1">
+                {PRESETS.map((p) => (
+                  <li key={p}>
+                    <button
+                      onClick={() => submit(p)}
+                      className="text-left text-[12px] leading-snug text-[#0369a1] hover:underline underline-offset-2 cursor-pointer"
+                    >
+                      {p}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <p className="text-[11px] text-slate-500 mt-3 leading-relaxed">
+              {modelState === "idle" && "Type a prompt and a small language model runs here, in your browser."}
+              {modelState === "loading" && modelNote}
+              {modelState === "ready" && modelNote}
+              {modelState === "error" && modelNote}
+            </p>
+          </div>
+
+          {/* what the model reached for */}
+          <div className="rounded-xl border border-slate-200 bg-[#f8fafc] p-4 space-y-2">
+            <span className="text-[10px] font-mono uppercase tracking-widest text-slate-500 font-semibold block">
+              What the model reached for
+            </span>
+            {topThree.length === 0 ? (
+              <p className="text-xs text-slate-500">Nothing lit up — no node correlates with this.</p>
+            ) : (
+              <ul className="space-y-1.5">
+                {topThree.map((s) => (
+                  <li key={s.id} className="space-y-0.5">
+                    <div className="flex justify-between text-[12px] text-slate-700 gap-2">
+                      <span className="truncate">{s.label}</span>
+                      <span className="font-mono text-[#0369a1] shrink-0">
+                        {(s.weight * 100).toFixed(0)}
+                      </span>
+                    </div>
+                    <div className="h-1 rounded-full bg-slate-200 overflow-hidden">
+                      <div
+                        className="h-full bg-[#22c55e] rounded-full"
+                        style={{ width: `${Math.round(s.weight * 100)}%` }}
+                      />
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            )}
+            <p className="text-[11px] text-slate-500 leading-relaxed">
+              {condition ? (
+                <>
+                  Conditioning on{" "}
+                  <span className="font-mono text-[#0369a1]">{condition.label}</span>
+                  {override && (
+                    <button
+                      onClick={() => setOverride(null)}
+                      className="ml-1 text-[#2980b9] hover:underline cursor-pointer"
+                    >
+                      (you forced this one — undo)
+                    </button>
+                  )}
+                  {deep && " — inside the advanced field, where the corpus runs thin."}
+                </>
+              ) : (
+                "No node correlates closely enough to condition on."
+              )}
+            </p>
+            <p className="text-[11px] text-slate-500 leading-relaxed">
+              {cue === "recency"
+                ? "Your prompt asks for what is happening now — the corpus stops where the training data stops."
+                : cue === "count"
+                  ? "Your prompt asks for a count — that needs a loop, not a correlation."
+                  : best
+                    ? "Your prompt asks for something the corpus already covers."
+                    : "Nothing in the model correlates with this."}
             </p>
           </div>
 
@@ -624,7 +755,7 @@ export default function CollectiveKnowledgeFigure({
             question.
           </p>
           <p>
-            The argument itself is from{" "}
+            The argument is from{" "}
             <button
               onClick={() => onOpenEssay?.("/articles/blog/all-about-chatgpt.html")}
               className="text-[#0369a1] hover:underline font-mono"

@@ -1,0 +1,225 @@
+[
+  {
+    "id": "embedding",
+    "label": "Correlation between terms (embeddings)",
+    "description": "The layer everything else rests on: knowledge might just be the correlation between terms. Words and concepts that turn up together sit close together in the embedding space, and the model learns that geometry from the corpus.",
+    "keywords": [
+      "correlation",
+      "correlate",
+      "embedding",
+      "embeddings",
+      "terms",
+      "similarity",
+      "semantic",
+      "related",
+      "relationship",
+      "vector",
+      "vectors"
+    ],
+    "x": 168,
+    "y": 168
+  },
+  {
+    "id": "meme",
+    "label": "Meme / concept node",
+    "description": "Memes and concepts are the nodes of the graph. A concept is not a sentence but a unit the model can carry: a meme is a thing that can be transported from one context to another, and the model may hold a level of knowledge graph inside itself.",
+    "keywords": [
+      "meme",
+      "memes",
+      "concept",
+      "concepts",
+      "node",
+      "nodes",
+      "graph",
+      "knowledge",
+      "representation"
+    ],
+    "x": 208,
+    "y": 138
+  },
+  {
+    "id": "mocca",
+    "label": "MOCCA cluster survey",
+    "description": "Simulating 662,772 globular clusters to predict where binary black holes form and are ejected, and what the local population of merging black holes should look like for LISA to see.",
+    "keywords": [
+      "cluster",
+      "clusters",
+      "mocca",
+      "simulation",
+      "simulate",
+      "survey",
+      "globular",
+      "population",
+      "stars",
+      "star",
+      "catalogue",
+      "catalog"
+    ],
+    "x": 245,
+    "y": 168
+  },
+  {
+    "id": "bbh",
+    "label": "Binary black hole inspiral",
+    "description": "Two black holes spiralling together, the hardest part of any dataset: gravitational-wave templates for a system in a deep field, where the model can only extrapolate from what has already been catalogued.",
+    "keywords": [
+      "black",
+      "hole",
+      "holes",
+      "binary",
+      "inspiral",
+      "orbit",
+      "merger",
+      "bh",
+      "bbh"
+    ],
+    "x": 312,
+    "y": 178,
+    "deep": true
+  },
+  {
+    "id": "siren",
+    "label": "LISA standard siren",
+    "description": "A gravitational-wave standard siren: the strain of an inspiraling binary encodes the absolute luminosity distance on its own, so it measures the Hubble constant without a cosmic distance ladder. Deep domain knowledge.",
+    "keywords": [
+      "siren",
+      "sirens",
+      "lisa",
+      "hubble",
+      "distance",
+      "distances",
+      "gravitational",
+      "wave",
+      "waves",
+      "measure",
+      "measuring",
+      "galaxy",
+      "galaxies",
+      "redshift"
+    ],
+    "x": 322,
+    "y": 143,
+    "deep": true
+  },
+  {
+    "id": "auction",
+    "label": "Ad auction pricing",
+    "description": "Real-time bidding and ad auction pricing: a decision that has to be served inside a latency budget, where the platform's own economics reward the immediate click.",
+    "keywords": [
+      "auction",
+      "auctions",
+      "ad",
+      "ads",
+      "advertising",
+      "bid",
+      "bidding",
+      "creative",
+      "click",
+      "banner",
+      "impression"
+    ],
+    "x": 176,
+    "y": 222
+  },
+  {
+    "id": "demand",
+    "label": "Demand profiling",
+    "description": "Demand profiling and dynamic personalisation: treating every click, skip and hover as a data point in an ongoing narrative, so the ad can move from branding to use-case specificity as a person's demand clarifies.",
+    "keywords": [
+      "demand",
+      "profiling",
+      "profile",
+      "preference",
+      "preferences",
+      "relevance",
+      "intent",
+      "personalisation",
+      "personalization",
+      "audience"
+    ],
+    "x": 218,
+    "y": 258
+  },
+  {
+    "id": "signal",
+    "label": "Signal cycle estimation",
+    "description": "Estimating a traffic light's cycle from sparse observations: predicting where a driver decided to stop, aggregating many such signals, and scoring the estimate's confidence before showing a countdown.",
+    "keywords": [
+      "traffic",
+      "signal",
+      "intersection",
+      "light",
+      "lights",
+      "cycle",
+      "countdown",
+      "timer",
+      "stoplight"
+    ],
+    "x": 152,
+    "y": 262
+  },
+  {
+    "id": "reglag",
+    "label": "Regulation lag",
+    "description": "Regulation always lags innovation, and the rules are localised: certifying a new aircraft for flight, airworthiness approval, market entry, privacy law. The bottleneck for a new field is rarely capability but permission.",
+    "keywords": [
+      "regulation",
+      "regulatory",
+      "policy",
+      "lag",
+      "compliance",
+      "airworthiness",
+      "certification",
+      "certify",
+      "certifying",
+      "aircraft",
+      "flight",
+      "rule",
+      "rules",
+      "approval",
+      "approve"
+    ],
+    "x": 256,
+    "y": 215
+  },
+  {
+    "id": "calib",
+    "label": "Calibration check",
+    "description": "Calibration and verification of the model's own confidence: whether the confidence it reports is deserved. The gap between fluency and mastery, and the reason a self-report is worth less than a delayed test.",
+    "keywords": [
+      "calibration",
+      "calibrated",
+      "confidence",
+      "accuracy",
+      "verification",
+      "verify",
+      "epistemic",
+      "hallucinate",
+      "hallucination",
+      "overconfident"
+    ],
+    "x": 188,
+    "y": 286
+  },
+  {
+    "id": "retrieval",
+    "label": "Spaced retrieval",
+    "description": "Spaced retrieval and scheduling: what has to be revisited, and when, so a concept survives past the session it was learned in. A rhythm rather than a single effort.",
+    "keywords": [
+      "retrieval",
+      "spaced",
+      "memory",
+      "tutoring",
+      "learn",
+      "learning",
+      "schedule",
+      "calendar",
+      "revise",
+      "revision",
+      "forget",
+      "forgetting"
+    ],
+    "x": 258,
+    "y": 280
+  }
+]

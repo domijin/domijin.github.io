@@ -9,6 +9,7 @@
     "export:root": "NEXT_BASE_PATH='' next build"
   },
   "dependencies": {
+    "@huggingface/transformers": "^4.3.2",
     "@react-three/drei": "^10.0.0",
     "@react-three/fiber": "^9.0.0",
     "lucide-react": "^1.16.0",
