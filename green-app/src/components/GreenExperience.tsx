@@ -10,6 +10,7 @@ import {
   WritingNode,
 } from "@/data/contextMapData";
 import { BOOK_ESSAYS_BY_URL, BookEssayEntry } from "@/data/bookContentData";
+import CollectiveKnowledgeFigure from "@/components/CollectiveKnowledgeFigure";
 
 const GlobularClusterSimulation = dynamic(
   () => import("@/components/GlobularClusterSimulation"),
@@ -1179,6 +1180,31 @@ export default function GreenExperience() {
               </div>
             </div>
           </div>
+        </section>
+
+        {/* =====================================================================
+            HOW THE MODEL WORKS — FROM "ALL ABOUT CHATGPT"
+           ===================================================================== */}
+        <section
+          id="how-the-model-works"
+          className="space-y-6 scroll-mt-24 pt-8 border-t border-slate-200"
+        >
+          <div className="max-w-3xl space-y-3">
+            <span className="text-xs font-mono uppercase tracking-widest text-[#2980b9] font-semibold block">
+              Model Scale · 2023 – Present
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 font-serif tracking-tight">
+              How the Model Works, Why It Works, and Where It Runs Out
+            </h2>
+            <p className="text-base sm:text-lg text-slate-600 font-serif italic">
+              A language model is a cloud of correlated memories. A prompt conditions one
+              of them and the answer is assembled from its neighbourhood. That is a real
+              foundation — and the argument of the essay that grew out of it is that
+              flat correlation is <em>only</em> a foundation.
+            </p>
+          </div>
+
+          <CollectiveKnowledgeFigure onOpenEssay={openEssayReader} />
         </section>
 
         {/* =====================================================================
