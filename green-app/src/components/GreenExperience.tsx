@@ -1043,9 +1043,6 @@ export default function GreenExperience() {
                 <p>
                   Across every change of scale, the habit that works best has stayed the same: <strong>sketch a clear picture of how the system works, test it in the real world, and listen honestly when human experience pushes back</strong>.
                 </p>
-                <p>
-                  Everything is here in full: 28 essays, field notes and specifications under four threads. The figures are interactive, so you can check the mechanism yourself. Where a piece first ran elsewhere, the original is credited at the end.
-                </p>
               </div>
 
               {/* Bilingual Soul Quote Card */}
