@@ -118,6 +118,14 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
         <link rel="llms-txt" href="https://domij.info/llms.txt" />
         <link rel="alternate" type="application/json" href="https://domij.info/agent-context.json" title="Agent Context Graph" />
+        {/* GA4 — the same measurement ID the legacy archive already uses, so
+            the pages that replaced it are not invisible to analytics. */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-MWRTXBB8DD" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-MWRTXBB8DD');`,
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdGraph) }}

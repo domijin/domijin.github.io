@@ -188,11 +188,15 @@ function GlobularClusterEvolution({
   selectedBinaryId,
   onSelectBinary,
   statsCallback,
+  portalRef,
+  labelsReady,
 }: {
   tauRef: React.MutableRefObject<number>;
   isPlaying: boolean;
   selectedBinaryId: string;
   onSelectBinary: (id: string) => void;
+  portalRef: React.RefObject<HTMLDivElement | null>;
+  labelsReady: boolean;
   statsCallback?: (stats: {
     bhCount: number;
     wdCount: number;
@@ -585,6 +589,8 @@ function GlobularClusterEvolution({
             simClockRef={simClockRef}
             isSelected={selectedBinaryId === bbh.id}
             onSelect={() => onSelectBinary(bbh.id)}
+            portalRef={portalRef}
+            labelsReady={labelsReady}
           />
         ))}
       </group>
@@ -598,17 +604,22 @@ function CompactBinaryPairMesh({
   simClockRef,
   isSelected,
   onSelect,
+  portalRef,
+  labelsReady,
 }: {
   bbh: DynamicBinaryPair;
   tauRef: React.MutableRefObject<number>;
   simClockRef: React.MutableRefObject<number>;
   isSelected: boolean;
   onSelect: () => void;
+  portalRef: React.RefObject<HTMLDivElement | null>;
+  labelsReady: boolean;
 }) {
   const pairGroupRef = useRef<THREE.Group>(null);
   const bh1Ref = useRef<THREE.Mesh>(null);
   const bh2Ref = useRef<THREE.Mesh>(null);
   const waveRingRef = useRef<THREE.Mesh>(null);
+  const statusRef = useRef<HTMLSpanElement>(null);
 
   useFrame(() => {
     const tau = tauRef.current;
@@ -649,6 +660,19 @@ function CompactBinaryPairMesh({
     if (bh1Ref.current && bh2Ref.current) {
       bh1Ref.current.position.set(xOrb, yOrb, 0);
       bh2Ref.current.position.set(-xOrb, -yOrb, 0);
+    }
+
+    if (statusRef.current) {
+      // The binary's residence — core or halo — is the premise of the whole
+      // argument, so it is stated on the object rather than in a caption.
+      const ejected = tau > bbh.ejectTau;
+      const text = ejected ? "EJECTED \u2192 HALO" : "IN CORE";
+      if (statusRef.current.textContent !== text) {
+        statusRef.current.textContent = text;
+        statusRef.current.className = ejected
+          ? "px-1 rounded bg-[#0c2138]/95 border border-sky-500/70 text-[9px] font-mono text-sky-200"
+          : "px-1 rounded bg-[#0c2138]/95 border border-amber-500/70 text-[9px] font-mono text-amber-200";
+      }
     }
 
     if (waveRingRef.current) {
@@ -694,14 +718,26 @@ function CompactBinaryPairMesh({
           side={THREE.DoubleSide}
         />
       </mesh>
-      {isSelected && (
-        <Html distanceFactor={10} position={[0, 0.24, 0]} center>
-          <button
-            onClick={onSelect}
-            className="px-2 py-0.5 rounded bg-[#0c2138]/95 border border-amber-400/70 text-[9px] font-mono text-amber-200 whitespace-nowrap shadow-md cursor-pointer"
-          >
-            {bbh.label}
-          </button>
+      {isSelected && labelsReady && (
+        <Html
+          portal={portalRef as React.RefObject<HTMLElement>}
+          position={[0, 0.24, 0]}
+          center
+        >
+          <div className="flex items-center gap-1">
+            <button
+              onClick={onSelect}
+              className="px-2 py-0.5 rounded bg-[#0c2138]/95 border border-amber-400/70 text-[9px] font-mono text-amber-200 whitespace-nowrap shadow-md cursor-pointer"
+            >
+              {bbh.label}
+            </button>
+            <span
+              ref={statusRef}
+              className="px-1 rounded bg-[#0c2138]/95 border border-amber-500/70 text-[9px] font-mono text-amber-200 whitespace-nowrap"
+            >
+              IN CORE
+            </span>
+          </div>
         </Html>
       )}
     </group>
@@ -734,6 +770,15 @@ export default function GlobularClusterSimulation({
 
   const tauRef = useRef<number>(tauRh);
   tauRef.current = tauRh;
+
+  // drei's <Html> resolves its portal target during the first render, when the
+  // canvas is not yet attached to the document, so the label never gets
+  // appended. An explicit overlay div plus a post-mount render fixes that.
+  const portalRef = useRef<HTMLDivElement>(null);
+  const [labelsReady, setLabelsReady] = useState(false);
+  useEffect(() => {
+    setLabelsReady(true);
+  }, []);
 
   // Respect prefers-reduced-motion on initial load
   useEffect(() => {
@@ -1045,12 +1090,17 @@ export default function GlobularClusterSimulation({
       >
         {/* Left 7 Columns: Pure 3D Globular Cluster N-Body & Stellar Evolution */}
         <div
-          className={`xl:col-span-7 relative border-b xl:border-b-0 xl:border-r border-sky-900/60 touch-manipulation ${
+          className={`xl:col-span-7 relative overflow-hidden border-b xl:border-b-0 xl:border-r border-sky-900/60 touch-manipulation ${
             fill
               ? "h-[46vh] min-h-[280px] xl:h-full xl:min-h-0"
               : "h-[360px] sm:h-[460px] xl:h-[540px]"
           }`}
         >
+          <div
+            ref={portalRef}
+            className="absolute inset-0 pointer-events-none"
+            aria-hidden="true"
+          />
           <Canvas
             camera={{ position: [0, 0.5, 4.8], fov: 48 }}
             gl={{ antialias: true, alpha: true }}
@@ -1075,6 +1125,8 @@ export default function GlobularClusterSimulation({
               tauRef={tauRef}
               isPlaying={isPlaying}
               selectedBinaryId={activeSystem.id}
+              portalRef={portalRef}
+              labelsReady={labelsReady}
               onSelectBinary={(id) => {
                 const idx = GC_RESEARCH_FINDINGS.sampleSystems.findIndex(
                   (s) => s.id === id
@@ -1417,6 +1469,84 @@ export default function GlobularClusterSimulation({
               <p className="text-[10px] text-slate-300 font-sans pt-0.5">
                 {activeSystem.note}
               </p>
+            </div>
+          </div>
+
+          {/* Research objective: what the simulation is for, bound to the
+              system currently selected above. */}
+          <div className="rounded-lg border border-[#1DAEDF]/35 bg-[#0b2034]/70 p-3 space-y-2.5">
+            <div className="flex items-center justify-between gap-2">
+              <span className="text-[10px] font-mono uppercase tracking-widest text-[#1DAEDF] font-semibold">
+                Research Objective
+              </span>
+              <span className="text-[10px] font-mono text-slate-400">
+                Use dynamically formed BBHs as unperturbed standard sirens
+              </span>
+            </div>
+
+            <ol className="space-y-2">
+              <li className="flex gap-2.5">
+                <span className="font-mono text-[10px] text-[#1DAEDF] pt-0.5 shrink-0">
+                  01
+                </span>
+                <p className="text-[11px] font-sans leading-relaxed text-slate-300">
+                  <strong className="text-white">
+                    Dynamically formed.
+                  </strong>{" "}
+                  Three-body encounters in a cluster core pair black holes — a
+                  channel no other environment produces.{" "}
+                  {activeSystem.eccentricity > 0.05 ? (
+                    <>
+                      The orbit still carries the fingerprint: e ={" "}
+                      <span className="text-amber-300">
+                        {activeSystem.eccentricity}
+                      </span>
+                      , against the near-zero eccentricity of a field binary.
+                    </>
+                  ) : (
+                    <>
+                      Its orbit has since circularised (e = 0), which is
+                      exactly why eccentricity alone cannot identify the
+                      channel — the ejection history has to be recovered too.
+                    </>
+                  )}
+                </p>
+              </li>
+              <li className="flex gap-2.5">
+                <span className="font-mono text-[10px] text-[#1DAEDF] pt-0.5 shrink-0">
+                  02
+                </span>
+                <p className="text-[11px] font-sans leading-relaxed text-slate-300">
+                  <strong className="text-white">Ejected, then quiet.</strong>{" "}
+                  In the halo the binary&rsquo;s orbital clock and waveform are
+                  set by the binary alone: no accretion, no dense cluster
+                  environment. The distance is read from the waveform, so the
+                  local Galactic potential does not bias it.
+                </p>
+              </li>
+              <li className="flex gap-2.5">
+                <span className="font-mono text-[10px] text-[#1DAEDF] pt-0.5 shrink-0">
+                  03
+                </span>
+                <p className="text-[11px] font-sans leading-relaxed text-slate-300">
+                  <strong className="text-white">Read alongside light.</strong>{" "}
+                  The counterpart supplies the host and its redshift. Each siren
+                  becomes a multi-messenger probe, and cluster-born black holes
+                  extend the tracer population that measures the halo&rsquo;s
+                  mass profile.
+                </p>
+              </li>
+            </ol>
+
+            <div className="pt-2 border-t border-sky-900/70 flex flex-wrap gap-x-3 gap-y-0.5 font-mono text-[10px] text-slate-300">
+              <span className="text-[#1DAEDF]">This system</span>
+              <span className="text-white">{activeSystem.pgc}</span>
+              <span>
+                M₁={activeSystem.m1Solar} + M₂={activeSystem.m2Solar} M☉
+              </span>
+              <span>D={activeSystem.distanceMpc} Mpc</span>
+              <span>ΔV={activeSystem.errorVolumeMpc3} Mpc³</span>
+              <span>SNR(2 yr)={activeSystem.snr2Yr}</span>
             </div>
           </div>
         </div>
