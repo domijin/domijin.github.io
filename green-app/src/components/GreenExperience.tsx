@@ -606,10 +606,10 @@ export default function GreenExperience() {
                   Self-Hosted Archive &amp; Open Feeds
                 </p>
                 <h3 className="text-base sm:text-lg font-semibold text-slate-900 mt-0.5">
-                  Every essay and visual diagram lives directly on this domain
+                  Every essay and visual diagram lives on this domain
                 </h3>
                 <p className="text-xs text-slate-600 mt-1">
-                  All 28 Substack, Medium, GitHub, and research essays are published here in full with inline SVG diagrams and original publication footnotes.
+                  28 essays in full, with their inline diagrams and a note of where each first ran.
                 </p>
               </div>
               <div className="flex flex-wrap gap-2">
@@ -923,7 +923,10 @@ export default function GreenExperience() {
                   Ten years ago at the University of Texas at Arlington, I spent my days watching a million virtual stars tug on one another inside supercomputer simulations, waiting billions of years of model time for two black holes to spiral together. Since then, my work has moved closer and closer to everyday human life—from pricing and recommendation engines at Uber, Airbnb, and SmartNews, to sitting in passenger seats with older drivers in Palo Alto testing self-driving cars.
                 </p>
                 <p>
-                  Across every change of scale, the habit that works best has stayed the same: <strong>sketch a clear picture of how the system works, test it in the real world, and listen honestly when human experience pushes back</strong>. Every essay, diagram, and interactive sandbox on this site is self-hosted in full so you can explore the ideas directly.
+                  Across every change of scale, the habit that works best has stayed the same: <strong>sketch a clear picture of how the system works, test it in the real world, and listen honestly when human experience pushes back</strong>.
+                </p>
+                <p>
+                  Everything is here in full: 28 essays, field notes and specifications under four threads. The figures are interactive, so you can check the mechanism yourself. Where a piece first ran elsewhere, the original is credited at the end.
                 </p>
               </div>
 
