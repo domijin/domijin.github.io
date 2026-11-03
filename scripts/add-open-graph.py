@@ -103,6 +103,15 @@ def truncate_at_sentence(desc, limit=300):
     return out
 
 
+def truncate_words(text, limit=160):
+    """Shorten to roughly `limit` characters, cutting at a word boundary."""
+    text = re.sub(r"\s+", " ", text or "").strip()
+    if len(text) <= limit:
+        return text
+    cut = text[:limit].rfind(" ")
+    return (text[:cut] if cut > 0 else text[:limit]).rstrip(",;:") + "…"
+
+
 def build_block(path, url, title, desc, image, date, section):
     img, iw, ih, ialt = image
     img_url = SITE + img
@@ -200,8 +209,8 @@ def repair_legacy(root: pathlib.Path):
     # Build output and the regenerated book pages are excluded: the former
     # is rewritten by every export, the latter is handled above.
     skip_dirs = {".git", "node_modules", ".next", "out", "articles", "cluster",
-                 "beta", "classic", "author", "authors", "_next", "next"}
-    fixed_noise, trimmed = 0, 0
+                 "beta", "classic", "_next", "next"}
+    fixed_noise, trimmed, filled_descs = 0, 0, 0
     for dirpath, dirnames, filenames in os.walk(root):
         dirnames[:] = [d for d in dirnames if d not in skip_dirs and not d.startswith(".")]
         for fn in sorted(filenames):
@@ -239,17 +248,29 @@ def repair_legacy(root: pathlib.Path):
                         fixed_noise += 1
                     else:
                         trimmed += 1
-    return fixed_noise, trimmed
+
+            # A page with an empty meta description leaves search engines to
+            # invent one from the body. Reuse the (now repaired) social
+            # description instead.
+            md = re.search(r'(<meta name="description" content=")([^"]*)(")', text)
+            if md and not md.group(2).strip():
+                filled = html.escape(truncate_words(html.unescape(encoded)), quote=True)
+                if filled != md.group(2):
+                    text = text.replace(md.group(0), md.group(1) + filled + md.group(3))
+                    p.write_text(text, encoding="utf-8")
+                    filled_descs += 1
+    return fixed_noise, trimmed, filled_descs
 
 
 def main():
     root = pathlib.Path(sys.argv[1] if len(sys.argv) > 1 else ".").resolve()
     dates = read_sitemap_dates(root)
     added = add_to_articles(root, dates)
-    noise, trimmed = repair_legacy(root)
+    noise, trimmed, filled = repair_legacy(root)
     print(f"og/twitter/article blocks added : {added}")
     print(f"legacy descriptions de-noised     : {noise}")
     print(f"legacy descriptions trimmed      : {trimmed}")
+    print(f"empty meta descriptions filled   : {filled}")
 
 
 if __name__ == "__main__":

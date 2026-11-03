@@ -57,6 +57,17 @@ def main():
     for m in re.finditer(r'href="(/articles/[^"]+\.html)"', archive):
         routes.append(m.group(1))
 
+    # every URL the sitemap publishes, so the legacy archive is covered too
+    try:
+        _, sm_body, _ = get(f"{BASE}/sitemap.xml")
+        sm = sm_body.decode("utf-8", "replace")
+        for m in re.finditer(r"<loc>(.*?)</loc>", sm):
+            loc = m.group(1).strip()
+            if loc.startswith(BASE):
+                routes.append(loc[len(BASE):] or "/")
+    except Exception:
+        pass
+
     seen_routes = sorted(set(routes))
     print(f"checking {len(seen_routes)} routes\n")
 
