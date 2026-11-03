@@ -114,7 +114,7 @@ const NARRATIVE_THEMES: NarrativeThemeSpec[] = [
     kicker: "04 · Civic Scale · 2018 – Present",
     title: "Shared Values (GCD), Complementary Skills (LCM), and Rhythm",
     subtitle:
-      "Why engineering cultures soar or stall, how eight years of color-coded calendars keep life whole, and how shared ethics let diverse minds build a larger future.",
+      "Why engineering cultures soar or stall, how a revised work rhythm keeps a founder's week whole, and how shared ethics let diverse minds build a larger future.",
     period: "2018 – Present · Domi’s Mind Waves & Civic Notes",
     essayUrls: [
       "/articles/substack/hello-world.html",
@@ -1885,14 +1885,14 @@ export default function GreenExperience() {
         </section>
 
         {/* =====================================================================
-            04 · WORKING TOGETHER (GCD × LCM, INSTITUTIONS & INTENTIONAL RHYTHM)
+            04 · WORKING TOGETHER (GCD × LCM, INSTITUTIONS & RHYTHM)
            ===================================================================== */}
         <section
           id="working-together"
           className="space-y-10 scroll-mt-24 pt-8 border-t border-slate-200"
         >
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-7 space-y-4">
+            <div className="lg:col-span-8 space-y-4">
               <span className="text-xs font-mono uppercase tracking-widest text-[#2980b9] font-semibold block">
                 {NARRATIVE_THEMES[3].kicker}
               </span>
@@ -1908,86 +1908,11 @@ export default function GreenExperience() {
                   Why do some teams compound curiosity into generational breakthroughs while others with ten times the capital stall? Whether comparing <em>Boeing and SpaceX</em>, studying <em>eVTOL</em> airworthiness across the US and China, or reflecting on our own responsibilities as builders, the bottleneck is rarely raw IQ. It is whether incentives reward first-principles honesty over short-term optics.
                 </p>
                 <p>
-                  In my Substack essays and the civic notebook <code className="text-sm font-mono text-[#0369a1]">LibertyEarth</code>, I use a simple mathematical picture for healthy collaboration: treat <strong>shared ethical values as the Greatest Common Divisor (GCD)</strong> that keeps baseline trust high, and treat <strong>complementary human + AI skills as the Least Common Multiple (LCM)</strong> that expands what we can build together—anchored day to day by my 8th-iteration color-coded weekly rhythm.
+                  In my Substack essays and the civic notebook <code className="text-sm font-mono text-[#0369a1]">LibertyEarth</code>, I use a simple mathematical picture for healthy collaboration: treat <strong>shared ethical values as the Greatest Common Divisor (GCD)</strong> that keeps baseline trust high, and treat <strong>complementary human + AI skills as the Least Common Multiple (LCM)</strong> that expands what we can build together—anchored day to day by the eighth revision of the work model I keep in my founder's log.
                 </p>
               </div>
             </div>
 
-            {/* Right Column: Visual 7-Day Color-Coded Rhythm Strip (v8) */}
-            <div className="lg:col-span-5">
-              <div className="rounded-2xl bg-white border border-slate-200 p-5 shadow-xs space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className="text-[11px] font-mono uppercase tracking-widest text-[#2980b9] font-semibold">
-                    Intentional Weekly Rhythm (Iteration v8)
-                  </span>
-                  <span className="text-[11px] font-mono text-slate-500">
-                    A Colorful Year Ahead
-                  </span>
-                </div>
-
-                <svg
-                  viewBox="0 0 400 215"
-                  className="w-full h-auto"
-                  role="img"
-                  aria-label="8th-iteration color-coded weekly calendar rhythm balancing deep build blocks, community connection, physical play, and weekly reflection"
-                >
-                  <rect x="8" y="8" width="384" height="198" rx="12" fill="#f8fafc" stroke="#e2e8f0" />
-                  {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map((day, dIdx) => {
-                    const x = 20 + dIdx * 52;
-                    return (
-                      <g key={day} transform={`translate(${x}, 20)`}>
-                        <text x="21" y="12" textAnchor="middle" fill="#334155" fontSize="9.5" fontFamily="monospace" fontWeight="bold">
-                          {day}
-                        </text>
-                        {/* Morning block */}
-                        <rect
-                          x="2"
-                          y="20"
-                          width="38"
-                          height="42"
-                          rx="6"
-                          fill={dIdx < 5 ? "#0284c7" : "#10b981"}
-                        />
-                        {/* Midday block */}
-                        <rect
-                          x="2"
-                          y="68"
-                          width="38"
-                          height="36"
-                          rx="6"
-                          fill={dIdx === 2 || dIdx === 4 ? "#f59e0b" : dIdx < 5 ? "#38bdf8" : "#f59e0b"}
-                        />
-                        {/* Evening block */}
-                        <rect
-                          x="2"
-                          y="110"
-                          width="38"
-                          height="34"
-                          rx="6"
-                          fill={dIdx === 6 ? "#8b5cf6" : "#10b981"}
-                          fillOpacity="0.85"
-                        />
-                      </g>
-                    );
-                  })}
-
-                  {/* Legend */}
-                  <g transform="translate(22, 182)">
-                    <circle cx="6" cy="4" r="4.5" fill="#0284c7" />
-                    <text x="15" y="7" fill="#334155" fontSize="8.5" fontFamily="monospace">Deep Build</text>
-
-                    <circle cx="92" cy="4" r="4.5" fill="#f59e0b" />
-                    <text x="101" y="7" fill="#334155" fontSize="8.5" fontFamily="monospace">Community</text>
-
-                    <circle cx="180" cy="4" r="4.5" fill="#10b981" />
-                    <text x="189" y="7" fill="#334155" fontSize="8.5" fontFamily="monospace">Body &amp; Family</text>
-
-                    <circle cx="282" cy="4" r="4.5" fill="#8b5cf6" />
-                    <text x="291" y="7" fill="#334155" fontSize="8.5" fontFamily="monospace">Sunday Reflection</text>
-                  </g>
-                </svg>
-              </div>
-            </div>
           </div>
 
           {/* Interactive GCD × LCM Geometric Collaboration Diagram */}
