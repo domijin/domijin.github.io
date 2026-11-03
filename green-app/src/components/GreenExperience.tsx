@@ -58,9 +58,9 @@ const NARRATIVE_THEMES: NarrativeThemeSpec[] = [
     num: "01",
     shortLabel: "01 · Stars & Gravity",
     kicker: "01 · Cosmic Scale · 2013 – 2018",
-    title: "What a Million Stars Taught Me About Slow Systems",
+    title: "The Story of a Million Stars: a Complex Adaptive System",
     subtitle:
-      "Simulating 662,772 globular clusters and 17.88 million binary black holes at UT Arlington—and why slow baseline interactions shape rare breakthroughs.",
+      "Simulating 662,772 globular clusters and 17.88 million binary black holes at UT Arlington, watching a million stars rearrange themselves, and finding that the same feedback rules traffic, auctions and teams.",
     period: "2013 – 2018 · UT Arlington Astrophysics & LSST",
     essayUrls: ["/articles/research/astrophysics-bbh-dissertation.html"],
     projectIds: ["astrophysics-lisa-gw"],

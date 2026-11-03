@@ -20,6 +20,8 @@
 
 I work on machine learning and decision systems. My background is in computational astrophysics; my current interests are learning, human judgement and how people work together.
 
+The four chapters of this site run from a million stars to the person sitting next to you: science and its humanities held in one conversation. Chapter 01 is a complex adaptive system read from the outside in; the rest turns the same grammar of interaction and feedback on traffic, auctions, tools and teams.
+
 ## Background
 
 ### Computational astrophysics

@@ -33,6 +33,38 @@
       "sourceDissertation": "https://domij.info/articles/research/astrophysics-bbh-dissertation.html"
     }
   },
+  "narrativeArc": {
+    "from": "a million stars",
+    "to": "the person sitting next to you",
+    "summary": "Science and its humanities held in one conversation. Chapter 01 is a complex adaptive system read from the outside in; the later chapters turn the same grammar of interaction and feedback on traffic, auctions, household tools and teams.",
+    "chapters": [
+      {
+        "num": "01",
+        "title": "The Story of a Million Stars: a Complex Adaptive System",
+        "scale": "cosmic",
+        "period": "2013 - 2018",
+        "summary": "Simulating 662,772 globular clusters and 17.88 million binary black holes at UT Arlington, watching a million stars rearrange themselves, and finding that the same feedback rules traffic, auctions and teams."
+      },
+      {
+        "num": "02",
+        "title": "Making Sense in 50 Milliseconds - From Red Lights to Ad Auctions",
+        "scale": "system",
+        "period": "2018 - 2026"
+      },
+      {
+        "num": "03",
+        "title": "Designing AI That Keeps Us in the Driver's Seat",
+        "scale": "human",
+        "period": "2024 - 2026"
+      },
+      {
+        "num": "04",
+        "title": "Shared Values (GCD), Complementary Skills (LCM), and Rhythm",
+        "scale": "civic",
+        "period": "2018 - present"
+      }
+    ]
+  },
   "persona": {
     "name": "Domi Jin",
     "alternateName": "Dongming Jin",
