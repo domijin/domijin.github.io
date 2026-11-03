@@ -197,6 +197,11 @@
     gtag('js', new Date());
     gtag('config', 'G-MWRTXBB8DD');
   </script>
+  <!-- LaTeX typesetting (KaTeX 0.16.11) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"
+    onload="renderMathInElement(document.body,{delimiters:[{left:'\\(',right:'\\)',display:false},{left:'\\[',right:'\\]',display:true}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code','option']});"></script>
 </head>
 <body>
   <nav class="topbar" aria-label="Site navigation">
@@ -341,7 +346,7 @@
               <td><code>00-charter</code></td>
               <td>System Envelope &amp; Hardware Bill of Materials</td>
               <td>Defines the $100 edge hardware floor (Pi 5 + Hailo-8L + Yi Dome + 4-Mic) and zero-cloud training boundary</td>
-              <td>Hardware BOM &le; $150; 0 bytes unapproved WAN egress</td>
+              <td>Hardware BOM \(\le \$150\); 0 bytes unapproved WAN egress</td>
               <td>Hardware-enforced local VLAN isolation</td>
             </tr>
             <tr>
@@ -369,7 +374,7 @@
               <td><code>04-interaction</code></td>
               <td>Edge VLM &amp; Verbal-Feedback Adapter</td>
               <td>Small open VLM (<code>SmolVLM2</code> / <code>Moondream2</code> / <code>PaliGemma 2</code>) with overnight <code>LoRA</code> + <code>KTO</code>/<code>DPO</code> updates</td>
-              <td><code>&ge; 3 tok/s</code> edge latency; <code>+0.20</code> concept accuracy after 5 verbal corrections</td>
+              <td>\(\ge 3\text{ tok/s}\) edge latency; <code>+0.20</code> concept accuracy after 5 verbal corrections</td>
               <td>Confirmation gate before overwriting core household rules</td>
             </tr>
             <tr>
@@ -390,7 +395,7 @@
               <td><code>07-escalation</code></td>
               <td>Uncertainty &amp; Human-in-the-Loop Escalation</td>
               <td>Calibrated abstention when visual-acoustic grounding confidence falls below threshold</td>
-              <td><code>&ge; 90%</code> abstention accuracy on ambiguous/high-regret prompts</td>
+              <td>\(\ge 90\%\) abstention accuracy on ambiguous/high-regret prompts</td>
               <td>Hard block on high-regret actions without verbal confirmation</td>
             </tr>
           </tbody>

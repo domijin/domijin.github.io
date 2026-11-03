@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { PERSONA_DATA } from "@/data/contextMapData";
+import MathRenderer from "@/components/MathRenderer";
 import "./globals.css";
 
 const profileDescription =
@@ -118,6 +119,25 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
         <link rel="llms-txt" href="https://domij.info/llms.txt" />
         <link rel="alternate" type="application/json" href="https://domij.info/agent-context.json" title="Agent Context Graph" />
+        {/* LaTeX typesetting for the essays (KaTeX, pinned version). */}
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css"
+          integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+"
+          crossOrigin="anonymous"
+        />
+        <script
+          defer
+          src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"
+          integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg"
+          crossOrigin="anonymous"
+        />
+        <script
+          defer
+          src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+          integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk"
+          crossOrigin="anonymous"
+        />
         {/* GA4 — the same measurement ID the legacy archive already uses, so
             the pages that replaced it are not invisible to analytics. */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-MWRTXBB8DD" />
@@ -133,6 +153,7 @@ export default function RootLayout({
       </head>
       <body className="antialiased bg-[#f8fafc] text-slate-800 selection:bg-[#1DAEDF]/20 selection:text-[#0c4a6e]">
         {children}
+        <MathRenderer />
       </body>
     </html>
   );

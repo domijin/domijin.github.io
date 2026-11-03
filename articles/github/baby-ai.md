@@ -64,14 +64,14 @@ In open-source AI, hype is cheap and reproducible benchmarks are rare. Rather th
 
 | Spec ID | Subsystem & Scope | Core Mechanism & SOTA Anchors | Falsifiable Target Metric | Safety & Guardrail Gate |
 | :--- | :--- | :--- | :--- | :--- |
-| **`00-charter`** | System Envelope & Hardware Bill of Materials | Defines the \$100 edge hardware floor (Pi 5 + Hailo-8L + Yi Dome + 4-Mic) and zero-cloud training boundary | Hardware BOM $\le \$150$; 0 bytes unapproved WAN egress | Hardware-enforced local VLAN isolation |
+| **`00-charter`** | System Envelope & Hardware Bill of Materials | Defines the \$100 edge hardware floor (Pi 5 + Hailo-8L + Yi Dome + 4-Mic) and zero-cloud training boundary | Hardware BOM \(\le \$150\); 0 bytes unapproved WAN egress | Hardware-enforced local VLAN isolation |
 | **`01-perception`** | Smart-Moment Selection | Novelty-gated frame sampling using lightweight `SigLIP-2` / `V-JEPA 2` predictive embeddings | `precision@10 >= 0.55` on household key-event retrieval | Immediate discard of routine background frames |
 | **`02-audio`** | Streaming ASR & Spatial DoA Fusion | Low-latency `Whisper.cpp` / `Distil-Whisper` fused with 4-mic acoustic Direction-of-Arrival | `+0.10` referent resolution accuracy over audio-only baseline | Local voice activity gating; mute switch hardware override |
 | **`03-memory`** | Hybrid Episodic-Vector + Knowledge Graph | Dual-store architecture (`mem0` / `Letta` style) pairing vector episodes with a relational entity graph | `+0.10` hybrid `recall@5` on multi-hop household queries | Human-inspectable & verbally erasable graph triples |
-| **`04-interaction`** | Edge VLM & Verbal-Feedback Adapter | Small open VLM (`SmolVLM2` / `Moondream2` / `PaliGemma 2`) with overnight `LoRA` + `KTO`/`DPO` updates | $\ge 3\text{ tok/s}$ edge latency; `+0.20` concept accuracy after 5 verbal corrections | Confirmation gate before overwriting core household rules |
+| **`04-interaction`** | Edge VLM & Verbal-Feedback Adapter | Small open VLM (`SmolVLM2` / `Moondream2` / `PaliGemma 2`) with overnight `LoRA` + `KTO`/`DPO` updates | \(\ge 3\text{ tok/s}\) edge latency; `+0.20` concept accuracy after 5 verbal corrections | Confirmation gate before overwriting core household rules |
 | **`05-eval`** | Signed Evaluation Receipt Contract | Deterministic harness emitting cryptographically signed JSON benchmark receipts | `100%` schema & signature verification across submitted runs | Rejects unverified or cherry-picked model checkpoints |
 | **`06-privacy-gate`** | Local Redaction & PII Boundary | Pre-storage face/PII scrubbing for any diagnostic trace exported by the household owner | `0` unredacted PII leaks across diagnostic test suite | Mandatory owner sign-off before any trace leaves device |
-| **`07-escalation`** | Uncertainty & Human-in-the-Loop Escalation | Calibrated abstention when visual-acoustic grounding confidence falls below threshold | $\ge 90\%$ abstention accuracy on ambiguous/high-regret prompts | Hard block on high-regret actions without verbal confirmation |
+| **`07-escalation`** | Uncertainty & Human-in-the-Loop Escalation | Calibrated abstention when visual-acoustic grounding confidence falls below threshold | \(\ge 90\%\) abstention accuracy on ambiguous/high-regret prompts | Hard block on high-regret actions without verbal confirmation |
 
 ---
 

@@ -177,6 +177,11 @@
     gtag('js', new Date());
     gtag('config', 'G-MWRTXBB8DD');
   </script>
+  <!-- LaTeX typesetting (KaTeX 0.16.11) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"
+    onload="renderMathInElement(document.body,{delimiters:[{left:'\\(',right:'\\)',display:false},{left:'\\[',right:'\\]',display:true}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code','option']});"></script>
 </head>
 <body>
   <nav class="topbar" aria-label="Site navigation">
@@ -199,7 +204,7 @@
 <hr />
 <h2>1. Why Stars in Globular Clusters Don't Die Alone</h2>
 <p>If you look up at a small open cluster in our galaxy, its stars are loosely bound; gravitational encounters scatter them apart and the cluster evaporates before long. Conversely, if you look at an entire galaxy, its gravitational potential is so vast and smooth that stars move along quasi-static orbits, rarely coming close enough to perturb one another's internal lives.</p>
-<p><strong>Globular clusters (GCs)</strong> sit at an extraordinary physical sweet spot between those two extremes. Packing roughly $N \sim 10^6$ ancient stars into a sphere just a few parsecs across, a globular cluster has a <strong>two-body relaxation timescale ($\tau_{\mathrm{rh}}$) that is comparable to the timescale of stellar evolution ($t / \tau_{\mathrm{rh}} \sim \mathcal{O}(1)$)</strong>.</p>
+<p><strong>Globular clusters (GCs)</strong> sit at an extraordinary physical sweet spot between those two extremes. Packing roughly \(N \sim 10^6\) ancient stars into a sphere just a few parsecs across, a globular cluster has a <strong>two-body relaxation timescale (\(\tau_{\mathrm{rh}}\)) that is comparable to the timescale of stellar evolution (\(t / \tau_{\mathrm{rh}} \sim \mathcal{O}(1)\))</strong>.</p>
 <p>In plain terms: <strong>stars in globular clusters do not die alone.</strong></p>
 <p>As massive stars evolve and collapse into stellar-mass black holes, dynamical mass segregation causes those heavy remnants to sink toward the dense cluster core. There, three-body and four-body gravitational encounters repeatedly swap partners, hardening binary black holes (BBHs) and imparting recoil kicks strong enough to eject them completely out of the host cluster. Once flung into the intergalactic void, these dynamically forged binaries spiral inward over billions of years through the pure emission of Einstein's gravitational radiation.</p>
 <hr />
@@ -222,13 +227,13 @@
   Cutler (1998) Fisher Information Matrix -&gt; eta ~= 587 Gpc^-3 yr^-1 &amp; Delta V &lt;= 1 Mpc^3
 </code></pre>
 <h3>Scale 1: Populating 8,946 Galaxies Out to 30 Mpc</h3>
-<p>Observational catalogs of extragalactic globular clusters are inherently incomplete. Using data-science workflows honed during the LSST Data Science Fellowship, I combined weighted linear regression on galaxy mass-to-light ratios ($M/L$), correlation matrices, and Random Forest regression across morphological types to synthesize the complete globular cluster population across <strong>8,946 galaxies within $D \le 30\text{ Mpc}$</strong>—yielding <strong>662,772 host globular clusters</strong>.</p>
+<p>Observational catalogs of extragalactic globular clusters are inherently incomplete. Using data-science workflows honed during the LSST Data Science Fellowship, I combined weighted linear regression on galaxy mass-to-light ratios (\(M/L\)), correlation matrices, and Random Forest regression across morphological types to synthesize the complete globular cluster population across <strong>8,946 galaxies within \(D \le 30\text{ Mpc}\)</strong>—yielding <strong>662,772 host globular clusters</strong>.</p>
 <h3>Scale 2: 3,240 MOCCA Monte Carlo Simulations at TACC</h3>
-<p>Direct Newtonian $N$-body integration scales as $\mathcal{O}(N^3)$, making a million-star grid computationally prohibitive across thousands of realizations. After studying direct $N$-body integrators with Rainer Spurzem at NAOC/PKU and adopting Mirek Giersz's $\mathcal{O}(N \log N)$ <strong>MOCCA</strong> Monte Carlo code, I executed over <strong>3,140–3,240 full-cluster dynamical realizations</strong> at TACC, generating over <strong>100 TB</strong> of stellar interaction histories across initial cluster masses, metallicities, and tidal radii.</p>
+<p>Direct Newtonian \(N\)-body integration scales as \(\mathcal{O}(N^3)\), making a million-star grid computationally prohibitive across thousands of realizations. After studying direct \(N\)-body integrators with Rainer Spurzem at NAOC/PKU and adopting Mirek Giersz's \(\mathcal{O}(N \log N)\) <strong>MOCCA</strong> Monte Carlo code, I executed over <strong>3,140–3,240 full-cluster dynamical realizations</strong> at TACC, generating over <strong>100 TB</strong> of stellar interaction histories across initial cluster masses, metallicities, and tidal radii.</p>
 <h3>Scale 3: Relativistic Evolution of 17.88 Million Binary Black Holes</h3>
-<p>Extracting every dynamically formed and ejected compact binary from the simulation grid produced a <code>17.88M × 14</code> relativistic catalog (<strong>17,883,502 binary black holes</strong>). Using parallelized general-relativistic orbital evolution routines (integrating coupled differential equations for semi-major axis $a$ and eccentricity $e$ via gravitational-wave energy and angular momentum loss), we evolved each binary forward to the present epoch.</p>
+<p>Extracting every dynamically formed and ejected compact binary from the simulation grid produced a <code>17.88M × 14</code> relativistic catalog (<strong>17,883,502 binary black holes</strong>). Using parallelized general-relativistic orbital evolution routines (integrating coupled differential equations for semi-major axis \(a\) and eccentricity \(e\) via gravitational-wave energy and angular momentum loss), we evolved each binary forward to the present epoch.</p>
 <h3>Scale 4: Fisher Matrix Localization &amp; LISA Standard Sirens</h3>
-<p>Finally, we projected the present-day millihertz gravitational-wave strain of all 17.88 million binaries onto the 3-arm space-borne <strong>LISA</strong> detector response function. Using Cutler's <strong>Fisher Information Matrix ($\Gamma_{ij}$)</strong> formalism across a 4-year mission baseline, we evaluated signal-to-noise ratios ($\mathrm{SNR} \ge 7$) and sky-volume localization uncertainties ($\Delta V$).</p>
+<p>Finally, we projected the present-day millihertz gravitational-wave strain of all 17.88 million binaries onto the 3-arm space-borne <strong>LISA</strong> detector response function. Using Cutler's <strong>Fisher Information Matrix (\(\Gamma_{ij}\))</strong> formalism across a 4-year mission baseline, we evaluated signal-to-noise ratios (\(\mathrm{SNR} \ge 7\)) and sky-volume localization uncertainties (\(\Delta V\)).</p>
 <hr />
 <h2>3. Summary of Key Dissertation Findings</h2>
 <div class="table-wrap" style="overflow-x: auto"><table>
@@ -241,9 +246,9 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><strong>Local Galaxy Volume ($D \le 30\text{ Mpc}$)</strong></td>
+<td style="text-align: left;"><strong>Local Galaxy Volume (\(D \le 30\text{ Mpc}\))</strong></td>
 <td style="text-align: left;"><strong>8,946 Galaxies</strong></td>
-<td style="text-align: left;">Complete local volume catalog mapped via $M/L$ and Random Forest regression</td>
+<td style="text-align: left;">Complete local volume catalog mapped via \(M/L\) and Random Forest regression</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Synthesized Globular Cluster Population</strong></td>
@@ -253,7 +258,7 @@
 <tr>
 <td style="text-align: left;"><strong>Supercomputer Simulation Grid (TACC)</strong></td>
 <td style="text-align: left;"><strong>3,240 MOCCA Runs (&gt;100 TB)</strong></td>
-<td style="text-align: left;">$\mathcal{O}(N \log N)$ Monte Carlo phase-space evolution over 25,000+ node-hours</td>
+<td style="text-align: left;">\(\mathcal{O}(N \log N)\) Monte Carlo phase-space evolution over 25,000+ node-hours</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Dynamically Ejected BBH Catalog</strong></td>
@@ -261,24 +266,24 @@
 <td style="text-align: left;"><code>17.88M × 14</code> state matrix tracked through relativistic inspiral</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>Local Dynamical BBH Merger Rate ($\eta$)</strong></td>
-<td style="text-align: left;"><strong>$\eta \simeq 587\text{ Gpc}^{-3}\text{ yr}^{-1}$</strong></td>
+<td style="text-align: left;"><strong>Local Dynamical BBH Merger Rate (\(\eta\))</strong></td>
+<td style="text-align: left;"><strong>\(\eta \simeq 587\text{ Gpc}^{-3}\text{ yr}^{-1}\)</strong></td>
 <td style="text-align: left;">Lower-bound local merger rate density consistent with LIGO-Virgo-KAGRA bounds</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>LISA Resolved Extragalactic Sirens</strong></td>
-<td style="text-align: left;"><strong>17 BBH Systems ($\Delta V \le 1\text{ Mpc}^3$)</strong></td>
-<td style="text-align: left;">Pinpointed tightly enough in 3D volume to identify unique host galaxies and measure $H_0$</td>
+<td style="text-align: left;"><strong>17 BBH Systems (\(\Delta V \le 1\text{ Mpc}^3\))</strong></td>
+<td style="text-align: left;">Pinpointed tightly enough in 3D volume to identify unique host galaxies and measure \(H_0\)</td>
 </tr>
 </tbody>
 </table></div>
 <hr />
-<h2>4. Standard Sirens, $H_0$, and What Astrophysics Taught Me About Systems</h2>
-<p>Why does localizing a binary black hole to within $\Delta V \le 1\text{ Mpc}^3$ matter so deeply to cosmology?</p>
-<p>As Bernard Schutz first pointed out, an inspiraling binary black hole is a <strong>gravitational-wave standard siren</strong>. Unlike Type Ia supernovae—which require a complex cosmic distance ladder of calibration—the gravitational waveform alone directly encodes the absolute luminosity distance $d_L$ from general relativity. If LISA's Fisher matrix error box is small enough ($\le 1\text{ Mpc}^3$) to uniquely identify the host galaxy out of the 8,946 galaxies in our 30 Mpc catalog, an optical telescope can measure that galaxy's redshift $z$, giving us an independent, calibration-free measurement of the <strong>Hubble constant ($H_0$)</strong>.</p>
+<h2>4. Standard Sirens, \(H_0\), and What Astrophysics Taught Me About Systems</h2>
+<p>Why does localizing a binary black hole to within \(\Delta V \le 1\text{ Mpc}^3\) matter so deeply to cosmology?</p>
+<p>As Bernard Schutz first pointed out, an inspiraling binary black hole is a <strong>gravitational-wave standard siren</strong>. Unlike Type Ia supernovae—which require a complex cosmic distance ladder of calibration—the gravitational waveform alone directly encodes the absolute luminosity distance \(d_L\) from general relativity. If LISA's Fisher matrix error box is small enough (\(\le 1\text{ Mpc}^3\)) to uniquely identify the host galaxy out of the 8,946 galaxies in our 30 Mpc catalog, an optical telescope can measure that galaxy's redshift \(z\), giving us an independent, calibration-free measurement of the <strong>Hubble constant (\(H_0\))</strong>.</p>
 <p>Looking back, the years I spent modeling globular clusters and gravitational waves shaped everything I have built since in machine learning, real-time decision systems, and human-AI collaboration:</p>
 <ul>
-<li><strong>Scale Bridging ($\mathcal{O}(N^3) \to \mathcal{O}(N \log N)$)</strong>: Knowing when exact pairwise computation breaks down—and how to design statistical approximations that preserve the underlying physics—is the exact same skill required to build sub-50ms machine learning inference systems.</li>
+<li><strong>Scale Bridging (\(\mathcal{O}(N^3) \to \mathcal{O}(N \log N)\))</strong>: Knowing when exact pairwise computation breaks down—and how to design statistical approximations that preserve the underlying physics—is the exact same skill required to build sub-50ms machine learning inference systems.</li>
 <li><strong>Multi-Messenger Inference</strong>: Inferring an unseen black hole binary from faint spacetime strain amidst instrument noise is the purest form of signal extraction under uncertainty.</li>
 <li><strong>Open Science &amp; Reproducibility</strong>: Every plot and table in my dissertation was built inside version-controlled Jupyter notebooks so future researchers could inspect, challenge, and extend the pipeline.</li>
 </ul>

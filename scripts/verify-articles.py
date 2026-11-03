@@ -17,6 +17,11 @@ RAW_MD = re.compile(r'(?m)^\s*(#{2,6}\s|\|.*\||>\s)|\*\*[^*]+\*\*')
 TAGS = ["figure", "svg", "blockquote", "ul", "ol", "li", "p", "div", "article",
         "main", "table", "pre", "header", "footer", "nav", "span"]
 
+# LaTeX must use the \(...\) form. A bare $ is ambiguous with prices (~$30),
+# so it is not a delimiter the renderer accepts.
+DOLLAR_MATH = re.compile(r"(?<!\\)\$(?!\s)([^$\n]{1,200}?)(?<!\s)\$")
+MATH_DELIM = re.compile(r"\\\((.+?)\\\)", re.S)
+
 
 def unescape(s):
     return (s.replace("&amp;", "&").replace("&lt;", "<").replace("&gt;", ">")
@@ -51,9 +56,16 @@ for p in HTML:
 
     for req in ['<link rel="canonical"', 'class="essay-eyebrow article-kicker"',
                 'class="publication-badge"', 'aria-label="Site navigation"',
-                'footer class="colophon"', '"PingFang SC"', '<meta name="description"']:
+                'footer class="colophon"', '"PingFang SC"', '<meta name="description"',
+                'katex.min.css', 'auto-render.min.js']:
         if req not in s:
             problems.append(f"{p}: missing {req}")
+
+    m = DOLLAR_MATH.search(body)
+    if m:
+        problems.append(f"{p}: untypeset $...$ math near {m.group(0)[:60]!r}")
+    if MATH_DELIM.search(body) and "katex" not in s:
+        problems.append(f"{p}: LaTeX present but no KaTeX renderer")
 
     dm = re.search(r'<meta name="description" content="([^"]+)"', s)
     if dm and ("Essay and technical notes by Domi Jin" in dm.group(1) or len(dm.group(1)) < 60):
