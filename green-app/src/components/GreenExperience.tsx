@@ -1694,13 +1694,13 @@ export default function GreenExperience() {
           <figure className="rounded-2xl border border-slate-200 bg-[#0b2034] p-3 sm:p-5 shadow-sm space-y-4">
             <img
               src="/images/knowledge-growth.gif"
-              alt="An animation: the dashed circle is collective human knowledge, with one spike per domain at very different depths. A model starts with a small boundary in the middle. Experts work frontiers; breakthroughs extend the spikes; each result becomes training data and the model's boundary grows toward it. By the end the boundary reaches close to the spike tips in AlphaGo, AlphaFold and mathematics, and passes outside the human circle in a few thin fields."
+              alt="An animation: the dashed spiky outline is collective human knowledge, one spike per domain at very different depths. A model starts with a small boundary in the middle. Experts work frontiers; breakthroughs extend the spikes; each result becomes training data and the model's boundary grows toward it. By the end the boundary reaches close to the spike tips in AlphaGo, AlphaFold and mathematics, and passes outside the human outline in a few thin fields."
               className="w-full h-auto rounded-xl block"
               loading="lazy"
             />
             <figcaption className="text-xs text-slate-400 leading-relaxed px-1">
               <span className="text-slate-300 font-semibold">How a model&apos;s knowledge boundary grows.</span>{" "}
-              The dashed circle is collective human knowledge, each spike one domain&apos;s depth — deep in
+              The dashed outline is collective human knowledge, each spike one domain&apos;s depth — deep in
               some fields, thin in others. An expert works a frontier, a breakthrough moves it out, and
               the result becomes training data, so the boundary moves. In the deep fields it ends up close
               to the frontier; in the thin ones it crosses the human graph. That last case is the one
