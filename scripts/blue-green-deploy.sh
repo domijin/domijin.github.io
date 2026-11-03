@@ -45,6 +45,7 @@ case "$cmd" in
     npm run export:green
     python3 "${ROOT_DIR}/scripts/keep-previous-assets.py" restore \
       "${KEEP_DIR}" "${ROOT_DIR}"
+    python3 "${ROOT_DIR}/scripts/verify-build-assets.py"
     echo "Done. Green environment exported to ${ROOT_DIR}/next/ and .nojekyll ensured."
     ;;
 
@@ -72,6 +73,11 @@ case "$cmd" in
     cp -R "${GREEN_APP_DIR}/out/"* "${ROOT_DIR}/"
     python3 "${ROOT_DIR}/scripts/keep-previous-assets.py" restore \
       "${KEEP_DIR}" "${ROOT_DIR}"
+    # Gate: every asset the published HTML names, and every chunk a kept
+    # generation's manifest names, must be in the tree. A generation kept for
+    # a cached client but missing its chunks turns that client's reload into
+    # "Application error" instead of the site.
+    python3 "${ROOT_DIR}/scripts/verify-build-assets.py"
     touch "${ROOT_DIR}/.nojekyll"
     echo "Green promoted to root (/). Classic home page backed up to /classic/index.html."
     ;;
