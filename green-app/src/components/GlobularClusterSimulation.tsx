@@ -971,7 +971,7 @@ export default function GlobularClusterSimulation({
     // The range that holds every catalogue system and LISA's floor
     // without clamping either: the loudest source sits near 10⁻¹⁷·⁶ and
     // the quietest harmonic of the faintest one near 10⁻²⁰·⁷.
-    const LOG_H_MIN = -21.0;
+    const LOG_H_MIN = -22.0;
     const LOG_H_MAX = -17.0;
 
     const xFromLogF = (logF: number) =>
@@ -1009,7 +1009,8 @@ export default function GlobularClusterSimulation({
       const harmonics: { x: number; y: number; n: number }[] = [];
       const maxHarmonic = sys.eccentricity > 0.3 ? 5 : 1;
       for (let h = 1; h <= maxHarmonic; h++) {
-        const lf = Math.min(-1.05, Math.max(-3.95, logF0 + Math.log10(h * 0.85)));
+        const lf = logF0 + Math.log10(h);
+        if (lf < -4 || lf > -1) continue;
         const lh = Math.min(
           LOG_H_MAX,
           Math.max(
@@ -1027,7 +1028,7 @@ export default function GlobularClusterSimulation({
       return {
         sys,
         idx,
-        x: xFromLogF(Math.min(-1.05, Math.max(-3.95, logF0))),
+        x: xFromLogF(logF0),
         y: yFromLogH(Math.min(LOG_H_MAX, Math.max(LOG_H_MIN, baseLogH))),
         harmonics,
       };
@@ -1069,7 +1070,9 @@ export default function GlobularClusterSimulation({
     const maxHarmonic = sys.eccentricity > 0.3 ? 5 : 1;
     const harmonics: { x: number; y: number; n: number }[] = [];
     for (let h = 1; h <= maxHarmonic; h++) {
-      const lf = Math.min(-1.05, Math.max(-3.95, logF0 + Math.log10(h * 0.85)));
+      const lf = logF0 + Math.log10(h);
+      // Do not pin an out-of-band signal to a frequency it does not have.
+      if (lf < -4 || lf > -1) continue;
       const lh = Math.min(
         lisaPlotData.logHMax,
         Math.max(lisaPlotData.logHMin, logHBase(sys, lf, h))
@@ -1084,6 +1087,7 @@ export default function GlobularClusterSimulation({
     return {
       exists: true,
       fMhz,
+      inBand: logF0 >= -4 && logF0 <= -1,
       harmonics,
       above: fundamentalLogH > lisaNoiseLogH(logF0),
       logH: fundamentalLogH,
@@ -1427,6 +1431,9 @@ export default function GlobularClusterSimulation({
               </span>
               <span className="text-sky-300">0.1 mHz – 0.1 Hz</span>
             </div>
+            <p className="text-[10px] leading-relaxed text-slate-400">
+              Schematic frequency evolution; strain and noise curves are illustrative approximations, not a new detection forecast.
+            </p>
 
             {/* What the moving signal is doing right now, said in words as
                 well as drawn: a reader should not have to measure the plot
@@ -1439,16 +1446,18 @@ export default function GlobularClusterSimulation({
               ) : (
                 <>
                   <span className="text-amber-300">
-                    f_gw = {(liveSignal.fMhz * 1e3).toFixed(1)} mHz
+                    f_gw = {liveSignal.fMhz.toFixed(3)} mHz
                   </span>
-                  {liveSignal.harmonics.length > 1 ? (
+                  {liveSignal.harmonics.length > 0 ? (
                     <span className="text-slate-400">
                       {" "}
-                      · {liveSignal.harmonics.length} harmonics
+                      · {liveSignal.harmonics.length} in-band harmonic{liveSignal.harmonics.length === 1 ? "" : "s"}
                     </span>
                   ) : null}
                   {" · "}
-                  {liveSignal.above ? (
+                  {!liveSignal.inBand ? (
+                    <span className="text-slate-400">fundamental outside plotted band</span>
+                  ) : liveSignal.above ? (
                     <span className="text-emerald-300">
                       above LISA&apos;s noise floor
                     </span>
@@ -1493,7 +1502,7 @@ export default function GlobularClusterSimulation({
                     </g>
                   );
                 })}
-                {[-21, -20, -19, -18, -17].map((lh) => {
+                {[-22, -21, -20, -19, -18, -17].map((lh) => {
                   const y = lisaPlotData.yFromLogH(lh);
                   return (
                     <g key={lh}>
@@ -1611,7 +1620,7 @@ export default function GlobularClusterSimulation({
                 {/* Where the selected binary's signal is right now: it moves
                     as the simulation runs, and whether it clears the floor
                     is the thing the page is about. */}
-                {liveSignal?.exists && (
+                {liveSignal?.exists && liveSignal.harmonics.length > 0 && (
                   <g>
                     {liveSignal.harmonics.map((h) => (
                       <circle
@@ -1631,7 +1640,7 @@ export default function GlobularClusterSimulation({
                       fontSize="8"
                       fontFamily="monospace"
                     >
-                      now
+                      {liveSignal.harmonics[0].n === 1 ? "now" : `now · n=${liveSignal.harmonics[0].n}`}
                     </text>
                   </g>
                 )}

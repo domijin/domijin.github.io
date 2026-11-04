@@ -130,12 +130,12 @@ export function nearestNode(vector: ArrayLike<number>): { id: string; similarity
 
 /**
  * The node a prompt conditions on: the strongest score, if there is a real
- * signal. A cosine below the floor and no keyword hit means the model would
- * have nothing to condition on, and it would be guessing.
+ * signal. Faint semantic neighbours can retain a small score without being
+ * selected as a strong match. The selection threshold is deliberately higher
+ * than the display floor: unrelated prompts can have cosine similarity ~0.16.
  */
 export function topNode(scores: NodeScore[]): NodeScore | null {
-  if (!scores.length) return null;
-  const best = scores[0];
-  const realSignal = best.semantic > 0.12 || best.lexical > 0.3;
-  return best.weight > 0.06 && realSignal ? best : null;
+  return scores.find((score) =>
+    score.weight > 0.06 && (score.semantic >= 0.24 || score.lexical > 0.3)
+  ) ?? null;
 }
