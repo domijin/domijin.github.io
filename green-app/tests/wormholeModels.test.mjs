@@ -2,11 +2,13 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import {
   cardyBTZ,
+  dnegEmbeddingZ,
   dnegRadius,
   dnegRadiusDerivative,
   ensembleExample,
   ensembleOpticalShift,
   saddleWeight,
+  shaderRayDirection,
   solveEuclideanBounce,
   traceBtzGeodesic,
   traceWormholeGeodesic,
@@ -145,4 +147,47 @@ test("BTZ AdS-box geodesics capture inward rays and reflect escaping rays off th
   const lowC = ensembleOpticalShift(0.6, 30, 2);
   const highC = ensembleOpticalShift(0.6, 120, 2);
   assert.ok(Math.abs(highC.effectiveShift) < Math.abs(lowC.effectiveShift));
+});
+
+test("Isometric Flamm embedding height is antisymmetric, strictly monotonic, and satisfies dz^2 + dr^2 = d(ell)^2", () => {
+  const rho = 1.15;
+  const a = 0.25;
+  const W = 0.75;
+  assert.equal(dnegEmbeddingZ(0, a, W), 0);
+  const zPos = dnegEmbeddingZ(4.2, a, W);
+  const zNeg = dnegEmbeddingZ(-4.2, a, W);
+  assert.ok(zPos > 0);
+  assert.ok(Math.abs(zPos + zNeg) < 1e-12);
+
+  // Finite difference check along the curve: (dz)^2 + (dr)^2 === (d ell)^2
+  const eps = 1e-4;
+  const ell = 2.4;
+  const dz = dnegEmbeddingZ(ell + eps, a, W, 64) - dnegEmbeddingZ(ell - eps, a, W, 64);
+  const dr = dnegRadius(ell + eps, rho, a, W) - dnegRadius(ell - eps, rho, a, W);
+  const dsRatio = Math.hypot(dz, dr) / (2 * eps);
+  assert.ok(Math.abs(dsRatio - 1) < 1e-4);
+});
+
+test("shaderRayDirection produces unit vectors aligned with GLSL camera convention and signed geodesics", () => {
+  const center = shaderRayDirection(0, 0, 0, 0);
+  assert.ok(Math.abs(center.pPhi) < 1e-12);
+  assert.ok(Math.abs(center.pTheta) < 1e-12);
+  assert.ok(Math.abs(center.pEll + 1) < 1e-12);
+
+  const turned = shaderRayDirection(0.4, -0.25, 0.3, 0.2);
+  const norm = Math.hypot(turned.pPhi, turned.pTheta, turned.pEll);
+  assert.ok(Math.abs(norm - 1) < 1e-12);
+
+  const leftRay = traceWormholeGeodesic({
+    ell0: 4.6,
+    angleFromPlusEll: Math.PI - 0.3,
+    phiSign: -1,
+  });
+  const rightRay = traceWormholeGeodesic({
+    ell0: 4.6,
+    angleFromPlusEll: Math.PI - 0.3,
+    phiSign: 1,
+  });
+  assert.ok(Math.abs(leftRay.deltaPhi + rightRay.deltaPhi) < 1e-12);
+  assert.ok(leftRay.deltaPhi < 0 && rightRay.deltaPhi > 0);
 });

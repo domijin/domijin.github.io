@@ -70,6 +70,58 @@ export function dnegRadiusDerivative(
   return Math.sign(ell) * (2 / Math.PI) * Math.atan(x);
 }
 
+/** Isometric Flamm-style Euclidean embedding axial height z(ell) satisfying
+ *  dz^2 + dr^2 = d(ell)^2 (possible everywhere since |dr/d(ell)| <= 2/pi < 1). */
+export function dnegEmbeddingZ(
+  ell: number,
+  throatHalfLen: number,
+  lensingWidth: number,
+  intervals = 24
+) {
+  if (Math.abs(ell) < 1e-7) return 0;
+  const n = intervals % 2 === 0 ? intervals : intervals + 1;
+  const h = ell / n;
+  const integrand = (s: number) => {
+    const dr = dnegRadiusDerivative(s, throatHalfLen, lensingWidth);
+    return Math.sqrt(Math.max(0, 1 - dr * dr));
+  };
+  let sum = integrand(0) + integrand(ell);
+  for (let i = 1; i < n; i++) {
+    sum += (i % 2 === 0 ? 2 : 4) * integrand(i * h);
+  }
+  return (h / 3) * sum;
+}
+
+/** Exact local camera ray direction matching the GLSL observer shader's
+ *  rotY(yaw) * rotX(pitch) * normalize(vec3(ndcX, ndcY, -focal)).
+ *  pEll = component along +ell (wHat = (0,0,1)), pPhi = horizontal, pTheta = vertical. */
+export function shaderRayDirection(
+  yaw: number,
+  pitch: number,
+  ndcX = 0,
+  ndcY = 0,
+  focal = 1.45
+) {
+  const invLen = 1 / Math.hypot(ndcX, ndcY, focal);
+  const cx = ndcX * invLen;
+  const cy = ndcY * invLen;
+  const cz = -focal * invLen;
+
+  const cp = Math.cos(pitch);
+  const sp = Math.sin(pitch);
+  const vx = cx;
+  const vy = cp * cy + sp * cz;
+  const vz = -sp * cy + cp * cz;
+
+  const cyaw = Math.cos(yaw);
+  const syaw = Math.sin(yaw);
+  const pPhi = cyaw * vx - syaw * vz;
+  const pTheta = vy;
+  const pEll = syaw * vx + cyaw * vz;
+
+  return { pPhi, pTheta, pEll };
+}
+
 /** Apparent angular radius (in radians) of the wormhole throat b = rho as seen
  *  by a static observer at proper radial distance ell0. */
 export function wormholeApparentAngle(
@@ -114,6 +166,7 @@ export function traceWormholeGeodesic({
   maxSteps = 450,
   stepSize = 0.08,
   skyRadius = 18,
+  phiSign = 1,
 }: {
   ell0: number;
   angleFromPlusEll: number;
@@ -123,11 +176,13 @@ export function traceWormholeGeodesic({
   maxSteps?: number;
   stepSize?: number;
   skyRadius?: number;
+  phiSign?: number;
 }): WormholeGeodesicResult {
   const r0 = dnegRadius(ell0, rho, throatHalfLen, lensingWidth);
   let ell = ell0;
   let pEll = Math.cos(angleFromPlusEll);
   const b = r0 * Math.abs(Math.sin(angleFromPlusEll));
+  const dirSign = phiSign >= 0 ? 1 : -1;
   let phi = 0;
 
   const deriv = (curEll: number, curPEll: number) => {
@@ -135,7 +190,7 @@ export function traceWormholeGeodesic({
     const dr = dnegRadiusDerivative(curEll, throatHalfLen, lensingWidth);
     const dEll = curPEll;
     const dPEll = (b * b * dr) / (r * r * r);
-    const dPhi = b / (r * r);
+    const dPhi = (dirSign * b) / (r * r);
     return { dEll, dPEll, dPhi };
   };
 
@@ -230,6 +285,7 @@ export function traceBtzGeodesic({
   boxRadius = 10,
   maxSteps = 420,
   stepSize = 0.04,
+  phiSign = 1,
 }: {
   r0: number;
   thetaFromOutward: number;
@@ -237,12 +293,14 @@ export function traceBtzGeodesic({
   boxRadius?: number;
   maxSteps?: number;
   stepSize?: number;
+  phiSign?: number;
 }): BtzGeodesicResult {
   const safeR0 = Math.max(r0, rPlus + 0.08);
   const f0 = safeR0 * safeR0 - rPlus * rPlus;
   let r = safeR0;
   let pr = Math.cos(thetaFromOutward);
   const b = (safeR0 * Math.abs(Math.sin(thetaFromOutward))) / Math.sqrt(f0);
+  const dirSign = phiSign >= 0 ? 1 : -1;
   let phi = 0;
   let captured = false;
   let boundaryReflections = 0;
@@ -250,7 +308,7 @@ export function traceBtzGeodesic({
   const deriv = (curR: number, curPr: number) => {
     const dr = curPr;
     const dpr = -(b * b * rPlus * rPlus) / Math.pow(Math.max(curR, 1e-4), 3);
-    const dphi = b / Math.pow(Math.max(curR, 1e-4), 2);
+    const dphi = (dirSign * b) / Math.pow(Math.max(curR, 1e-4), 2);
     return { dr, dpr, dphi };
   };
 

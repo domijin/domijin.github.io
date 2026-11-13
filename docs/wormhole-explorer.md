@@ -10,12 +10,13 @@ No speaker attribution, quotations or video timestamps are inferred.
 
 ## Scientific contract
 
-- **Relativistic observer simulation (`WormholeObserver.tsx` + `wormholeModels.ts`)**:
+- **Relativistic observer simulation (`WormholeObserver.tsx` + `WormholeModelStage.tsx` + `wormholeModels.ts`)**:
+  - **Synchronized dual stage (Rendered + Abstracted Model)**: pairs the first-person GLSL ray-traced sky side-by-side with an interactive Three.js 3D geometric model (`WormholeModelStage.tsx`) plotting the exact isometric Flamm-style embedding `z(ell)` (`dz^2 + dr^2 = d(ell)^2`), observer camera position, exact local FOV frustum (`shaderRayDirection`), and live RK4 geodesic rays colored by destination. Supports `Isometric`, `Top-down`, `Side profile`, and `Behind cam` viewpoints across all four regimes.
   - **Regime 01 (Lorentzian wormhole)**: integrates the null geodesic equations
     `d(ell)/d(lambda) = p_ell`, `dp_ell/d(lambda) = b^2 r'(ell)/r(ell)^3`,
     `d(phi)/d(lambda) = b/r(ell)^2` via 4th-order Runge-Kutta (both in GLSL for
-    real-time sky rendering and in TypeScript for the paired 2D ray cross-section),
-    using the smooth DNEG / Morris-Thorne radial profile from James et al. (2015,
+    real-time sky rendering and in TypeScript for the paired 3D model & 2D ray
+    cross-section), using the smooth DNEG / Morris-Thorne radial profile from James et al. (2015,
     [1502.03809](https://arxiv.org/abs/1502.03809)). Two procedural starfields and
     galactic dust bands distinguish Side A (`ell > 0`) from Side B (`ell < 0`).
     This Lorentzian metric illustrates what an observer would see around and across

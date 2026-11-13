@@ -10,6 +10,7 @@ import {
   traceWormholeGeodesic,
   wormholeApparentAngle,
 } from "@/lib/wormholeModels";
+import WormholeModelStage from "./WormholeModelStage";
 
 export type ObserverRegime = "lorentzian" | "euclidean" | "ads_btz" | "ensemble_ds";
 
@@ -480,6 +481,8 @@ export default function WormholeObserver({
   const [showGrid, setShowGrid] = useState(false);
   const [showGeodesics, setShowGeodesics] = useState(true);
   const [deSitterView, setDeSitterView] = useState(false);
+  const [viewMode, setViewMode] = useState<"split" | "rendered" | "model">("split");
+  const [showReticle, setShowReticle] = useState(true);
 
   const dragRef = useRef<{ active: boolean; x: number; y: number; yaw0: number; pitch0: number }>({
     active: false,
@@ -810,112 +813,181 @@ export default function WormholeObserver({
         </button>
       </div>
 
+      <div className="wh-view-mode-bar" role="group" aria-label="Observer viewport mode">
+        <div className="wh-view-mode-buttons">
+          <button
+            type="button"
+            aria-pressed={viewMode === "split"}
+            onClick={() => setViewMode("split")}
+          >
+            Split view: Rendered + Model
+          </button>
+          <button
+            type="button"
+            aria-pressed={viewMode === "rendered"}
+            onClick={() => setViewMode("rendered")}
+          >
+            3D Rendered only
+          </button>
+          <button
+            type="button"
+            aria-pressed={viewMode === "model"}
+            onClick={() => setViewMode("model")}
+          >
+            Abstracted Model only
+          </button>
+        </div>
+        <span className="wh-bridge-hint">
+          Synced camera rig: the white frustum &amp; center ray track your exact 3D gaze
+        </span>
+      </div>
+
       <div
-        className="wh-observer-stage"
-        onPointerDown={(e) => {
-          dragRef.current = {
-            active: true,
-            x: e.clientX,
-            y: e.clientY,
-            yaw0: yaw,
-            pitch0: pitch,
-          };
-        }}
-        onPointerMove={(e) => {
-          if (!dragRef.current.active) return;
-          const dx = e.clientX - dragRef.current.x;
-          const dy = e.clientY - dragRef.current.y;
-          setYaw(dragRef.current.yaw0 - dx * 0.0055);
-          setPitch(Math.max(-1.25, Math.min(1.25, dragRef.current.pitch0 - dy * 0.0045)));
-        }}
-        onPointerUp={() => {
-          dragRef.current.active = false;
-        }}
-        onPointerLeave={() => {
-          dragRef.current.active = false;
-        }}
+        className={`wh-observer-stages ${
+          viewMode === "split" ? "wh-observer-stages--split" : "wh-observer-stages--single"
+        }`}
       >
-        <div className="wh-observer-gl" ref={hostRef} hidden={status === "fallback"} />
+        <div
+          className="wh-observer-stage"
+          hidden={viewMode === "model"}
+          onPointerDown={(e) => {
+            if ((e.target as HTMLElement).closest("button")) return;
+            dragRef.current = {
+              active: true,
+              x: e.clientX,
+              y: e.clientY,
+              yaw0: yaw,
+              pitch0: pitch,
+            };
+          }}
+          onPointerMove={(e) => {
+            if (!dragRef.current.active) return;
+            const dx = e.clientX - dragRef.current.x;
+            const dy = e.clientY - dragRef.current.y;
+            setYaw(dragRef.current.yaw0 - dx * 0.0055);
+            setPitch(Math.max(-1.25, Math.min(1.25, dragRef.current.pitch0 - dy * 0.0045)));
+          }}
+          onPointerUp={() => {
+            dragRef.current.active = false;
+          }}
+          onPointerLeave={() => {
+            dragRef.current.active = false;
+          }}
+        >
+          <div className="wh-observer-gl" ref={hostRef} hidden={status === "fallback"} />
 
-        {status !== "ready" && (
-          <div className="wh-fallback" role="status">
-            <p>
-              {status === "loading"
-                ? "Initialising relativistic RK4 geodesic shader…"
-                : "WebGL is unavailable; the numerical RK4 geodesic cross-section and analytical experiments below remain active."}
-            </p>
+          {showReticle && status === "ready" && (
+            <div className="wh-observer-reticle" aria-hidden="true">
+              <span />
+            </div>
+          )}
+
+          {status !== "ready" && (
+            <div className="wh-fallback" role="status">
+              <p>
+                {status === "loading"
+                  ? "Initialising relativistic RK4 geodesic shader…"
+                  : "WebGL is unavailable; the numerical RK4 geodesic cross-section and analytical experiments below remain active."}
+              </p>
+            </div>
+          )}
+
+          <div className="wh-observer-hud-top" aria-hidden="true">
+            <span className="wh-hud-badge">
+              {regime === "lorentzian" && `Side ${ell0 >= 0 ? "A (ℓ > 0)" : "B (ℓ < 0)"} · ℓ = ${ell0.toFixed(2)} ρ`}
+              {regime === "euclidean" && `Euclidean WKB · e^(−ΔI/ħ) = ${Math.exp(-action).toFixed(4)}`}
+              {regime === "ads_btz" && `Inside AdS₃ Box · r₊/ℓ = ${rPlus.toFixed(2)} · c = ${centralCharge}`}
+              {regime === "ensemble_ds" &&
+                (deSitterView
+                  ? "Static de Sitter Patch · Cosmic horizon"
+                  : `${fixed ? "Fixed α sector" : "Ensemble fluctuations"} · c = ${centralCharge}`)}
+            </span>
+            <div className="wh-hud-legend">
+              <span>
+                <i style={{ background: "#65d9ed" }} />
+                {regime === "ads_btz" ? "AdS CFT box" : "Universe A"}
+              </span>
+              <span>
+                <i style={{ background: "#f5b971" }} />
+                {regime === "ads_btz" ? "Horizon ring" : "Universe B"}
+              </span>
+            </div>
           </div>
-        )}
 
-        <div className="wh-observer-hud-top" aria-hidden="true">
-          <span className="wh-hud-badge">
-            {regime === "lorentzian" && `Side ${ell0 >= 0 ? "A (ℓ > 0)" : "B (ℓ < 0)"} · ℓ = ${ell0.toFixed(2)} ρ`}
-            {regime === "euclidean" && `Euclidean WKB · e^(−ΔI/ħ) = ${Math.exp(-action).toFixed(4)}`}
-            {regime === "ads_btz" && `Inside AdS₃ Box · r₊/ℓ = ${rPlus.toFixed(2)} · c = ${centralCharge}`}
-            {regime === "ensemble_ds" &&
-              (deSitterView
-                ? "Static de Sitter Patch · Cosmic horizon"
-                : `${fixed ? "Fixed α sector" : "Ensemble fluctuations"} · c = ${centralCharge}`)}
-          </span>
-          <div className="wh-hud-legend">
-            <span>
-              <i style={{ background: "#65d9ed" }} />
-              {regime === "ads_btz" ? "AdS CFT box" : "Universe A"}
-            </span>
-            <span>
-              <i style={{ background: "#f5b971" }} />
-              {regime === "ads_btz" ? "Horizon ring" : "Universe B"}
-            </span>
+          <div className="wh-observer-hud-bottom">
+            <span>Drag to look around · Use flight controls below to cross the throat</span>
+            <div className="wh-hud-actions">
+              {regime === "lorentzian" && (
+                <button
+                  type="button"
+                  className="wh-hud-primary"
+                  onClick={() => setFlying((f) => !f)}
+                >
+                  {flying ? "Pause flight" : ell0 >= 0 ? "Fly through throat →" : "← Fly back to Side A"}
+                </button>
+              )}
+              {regime === "ensemble_ds" && (
+                <button
+                  type="button"
+                  className="wh-hud-primary"
+                  onClick={() => setDeSitterView((v) => !v)}
+                >
+                  {deSitterView ? "Switch to ensemble throat" : "Switch to de Sitter horizon"}
+                </button>
+              )}
+              <button
+                type="button"
+                aria-pressed={showReticle}
+                onClick={() => setShowReticle((r) => !r)}
+              >
+                {showReticle ? "Hide reticle" : "Show reticle"}
+              </button>
+              <button
+                type="button"
+                aria-pressed={showGrid}
+                onClick={() => setShowGrid((g) => !g)}
+              >
+                {showGrid ? "Hide sky grid" : "Show sky grid"}
+              </button>
+              <button
+                type="button"
+                aria-pressed={orbiting}
+                onClick={() => setOrbiting((o) => !o)}
+              >
+                {orbiting ? "Stop drift" : "Drift sky"}
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setFlying(false);
+                  setEll0(4.6);
+                  setYaw(0);
+                  setPitch(0);
+                }}
+              >
+                Reset view
+              </button>
+            </div>
           </div>
         </div>
 
-        <div className="wh-observer-hud-bottom">
-          <span>Drag to look around · Use flight controls below to cross the throat</span>
-          <div className="wh-hud-actions">
-            {regime === "lorentzian" && (
-              <button
-                type="button"
-                className="wh-hud-primary"
-                onClick={() => setFlying((f) => !f)}
-              >
-                {flying ? "Pause flight" : ell0 >= 0 ? "Fly through throat →" : "← Fly back to Side A"}
-              </button>
-            )}
-            {regime === "ensemble_ds" && (
-              <button
-                type="button"
-                className="wh-hud-primary"
-                onClick={() => setDeSitterView((v) => !v)}
-              >
-                {deSitterView ? "Switch to ensemble throat" : "Switch to de Sitter horizon"}
-              </button>
-            )}
-            <button
-              type="button"
-              aria-pressed={showGrid}
-              onClick={() => setShowGrid((g) => !g)}
-            >
-              {showGrid ? "Hide sky grid" : "Show sky grid"}
-            </button>
-            <button
-              type="button"
-              aria-pressed={orbiting}
-              onClick={() => setOrbiting((o) => !o)}
-            >
-              {orbiting ? "Stop drift" : "Drift sky"}
-            </button>
-            <button
-              type="button"
-              onClick={() => {
-                setFlying(false);
-                setEll0(4.6);
-                setYaw(0);
-                setPitch(0);
-              }}
-            >
-              Reset view
-            </button>
-          </div>
+        <div className="wh-model-pane" hidden={viewMode === "rendered"}>
+          <WormholeModelStage
+            regime={regime}
+            ell0={ell0}
+            rho={rho}
+            lensingWidth={lensingWidth}
+            yaw={yaw}
+            pitch={pitch}
+            pinchFactor={bounce.pinchFactor}
+            action={action}
+            rPlus={rPlus}
+            centralCharge={centralCharge}
+            fixed={fixed}
+            effectiveShift={shiftInfo.effectiveShift}
+            deSitterView={deSitterView}
+            visible={viewMode !== "rendered"}
+          />
         </div>
       </div>
 

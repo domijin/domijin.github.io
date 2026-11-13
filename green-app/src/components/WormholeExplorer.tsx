@@ -87,9 +87,10 @@ export default function WormholeExplorer() {
         </div>
         <p className="wh-lead">
           In curved spacetime, a spherical wormhole mouth acts like a crystal lens onto another sky.
-          The simulation below numerically integrates null geodesics in real time: drag to look around,
-          fly across the throat from Side A to Side B, or switch regimes to see how Euclidean WKB
-          pinch-off, the AdS₃ black-hole box, and ensemble fluctuations alter the view.
+          Below, the first-person ray-traced sky is paired side-by-side with a synced 3D
+          geometric embedding and camera rig: drag to look around, fly across the throat from Side A
+          to Side B, and watch the camera frustum and center ray steer across the curved surface in
+          real time.
         </p>
         <WormholeObserver
           regime={regime}
