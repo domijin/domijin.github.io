@@ -35,6 +35,17 @@
       "lecture": "https://www.youtube.com/watch?v=MmfEEqiUrfo",
       "references": ["https://arxiv.org/abs/2002.08950", "https://arxiv.org/abs/hep-th/9712251", "https://arxiv.org/abs/1405.5137", "https://arxiv.org/abs/1903.11115", "https://arxiv.org/abs/1912.00222", "https://arxiv.org/abs/2203.06511", "https://arxiv.org/abs/1502.03809"]
     },
+    "atmosphericNewtonianNoise": {
+      "sourceRoute": "/newtonian-noise/",
+      "stagedRoute": "/next/newtonian-noise/",
+      "status": "published at /newtonian-noise/",
+      "title": "Atmospheric Newtonian noise: from air to strain",
+      "language": "en-GB",
+      "type": "dual 3D physical/geometric simulation, 1D Kolmogorov Monte Carlo FFT, and detector noise-budget explorer",
+      "description": "Paired Three.js rendered atmospheric cavern/shelter scene and synchronized abstracted geometric model & camera frustum, finite-Q infrasound shielding, smooth vs cycloidal thermal advection, live 1D Appendix A.1 Kolmogorov Monte Carlo FFT validation, digitized design sensitivity comparisons (aLIGO, ET, CE, TOBA, SOGRO), surface shelter D_eff, and 3D temperature tomography budgets.",
+      "limitations": "Direct MavMatrix full-text PDF endpoint returned HTTP 403; equations, digitized sensitivity curves and 1D simulation recipe are sourced from Wang's UTA dissertation record (physics_dissertations/180) and Wang & Creighton (2025, arXiv:2505.05690). Full 3D computational fluid dynamics lies outside the browser model.",
+      "references": ["https://mavmatrix.uta.edu/physics_dissertations/180", "https://arxiv.org/abs/2505.05690", "https://arxiv.org/abs/gr-qc/0007050", "https://arxiv.org/abs/2206.02610"]
+    },
     "globularClusterSandbox": {
       "url": "https://domij.info/cluster/",
       "stagedUrl": "https://domij.info/next/cluster/",

@@ -1222,6 +1222,13 @@ export default function GreenExperience() {
                 >
                   Euclidean wormholes: from geometry to statistics &rarr;
                 </a>
+                <a
+                  href={`${process.env.NEXT_BASE_PATH ?? "/next"}/newtonian-noise/`}
+                  className="px-4 py-2 rounded-xl border border-sky-200 text-[#2980b9] hover:bg-sky-50 font-medium transition"
+                  lang="en-GB"
+                >
+                  Atmospheric Newtonian noise: from air to strain &rarr;
+                </a>
               </div>
             </div>
 

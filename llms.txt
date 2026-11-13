@@ -6,6 +6,7 @@
 - **Website**: https://domij.info/
 - **Current edition (staged mirror)**: https://domij.info/next/
 - **Euclidean wormhole learning page (English)**: source route `/wormholes/`, staged export `/next/wormholes/`. Real-time GPU RK4 null-geodesic ray-tracer (DNEG Lorentzian throat, Euclidean WKB pinch-off, reflective BTZ AdS₃ box, and ensemble/de Sitter view), paired with a 2D RK4 ray cross-section, leading Cardy–BTZ entropy, and an exact three-member teaching ensemble. Euclidean saddles carry no Lorentzian travel route; no claim that all gravity averages over theories.
+- **Atmospheric Newtonian noise learning page (English)**: source route `/newtonian-noise/`, staged export `/next/newtonian-noise/`. Interactive 3D air-to-test-mass simulation paired with a synchronized geometric standoff model and live camera frustum, generalized finite-Q infrasound shielding, live Appendix A.1 1D Kolmogorov cycloidal Monte Carlo FFT validation, and digitized sensitivity comparisons for aLIGO, ET, CE, TOBA and SOGRO (adapted from Wenhui Wang's 2025 UTA dissertation record and Wang & Creighton 2025, arXiv:2505.05690).
 - **Globular cluster sandbox (full-screen interactive)**: https://domij.info/cluster/
 - **Knowledge boundary (full-screen interactive)**: https://domij.info/knowledge/ — the same sketch as the front page, as geometry: collective human knowledge as a spiky ball, a language model growing as a smoother, lagging copy inside it, and the concepts a prompt lights up.
 - **All writing (28 essays)**: https://domij.info/articles/
