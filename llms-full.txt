@@ -5,6 +5,7 @@
 
 - **Website**: https://domij.info/
 - **Current edition**: https://domij.info/next/
+- **Euclidean wormhole learning page (English)**: source route `/wormholes/`, staged export `/next/wormholes/`. A new educational adaptation of the supplied summary of https://www.youtube.com/watch?v=MmfEEqiUrfo; captions were unavailable, so it is not a transcript. Three.js illustrates connected topology in arbitrary drawing units, without a solved metric or physical time. The exponential weight is not a probability; Cardy–BTZ agreement is a leading semiclassical relation with stated assumptions. An exact three-member two-level ensemble illustrates covariance and fixed-sector factorisation, not CFT data or gravitational predictions. Primary references: arXiv:2002.08950, hep-th/9712251, 1405.5137, 1903.11115, 1912.00222 and 2203.06511. General ensemble measures and de Sitter extension remain qualified open questions; no universal ensemble interpretation or engineering use is asserted.
 - **Local article mirror**: https://domij.info/articles/
 - **Archive profile**: https://domij.info/pages/about-me.html
 - **Substack (Domi’s Mind Waves)**: https://domijin.substack.com/

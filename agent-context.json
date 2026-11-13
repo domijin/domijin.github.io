@@ -23,6 +23,18 @@
     }
   },
   "interactiveArtifacts": {
+    "euclideanWormholes": {
+      "sourceRoute": "/wormholes/",
+      "stagedRoute": "/next/wormholes/",
+      "status": "published at /wormholes/",
+      "title": "Euclidean wormholes: from geometry to statistics",
+      "language": "en-GB",
+      "type": "educational Three.js topology illustration and analytic teaching experiments",
+      "description": "Connected versus disconnected topology, relative exponential saddle weights, leading non-rotating Cardy–BTZ entropy, and covariance in a three-member two-level ensemble. Drawing units are arbitrary; there is no physical time evolution, solved gravitational metric, CFT simulation or traversable-wormhole engineering claim.",
+      "limitations": "Uses the user-supplied lecture summary; captions unavailable. Ensemble interpretation is model-dependent. General measures, fixed-theory factorisation and de Sitter extensions require further arguments.",
+      "lecture": "https://www.youtube.com/watch?v=MmfEEqiUrfo",
+      "references": ["https://arxiv.org/abs/2002.08950", "https://arxiv.org/abs/hep-th/9712251", "https://arxiv.org/abs/1405.5137", "https://arxiv.org/abs/1903.11115", "https://arxiv.org/abs/1912.00222", "https://arxiv.org/abs/2203.06511"]
+    },
     "globularClusterSandbox": {
       "url": "https://domij.info/cluster/",
       "stagedUrl": "https://domij.info/next/cluster/",

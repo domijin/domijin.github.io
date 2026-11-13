@@ -5,6 +5,7 @@
 
 - **Website**: https://domij.info/
 - **Current edition (staged mirror)**: https://domij.info/next/
+- **Euclidean wormhole learning page (English)**: source route `/wormholes/`, staged export `/next/wormholes/`. Conceptual Three.js topology, a relative saddle-weight illustration, leading Cardy–BTZ entropy and an exact three-member teaching ensemble. Not a traversable-wormhole simulation or a claim that all gravity averages over theories. The supplied lecture summary was used; video captions were unavailable.
 - **Globular cluster sandbox (full-screen interactive)**: https://domij.info/cluster/
 - **Knowledge boundary (full-screen interactive)**: https://domij.info/knowledge/ — the same sketch as the front page, as geometry: collective human knowledge as a spiky ball, a language model growing as a smoother, lagging copy inside it, and the concepts a prompt lights up.
 - **All writing (28 essays)**: https://domij.info/articles/

@@ -1215,6 +1215,13 @@ export default function GreenExperience() {
                 >
                   Read the Illustrated Astrophysics Essay &rarr;
                 </button>
+                <a
+                  href={`${process.env.NEXT_BASE_PATH ?? "/next"}/wormholes/`}
+                  className="px-4 py-2 rounded-xl border border-sky-200 text-[#2980b9] hover:bg-sky-50 font-medium transition"
+                  lang="en-GB"
+                >
+                  Euclidean wormholes: from geometry to statistics &rarr;
+                </a>
               </div>
             </div>
 
