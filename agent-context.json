@@ -23,6 +23,22 @@
     }
   },
   "interactiveArtifacts": {
+    "futureOfEducationZh": {
+      "sourceRoute": "/future-of-education/",
+      "stagedRoute": "/next/future-of-education/",
+      "title": "我对未来教育的期待",
+      "language": "zh-CN",
+      "status": "Working hypothesis / brief overview",
+      "type": "Standalone Chinese brief page with orthogonal capability-and-experience schematic",
+      "description": "Concise Chinese overview of Domi Jin's working expectations for the future of education: four parallel human capability courses (purpose, potentials, communication, resilience), three independent experience principles (informative, interactive, adaptive), judgment-first AI sparring to avoid the fluency illusion, and evidence-first exploration across ages.",
+      "limitations": "Personal working hypothesis and brief synthesis of existing notes, not an implemented school programme or measured outcome.",
+      "relatedArticles": [
+        "/articles/blog/open-learning.html",
+        "/shared-knowledge/",
+        "/articles/github/open-learning-lab.html",
+        "/articles/github/libertyearth-and-future.html"
+      ]
+    },
     "sharedKnowledge": {
       "sourceRoute": "/shared-knowledge/",
       "stagedRoute": "/next/shared-knowledge/",
