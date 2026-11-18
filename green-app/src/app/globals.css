@@ -1,3 +1,4 @@
+@import "./open-learning.css";
 @import "tailwindcss";
 
 :root {
@@ -67,3 +68,9 @@ pre code {
   font-size: inherit;
 }
 
+/* Draft source records remain readable without expanding the essay by default. */
+.source-record { margin: 1.5rem 0; padding: 1rem; border: 1px solid #e2e8f0; border-radius: .75rem; background: #f8fafc; }
+.source-record summary { cursor: pointer; color: #0369a1; font: 15px/1.6 system-ui, sans-serif; }
+.source-record summary:focus-visible { outline: 3px solid #0284c7; outline-offset: 4px; }
+.source-record pre { white-space: pre-wrap; overflow-wrap: anywhere; font: 13px/1.65 ui-monospace, monospace; }
+.source-record h3 { margin: 1.5rem 0 .75rem; font-weight: 600; }

@@ -13,7 +13,7 @@ OUT = os.path.join(ROOT, "green-app/src/data/bookContentData.ts")
 
 CJK = re.compile(r'[　-鿿＀-￯]')
 LIST_RE = re.compile(r'^(?:[-*+]|\d+[.)])\s+(.*)$')
-BLOCK_START = re.compile(r'^(?:#{1,6}\s|\||>|<figure|```)')
+BLOCK_START = re.compile(r'^(?:#{1,6}\s|\||>|<figure|<details|```)')
 
 
 def is_cjk_boundary(text):
@@ -35,10 +35,11 @@ def split_blocks(body):
             continue
 
         # --- inline SVG figure: keep the whole <figure>…</figure> together ---
-        if s.startswith("<figure"):
+        if s.startswith(("<figure", "<details")):
+            closing = "</details>" if s.startswith("<details") else "</figure>"
             buf = [lines[i]]
             i += 1
-            while i < n and "</figure>" not in "\n".join(buf):
+            while i < n and closing not in "\n".join(buf):
                 buf.append(lines[i])
                 i += 1
             blocks.append("\n".join(buf).strip())
@@ -151,7 +152,8 @@ def extract_meta(text, path):
             break
 
     date = ""
-    m = re.search(r'\(([A-Z][a-z]+ \d{4})\)', kicker) or \
+    m = re.search(r'\b(\d{1,2} [A-Z][a-z]+ \d{4})\b', kicker) or \
+        re.search(r'\(([A-Z][a-z]+ \d{4})\)', kicker) or \
         re.search(r'—\s*By Domi Jin\s*·\s*([A-Z][a-z]+ \d{4})', kicker)
     if m:
         date = m.group(1)
@@ -173,6 +175,8 @@ def extract_meta(text, path):
             break
     if not venue:
         venue = VENUE_BY_DIR[os.path.basename(os.path.dirname(path))]
+    if kicker.startswith("Working draft"):
+        venue = "Working draft · Domi’s Universe"
     return title, date, venue, original
 
 
@@ -192,7 +196,7 @@ def main():
         text = io.open(p, encoding="utf-8").read()
 
         title, date, venue, original = extract_meta(text, p)
-        if not original:
+        if not original and not venue.startswith("Working draft"):
             print(f"  ! no original URL for {rel}", file=sys.stderr)
         if not date:
             print(f"  ! no date for {rel}", file=sys.stderr)

@@ -19,6 +19,11 @@
 - **Structured profile and source index**: https://domij.info/agent-context.json
 - **Background and reading notes**: https://domij.info/llms-full.txt
 
+## Open Learning — working draft
+
+- **[Open Learning: From Individual Potential to Collective Discovery](https://domij.info/articles/blog/open-learning.html)** ([Markdown](https://domij.info/articles/blog/open-learning.md)) · Working draft, 17 November 2026. Four proposed courses—effective altruism, future thinking, design thinking and positive psychology—are intended to develop purpose, potentials, communication and resilience. Three independent experience principles (informative, interactive, adaptive) apply across all four courses. Proposes individual mastery and independent or voluntary collective inquiry, with evidence, critique and revision before claims enter the commons. Not a programme evaluation or implementation claim. Includes the supplied learning mind map as source context.
+- **[Two people, a wider horizon](https://domij.info/shared-knowledge/)**: An interactive essay connecting education and knowledge sharing to a collaborative society. Two fictional collaborators compare schematic competence maps, disclose context, check an interpretation, align on a question, examine synthetic evidence and prepare a local provisional note. Common topics are not checked understanding; neither agreement nor a quiz certifies mastery or truth. Negative results can contribute. No real profiles, model downloads or publication. [Open Learning draft](https://domij.info/articles/blog/open-learning.html).
+
 ## About
 
 I work on machine learning and decision systems. My background is in computational astrophysics; my current interests are learning, human judgement and how people work together.

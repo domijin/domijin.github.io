@@ -98,6 +98,7 @@ const NARRATIVE_THEMES: NarrativeThemeSpec[] = [
       "/articles/substack/tesla-seniors-love-your-self-drivingnow.html",
       "/articles/substack/reclaiming-play-as-a-life-skill.html",
       "/articles/substack/building-the-context-for-reading.html",
+      "/articles/blog/open-learning.html",
       "/articles/github/open-learning-lab.html",
       "/articles/github/baby-ai.html",
       "/articles/blog/imessage-ai-router.html",
@@ -191,10 +192,13 @@ function renderInlineMarkdown(text: string): React.ReactNode[] {
   });
 }
 
+const ARTICLE_COUNT = Object.keys(BOOK_ESSAYS_BY_URL).length;
+
 function renderFormattedBlock(block: string, idx: number) {
   const trimmed = block.trim();
   if (
     trimmed.startsWith("<figure") ||
+    trimmed.startsWith("<details") ||
     trimmed.startsWith("<svg") ||
     trimmed.startsWith("<pre") ||
     trimmed.startsWith("<div class=\"table") ||
@@ -203,7 +207,7 @@ function renderFormattedBlock(block: string, idx: number) {
     return (
       <div
         key={idx}
-        className="my-6 overflow-x-auto rounded-2xl border border-slate-200/90 bg-white/90 p-4 sm:p-6 shadow-xs"
+        className={trimmed.startsWith('<figure class="learning-figure"') || trimmed.startsWith("<details") ? "my-6 min-w-0" : "my-6 overflow-x-auto rounded-2xl border border-slate-200/90 bg-white/90 p-4 sm:p-6 shadow-xs"}
         dangerouslySetInnerHTML={{ __html: trimmed }}
       />
     );
@@ -691,7 +695,7 @@ export default function GreenExperience() {
               href="/articles/"
               className="text-slate-600 hover:text-[#2980b9] font-mono transition"
             >
-              All 28 essays
+              All {ARTICLE_COUNT} essays, drafts and notes
             </a>
             <span className="text-slate-300">|</span>
             <button
@@ -718,7 +722,7 @@ export default function GreenExperience() {
                   Every essay and visual diagram lives on this domain
                 </h3>
                 <p className="text-xs text-slate-600 mt-1">
-                  28 essays in full, with their inline diagrams and a note of where each first ran.
+                  {ARTICLE_COUNT} essays, drafts and notes in full, with diagrams and source context.
                 </p>
               </div>
               <div className="flex flex-wrap gap-2">
@@ -882,7 +886,7 @@ export default function GreenExperience() {
                 onClick={() => setMobileMenuOpen(false)}
                 className="px-3 py-2 rounded-lg hover:bg-sky-50 hover:text-[#2980b9] transition"
               >
-                All 28 Essays &amp; Notes
+                All {ARTICLE_COUNT} Essays, Drafts &amp; Notes
               </a>
             </nav>
           </div>
@@ -958,7 +962,7 @@ export default function GreenExperience() {
 
             <footer className="mt-12 pt-6 border-t border-slate-200 text-xs text-slate-500 space-y-4">
               <p>
-                Originally published on{" "}
+                {activeReaderEssay.originalUrl ? <>Originally published on{" "}
                 <a
                   href={activeReaderEssay.originalUrl}
                   target="_blank"
@@ -967,7 +971,7 @@ export default function GreenExperience() {
                 >
                   {activeReaderEssay.venue}
                 </a>{" "}
-                ({activeReaderEssay.date}).
+                ({activeReaderEssay.date}).</> : <>{activeReaderEssay.venue} · {activeReaderEssay.date}.</>}
               </p>
 
               {nextReaderEssay && (
@@ -1000,7 +1004,7 @@ export default function GreenExperience() {
                   href="/articles/"
                   className="text-slate-500 hover:text-[#2980b9] font-mono"
                 >
-                  All 28 essays &rarr;
+                  All {ARTICLE_COUNT} essays, drafts and notes &rarr;
                 </a>
               </div>
             </footer>
@@ -1064,7 +1068,7 @@ export default function GreenExperience() {
                     </h2>
                   </div>
                   <span className="px-2.5 py-1 rounded-md bg-sky-50 border border-sky-100 text-[11px] font-mono text-[#0369a1] font-medium">
-                    28 Essays
+                    {ARTICLE_COUNT} Essays, Drafts &amp; Notes
                   </span>
                 </div>
 
@@ -1782,6 +1786,9 @@ export default function GreenExperience() {
               <p className="text-base sm:text-lg text-slate-600 font-serif italic">
                 {NARRATIVE_THEMES[2].subtitle}
               </p>
+              <a href={`${BASE_PATH}/shared-knowledge/`} className="inline-flex items-center gap-2 text-sm font-medium text-[#0369a1] underline underline-offset-4">
+                Explore how two people learn from their different knowledge maps →
+              </a>
 
               <div className="space-y-3.5 text-slate-700 font-serif text-[17px] leading-[1.78]">
                 <p>
@@ -2026,6 +2033,20 @@ export default function GreenExperience() {
 
           </div>
 
+          <aside className="rounded-2xl border border-sky-200 bg-sky-50/60 p-6 sm:p-8 space-y-3">
+            <p className="text-xs font-mono uppercase tracking-widest text-[#0369a1]">Education, knowledge and a collaborative society</p>
+            <h3 className="text-2xl font-serif font-bold text-slate-900">Two people, a wider horizon</h3>
+            <p className="max-w-3xl text-slate-700 font-serif text-[17px] leading-relaxed">
+              I see education and shared knowledge as part of the foundation of a collaborative society.
+              This interactive sketch follows two fictional collaborators as they compare their knowledge,
+              understand where their views differ, and work towards a question neither could frame as well alone.
+            </p>
+            <a href={`${BASE_PATH}/shared-knowledge/`} className="inline-flex items-center rounded-lg bg-[#0369a1] px-4 py-3 text-sm font-medium text-white hover:bg-[#075985] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-700">
+              Explore the shared-knowledge map →
+            </a>
+            <a href="/articles/blog/open-learning.html" className="ml-4 inline-flex text-sm text-[#0369a1] underline underline-offset-4">Read the Open Learning draft</a>
+          </aside>
+
           {/* Interactive GCD × LCM Geometric Collaboration Diagram */}
           <figure className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm space-y-6">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-4">
@@ -2250,7 +2271,7 @@ export default function GreenExperience() {
                 <span>Interactive Idea Constellation</span>
               </div>
               <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 font-serif tracking-tight">
-                How Seven Questions Connect Across 6 Systems and 28 Essays
+                How Seven Questions Connect Across 6 Systems and {ARTICLE_COUNT} Essays, Drafts &amp; Notes
               </h2>
               <p className="text-sm text-slate-600 max-w-3xl leading-relaxed">
                 Click any question sphere, system cube, or essay node in the constellation to see how ideas from stellar dynamics, decision intelligence, and Palo Alto fieldwork connect—and open any essay right on the page.
@@ -2458,7 +2479,7 @@ export default function GreenExperience() {
         </section>
 
         {/* =====================================================================
-            ALL WRITING: SEARCHABLE ARCHIVE OF ALL 28 SELF-HOSTED ESSAYS
+            ALL WRITING: SEARCHABLE ARCHIVE OF SELF-HOSTED ESSAYS, DRAFTS AND NOTES
            ===================================================================== */}
         <section
           id="writings"
@@ -2467,7 +2488,7 @@ export default function GreenExperience() {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div className="space-y-1.5">
               <span className="text-xs font-mono uppercase tracking-widest text-[#2980b9] font-semibold block">
-                Complete Self-Hosted Archive · 28 Essays
+                Complete Self-Hosted Archive · {ARTICLE_COUNT} Essays, Drafts &amp; Notes
               </span>
               <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 font-serif tracking-tight">
                 All Writing &amp; System Notes
@@ -2482,7 +2503,7 @@ export default function GreenExperience() {
                 type="search"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search 28 essays…"
+                placeholder={`Search ${ARTICLE_COUNT} essays, drafts and notes…`}
                 aria-label="Search essays by title or topic"
                 className="px-3.5 py-2 rounded-xl border border-slate-200 bg-white text-xs text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-[#1DAEDF] w-full sm:w-56"
               />
@@ -2571,7 +2592,7 @@ export default function GreenExperience() {
                       onClick={(e) => e.stopPropagation()}
                     >
                       <span className="text-slate-400">
-                        Originally on{" "}
+                        {bookEntry && !bookEntry.originalUrl ? <>{bookEntry.venue}</> : <>Originally on{" "}
                         <a
                           href={bookEntry?.originalUrl || w.url}
                           target="_blank"
@@ -2579,7 +2600,7 @@ export default function GreenExperience() {
                           className="text-slate-600 hover:text-[#2980b9] underline underline-offset-2"
                         >
                           {bookEntry?.venue || w.source}
-                        </a>
+                        </a></>}
                       </span>
                       <div className="flex items-center gap-3 font-mono">
                         <button
@@ -2645,7 +2666,7 @@ export default function GreenExperience() {
                 href="/articles/"
                 className="px-4 py-2.5 rounded-xl hover:bg-sky-50 border border-slate-200 text-slate-700 hover:text-[#2980b9] text-sm font-medium transition"
               >
-                All 28 Self-Hosted Essays
+                All {ARTICLE_COUNT} Essays, Drafts &amp; Notes
               </a>
               <a
                 href="https://github.com/domijin"
@@ -2687,7 +2708,7 @@ export default function GreenExperience() {
           </p>
           <div className="flex flex-wrap items-center gap-4">
             <a href="/articles/" className="hover:text-[#2980b9] transition">
-              All 28 Essays
+              All {ARTICLE_COUNT} Essays, Drafts &amp; Notes
             </a>
             <span>·</span>
             <a href="/pages/about-me.html?env=blue" className="hover:text-[#2980b9] transition">
@@ -2701,6 +2722,8 @@ export default function GreenExperience() {
             <a href={`${BASE_PATH === "" ? "" : BASE_PATH}/knowledge/`} className="hover:text-[#2980b9] transition">
               Knowledge Boundary
             </a>
+            <span>·</span>
+            <a href={`${BASE_PATH}/shared-knowledge/`} className="hover:text-[#2980b9] transition">Shared Knowledge</a>
             <span>·</span>
             <a href="/beta/" className="hover:text-[#2980b9] transition">
               iMessage AI Beta

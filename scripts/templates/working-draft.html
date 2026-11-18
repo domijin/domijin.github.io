@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{{TITLE}} — Domi Jin</title>
+<meta name="description" content="{{DESCRIPTION}}" />
+<meta name="author" content="Domi Jin" />
+<link rel="canonical" href="{{URL}}" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Domi Jin" />
+<meta property="og:locale" content="en_GB" />
+<meta property="og:title" content="{{TITLE}}" />
+<meta property="og:description" content="{{DESCRIPTION}}" />
+<meta property="og:url" content="{{URL}}" />
+<meta property="og:image" content="https://domij.info/images/Photo.JPG" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="{{TITLE}}" />
+<meta name="twitter:description" content="{{DESCRIPTION}}" />
+<script type="application/ld+json">{{SCHEMA}}</script>
+<link rel="stylesheet" href="/articles/open-learning.css" />
+<style>
+:root { --bg: #fcfcfd; --ink: #1e293b; --muted: #64748b; --accent: #2980b9; --border: #e2e8f0; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 19px/1.78 "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "PingFang SC", "Hiragino Sans GB", "Noto Serif CJK SC", serif; }
+a { color: var(--accent); text-underline-offset: 3px; }
+.topbar { border-bottom: 1px solid var(--border); background: #fff; font: 13px/1.5 system-ui, sans-serif; }
+.topbar-inner { max-width: 760px; margin: auto; padding: 12px 24px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.publication-badge { color: var(--muted); text-transform: uppercase; letter-spacing: .04em; font-size: 11px; }
+main { max-width: 760px; margin: auto; padding: 48px 24px 80px; }
+.essay-header { margin-bottom: 36px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+.essay-eyebrow { color: var(--accent); font: 12px/1.6 ui-monospace, monospace; text-transform: uppercase; letter-spacing: .08em; }
+h1 { color: #0f172a; font-size: clamp(28px, 4.5vw, 40px); line-height: 1.2; margin: 16px 0; }
+h2 { font-size: 26px; line-height: 1.3; margin: 2em 0 .7em; }
+h3 { font-size: 21px; line-height: 1.4; margin: 1.5em 0 .6em; }
+p { margin: 0 0 1.3em; }
+.essay-byline, .colophon { color: var(--muted); font: 14px/1.6 system-ui, sans-serif; }
+blockquote { border-left: 3px solid var(--accent); padding-left: 20px; margin: 1.6em 0; }
+ul { padding-left: 1.4em; } li { margin: .5em 0; }
+.table-scroll { overflow-x: auto; margin: 24px 0; }
+table { width: 100%; border-collapse: collapse; font: 15px/1.6 system-ui, sans-serif; }
+th, td { text-align: left; vertical-align: top; padding: 10px; border: 1px solid var(--border); }
+th { background: #f0f9ff; }
+.diagram-figure { margin: 32px 0; }
+.diagram-figure svg { display: block; width: 100%; height: auto; }
+.diagram-figure figcaption { font: 14px/1.6 system-ui, sans-serif; color: #475569; margin-top: 12px; }
+.source-record { margin: 24px 0; padding: 16px; border: 1px solid var(--border); border-radius: 12px; background: #f8fafc; }
+.source-record summary { cursor: pointer; color: #0369a1; font: 15px/1.6 system-ui, sans-serif; }
+.source-record pre { white-space: pre-wrap; overflow-wrap: anywhere; font: 13px/1.65 ui-monospace, monospace; }
+:focus-visible { outline: 3px solid #0284c7; outline-offset: 4px; }
+.colophon { margin-top: 48px; border-top: 1px solid var(--border); padding-top: 24px; }
+@media(max-width: 480px) { main { padding: 32px 18px 60px; } body { font-size: 18px; } th, td { padding: 8px; font-size: 14px; } }
+</style>
+<!-- Retain the archive's math support for future revisions. -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous" />
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'\\(',right:'\\)',display:false},{left:'\\[',right:'\\]',display:true}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code','option']});"></script>
+</head>
+<body>
+<nav class="topbar" aria-label="Site navigation"><div class="topbar-inner"><a href="/">← Domi Jin</a><span class="publication-badge">Working draft</span><a href="/articles/">All Writing</a></div></nav>
+<main>
+<header class="essay-header"><span class="essay-eyebrow article-kicker">Working draft · Human agency</span><h1>{{TITLE}}</h1><div class="essay-byline">{{DATE}} · Domi Jin</div></header>
+<article>
+{{BODY}}
+</article>
+<footer class="colophon"><p>Working draft · {{DATE}}. <a href="/articles/blog/open-learning.md">Read the Markdown source</a>.</p><p><a href="/articles/">More writing</a> · <a href="mailto:contact@domij.info">Compare notes</a></p></footer>
+</main>
+</body>
+</html>

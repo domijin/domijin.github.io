@@ -417,6 +417,28 @@ export const OPEN_PROJECTS: OpenProject[] = [
 
 export const WRITINGS_DATA: WritingNode[] = [
   {
+    "id": "open-learning",
+    "title": "Open Learning: From Individual Potential to Collective Discovery",
+    "date": "2026-11-17",
+    "source": "Blog",
+    "url": "https://domij.info/articles/blog/open-learning.html",
+    "localUrl": "/articles/blog/open-learning.html",
+    "localMarkdownUrl": "/articles/blog/open-learning.md",
+    "pillar": "human-potential",
+    "secondaryPillars": [
+      "collective-intelligence",
+      "human-ai-collaboration"
+    ],
+    "summary": "A working hypothesis connecting four proposed courses—effective altruism, future thinking, design thinking and positive psychology—with purpose, potentials, communication and resilience, alongside three independent learning-experience principles.",
+    "keyInsight": "Open access and AI guidance are starting points; durable learning and examinable contributions remain to be demonstrated.",
+    "position": [
+      -3.2,
+      1.2,
+      1.6
+    ],
+    "featured": true
+  },
+  {
     id: "open-learning-lab-protocol",
     title: "Open Learning Lab: Evidence-Driven Personalized Learning Policies",
     date: "2026-08",

@@ -23,6 +23,26 @@
     }
   },
   "interactiveArtifacts": {
+    "sharedKnowledge": {
+      "sourceRoute": "/shared-knowledge/",
+      "stagedRoute": "/next/shared-knowledge/",
+      "title": "Two people, a wider horizon",
+      "language": "en-GB",
+      "status": "Conceptual demonstration",
+      "type": "Interactive essay with two schematic competence maps and a deterministic fictional exchange",
+      "description": "Education and knowledge sharing as one component of a collaborative society: compare common topics, inspect the origins of differences, reconstruct another perspective, align on a question, examine a synthetic result and prepare a provisional note.",
+      "limitations": "Maya and Leo, familiarity levels, notes and outcomes are fictional. Diagram areas are not measured competence or personal worth. Initial understanding is not mastery; agreement is not truth. No real publication or model inference occurs.",
+      "relatedArticles": [
+        "/articles/blog/open-learning.html",
+        "/articles/blog/free-market-in-a-possibility-universe.html",
+        "/articles/substack/overachievers-responsibility-reflection.html"
+      ],
+      "references": [
+        "https://doi.org/10.1037/10096-006",
+        "https://doi.org/10.1037/0022-3514.48.6.1467",
+        "https://doi.org/10.1080/00461520.2014.965823"
+      ]
+    },
     "euclideanWormholes": {
       "sourceRoute": "/wormholes/",
       "stagedRoute": "/next/wormholes/",
@@ -221,6 +241,25 @@
     }
   ],
   "writings": [
+    {
+      "id": "open-learning",
+      "title": "Open Learning: From Individual Potential to Collective Discovery",
+      "date": "2026-11-17",
+      "source": "Blog",
+      "url": "https://domij.info/articles/blog/open-learning.html",
+      "localUrl": "/articles/blog/open-learning.html",
+      "localMarkdownUrl": "/articles/blog/open-learning.md",
+      "pillar": "human-potential",
+      "secondaryPillars": [
+        "collective-intelligence",
+        "human-ai-collaboration"
+      ],
+      "summary": "A working hypothesis connecting four proposed courses—effective altruism, future thinking, design thinking and positive psychology—with purpose, potentials, communication and resilience, alongside three independent learning-experience principles.",
+      "keyInsight": "Open access and AI guidance are starting points; durable learning and examinable contributions remain to be demonstrated.",
+      "status": "Working draft",
+      "sourceContext": "/pdfs/learning-about-learning.pdf",
+      "limitations": "Working hypothesis, not a programme evaluation or implementation claim. The age cohort, growth mindset evidence and tutoring economics require verification. The Thomas correspondence is a supplied summary, not a transcript."
+    },
     {
       "id": "open-learning-lab-protocol",
       "title": "Open Learning Lab: Evidence-Driven Personalized Learning Policies",

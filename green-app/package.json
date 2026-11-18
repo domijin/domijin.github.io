@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "export:green": "NEXT_BASE_PATH=/next next build && rm -rf ../next && cp -R out ../next && python3 ../scripts/scrub-build-secrets.py ../next && touch ../.nojekyll",
-    "export:root": "NEXT_BASE_PATH='' next build && python3 ../scripts/scrub-build-secrets.py out"
+    "export:root": "NEXT_BASE_PATH='' next build && python3 ../scripts/scrub-build-secrets.py out",
+    "render:learning-diagrams": "node ../scripts/render-learning-diagrams.mjs"
   },
   "dependencies": {
     "@huggingface/transformers": "^4.3.2",
@@ -20,6 +21,7 @@
     "three": "^0.184.0"
   },
   "devDependencies": {
+    "@mermaid-js/mermaid-cli": "12.2.0",
     "@tailwindcss/postcss": "^4.2.2",
     "@types/node": "^25.6.0",
     "@types/react": "^19.2.14",

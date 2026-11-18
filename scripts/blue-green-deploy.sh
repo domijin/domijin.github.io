@@ -45,6 +45,8 @@ case "$cmd" in
     npm run export:green
     python3 "${ROOT_DIR}/scripts/keep-previous-assets.py" restore \
       "${KEEP_DIR}" "${ROOT_DIR}"
+    # Withdraw private prompt material even from retained client generations.
+    node "${ROOT_DIR}/scripts/scrub-editorial-record.cjs" "${ROOT_DIR}/_next" "${ROOT_DIR}/next/_next"
     python3 "${ROOT_DIR}/scripts/verify-build-assets.py"
     echo "Done. Green environment exported to ${ROOT_DIR}/next/ and .nojekyll ensured."
     ;;
@@ -77,6 +79,8 @@ case "$cmd" in
     # generation's manifest names, must be in the tree. A generation kept for
     # a cached client but missing its chunks turns that client's reload into
     # "Application error" instead of the site.
+    # Withdraw private prompt material even from retained client generations.
+    node "${ROOT_DIR}/scripts/scrub-editorial-record.cjs" "${ROOT_DIR}/_next" "${ROOT_DIR}/next/_next"
     python3 "${ROOT_DIR}/scripts/verify-build-assets.py"
     touch "${ROOT_DIR}/.nojekyll"
     echo "Green promoted to root (/). Classic home page backed up to /classic/index.html."
