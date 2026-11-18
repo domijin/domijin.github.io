@@ -112,7 +112,7 @@ const NARRATIVE_THEMES: NarrativeThemeSpec[] = [
     num: "04",
     shortLabel: "04 · Working Together",
     kicker: "04 · Civic Scale · 2018 – Present",
-    title: "Collective Competence: One Mission, Every Person Whole",
+    title: "Civilization: It Takes All Kinds",
     subtitle:
       "From human capital in an ‘organized farm’ to organizing intelligence with empowered individuals — and a proposed measure of a resilient, capable team: collective competence with mission alignment, holding diversity and individuality at once.",
     period: "2018 – Present · Domi’s Mind Waves & Civic Notes",
