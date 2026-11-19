@@ -429,7 +429,7 @@ export const WRITINGS_DATA: WritingNode[] = [
       "collective-intelligence",
       "human-ai-collaboration"
     ],
-    "summary": "A bilingual (EN / 中文 toggle on the same URL, ?lang=zh) working hypothesis connecting four proposed courses—effective altruism, future thinking, design thinking and positive psychology—with purpose, potentials, communication and resilience, alongside three independent learning-experience principles.",
+    "summary": "A bilingual (EN / 中文 toggle on the same URL, ?lang=zh) working hypothesis connecting four possible routes into learning—effective altruism, future thinking, design thinking and positive psychology—with purpose, potentials, communication and resilience, alongside three independent learning-experience principles.",
     "keyInsight": "Open access and AI guidance are starting points; durable learning and examinable contributions remain to be demonstrated.",
     "position": [
       -3.2,

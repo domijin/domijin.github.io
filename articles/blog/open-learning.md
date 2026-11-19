@@ -14,7 +14,7 @@ Our education system provides essential foundations and breadth. My hypothesis i
 
 ### Four pillars — human capabilities
 
-I imagine these as four courses, each centred on a human capability.
+These are four capabilities a learner can develop within a single project. The course ideas below are possible ways to practise them.
 
 | Proposed course | Human capability | Guiding question |
 |---|---|---|
@@ -36,7 +36,7 @@ Effective altruism connects personal interests with social responsibility. Futur
 These are independent dimensions. The four pillars concern human development; the three principles concern experience design. None of the principles belongs under a particular pillar.
 
 <figure class="learning-figure">
-<div class="mermaid-scroll mermaid-framework" tabindex="0" role="region" aria-label="Framework diagram; scroll horizontally if needed"><img src="/articles/diagrams/open-learning-framework.svg" alt="Four proposed courses and three independent experience principles both inform individual mastery and collective discovery." loading="lazy" /></div>
+<div class="mermaid-scroll mermaid-framework" tabindex="0" role="region" aria-label="Framework diagram; scroll horizontally if needed"><img src="/articles/diagrams/open-learning-framework.svg" alt="Four core capabilities and three independent experience principles both inform individual mastery and collective discovery." loading="lazy" /></div>
 <figcaption>Two independent dimensions, not a sequence or measured outcome. <a href="/articles/diagrams/open-learning-framework.svg">Open diagram</a> · <a href="/articles/diagrams/open-learning-framework.mmd">Mermaid source</a>.</figcaption>
 </figure>
 

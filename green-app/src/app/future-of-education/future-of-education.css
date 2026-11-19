@@ -382,7 +382,7 @@
   margin-top: 2px;
 }
 
-.foe-figure figcaption {
+.foe-figure .foe-goals-label {
   margin-top: 12px;
   font-family: ui-sans-serif, system-ui, "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 13.5px;
