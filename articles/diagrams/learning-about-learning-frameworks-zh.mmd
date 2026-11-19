@@ -1,0 +1,32 @@
+flowchart LR
+  accTitle: 教育理论与框架分支（中文导图）
+  accDescr: 教育理论/框架分支并列呈现 Carl Wieman 的主动学习课程改造流程（含“2017 年起的六年计划？”边界标注）与 Eric Mazur 的五组加框维度：OKR、同伴学习与协作、清晰定向、沟通表达与成长型思维。
+  EF["教育理论 / 框架<br/>Education theory/framework [笔记]"]
+
+  CW["Carl Wieman -<br/>主动学习 active learning<br/>[高等教育] [链接]"]
+  subgraph F1["边界标注：2017 年起的六年计划？（six-year plan since 2017?）"]
+    direction TB
+    CT["课程改造流程（course transformation）：<br/>• 学生应当学会什么<br/>• 学生实际学到了什么<br/>• 哪些教学实践能改善学习效果"]
+  end
+  CW2["改进大学科学课程的教学方式"]
+
+  EM["Eric Mazur<br/>[链接]"]
+  M1["边界：OKR 目标对齐<br/>• 基于项目的学习（Project-based）<br/>• 基于团队的学习（Team-based）"]
+  M2["边界：同伴学习 / 协作<br/>• 团队契约与同伴反馈<br/>• 同伴教学法（Peer Instruction）<br/>• 个人与协作评估（IC & CC）"]
+  M3["边界：清晰定向（Informative）<br/>• 用设计笔记本（Design notebook）追踪过程"]
+  M4["边界：沟通表达（Communication）<br/>• 结合总结性评估的公开展示"]
+  M5["边界：成长型思维（Growth Mindset）<br/>• 降低“唯一正确答案”的权重"]
+
+  EF --> CW
+  CW --> CT
+  CW --> CW2
+
+  EF --> EM
+  EM --> M1
+  EM --> M2
+  EM --> M3
+  EM --> M4
+  EM --> M5
+
+  classDef group fill:#f0f9ff,stroke:#0284c7,stroke-width:1.5px,color:#0f172a
+  class M1,M2,M3,M4,M5 group

@@ -451,7 +451,7 @@ export const WRITINGS_DATA: WritingNode[] = [
       "collective-intelligence",
       "human-ai-collaboration"
     ],
-    "summary": "A native Mermaid and plain-text decoding of the 10 March 2023 XMind map (Design for Learning), restoring every branch, boundary annotation, summary frame, icon marker and reference link in place of serving the raw PDF.",
+    "summary": "A bilingual (EN / 中文 toggle on the same URL, ?lang=zh) native Mermaid and plain-text decoding of the 10 March 2023 XMind map (Design for Learning), restoring every branch, boundary annotation, summary frame, icon marker and reference link in place of serving the raw PDF.",
     "keyInsight": "Personal tutoring boundaries (informative, interactive, adaptive), explicit instructional principles, and critiques of growth-mindset framing prefigured the Open Learning working draft.",
     "position": [
       -3.0,

@@ -216,7 +216,7 @@ function renderFormattedBlock(block: string, idx: number) {
       <div
         key={idx}
         className={trimmed.startsWith('<figure class="learning-figure"') || trimmed.startsWith("<details") ? "my-6 min-w-0" : "my-6 overflow-x-auto rounded-2xl border border-slate-200/90 bg-white/90 p-4 sm:p-6 shadow-xs"}
-        dangerouslySetInnerHTML={{ __html: trimmed }}
+        dangerouslySetInnerHTML={{ __html: trimmed.replace(/\s+loading="lazy"/g, "") }}
       />
     );
   }
@@ -356,6 +356,7 @@ export default function GreenExperience() {
 
   // Active essay open in the self-sufficient In-Page Essay Reader
   const [activeReaderUrl, setActiveReaderUrl] = useState<string | null>(null);
+  const [readerLang, setReaderLang] = useState<"en" | "zh">("en");
   const readerDialogRef = useRef<HTMLDialogElement | null>(null);
   const readerScrollRef = useRef<HTMLDivElement | null>(null);
 
@@ -394,6 +395,20 @@ export default function GreenExperience() {
     if (!activeReaderUrl) return null;
     return BOOK_ESSAYS_BY_URL[activeReaderUrl] || null;
   }, [activeReaderUrl]);
+
+  const activeReaderIsZh = Boolean(activeReaderEssay?.zh && readerLang === "zh");
+  const activeReaderLocale =
+    activeReaderEssay && activeReaderIsZh && activeReaderEssay.zh
+      ? activeReaderEssay.zh
+      : activeReaderEssay;
+  const activeReaderFullPageHref = activeReaderEssay
+    ? withBasePath(
+        activeReaderIsZh
+          ? `${activeReaderEssay.url}?lang=zh`
+          : activeReaderEssay.url,
+        BASE_PATH
+      )
+    : "/";
 
   const nextReaderEssay: BookEssayEntry | null = useMemo(() => {
     if (!activeReaderUrl) return null;
@@ -484,9 +499,10 @@ export default function GreenExperience() {
     "04 · Working Together",
   ];
 
-  const openEssayReader = (url: string) => {
+  const openEssayReader = (url: string, initialLang: "en" | "zh" = "en") => {
     const canonicalUrl = stripBasePath(url, BASE_PATH);
     if (BOOK_ESSAYS_BY_URL[canonicalUrl]) {
+      setReaderLang(initialLang);
       setActiveReaderUrl(canonicalUrl);
       setEngagedEssayUrls((prev) =>
         prev.includes(canonicalUrl)
@@ -955,7 +971,7 @@ export default function GreenExperience() {
       </header>
 
       {/* In-Page Essay Reader Drawer (Substack-Style Reading Experience with Next Post flow) */}
-      {activeReaderEssay && (
+      {activeReaderEssay && activeReaderLocale && (
         <dialog
           ref={readerDialogRef}
           onCancel={() => setActiveReaderUrl(null)}
@@ -973,15 +989,53 @@ export default function GreenExperience() {
               <div className="flex items-center justify-between gap-4 pb-5 mb-8 border-b border-slate-200 sticky top-0 bg-[#fcfcfd]/95 backdrop-blur-md z-10 pt-1">
                 <div>
                   <span className="text-[11px] font-mono uppercase tracking-widest text-[#2980b9] block">
-                    {getThemeLabelForUrl(activeReaderEssay.url)} · {activeReaderEssay.venue}
+                    {getThemeLabelForUrl(activeReaderEssay.url)} · {activeReaderLocale.venue}
                   </span>
                   <span className="text-xs text-slate-500">
-                    By Domi Jin · {activeReaderEssay.date}
+                    By Domi Jin · {activeReaderLocale.date}
                   </span>
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 flex-wrap justify-end">
+                  {activeReaderEssay.zh && (
+                    <div
+                      className="inline-flex rounded-lg border border-slate-200 bg-white p-0.5 text-xs font-mono"
+                      role="group"
+                      aria-label="Language"
+                    >
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setReaderLang("en");
+                          if (readerScrollRef.current) readerScrollRef.current.scrollTop = 0;
+                        }}
+                        aria-pressed={!activeReaderIsZh}
+                        className={`px-2 py-1 rounded-md transition cursor-pointer ${
+                          !activeReaderIsZh
+                            ? "bg-[#2980b9] text-white font-semibold"
+                            : "text-slate-600 hover:text-[#2980b9]"
+                        }`}
+                      >
+                        EN
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setReaderLang("zh");
+                          if (readerScrollRef.current) readerScrollRef.current.scrollTop = 0;
+                        }}
+                        aria-pressed={activeReaderIsZh}
+                        className={`px-2 py-1 rounded-md transition cursor-pointer ${
+                          activeReaderIsZh
+                            ? "bg-[#2980b9] text-white font-semibold"
+                            : "text-slate-600 hover:text-[#2980b9]"
+                        }`}
+                      >
+                        中文
+                      </button>
+                    </div>
+                  )}
                   <a
-                    href={activeReaderEssay.url}
+                    href={activeReaderFullPageHref}
                     className="px-3 py-1.5 rounded-lg border border-slate-200 bg-white text-xs font-mono text-slate-700 hover:border-[#1DAEDF] hover:text-[#2980b9] transition"
                   >
                     Full page ↗
@@ -996,13 +1050,13 @@ export default function GreenExperience() {
                 </div>
               </div>
 
-              <header className="mb-8">
+              <header className="mb-8" lang={activeReaderIsZh ? "zh-CN" : undefined}>
                 <h2
                   tabIndex={-1}
                   id="essay-reader-title"
                   className="text-2xl sm:text-4xl font-bold text-slate-900 font-serif leading-tight tracking-tight"
                 >
-                  {activeReaderEssay.title}
+                  {activeReaderLocale.title}
                 </h2>
                 {activeReaderEssay.url === "/articles/research/astrophysics-bbh-dissertation.html" && (
                   <a
@@ -1016,8 +1070,8 @@ export default function GreenExperience() {
                 )}
               </header>
 
-              <article className="max-w-none">
-                {activeReaderEssay.blocks.map((block, idx) =>
+              <article className="max-w-none" lang={activeReaderIsZh ? "zh-CN" : undefined}>
+                {activeReaderLocale.blocks.map((block, idx) =>
                   renderFormattedBlock(block, idx)
                 )}
               </article>
@@ -2125,12 +2179,24 @@ export default function GreenExperience() {
                       onClick={(e) => e.stopPropagation()}
                     >
                       <span className="truncate">{entry.venue}</span>
-                      <a
-                        href={entry.url}
-                        className="font-mono text-[#0369a1] hover:underline shrink-0"
-                      >
-                        Full page ↗
-                      </a>
+                      <div className="flex items-center gap-2 shrink-0">
+                        {entry.zh && (
+                          <button
+                            type="button"
+                            onClick={() => openEssayReader(url, "zh")}
+                            className="px-1.5 py-0.5 rounded bg-sky-50 border border-sky-200 font-mono text-[10px] text-[#0369a1] hover:bg-sky-100 cursor-pointer transition"
+                            aria-label={`Read ${entry.title} in Chinese`}
+                          >
+                            EN / 中文
+                          </button>
+                        )}
+                        <a
+                          href={entry.url}
+                          className="font-mono text-[#0369a1] hover:underline shrink-0"
+                        >
+                          Full page ↗
+                        </a>
+                      </div>
                     </div>
                   </article>
                 );
@@ -2743,6 +2809,16 @@ export default function GreenExperience() {
                         </a></>}
                       </span>
                       <div className="flex items-center gap-3 font-mono">
+                        {bookEntry?.zh && (
+                          <button
+                            type="button"
+                            onClick={() => openEssayReader(w.localUrl, "zh")}
+                            className="px-1.5 py-0.5 rounded bg-sky-50 border border-sky-200 text-[10px] text-[#0369a1] hover:bg-sky-100 cursor-pointer transition"
+                            aria-label={`Read ${w.title} in Chinese`}
+                          >
+                            EN / 中文
+                          </button>
+                        )}
                         <button
                           onClick={() => openEssayReader(w.localUrl)}
                           className="text-[#2980b9] hover:text-[#1DAEDF] font-medium cursor-pointer"

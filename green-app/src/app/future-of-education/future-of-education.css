@@ -406,6 +406,10 @@
   margin-top: 16px;
 }
 
+.foe-links-grid .foe-link-card:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
 .foe-link-card {
   display: block;
   padding: 14px 16px;

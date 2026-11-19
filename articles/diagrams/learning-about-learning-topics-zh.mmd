@@ -1,0 +1,44 @@
+flowchart LR
+  accTitle: 最初思考的主题与积极心理学分支（中文导图）
+  accDescr: 四个起始主题：未来思维（第一性原理）、有效利他（社会责任）、设计思维（有效沟通，详图见下节 4b），以及积极心理学与认知科学家对成长型思维效应量的审慎评估、Marva Collin 边界和 MindSetKit 资源。
+  IT["最初思考的主题<br/>Initial Topics I thought about"]
+
+  FT["未来思维 Future Thinking<br/>(第一性原理)"]
+  PP["积极心理学 Positive Psychology<br/>(韧性 / 成长型思维) [笔记]"]
+  DT["设计思维 Design Thinking<br/>(有效沟通) [笔记]<br/>(详图见下方分支 4b)"]
+  EA["有效利他 Effective Altruism<br/>(社会责任)"]
+
+  CS["认知科学家的观点<br/>Cognitive Scientist's view [链接]"]
+  CS --> CS1["理论方向是对的"]
+  CS --> CS2["实际效应量较小"]
+  CS --> CS3["干预可以改变，但绝非易事 [链接]"]
+  CS --> CS4["该变化高度依赖具体情境"]
+
+  NS["汇总：没有银弹，小效应才是常态<br/>No silver bullet, small effect is common [笔记]"]
+  subgraph T1["边界标注：Marva Collin"]
+    direction TB
+    MC1["-> 《Ordinary Children,<br/>ExtraOrdinary Teachers》[链接]<br/>-> 《Marva Collin's Way》"]
+  end
+
+  MK["学习资源：<br/>MindSetKit [链接]"]
+  MK --> MK1["表扬过程，而非个人"]
+  MK --> MK2["庆祝错误（Google X）"]
+  MK --> MK3["布置促进挑战与成长的任务"]
+
+  IT --> FT
+  IT --> PP
+  IT --> DT
+  IT --> EA
+
+  PP --> CS
+  PP --> MK
+  CS1 -. 汇总 .-> NS
+  CS2 -. 汇总 .-> NS
+  CS3 -. 汇总 .-> NS
+  CS4 -. 汇总 .-> NS
+  NS --> MC1
+
+  classDef summary fill:#e0f2fe,stroke:#0369a1,stroke-width:2px,color:#0f172a
+  classDef note fill:#f8fafc,stroke:#64748b,stroke-dasharray: 4 2,color:#0f172a
+  class NS summary
+  class DT note

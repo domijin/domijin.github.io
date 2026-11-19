@@ -40,6 +40,9 @@ export default function FutureOfEducationPage() {
           <a href={homeHref}>&larr; Domi Jin 主页</a>
           <span className="foe-badge">工作构想 · 中文简述</span>
           <div className="foe-topbar-links">
+            <a href="/articles/blog/learning-about-learning.html?lang=zh">
+              学习导图解码 (CN / EN)
+            </a>
             <a href="/articles/blog/open-learning.html">Open Learning 英文草案</a>
             <a href={sharedKnowledgeHref}>共享知识交互演示</a>
           </div>
@@ -55,7 +58,11 @@ export default function FutureOfEducationPage() {
           </p>
           <p className="foe-byline">
             Domi Jin · 2026 年 11 月 · 根据{" "}
-            <a href="/articles/blog/open-learning.html">Open Learning</a> 与{" "}
+            <a href="/articles/blog/open-learning.html">Open Learning</a>、{" "}
+            <a href="/articles/blog/learning-about-learning.html?lang=zh">
+              Learning about Learning 思维导图解码
+            </a>{" "}
+            与{" "}
             <a href="/articles/github/open-learning-lab.html">
               Open Learning Lab
             </a>{" "}
@@ -277,6 +284,15 @@ export default function FutureOfEducationPage() {
                 <strong>LibertyEarth &amp; The Future Project</strong>
                 <span>
                   将教育、个人知识图谱与协作社会联系起来的长期笔记（2019–2025）。
+                </span>
+              </a>
+              <a
+                className="foe-link-card"
+                href="/articles/blog/learning-about-learning.html?lang=zh"
+              >
+                <strong>学习的架构：Learning about Learning 思维导图解码（中文 / EN）</strong>
+                <span>
+                  将 2023 年 3 月 10 日 XMind 学习导图完整解码为 7 张中英文 Mermaid 图示、边界注释与全部 13 条原始参考链接，同一页面支持一键切换中文与英文。
                 </span>
               </a>
             </div>

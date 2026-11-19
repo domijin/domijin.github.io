@@ -1,0 +1,40 @@
+flowchart LR
+  accTitle: 对教育设计思维的批判、Donald Clark、助推学习与 WildFire AI（中文导图）
+  accDescr: 在“批判用于教育的设计思维（而非沟通目的）”边界内，呈现 Donald Clark 的五步重构、有效方案汇总、行为科学助推学习，以及 Alvin Toffler 战略引语框住的 WildFire AI 学习要点。
+  subgraph T2["边界标注：批判用于教育的设计思维（而非用于沟通表达）"]
+    direction LR
+    DT["设计思维 Design Thinking<br/>(有效沟通) [笔记]"]
+    DC["Donald Clark<br/>[详情省略号 …]"]
+    DC --> DC1["共情 Empathise -> 分析 Analysis [笔记]"]
+    DC --> DC2["定义 Define -> 精细化教学法、<br/>自适应与交互式方法 [笔记]"]
+    DC --> DC3["构想 Ideate -> 付出认知努力的学习：<br/>重思维密度，而非媒体花哨 [笔记]"]
+    DC --> DC4["原型 Prototype -> 运用科学方法 [笔记]"]
+    DC --> DC5["测试 Test -> 以学习实效衡量<br/>（长时留存的学习） [笔记]"]
+
+    ES["汇总：<br/>有效方案 Effective Solution"]
+    NL["助推学习 Nudge Learning：<br/>学习中的行为科学 [链接]"]
+
+    subgraph T3["边界标注：Toffler 战略引语"]
+      direction LR
+      WF["WildFire：用于学习的 AI<br/>[详情省略号 …]<br/>“如果你没有自己的战略，<br/>就会成为别人战略的一部分。”—— Toffler"]
+      WF --> WF1["动手去用 -> 在实践中学习"]
+      WF --> WF2["就输入请教建议 -> 围绕反馈迭代"]
+      WF --> WF3["格局要大，保持战略性与延展性思维"]
+      WF --> WF4["更宏观的 AI 视角 [笔记]"]
+      WF --> WF5["思考“学习”而非“教学” -> 用户体验优先"]
+      WF --> WF6["营造紧迫感"]
+      WF --> WF7["记住这一切正在高速演进"]
+    end
+  end
+
+  DT --> DC
+  DC1 -. 汇总 .-> ES
+  DC2 -. 汇总 .-> ES
+  DC3 -. 汇总 .-> ES
+  DC4 -. 汇总 .-> ES
+  DC5 -. 汇总 .-> ES
+  ES --> NL
+  ES --> WF
+
+  classDef summary fill:#e0f2fe,stroke:#0369a1,stroke-width:2px,color:#0f172a
+  class ES summary

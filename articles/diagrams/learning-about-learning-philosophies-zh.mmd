@@ -1,0 +1,45 @@
+flowchart LR
+  accTitle: 教学哲学与 Learning Scientists 分支（中文导图）
+  accDescr: 在“个性化辅导 -> 清晰定向、主动交互、动态适配”的边界框内，并列展示社会建构主义/发现式学习与直接/显性教学，以及 LearningScientist 的愿景与六项有效学习策略。
+  TP["教学哲学<br/>Teaching philosophies [笔记标记]"]
+
+  subgraph P1["边界标注：个性化辅导 -> 清晰定向、主动交互、动态适配（informative, interactive, adaptive）"]
+    direction LR
+    SC["社会建构主义 /<br/>发现式学习"]
+    DE["直接 / 显性教学<br/>science of learning [笔记]"]
+
+    subgraph P2["边界标注：愿景——让学习科学研究更易触达"]
+      direction TB
+      LS["面向教育者：<br/>LearningScientist [链接]"]
+      LS1["激发学生的学习动力"]
+      LS2["推广有研究证据支撑的<br/>有效学习与教学策略 [链接]"]
+      LS3["减少对测验的负面印象"]
+      LS --> LS1
+      LS --> LS2
+      LS --> LS3
+    end
+
+    ELS["汇总：<br/>有效学习策略<br/>Effective Learning Strategies"]
+    S1["间隔练习 Spaced Practice<br/>-> anki"]
+    S2["提取练习 Retrieval Practice"]
+    S3["精细加工 Elaboration<br/>-> 促进与对比学习<br/>-> 第一性原理思维"]
+    S4["交错练习 Interleaving"]
+    S5["具体例子 Concrete Examples"]
+    S6["双重编码 Dual Coding<br/>-> 归档能力与多模态思维<br/>-> 设计思维 [链接]"]
+  end
+
+  TP --> SC
+  TP --> DE
+  DE --> LS
+  LS1 -. 汇总 .-> ELS
+  LS2 -. 汇总 .-> ELS
+  LS3 -. 汇总 .-> ELS
+  ELS --> S1
+  ELS --> S2
+  ELS --> S3
+  ELS --> S4
+  ELS --> S5
+  ELS --> S6
+
+  classDef summary fill:#e0f2fe,stroke:#0369a1,stroke-width:2px,color:#0f172a
+  class ELS summary

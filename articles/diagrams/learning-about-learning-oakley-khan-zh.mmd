@@ -1,0 +1,28 @@
+flowchart LR
+  accTitle: Barbara Oakley 与 Khan Academy 子分支（中文导图）
+  accDescr: 在个性化辅导与直接显性教学下，Barbara Oakley 的《如何学习》（Learning How To Learn）边界框涵盖方法工具与 MOOC 课程，并与可汗学院（Khan Academy）的 STEM 与生活技能资源并列。
+  DE["直接 / 显性教学<br/>science of learning [笔记]"]
+
+  subgraph P1["边界标注：个性化辅导 -> 清晰定向、主动交互、动态适配（informative, interactive, adaptive）"]
+    direction LR
+    BO["面向学习者：<br/>Barbara Oakley [链接]"]
+    subgraph P3["边界标注：著作《Learning How To Learn》"]
+      direction LR
+      TM["工具与方法论<br/>tools & methodologies"]
+      TM --> TM1["6 项有效学习策略"]
+      TM --> TM2["专注模式与发散模式：<br/>卡住时切换主题"]
+      TM --> TM3["通过练习、重复与回忆<br/>建立神经连接（brain-links）"]
+      TM --> TM4["练习与测验形成反馈闭环"]
+      TM --> TM5["先攻克难题，<br/>让发散思维接手协助"]
+      MOOC["MOOC 在线课程 [链接]"]
+    end
+
+    KA["学习资源：<br/>可汗学院 Khan Academy [链接]"]
+    KA --> KA1["STEM 理工学科"]
+    KA --> KA2["生活技能 Life skills"]
+  end
+
+  DE --> BO
+  DE --> KA
+  BO --> TM
+  BO --> MOOC

@@ -1,0 +1,26 @@
+flowchart LR
+  accTitle: 教学设计分支（Design for Learning 中文导图）
+  accDescr: 系统化、反思性、认知导向与建构性四个维度在“偏向实践（bias toward practical）”边界内汇总为首要教学原理（Merrill 五项原则），其中三项带有折叠子主题计数。
+  ID["教学设计<br/>Instructional design [笔记标记]"]
+  ID --> ID1["系统化 systematic"]
+  ID --> ID2["反思性 reflective"]
+  ID --> ID3["认知导向 cognitive"]
+  ID --> ID4["建构性 constructive"]
+
+  subgraph B1["边界标注：偏向实践（bias toward practical）"]
+    direction LR
+    FP["汇总：<br/>首要教学原理<br/>first principle of instruction"]
+    FP --> FP1["问题中心 problem-centered<br/>[笔记 · 原导图折叠 5 项]"]
+    FP --> FP2["激活旧知 activation<br/>[笔记 · 原导图折叠 3 项]"]
+    FP --> FP3["示证新知 demonstration<br/>[笔记 · 原导图折叠 3 项]"]
+    FP --> FP4["应用新知 application<br/>[笔记]"]
+    FP --> FP5["融会贯通 integration"]
+  end
+
+  ID1 -. 汇总 .-> FP
+  ID2 -. 汇总 .-> FP
+  ID3 -. 汇总 .-> FP
+  ID4 -. 汇总 .-> FP
+
+  classDef summary fill:#e0f2fe,stroke:#0369a1,stroke-width:2px,color:#0f172a
+  class FP summary

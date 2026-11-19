@@ -22,6 +22,13 @@ const diagrams = [
   'learning-about-learning-frameworks',
   'learning-about-learning-topics',
   'learning-about-learning-design-ai',
+  'learning-about-learning-overview-zh',
+  'learning-about-learning-instructional-zh',
+  'learning-about-learning-philosophies-zh',
+  'learning-about-learning-oakley-khan-zh',
+  'learning-about-learning-frameworks-zh',
+  'learning-about-learning-topics-zh',
+  'learning-about-learning-design-ai-zh',
 ];
 for (const name of diagrams) {
   await run(path.join(root, `articles/diagrams/${name}.mmd`), path.join(root, `articles/diagrams/${name}.svg`), {

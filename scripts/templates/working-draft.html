@@ -24,8 +24,15 @@
 body { margin: 0; background: var(--bg); color: var(--ink); font: 19px/1.78 "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "PingFang SC", "Hiragino Sans GB", "Noto Serif CJK SC", serif; }
 a { color: var(--accent); text-underline-offset: 3px; }
 .topbar { border-bottom: 1px solid var(--border); background: #fff; font: 13px/1.5 system-ui, sans-serif; }
-.topbar-inner { max-width: 760px; margin: auto; padding: 12px 24px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.topbar-inner { max-width: 760px; margin: auto; padding: 12px 24px; display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+.topbar-right { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
 .publication-badge { color: var(--muted); text-transform: uppercase; letter-spacing: .04em; font-size: 11px; }
+.lang-toggle { display: inline-flex; align-items: center; border: 1px solid #bae6fd; border-radius: 999px; padding: 2px; background: #f0f9ff; gap: 2px; }
+.lang-toggle button { border: 0; background: transparent; color: #0369a1; font: 600 12px/1.3 system-ui, "PingFang SC", sans-serif; padding: 4px 10px; border-radius: 999px; cursor: pointer; }
+.lang-toggle button[aria-pressed="true"] { background: #0369a1; color: #ffffff; }
+.lang-toggle button:hover:not([aria-pressed="true"]) { background: #e0f2fe; }
+.lang-panel[hidden] { display: none; }
+.bilingual-bar { margin-top: 14px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font: 13px/1.5 system-ui, "PingFang SC", sans-serif; color: var(--muted); }
 main { max-width: 760px; margin: auto; padding: 48px 24px 80px; }
 .essay-header { margin-bottom: 36px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
 .essay-eyebrow { color: var(--accent); font: 12px/1.6 ui-monospace, monospace; text-transform: uppercase; letter-spacing: .08em; }
@@ -75,13 +82,14 @@ code { font: 0.85em/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; backgrou
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'\\(',right:'\\)',display:false},{left:'\\[',right:'\\]',display:true}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code','option']});"></script>
 </head>
 <body>
-<nav class="topbar" aria-label="Site navigation"><div class="topbar-inner"><a href="/">← Domi Jin</a><span class="publication-badge">Working draft</span><a href="/articles/">All Writing</a></div></nav>
+<nav class="topbar" aria-label="Site navigation"><div class="topbar-inner"><a href="/">{{NAV_HOME_TEXT}}</a><span class="publication-badge">{{BADGE_TEXT}}</span><div class="topbar-right">{{TOPBAR_TOGGLE}}<a href="/articles/">{{NAV_ALL_TEXT}}</a></div></div></nav>
 <main>
-<header class="essay-header"><span class="essay-eyebrow article-kicker">Working draft · Human agency</span><h1>{{TITLE}}</h1><div class="essay-byline">{{DATE}} · Domi Jin</div></header>
+<header class="essay-header"><span class="essay-eyebrow article-kicker">{{EYEBROW_TEXT}}</span><h1>{{TITLE}}</h1><div class="essay-byline">{{BYLINE_TEXT}}</div>{{HEADER_LANG_BAR}}</header>
 <article>
 {{BODY}}
 </article>
-<footer class="colophon"><p>Working draft · {{DATE}}. <a href="{{MD_URL}}">Read the Markdown source</a>.</p><p><a href="/articles/">More writing</a> · <a href="mailto:contact@domij.info">Compare notes</a></p></footer>
+<footer class="colophon">{{COLOPHON_HTML}}</footer>
 </main>
+{{LANG_SCRIPT}}
 </body>
 </html>

@@ -30,6 +30,7 @@ PAGES = [
     },
     {
         'source': ROOT / 'articles/blog/learning-about-learning.md',
+        'zh_source': ROOT / 'scripts/data/learning-about-learning-zh.md',
         'url': 'https://domij.info/articles/blog/learning-about-learning.html',
         'md_url': '/articles/blog/learning-about-learning.md',
         'prefix': 'lal',
@@ -124,6 +125,71 @@ def render(block, page_prefix, fig_counter):
     return '<p>' + inline(block) + '</p>'
 
 
+def build_lang_toggle(aria_label):
+    return (
+        f'<div class="lang-toggle" role="group" aria-label="{html.escape(aria_label)}">'
+        '<button type="button" data-lang-btn="en" aria-pressed="true">EN</button>'
+        '<button type="button" data-lang-btn="zh" aria-pressed="false">中文</button>'
+        '</div>'
+    )
+
+
+def build_lang_script(title_en, title_zh):
+    payload = json.dumps({'enTitle': title_en, 'zhTitle': title_zh}, ensure_ascii=False)
+    return f"""<script>
+(function () {{
+  var meta = {payload};
+  var h1 = document.querySelector('.essay-header h1');
+  var panels = document.querySelectorAll('[data-lang-panel]');
+  var spans = document.querySelectorAll('[data-lang-span]');
+  var buttons = document.querySelectorAll('[data-lang-btn]');
+  if (!h1 || !panels.length) return;
+  function setLang(lang, updateUrl) {{
+    var isZh = lang === 'zh';
+    document.documentElement.lang = isZh ? 'zh-CN' : 'en-GB';
+    document.title = (isZh ? meta.zhTitle : meta.enTitle) + ' \u2014 Domi Jin';
+    h1.textContent = isZh ? meta.zhTitle : meta.enTitle;
+    panels.forEach(function (el) {{
+      var match = el.getAttribute('data-lang-panel') === (isZh ? 'zh' : 'en');
+      el.hidden = !match;
+    }});
+    spans.forEach(function (el) {{
+      var match = el.getAttribute('data-lang-span') === (isZh ? 'zh' : 'en');
+      el.hidden = !match;
+    }});
+    buttons.forEach(function (btn) {{
+      btn.setAttribute('aria-pressed', btn.getAttribute('data-lang-btn') === (isZh ? 'zh' : 'en') ? 'true' : 'false');
+    }});
+    if (updateUrl && window.history && typeof window.history.replaceState === 'function') {{
+      try {{
+        var url = new URL(window.location.href);
+        if (isZh) {{
+          url.searchParams.set('lang', 'zh');
+        }} else {{
+          url.searchParams.delete('lang');
+          if (url.hash === '#zh' || url.hash === '#cn') url.hash = '';
+        }}
+        window.history.replaceState(null, '', url.pathname + url.search + url.hash);
+      }} catch (_) {{}}
+    }}
+  }}
+  buttons.forEach(function (btn) {{
+    btn.addEventListener('click', function () {{
+      setLang(btn.getAttribute('data-lang-btn'), true);
+    }});
+  }});
+  try {{
+    var params = new URLSearchParams(window.location.search);
+    var q = (params.get('lang') || '').toLowerCase();
+    var h = (window.location.hash || '').toLowerCase();
+    if (q === 'zh' || q === 'cn' || q === 'zh-cn' || h === '#zh' || h === '#cn') {{
+      setLang('zh', false);
+    }}
+  }} catch (_) {{}}
+}})();
+</script>"""
+
+
 def main():
     template_src = (ROOT / 'scripts/templates/working-draft.html').read_text()
     for page in PAGES:
@@ -133,10 +199,59 @@ def main():
             raise ValueError(f'Unresolved draft placeholder in {source_path}')
         title, date, _, _ = reader.extract_meta(source, str(source_path))
         fig_counter = [0]
-        body = '\n'.join(
+        en_body = '\n'.join(
             render(b, page['prefix'], fig_counter)
             for b in reader.split_blocks('\n'.join(source.splitlines()[4:]))
         )
+
+        zh_source_path = page.get('zh_source')
+        if zh_source_path:
+            zh_source = zh_source_path.read_text()
+            zh_title = re.sub(r'^#\s+', '', zh_source.splitlines()[0]).strip()
+            zh_fig_counter = [0]
+            zh_body = '\n'.join(
+                render(b, page['prefix'] + '-zh', zh_fig_counter)
+                for b in reader.split_blocks('\n'.join(zh_source.splitlines()[4:]))
+            )
+            body = (
+                f'<div class="lang-panel" data-lang-panel="en">\n{en_body}\n</div>\n'
+                f'<div class="lang-panel" data-lang-panel="zh" hidden>\n{zh_body}\n</div>'
+            )
+            nav_home = '<span data-lang-span="en">← Domi Jin</span><span data-lang-span="zh" hidden>← Domi Jin 主页</span>'
+            badge_text = '<span data-lang-span="en">Working draft</span><span data-lang-span="zh" hidden>工作草案 · 中/英双语</span>'
+            nav_all = '<span data-lang-span="en">All Writing</span><span data-lang-span="zh" hidden>全部文章</span>'
+            eyebrow_text = '<span data-lang-span="en">Working draft · Human agency</span><span data-lang-span="zh" hidden>工作草案 · 人的能动性</span>'
+            byline_text = f'<span data-lang-span="en">{date} · Domi Jin</span><span data-lang-span="zh" hidden>2026 年 11 月 18 日 · Domi Jin</span>'
+            topbar_toggle = build_lang_toggle('Language switch')
+            header_lang_bar = (
+                '<div class="bilingual-bar">'
+                + build_lang_toggle('切换语言 / Switch language')
+                + '<span data-lang-span="en">Bilingual view (EN / 中文) · <a href="/future-of-education/">中文教育简述</a></span>'
+                + '<span data-lang-span="zh" hidden>支持中 / 英切换 · <a href="/future-of-education/">返回《我对未来教育的期待》</a></span>'
+                + '</div>'
+            )
+            colophon_html = (
+                f'<p data-lang-span="en">Working draft · {date}. <a href="{page["md_url"]}">Read the Markdown source</a>.</p>'
+                f'<p data-lang-span="zh" hidden>工作草案 · 2026 年 11 月 18 日 · <a href="/future-of-education/">我对未来教育的期待</a> · <a href="{page["md_url"]}">查看英文 Markdown 源码</a>。</p>'
+                '<p data-lang-span="en"><a href="/articles/">More writing</a> · <a href="mailto:contact@domij.info">Compare notes</a></p>'
+                '<p data-lang-span="zh" hidden><a href="/articles/">更多文章与笔记</a> · <a href="mailto:contact@domij.info">交流想法</a></p>'
+            )
+            lang_script = build_lang_script(title, zh_title)
+        else:
+            body = en_body
+            nav_home = '← Domi Jin'
+            badge_text = 'Working draft'
+            nav_all = 'All Writing'
+            eyebrow_text = 'Working draft · Human agency'
+            byline_text = f'{date} · Domi Jin'
+            topbar_toggle = ''
+            header_lang_bar = ''
+            colophon_html = (
+                f'<p>Working draft · {date}. <a href="{page["md_url"]}">Read the Markdown source</a>.</p>'
+                '<p><a href="/articles/">More writing</a> · <a href="mailto:contact@domij.info">Compare notes</a></p>'
+            )
+            lang_script = ''
+
         schema = json.dumps({
             '@context': 'https://schema.org', '@type': 'Article', 'headline': title,
             'description': page['description'], 'url': page['url'], 'inLanguage': 'en-GB',
@@ -152,6 +267,15 @@ def main():
             'DESCRIPTION': html.escape(page['description']),
             'SCHEMA': schema,
             'BODY': body,
+            'NAV_HOME_TEXT': nav_home,
+            'BADGE_TEXT': badge_text,
+            'TOPBAR_TOGGLE': topbar_toggle,
+            'NAV_ALL_TEXT': nav_all,
+            'EYEBROW_TEXT': eyebrow_text,
+            'BYLINE_TEXT': byline_text,
+            'HEADER_LANG_BAR': header_lang_bar,
+            'COLOPHON_HTML': colophon_html,
+            'LANG_SCRIPT': lang_script,
         }
         for key, value in values.items():
             template = template.replace('{{' + key + '}}', value)

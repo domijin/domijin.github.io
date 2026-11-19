@@ -183,8 +183,39 @@ def extract_meta(text, path):
     return title, date, venue, original
 
 
+def extract_zh_meta(text, fallback_date, fallback_venue):
+    lines = text.split("\n")
+    title = re.sub(r'^#\s+', '', lines[0]).strip()
+    kicker = ""
+    for l in lines[1:6]:
+        ls = l.strip()
+        if ls.startswith("*") and ls.endswith("*") and len(ls) > 3:
+            kicker = ls.strip("*").strip()
+            break
+    m = re.search(r'(\d{4}\s*年\s*\d{1,2}\s*月\s*\d{1,2}\s*日)', kicker)
+    date = m.group(1) if m else fallback_date
+    venue = "工作草案 · Domi’s Universe" if kicker.startswith("工作草案") else fallback_venue
+    body_lines = []
+    seen_kicker = False
+    for l in lines[1:]:
+        ls = l.strip()
+        if not seen_kicker:
+            if ls.startswith("*") and ls.endswith("*") and len(ls) > 3:
+                seen_kicker = True
+            continue
+        body_lines.append(l)
+    blocks = split_blocks("\n".join(body_lines).strip())
+    return {
+        "title": title,
+        "date": date,
+        "venue": venue,
+        "blocks": blocks,
+    }
+
+
 def main():
     articles = os.path.join(ROOT, "articles")
+    zh_dir = os.path.join(ROOT, "scripts", "data")
     mds = []
     for r, d, fs in os.walk(articles):
         for f in sorted(fs):
@@ -217,11 +248,24 @@ def main():
             body_lines.append(l)
 
         blocks = split_blocks("\n".join(body_lines).strip())
-        entries.append((rel, title, date, venue, original, blocks))
+        slug = os.path.splitext(os.path.basename(p))[0]
+        zh_path = os.path.join(zh_dir, f"{slug}-zh.md")
+        zh_data = None
+        if os.path.exists(zh_path):
+            zh_text = io.open(zh_path, encoding="utf-8").read()
+            zh_data = extract_zh_meta(zh_text, date, venue)
+        entries.append((rel, title, date, venue, original, blocks, zh_data))
 
     out = []
     out.append("// Auto-generated from /articles/**/*.md — do not edit by hand.")
     out.append("// Regenerate with: python3 scripts/regen-book-content.py")
+    out.append("export interface BookEssayLocaleContent {")
+    out.append("  title: string;")
+    out.append("  date: string;")
+    out.append("  venue: string;")
+    out.append("  blocks: string[];")
+    out.append("}")
+    out.append("")
     out.append("export interface BookEssayEntry {")
     out.append("  url: string;")
     out.append("  title: string;")
@@ -229,10 +273,11 @@ def main():
     out.append("  venue: string;")
     out.append("  originalUrl: string;")
     out.append("  blocks: string[];")
+    out.append("  zh?: BookEssayLocaleContent;")
     out.append("}")
     out.append("")
     out.append("export const BOOK_ESSAYS_BY_URL: Record<string, BookEssayEntry> = {")
-    for rel, title, date, venue, original, blocks in entries:
+    for rel, title, date, venue, original, blocks, zh_data in entries:
         out.append(f'  "{rel}": {{')
         out.append(f'    "url": "{rel}",')
         out.append(f'    "title": "{title.replace(chr(34), "&quot;")}",')
@@ -244,13 +289,25 @@ def main():
             esc = b.replace("\\", "\\\\").replace('"', '\\"').replace("\n", "\\n")
             out.append(f'      "{esc}",')
         out.append("    ],")
+        if zh_data is not None:
+            out.append('    "zh": {')
+            out.append(f'      "title": "{zh_data["title"].replace(chr(34), "&quot;")}",')
+            out.append(f'      "date": "{zh_data["date"]}",')
+            out.append(f'      "venue": "{zh_data["venue"].replace(chr(34), "&quot;")}",')
+            out.append('      "blocks": [')
+            for b in zh_data["blocks"]:
+                esc = b.replace("\\", "\\\\").replace('"', '\\"').replace("\n", "\\n")
+                out.append(f'        "{esc}",')
+            out.append("      ],")
+            out.append("    },")
         out.append("  },")
     out.append("};")
     out.append("")
 
     io.open(OUT, "w", encoding="utf-8").write("\n".join(out))
     total = sum(len(e[5]) for e in entries)
-    print(f"wrote {OUT} — {len(entries)} essays, {total} blocks")
+    zh_count = sum(1 for e in entries if e[6] is not None)
+    print(f"wrote {OUT} — {len(entries)} essays, {total} blocks ({zh_count} with zh companion)")
 
 
 if __name__ == "__main__":
