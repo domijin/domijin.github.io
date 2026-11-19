@@ -44,6 +44,12 @@ These are independent dimensions. The four pillars concern human development; th
 
 A good game gives its players something many students never receive: a map of possibilities. A character’s history, present abilities and skill tree make meaningful choices visible. Informative is about this orientation, not simply supplying facts.
 
+A conversation between Yitang Zhang and Chenjian Li made me reconsider where this map should begin. Zhang spoke of having to earn a living while carrying a question that might take more than a lifetime to answer. When a line of enquiry stalls, it can be worth going back to see where another turn was possible. Li spoke about teaching each child according to their needs, and how fortunate a child can be to meet a good teacher. (1)
+
+I had imagined starting with what someone knows and showing what they might learn next. I would now put the distant question on the map too. A child might wonder about a blank patch on a star chart long before they know to ask how faint a star the telescope could detect. Today they might only learn to read the key. They can keep the question and come back to it.
+
+That leaves a practical question about who gets to follow an interest very far. A paper can be freely available while telescope time is scarce. A beginner who has downloaded the data may still need someone to sit with them over the first plot. I would like a learner to be able to find a dataset they can analyse, someone willing to look over an attempt, or a way to apply for observing time. They could then work alone for as long as they wished and seek company when it helped.
+
 Interactive is what happens when a player acts and the world pushes back. Experiments, questions, practice and conversation produce feedback. Adaptive changes the available challenge and support as the learner grows, without taking away their agency.
 
 I picture this through the interconnected forests of James Cameron’s Avatar. Imagine following illuminated paths through a living map of knowledge. Each path represents an interest; distant branches suggest unexplored fields. You test an idea. The world responds. Another traveller arrives at the same question by a different route.
@@ -79,10 +85,10 @@ I am cautious about treating growth mindset as a proven intervention for resilie
 
 One potential starting point is ages 12–14—an age at which young people may begin to ask who they are and what they want to become. That developmental “blink of self-realisation” is a hypothesis, not an established universal stage.
 
-A small programme could combine a knowledge-and-skill map, explicit teaching where needed, opportunities for practice and feedback, and collaborative work around self-chosen questions. I would test:
+Learners in a small trial could pursue their own questions, alone or together. Both groups would have the same materials and guidance. One would use a knowledge map and the other a plain index. I would test:
 
 - Learning: delayed recall, independent reconstruction and transfer to unfamiliar problems—not just satisfaction.
-- Agency: can learners explain where they are, what paths exist and why they choose one?
+- Agency: after a few weeks, can learners explain unaided what they want to find out, what they still need and what they would try next? I would also ask them about the questions they set aside. Which did they choose to leave for later? Which slipped from view as they worked through the smaller tasks the system suggested?
 - Collaboration: does understanding the origins of disagreement improve joint reasoning?
 - Resilience: do learners persist thoughtfully, recover from setbacks and revise strategies?
 - Economics: can personalised support improve durable learning per unit of time and cost?
@@ -112,6 +118,8 @@ In [Two people, a wider horizon](/shared-knowledge/), I explore this through two
 Status: working hypothesis and article draft. Not a programme evaluation or an implementation claim.
 
 ## Source context
+
+(1) Yitang Zhang and Chenjian Li spoke on 21 February 2025 at a gathering of the Peking University Alumni Association of Northern California. I have paraphrased their remarks from the organiser’s account. Working backwards from an open question and helping learners find research resources are my own extensions of the model. [Peking University alumni report, 14 March 2025 (in Chinese)](https://pku.org.cn/info/1011/16343.htm)
 
 Editorial note: the [Learning about Learning mind map](/articles/blog/learning-about-learning.html) (decoded with Mermaid diagrams, inline boundary notes, markers and all 13 original links from the 10 March 2023 XMind export) is served natively as source context. It brings together instructional design, explicit instruction, retrieval and spaced practice, peer and project-based learning, and the four proposed human capabilities. Its notes are a reading map, not a validation of this model. The article draws on the supplied draft and correspondence summary; the mind map is not a transcript of Thomas.
 
