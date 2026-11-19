@@ -18,14 +18,15 @@ spec.loader.exec_module(reader)
 PAGES = [
     {
         'source': ROOT / 'articles/blog/open-learning.md',
+        'zh_source': ROOT / 'scripts/data/open-learning-zh.md',
         'url': 'https://domij.info/articles/blog/open-learning.html',
         'md_url': '/articles/blog/open-learning.md',
         'prefix': 'ol',
         'date_created': '2026-11-17',
-        'date_modified': '2026-11-17',
+        'date_modified': '2026-11-18',
         'description': (
-            'A working hypothesis for open learning: four human capabilities and three independent '
-            'experience principles, connecting individual mastery with voluntary collective discovery.'
+            'A working hypothesis for open learning (with English and Chinese editions): four human capabilities '
+            'and three independent experience principles, connecting individual mastery with voluntary collective discovery.'
         ),
     },
     {
@@ -206,7 +207,9 @@ def main():
         zh_source_path = page.get('zh_source')
         if zh_source_path:
             zh_source = zh_source_path.read_text()
-            zh_title = re.sub(r'^#\s+', '', zh_source.splitlines()[0]).strip()
+            zh_meta = reader.extract_zh_meta(zh_source, date, '')
+            zh_title = zh_meta['title']
+            zh_date = zh_meta['date']
             zh_fig_counter = [0]
             zh_body = '\n'.join(
                 render(b, page['prefix'] + '-zh', zh_fig_counter)
@@ -220,7 +223,7 @@ def main():
             badge_text = '<span data-lang-span="en">Working draft</span><span data-lang-span="zh" hidden>工作草案 · 中/英双语</span>'
             nav_all = '<span data-lang-span="en">All Writing</span><span data-lang-span="zh" hidden>全部文章</span>'
             eyebrow_text = '<span data-lang-span="en">Working draft · Human agency</span><span data-lang-span="zh" hidden>工作草案 · 人的能动性</span>'
-            byline_text = f'<span data-lang-span="en">{date} · Domi Jin</span><span data-lang-span="zh" hidden>2026 年 11 月 18 日 · Domi Jin</span>'
+            byline_text = f'<span data-lang-span="en">{date} · Domi Jin</span><span data-lang-span="zh" hidden>{zh_date} · Domi Jin</span>'
             topbar_toggle = build_lang_toggle('Language switch')
             header_lang_bar = (
                 '<div class="bilingual-bar">'
@@ -231,7 +234,7 @@ def main():
             )
             colophon_html = (
                 f'<p data-lang-span="en">Working draft · {date}. <a href="{page["md_url"]}">Read the Markdown source</a>.</p>'
-                f'<p data-lang-span="zh" hidden>工作草案 · 2026 年 11 月 18 日 · <a href="/future-of-education/">我对未来教育的期待</a> · <a href="{page["md_url"]}">查看英文 Markdown 源码</a>。</p>'
+                f'<p data-lang-span="zh" hidden>工作草案 · {zh_date} · <a href="/future-of-education/">我对未来教育的期待</a> · <a href="{page["md_url"]}">查看英文 Markdown 源码</a>。</p>'
                 '<p data-lang-span="en"><a href="/articles/">More writing</a> · <a href="mailto:contact@domij.info">Compare notes</a></p>'
                 '<p data-lang-span="zh" hidden><a href="/articles/">更多文章与笔记</a> · <a href="mailto:contact@domij.info">交流想法</a></p>'
             )

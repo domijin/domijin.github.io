@@ -15,6 +15,8 @@ const mermaidConfig = JSON.parse(await readFile(path.join(root, 'scripts/mermaid
 const diagrams = [
   'open-learning-framework',
   'open-learning-discovery',
+  'open-learning-framework-zh',
+  'open-learning-discovery-zh',
   'learning-about-learning-overview',
   'learning-about-learning-instructional',
   'learning-about-learning-philosophies',
