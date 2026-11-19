@@ -225,8 +225,8 @@ def main():
             eyebrow_text = '<span data-lang-span="en">Working draft · Human agency</span><span data-lang-span="zh" hidden>工作草案 · 人的能动性</span>'
             byline_text = f'<span data-lang-span="en">{date} · Domi Jin</span><span data-lang-span="zh" hidden>{zh_date} · Domi Jin</span>'
             topbar_toggle = build_lang_toggle('Language switch')
-            overview_label = 'Short Chinese overview' if page['prefix'] == 'ol' else 'Related Chinese overview'
-            overview_label_zh = '阅读中文简述《我对未来教育的期待》' if page['prefix'] == 'ol' else '相关阅读：《我对未来教育的期待》'
+            overview_label = 'Read the vision essay in Chinese' if page['prefix'] == 'ol' else 'Related Chinese overview'
+            overview_label_zh = '读愿景短文《我对未来教育的期待》' if page['prefix'] == 'ol' else '相关阅读：《我对未来教育的期待》'
             header_lang_bar = (
                 '<div class="bilingual-bar">'
                 + '<noscript><a href="#zh" lang="zh-CN">阅读中文版</a></noscript>'

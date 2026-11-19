@@ -5,7 +5,7 @@ const basePath = process.env.NEXT_BASE_PATH ?? "";
 const canonicalUrl = "https://domij.info/future-of-education/";
 const title = "我对未来教育的期待 | Domi Jin";
 const description =
-  "《开放学习》的中文简述。四门拟设课程、三条学习体验原则，以及我想怎样检验学习、自主、合作、韧性与辅导成本。";
+  "开放知识，释放个体潜能；连接不同的智慧，拓展人类认知的边界。";
 
 export const metadata: Metadata = {
   title,
@@ -27,7 +27,6 @@ export const metadata: Metadata = {
 
 export default function FutureOfEducationPage() {
   const homeHref = basePath === "" ? "/" : `${basePath}/`;
-  const sharedKnowledgeHref = `${basePath}/shared-knowledge/`;
 
   return (
     <main lang="zh-CN" className="foe-page">
@@ -47,18 +46,14 @@ export default function FutureOfEducationPage() {
 
       <div className="foe-main">
         <header className="foe-header">
-          <p className="foe-eyebrow">《开放学习》中文简述 · Domi Jin · 2026 年 11 月</p>
+          <p className="foe-eyebrow">开放学习 · 愿景 · Domi Jin · 2026 年 11 月</p>
           <h1>我对未来教育的期待</h1>
-          <p className="foe-subtitle">
-            如果一个孩子对课堂上的某个问题格外好奇，下课以后，他怎样知道还有什么可以学？走得再远些，又能在哪里遇见关心同一个问题的人？
-          </p>
+          <p className="foe-subtitle">开放知识，释放个体潜能；连接不同的智慧，拓展人类认知的边界。</p>
         </header>
 
         <article className="foe-article">
-          <p>
-            学校让人有机会接触许多原本不会自己去找的学问。我也常想，一堂课有自己的进度，每个人的疑问却来得有早有晚。能不能多给人一点引导，让他沿着自己的兴趣走深一些？《开放学习》写的就是这个还在摸索的想法。
-          </p>
-
+          <p>设想人类积累的知识向每个人开放。一位学生、一位刚转行的工程师、一位退休的老师，都能沿着自己的问题一直学到前沿。在那里，他可以独自做一次实验，也可以找到关心同一个问题、却有不同本领的人。</p>
+          <p>公开一篇论文，只需给出一个链接。让一个人从读懂第一张图走到能质疑论文的结论，却需要长久的引导。AI 带来的机会，是让更多人以负担得起的成本得到这样的帮助，并保有选择方向的自由。</p>
           <section id="core-framework" aria-labelledby="framework-heading">
             <h2 id="framework-heading">我希望人学到什么，又怎样学</h2>
             <p>
@@ -82,22 +77,22 @@ export default function FutureOfEducationPage() {
                 </p>
                 <ul className="foe-pillars">
                   <li>
-                    <strong>志趣与方向</strong>
+                    <strong>使命感与社会责任</strong>
                     <span>有效利他</span>
                     <small>什么值得去追寻？把个人兴趣与对他人的责任连在一起</small>
                   </li>
                   <li>
-                    <strong>看见可能</strong>
+                    <strong>第一性原理与未来想象</strong>
                     <span>未来思维</span>
                     <small>事情还可以有什么不同？结合对未来的设想与第一性原理推演</small>
                   </li>
                   <li>
-                    <strong>沟通与理解</strong>
+                    <strong>沟通与协作</strong>
                     <span>设计思维</span>
                     <small>我们怎样彼此理解？说清隐含前提，听清对方的意思，把想法做出来一起看</small>
                   </li>
                   <li>
-                    <strong>韧性与复原</strong>
+                    <strong>韧性与心智弹性</strong>
                     <span>积极心理学</span>
                     <small>遇到挫折时如何坚持、复原，并在需要时从容转向</small>
                   </li>
@@ -110,7 +105,7 @@ export default function FutureOfEducationPage() {
                   <li>
                     <strong>清晰定向（Informative）</strong>
                     <span>
-                      像好游戏里的世界地图与技能树：走过哪些路、当下有哪些本领、前方还有哪些方向，一目了然。
+                      看见自己学过什么、下一步能去哪里，也能了解别人依据什么走到了不同的判断。
                     </span>
                   </li>
                   <li>
@@ -151,44 +146,12 @@ export default function FutureOfEducationPage() {
 
           </section>
 
-          <section id="beyond-illusion" aria-labelledby="illusion-heading">
-            <h2 id="illusion-heading">关上屏幕以后</h2>
-            <p>
-              AI 把一道题讲得很清楚，听的人一路跟得上。过几天，换一道题，还能自己把思路理出来吗？我想用这样的机会看看，一个人究竟学会了什么。对刚入门的人，一道讲清了步骤的例题也许比独自摸索更有帮助。什么时候该示范、什么时候可以放手，要看学习者已经懂得多少。
-            </p>
-          </section>
-
           <section id="collective-forest" aria-labelledby="forest-heading">
-            <h2 id="forest-heading">走到同一个问题面前</h2>
-            <p>
-              我想到《阿凡达》里的森林。两个人从不同的小径走来，停在同一个问题面前。要是能听懂对方一路上见过什么，即使意见不同，也可能想到原先没有想到的事。AI 或许能帮忙牵线。要不要同行、愿意分享什么，仍由各人决定。一项发现是否可信，也该让大家看证据，由不得一个模型说了算。独自研究，或与人合作，都应当向没有机构身份的人敞开。
-            </p>
-            <p>
-              复现一次实验，订正一个错误，做件别人用得上的工具，都可以是贡献。要让别人放心地接着做下去，得把依据留下来，让人能查、能问，有错也能改。
-            </p>
-          </section>
-
-          <section id="testing-grounds" aria-labelledby="testing-heading">
-            <h2 id="testing-heading">怎样知道有没有用</h2>
-            <p>
-              我想过先和十二到十四岁的孩子做一次小规模尝试。这个年龄是否合适，还要检验。我想看的有五件事：过些日子还能不能独自解新题，能不能说清自己为什么这样选，理解分歧后能不能一起把问题想得更周全，受挫后能不能调整方法，以及花同样的时间和钱能学到多少。等辅导撤去，留下来的本领才看得清。
-            </p>
-          </section>
-
-          <section aria-labelledby="links-heading">
-            <h2 id="links-heading">沿着这些问题读下去</h2>
-            <p>
-              《开放学习》<a href="/articles/blog/open-learning.html?lang=zh#zh">中文全文</a>与
-              <a href="/articles/blog/open-learning.html" lang="en">English original</a> 说明了这个设想的来由、我参考的研究和仍待核查的问题。
-              <a href="/articles/blog/learning-about-learning.html?lang=zh#zh">2023 年的学习导图</a>保留了早先的阅读线索。
-            </p>
-            <p>
-              另外两件工作各取了其中一个问题。<a href="/articles/github/open-learning-lab.html">Open Learning Lab</a> 提出一个实验，有的人先写下自己的判断，再读讲解；有的人先读讲解。过几天，两组人各自解一道新题，表现会有什么不同？
-              <a href={sharedKnowledgeHref}>Two people, a wider horizon</a> 则借两位虚构的合作者，演示怎样找出分歧从哪里来。
-            </p>
-            <p>
-              我也在<a href="/articles/substack/reclaiming-play-as-a-life-skill.html">写长者与游戏的随笔</a>里谈过成年以后还能怎样学习。往更远处想，教育和人们怎样组织知识、一道做事，也有关系。这条思路记在 <a href="/articles/github/libertyearth-and-future.html">LibertyEarth</a> 里。
-            </p>
+            <h2 id="forest-heading">同一个问题，两条来路</h2>
+            <p>想象《阿凡达》中潘多拉的生命网络。如果知识也能这样探索，两个人也许会在一张星图前相遇。一个人做模拟，关心模型里漏掉了什么；另一个人做观测，知道望远镜在哪些地方看不清。他们都想知道，图上那片空白究竟意味着什么。</p>
+            <p>共同的兴趣让我们相遇，不同的经历和观点让我们思考。把模型的假设和观测的限制放在一起，两个人便能设计一个各自都没想到的检验。结果若经得起别人复查，就能成为下一个人探索的起点。</p>
+            <p>你手上有没有这样一个问题，已经走了一段路，却还缺少另一种眼光？</p>
+            <p><a href="/articles/blog/open-learning.html?lang=zh#zh">读《开放学习》：模型、依据与验证方案</a></p>
           </section>
         </article>
 
