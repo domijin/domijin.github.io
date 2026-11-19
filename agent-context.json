@@ -27,14 +27,15 @@
       "language": "zh-CN",
       "status": "Working hypothesis / brief overview",
       "type": "Standalone Chinese brief page with orthogonal capability-and-experience schematic",
-      "description": "Concise Chinese overview of Domi Jin's working expectations for the future of education: four parallel human capability courses (purpose, potentials, communication, resilience), three independent experience principles (informative, interactive, adaptive), judgment-first AI sparring to avoid the fluency illusion, and evidence-first exploration across ages.",
-      "limitations": "Personal working hypothesis and brief synthesis of existing notes, not an implemented school programme or measured outcome.",
+      "description": "Chinese abridgement of the bilingual Open Learning working draft. It outlines four proposed courses, three principles for the learning experience, independent or voluntary joint inquiry, and five questions for a possible trial with 12–14-year-olds. Related experiments, demonstrations and essays are linked as further reading.",
+      "limitations": "The age range, learning benefits and tutoring costs are hypotheses for testing. The brief reports no programme outcomes.",
       "relatedArticles": [
         "/articles/blog/open-learning.html",
         "/articles/blog/learning-about-learning.html",
         "/shared-knowledge/",
         "/articles/github/open-learning-lab.html",
-        "/articles/github/libertyearth-and-future.html"
+        "/articles/github/libertyearth-and-future.html",
+        "/articles/substack/reclaiming-play-as-a-life-skill.html"
       ]
     },
     "sharedKnowledge": {
