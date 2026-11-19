@@ -44,7 +44,7 @@ These are independent dimensions. The four pillars concern human development; th
 
 A good game gives its players something many students never receive: a map of possibilities. A character’s history, present abilities and skill tree make meaningful choices visible. Informative is about this orientation, not simply supplying facts.
 
-A conversation between Yitang Zhang and Chenjian Li made me reconsider where this map should begin. Zhang spoke of having to earn a living while carrying a question that might take more than a lifetime to answer. When a line of enquiry stalls, it can be worth going back to see where another turn was possible. Li spoke about teaching each child according to their needs, and how fortunate a child can be to meet a good teacher. (1)
+A conversation between Professor Yitang Zhang and Professor Chenjian Li made me reconsider where this map should begin. Professor Zhang spoke of having to earn a living while carrying a question that might take more than a lifetime to answer. When a line of enquiry stalls, it can be worth going back to see where another turn was possible. Professor Li spoke about teaching each child according to their needs, and how fortunate a child can be to meet a good teacher. (1)
 
 I had imagined starting with what someone knows and showing what they might learn next. I would now put the distant question on the map too. A child might wonder about a blank patch on a star chart long before they know to ask how faint a star the telescope could detect. Today they might only learn to read the key. They can keep the question and come back to it.
 
@@ -119,7 +119,7 @@ Status: working hypothesis and article draft. Not a programme evaluation or an i
 
 ## Source context
 
-(1) Yitang Zhang and Chenjian Li spoke on 21 February 2025 at a gathering of the Peking University Alumni Association of Northern California. I have paraphrased their remarks from the organiser’s account. Working backwards from an open question and helping learners find research resources are my own extensions of the model. [Peking University alumni report, 14 March 2025 (in Chinese)](https://pku.org.cn/info/1011/16343.htm)
+(1) Professor Yitang Zhang and Professor Chenjian Li spoke on 21 February 2025 at a gathering of the Peking University Alumni Association of Northern California. I have paraphrased their remarks from the organiser’s account. Working backwards from an open question and helping learners find research resources are my own extensions of the model. [Peking University alumni report, 14 March 2025 (in Chinese)](https://pku.org.cn/info/1011/16343.htm)
 
 Editorial note: the [Learning about Learning mind map](/articles/blog/learning-about-learning.html) (decoded with Mermaid diagrams, inline boundary notes, markers and all 13 original links from the 10 March 2023 XMind export) is served natively as source context. It brings together instructional design, explicit instruction, retrieval and spaced practice, peer and project-based learning, and the four proposed human capabilities. Its notes are a reading map, not a validation of this model. The article draws on the supplied draft and correspondence summary; the mind map is not a transcript of Thomas.
 
