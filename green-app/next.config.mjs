@@ -1,4 +1,4 @@
-const basePath = process.env.NEXT_BASE_PATH !== undefined ? process.env.NEXT_BASE_PATH : "/next";
+const basePath = process.env.NEXT_BASE_PATH !== undefined ? process.env.NEXT_BASE_PATH : "";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -6,9 +6,7 @@ const nextConfig = {
   trailingSlash: true,
   basePath: basePath || undefined,
   assetPrefix: basePath ? `${basePath}/` : undefined,
-  // Inline the base path into the client bundle. `process.env.NEXT_BASE_PATH`
-  // is not substituted in browser builds, so without this every client-side
-  // base-path check would silently fall back to "/next" on a root deployment.
+  // Inline the base path into the client bundle for root static export.
   env: { NEXT_BASE_PATH: basePath },
   images: {
     unoptimized: true,

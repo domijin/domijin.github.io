@@ -1,0 +1,26 @@
+flowchart LR
+  accTitle: Instructional design branch of the Design for Learning mind map
+  accDescr: Systematic, reflective, cognitive and constructive instructional design summarised under a bias toward practical boundary as the first principle of instruction with five Merrill principles, three showing folded subtopic counts.
+  ID["Instructional design<br/>[note marker]"]
+  ID --> ID1["systematic"]
+  ID --> ID2["reflective"]
+  ID --> ID3["cognitive"]
+  ID --> ID4["constructive"]
+
+  subgraph B1["Boundary: bias toward practical"]
+    direction LR
+    FP["Summary:<br/>first principle of instruction"]
+    FP --> FP1["problem-centered<br/>[note · 5 folded]"]
+    FP --> FP2["activation<br/>[note · 3 folded]"]
+    FP --> FP3["demonstration<br/>[note · 3 folded]"]
+    FP --> FP4["application<br/>[note]"]
+    FP --> FP5["integration"]
+  end
+
+  ID1 -. summary .-> FP
+  ID2 -. summary .-> FP
+  ID3 -. summary .-> FP
+  ID4 -. summary .-> FP
+
+  classDef summary fill:#e0f2fe,stroke:#0369a1,stroke-width:2px,color:#0f172a
+  class FP summary

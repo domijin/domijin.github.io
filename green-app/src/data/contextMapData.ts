@@ -439,6 +439,27 @@ export const WRITINGS_DATA: WritingNode[] = [
     "featured": true
   },
   {
+    "id": "learning-about-learning",
+    "title": "Design for Learning: Decoded Learning about Learning Mind Map",
+    "date": "2026-11-18",
+    "source": "Blog",
+    "url": "https://domij.info/articles/blog/learning-about-learning.html",
+    "localUrl": "/articles/blog/learning-about-learning.html",
+    "localMarkdownUrl": "/articles/blog/learning-about-learning.md",
+    "pillar": "human-potential",
+    "secondaryPillars": [
+      "collective-intelligence",
+      "human-ai-collaboration"
+    ],
+    "summary": "A native Mermaid and plain-text decoding of the 10 March 2023 XMind map (Design for Learning), restoring every branch, boundary annotation, summary frame, icon marker and reference link in place of serving the raw PDF.",
+    "keyInsight": "Personal tutoring boundaries (informative, interactive, adaptive), explicit instructional principles, and critiques of growth-mindset framing prefigured the Open Learning working draft.",
+    "position": [
+      -3.0,
+      1.5,
+      1.9
+    ]
+  },
+  {
     id: "open-learning-lab-protocol",
     title: "Open Learning Lab: Evidence-Driven Personalized Learning Policies",
     date: "2026-08",

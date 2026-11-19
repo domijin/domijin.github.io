@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import SharedKnowledgeExplorer from "@/components/SharedKnowledgeExplorer";
 import "./shared-knowledge.css";
 
-const basePath = process.env.NEXT_BASE_PATH ?? "/next";
+const basePath = process.env.NEXT_BASE_PATH ?? "";
 const canonicalUrl = "https://domij.info/shared-knowledge/";
 const title = "Two people, a wider horizon | Domi Jin";
 const description =

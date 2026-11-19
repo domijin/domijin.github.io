@@ -12,8 +12,19 @@ const { run } = await import(require.resolve('@mermaid-js/mermaid-cli'));
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const chrome = process.env.PUPPETEER_EXECUTABLE_PATH || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
 const mermaidConfig = JSON.parse(await readFile(path.join(root, 'scripts/mermaid/config.json'), 'utf8'));
-for (const name of ['framework', 'discovery']) {
-  await run(path.join(root, `articles/diagrams/open-learning-${name}.mmd`), path.join(root, `articles/diagrams/open-learning-${name}.svg`), {
+const diagrams = [
+  'open-learning-framework',
+  'open-learning-discovery',
+  'learning-about-learning-overview',
+  'learning-about-learning-instructional',
+  'learning-about-learning-philosophies',
+  'learning-about-learning-oakley-khan',
+  'learning-about-learning-frameworks',
+  'learning-about-learning-topics',
+  'learning-about-learning-design-ai',
+];
+for (const name of diagrams) {
+  await run(path.join(root, `articles/diagrams/${name}.mmd`), path.join(root, `articles/diagrams/${name}.svg`), {
     puppeteerConfig: existsSync(chrome) ? { executablePath: chrome } : {},
     parseMMDOptions: { mermaidConfig, backgroundColor: 'transparent' }
   });

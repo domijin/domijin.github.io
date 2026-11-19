@@ -1,0 +1,28 @@
+flowchart LR
+  accTitle: Barbara Oakley and Khan Academy sub-branches under direct instruction
+  accDescr: Under personal tutoring and direct/explicit instruction, Barbara Oakley's Learning How To Learn boundary covers tools, methodologies and MOOC, alongside Khan Academy STEM and Life skills resources.
+  DE["direct / explicit instruction<br/>(science of learning) [note]"]
+
+  subgraph P1["Boundary: personal tutoring -> informative, interactive, adaptive"]
+    direction LR
+    BO["for students,<br/>Barbara Oakley [link]"]
+    subgraph P3["Boundary: Book: Learning How To Learn"]
+      direction LR
+      TM["tools & methodologies"]
+      TM --> TM1["6 effective strategies"]
+      TM --> TM2["focused & diffuse mode:<br/>switch topic when frustrated"]
+      TM --> TM3["brain-links with practice,<br/>repetition, and recall"]
+      TM --> TM4["exercise, test - feedback loop"]
+      TM --> TM5["start difficult work first,<br/>let diffuse help"]
+      MOOC["MOOC [link]"]
+    end
+
+    KA["resources -<br/>Khan Academy [link]"]
+    KA --> KA1["STEM"]
+    KA --> KA2["Life skills"]
+  end
+
+  DE --> BO
+  DE --> KA
+  BO --> TM
+  BO --> MOOC

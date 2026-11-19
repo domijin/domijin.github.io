@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./future-of-education.css";
 
-const basePath = process.env.NEXT_BASE_PATH ?? "/next";
+const basePath = process.env.NEXT_BASE_PATH ?? "";
 const canonicalUrl = "https://domij.info/future-of-education/";
 const title = "我对未来教育的期待 | Domi Jin";
 const description =

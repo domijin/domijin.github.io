@@ -8,7 +8,7 @@ client-side exception has occurred" instead of the site. GitHub Pages never
 tells a browser that, so the repository has to stay self-consistent on its
 own.
 
-Three checks, for the root build and for the staged mirror:
+Three checks, for the root build:
 
 1. Every asset the deployed HTML names exists on disk.
 2. Every build-id directory present still has both of its manifests.
@@ -24,14 +24,14 @@ import sys
 from pathlib import Path
 
 ASSET = re.compile(r'(?:src|href)="(/[^"]*_next/[^"]+)"')
-SKIP = {"next", "classic", "green-app", "articles", "docs", "scripts",
+SKIP = {"classic", "green-app", "articles", "docs", "scripts",
         "node_modules", ".git", "pdfs", "images", "beta", "pages", "theme",
         "feeds", "author", "category", "tags"}
 CHUNK = re.compile(r'"(static/chunks/[^"]+)"')
 
 
 def check(repo: Path, prefix: str):
-    """Check one build. `prefix` is its URL prefix ("" or "next/")."""
+    """Check one build. `prefix` is its URL prefix ("" for root)."""
     problems = []
     html_root = repo / prefix if prefix else repo
     static = repo / prefix / "_next" / "static" if prefix else repo / "_next" / "static"
@@ -73,7 +73,7 @@ def main():
     repo = Path(__file__).resolve().parent.parent
     failures = 0
 
-    for prefix in ("", "next/"):
+    for prefix in ("",):
         label = prefix or "root"
         pages, problems = check(repo, prefix)
         if problems:

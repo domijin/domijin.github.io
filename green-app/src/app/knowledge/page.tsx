@@ -18,7 +18,7 @@ const KnowledgeGrowth3D = dynamic(() => import("@/components/KnowledgeGrowth3D")
   ),
 });
 
-const BASE_PATH = process.env.NEXT_BASE_PATH ?? "/next";
+const BASE_PATH = process.env.NEXT_BASE_PATH ?? "";
 const SITE_HREF = BASE_PATH === "" ? "/" : `${BASE_PATH}/`;
 const CONTROL = "rounded-lg border border-sky-800 px-3 py-2 text-xs text-sky-100 hover:border-sky-400 focus-visible:outline-2 focus-visible:outline-sky-300 cursor-pointer disabled:opacity-50";
 const HEADING = "text-[11px] font-mono uppercase tracking-widest text-sky-300 font-semibold";

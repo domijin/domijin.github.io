@@ -1,0 +1,45 @@
+flowchart LR
+  accTitle: Teaching philosophies and Learning Scientists branch of the Design for Learning mind map
+  accDescr: Inside the personal tutoring boundary (informative, interactive, adaptive), social constructivist discovery learning sits beside direct explicit instruction and Learning Scientists' vision and six effective learning strategies.
+  TP["Teaching philosophies<br/>[note marker]"]
+
+  subgraph P1["Boundary: personal tutoring -> informative, interactive, adaptive"]
+    direction LR
+    SC["social constructivist /<br/>discovery based learning"]
+    DE["direct / explicit instruction<br/>(science of learning) [note]"]
+
+    subgraph P2["Boundary: vision: make scientific research on learning more accessible"]
+      direction TB
+      LS["for educators,<br/>LearningScientist [link]"]
+      LS1["Motivate students to study"]
+      LS2["Increase research-backed study<br/>& teaching strategies [link]"]
+      LS3["Decrease negative<br/>views of testing"]
+      LS --> LS1
+      LS --> LS2
+      LS --> LS3
+    end
+
+    ELS["Summary:<br/>Effective Learning<br/>Strategies"]
+    S1["Spaced Practice<br/>-> anki"]
+    S2["Retrieval Practice"]
+    S3["Elaboration<br/>-> promotive & comparative learning<br/>-> first principle thinking"]
+    S4["Interleaving"]
+    S5["Concrete Examples"]
+    S6["Dual Coding<br/>-> archival & multi-modal thinking<br/>-> design thinking [link]"]
+  end
+
+  TP --> SC
+  TP --> DE
+  DE --> LS
+  LS1 -. summary .-> ELS
+  LS2 -. summary .-> ELS
+  LS3 -. summary .-> ELS
+  ELS --> S1
+  ELS --> S2
+  ELS --> S3
+  ELS --> S4
+  ELS --> S5
+  ELS --> S6
+
+  classDef summary fill:#e0f2fe,stroke:#0369a1,stroke-width:2px,color:#0f172a
+  class ELS summary

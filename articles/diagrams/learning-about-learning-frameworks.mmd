@@ -1,0 +1,32 @@
+flowchart LR
+  accTitle: Education theory and framework branch of the Design for Learning mind map
+  accDescr: Carl Wieman active learning course transformation process with six-year plan note, alongside Eric Mazur's five grouped dimensions: OKR, Peer Learning / Collaborations, Informative, Communication and Growth Mindset.
+  EF["Education theory /<br/>framework [note]"]
+
+  CW["Carl Wieman -<br/>active learning<br/>[higher ed] [link]"]
+  subgraph F1["Boundary: six-year plan since 2017?"]
+    direction TB
+    CT["course transformation process:<br/>• What should students learn<br/>• What are students learning<br/>• Which instructional practices<br/>  will improve learning"]
+  end
+  CW2["improving how universities<br/>teach science"]
+
+  EM["Eric Mazur<br/>[link]"]
+  M1["Boundary: OKR<br/>• Project-based learning<br/>• Team-based learning"]
+  M2["Boundary: Peer Learning / Collaborations<br/>• Team contracts & peer feedback<br/>• Peer Instruction<br/>• Assessment with IC and CC"]
+  M3["Boundary: Informative<br/>• Tracking with Design notebook"]
+  M4["Boundary: Communication<br/>• Public Presentation with<br/>  summative assessment"]
+  M5["Boundary: Growth Mindset<br/>• Devaluing the right answer"]
+
+  EF --> CW
+  CW --> CT
+  CW --> CW2
+
+  EF --> EM
+  EM --> M1
+  EM --> M2
+  EM --> M3
+  EM --> M4
+  EM --> M5
+
+  classDef group fill:#f0f9ff,stroke:#0284c7,stroke-width:1.5px,color:#0f172a
+  class M1,M2,M3,M4,M5 group

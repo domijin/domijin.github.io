@@ -34,7 +34,7 @@
       (function () {
         var params = new URLSearchParams(window.location.search);
         if (params.get("env") === "green") {
-          window.location.replace("/next/");
+          window.location.replace("/");
           return;
         }
         if (params.get("env") === "blue") {
@@ -73,7 +73,7 @@
     <div style="display: flex; align-items: center; gap: 12px;">
         <a href="/llms.txt" style="color: #7dd3fc; text-decoration: underline; font-size: 12px;">/llms.txt</a>
         <a href="/agent-context.json" style="color: #7dd3fc; text-decoration: underline; font-size: 12px;">/agent-context.json</a>
-        <a href="/next/" style="background: #10b981; color: #04130d; font-weight: 700; padding: 5px 12px; border-radius: 6px; text-decoration: none; font-size: 12px;">Current edition →</a>
+        <a href="/" style="background: #10b981; color: #04130d; font-weight: 700; padding: 5px 12px; border-radius: 6px; text-decoration: none; font-size: 12px;">Current edition →</a>
     </div>
 </div>
 
@@ -120,7 +120,7 @@
 
     <nav class="nav">
         <ul class="list-bare">
-                <li><a class="nav__link" href="/next/" style="color: #34d399; font-weight: 700;">Current edition</a></li>
+                <li><a class="nav__link" href="/" style="color: #34d399; font-weight: 700;">Current edition</a></li>
                 <li><a class="nav__link" href="/?env=blue">Blogs</a></li>
                 <li><a class="nav__link" href="/pages/about-me.html">About Me</a></li>
                 <li><a class="nav__link" href="/pages/footprint.html">Footprint</a></li>

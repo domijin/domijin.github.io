@@ -1,11 +1,10 @@
 {
   "$schema": "https://schema.org/Person",
-  "version": "2026.11.02",
+  "version": "2026.11.18",
   "deployment": {
     "strategy": "blue-green",
     "activeRoot": "green",
     "liveUrl": "https://domij.info/",
-    "stagedUrl": "https://domij.info/next/",
     "blueEnvironment": {
       "name": "Classic Pelican Archive (Blue)",
       "url": "https://domij.info/classic/",
@@ -16,16 +15,14 @@
     "greenEnvironment": {
       "name": "Next.js + Three.js Globular Cluster, LISA GW & Context Map (Green)",
       "url": "https://domij.info/",
-      "stagedUrl": "https://domij.info/next/",
       "localArticlesArchiveUrl": "https://domij.info/articles/",
       "framework": "Next.js 15 App Router + Three.js (@react-three/fiber)",
-      "status": "live at root, staged mirror at /next/"
+      "status": "live at root (rolled out; /next/ retired)"
     }
   },
   "interactiveArtifacts": {
     "futureOfEducationZh": {
       "sourceRoute": "/future-of-education/",
-      "stagedRoute": "/next/future-of-education/",
       "title": "我对未来教育的期待",
       "language": "zh-CN",
       "status": "Working hypothesis / brief overview",
@@ -34,6 +31,7 @@
       "limitations": "Personal working hypothesis and brief synthesis of existing notes, not an implemented school programme or measured outcome.",
       "relatedArticles": [
         "/articles/blog/open-learning.html",
+        "/articles/blog/learning-about-learning.html",
         "/shared-knowledge/",
         "/articles/github/open-learning-lab.html",
         "/articles/github/libertyearth-and-future.html"
@@ -41,7 +39,6 @@
     },
     "sharedKnowledge": {
       "sourceRoute": "/shared-knowledge/",
-      "stagedRoute": "/next/shared-knowledge/",
       "title": "Two people, a wider horizon",
       "language": "en-GB",
       "status": "Conceptual demonstration",
@@ -50,6 +47,7 @@
       "limitations": "Maya and Leo, familiarity levels, notes and outcomes are fictional. Diagram areas are not measured competence or personal worth. Initial understanding is not mastery; agreement is not truth. No real publication or model inference occurs.",
       "relatedArticles": [
         "/articles/blog/open-learning.html",
+        "/articles/blog/learning-about-learning.html",
         "/articles/blog/free-market-in-a-possibility-universe.html",
         "/articles/substack/overachievers-responsibility-reflection.html"
       ],
@@ -61,7 +59,6 @@
     },
     "euclideanWormholes": {
       "sourceRoute": "/wormholes/",
-      "stagedRoute": "/next/wormholes/",
       "status": "published at /wormholes/",
       "title": "Euclidean wormholes: from geometry to statistics",
       "language": "en-GB",
@@ -73,7 +70,6 @@
     },
     "atmosphericNewtonianNoise": {
       "sourceRoute": "/newtonian-noise/",
-      "stagedRoute": "/next/newtonian-noise/",
       "status": "published at /newtonian-noise/",
       "title": "Atmospheric Newtonian noise: from air to strain",
       "language": "en-GB",
@@ -84,7 +80,6 @@
     },
     "globularClusterSandbox": {
       "url": "https://domij.info/cluster/",
-      "stagedUrl": "https://domij.info/next/cluster/",
       "title": "Globular Cluster Sandbox",
       "type": "full-screen interactive simulation (WebGL)",
       "description": "1,650 stars in a globular cluster evolving under gravitational relaxation and mass segregation, with colour, luminosity, radius and lifetime from MESA-based stellar-evolution relations (Eker et al. 2018), beside the LISA strain and standard-siren localization for dynamically formed binary black holes.",
@@ -93,7 +88,6 @@
     },
     "knowledgeBoundary": {
       "url": "https://domij.info/knowledge/",
-      "stagedUrl": "https://domij.info/next/knowledge/",
       "title": "Knowledge Boundary",
       "type": "full-screen interactive 3D scene (three.js / WebGL)",
       "description": "The knowledge-boundary sketch from the front page, as geometry: collective human knowledge as a spiky ball, one spike per field at very different depths; a language model growing as a smoother, lagging copy inside it; expert breakthroughs marked on the spikes; and the fields where the model's boundary has passed the human graph (AlphaGo, AlphaFold). Beside the ball floats a concept map that a prompt lights up.",
@@ -101,6 +95,66 @@
       "mechanism": "Timeline of 40 frames, scrubbable, with annotations. Concept nodes are scored by a hybrid of cosine similarity and lexical overlap against a local sentence-embedding model (Xenova/all-MiniLM-L6-v2, ~22 MB) that runs in the visitor's browser via transformers.js; a WebLLM decoder (SmolLM2-360M / Qwen2.5-0.5B) can additionally propose concepts not yet in the diagram, on WebGPU.",
       "sourceEssay": "https://domij.info/articles/blog/all-about-chatgpt.html"
     }
+  },
+  "openingReflection": {
+    "framingNote": "A single shared account of Domi Jin's work, presented as a current reflection on earlier 2023 notes.",
+    "earlierQuestion2023": "In 2023, Domi was weighing which of the problems he cared about he could keep working on while earning a living and looking after his family.",
+    "currentQuestion": "Today that question also asks what winning costs and who bears it.",
+    "principles": {
+      "competition": "An incentive that pushes a venture to pay its own way.",
+      "compliance": "A minimum standard, not the whole measure of a decision—even when rules are followed, it matters who had a say in that decision and who had to live with it.",
+      "ventureRole": "Building a self-sustaining venture can support all three open ways of taking part."
+    }
+  },
+  "readerPaths": {
+    "paths": [
+      {
+        "id": "back-an-idea",
+        "title": "Back an idea",
+        "description": "Start with the need that led me to build for older adults. Then see what older drivers asked for in practice.",
+        "steps": [
+          {
+            "title": "Starting a New Venture",
+            "localUrl": "/articles/substack/starting-a-new-venture.html"
+          },
+          {
+            "title": "Tesla, Seniors Love Your Self-Driving—Now Let’s Make It Safer for Them",
+            "localUrl": "/articles/substack/tesla-seniors-love-your-self-drivingnow.html"
+          }
+        ]
+      },
+      {
+        "id": "build-together",
+        "title": "Build together",
+        "description": "Read the household agent specification alongside a field account of how older adults experience voice controls and alerts.",
+        "steps": [
+          {
+            "title": "baby-AI: Raising a Household Agent on Edge Hardware",
+            "localUrl": "/articles/github/baby-ai.html"
+          },
+          {
+            "title": "Tesla, Seniors Love Your Self-Driving—Now Let’s Make It Safer for Them",
+            "localUrl": "/articles/substack/tesla-seniors-love-your-self-drivingnow.html"
+          }
+        ]
+      },
+      {
+        "id": "learn-and-teach",
+        "title": "Learn and teach",
+        "description": "Pair my working draft on education with a proposed experiment on what a learner can still do after closing the chat.",
+        "steps": [
+          {
+            "title": "Open Learning: From Individual Potential to Collective Discovery",
+            "localUrl": "/articles/blog/open-learning.html"
+          },
+          {
+            "title": "Open Learning Lab: Beyond the Fluency Illusion with an 8-Agent Closed-Loop Pipeline",
+            "localUrl": "/articles/github/open-learning-lab.html"
+          }
+        ]
+      }
+    ],
+    "interaction": "A visitor can select a path or open a related article in the homepage reader. The selection takes precedence and lasts until reset or reload."
   },
   "narrativeArc": {
     "from": "a million stars",
@@ -273,12 +327,29 @@
       "summary": "A working hypothesis connecting four proposed courses—effective altruism, future thinking, design thinking and positive psychology—with purpose, potentials, communication and resilience, alongside three independent learning-experience principles.",
       "keyInsight": "Open access and AI guidance are starting points; durable learning and examinable contributions remain to be demonstrated.",
       "status": "Working draft",
-      "sourceContext": "/pdfs/learning-about-learning.pdf",
+      "sourceContext": "/articles/blog/learning-about-learning.html",
       "limitations": "Working hypothesis, not a programme evaluation or implementation claim. The age cohort, growth mindset evidence and tutoring economics require verification. The Thomas correspondence is a supplied summary, not a transcript."
     },
     {
+      "id": "learning-about-learning",
+      "title": "Design for Learning: Decoded Learning about Learning Mind Map",
+      "date": "2026-11-18",
+      "source": "Blog",
+      "url": "https://domij.info/articles/blog/learning-about-learning.html",
+      "localUrl": "/articles/blog/learning-about-learning.html",
+      "localMarkdownUrl": "/articles/blog/learning-about-learning.md",
+      "pillar": "human-potential",
+      "secondaryPillars": [
+        "collective-intelligence",
+        "human-ai-collaboration"
+      ],
+      "status": "Working draft (decoded from 10 March 2023 XMind PDF)",
+      "summary": "A native Mermaid and plain-text decoding of the 10 March 2023 XMind map (Design for Learning), restoring every branch, boundary annotation, summary frame, icon marker and reference link in place of serving the raw PDF.",
+      "keyInsight": "Personal tutoring boundaries (informative, interactive, adaptive), explicit instructional principles, and critiques of growth-mindset framing prefigured the Open Learning working draft."
+    },
+    {
       "id": "open-learning-lab-protocol",
-      "title": "Open Learning Lab: Evidence-Driven Personalized Learning Policies",
+      "title": "Open Learning Lab: Beyond the Fluency Illusion with an 8-Agent Closed-Loop Pipeline",
       "date": "2026-08",
       "source": "GitHub",
       "url": "https://github.com/domijin/open-learning-lab",
@@ -289,13 +360,14 @@
         "human-ai-collaboration",
         "decision-intelligence"
       ],
-      "summary": "An open research ledger testing which LLM-mediated learning policies produce durable, transferable capability per unit of learner effort outside the tutoring session.",
-      "keyInsight": "The study asks whether making a design judgement before seeing an expert solution improves later recall and transfer compared with explanation-first tutoring."
+      "status": "Proposed experiment protocol / open research ledger (not a completed trial)",
+      "summary": "An open research ledger and proposed experiment protocol testing which LLM-mediated learning policies produce durable, transferable capability per unit of learner effort outside the tutoring session.",
+      "keyInsight": "The protocol asks whether making a design judgement before seeing an expert solution improves later recall and transfer compared with explanation-first tutoring."
     },
     {
       "id": "baby-ai-edge-specs",
-      "title": "baby-AI: Receipt-Verified Edge Household Agent Architecture",
-      "date": "2026-05",
+      "title": "baby-AI: Raising a Household Agent on Edge Hardware",
+      "date": "2026-04",
       "source": "GitHub",
       "url": "https://github.com/domijin/baby-AI",
       "localUrl": "/articles/github/baby-ai.html",
@@ -305,8 +377,9 @@
         "decision-intelligence",
         "ai-and-society"
       ],
-      "summary": "Five subsystem specifications for perception, speech, memory, adaptation and evaluation, with a hardware cost target below $200.",
-      "keyInsight": "The design uses signed evaluation records to make claims about on-device learning and privacy inspectable."
+      "status": "Architectural specification and evaluation contract (not a shipped hardware product)",
+      "summary": "Eight subsystem specifications covering system charter, perception, speech recognition, memory, interaction, evaluation, privacy and escalation, with a local hardware BOM target around $100–$150.",
+      "keyInsight": "The specification uses inspectable memory and signed evaluation records to test claims about on-device learning and privacy."
     },
     {
       "id": "imessage-ai-router",
@@ -320,12 +393,13 @@
       "secondaryPillars": [
         "human-potential"
       ],
+      "status": "Published note / prototype experiment",
       "summary": "An experiment in using messaging to reach internet-connected agents over limited connections, including in-flight Wi-Fi and satellite text.",
       "keyInsight": "Messaging offers a familiar, asynchronous interface for asking an agent to do something without keeping a browser session open."
     },
     {
       "id": "reclaiming-play",
-      "title": "Reclaiming Play as a Life Skill",
+      "title": "🌱 Reclaiming Play as a Life Skill",
       "date": "2025-03",
       "source": "Substack",
       "url": "https://domijin.substack.com/p/reclaiming-play-as-a-life-skill",
@@ -336,13 +410,14 @@
         "complex-adaptive-systems",
         "ai-and-society"
       ],
-      "summary": "Examines Jane McGonigal's game mechanics (goals, rules, feedback systems, voluntary participation) through conversations with senior learners and retirees.",
+      "status": "Published essay",
+      "summary": "Examines Jane McGonigal's game mechanics (goals, rules, feedback systems, voluntary participation) alongside conversations with senior learners and retirees.",
       "keyInsight": "The essay considers what clear goals, feedback and voluntary participation can contribute to learning throughout life."
     },
     {
       "id": "tesla-seniors-safety",
       "title": "Tesla, Seniors Love Your Self-Driving—Now Let’s Make It Safer for Them",
-      "date": "2025-02",
+      "date": "2025-03",
       "source": "Substack",
       "url": "https://domijin.substack.com/p/tesla-seniors-love-your-self-drivingnow",
       "localUrl": "/articles/substack/tesla-seniors-love-your-self-drivingnow.html",
@@ -352,12 +427,13 @@
         "human-ai-collaboration",
         "decision-intelligence"
       ],
-      "summary": "Observations from work with older adults at Kin Domi, alongside six proposals for more accessible driving-assistance interfaces.",
+      "status": "Published essay (field observations and six interface proposals, not implemented vehicle changes)",
+      "summary": "Observations from work with older adults at Kin Domi in Palo Alto, alongside six proposals for more accessible driving-assistance interfaces.",
       "keyInsight": "The article proposes changes to alert timing, pre-drive checks and voice controls, based on difficulties observed with older users."
     },
     {
       "id": "overachievers-responsibility",
-      "title": "Overachiever’s Responsibility: Leadership, Alignment, and Sustainable Growth",
+      "title": "Overachiever’s Responsibility: Reflection on Leadership, Alignment, and Sustainable Growth",
       "date": "2025-02",
       "source": "Substack",
       "url": "https://domijin.substack.com/p/overachievers-responsibility-reflection",
@@ -367,12 +443,13 @@
       "secondaryPillars": [
         "collective-intelligence"
       ],
+      "status": "Published essay",
       "summary": "A reflection on team alignment, complementary skills and sustainable working habits.",
-      "keyInsight": "The essay uses greatest common divisors and least common multiples as metaphors for shared values and complementary skills, and considers the role of incentives."
+      "keyInsight": "The essay uses greatest common divisors and least common multiples as metaphors for shared values and complementary skills, and considers incentives before expectations."
     },
     {
       "id": "colorful-year-rhythm",
-      "title": "A Colorful Year Ahead: Milestones & Momentum from Intentional Rhythm",
+      "title": "A Colorful Year Ahead",
       "date": "2025-01",
       "source": "Substack",
       "url": "https://domijin.substack.com/p/a-colorful-year-ahead",
@@ -382,28 +459,30 @@
       "secondaryPillars": [
         "decision-intelligence"
       ],
+      "status": "Published essay / founder's log",
       "summary": "Notes on the eighth revision of a working model built around shared calendars, asynchronous collaboration and weekly reflection.",
       "keyInsight": "The working model explores whether shared calendars and asynchronous contributions can make coordination easier."
     },
     {
-      "id": "applovin-hypergrowth-repository",
-      "title": "Trace of AppLovin’s 7x Annual Hypergrowth (repository edition)",
-      "date": "2024-11",
+      "id": "libertyearth-and-future",
+      "title": "LibertyEarth & The Future Project: Civic Stewardship and the Collaborative Society",
+      "date": "2019–2025",
       "source": "GitHub",
-      "url": "https://github.com/domijin/observations_in_advertising",
-      "localUrl": "/articles/github/observations-in-advertising.html",
-      "localMarkdownUrl": "/articles/github/observations-in-advertising.md",
-      "pillar": "decision-intelligence",
+      "url": "https://github.com/domijin/LibertyEarth",
+      "localUrl": "/articles/github/libertyearth-and-future.html",
+      "localMarkdownUrl": "/articles/github/libertyearth-and-future.md",
+      "pillar": "collective-intelligence",
       "secondaryPillars": [
-        "complex-adaptive-systems",
-        "ai-and-society"
+        "organizational-intelligence",
+        "complex-adaptive-systems"
       ],
-      "summary": "The living repository edition of the AppLovin essay: the four growth drivers, the four areas where the paradigm is shifting, the growth trap, and the author’s own account of where the work came from.",
-      "keyInsight": "Growth that depends on scaling data collection carries an economic, ethical and social cost that the scaling law alone does not price in."
+      "status": "Evolving proposal notebook",
+      "summary": "An evolving notebook examining why large-scale human coordination hits institutional and cognitive bottlenecks, alongside proposals for civic architecture and shared learning.",
+      "keyInsight": "Faster networks alone do not produce coordination without shared context, institutional feedback and open participation."
     },
     {
       "id": "serendipity-and-highlands",
-      "title": "Serendipity: Where It Sparks & Dedication: Where It Is Channeled",
+      "title": "Serendipity: where it sparks",
       "date": "2024-12",
       "source": "Substack",
       "url": "https://domijin.substack.com/p/serendipity-where-it-sparks",
@@ -413,12 +492,13 @@
       "secondaryPillars": [
         "human-potential"
       ],
+      "status": "Published essay",
       "summary": "A personal reflection on connections between astrophysics, Confucian ethics and work across disciplines.",
       "keyInsight": "The essay considers how ideas from physics, machine learning and human–computer interaction can inform one another."
     },
     {
       "id": "starting-new-venture-kindomi",
-      "title": "Starting a New Venture & Momentum in Human-Centered Elder AI",
+      "title": "Starting a New Venture",
       "date": "2024-12",
       "source": "Substack",
       "url": "https://domijin.substack.com/p/starting-a-new-venture",
@@ -429,12 +509,29 @@
         "ai-and-society",
         "organizational-intelligence"
       ],
+      "status": "Published essay / early founder's log",
       "summary": "Notes on customer research, community outreach and forming the team behind Kin Domi, Inc.",
-      "keyInsight": "Conversations about difficulties with technology often led to broader questions about independence, dignity and relationships."
+      "keyInsight": "Conversations about difficulties with technology often led to broader questions about independence, dignity and purpose."
+    },
+    {
+      "id": "momentum-momentum-momentum",
+      "title": "Momentum, Momentum, Momentum!",
+      "date": "2024-12",
+      "source": "Substack",
+      "url": "https://domijin.substack.com/p/momentum-momentum-momentum",
+      "localUrl": "/articles/substack/momentum-momentum-momentum.html",
+      "localMarkdownUrl": "/articles/substack/momentum-momentum-momentum.md",
+      "pillar": "organizational-intelligence",
+      "secondaryPillars": [
+        "human-potential"
+      ],
+      "status": "Published essay / early founder's log",
+      "summary": "A founder's progress note on incorporating Kin Domi, Inc., continuing user conversations with older adults and coordinating early team roles.",
+      "keyInsight": "Community outreach and pre-product user interviews shaped priorities ahead of engineering build-out."
     },
     {
       "id": "coach-seeking-reflection",
-      "title": "Reflections from a Coach-Seeking Impulse",
+      "title": "Reflections from Coach-Seeking Impulse",
       "date": "2024-12",
       "source": "Substack",
       "url": "https://domijin.substack.com/p/reflections-from-coach-seeking-impulse",
@@ -444,12 +541,13 @@
       "secondaryPillars": [
         "organizational-intelligence"
       ],
+      "status": "Published essay",
       "summary": "Examines the mechanics of coaching, intellectual honesty, and why shared context determines the effectiveness of feedback.",
       "keyInsight": "The reflection considers how honesty and shared context affect the usefulness of coaching."
     },
     {
       "id": "third-ear-twinmind-ama",
-      "title": "Building Proactive Personal AI Memory (Third Ear / TwinMind AMA)",
+      "title": "Another team building Skynet, in the name of Jarvis — AMA",
       "date": "2024-11",
       "source": "Medium",
       "url": "https://medium.com/@domijin/another-team-building-skynet-in-the-name-of-jarvis-ama-163389dc5285",
@@ -459,7 +557,8 @@
       "secondaryPillars": [
         "human-potential"
       ],
-      "summary": "An architectural discussion of personal AI memory, local voice processing, privacy in query rewriting and browser context.",
+      "status": "Published post / AMA",
+      "summary": "An architectural discussion of personal AI memory, local voice processing, privacy in query rewriting and browser context for ThirdEar / TwinMind.",
       "keyInsight": "The discussion explores how local processing and selective use of cloud services might balance personal context, privacy and cost."
     },
     {
@@ -475,12 +574,46 @@
         "ai-and-society",
         "organizational-intelligence"
       ],
+      "status": "Published essay",
       "summary": "Uses the visual ergonomics of dark mode as a case study to critique short-term agile feature shipping versus long-term user welfare.",
-      "keyInsight": "The essay asks how product teams can account for longer-term effects alongside the immediate feedback from feature releases."
+      "keyInsight": "The essay asks how product teams can account for longer-term effects alongside immediate feedback from feature releases."
+    },
+    {
+      "id": "why-tiktok-is-so-popular",
+      "title": "Why TikTok is so popular",
+      "date": "2024-11",
+      "source": "Medium",
+      "url": "https://medium.com/@domijin/why-tiktok-is-so-popular-6fcc7b678bc7",
+      "localUrl": "/articles/medium/why-tiktok-is-so-popular-6fcc7b678bc7.html",
+      "localMarkdownUrl": "/articles/medium/why-tiktok-is-so-popular-6fcc7b678bc7.md",
+      "pillar": "collective-intelligence",
+      "secondaryPillars": [
+        "ai-and-society"
+      ],
+      "status": "Published note",
+      "summary": "Short notes comparing the accessibility, emotional immediacy and continuous flow of short video with the depth and reflection of text.",
+      "keyInsight": "Video lowers barriers for non-readers and boosts reach, while text leaves room to pause and verify."
+    },
+    {
+      "id": "applovin-hypergrowth-repository",
+      "title": "Trace of AppLovin’s 7x Annual Hypergrowth",
+      "date": "2024-11",
+      "source": "GitHub",
+      "url": "https://github.com/domijin/observations_in_advertising",
+      "localUrl": "/articles/github/observations-in-advertising.html",
+      "localMarkdownUrl": "/articles/github/observations-in-advertising.md",
+      "pillar": "decision-intelligence",
+      "secondaryPillars": [
+        "complex-adaptive-systems",
+        "ai-and-society"
+      ],
+      "status": "Published repository notes",
+      "summary": "The repository edition of the AppLovin essay: the four growth drivers, the four areas where performance advertising is shifting, the growth trap, and notes on where the observations came from.",
+      "keyInsight": "Growth that depends on scaling data collection carries an economic, ethical and social cost that the scaling law alone does not price in."
     },
     {
       "id": "applovin-hypergrowth-trace",
-      "title": "Trace of AppLovin’s 7x Annual Hypergrowth & The Growth Trap",
+      "title": "Trace of AppLovin’s 7x Annual Hypergrowth",
       "date": "2024-11",
       "source": "Medium",
       "url": "https://medium.com/@domijin/trace-of-applovins-7x-annual-hypergrowth-39dcb154f5d0",
@@ -491,30 +624,80 @@
         "decision-intelligence",
         "ai-and-society"
       ],
+      "status": "Published essay",
       "summary": "An analysis of behavioural data, scaling and latency constraints in advertising, with questions about the costs of continued growth.",
       "keyInsight": "The analysis asks where additional behavioural data stops adding useful value, and who bears the costs of the resulting systems."
     },
     {
+      "id": "building-context-for-reading",
+      "title": "Building the Context for Reading Expectations",
+      "date": "2024-11",
+      "source": "Substack",
+      "url": "https://domijin.substack.com/p/building-the-context-for-reading",
+      "localUrl": "/articles/substack/building-the-context-for-reading.html",
+      "localMarkdownUrl": "/articles/substack/building-the-context-for-reading.md",
+      "pillar": "human-potential",
+      "secondaryPillars": [
+        "collective-intelligence"
+      ],
+      "status": "Published essay / reading guide",
+      "summary": "A chronological reading guide linking Domi's earlier Medium essays on aviation, interfaces, advertising and ThirdEar / TwinMind into a shared context.",
+      "keyInsight": "Reading earlier notes in order clarifies the questions connecting product choices, attention incentives and personal growth."
+    },
+    {
+      "id": "hello-world-substack",
+      "title": "Hello World!",
+      "date": "2024-11",
+      "source": "Substack",
+      "url": "https://domijin.substack.com/p/hello-world",
+      "localUrl": "/articles/substack/hello-world.html",
+      "localMarkdownUrl": "/articles/substack/hello-world.md",
+      "pillar": "collective-intelligence",
+      "secondaryPillars": [
+        "human-potential"
+      ],
+      "status": "Published essay",
+      "summary": "Opening note for Domi's Mind Waves on Substack explaining why open, unpaywalled notes on execution matter more than unverified ideas.",
+      "keyInsight": "Lessons drawn from trying things in practice are more useful than isolated abstractions."
+    },
+    {
       "id": "rethinking-digital-advertising",
-      "title": "Rethinking Digital Advertising: Demand Mining & Dynamic Personalization",
+      "title": "Rethinking Digital Advertising: From Guesswork to User Engagement",
       "date": "2024-10",
       "source": "Medium",
-      "url": "https://domijin.medium.com/rethinking-digital-advertising-from-guesswork-to-user-engagement-6e1916a2aced",
+      "url": "https://medium.com/@domijin/rethinking-digital-advertising-from-guesswork-to-user-engagement-6e1916a2aced",
       "localUrl": "/articles/medium/rethinking-digital-advertising-from-guesswork-to-user-engagement-6e1916a2aced.html",
       "localMarkdownUrl": "/articles/medium/rethinking-digital-advertising-from-guesswork-to-user-engagement-6e1916a2aced.md",
       "pillar": "decision-intelligence",
       "secondaryPillars": [
         "human-ai-collaboration"
       ],
+      "status": "Published essay / proposal",
       "summary": "Proposes richer intent models, compact user profiles and interfaces that let users request different advertisements.",
       "keyInsight": "Letting users request different advertisements is proposed as a way to collect more deliberate preference feedback."
     },
     {
+      "id": "future-of-advertising",
+      "title": "The Future of Advertising — Moving Beyond Relevance to Demand Profiling and Dynamic Personalization",
+      "date": "2024-10",
+      "source": "Medium",
+      "url": "https://medium.com/@domijin/the-future-of-advertising-moving-beyond-relevance-to-demand-profiling-and-dynamic-personalization-5f4ccc03697c",
+      "localUrl": "/articles/medium/the-future-of-advertising-moving-beyond-relevance-to-demand-profiling-and-dynamic-personalization-5f4ccc03697c.html",
+      "localMarkdownUrl": "/articles/medium/the-future-of-advertising-moving-beyond-relevance-to-demand-profiling-and-dynamic-personalization-5f4ccc03697c.md",
+      "pillar": "decision-intelligence",
+      "secondaryPillars": [
+        "human-ai-collaboration"
+      ],
+      "status": "Published essay / proposal",
+      "summary": "Proposes moving advertising beyond binary click optimization toward demand profiling and adaptive creative responses over longer time horizons.",
+      "keyInsight": "Short-term click optimization misses latent user needs that evolve over time."
+    },
+    {
       "id": "traffic-lights-to-life-direction",
-      "title": "From Traffic Lights to Life’s Direction: Crowdsourced Inference & Symbolic AI",
+      "title": "From Traffic Lights to Life’s Direction",
       "date": "2023-10",
       "source": "Medium",
-      "url": "https://domijin.medium.com/from-traffic-lights-to-lifes-direction-57176d5d7a06",
+      "url": "https://medium.com/@domijin/from-traffic-lights-to-lifes-direction-57176d5d7a06",
       "localUrl": "/articles/medium/from-traffic-lights-to-lifes-direction-57176d5d7a06.html",
       "localMarkdownUrl": "/articles/medium/from-traffic-lights-to-lifes-direction-57176d5d7a06.md",
       "pillar": "complex-adaptive-systems",
@@ -522,12 +705,29 @@
         "human-ai-collaboration",
         "decision-intelligence"
       ],
-      "summary": "Explores how traffic-light timing might be inferred from crowdsourced trajectories, alongside reflections from Wolfram Summer School.",
-      "keyInsight": "The piece considers what can be inferred from movement data, and where symbolic computation might complement language models."
+      "status": "Published essay",
+      "summary": "Explores how traffic-light timing might be inferred from crowdsourced trajectories, alongside Wolfram Summer School notes and Domi's 2023 question on which work he could sustain.",
+      "keyInsight": "The piece considers what can be inferred from movement data, how symbolic computation might complement language models, and how to weigh personal direction."
+    },
+    {
+      "id": "observation-evtol-field",
+      "title": "Observation: the dilemma and cultural difference behind the eVTOL field",
+      "date": "2023-10",
+      "source": "Medium",
+      "url": "https://medium.com/@domijin/observation-the-dilemma-and-cultural-difference-behind-the-evtol-field-df42e91af109",
+      "localUrl": "/articles/medium/observation-the-dilemma-and-cultural-difference-behind-the-evtol-field-df42e91af109.html",
+      "localMarkdownUrl": "/articles/medium/observation-the-dilemma-and-cultural-difference-behind-the-evtol-field-df42e91af109.md",
+      "pillar": "organizational-intelligence",
+      "secondaryPillars": [
+        "collective-intelligence"
+      ],
+      "status": "Published essay",
+      "summary": "A commentary on eVTOL certification debates comparing Chinese and US regulatory incentives and market pressures.",
+      "keyInsight": "Institutional accountability and regulatory pacing shape commercial trajectories differently across aviation markets."
     },
     {
       "id": "illegible-handwriting-bandwidth",
-      "title": "Why Is Some Professional Handwriting Illegible? Information Bandwidth & HCI",
+      "title": "Why is some professional handwriting illegible?",
       "date": "2023-10",
       "source": "Medium",
       "url": "https://medium.com/@domijin/why-is-some-professional-handwriting-illegible-d07bd8acb818",
@@ -537,8 +737,25 @@
       "secondaryPillars": [
         "organizational-intelligence"
       ],
+      "status": "Published essay",
       "summary": "An exploration of documentation bottlenecks, the bandwidth of speech and writing, and institutional information barriers.",
       "keyInsight": "The essay asks whether voice interfaces could reduce the effort of recording information at its source."
+    },
+    {
+      "id": "boeings-future-at-stake",
+      "title": "Boeing’s Future at Stake: The Growing Challenge from SpaceX",
+      "date": "2023-03",
+      "source": "Medium",
+      "url": "https://medium.com/@domijin/boeings-future-at-stake-the-growing-challenge-from-spacex-177b63b10882",
+      "localUrl": "/articles/medium/boeings-future-at-stake-the-growing-challenge-from-spacex-177b63b10882.html",
+      "localMarkdownUrl": "/articles/medium/boeings-future-at-stake-the-growing-challenge-from-spacex-177b63b10882.md",
+      "pillar": "organizational-intelligence",
+      "secondaryPillars": [
+        "decision-intelligence"
+      ],
+      "status": "Published essay",
+      "summary": "Compares legacy aerospace contracting and supply chains with SpaceX's vertical integration and point-to-point transport ambitions.",
+      "keyInsight": "Organisational incentives and iteration cadence can shift competitive advantages across long-established industries."
     },
     {
       "id": "all-about-chatgpt",
@@ -553,6 +770,7 @@
         "collective-intelligence",
         "human-ai-collaboration"
       ],
+      "status": "Published essay",
       "summary": "A 2023 essay on language models, search economics, symbolic computation and the limitations of feedback used for alignment.",
       "keyInsight": "The essay asks how statistical prediction relates to reasoning, and who should participate in decisions about model behaviour."
     },
@@ -569,12 +787,13 @@
         "complex-adaptive-systems",
         "organizational-intelligence"
       ],
+      "status": "Published essay / manifesto",
       "summary": "Explores information asymmetry, resource coordination and proposals for liquid democracy.",
       "keyInsight": "The proposal considers how individual ownership and collective decision-making might be reconciled."
     },
     {
       "id": "astrophysics-bbh-research",
-      "title": "Gravitational Waves from Binary Black Holes in Globular Clusters & Open Research",
+      "title": "Prospective Detection of Binary Black Holes in the Local Universe with Gravitational Waves",
       "date": "2018-07",
       "source": "Research",
       "url": "https://domij.info/pages/research.html",
@@ -585,8 +804,9 @@
         "decision-intelligence",
         "collective-intelligence"
       ],
+      "status": "Doctoral dissertation",
       "summary": "Doctoral work on globular clusters and binary black holes, alongside notes on reproducible computational research.",
-      "keyInsight": "Numerical simulation, statistical analysis and reproducible workflows provided the methodological basis for my later work."
+      "keyInsight": "Numerical simulation, statistical analysis and reproducible workflows provided the methodological basis for Domi's later work."
     }
   ]
 }

@@ -19,7 +19,7 @@ const GlobularClusterSimulation = dynamic(
 );
 
 // `NEXT_BASE_PATH` is inlined at build time via the `env` key in next.config.
-const BASE_PATH = process.env.NEXT_BASE_PATH ?? "/next";
+const BASE_PATH = process.env.NEXT_BASE_PATH ?? "";
 const SITE_HREF = BASE_PATH === "" ? "/" : `${BASE_PATH}/`;
 
 export default function ClusterSandboxPage() {

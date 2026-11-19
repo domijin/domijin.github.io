@@ -1,0 +1,40 @@
+flowchart LR
+  accTitle: Design Thinking critique, Donald Clark, Nudge Learning and WildFire AI subtree
+  accDescr: Critique of Design Thinking for Education wrapping Donald Clark's five stages, Effective Solution summary, Nudge Learning, and Alvin Toffler's strategy quote around WildFire AI for learning.
+  subgraph T2["Boundary: critique Design Thinking for Education (not for communication purpose)"]
+    direction LR
+    DT["Design Thinking<br/>(effective communication)<br/>[note]"]
+    DC["Donald Clark<br/>[detail ...]"]
+    DC --> DC1["Empathise -> Analysis [note]"]
+    DC --> DC2["Define -> sophisticated<br/>pedagogic approaches,<br/>adaptive & interactive [note]"]
+    DC --> DC3["Ideate -> effortful learning,<br/>mind-rich, not media rich [note]"]
+    DC --> DC4["Prototype -> use<br/>scientific method [note]"]
+    DC --> DC5["Test -> measure by learning<br/>efficacy (retained learning) [note]"]
+
+    ES["Summary:<br/>Effective Solution"]
+    NL["Nudge Learning:<br/>behavior science [link]"]
+
+    subgraph T3["Boundary: Toffler strategy quote"]
+      direction LR
+      WF["WildFire: AI for learning<br/>[detail ...]<br/>'If you don't have a strategy,<br/>you will be part of someone<br/>else's strategy' — Toffler"]
+      WF --> WF1["get down and use it -> practice"]
+      WF --> WF2["get advice on inputs -> iterate on feedback"]
+      WF --> WF3["Think big, strategically & expansively"]
+      WF --> WF4["wider view of AI [note]"]
+      WF --> WF5["Think learning, not teaching -> UX first"]
+      WF --> WF6["Create a sense of urgency"]
+      WF --> WF7["Remember that this is moving fast"]
+    end
+  end
+
+  DT --> DC
+  DC1 -. summary .-> ES
+  DC2 -. summary .-> ES
+  DC3 -. summary .-> ES
+  DC4 -. summary .-> ES
+  DC5 -. summary .-> ES
+  ES --> NL
+  ES --> WF
+
+  classDef summary fill:#e0f2fe,stroke:#0369a1,stroke-width:2px,color:#0f172a
+  class ES summary

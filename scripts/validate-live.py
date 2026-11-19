@@ -70,8 +70,7 @@ def main():
     print(f"validating {BASE}\n")
 
     # --- 1. the routes the site publishes -------------------------------
-    routes = ["/", "/next/", "/cluster/", "/next/cluster/",
-              "/knowledge/", "/next/knowledge/", "/articles/",
+    routes = ["/", "/cluster/", "/knowledge/", "/articles/",
               "/articles/index.html", "/llms.txt", "/llms-full.txt",
               "/agent-context.json", "/sitemap.xml", "/404.html",
               "/classic/"]
@@ -115,7 +114,7 @@ def main():
 
     # --- 2. per-page checks ---------------------------------------------
     article_pages = [r for r in page_bodies if r.startswith("/articles/") and r.endswith(".html")]
-    app_pages = ["/", "/next/", "/cluster/", "/next/cluster/"]
+    app_pages = ["/", "/cluster/"]
     agent_pages = ["/llms.txt", "/llms-full.txt", "/agent-context.json", "/sitemap.xml"]
 
     for route, text in sorted(page_bodies.items()):
@@ -167,7 +166,7 @@ def main():
                 checks["ga4 present"] += 1
 
         # chapter titles
-        if route in ("/", "/next/", "/articles/"):
+        if route in ("/", "/articles/"):
             if "The Story of a Million Stars: a Complex Adaptive System" not in text:
                 failures.append(f"{route}: new chapter 01 title missing")
             else:
@@ -232,7 +231,7 @@ def main():
             if u.netloc and u.netloc not in ("domij.info", "www.domij.info"):
                 continue
             target = u.path or "/"
-            if target.startswith("/_next/") or target.startswith("/next/_next/"):
+            if target.startswith("/_next/"):
                 continue
             if target not in visited:
                 queue.append(target)

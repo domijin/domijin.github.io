@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import NewtonianNoiseExplorer from "@/components/NewtonianNoiseExplorer";
 import "./newtonian-noise.css";
 
-const basePath = process.env.NEXT_BASE_PATH ?? "/next";
+const basePath = process.env.NEXT_BASE_PATH ?? "";
 const url = `https://domij.info${basePath}/newtonian-noise/`;
 const title = "Atmospheric Newtonian noise: from air to strain | Domi Jin";
 const description =

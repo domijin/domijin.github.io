@@ -1,14 +1,12 @@
 import type { Metadata } from "next";
-import { PERSONA_DATA } from "@/data/contextMapData";
 import MathRenderer from "@/components/MathRenderer";
 import "./globals.css";
 
 const profileDescription =
-  "Domi Jin works on machine learning and decision systems, with a background in computational astrophysics. Research, projects and notes on learning and human–AI collaboration.";
+  "Domi Jin’s essays and projects span astrophysics, machine learning and building for older adults. Explore the work as a backer, collaborator or fellow learner.";
 
-// Blue-green: when exported to /next the site is the staged "green" environment;
-// when promoted to the root it becomes the canonical domij.info home page.
-const basePath = process.env.NEXT_BASE_PATH ?? "/next";
+// Canonical static export serves from the site root (/).
+const basePath = process.env.NEXT_BASE_PATH ?? "";
 const siteUrl = basePath === "" ? "https://domij.info/" : `https://domij.info${basePath}/`;
 
 export const metadata: Metadata = {
@@ -100,7 +98,8 @@ const jsonLdGraph = {
       "@id": `${siteUrl}#webpage`,
       "url": siteUrl,
       "name": "Domi Jin — Research, projects and notes",
-      "description": PERSONA_DATA.mission,
+      "description":
+        "A single account of Domi Jin's work across four scales—from computational astrophysics and real-time decision systems to human agency and collective learning. Starting from a 2023 question on which work can sustain itself, this current reflection also asks what winning costs and who bears it, treating competition as an incentive and compliance as a minimum. Three open paths—back an idea, build together, and learn and teach—introduce the essays, specifications and interactive models.",
       "mainEntity": {
         "@id": "https://domij.info/#domi-jin"
       }

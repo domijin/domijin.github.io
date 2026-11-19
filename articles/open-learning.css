@@ -1,8 +1,19 @@
 /* Shared by the article and embedded reader; exported by render-open-learning.py. */
 .learning-figure { margin: 2rem 0; color: #1e293b; }
 .learning-figure figcaption { margin: 1rem 0 0; font: 14px/1.6 system-ui, sans-serif; color: #475569; }
-.mermaid-scroll { overflow-x: auto; padding: .5rem; border: 1px solid #bae6fd; border-radius: 12px; background: #f8fafc; }
+.mermaid-scroll { overflow-x: auto; padding: .75rem; border: 1px solid #bae6fd; border-radius: 12px; background: #f8fafc; }
 .mermaid-scroll:focus-visible { outline: 3px solid #0284c7; outline-offset: 3px; }
-.mermaid-scroll img { display: block; width: 100%; height: auto; margin: 0 auto; }
-.mermaid-framework img { min-width: 420px; max-width: 560px; }
-.mermaid-discovery img { max-width: 420px; }
+.mermaid-scroll img,
+.mermaid-scroll svg { display: block; width: 100%; height: auto; margin: 0 auto; }
+.mermaid-framework img,
+.mermaid-framework svg { min-width: 420px; max-width: 560px; }
+.mermaid-discovery img,
+.mermaid-discovery svg { max-width: 420px; }
+.mermaid-mindmap img,
+.mermaid-mindmap svg { min-width: 700px; max-width: 960px; }
+.mermaid-branch img,
+.mermaid-branch svg { min-width: 660px; max-width: 880px; }
+.mermaid-tall img,
+.mermaid-tall svg { min-width: 480px; max-width: 580px; }
+.mermaid-wide img,
+.mermaid-wide svg { min-width: 920px; max-width: 1120px; }

@@ -113,6 +113,6 @@ Status: working hypothesis and article draft. Not a programme evaluation or an i
 
 ## Source context
 
-Editorial note: the supplied [Learning about Learning mind map (PDF, 103 kB)](/pdfs/learning-about-learning.pdf) is preserved as source context. It brings together instructional design, explicit instruction, retrieval and spaced practice, peer and project-based learning, and the four proposed human capabilities. Its notes are a reading map, not a validation of this model. The article draws on the supplied draft and correspondence summary; the PDF is not a transcript of Thomas.
+Editorial note: the [Learning about Learning mind map](/articles/blog/learning-about-learning.html) (decoded with Mermaid diagrams, inline boundary notes, markers and all 13 original links from the 10 March 2023 XMind export) is served natively as source context. It brings together instructional design, explicit instruction, retrieval and spaced practice, peer and project-based learning, and the four proposed human capabilities. Its notes are a reading map, not a validation of this model. The article draws on the supplied draft and correspondence summary; the mind map is not a transcript of Thomas.
 
 Related reading: [Serendipity: where it sparks](/articles/substack/serendipity-where-it-sparks.html) · [Open Learning Lab](/articles/github/open-learning-lab.html).

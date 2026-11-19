@@ -9,6 +9,13 @@ import {
   WritingNode,
 } from "@/data/contextMapData";
 import { BOOK_ESSAYS_BY_URL, BookEssayEntry } from "@/data/bookContentData";
+import ReaderPaths, { isModifiedClick } from "@/components/ReaderPaths";
+import {
+  ReaderPathId,
+  resolvePathRecommendation,
+  stripBasePath,
+  withBasePath,
+} from "@/data/readerPathsData";
 
 const GlobularClusterSimulation = dynamic(
   () => import("@/components/GlobularClusterSimulation"),
@@ -99,6 +106,7 @@ const NARRATIVE_THEMES: NarrativeThemeSpec[] = [
       "/articles/substack/reclaiming-play-as-a-life-skill.html",
       "/articles/substack/building-the-context-for-reading.html",
       "/articles/blog/open-learning.html",
+      "/articles/blog/learning-about-learning.html",
       "/articles/github/open-learning-lab.html",
       "/articles/github/baby-ai.html",
       "/articles/blog/imessage-ai-router.html",
@@ -135,9 +143,9 @@ const NARRATIVE_THEMES: NarrativeThemeSpec[] = [
 
 const ORDERED_ESSAY_URLS = NARRATIVE_THEMES.flatMap((t) => t.essayUrls);
 
-// Blue-green: the app is staged at /next/ and promoted to the site root.
-// Self-referential links must follow whichever environment is live.
-const BASE_PATH = process.env.NEXT_BASE_PATH ?? "/next";
+// The Next.js app is promoted to the site root (/); NEXT_BASE_PATH allows
+// building under a prefix if needed.
+const BASE_PATH = process.env.NEXT_BASE_PATH ?? "";
 const SELF_HREF = BASE_PATH === "" ? "/" : `${BASE_PATH}/`;
 
 function renderInlineMarkdown(text: string): React.ReactNode[] {
@@ -167,7 +175,7 @@ function renderInlineMarkdown(text: string): React.ReactNode[] {
     if (part.startsWith("**") && part.endsWith("**") && part.length > 4) {
       return (
         <strong key={idx} className="font-semibold text-slate-900">
-          {part.slice(2, -2)}
+          {renderInlineMarkdown(part.slice(2, -2))}
         </strong>
       );
     }
@@ -299,15 +307,27 @@ function renderFormattedBlock(block: string, idx: number) {
       </blockquote>
     );
   }
-  if (block.startsWith("• ")) {
-    const items = block.split("\n").map((line) => line.replace(/^•\s*/, ""));
+  if (block.trimStart().startsWith("• ")) {
+    const items = block.split("\n").map((line) => {
+      const trimmedLine = line.trimStart();
+      const level = Math.floor((line.length - trimmedLine.length) / 2);
+      return {
+        level,
+        text: trimmedLine.replace(/^•\s*/, ""),
+      };
+    });
     return (
       <ul
         key={idx}
         className="my-4 pl-5 list-disc space-y-1.5 text-slate-800 font-serif text-[17px] leading-relaxed"
       >
         {items.map((it, i) => (
-          <li key={i}>{renderInlineMarkdown(it)}</li>
+          <li
+            key={i}
+            style={it.level > 0 ? { marginLeft: `${it.level * 1.25}rem` } : undefined}
+          >
+            {renderInlineMarkdown(it.text)}
+          </li>
         ))}
       </ul>
     );
@@ -336,7 +356,12 @@ export default function GreenExperience() {
 
   // Active essay open in the self-sufficient In-Page Essay Reader
   const [activeReaderUrl, setActiveReaderUrl] = useState<string | null>(null);
+  const readerDialogRef = useRef<HTMLDialogElement | null>(null);
   const readerScrollRef = useRef<HTMLDivElement | null>(null);
+
+  // Ephemeral visitor reading-path choice and engagement for this session
+  const [selectedPathId, setSelectedPathId] = useState<ReaderPathId | null>(null);
+  const [engagedEssayUrls, setEngagedEssayUrls] = useState<string[]>([]);
 
   // Act 02 Interactive State — the traffic-light cycle estimator described in
   // "From Traffic Lights to Life's Direction" (Medium, October 2023).
@@ -378,24 +403,49 @@ export default function GreenExperience() {
     return BOOK_ESSAYS_BY_URL[nextUrl] || null;
   }, [activeReaderUrl]);
 
-  // Keyboard Escape handler, scroll lock and scroll-to-top for In-Page Reader
+  const pathRecommendation = useMemo(
+    () =>
+      resolvePathRecommendation({
+        selectedPathId,
+        currentEssayUrl: null,
+        engagedEssayUrls,
+      }),
+    [selectedPathId, engagedEssayUrls]
+  );
+
+  const readerRecommendation = useMemo(
+    () =>
+      activeReaderUrl
+        ? resolvePathRecommendation({
+            selectedPathId,
+            currentEssayUrl: activeReaderUrl,
+            engagedEssayUrls,
+          })
+        : null,
+    [selectedPathId, activeReaderUrl, engagedEssayUrls]
+  );
+
+  const readerIsOpen = activeReaderUrl !== null;
   useEffect(() => {
-    if (!activeReaderUrl) return;
-    if (readerScrollRef.current) {
-      readerScrollRef.current.scrollTop = 0;
-    }
-    const prevOverflow = document.body.style.overflow;
+    const dialog = readerDialogRef.current;
+    if (!readerIsOpen || !dialog) return;
+    const opener = document.activeElement;
+    const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        setActiveReaderUrl(null);
+    dialog.showModal();
+    return () => {
+      dialog.close();
+      document.body.style.overflow = previousOverflow;
+      if (opener instanceof HTMLElement && opener.isConnected) {
+        opener.focus({ preventScroll: true });
       }
     };
-    window.addEventListener("keydown", onKeyDown);
-    return () => {
-      document.body.style.overflow = prevOverflow;
-      window.removeEventListener("keydown", onKeyDown);
-    };
+  }, [readerIsOpen]);
+
+  useEffect(() => {
+    if (!activeReaderUrl || !readerScrollRef.current) return;
+    readerScrollRef.current.scrollTop = 0;
+    readerDialogRef.current?.querySelector<HTMLElement>("#essay-reader-title")?.focus({ preventScroll: true });
   }, [activeReaderUrl]);
 
   const activePillarObj = useMemo(
@@ -435,11 +485,22 @@ export default function GreenExperience() {
   ];
 
   const openEssayReader = (url: string) => {
-    if (BOOK_ESSAYS_BY_URL[url]) {
-      setActiveReaderUrl(url);
+    const canonicalUrl = stripBasePath(url, BASE_PATH);
+    if (BOOK_ESSAYS_BY_URL[canonicalUrl]) {
+      setActiveReaderUrl(canonicalUrl);
+      setEngagedEssayUrls((prev) =>
+        prev.includes(canonicalUrl)
+          ? [...prev.filter((u) => u !== canonicalUrl), canonicalUrl]
+          : [...prev, canonicalUrl]
+      );
     } else {
-      window.location.href = url;
+      window.location.href = withBasePath(canonicalUrl, BASE_PATH);
     }
+  };
+
+  const handleResetReaderPaths = () => {
+    setSelectedPathId(null);
+    setEngagedEssayUrls([]);
   };
 
   const handleCardKeyDown = (e: React.KeyboardEvent, url: string) => {
@@ -895,11 +956,12 @@ export default function GreenExperience() {
 
       {/* In-Page Essay Reader Drawer (Substack-Style Reading Experience with Next Post flow) */}
       {activeReaderEssay && (
-        <div
-          role="dialog"
+        <dialog
+          ref={readerDialogRef}
+          onCancel={() => setActiveReaderUrl(null)}
           aria-modal="true"
           aria-labelledby="essay-reader-title"
-          className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex justify-end"
+          className="fixed inset-0 m-0 h-dvh max-h-none w-screen max-w-none border-0 p-0 bg-transparent backdrop:bg-slate-900/60 backdrop:backdrop-blur-xs open:flex open:justify-end"
           onClick={() => setActiveReaderUrl(null)}
         >
           <div
@@ -936,6 +998,7 @@ export default function GreenExperience() {
 
               <header className="mb-8">
                 <h2
+                  tabIndex={-1}
                   id="essay-reader-title"
                   className="text-2xl sm:text-4xl font-bold text-slate-900 font-serif leading-tight tracking-tight"
                 >
@@ -974,6 +1037,57 @@ export default function GreenExperience() {
                 ({activeReaderEssay.date}).</> : <>{activeReaderEssay.venue} · {activeReaderEssay.date}.</>}
               </p>
 
+              {readerRecommendation && (
+                <aside
+                  aria-label="Suggested next piece"
+                  className="p-4 rounded-xl bg-white border border-sky-200 space-y-2 shadow-2xs"
+                >
+                  <div className="flex flex-wrap items-center justify-between gap-2 text-[10px] font-mono uppercase tracking-wider">
+                    <span className="text-[#0369a1] font-semibold">
+                      {readerRecommendation.basisLabel}
+                    </span>
+                    <span className="text-slate-500 normal-case">
+                      {readerRecommendation.recommended.status}
+                    </span>
+                  </div>
+                  <a
+                    href={withBasePath(readerRecommendation.recommended.url, BASE_PATH)}
+                    onClick={(e) => {
+                      if (isModifiedClick(e)) return;
+                      e.preventDefault();
+                      openEssayReader(readerRecommendation.recommended.url);
+                    }}
+                    className="block text-sm sm:text-base font-bold text-slate-900 hover:text-[#2980b9] font-serif underline-offset-4 hover:underline"
+                  >
+                    {readerRecommendation.recommended.title} &rarr;
+                  </a>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    {readerRecommendation.connection}
+                  </p>
+                  <div className="flex flex-wrap items-center justify-between gap-3 pt-1">
+                    {readerRecommendation.companionLink ? (
+                      <a
+                        href={withBasePath(readerRecommendation.companionLink.url, BASE_PATH)}
+                        className="text-xs text-[#0369a1] hover:text-[#2980b9] font-medium underline underline-offset-3"
+                      >
+                        {readerRecommendation.companionLink.label} &rarr;
+                      </a>
+                    ) : (
+                      <span />
+                    )}
+                    {selectedPathId !== null && (
+                      <button
+                        type="button"
+                        onClick={() => setSelectedPathId(null)}
+                        className="text-[11px] font-mono text-slate-600 hover:text-[#2980b9] underline underline-offset-3 cursor-pointer"
+                      >
+                        Clear path
+                      </button>
+                    )}
+                  </div>
+                </aside>
+              )}
+
               {nextReaderEssay && (
                 <div className="p-4 rounded-xl bg-sky-50/70 border border-sky-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                   <div>
@@ -985,7 +1099,7 @@ export default function GreenExperience() {
                     </span>
                   </div>
                   <button
-                    onClick={() => setActiveReaderUrl(nextReaderEssay.url)}
+                    onClick={() => openEssayReader(nextReaderEssay.url)}
                     className="px-3.5 py-2 rounded-lg bg-[#2980b9] hover:bg-[#20638f] text-white text-xs font-medium transition shrink-0 cursor-pointer"
                   >
                     Next Post &rarr;
@@ -993,13 +1107,22 @@ export default function GreenExperience() {
                 </div>
               )}
 
-              <div className="flex items-center justify-between pt-1">
-                <button
-                  onClick={() => setActiveReaderUrl(null)}
-                  className="text-[#2980b9] hover:underline font-medium cursor-pointer"
-                >
-                  &larr; Back to main story
-                </button>
+              <div className="flex flex-wrap items-center justify-between gap-3 pt-1">
+                <div className="flex flex-wrap items-center gap-4">
+                  <button
+                    onClick={() => setActiveReaderUrl(null)}
+                    className="text-[#2980b9] hover:underline font-medium cursor-pointer"
+                  >
+                    &larr; Back to main story
+                  </button>
+                  <a
+                    href="#reader-paths"
+                    onClick={() => setActiveReaderUrl(null)}
+                    className="text-[#0369a1] hover:underline font-medium"
+                  >
+                    Return to three-path overview
+                  </a>
+                </div>
                 <a
                   href="/articles/"
                   className="text-slate-500 hover:text-[#2980b9] font-mono"
@@ -1009,7 +1132,7 @@ export default function GreenExperience() {
               </div>
             </footer>
           </div>
-        </div>
+        </dialog>
       )}
 
       <main
@@ -1031,18 +1154,25 @@ export default function GreenExperience() {
                   From a Million Orbiting Stars to the Human Sitting Next to You
                 </h1>
                 <p className="text-lg sm:text-xl text-[#2980b9] font-serif italic leading-snug">
-                  How computational astrophysics, 50-millisecond decision systems, and Palo Alto field research shaped one question: what helps people think clearly, keep their independence, and build together?
+                  What makes a piece of work worth doing, and what does it ask of the people who take part?
                 </p>
               </div>
 
               <div className="space-y-4 text-slate-700 font-serif text-[17px] sm:text-[18px] leading-[1.78]">
                 <p>
-                  Ten years ago at the University of Texas at Arlington, I spent my days watching a million virtual stars tug on one another inside supercomputer simulations, waiting billions of years of model time for two black holes to spiral together. Since then, my work has moved closer and closer to everyday human life—from recommendation engines that read mobility data, and marketplace pricing that had to survive contact with real demand, to sitting in passenger seats with older drivers in Palo Alto testing self-driving cars.
+                  In 2023 I wrote down a question I was struggling to answer. I wanted to work on problems that mattered to me. Which of them could I keep working on while earning a living and looking after my family?
                 </p>
                 <p>
-                  Across every change of scale, the habit that works best has stayed the same: <strong>sketch a clear picture of how the system works, test it in the real world, and listen honestly when human experience pushes back</strong>.
+                  I still want to build a business that can pay its own way and give other people room to pursue work they care about. A competitive market makes it easy to judge a decision by whether it helped the business survive. Even when we have played by the rules, I want to ask who had a say in that decision and who had to live with it.
+                </p>
+                <p>
+                  When a neighbour and I began talking about technology for older adults, a practical question was how much trouble someone had to go through just to use an app. That is the kind of detail I want to keep in view when I build something, write about it, or invite someone else to try it.
                 </p>
               </div>
+
+              <a href="#reader-paths" className="inline-block font-medium text-[#0369a1] underline underline-offset-4">
+                Find a starting point in the essays &darr;
+              </a>
 
               {/* Bilingual Soul Quote Card */}
               <div className="p-5 sm:p-6 rounded-2xl bg-white border border-slate-200/90 shadow-[0_2px_12px_rgba(41,128,185,0.06)] space-y-2">
@@ -1178,6 +1308,16 @@ export default function GreenExperience() {
               </div>
             </div>
           </div>
+
+          <ReaderPaths
+            basePath={BASE_PATH}
+            selectedPathId={selectedPathId}
+            engagedEssayUrls={engagedEssayUrls}
+            recommendation={pathRecommendation}
+            onSelectPath={setSelectedPathId}
+            onReset={handleResetReaderPaths}
+            onOpenEssay={openEssayReader}
+          />
         </section>
 
         {/* =====================================================================
@@ -1220,14 +1360,14 @@ export default function GreenExperience() {
                   Read the Illustrated Astrophysics Essay &rarr;
                 </button>
                 <a
-                  href={`${process.env.NEXT_BASE_PATH ?? "/next"}/wormholes/`}
+                  href={`${BASE_PATH}/wormholes/`}
                   className="px-4 py-2 rounded-xl border border-sky-200 text-[#2980b9] hover:bg-sky-50 font-medium transition"
                   lang="en-GB"
                 >
                   Euclidean wormholes: from geometry to statistics &rarr;
                 </a>
                 <a
-                  href={`${process.env.NEXT_BASE_PATH ?? "/next"}/newtonian-noise/`}
+                  href={`${BASE_PATH}/newtonian-noise/`}
                   className="px-4 py-2 rounded-xl border border-sky-200 text-[#2980b9] hover:bg-sky-50 font-medium transition"
                   lang="en-GB"
                 >

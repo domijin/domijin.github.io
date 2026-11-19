@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import WormholeExplorer from "@/components/WormholeExplorer";
 import "./wormholes.css";
 
-const basePath = process.env.NEXT_BASE_PATH ?? "/next";
+const basePath = process.env.NEXT_BASE_PATH ?? "";
 const url = `https://domij.info${basePath}/wormholes/`;
 const title = "Euclidean wormholes: from geometry to statistics | Domi Jin";
 const description =

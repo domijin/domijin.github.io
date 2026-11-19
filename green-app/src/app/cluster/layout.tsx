@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
-const basePath = process.env.NEXT_BASE_PATH ?? "/next";
+const basePath = process.env.NEXT_BASE_PATH ?? "";
 const siteUrl =
   basePath === "" ? "https://domij.info/" : `https://domij.info${basePath}/`;
 

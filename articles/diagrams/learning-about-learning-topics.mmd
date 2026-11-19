@@ -1,0 +1,44 @@
+flowchart LR
+  accTitle: Initial topics and Positive Psychology branch of the Design for Learning mind map
+  accDescr: Four initial topics — Future Thinking, Effective Altruism, Design Thinking (detailed below), and Positive Psychology with Cognitive Scientist critique, No silver bullet summary linked to Marva Collin boundary, and MindSetKit.
+  IT["Initial Topics<br/>I thought about"]
+
+  FT["Future Thinking<br/>(first principle)"]
+  PP["Positive Psychology<br/>(resilience / growth mindset)<br/>[note]"]
+  DT["Design Thinking<br/>(effective communication) [note]<br/>(see Branch 4b below)"]
+  EA["Effective Altruism<br/>(social responsibility)"]
+
+  CS["Cognitive Scientist's<br/>view [link]"]
+  CS --> CS1["Theory is right"]
+  CS --> CS2["Effect is small"]
+  CS --> CS3["Interventions can change it,<br/>but it is NOT easy [link]"]
+  CS --> CS4["Said change is<br/>sensitive to context"]
+
+  NS["Summary: No silver bullet,<br/>small effect is common [note]"]
+  subgraph T1["Boundary: Marva Collin"]
+    direction TB
+    MC1["-> Ordinary Children,<br/>ExtraOrdinary Teachers [link]<br/>-> Marva Collin's Way"]
+  end
+
+  MK["resources -<br/>MindSetKit [link]"]
+  MK --> MK1["Praise the Process,<br/>Not the Person"]
+  MK --> MK2["Celebrate Mistakes (Google X)"]
+  MK --> MK3["Give Tasks That Promote<br/>Struggle and Growth"]
+
+  IT --> FT
+  IT --> PP
+  IT --> DT
+  IT --> EA
+
+  PP --> CS
+  PP --> MK
+  CS1 -. summary .-> NS
+  CS2 -. summary .-> NS
+  CS3 -. summary .-> NS
+  CS4 -. summary .-> NS
+  NS --> MC1
+
+  classDef summary fill:#e0f2fe,stroke:#0369a1,stroke-width:2px,color:#0f172a
+  classDef note fill:#f8fafc,stroke:#64748b,stroke-dasharray: 4 2,color:#0f172a
+  class NS summary
+  class DT note

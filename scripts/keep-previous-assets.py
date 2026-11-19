@@ -17,9 +17,8 @@ Two modes:
     collect <html_root> <repo_root> <dest> <asset_prefix>
     restore <src> <repo_root>
 
-`html_root` is where the outgoing HTML lives (the repository root, or
-`next/` for the staged mirror). `asset_prefix` is the URL prefix its assets
-are served under ("" or "next/").
+`html_root` is where the outgoing HTML lives (the repository root).
+`asset_prefix` is the URL prefix its assets are served under ("").
 """
 
 import os
@@ -28,12 +27,11 @@ import shutil
 import sys
 from pathlib import Path
 
-# Matches "/_next/..." for the root build and "/next/_next/..." for the
-# staged mirror.
+# Matches "/_next/..." for the root build.
 ASSET = re.compile(r'(?:src|href)="(/[^"]*_next/[^"]+)"')
 
 # Directories whose HTML does not belong to this build.
-SKIP = {"next", "classic", "green-app", "articles", "docs", "scripts",
+SKIP = {"classic", "green-app", "articles", "docs", "scripts",
         "node_modules", ".git", "pdfs", "images", "beta", "pages", "theme",
         "feeds", "author", "category", "tags"}
 
@@ -58,6 +56,11 @@ def collect(html_root: Path, repo_root: Path, dest: Path, prefix: str):
     if static.is_dir():
         for d in static.iterdir():
             if d.is_dir() and d.name not in ("chunks", "css", "media"):
+                # A cached page can request chunks listed only in its build manifest.
+                manifest = d / "_buildManifest.js"
+                if manifest.is_file():
+                    chunks = re.findall(r'"(static/chunks/[^"]+)"', manifest.read_text(encoding="utf-8"))
+                    refs.update(f"/{prefix}_next/{chunk}" for chunk in chunks)
                 for f in d.rglob("*"):
                     if f.is_file():
                         refs.add(f"/{prefix}_next/static/"

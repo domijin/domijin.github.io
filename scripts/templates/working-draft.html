@@ -18,7 +18,6 @@
 <meta name="twitter:title" content="{{TITLE}}" />
 <meta name="twitter:description" content="{{DESCRIPTION}}" />
 <script type="application/ld+json">{{SCHEMA}}</script>
-<link rel="stylesheet" href="/articles/open-learning.css" />
 <style>
 :root { --bg: #fcfcfd; --ink: #1e293b; --muted: #64748b; --accent: #2980b9; --border: #e2e8f0; }
 * { box-sizing: border-box; }
@@ -37,13 +36,24 @@ p { margin: 0 0 1.3em; }
 .essay-byline, .colophon { color: var(--muted); font: 14px/1.6 system-ui, sans-serif; }
 blockquote { border-left: 3px solid var(--accent); padding-left: 20px; margin: 1.6em 0; }
 ul { padding-left: 1.4em; } li { margin: .5em 0; }
+ul ul { margin: .35em 0; }
 .table-scroll { overflow-x: auto; margin: 24px 0; }
 table { width: 100%; border-collapse: collapse; font: 15px/1.6 system-ui, sans-serif; }
 th, td { text-align: left; vertical-align: top; padding: 10px; border: 1px solid var(--border); }
 th { background: #f0f9ff; }
-.diagram-figure { margin: 32px 0; }
+code { font: 0.85em/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; background: #f1f5f9; padding: 2px 5px; border-radius: 4px; color: #0f172a; }
+.diagram-figure, .learning-figure { margin: 32px 0; color: #1e293b; }
 .diagram-figure svg { display: block; width: 100%; height: auto; }
-.diagram-figure figcaption { font: 14px/1.6 system-ui, sans-serif; color: #475569; margin-top: 12px; }
+.diagram-figure figcaption, .learning-figure figcaption { font: 14px/1.6 system-ui, sans-serif; color: #475569; margin-top: 12px; }
+.mermaid-scroll { overflow-x: auto; padding: .75rem; border: 1px solid #bae6fd; border-radius: 12px; background: #f8fafc; }
+.mermaid-scroll:focus-visible { outline: 3px solid #0284c7; outline-offset: 3px; }
+.mermaid-scroll img, .mermaid-scroll svg { display: block; width: 100%; height: auto; margin: 0 auto; }
+.mermaid-framework img, .mermaid-framework svg { min-width: 420px; max-width: 560px; }
+.mermaid-discovery img, .mermaid-discovery svg { max-width: 420px; }
+.mermaid-mindmap img, .mermaid-mindmap svg { min-width: 700px; max-width: 960px; }
+.mermaid-branch img, .mermaid-branch svg { min-width: 660px; max-width: 880px; }
+.mermaid-tall img, .mermaid-tall svg { min-width: 480px; max-width: 580px; }
+.mermaid-wide img, .mermaid-wide svg { min-width: 920px; max-width: 1120px; }
 .source-record { margin: 24px 0; padding: 16px; border: 1px solid var(--border); border-radius: 12px; background: #f8fafc; }
 .source-record summary { cursor: pointer; color: #0369a1; font: 15px/1.6 system-ui, sans-serif; }
 .source-record pre { white-space: pre-wrap; overflow-wrap: anywhere; font: 13px/1.65 ui-monospace, monospace; }
@@ -51,6 +61,14 @@ th { background: #f0f9ff; }
 .colophon { margin-top: 48px; border-top: 1px solid var(--border); padding-top: 24px; }
 @media(max-width: 480px) { main { padding: 32px 18px 60px; } body { font-size: 18px; } th, td { padding: 8px; font-size: 14px; } }
 </style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MWRTXBB8DD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-MWRTXBB8DD');
+</script>
 <!-- Retain the archive's math support for future revisions. -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous" />
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script>
@@ -63,7 +81,7 @@ th { background: #f0f9ff; }
 <article>
 {{BODY}}
 </article>
-<footer class="colophon"><p>Working draft · {{DATE}}. <a href="/articles/blog/open-learning.md">Read the Markdown source</a>.</p><p><a href="/articles/">More writing</a> · <a href="mailto:contact@domij.info">Compare notes</a></p></footer>
+<footer class="colophon"><p>Working draft · {{DATE}}. <a href="{{MD_URL}}">Read the Markdown source</a>.</p><p><a href="/articles/">More writing</a> · <a href="mailto:contact@domij.info">Compare notes</a></p></footer>
 </main>
 </body>
 </html>

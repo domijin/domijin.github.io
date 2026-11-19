@@ -78,7 +78,8 @@ def split_blocks(body):
         if LIST_RE.match(s):
             items = []
             while i < n:
-                s2 = lines[i].strip()
+                raw_line = lines[i]
+                s2 = raw_line.strip()
                 if not s2:
                     # a blank line only ends the list if the next content is not a list item
                     j = i
@@ -90,8 +91,10 @@ def split_blocks(body):
                     break
                 m = LIST_RE.match(s2)
                 if m:
-                    items.append("• " + m.group(1).strip())
-                elif s2.startswith("  ") and items:
+                    indent = len(raw_line) - len(raw_line.lstrip(" "))
+                    level = indent // 2
+                    items.append(("  " * level) + "• " + m.group(1).strip())
+                elif raw_line.startswith("  ") and items:
                     items[-1] += " " + s2
                 else:
                     break
