@@ -38,7 +38,7 @@ PAGES = [
         'date_modified': '2026-11-18',
         'description': (
             'Native Mermaid diagrams and decoded notes from the 10 March 2023 Design for Learning '
-            'XMind map, restoring all branches, boundary callouts, markers and 13 reference links.'
+            'XMind map, with English and Chinese notes, diagrams and 13 original reference links.'
         ),
     },
 ]
@@ -127,7 +127,7 @@ def render(block, page_prefix, fig_counter):
 
 def build_lang_toggle(aria_label):
     return (
-        f'<div class="lang-toggle" role="group" aria-label="{html.escape(aria_label)}">'
+        f'<div class="lang-toggle" role="group" aria-label="{html.escape(aria_label)}" hidden>'
         '<button type="button" data-lang-btn="en" aria-pressed="true">EN</button>'
         '<button type="button" data-lang-btn="zh" aria-pressed="false">中文</button>'
         '</div>'
@@ -144,6 +144,7 @@ def build_lang_script(title_en, title_zh):
   var spans = document.querySelectorAll('[data-lang-span]');
   var buttons = document.querySelectorAll('[data-lang-btn]');
   if (!h1 || !panels.length) return;
+  document.querySelector('.lang-toggle').hidden = false;
   function setLang(lang, updateUrl) {{
     var isZh = lang === 'zh';
     document.documentElement.lang = isZh ? 'zh-CN' : 'en-GB';
@@ -182,9 +183,7 @@ def build_lang_script(title_en, title_zh):
     var params = new URLSearchParams(window.location.search);
     var q = (params.get('lang') || '').toLowerCase();
     var h = (window.location.hash || '').toLowerCase();
-    if (q === 'zh' || q === 'cn' || q === 'zh-cn' || h === '#zh' || h === '#cn') {{
-      setLang('zh', false);
-    }}
+    setLang(['zh', 'cn', 'zh-cn'].includes(q) || h === '#zh' || h === '#cn' ? 'zh' : 'en', false);
   }} catch (_) {{}}
 }})();
 </script>"""
@@ -214,8 +213,8 @@ def main():
                 for b in reader.split_blocks('\n'.join(zh_source.splitlines()[4:]))
             )
             body = (
-                f'<div class="lang-panel" data-lang-panel="en">\n{en_body}\n</div>\n'
-                f'<div class="lang-panel" data-lang-panel="zh" hidden>\n{zh_body}\n</div>'
+                f'<div class="lang-panel" data-lang-panel="en" lang="en-GB">\n{en_body}\n</div>\n'
+                f'<div class="lang-panel" data-lang-panel="zh" lang="zh-CN" id="zh"><noscript><h2>{html.escape(zh_title)}</h2></noscript>\n{zh_body}\n</div>'
             )
             nav_home = '<span data-lang-span="en">← Domi Jin</span><span data-lang-span="zh" hidden>← Domi Jin 主页</span>'
             badge_text = '<span data-lang-span="en">Working draft</span><span data-lang-span="zh" hidden>工作草案 · 中/英双语</span>'
@@ -225,7 +224,7 @@ def main():
             topbar_toggle = build_lang_toggle('Language switch')
             header_lang_bar = (
                 '<div class="bilingual-bar">'
-                + build_lang_toggle('切换语言 / Switch language')
+                + '<noscript><a href="#zh" lang="zh-CN">阅读中文版</a></noscript>'
                 + '<span data-lang-span="en">Bilingual view (EN / 中文) · <a href="/future-of-education/">中文教育简述</a></span>'
                 + '<span data-lang-span="zh" hidden>支持中 / 英切换 · <a href="/future-of-education/">返回《我对未来教育的期待》</a></span>'
                 + '</div>'
@@ -254,7 +253,7 @@ def main():
 
         schema = json.dumps({
             '@context': 'https://schema.org', '@type': 'Article', 'headline': title,
-            'description': page['description'], 'url': page['url'], 'inLanguage': 'en-GB',
+            'description': page['description'], 'url': page['url'], 'inLanguage': ['en-GB', 'zh-CN'] if zh_source_path else 'en-GB',
             'creativeWorkStatus': 'Working draft', 'dateCreated': page['date_created'],
             'dateModified': page['date_modified'], 'author': {'@type': 'Person', 'name': 'Domi Jin'},
         }, ensure_ascii=False)
@@ -266,6 +265,7 @@ def main():
             'MD_URL': page['md_url'],
             'DESCRIPTION': html.escape(page['description']),
             'SCHEMA': schema,
+            'OG_ALTERNATE': '<meta property="og:locale:alternate" content="zh_CN" />' if zh_source_path else '',
             'BODY': body,
             'NAV_HOME_TEXT': nav_home,
             'BADGE_TEXT': badge_text,

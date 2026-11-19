@@ -21,7 +21,7 @@ Read [the project lessons](docs/editorial-and-engineering-lessons.md) before cha
 ## Build and delivery
 
 - Edit source files; use the existing export/deployment scripts to produce static output. Inspect local changes before working and preserve unrelated edits.
-- Use `scripts/blue-green-deploy.sh` for staged builds and promotion. Its asset retention and verification steps protect clients holding older HTML; do not replace it with a raw export-and-copy shortcut.
+- Use `scripts/blue-green-deploy.sh promote-green` to build and promote the root export. The public staging mirror was retired. Its asset retention and verification steps protect clients holding older HTML; do not replace it with a raw export-and-copy shortcut.
 - Verify article integrity, build asset references and relevant exported routes. Compilation, browser interaction and live deployment are different checks: report only those performed.
 - Investigate secret-scanning alerts before classifying them. Do not expose credentials or bypass protection based on a familiar library name. Review the existing build scrubber when dependencies change.
 - State delivery status precisely: edited, built, committed, pushed, deployed and live-verified are separate states. Earlier handoff summaries can be stale; inspect the repository and deployment evidence.

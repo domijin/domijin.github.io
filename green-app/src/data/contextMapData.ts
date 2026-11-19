@@ -353,9 +353,9 @@ export const OPEN_PROJECTS: OpenProject[] = [
     repoUrl: "https://github.com/domijin/baby-AI",
     pillar: "human-ai-collaboration",
     description:
-      "Five subsystem specifications covering perception, speech recognition, memory, adaptation and evaluation. The design targets local hardware costing under $200, with signed evaluation records.",
+      "Eight design specifications cover the household agent and its evaluation. The proposed hardware has a bill of materials of about $100–$150.",
     verificationArtifact: "Evaluation contract specifying SSH-signed JSON records and SHA-256 benchmark identifiers",
-    metrics: ["Hardware target: <$200", "Five subsystem specifications", "On-device processing by design"],
+    metrics: ["Hardware target: $100–$150", "Eight specifications", "On-device processing by design"],
   },
   {
     id: "imessage-router",
@@ -461,7 +461,7 @@ export const WRITINGS_DATA: WritingNode[] = [
   },
   {
     id: "open-learning-lab-protocol",
-    title: "Open Learning Lab: Evidence-Driven Personalized Learning Policies",
+    title: "Open Learning Lab: Beyond the Fluency Illusion with an 8-Agent Closed-Loop Pipeline",
     date: "2026-08",
     source: "GitHub",
     url: "https://github.com/domijin/open-learning-lab",
@@ -478,8 +478,8 @@ export const WRITINGS_DATA: WritingNode[] = [
   },
   {
     id: "baby-ai-edge-specs",
-    title: "baby-AI: Receipt-Verified Edge Household Agent Architecture",
-    date: "2026-05",
+    title: "baby-AI: Raising a Household Agent on Edge Hardware",
+    date: "2026-04",
     source: "GitHub",
     url: "https://github.com/domijin/baby-AI",
     localUrl: "/articles/github/baby-ai.html",
@@ -487,7 +487,7 @@ export const WRITINGS_DATA: WritingNode[] = [
     pillar: "human-ai-collaboration",
     secondaryPillars: ["decision-intelligence", "ai-and-society"],
     summary:
-      "Five subsystem specifications for perception, speech, memory, adaptation and evaluation, with a hardware cost target below $200.",
+      "Eight specifications describe the household agent, its hardware budget of about $100–$150 and how to evaluate it.",
     keyInsight:
       "The design uses signed evaluation records to make claims about on-device learning and privacy inspectable.",
     position: [2.9, 1.6, 1.2],
@@ -512,7 +512,7 @@ export const WRITINGS_DATA: WritingNode[] = [
   },
   {
     id: "reclaiming-play",
-    title: "Reclaiming Play as a Life Skill",
+    title: "🌱 Reclaiming Play as a Life Skill",
     date: "2025-03",
     source: "Substack",
     url: "https://domijin.substack.com/p/reclaiming-play-as-a-life-skill",
@@ -530,7 +530,7 @@ export const WRITINGS_DATA: WritingNode[] = [
   {
     id: "tesla-seniors-safety",
     title: "Tesla, Seniors Love Your Self-Driving—Now Let’s Make It Safer for Them",
-    date: "2025-02",
+    date: "2025-03",
     source: "Substack",
     url: "https://domijin.substack.com/p/tesla-seniors-love-your-self-drivingnow",
     localUrl: "/articles/substack/tesla-seniors-love-your-self-drivingnow.html",
@@ -546,7 +546,7 @@ export const WRITINGS_DATA: WritingNode[] = [
   },
   {
     id: "overachievers-responsibility",
-    title: "Overachiever’s Responsibility: Leadership, Alignment, and Sustainable Growth",
+    title: "Overachiever’s Responsibility: Reflection on Leadership, Alignment, and Sustainable Growth",
     date: "2025-02",
     source: "Substack",
     url: "https://domijin.substack.com/p/overachievers-responsibility-reflection",
@@ -563,7 +563,7 @@ export const WRITINGS_DATA: WritingNode[] = [
   },
   {
     id: "colorful-year-rhythm",
-    title: "A Colorful Year Ahead: Milestones & Momentum from Intentional Rhythm",
+    title: "A Colorful Year Ahead",
     date: "2025-01",
     source: "Substack",
     url: "https://domijin.substack.com/p/a-colorful-year-ahead",
@@ -579,7 +579,7 @@ export const WRITINGS_DATA: WritingNode[] = [
   },
   {
     id: "applovin-hypergrowth-repository",
-    title: "Trace of AppLovin’s 7x Annual Hypergrowth (repository edition)",
+    title: "Trace of AppLovin’s 7x Annual Hypergrowth",
     date: "2024-11",
     source: "GitHub",
     url: "https://github.com/domijin/observations_in_advertising",
@@ -596,7 +596,7 @@ export const WRITINGS_DATA: WritingNode[] = [
   },
   {
     id: "serendipity-and-highlands",
-    title: "Serendipity: Where It Sparks & Dedication: Where It Is Channeled",
+    title: "Serendipity: where it sparks",
     date: "2024-12",
     source: "Substack",
     url: "https://domijin.substack.com/p/serendipity-where-it-sparks",
@@ -613,7 +613,7 @@ export const WRITINGS_DATA: WritingNode[] = [
   },
   {
     id: "starting-new-venture-kindomi",
-    title: "Starting a New Venture & Momentum in Human-Centered Elder AI",
+    title: "Starting a New Venture",
     date: "2024-12",
     source: "Substack",
     url: "https://domijin.substack.com/p/starting-a-new-venture",
@@ -629,7 +629,7 @@ export const WRITINGS_DATA: WritingNode[] = [
   },
   {
     id: "coach-seeking-reflection",
-    title: "Reflections from a Coach-Seeking Impulse",
+    title: "Reflections from Coach-Seeking Impulse",
     date: "2024-12",
     source: "Substack",
     url: "https://domijin.substack.com/p/reflections-from-coach-seeking-impulse",
@@ -645,7 +645,7 @@ export const WRITINGS_DATA: WritingNode[] = [
   },
   {
     id: "third-ear-twinmind-ama",
-    title: "Building Proactive Personal AI Memory (Third Ear / TwinMind AMA)",
+    title: "Another team building Skynet, in the name of Jarvis — AMA",
     date: "2024-11",
     source: "Medium",
     url: "https://medium.com/@domijin/another-team-building-skynet-in-the-name-of-jarvis-ama-163389dc5285",
@@ -677,7 +677,7 @@ export const WRITINGS_DATA: WritingNode[] = [
   },
   {
     id: "applovin-hypergrowth-trace",
-    title: "Trace of AppLovin’s 7x Annual Hypergrowth & The Growth Trap",
+    title: "Trace of AppLovin’s 7x Annual Hypergrowth",
     date: "2024-11",
     source: "Medium",
     url: "https://medium.com/@domijin/trace-of-applovins-7x-annual-hypergrowth-39dcb154f5d0",
@@ -694,7 +694,7 @@ export const WRITINGS_DATA: WritingNode[] = [
   },
   {
     id: "rethinking-digital-advertising",
-    title: "Rethinking Digital Advertising: Demand Mining & Dynamic Personalization",
+    title: "Rethinking Digital Advertising: From Guesswork to User Engagement",
     date: "2024-10",
     source: "Medium",
     url: "https://domijin.medium.com/rethinking-digital-advertising-from-guesswork-to-user-engagement-6e1916a2aced",
@@ -710,7 +710,7 @@ export const WRITINGS_DATA: WritingNode[] = [
   },
   {
     id: "traffic-lights-to-life-direction",
-    title: "From Traffic Lights to Life’s Direction: Crowdsourced Inference & Symbolic AI",
+    title: "From Traffic Lights to Life’s Direction",
     date: "2023-10",
     source: "Medium",
     url: "https://domijin.medium.com/from-traffic-lights-to-lifes-direction-57176d5d7a06",
@@ -727,7 +727,7 @@ export const WRITINGS_DATA: WritingNode[] = [
   },
   {
     id: "illegible-handwriting-bandwidth",
-    title: "Why Is Some Professional Handwriting Illegible? Information Bandwidth & HCI",
+    title: "Why is some professional handwriting illegible?",
     date: "2023-10",
     source: "Medium",
     url: "https://medium.com/@domijin/why-is-some-professional-handwriting-illegible-d07bd8acb818",
@@ -776,7 +776,7 @@ export const WRITINGS_DATA: WritingNode[] = [
   },
   {
     id: "future-of-advertising-demand-profiling",
-    title: "The Future of Advertising: Moving Beyond Relevance to Demand Profiling and Dynamic Personalization",
+    title: "The Future of Advertising — Moving Beyond Relevance to Demand Profiling and Dynamic Personalization",
     date: "2024-10",
     source: "Medium",
     url: "https://medium.com/@domijin/the-future-of-advertising-moving-beyond-relevance-to-demand-profiling-and-dynamic-personalization-5f4ccc03697c",
@@ -808,7 +808,7 @@ export const WRITINGS_DATA: WritingNode[] = [
   },
   {
     id: "hello-world-substack",
-    title: "Hello World! Reflections on Intellectual Honesty and Collective Effort",
+    title: "Hello World!",
     date: "2024-11",
     source: "Substack",
     url: "https://domijin.substack.com/p/hello-world",
@@ -840,8 +840,8 @@ export const WRITINGS_DATA: WritingNode[] = [
   },
   {
     id: "libertyearth-and-future-spec",
-    title: "LibertyEarth & The Future Project: Civic & Cooperative Architecture",
-    date: "2025-01",
+    title: "LibertyEarth & The Future Project: Civic Stewardship and the Collaborative Society",
+    date: "2019–2025",
     source: "GitHub",
     url: "https://github.com/domijin/LibertyEarth",
     localUrl: "/articles/github/libertyearth-and-future.html",
@@ -857,7 +857,7 @@ export const WRITINGS_DATA: WritingNode[] = [
   {
     id: "boeing-vs-spacex-challenge",
     title: "Boeing’s Future at Stake: The Growing Challenge from SpaceX",
-    date: "2024-05",
+    date: "2023-03",
     source: "Medium",
     url: "https://medium.com/@domijin/boeings-future-at-stake-the-growing-challenge-from-spacex-177b63b10882",
     localUrl: "/articles/medium/boeings-future-at-stake-the-growing-challenge-from-spacex-177b63b10882.html",
@@ -872,8 +872,8 @@ export const WRITINGS_DATA: WritingNode[] = [
   },
   {
     id: "evtol-dilemma-cultural-difference",
-    title: "Observation: The Dilemma and Cultural Difference Behind the eVTOL Field",
-    date: "2024-06",
+    title: "Observation: the dilemma and cultural difference behind the eVTOL field",
+    date: "2023-10",
     source: "Medium",
     url: "https://medium.com/@domijin/observation-the-dilemma-and-cultural-difference-behind-the-evtol-field-df42e91af109",
     localUrl: "/articles/medium/observation-the-dilemma-and-cultural-difference-behind-the-evtol-field-df42e91af109.html",
@@ -888,8 +888,8 @@ export const WRITINGS_DATA: WritingNode[] = [
   },
   {
     id: "why-tiktok-is-so-popular",
-    title: "Why TikTok Is So Popular: Algorithmic Feedback & Attention Loops",
-    date: "2020-02",
+    title: "Why TikTok is so popular",
+    date: "2024-11",
     source: "Medium",
     url: "https://medium.com/@domijin/why-tiktok-is-so-popular-6fcc7b678bc7",
     localUrl: "/articles/medium/why-tiktok-is-so-popular-6fcc7b678bc7.html",
@@ -904,7 +904,7 @@ export const WRITINGS_DATA: WritingNode[] = [
   },
   {
     id: "astrophysics-bbh-research",
-    title: "Gravitational Waves from Binary Black Holes in Globular Clusters & Open Research",
+    title: "Prospective Detection of Binary Black Holes in the Local Universe with Gravitational Waves",
     date: "2018-07",
     source: "Research",
     url: "https://domij.info/pages/research.html",
