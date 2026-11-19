@@ -4,7 +4,7 @@
 
 > **以原生 Mermaid 图示与结构化中文文本完整解码 2023 年 3 月 10 日的 XMind 导图（`Design for Learning`），逐项还原分支结构、边界注释、汇总框、图标标记及全部 13 条原始参考链接，替代原先直接提供的 PDF 文件。**
 
-这份学习导图制作于 2023 年 3 月 10 日（XMind），是撰写 [Open Learning：从个人潜能到集体探索](/articles/blog/open-learning.html) 与中文简述 [我对未来教育的期待](/future-of-education/) 之前的早期阅读整理。本页不再提供难以检索的 103 kB 原始 PDF，而是将其解码为原生 Mermaid 图示、结构化笔记与可点击的参考索引。
+这份学习导图制作于 2023 年 3 月 10 日（XMind），是撰写 [开放学习：从个人潜能到共同探索](/articles/blog/open-learning.html?lang=zh) 与中文简述 [我对未来教育的期待](/future-of-education/) 之前的早期阅读整理。本页不再提供难以检索的 103 kB 原始 PDF，而是将其解码为原生 Mermaid 图示、结构化笔记与可点击的参考索引。
 
 ## XMind 标注与图元如何解码
 
