@@ -137,7 +137,6 @@ def split_blocks(body):
 VENUE_BY_DIR = {
     "substack": "Substack (Domi’s Mind Waves)",
     "medium": "Medium",
-    "soar": "Commentary for SOAR Newsletter",
     "github": "GitHub Specification",
     "blog": "Domi’s Universe (domij.info)",
     "research": "University of Texas at Arlington Doctoral Dissertation",

@@ -417,24 +417,6 @@ export const OPEN_PROJECTS: OpenProject[] = [
 
 export const WRITINGS_DATA: WritingNode[] = [
   {
-    "id": "let-children-ask-why",
-    "title": "让孩子有机会问一句「为什么？」",
-    "date": "2026-11-22",
-    "source": "Blog",
-    "url": "https://domij.info/articles/soar/let-children-ask-why.html",
-    "localUrl": "/articles/soar/let-children-ask-why.html",
-    "localMarkdownUrl": "/articles/soar/let-children-ask-why.md",
-    "pillar": "human-potential",
-    "secondaryPillars": [],
-    "summary": "从一间实验室谈科学启蒙的意义。文章从亲历的科学演示谈起，讨论教师如何引导学生动手、提问和验证，以及乡村学校如何让更多孩子有机会亲手探索科学。",
-    "position": [
-      -3.7,
-      1.9,
-      1.6
-    ],
-    "keyInsight": "动手实验和教师的引导可以给孩子追问科学问题的机会。"
-  },
-  {
     "id": "open-learning",
     "title": "Open Learning: From Individual Potential to Collective Discovery",
     "date": "2026-11-17",

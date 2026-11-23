@@ -72,6 +72,14 @@ for p in HTML:
         problems.append(f"{p}: weak meta description {dm.group(1)[:70]!r}")
 
     md = p[:-5] + ".md"
+    standalone_html = {
+        "soar/let-children-ask-why.html",
+        "soar/let-children-ask-why-editorial.html",
+    }
+    if os.path.relpath(p, ARTICLES) in standalone_html:
+        if not re.search(r'<h1[^>]*>[^<]+</h1>', body):
+            problems.append(f"{p}: missing article title")
+        continue
     if not os.path.exists(md):
         problems.append(f"{p}: missing .md pair")
         continue
